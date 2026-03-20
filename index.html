@@ -736,6 +736,131 @@ footer a{color:var(--accent)}
 }
 .admin-success.show{display:block}
 
+
+/* ══════════════════════════════════════════════
+   STUDENT REGISTRATION + RESULTS TRACKER
+══════════════════════════════════════════════ */
+
+/* Student registration modal */
+.student-reg-overlay{
+  position:fixed;inset:0;background:rgba(5,13,26,.95);z-index:5000;
+  display:flex;align-items:center;justify-content:center;padding:1.5rem;
+  opacity:0;pointer-events:none;transition:.25s;backdrop-filter:blur(10px);
+}
+.student-reg-overlay.open{opacity:1;pointer-events:all}
+.student-reg-box{
+  background:var(--surface);border:1px solid var(--accent);border-radius:16px;
+  max-width:440px;width:100%;padding:2rem;text-align:center;
+}
+.student-reg-box h3{font-family:var(--font-head);font-size:1.4rem;color:var(--accent);margin-bottom:.5rem}
+.student-reg-box p{color:var(--muted);font-size:.88rem;margin-bottom:1.5rem;line-height:1.6}
+.student-reg-box input{
+  width:100%;background:var(--card);border:1px solid var(--border);
+  color:var(--text);border-radius:9px;padding:.75rem 1rem;font-size:.9rem;
+  margin-bottom:.75rem;text-align:center;
+}
+.student-reg-box input:focus{outline:none;border-color:var(--accent)}
+.student-greet{
+  background:rgba(0,200,160,.08);border:1px solid rgba(0,200,160,.15);
+  border-radius:8px;padding:.6rem 1rem;font-size:.82rem;color:var(--accent);
+  margin-bottom:1rem;display:none;text-align:center;
+}
+
+/* Results tab in admin */
+.results-table-wrap{overflow-x:auto;margin-top:.75rem}
+.results-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.results-table th{
+  background:var(--border);color:var(--muted);font-weight:600;
+  padding:.6rem .9rem;text-align:left;white-space:nowrap;
+  font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;
+}
+.results-table td{
+  padding:.6rem .9rem;border-bottom:1px solid var(--border);
+  color:var(--text);vertical-align:middle;
+}
+.results-table tr:hover td{background:var(--card)}
+.score-badge{
+  display:inline-block;padding:.2rem .6rem;border-radius:20px;
+  font-size:.72rem;font-weight:700;
+}
+.score-high{background:rgba(0,200,160,.15);color:var(--accent)}
+.score-mid{background:rgba(240,180,41,.12);color:var(--gold)}
+.score-low{background:rgba(255,77,109,.12);color:var(--danger)}
+
+.results-filter-row{
+  display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem;
+}
+.results-filter-row select,.results-filter-row input{
+  background:var(--surface);border:1px solid var(--border);color:var(--text);
+  border-radius:8px;padding:.45rem .85rem;font-size:.82rem;
+}
+.results-summary{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));
+  gap:.65rem;margin-bottom:1.5rem;
+}
+.results-sum-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:9px;
+  padding:.85rem;text-align:center;
+}
+.results-sum-num{font-size:1.5rem;font-weight:700;color:var(--accent);font-family:var(--font-head)}
+.results-sum-lbl{font-size:.7rem;color:var(--muted)}
+
+
+/* ── STUDENT RESULTS SYSTEM ─────────────────────────── */
+.student-reg-overlay{
+  position:fixed;inset:0;background:rgba(5,13,26,.95);z-index:5000;
+  display:none;align-items:center;justify-content:center;padding:1.5rem;
+  backdrop-filter:blur(10px);
+}
+.student-reg-overlay.open{display:flex}
+.student-reg-box{
+  background:var(--surface);border:1px solid var(--border);border-radius:16px;
+  padding:2rem;max-width:420px;width:100%;text-align:center;
+}
+.student-reg-box h3{font-family:var(--font-head);font-size:1.4rem;margin-bottom:.5rem;color:var(--accent)}
+.student-reg-box p{color:var(--muted);font-size:.88rem;margin-bottom:1.5rem;line-height:1.6}
+.student-reg-box input{
+  width:100%;background:var(--card);border:1px solid var(--border);
+  color:var(--text);border-radius:9px;padding:.75rem 1rem;font-size:.95rem;
+  margin-bottom:.75rem;text-align:center;
+}
+.student-reg-box input:focus{outline:none;border-color:var(--accent)}
+.student-reg-box select{
+  width:100%;background:var(--card);border:1px solid var(--border);
+  color:var(--text);border-radius:9px;padding:.75rem 1rem;font-size:.9rem;
+  margin-bottom:1rem;
+}
+
+/* Results table in admin */
+.results-table-wrap{overflow-x:auto;margin-top:1rem}
+.results-table{width:100%;border-collapse:collapse;font-size:.82rem}
+.results-table th{
+  background:var(--card);color:var(--muted);font-weight:600;
+  padding:.6rem .85rem;text-align:left;border-bottom:1px solid var(--border);
+  white-space:nowrap;
+}
+.results-table td{
+  padding:.6rem .85rem;border-bottom:1px solid rgba(26,48,80,.5);color:var(--text);
+}
+.results-table tr:hover td{background:rgba(0,200,160,.03)}
+.grade-A{color:#00c8a0;font-weight:700}
+.grade-B{color:#3b9eff;font-weight:700}
+.grade-C{color:#f0b429;font-weight:700}
+.grade-D{color:#ff4d6d;font-weight:700}
+.results-summary{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+  gap:.75rem;margin-bottom:1.5rem;
+}
+.rs-card{
+  background:var(--card);border:1px solid var(--border);border-radius:10px;
+  padding:.85rem;text-align:center;
+}
+.rs-num{font-family:var(--font-head);font-size:1.6rem;color:var(--accent)}
+.rs-lbl{font-size:.7rem;color:var(--muted)}
+.download-bar{
+  display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin-bottom:1.25rem;
+}
+
 </style>
 </head>
 <body>
@@ -787,7 +912,7 @@ footer a{color:var(--accent)}
     <p>Exploring the molecular world — from atomic structure to organic reactions. A personal space to share chemistry knowledge, lessons, exams and resources.</p>
     <div class="hero-btns">
       <a href="#contents" class="btn btn-primary">⚗️ Explore Topics</a>
-      <a href="#quiz" class="btn btn-outline">🧪 Take a Quiz</a>
+      <a href="#quiz" class="btn btn-outline" onclick="openStudentReg(event)">🧪 Take a Quiz</a>
       <a href="#upload" class="btn btn-outline">📤 Upload</a>
     </div>
     <div class="element-strip">
@@ -1714,7 +1839,14 @@ function saveVideoUrl(id){
 }
 
 /* ─── QUIZ ────────────────────────────────────────────── */
-function startQuiz(){
+function startQuiz(skipReg){
+  if(!skipReg && !sessionStorage.getItem('jh_student_name')){ openStudentReg(); return; }
+  // Ask student to register if not done yet
+  if(!sessionStorage.getItem('jh_student_name')){
+    document.getElementById('studentRegOverlay').classList.add('open');
+    document.body.style.overflow='hidden';
+    return;
+  }
   const topic = document.getElementById('quizTopic').value;
   let pool = topic==='all'?QUIZ_BANK:QUIZ_BANK.filter(q=>q.topic===topic);
   if(pool.length===0){showToast('No questions for this topic yet','error');return;}
@@ -1762,6 +1894,33 @@ function nextQuestion(){
   renderQuestion();
 }
 function showResult(){
+  // Save result to admin panel and email teacher
+  const studentName = sessionStorage.getItem('jh_student_name') || 'Anonymous';
+  const studentClass = sessionStorage.getItem('jh_student_class') || '—';
+  const topic = document.getElementById('quizTopic').value || 'all';
+  const s = quizState.score;
+  const t = quizState.questions.length;
+  const pct = Math.round(s/t*100);
+  const grade = pct>=75?'A':pct>=60?'B':pct>=50?'C':'D';
+  const now = new Date().toLocaleString('en-GB');
+
+  const result = {
+    id: Date.now(),
+    name: studentName,
+    class: studentClass,
+    topic,
+    score: s,
+    total: t,
+    pct,
+    grade,
+    datetime: now
+  };
+
+  // Save to localStorage for admin panel
+  saveStudentResult(result);
+
+  // Auto-email to teacher via Formspree
+  submitResultToTeacher(result);
   document.getElementById('quizBody').style.display='none';
   const res = document.getElementById('quizResult');
   res.classList.add('show');
@@ -1771,6 +1930,32 @@ function showResult(){
   document.getElementById('scoreText').textContent = s+'/'+t;
   document.getElementById('resultTitle').textContent = pct>=80?'🏆 Excellent!':pct>=60?'👍 Good Job!':pct>=40?'📖 Keep Studying':'💪 Keep Practising!';
   document.getElementById('resultMsg').textContent = `You scored ${s} out of ${t} (${pct}%). ${pct>=80?'Outstanding chemistry knowledge!':pct>=60?'Solid understanding — review the topics you missed.':'Review your notes and try again — you can do it!'}`;
+
+  // Save result to localStorage for teacher to download
+  saveStudentResult(s, t, pct);
+}
+
+function saveStudentResult(score, total, pct){
+  const name = sessionStorage.getItem('jh_student_name') || 'Anonymous';
+  const cls  = sessionStorage.getItem('jh_student_class') || '-';
+  const school = sessionStorage.getItem('jh_student_school') || '-';
+  const topic = document.getElementById('quizTopic').value;
+  const topicLabel = document.getElementById('quizTopic').options[document.getElementById('quizTopic').selectedIndex].text;
+
+  const result = {
+    id: Date.now(),
+    name, cls, school,
+    topic: topicLabel,
+    score, total, pct,
+    date: new Date().toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}),
+    time: new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}),
+  };
+
+  try{
+    const existing = JSON.parse(localStorage.getItem('jh_student_results')||'[]');
+    existing.push(result);
+    localStorage.setItem('jh_student_results', JSON.stringify(existing));
+  }catch(e){ console.warn('Could not save result:', e); }
 }
 
 /* ─── RENDER EXAMS ─────────────────────────────────────── */
@@ -2416,11 +2601,234 @@ function showAdminSuccess(id){
   setTimeout(()=>{ if(getAdminData('topics').length) renderStudentNotes(); }, 100);
 })();
 
+
+
+/* ══════════════════════════════════════════════
+   STUDENT RESULTS SYSTEM
+══════════════════════════════════════════════ */
+
+/* ── Registration modal ─────────────────────── */
+function openStudentReg(e){
+  if(e) e.preventDefault();
+  document.getElementById('studentRegModal').classList.add('open');
+  document.body.style.overflow='hidden';
+  // Sync topic selector
+  const t = document.getElementById('quizTopic').value;
+  if(t) document.getElementById('regTopic').value = t;
+  setTimeout(()=>document.getElementById('regName').focus(), 100);
+}
+function closeStudentReg(){
+  document.getElementById('studentRegModal').classList.remove('open');
+  document.body.style.overflow='';
+  startQuiz(true); // start without registration
+}
+function startRegisteredQuiz(){
+  const name = document.getElementById('regName').value.trim();
+  const cls  = document.getElementById('regClass').value.trim();
+  const topic = document.getElementById('regTopic').value;
+
+  if(!name){ showToast('Please enter your name','error'); return; }
+
+  sessionStorage.setItem('jh_student_name', name);
+  sessionStorage.setItem('jh_student_class', cls);
+
+  // Set quiz topic from registration
+  if(topic) document.getElementById('quizTopic').value = topic;
+
+  document.getElementById('studentRegModal').classList.remove('open');
+  document.body.style.overflow='';
+  document.getElementById('regName').value='';
+  document.getElementById('regClass').value='';
+
+  // Scroll to quiz and start
+  document.getElementById('quiz').scrollIntoView({behavior:'smooth'});
+  startQuiz(true);
+}
+
+/* ── Save result ────────────────────────────── */
+function saveStudentResult(result){
+  const all = JSON.parse(localStorage.getItem('jh_student_results')||'[]');
+  all.push(result);
+  // Keep max 1000 results
+  if(all.length > 1000) all.splice(0, all.length-1000);
+  localStorage.setItem('jh_student_results', JSON.stringify(all));
+}
+
+/* ── Submit result to teacher by email ─────── */
+async function submitResultToTeacher(r){
+  try{
+    const grade_label = r.grade==='A'?'Excellent':r.grade==='B'?'Good':r.grade==='C'?'Average':'Needs Improvement';
+    await fetch('https://formspree.io/f/xnjgzyjz', {
+      method:'POST',
+      headers:{'Accept':'application/json','Content-Type':'application/json'},
+      body: JSON.stringify({
+        _subject: `Quiz Result: ${r.name} — ${r.pct}% (${r.grade})`,
+        student_name: r.name,
+        class: r.class,
+        topic: r.topic,
+        score: `${r.score} / ${r.total}`,
+        percentage: r.pct + '%',
+        grade: r.grade + ' — ' + grade_label,
+        date_time: r.datetime,
+        message: `Student ${r.name} (${r.class}) completed the ${r.topic} quiz and scored ${r.score}/${r.total} (${r.pct}%) — Grade ${r.grade}.`
+      })
+    });
+  } catch(e){ /* silent fail — result still saved locally */ }
+}
+
+/* ── Results table in admin ─────────────────── */
+function renderResultsTable(){
+  const filter = document.getElementById('resultsFilterTopic').value;
+  let all = JSON.parse(localStorage.getItem('jh_student_results')||'[]');
+  if(filter !== 'all') all = all.filter(r=>r.topic===filter);
+
+  document.getElementById('resultsCount').textContent = all.length;
+
+  // Summary stats
+  const avg = all.length ? Math.round(all.reduce((s,r)=>s+r.pct,0)/all.length) : 0;
+  const aCount = all.filter(r=>r.grade==='A').length;
+  const dCount = all.filter(r=>r.grade==='D').length;
+  const unique = new Set(all.map(r=>r.name)).size;
+  document.getElementById('resultsSummary').innerHTML = `
+    <div class="rs-card"><div class="rs-num">${all.length}</div><div class="rs-lbl">Total Attempts</div></div>
+    <div class="rs-card"><div class="rs-num">${unique}</div><div class="rs-lbl">Students</div></div>
+    <div class="rs-card"><div class="rs-num">${avg}%</div><div class="rs-lbl">Average Score</div></div>
+    <div class="rs-card"><div class="rs-num" style="color:var(--accent)">${aCount}</div><div class="rs-lbl">Grade A</div></div>
+    <div class="rs-card"><div class="rs-num" style="color:var(--danger)">${dCount}</div><div class="rs-lbl">Grade D</div></div>
+  `;
+
+  const tbody = document.getElementById('resultsTableBody');
+  if(!all.length){
+    tbody.innerHTML='<tr><td colspan="8" style="text-align:center;color:var(--muted);padding:2rem">No results yet for this topic.</td></tr>';
+    return;
+  }
+
+  // Show newest first
+  const sorted = [...all].reverse();
+  tbody.innerHTML = sorted.map((r,i)=>`
+    <tr>
+      <td style="color:var(--muted)">${sorted.length-i}</td>
+      <td style="font-weight:600">${r.name}</td>
+      <td>${r.class||'—'}</td>
+      <td style="text-transform:capitalize">${r.topic||'—'}</td>
+      <td>${r.score} / ${r.total}</td>
+      <td>${r.pct}%</td>
+      <td class="grade-${r.grade}">${r.grade}</td>
+      <td style="color:var(--muted);font-size:.75rem">${r.datetime}</td>
+    </tr>`).join('');
+}
+
+/* ── Download as CSV ────────────────────────── */
+function downloadResultsCSV(){
+  const all = JSON.parse(localStorage.getItem('jh_student_results')||'[]');
+  if(!all.length){ showToast('No results to download yet','error'); return; }
+
+  const header = ['#','Student Name','Class','Topic','Score','Total','Percentage','Grade','Date & Time'];
+  const rows = all.map((r,i)=>[
+    i+1, r.name, r.class||'', r.topic||'',
+    r.score, r.total, r.pct+'%', r.grade, r.datetime
+  ]);
+
+  const csv = [header, ...rows]
+    .map(row => row.map(cell => `"${String(cell).replace(/"/g,'""')}"`).join(','))
+    .join('\n');
+
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'student_results_' + new Date().toISOString().split('T')[0] + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('✅ Results downloaded as CSV — open with Excel!','success');
+}
+
+/* ── Clear results ──────────────────────────── */
+function clearAllResults(){
+  if(!confirm('Delete ALL student results? This cannot be undone.')) return;
+  localStorage.removeItem('jh_student_results');
+  renderResultsTable();
+  refreshAdminStats();
+  showToast('All results cleared','success');
+}
+
+/* ── Update admin stats to include results ──── */
+const _origRefreshStats = refreshAdminStats;
+function refreshAdminStats(){
+  _origRefreshStats();
+  const total = JSON.parse(localStorage.getItem('jh_student_results')||'[]').length;
+  // Append results count to stats
+  const statsEl = document.getElementById('adminStats');
+  if(statsEl){
+    const existing = statsEl.innerHTML;
+    if(!existing.includes('Quiz Attempts')){
+      statsEl.innerHTML += `<div class="admin-stat-card"><div class="admin-stat-num" style="color:var(--accent2)">${total}</div><div class="admin-stat-lbl">Quiz Attempts</div></div>`;
+    }
+  }
+}
+
+/* ── Load results when results tab is opened ── */
+const _origSwitchTab = switchAdminTab;
+function switchAdminTab(name, btn){
+  _origSwitchTab(name, btn);
+  if(name === 'results') renderResultsTable();
+}
+
 </script>
+
+
+<!-- ══════════════════════════════════════════════
+     STUDENT REGISTRATION MODAL
+════════════════════════════════════════════════ -->
+<div class="student-reg-overlay" id="studentRegOverlay">
+  <div class="student-reg-box">
+    <div style="font-size:2.5rem;margin-bottom:.75rem">🧪</div>
+    <h3>Before you start the quiz!</h3>
+    <p>Enter your name and class so your teacher can track your progress and download your results.</p>
+    <input type="text" id="regName" placeholder="Your Full Name" maxlength="60"/>
+    <input type="text" id="regClass" placeholder="Your Class / Grade (e.g. S4 A)" maxlength="40"/>
+    <input type="text" id="regSchool" placeholder="Your School (optional)" maxlength="60"/>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.25rem" onclick="registerStudent()">
+      ✅ Start Quiz
+    </button>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:1rem">Your name and score will be saved so your teacher can review your progress. No account needed.</p>
+  </div>
+</div>
 
 <!-- ══════════════════════════════════════════════
      TEACHER ADMIN BUTTON
 ════════════════════════════════════════════════ -->
+
+<!-- STUDENT REGISTRATION MODAL (before quiz) -->
+<div class="student-reg-overlay" id="studentRegModal">
+  <div class="student-reg-box">
+    <div style="font-size:2.5rem;margin-bottom:.75rem">🧪</div>
+    <h3>Before You Start</h3>
+    <p>Enter your details so your teacher can see your score and track your progress.</p>
+    <input type="text" id="regName" placeholder="Your Full Name" maxlength="60"/>
+    <input type="text" id="regClass" placeholder="Your Class / Year (e.g. S4 PCB)" maxlength="40"/>
+    <select id="regTopic">
+      <option value="">-- Select Quiz Topic --</option>
+      <option value="all">All Topics</option>
+      <option value="atomic">Atomic Structure</option>
+      <option value="bonding">Chemical Bonding</option>
+      <option value="stoichiometry">Stoichiometry</option>
+      <option value="organic">Organic Chemistry</option>
+      <option value="thermo">Thermochemistry</option>
+      <option value="acids">Acids & Bases</option>
+      <option value="equilibrium">Equilibrium</option>
+      <option value="gas">Gas Laws</option>
+      <option value="nuclear">Nuclear Chemistry</option>
+    </select>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:.25rem" onclick="startRegisteredQuiz()">
+      🚀 Start Quiz
+    </button>
+    <button class="btn btn-outline btn-sm" style="width:100%;justify-content:center;margin-top:.6rem" onclick="closeStudentReg()">
+      Skip (anonymous)
+    </button>
+  </div>
+</div>
+
 <button class="admin-fab" onclick="openAdmin()" title="Teacher Admin Panel">🎓</button>
 
 <!-- ══════════════════════════════════════════════
@@ -2457,6 +2865,7 @@ function showAdminSuccess(id){
       <button class="admin-tab" onclick="switchAdminTab('exams',this)">📄 Exams & Files</button>
       <button class="admin-tab" onclick="switchAdminTab('videos',this)">🎥 Videos</button>
       <button class="admin-tab" onclick="switchAdminTab('topics',this)">📚 Topic Notes</button>
+      <button class="admin-tab" onclick="switchAdminTab('results',this)">📊 Student Results</button>
       <button class="admin-tab" onclick="switchAdminTab('settings',this)">⚙️ Settings</button>
     </div>
 
@@ -2626,6 +3035,103 @@ function showAdminSuccess(id){
 
       <div class="admin-section-title">📋 Published Notes & Announcements (<span id="tCount">0</span>)</div>
       <div class="admin-item-list" id="adminTopicList"></div>
+    </div>
+
+    <!-- ── RESULTS TAB ─────────────────────────────── -->
+    <div class="admin-panel" id="adminPanel-results">
+      <div class="results-summary" id="resultsSummary"></div>
+
+      <div class="results-filter-row">
+        <label style="font-size:.8rem;color:var(--muted)">Filter:</label>
+        <select id="filterTopic" onchange="renderResultsTable()">
+          <option value="">All Topics</option>
+          <option value="atomic">Atomic Structure</option>
+          <option value="bonding">Chemical Bonding</option>
+          <option value="stoichiometry">Stoichiometry</option>
+          <option value="organic">Organic Chemistry</option>
+          <option value="thermo">Thermochemistry</option>
+          <option value="acids">Acids & Bases</option>
+          <option value="equilibrium">Equilibrium</option>
+          <option value="gas">Gas Laws</option>
+          <option value="nuclear">Nuclear Chemistry</option>
+          <option value="all">All Topics</option>
+        </select>
+        <select id="filterScore" onchange="renderResultsTable()">
+          <option value="">All Scores</option>
+          <option value="high">High (80%+)</option>
+          <option value="mid">Average (50-79%)</option>
+          <option value="low">Needs Help (below 50%)</option>
+        </select>
+        <input type="text" id="filterName" placeholder="Search by name..." oninput="renderResultsTable()" style="flex:1;min-width:140px"/>
+      </div>
+
+      <div style="display:flex;gap:.6rem;margin-bottom:1rem;flex-wrap:wrap">
+        <button class="admin-btn admin-btn-gold" onclick="downloadResultsCSV()">📥 Download CSV (Excel)</button>
+        <button class="admin-btn admin-btn-outline" onclick="clearAllResults()">🗑️ Clear All Results</button>
+        <span id="resultsCount" style="font-size:.8rem;color:var(--muted);align-self:center"></span>
+      </div>
+
+      <div class="results-table-wrap">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student Name</th>
+              <th>Class / Grade</th>
+              <th>School</th>
+              <th>Topic</th>
+              <th>Score</th>
+              <th>Percentage</th>
+              <th>Date & Time</th>
+            </tr>
+          </thead>
+          <tbody id="resultsTableBody">
+            <tr><td colspan="8" style="text-align:center;color:var(--muted);padding:2rem">No results yet. Students need to enter their name before taking the quiz.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- ── RESULTS TAB ─────────────────────────────── -->
+    <div class="admin-panel" id="adminPanel-results">
+      <div class="results-summary" id="resultsSummary"></div>
+      <div class="download-bar">
+        <button class="admin-btn admin-btn-gold" onclick="downloadResultsCSV()">📥 Download All Results (CSV/Excel)</button>
+        <button class="admin-btn admin-btn-outline" onclick="clearAllResults()">🗑️ Clear All Results</button>
+        <select id="resultsFilterTopic" onchange="renderResultsTable()" style="background:var(--surface);border:1px solid var(--border);color:var(--text);border-radius:8px;padding:.5rem .85rem;font-size:.82rem">
+          <option value="all">All Topics</option>
+          <option value="atomic">Atomic Structure</option>
+          <option value="bonding">Chemical Bonding</option>
+          <option value="stoichiometry">Stoichiometry</option>
+          <option value="organic">Organic Chemistry</option>
+          <option value="thermo">Thermochemistry</option>
+          <option value="acids">Acids & Bases</option>
+          <option value="equilibrium">Equilibrium</option>
+          <option value="gas">Gas Laws</option>
+          <option value="nuclear">Nuclear Chemistry</option>
+        </select>
+      </div>
+      <div class="admin-section-title">📋 Student Results (<span id="resultsCount">0</span> attempts)</div>
+      <div class="results-table-wrap">
+        <table class="results-table" id="resultsTable">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Student Name</th>
+              <th>Class</th>
+              <th>Topic</th>
+              <th>Score</th>
+              <th>Percentage</th>
+              <th>Grade</th>
+              <th>Date & Time</th>
+            </tr>
+          </thead>
+          <tbody id="resultsTableBody">
+            <tr><td colspan="8" style="text-align:center;color:var(--muted);padding:2rem">No results yet. Students need to complete the quiz with their name entered.</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- ── SETTINGS TAB ─────────────────────────────── -->
