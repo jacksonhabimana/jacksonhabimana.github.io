@@ -1693,7 +1693,7 @@ function showResult(){
   const cl=sessionStorage.getItem('jh_student_class')||'—';
   const topic=document.getElementById('quizTopic').value||'all';
   const grade=pct>=75?'A':pct>=60?'B':pct>=50?'C':'D';
-  const result={id:Date.now(),name:nm,class:cl,topic,score:s,total:t,pct,grade,datetime:new Date().toLocaleString('en-GB')};
+  const result={id:Date.now(),name:nm,class:cl,topic,score:s,total:t,pct,grade,datetime:new Date().toLocaleString('en-GB'),violations:violations,violationLog:violationLog.join(' | ')}; violations=0; violationLog=[];
   saveStudentResult(result);
   submitResultToTeacher(result);
 }
