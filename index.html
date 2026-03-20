@@ -1847,7 +1847,7 @@ function closeStudentReg(){
   document.body.style.overflow='';
   startQuiz(true);
 }
-function startRegisteredQuiz(){
+function registerStudent(){ startRegisteredQuiz(); } function confirmStudentReg(){ startRegisteredQuiz(); } function skipStudentReg(){ closeStudentReg(); } function startRegisteredQuiz(){
   const name=document.getElementById('regName').value.trim();
   const cls=document.getElementById('regClass').value.trim();
   const topic=document.getElementById('regTopic').value;
