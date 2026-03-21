@@ -2682,7 +2682,7 @@ function onWindowBlur(){if(!antiCheat.active)return;antiCheat.violations.push('W
 function blockContextMenu(e){if(antiCheat.active)e.preventDefault();}
 function showStrike(msg){antiCheat.strikes++;const remaining=antiCheat.maxStrikes-antiCheat.strikes;const box=document.getElementById('antiCheatWarning');if(box){document.getElementById('strikeDisplay').textContent='Strike '+antiCheat.strikes+' / '+antiCheat.maxStrikes;document.getElementById('antiCheatMsg').textContent=msg+' You have '+remaining+' strike(s) left.';box.style.display='flex';if(antiCheat.strikes>=antiCheat.maxStrikes){document.getElementById('antiCheatMsg').textContent='Maximum violations! Quiz is being submitted now.';setTimeout(()=>{box.style.display='none';stopAntiCheat();showResult();},3000);}}}
 function dismissWarning(){document.getElementById('antiCheatWarning').style.display='none';requestFullscreen();}
-function registerStudent(){startRegisteredQuiz();}
+function showFullscreenPrompt(){document.getElementById('fullscreenPrompt').style.display='flex';} function enterFullscreenAndStart(){document.getElementById('fullscreenPrompt').style.display='none';startAntiCheat();} function registerStudent(){startRegisteredQuiz();}
 function confirmStudentReg(){startRegisteredQuiz();}
 function skipStudentReg(){closeStudentReg();}
 /* Patch startQuiz */
