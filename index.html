@@ -2686,7 +2686,7 @@ function showFullscreenPrompt(){document.getElementById('fullscreenPrompt').styl
 function confirmStudentReg(){startRegisteredQuiz();}
 function skipStudentReg(){closeStudentReg();}
 /* Patch startQuiz */
-const _orig=startQuiz;
+
 function startQuiz(s){_orig(s);if(s)setTimeout(startAntiCheat,500);}
 /* Patch showResult */
 const _origR=showResult;
