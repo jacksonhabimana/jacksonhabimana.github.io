@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S5 Chemistry – Unit 6: Aldehydes and Ketones</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;
+    --accent:#58c4dc;--accent2:#f97316;--accent3:#a78bfa;
+    --gold:#e8c547;--green:#34d399;--red:#f87171;--amber:#fbbf24;
+    --text:#e6edf3;--muted:#8b949e;--radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+  .hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#2a2000 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(251,191,36,.05) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(251,191,36,.05) 40px);pointer-events:none;}
+  .badge{display:inline-block;background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.3);color:var(--amber);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+  .hero h1 em{color:var(--amber);font-style:italic;}
+  .hero p.sub{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto 32px;}
+  .toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:760px;margin:0 auto;}
+  .toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+  .toc-grid a:hover{background:var(--amber);color:#000;border-color:var(--amber);}
+  .page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+  .section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--amber);background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+  .section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+  .card p+p{margin-top:12px;}
+  .def-box{border-left:4px solid var(--amber);background:rgba(251,191,36,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+  .def-box strong{color:var(--amber);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+  .callout.info{background:rgba(88,196,220,.08);border:1px solid rgba(88,196,220,.25);}
+  .callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+  .callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+  .callout.amber{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.25);}
+  .callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+  .callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+  .tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:var(--surface2);}
+  th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);white-space:nowrap;}
+  td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  td code{background:rgba(251,191,36,.12);padding:2px 7px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.85em;}
+  .formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--amber);overflow-x:auto;white-space:pre;}
+  .example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+  .example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+  .example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+  .example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+  .example-body{padding:22px 26px;}
+  .example-body .q{color:var(--text);margin-bottom:14px;font-weight:600;}
+  .example-body .step{display:flex;gap:14px;margin:10px 0;}
+  .step-num{min-width:28px;height:28px;background:rgba(251,191,36,.15);border:1px solid rgba(251,191,36,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--amber);flex-shrink:0;margin-top:3px;}
+  .step-text{flex:1;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .exercise-list{list-style:none;counter-reset:ex;}
+  .exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+  .exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--amber);display:block;margin-bottom:6px;}
+  .reveal-btn{margin-top:10px;background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.3);color:var(--amber);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+  .reveal-btn:hover{background:var(--amber);color:#000;}
+  .answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(251,191,36,.06);border-left:3px solid var(--amber);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .answer.open{display:block;}
+  .quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+  .quiz-header{background:rgba(251,191,36,.1);border-bottom:1px solid rgba(251,191,36,.2);padding:16px 24px;}
+  .quiz-header h3{font-family:'Playfair Display',serif;color:var(--amber);font-size:1.2rem;}
+  .quiz-body{padding:24px;}
+  .q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+  .q-block:last-of-type{border-bottom:none;}
+  .q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+  .q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--amber);display:block;margin-bottom:4px;}
+  .options{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+  .opt:hover{border-color:var(--amber);}
+  .opt input{margin-top:3px;accent-color:var(--amber);}
+  .opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+  .opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+  .q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(251,191,36,.07);border-left:3px solid var(--amber);border-radius:0 6px 6px 0;font-size:.88rem;}
+  .quiz-submit{background:var(--amber);color:#000;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:opacity .2s;font-weight:600;}
+  .quiz-submit:hover{opacity:.85;}
+  .test-wrap{margin-top:40px;}
+  .test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px;}
+  .test-section-header{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .test-section-header h3{font-family:'Playfair Display',serif;color:var(--accent2);font-size:1.1rem;}
+  .marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(249,115,22,.2);color:var(--accent2);padding:4px 12px;border-radius:50px;}
+  .test-body{padding:24px;}
+  .test-q{margin-bottom:20px;padding:16px 18px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);}
+  .test-q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent2);margin-bottom:6px;display:block;}
+  .test-answer-reveal{margin-top:14px;}
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+  .nav-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s;}
+  .nav-btn.prev{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+  .nav-btn.prev:hover{border-color:var(--amber);color:var(--amber);}
+  .nav-btn.next{background:var(--amber);color:#000;font-weight:600;}
+  .nav-btn.next:hover{opacity:.88;}
+  h3.sub-heading{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+  sub,sup{font-size:.72em;}
+  @media(max-width:600px){.hero{padding:50px 20px 40px;}.page{padding:0 16px 60px;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Unit 6 &middot; Organic Chemistry</div>
+  <h1><em>Aldehydes</em> and <em>Ketones</em></h1>
+  <p class="sub">Carbonyl compounds &mdash; nomenclature, isomerism, physical properties, preparation, reactions, and uses.</p>
+  <nav class="toc-grid">
+    <a href="#nomenclature">6.1 Nomenclature</a>
+    <a href="#isomerism">6.2 Isomerism</a>
+    <a href="#properties">6.3 Physical Properties</a>
+    <a href="#preparation">6.4 Preparation</a>
+    <a href="#reactions">6.5 Reactions</a>
+    <a href="#tests">6.6 Distinguishing Tests</a>
+    <a href="#uses">6.7 Uses</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<!-- 6.1 NOMENCLATURE -->
+<section id="nomenclature">
+  <div class="section-header">
+    <span class="section-number">6.1</span>
+    <h2>Nomenclature of Aldehydes and Ketones</h2>
+  </div>
+
+  <div class="two-col">
+    <div class="def-box">
+      <strong>Aldehydes</strong>
+      Compounds containing the <b>aldehyde functional group (&ndash;CHO)</b> at the <b>end</b> of a carbon chain. General formula: <b>RCHO</b>. Named using the suffix <b>&ndash;al</b>. The carbonyl carbon is always C1.
+    </div>
+    <div class="def-box" style="border-left-color:var(--accent2);">
+      <strong style="color:var(--accent2);">Ketones</strong>
+      Compounds containing the <b>carbonyl group (C=O)</b> within a carbon chain (flanked by two carbon atoms). General formula: <b>RCOR'</b>. Named using the suffix <b>&ndash;one</b>. The smallest ketone has 3 carbons (propanone).
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The Carbonyl Group</h3>
+    <p>Both aldehydes and ketones contain the <b>carbonyl group (C=O)</b>: a carbon doubly bonded to oxygen. The carbon is <b>sp<sup>2</sup> hybridised</b> (trigonal planar, ~120&deg; bond angles). The C=O bond is <b>polar</b> (C<sup>&delta;+</sup>=O<sup>&delta;&minus;</sup>) because oxygen is more electronegative than carbon, making the carbonyl carbon susceptible to nucleophilic attack.</p>
+  </div>
+
+  <h3 class="sub-heading">IUPAC Rules for Aldehydes (&ndash;al)</h3>
+  <div class="card">
+    <ol style="padding-left:20px;line-height:2.1;">
+      <li>Find the <b>longest chain containing the &ndash;CHO group</b>. The &ndash;CHO carbon is always <b>C1</b>.</li>
+      <li>Replace &ndash;e of the parent alkane with <b>&ndash;al</b>.</li>
+      <li>No locant needed for &ndash;CHO (always C1).</li>
+      <li>Number other substituents from C1 (the carbonyl end).</li>
+    </ol>
+  </div>
+
+  <h3 class="sub-heading">IUPAC Rules for Ketones (&ndash;one)</h3>
+  <div class="card">
+    <ol style="padding-left:20px;line-height:2.1;">
+      <li>Find the <b>longest chain containing the C=O group</b>. Replace &ndash;e with <b>&ndash;one</b>.</li>
+      <li><b>Number the chain</b> to give the C=O the <b>lowest possible locant</b>.</li>
+      <li>State the locant before &ndash;one: e.g. pentan-<b>2</b>-one, pentan-<b>3</b>-one.</li>
+    </ol>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Name</th><th>Formula</th><th>Structure</th><th>Common Name</th></tr></thead>
+      <tbody>
+        <tr><td>Methanal</td><td>HCHO</td><td>H&ndash;CHO</td><td>Formaldehyde</td></tr>
+        <tr><td>Ethanal</td><td>CH<sub>3</sub>CHO</td><td>CH<sub>3</sub>&ndash;CHO</td><td>Acetaldehyde</td></tr>
+        <tr><td>Propanal</td><td>C<sub>2</sub>H<sub>5</sub>CHO</td><td>CH<sub>3</sub>CH<sub>2</sub>&ndash;CHO</td><td>Propionaldehyde</td></tr>
+        <tr><td>Butanal</td><td>C<sub>3</sub>H<sub>7</sub>CHO</td><td>CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>&ndash;CHO</td><td>Butyraldehyde</td></tr>
+        <tr><td>Propanone</td><td>CH<sub>3</sub>COCH<sub>3</sub></td><td>CH<sub>3</sub>&ndash;CO&ndash;CH<sub>3</sub></td><td>Acetone</td></tr>
+        <tr><td>Butan-2-one</td><td>CH<sub>3</sub>COC<sub>2</sub>H<sub>5</sub></td><td>CH<sub>3</sub>&ndash;CO&ndash;CH<sub>2</sub>CH<sub>3</sub></td><td>Methyl ethyl ketone (MEK)</td></tr>
+        <tr><td>Pentan-2-one</td><td>CH<sub>3</sub>CO(CH<sub>2</sub>)<sub>2</sub>CH<sub>3</sub></td><td>CH<sub>3</sub>&ndash;CO&ndash;(CH<sub>2</sub>)<sub>2</sub>CH<sub>3</sub></td><td>&mdash;</td></tr>
+        <tr><td>Pentan-3-one</td><td>(C<sub>2</sub>H<sub>5</sub>)<sub>2</sub>CO</td><td>C<sub>2</sub>H<sub>5</sub>&ndash;CO&ndash;C<sub>2</sub>H<sub>5</sub></td><td>Diethyl ketone</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 1</span><h4>Naming Carbonyl Compounds</h4></div>
+    <div class="example-body">
+      <p class="q">Name: (a) CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CHO &nbsp; (b) CH<sub>3</sub>COCH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub> &nbsp; (c) CH<sub>3</sub>CH(CH<sub>3</sub>)CHO</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">Chain length = 4 C including CHO &rarr; <b>butanal</b>. CHO is always C1; no locant needed.</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">Chain = 5 C. C=O on C2 (from left: CH<sub>3</sub>&ndash;C=O&ndash;...); from right = C4. Lower locant = C2 &rarr; <b>pentan-2-one</b>.</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">Longest chain containing CHO = 3 C (propanal). Branch: methyl on C2 &rarr; <b>2-methylpropanal</b>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6.2 ISOMERISM -->
+<section id="isomerism">
+  <div class="section-header">
+    <span class="section-number">6.2</span>
+    <h2>Isomerism</h2>
+  </div>
+
+  <div class="card">
+    <h3>Functional Group Isomerism: Aldehydes vs Ketones</h3>
+    <p>Aldehydes and ketones with the same molecular formula are <b>functional group isomers</b>. They have the same molecular formula C<sub>n</sub>H<sub>2n</sub>O but different functional groups (&ndash;CHO vs C=O in chain).</p>
+    <p>Example: C<sub>3</sub>H<sub>6</sub>O &rarr; propanal (CH<sub>3</sub>CH<sub>2</sub>CHO) and propanone (CH<sub>3</sub>COCH<sub>3</sub>).</p>
+  </div>
+
+  <div class="card">
+    <h3>Position Isomerism in Ketones</h3>
+    <p>For chains of 5+ carbons, the C=O can be at different positions. Example: C<sub>5</sub>H<sub>10</sub>O ketones include pentan-2-one and pentan-3-one.</p>
+  </div>
+
+  <div class="card">
+    <h3>Chain Isomerism</h3>
+    <p>Aldehydes and ketones may also have chain isomers where the carbon skeleton differs. Example: C<sub>4</sub>H<sub>8</sub>O includes butanal, 2-methylpropanal, butan-2-one.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Formula</th><th>Aldehyde(s)</th><th>Ketone(s)</th></tr></thead>
+      <tbody>
+        <tr><td>C<sub>2</sub>H<sub>4</sub>O</td><td>Ethanal</td><td>&mdash; (no 2-C ketone possible)</td></tr>
+        <tr><td>C<sub>3</sub>H<sub>6</sub>O</td><td>Propanal</td><td>Propanone</td></tr>
+        <tr><td>C<sub>4</sub>H<sub>8</sub>O</td><td>Butanal; 2-methylpropanal</td><td>Butan-2-one</td></tr>
+        <tr><td>C<sub>5</sub>H<sub>10</sub>O</td><td>Pentanal; 2-methylbutanal; 3-methylbutanal; 2,2-dimethylpropanal</td><td>Pentan-2-one; pentan-3-one; 3-methylbutan-2-one</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 2</span><h4>All Carbonyl Isomers of C<sub>4</sub>H<sub>8</sub>O</h4></div>
+    <div class="example-body">
+      <p class="q">Draw and name all carbonyl compound isomers of C<sub>4</sub>H<sub>8</sub>O.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><b>Aldehydes (CHO at end):</b><br>
+        &bull; Butanal: CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CHO (4-C straight chain)<br>
+        &bull; 2-methylpropanal: (CH<sub>3</sub>)<sub>2</sub>CHCHO (branched 3-C chain + methyl)</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><b>Ketones (C=O in chain, minimum 3-C chain):</b><br>
+        &bull; Butan-2-one: CH<sub>3</sub>COCH<sub>2</sub>CH<sub>3</sub> (only one possible ketone position for 4-C)</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Total: <b>3 carbonyl isomers</b> of C<sub>4</sub>H<sub>8</sub>O.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6.3 PHYSICAL PROPERTIES -->
+<section id="properties">
+  <div class="section-header">
+    <span class="section-number">6.3</span>
+    <h2>Physical Properties</h2>
+  </div>
+
+  <div class="card">
+    <h3>Boiling Points</h3>
+    <p>Aldehydes and ketones have <b>higher boiling points than alkanes</b> of similar M<sub>r</sub> (due to polar C=O dipole&ndash;dipole interactions) but <b>lower boiling points than alcohols</b> of similar M<sub>r</sub> (no O&ndash;H group &rarr; cannot H-bond with each other).</p>
+    <p>Example: propanal (M<sub>r</sub>=58, B.P.=49&deg;C) vs propane (M<sub>r</sub>=44, B.P.=&minus;42&deg;C) vs propan-1-ol (M<sub>r</sub>=60, B.P.=97&deg;C).</p>
+  </div>
+
+  <div class="card">
+    <h3>Solubility in Water</h3>
+    <p>Short-chain aldehydes and ketones are <b>miscible with water</b>. The C=O oxygen can act as an H-bond acceptor with water&rsquo;s O&ndash;H groups: C=O&middot;&middot;&middot;H&ndash;O. As chain length increases, solubility decreases. Long-chain carbonyl compounds are insoluble in water.</p>
+    <p>Methanal and ethanal are completely miscible; propanone (acetone) is completely miscible and is an excellent polar aprotic solvent.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Compound</th><th>Formula</th><th>M<sub>r</sub></th><th>B.P. (&deg;C)</th><th>Solubility</th></tr></thead>
+      <tbody>
+        <tr><td>Methanal</td><td>HCHO</td><td>30</td><td>&minus;19</td><td>Miscible</td></tr>
+        <tr><td>Ethanal</td><td>CH<sub>3</sub>CHO</td><td>44</td><td>+20</td><td>Miscible</td></tr>
+        <tr><td>Propanal</td><td>C<sub>2</sub>H<sub>5</sub>CHO</td><td>58</td><td>+49</td><td>Miscible</td></tr>
+        <tr><td>Butanal</td><td>C<sub>3</sub>H<sub>7</sub>CHO</td><td>72</td><td>+75</td><td>Slightly soluble</td></tr>
+        <tr><td>Propanone</td><td>CH<sub>3</sub>COCH<sub>3</sub></td><td>58</td><td>+56</td><td>Miscible</td></tr>
+        <tr><td>Butan-2-one</td><td>CH<sub>3</sub>COC<sub>2</sub>H<sub>5</sub></td><td>72</td><td>+80</td><td>Miscible</td></tr>
+        <tr><td>Pentan-2-one</td><td>CH<sub>3</sub>CO(CH<sub>2</sub>)<sub>2</sub>CH<sub>3</sub></td><td>86</td><td>+102</td><td>Slightly soluble</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <span class="callout-icon">&#128204;</span>
+    <div class="callout-body">
+      <strong>Smell</strong>
+      Lower aldehydes (methanal, ethanal) have pungent, unpleasant smells. Higher aldehydes develop pleasant, fruity aromas. Ketones often have pleasant smells: propanone (nail polish remover), butan-2-one (solvent). Many natural fragrances are aldehydes or ketones.
+    </div>
+  </div>
+</section>
+
+<!-- 6.4 PREPARATION -->
+<section id="preparation">
+  <div class="section-header">
+    <span class="section-number">6.4</span>
+    <h2>Preparation</h2>
+  </div>
+
+  <h3 class="sub-heading">Preparation of Aldehydes</h3>
+  <div class="card">
+    <h3>Method 1: Oxidation of Primary Alcohols (controlled)</h3>
+    <p>Use <b>acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> (or KMnO<sub>4</sub>), limited amount</b>, and <b>distil off the aldehyde as it forms</b> to prevent further oxidation to the acid.</p>
+    <div class="formula-block">RCH2OH  --K2Cr2O7/H2SO4(lim), distil-->  RCHO  +  H2O
+
+e.g.  CH3CH2OH  --[O], distil-->  CH3CHO  (ethanal)
+      (ethanol)                    orange --> green</div>
+  </div>
+
+  <div class="card">
+    <h3>Method 2: Reduction of Acyl Chlorides (Rosenmund Reduction)</h3>
+    <div class="formula-block">RCOCl  +  H2  --Pd/BaSO4 (poisoned catalyst)-->  RCHO  +  HCl</div>
+    <p>The poisoned (deactivated) catalyst prevents further reduction to the primary alcohol.</p>
+  </div>
+
+  <h3 class="sub-heading">Preparation of Ketones</h3>
+  <div class="card">
+    <h3>Method 1: Oxidation of Secondary Alcohols</h3>
+    <div class="formula-block">R2CHOH  --K2Cr2O7/H2SO4, heat-->  RCOR'  +  H2O
+
+e.g.  CH3CH(OH)CH3  --[O]-->  CH3COCH3  (propanone)
+      (propan-2-ol)               orange --> green</div>
+    <p>Ketones cannot be easily oxidised further, so excess oxidant does not cause over-oxidation.</p>
+  </div>
+
+  <div class="card">
+    <h3>Method 2: Dry Distillation of Calcium Salts of Carboxylic Acids</h3>
+    <div class="formula-block">(RCOO)2Ca  --strong heat-->  RCOR  +  CaCO3
+e.g. (CH3COO)2Ca  -->  CH3COCH3  +  CaCO3
+     (calcium ethanoate)   (propanone)</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 3</span><h4>Preparing Propanal from Propan-1-ol</h4></div>
+    <div class="example-body">
+      <p class="q">Describe how you would prepare a pure sample of propanal from propan-1-ol.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">Reagent: <b>acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub></b> (orange), use a <b>limited quantity</b>.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Set up apparatus for <b>distillation</b>: add propan-1-ol dropwise to the warm oxidising mixture and collect the distillate immediately.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">The propanal (B.P. 49&deg;C) distils off before it can be further oxidised to propanoic acid.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Equation: CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH &rarr;<sup>[O]</sup> CH<sub>3</sub>CH<sub>2</sub>CHO + H<sub>2</sub>O</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Observe: orange &rarr; <b>green</b> (Cr<sup>6+</sup> &rarr; Cr<sup>3+</sup>).</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6.5 REACTIONS -->
+<section id="reactions">
+  <div class="section-header">
+    <span class="section-number">6.5</span>
+    <h2>Reactions of Aldehydes and Ketones</h2>
+  </div>
+
+  <div class="callout info">
+    <span class="callout-icon">&#128204;</span>
+    <div class="callout-body">
+      <strong>Reactivity Summary</strong>
+      The polar C<sup>&delta;+</sup>=O<sup>&delta;&minus;</sup> group makes carbonyl compounds susceptible to <b>nucleophilic addition</b> at the carbon. Aldehydes are generally more reactive than ketones because: (1) the aldehyde carbonyl carbon is less sterically hindered (only one R group); (2) alkyl groups in ketones donate electrons to C=O, reducing the &delta;+ charge.
+    </div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 1: Nucleophilic Addition of HCN &rarr; Hydroxynitrile</h3>
+  <div class="card">
+    <p>Aldehydes and ketones react with <b>HCN</b> (or KCN + dilute H<sub>2</sub>SO<sub>4</sub>) to give <b>hydroxynitriles</b> (cyanohydrins). This reaction extends the carbon chain and introduces a new chiral centre.</p>
+    <div class="formula-block">RCHO  +  HCN  -->  RCH(OH)CN
+(aldehyde)          (2-hydroxynitrile)
+
+e.g.  CH3CHO  +  HCN  -->  CH3CH(OH)CN
+      (ethanal)              (2-hydroxypropanenitrile)</div>
+    <p>Mechanism: CN<sup>&minus;</sup> (nucleophile) attacks the &delta;+ carbonyl carbon &rarr; alkoxide ion &rarr; protonated by HCN (or H<sup>+</sup>) to give the hydroxynitrile.</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 2: Nucleophilic Addition of NaBH<sub>4</sub> / LiAlH<sub>4</sub> &rarr; Alcohol</h3>
+  <div class="card">
+    <div class="formula-block">Aldehyde  +  2[H]  -->  Primary alcohol
+RCHO  +  2[H]  --NaBH4 or LiAlH4-->  RCH2OH
+
+Ketone  +  2[H]  -->  Secondary alcohol
+RCOR' +  2[H]  --NaBH4 or LiAlH4-->  RCH(OH)R'
+
+e.g.  CH3CHO  +  2[H]  -->  CH3CH2OH  (ethanol, primary)
+      CH3COCH3 + 2[H]  -->  CH3CH(OH)CH3  (propan-2-ol, secondary)</div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 3: Condensation with 2,4-Dinitrophenylhydrazine (2,4-DNPH)</h3>
+  <div class="card">
+    <p>2,4-DNPH (Brady&rsquo;s reagent) reacts with <b>both aldehydes and ketones</b> to give a <b>yellow or orange precipitate</b> called a 2,4-dinitrophenylhydrazone. This is a <b>general test for the carbonyl group</b>.</p>
+    <div class="formula-block">RCOR'  +  H2N-NHC6H3(NO2)2  -->  RC(=N-NHC6H3(NO2)2)R'  +  H2O
+(carbonyl)    (2,4-DNPH)               (2,4-dinitrophenylhydrazone, yellow/orange ppt)</div>
+    <p>The melting point of the purified derivative is used to identify the specific aldehyde or ketone.</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 4: Oxidation of Aldehydes (not ketones)</h3>
+  <div class="card">
+    <p>Aldehydes are <b>easily oxidised</b> to carboxylic acids by mild oxidising agents. Ketones are <b>not oxidised</b> under normal conditions. This difference is used to distinguish them.</p>
+    <div class="formula-block">RCHO  +  [O]  --K2Cr2O7/H+, reflux-->  RCOOH
+(aldehyde)                               (carboxylic acid)
+
+Ketones: RCOR'  +  [O]  -->  no reaction under mild conditions</div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 5: Aldol Condensation (Self-Condensation of Aldehydes)</h3>
+  <div class="card">
+    <p>Aldehydes (and some ketones) with an &alpha;-hydrogen undergo <b>aldol condensation</b> in the presence of dilute base (NaOH) or acid:</p>
+    <div class="formula-block">2 CH3CHO  --dil. NaOH, 20 degC-->  CH3CH(OH)CH2CHO
+(ethanal)                             (3-hydroxybutanal = aldol product)
+
+With heating, dehydration occurs:
+CH3CH(OH)CH2CHO  --heat-->  CH3CH=CHCHO  +  H2O
+                              (but-2-enal = crotonaldehyde)</div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 6: Iodoform Reaction</h3>
+  <div class="card">
+    <p>Ethanal and methyl ketones (CH<sub>3</sub>COR) react with I<sub>2</sub>/NaOH to give a <b>yellow precipitate of CHI<sub>3</sub></b> (iodoform / triiodomethane).</p>
+    <div class="formula-block">CH3COR  +  3I2  +  4NaOH  -->  CHI3(s)  +  RCOONa  +  3NaI  +  3H2O
+(methyl ketone)                    (yellow ppt)</div>
+    <p>Also positive for: ethanol and secondary alcohols of type CH<sub>3</sub>CH(OH)R (which are first oxidised to methyl ketones in situ).</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 7: Combustion</h3>
+  <div class="card">
+    <div class="formula-block">CH3CHO  +  5/2 O2  -->  2CO2  +  2H2O
+CH3COCH3 + 4O2    -->  3CO2  +  3H2O</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 4</span><h4>Nucleophilic Addition of HCN to Propanone</h4></div>
+    <div class="example-body">
+      <p class="q">Write the equation for the reaction of propanone with HCN. Name the product and state its significance.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">Propanone: CH<sub>3</sub>COCH<sub>3</sub>. HCN adds across the C=O bond.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">CH<sub>3</sub>COCH<sub>3</sub> + HCN &rarr; (CH<sub>3</sub>)<sub>2</sub>C(OH)CN</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Product: <b>2-hydroxy-2-methylpropanenitrile</b> (acetone cyanohydrin).</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Significance: The &ndash;CN group can be hydrolysed to &ndash;COOH (carboxylic acid) or reduced to &ndash;CH<sub>2</sub>NH<sub>2</sub> (amine), providing routes to &alpha;-hydroxy acids and amino acids. Chain length increased from 3 C to 4 C.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6.6 DISTINGUISHING TESTS -->
+<section id="tests">
+  <div class="section-header">
+    <span class="section-number">6.6</span>
+    <h2>Distinguishing Tests</h2>
+  </div>
+
+  <div class="callout amber">
+    <span class="callout-icon">&#128161;</span>
+    <div class="callout-body">
+      <strong>Key Distinction: Aldehydes vs Ketones</strong>
+      Both react with 2,4-DNPH (Brady&rsquo;s reagent). To distinguish them, use a <b>mild oxidising agent</b>: aldehydes are oxidised; ketones are not.
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Test</th><th>Reagent</th><th>Aldehyde Result</th><th>Ketone Result</th></tr></thead>
+      <tbody>
+        <tr><td><b>Tollens&rsquo; reagent</b> (Silver mirror test)</td><td>Ammoniacal AgNO<sub>3</sub> (Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup>), warm</td><td><b>Silver mirror</b> on test tube wall (Ag deposited)</td><td>No change (no silver mirror)</td></tr>
+        <tr><td><b>Fehling&rsquo;s solution</b></td><td>Fehling&rsquo;s A (CuSO<sub>4</sub>) + B (NaOH/KNa tartrate), heat</td><td><b>Brick-red precipitate</b> of Cu<sub>2</sub>O</td><td>No change (solution remains blue)</td></tr>
+        <tr><td><b>Acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub></b></td><td>K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sub>2</sub>SO<sub>4</sub>, warm</td><td><b>Orange &rarr; green</b> (aldehyde oxidised to acid)</td><td>No colour change (stays orange)</td></tr>
+        <tr><td><b>2,4-DNPH</b> (Brady&rsquo;s reagent)</td><td>2,4-dinitrophenylhydrazine solution</td><td>Yellow/orange precipitate</td><td>Yellow/orange precipitate</td></tr>
+        <tr><td><b>Iodoform test</b></td><td>I<sub>2</sub>/NaOH, warm</td><td>Yellow CHI<sub>3</sub> ppt (ethanal only)</td><td>Yellow CHI<sub>3</sub> ppt (methyl ketones only)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Tollens&rsquo; Test (Silver Mirror)</h3>
+    <div class="formula-block">RCHO  +  2[Ag(NH3)2]+  +  2OH-  -->  RCOO-  +  2Ag(s)  +  4NH3  +  H2O
+(aldehyde)  (Tollens' reagent)            (carboxylate)  (silver mirror)</div>
+    <p>The aldehyde is oxidised to a carboxylate; Ag<sup>+</sup> is reduced to Ag metal which coats the tube as a mirror.</p>
+  </div>
+
+  <div class="card">
+    <h3>Fehling&rsquo;s Test</h3>
+    <div class="formula-block">RCHO  +  2Cu2+(aq)  +  5OH-  -->  RCOO-  +  Cu2O(s)  +  3H2O
+(aldehyde)  (blue, Fehling's)               (carboxylate) (brick-red ppt)</div>
+    <p><b>Note:</b> Fehling&rsquo;s reagent does <b>not</b> oxidise aromatic aldehydes (e.g. benzaldehyde) — only aliphatic aldehydes. Tollens&rsquo; reagent oxidises both.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 5</span><h4>Identifying an Unknown Carbonyl Compound</h4></div>
+    <div class="example-body">
+      <p class="q">An unknown compound gives a yellow precipitate with 2,4-DNPH, a silver mirror with Tollens&rsquo; reagent, but no yellow precipitate with I<sub>2</sub>/NaOH. Identify the compound type and suggest a specific possibility if M<sub>r</sub> = 58.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">Yellow ppt with 2,4-DNPH &rarr; contains a <b>carbonyl group</b> (aldehyde or ketone).</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Silver mirror with Tollens&rsquo; &rarr; <b>aldehyde</b> (not a ketone).</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">No iodoform ppt &rarr; NOT ethanal (CH<sub>3</sub>CHO would give iodoform).</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">M<sub>r</sub> = 58 for an aldehyde: C<sub>n</sub>H<sub>2n</sub>O = 58 &rarr; n=4 &rarr; C<sub>4</sub>H<sub>8</sub>O. Aldehyde = <b>butanal</b> (or 2-methylpropanal — also C<sub>4</sub>H<sub>8</sub>O). Neither gives iodoform. Most likely: <b>butanal</b>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6.7 USES -->
+<section id="uses">
+  <div class="section-header">
+    <span class="section-number">6.7</span>
+    <h2>Uses of Aldehydes and Ketones</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Compound</th><th>Use</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Methanal (formaldehyde)</td><td>Preservation of biological specimens (formalin = 40% aq. solution)</td><td>Denatures proteins; kills microbes</td></tr>
+        <tr><td>Methanal</td><td>Manufacture of Bakelite and other phenol-formaldehyde resins</td><td>Thermosetting plastic</td></tr>
+        <tr><td>Methanal</td><td>Disinfectant and germicide</td><td>Used in hospitals (toxic; carcinogenic)</td></tr>
+        <tr><td>Ethanal (acetaldehyde)</td><td>Manufacture of ethanoic acid (acetic acid); ethanol; pyridine</td><td>Key industrial intermediate</td></tr>
+        <tr><td>Propanone (acetone)</td><td>Solvent for paints, lacquers, varnishes, nail polish remover</td><td>Miscible with water and organic solvents</td></tr>
+        <tr><td>Propanone</td><td>Manufacture of Perspex (polymethylmethacrylate, PMMA)</td><td>Via acetone cyanohydrin &rarr; methacrylate monomer</td></tr>
+        <tr><td>Butan-2-one (MEK)</td><td>Industrial solvent (glues, coatings, cleaning)</td><td>Good solvent for plastics and resins</td></tr>
+        <tr><td>Higher aldehydes</td><td>Perfumery and flavouring agents</td><td>Cinnamaldehyde (cinnamon), vanillin (vanilla), benzaldehyde (almond)</td></tr>
+        <tr><td>Glucose (polyhydroxyaldehyde)</td><td>Energy source in biology; food</td><td>Contains &ndash;CHO group; gives positive Fehling&rsquo;s test</td></tr>
+        <tr><td>Cyclohexanone</td><td>Manufacture of nylon-6 (via caprolactam)</td><td>Key precursor in polymer industry</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <div class="section-header">
+    <span class="section-number">&#9999;&#65039;</span>
+    <h2>Exercises</h2>
+  </div>
+
+  <ul class="exercise-list">
+
+    <li>
+      Name the following compounds:<br>
+      (a) CH<sub>3</sub>CH<sub>2</sub>CHO &nbsp; (b) CH<sub>3</sub>COCH<sub>2</sub>CH<sub>3</sub> &nbsp; (c) (CH<sub>3</sub>)<sub>2</sub>CHCHO &nbsp; (d) CH<sub>3</sub>CH<sub>2</sub>COCH<sub>2</sub>CH<sub>3</sub>
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) <b>Propanal</b> (3-C aldehyde; CHO at C1)<br>
+        (b) <b>Butan-2-one</b> (4-C; C=O at C2; also called methyl ethyl ketone)<br>
+        (c) <b>2-methylpropanal</b> (3-C chain + methyl branch at C2; CHO at C1)<br>
+        (d) <b>Pentan-3-one</b> (5-C; C=O at C3; two ethyl groups flanking C=O)
+      </div>
+    </li>
+
+    <li>
+      Draw and name all carbonyl isomers of C<sub>3</sub>H<sub>6</sub>O.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>Two isomers:</b><br>
+        1. <b>Propanal</b>: CH<sub>3</sub>CH<sub>2</sub>CHO (aldehyde)<br>
+        2. <b>Propanone</b>: CH<sub>3</sub>COCH<sub>3</sub> (ketone)<br>
+        Both have molecular formula C<sub>3</sub>H<sub>6</sub>O &mdash; they are functional group isomers.
+      </div>
+    </li>
+
+    <li>
+      Explain why aldehydes are more reactive than ketones in nucleophilic addition reactions.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        1. <b>Steric effect</b>: Aldehydes have only one alkyl group on the carbonyl carbon (less steric hindrance), making it more accessible to nucleophilic attack. Ketones have two alkyl groups, creating more steric hindrance.<br>
+        2. <b>Electronic effect</b>: Alkyl groups are electron-donating (inductive effect), reducing the &delta;+ charge on the carbonyl carbon in ketones. Aldehydes have a less electron-rich carbonyl carbon and are therefore more electrophilic and more reactive toward nucleophiles.
+      </div>
+    </li>
+
+    <li>
+      Describe the Tollens&rsquo; test. Write the equation for the reaction of ethanal with Tollens&rsquo; reagent. What would you observe with propanone?
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>Tollens&rsquo; test:</b> Add ammoniacal silver nitrate (Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup>) solution to the compound in a clean test tube. Warm gently in a water bath at ~60&deg;C.<br><br>
+        <b>With ethanal:</b><br>
+        CH<sub>3</sub>CHO + 2Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup> + 2OH<sup>&minus;</sup> &rarr; CH<sub>3</sub>COO<sup>&minus;</sup> + 2Ag(s) + 4NH<sub>3</sub> + H<sub>2</sub>O<br>
+        Observation: <b>silver mirror</b> forms on test tube wall.<br><br>
+        <b>With propanone:</b> No reaction &mdash; no silver mirror forms. Solution remains colourless.
+      </div>
+    </li>
+
+    <li>
+      Write the equation for the reaction of butanone (butan-2-one) with HCN. Name the product and explain what type of reaction this is.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        CH<sub>3</sub>COC<sub>2</sub>H<sub>5</sub> + HCN &rarr; CH<sub>3</sub>C(OH)(CN)C<sub>2</sub>H<sub>5</sub><br>
+        Product: <b>2-hydroxy-2-methylbutanenitrile</b><br>
+        Type: <b>Nucleophilic addition</b>. CN<sup>&minus;</sup> acts as the nucleophile, attacking the electrophilic &delta;+ carbon of C=O. The product is a hydroxynitrile (cyanohydrin). Chain length extended from 4 to 5 carbons.
+      </div>
+    </li>
+
+    <li>
+      Which of the following compounds would give a positive iodoform test? Justify your answer.<br>
+      (a) Propanone &nbsp; (b) Butanal &nbsp; (c) Butan-2-one &nbsp; (d) Pentan-3-one
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Iodoform test is positive for <b>methyl ketones</b> (CH<sub>3</sub>CO&ndash;R) and ethanal (CH<sub>3</sub>CHO).<br><br>
+        (a) <b>Propanone (CH<sub>3</sub>COCH<sub>3</sub>)</b>: YES &mdash; has CH<sub>3</sub>CO&ndash; group &#10004;<br>
+        (b) Butanal (CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CHO): NO &mdash; not a methyl ketone or ethanal &#10007;<br>
+        (c) <b>Butan-2-one (CH<sub>3</sub>COC<sub>2</sub>H<sub>5</sub>)</b>: YES &mdash; has CH<sub>3</sub>CO&ndash; group &#10004;<br>
+        (d) Pentan-3-one (C<sub>2</sub>H<sub>5</sub>COC<sub>2</sub>H<sub>5</sub>): NO &mdash; no CH<sub>3</sub>CO&ndash; group &#10007;
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="section-header">
+    <span class="section-number">&#129504;</span>
+    <h2>Interactive Quiz</h2>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-header"><h3>Unit 6 Quiz &mdash; Aldehydes &amp; Ketones (10 Questions)</h3></div>
+    <div class="quiz-body">
+
+      <div class="q-block">
+        <span class="q-num">Q1</span>
+        <p class="q-text">What is the IUPAC name for CH<sub>3</sub>CH<sub>2</sub>COCH<sub>3</sub>?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="a"> Butanal</label>
+          <label class="opt"><input type="radio" name="q1" value="b"> Butan-2-one</label>
+          <label class="opt"><input type="radio" name="q1" value="c"> Butan-3-one</label>
+          <label class="opt"><input type="radio" name="q1" value="d"> Pentan-2-one</label>
+        </div>
+        <div class="q-exp" id="exp1">CH<sub>3</sub>CH<sub>2</sub>COCH<sub>3</sub> = 4-carbon chain with C=O. Numbering from the CH<sub>3</sub>CO end gives C=O at C2 (lower than C3 from other end) &rarr; <b>butan-2-one</b>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q2</span>
+        <p class="q-text">Which reagent is used to test for the presence of ANY carbonyl group (aldehyde or ketone)?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="a"> Tollens&rsquo; reagent</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> Fehling&rsquo;s solution</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> 2,4-Dinitrophenylhydrazine (2,4-DNPH)</label>
+          <label class="opt"><input type="radio" name="q2" value="d"> Iodine/NaOH</label>
+        </div>
+        <div class="q-exp" id="exp2"><b>2,4-DNPH (Brady&rsquo;s reagent)</b> reacts with both aldehydes and ketones to give a yellow or orange precipitate &mdash; it is a general test for the C=O group. Tollens&rsquo; and Fehling&rsquo;s are specific for aldehydes.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q3</span>
+        <p class="q-text">Tollens&rsquo; reagent gives a silver mirror with:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="a"> Propanone only</label>
+          <label class="opt"><input type="radio" name="q3" value="b"> Aldehydes only</label>
+          <label class="opt"><input type="radio" name="q3" value="c"> All carbonyl compounds</label>
+          <label class="opt"><input type="radio" name="q3" value="d"> Ketones only</label>
+        </div>
+        <div class="q-exp" id="exp3"><b>Aldehydes only</b>: they are oxidised by Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup> to carboxylates, reducing Ag<sup>+</sup> to Ag metal (silver mirror). Ketones cannot be easily oxidised and give no reaction.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q4</span>
+        <p class="q-text">The product of reducing ethanal (CH<sub>3</sub>CHO) with NaBH<sub>4</sub> is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="a"> Methanol</label>
+          <label class="opt"><input type="radio" name="q4" value="b"> Propan-2-ol</label>
+          <label class="opt"><input type="radio" name="q4" value="c"> Ethanol</label>
+          <label class="opt"><input type="radio" name="q4" value="d"> Ethanoic acid</label>
+        </div>
+        <div class="q-exp" id="exp4">CH<sub>3</sub>CHO + 2[H] &rarr; CH<sub>3</sub>CH<sub>2</sub>OH. Reduction of an aldehyde gives a <b>primary alcohol</b>. Ethanal &rarr; <b>ethanol</b>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q5</span>
+        <p class="q-text">Which compound gives a positive iodoform test?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="a"> Propanal</label>
+          <label class="opt"><input type="radio" name="q5" value="b"> Pentan-3-one</label>
+          <label class="opt"><input type="radio" name="q5" value="c"> Propanone</label>
+          <label class="opt"><input type="radio" name="q5" value="d"> Butanal</label>
+        </div>
+        <div class="q-exp" id="exp5"><b>Propanone</b> (CH<sub>3</sub>COCH<sub>3</sub>) is a methyl ketone and gives a positive iodoform test (yellow CHI<sub>3</sub> precipitate). Pentan-3-one (C<sub>2</sub>H<sub>5</sub>COC<sub>2</sub>H<sub>5</sub>) and propanal/butanal have no CH<sub>3</sub>CO&ndash; group.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q6</span>
+        <p class="q-text">Fehling&rsquo;s solution is reduced (gives brick-red precipitate) by:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="a"> Propanone</label>
+          <label class="opt"><input type="radio" name="q6" value="b"> Butan-2-one</label>
+          <label class="opt"><input type="radio" name="q6" value="c"> Propanal</label>
+          <label class="opt"><input type="radio" name="q6" value="d"> Pentan-3-one</label>
+        </div>
+        <div class="q-exp" id="exp6"><b>Propanal</b> (an aldehyde) reduces Fehling&rsquo;s solution: Cu<sup>2+</sup> is reduced to Cu<sub>2</sub>O (brick-red). Ketones do not reduce Fehling&rsquo;s solution.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q7</span>
+        <p class="q-text">The reaction of an aldehyde or ketone with HCN is classified as:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="a"> Electrophilic addition</label>
+          <label class="opt"><input type="radio" name="q7" value="b"> Nucleophilic substitution</label>
+          <label class="opt"><input type="radio" name="q7" value="c"> Nucleophilic addition</label>
+          <label class="opt"><input type="radio" name="q7" value="d"> Free-radical addition</label>
+        </div>
+        <div class="q-exp" id="exp7"><b>Nucleophilic addition</b>: CN<sup>&minus;</sup> (nucleophile) attacks the electron-deficient (&delta;+) carbonyl carbon. The &pi; bond of C=O breaks, and CN<sup>&minus;</sup> and H<sup>+</sup> add across it to give a hydroxynitrile.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q8</span>
+        <p class="q-text">Why are aldehydes more reactive than ketones towards nucleophilic addition?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="a"> Aldehydes have a higher boiling point</label>
+          <label class="opt"><input type="radio" name="q8" value="b"> Aldehydes have one alkyl group (less steric and electronic shielding of C=O)</label>
+          <label class="opt"><input type="radio" name="q8" value="c"> Aldehydes are stronger acids</label>
+          <label class="opt"><input type="radio" name="q8" value="d"> Aldehydes cannot be oxidised</label>
+        </div>
+        <div class="q-exp" id="exp8">Aldehydes have only <b>one alkyl group</b>: less steric hindrance and less electron donation to the C=O carbon &rarr; more &delta;+ character on carbon &rarr; more susceptible to nucleophilic attack. Ketones have two alkyl groups providing more shielding and electron donation.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q9</span>
+        <p class="q-text">Propanone has a lower boiling point than propan-1-ol (both C<sub>3</sub>) because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="a"> Propanone has a lower molecular mass</label>
+          <label class="opt"><input type="radio" name="q9" value="b"> Propanone cannot form hydrogen bonds between its own molecules</label>
+          <label class="opt"><input type="radio" name="q9" value="c"> Propanone is an ionic compound</label>
+          <label class="opt"><input type="radio" name="q9" value="d"> Propanone has stronger van der Waals forces</label>
+        </div>
+        <div class="q-exp" id="exp9">Propanone has no O&ndash;H group &rarr; <b>cannot H-bond with itself</b> (only dipole-dipole + London forces). Propan-1-ol has O&ndash;H and forms strong H-bonds &rarr; higher B.P. (97&deg;C vs 56&deg;C for propanone). Both have similar M<sub>r</sub>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q10</span>
+        <p class="q-text">The main industrial use of methanal (formaldehyde) is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="a"> As an anaesthetic</label>
+          <label class="opt"><input type="radio" name="q10" value="b"> As a fuel</label>
+          <label class="opt"><input type="radio" name="q10" value="c"> Manufacture of phenol-formaldehyde resins (Bakelite) and as a preservative</label>
+          <label class="opt"><input type="radio" name="q10" value="d"> As a solvent for paints</label>
+        </div>
+        <div class="q-exp" id="exp10">Methanal&rsquo;s main uses: <b>manufacture of phenol-formaldehyde resins (Bakelite)</b> (thermosetting plastic); <b>formalin</b> (40% aqueous solution) as a preservative and disinfectant. Propanone (acetone) is the paint solvent.</div>
+      </div>
+
+    </div>
+    <div style="padding:0 24px 24px;">
+      <button class="quiz-submit" onclick="submitQuiz()">Submit Answers</button>
+      <div id="quizResult" style="display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius);font-family:'JetBrains Mono',monospace;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT TEST -->
+<section id="test">
+  <div class="section-header">
+    <span class="section-number">&#128221;</span>
+    <h2>Unit Test</h2>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">&#8505;&#65039;</span>
+    <div class="callout-body">
+      <strong>Instructions</strong>
+      Total: 50 marks &nbsp;|&nbsp; Time: 50 minutes &nbsp;|&nbsp; Attempt all questions &nbsp;|&nbsp; Show all working.
+    </div>
+  </div>
+
+  <div class="test-wrap">
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section A &mdash; Short Answer</h3>
+        <span class="marks-badge">30 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q1 [4 marks]</span>
+          <p>Name the following compounds:<br>
+          (a) CH<sub>3</sub>CHO &nbsp; (b) CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CHO &nbsp; (c) CH<sub>3</sub>COCH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub> &nbsp; (d) (CH<sub>3</sub>)<sub>2</sub>CHCOCH<sub>3</sub></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) <b>Ethanal</b><br>
+              (b) <b>Butanal</b><br>
+              (c) <b>Pentan-2-one</b> (C=O at C2; 5-carbon chain)<br>
+              (d) <b>3-methylbutan-2-one</b> (5-C chain; C=O at C2; methyl on C3)
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q2 [4 marks]</span>
+          <p>Draw and name all carbonyl isomers of C<sub>4</sub>H<sub>8</sub>O. Classify each as an aldehyde or a ketone.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              Three isomers:<br>
+              1. <b>Butanal</b>: CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CHO &mdash; aldehyde<br>
+              2. <b>2-methylpropanal</b>: (CH<sub>3</sub>)<sub>2</sub>CHCHO &mdash; aldehyde<br>
+              3. <b>Butan-2-one</b>: CH<sub>3</sub>COCH<sub>2</sub>CH<sub>3</sub> &mdash; ketone
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q3 [6 marks]</span>
+          <p>Describe, with observations and equations, how you would use chemical tests to distinguish between three unlabelled bottles containing: propanone, propanal, and propan-1-ol.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Step 1 &mdash; 2,4-DNPH (Brady&rsquo;s reagent):</b><br>
+              Propanone: yellow/orange ppt &#10004;<br>
+              Propanal: yellow/orange ppt &#10004;<br>
+              Propan-1-ol: no ppt &#10007; &rarr; <b>propan-1-ol identified</b><br><br>
+              <b>Step 2 &mdash; Tollens&rsquo; reagent (warm):</b><br>
+              Propanal: <b>silver mirror</b> &#10004; (aldehyde) &rarr; <b>propanal identified</b><br>
+              Propanone: no silver mirror &#10007; &rarr; <b>propanone identified</b><br><br>
+              <b>Equations:</b><br>
+              Propanal + 2Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup> + 2OH<sup>&minus;</sup> &rarr; C<sub>2</sub>H<sub>5</sub>COO<sup>&minus;</sup> + 2Ag(s) + 4NH<sub>3</sub> + H<sub>2</sub>O
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q4 [5 marks]</span>
+          <p>Describe the preparation of butanal from butan-1-ol. Include reagents, conditions, and the equation. Explain how you would prevent over-oxidation to butanoic acid.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Reagent:</b> Acidified potassium dichromate (K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sub>2</sub>SO<sub>4</sub>), <b>limited quantity</b>.<br>
+              <b>Conditions:</b> Warm gently; <b>distil off the product immediately</b> as it forms.<br><br>
+              <b>Equation:</b><br>
+              CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>OH &rarr;<sup>[O]</sup> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CHO + H<sub>2</sub>O<br><br>
+              <b>Preventing over-oxidation:</b> Butanal (B.P. 75&deg;C) is more volatile than butanoic acid (B.P. 164&deg;C). By distilling the product as it forms, it is removed from the oxidising mixture before it can be further oxidised. Using a limited amount of oxidising agent also helps.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q5 [5 marks]</span>
+          <p>Write equations for the following reactions of propanone:<br>
+          (a) Reaction with HCN (name the product) &nbsp; (b) Reduction with NaBH<sub>4</sub> (name the product) &nbsp; (c) Reaction with 2,4-DNPH &nbsp; (d) Iodoform test with I<sub>2</sub>/NaOH &nbsp; (e) Complete combustion</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) CH<sub>3</sub>COCH<sub>3</sub> + HCN &rarr; (CH<sub>3</sub>)<sub>2</sub>C(OH)CN &mdash; <b>2-hydroxy-2-methylpropanenitrile</b><br>
+              (b) CH<sub>3</sub>COCH<sub>3</sub> + 2[H] &rarr; CH<sub>3</sub>CH(OH)CH<sub>3</sub> &mdash; <b>propan-2-ol</b><br>
+              (c) CH<sub>3</sub>COCH<sub>3</sub> + 2,4-DNPH &rarr; 2,4-dinitrophenylhydrazone (yellow/orange ppt) + H<sub>2</sub>O<br>
+              (d) CH<sub>3</sub>COCH<sub>3</sub> + 3I<sub>2</sub> + 4NaOH &rarr; CHI<sub>3</sub>(s) + CH<sub>3</sub>COONa + 3NaI + 3H<sub>2</sub>O &mdash; yellow ppt<br>
+              (e) CH<sub>3</sub>COCH<sub>3</sub> + 4O<sub>2</sub> &rarr; 3CO<sub>2</sub> + 3H<sub>2</sub>O
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q6 [6 marks]</span>
+          <p>Explain, using intermolecular force theory, why:<br>
+          (a) Ethanal (B.P. 20&deg;C) has a higher boiling point than ethane (M<sub>r</sub> ≈ 30, B.P. &minus;89&deg;C) despite similar molar masses. <i>[2]</i><br>
+          (b) Ethanal (B.P. 20&deg;C) has a lower boiling point than ethanol (B.P. 78&deg;C) despite similar molar masses. <i>[2]</i><br>
+          (c) Propanone (B.P. 56&deg;C) is miscible with water. <i>[2]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) Ethanal has a polar C=O group giving <b>permanent dipole&ndash;dipole interactions</b> between molecules, in addition to van der Waals forces. These are stronger than the pure van der Waals forces in ethane &rarr; higher B.P.<br><br>
+              (b) Ethanol has an O&ndash;H group and forms <b>strong intermolecular hydrogen bonds</b> (O&ndash;H&middot;&middot;&middot;O). Ethanal has no O&ndash;H and cannot H-bond with itself (only dipole-dipole + vdW) &rarr; much lower B.P. than ethanol despite similar M<sub>r</sub>.<br><br>
+              (c) Propanone&rsquo;s C=O oxygen is an <b>H-bond acceptor</b>: it can form H-bonds with water&rsquo;s O&ndash;H groups (C=O&middot;&middot;&middot;H&ndash;O&ndash;H). This allows propanone to dissolve freely in water &rarr; miscible.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section B &mdash; Extended Response</h3>
+        <span class="marks-badge">20 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q7 [10 marks]</span>
+          <p><b>(a)</b> Compare and contrast the reactions of ethanal and propanone with the following reagents, writing equations where possible and stating observations: (i) 2,4-DNPH; (ii) Tollens&rsquo; reagent; (iii) Fehling&rsquo;s solution; (iv) NaBH<sub>4</sub>; (v) HCN. <i>[8 marks]</i></p>
+          <p><b>(b)</b> How could you determine the identity of the specific aldehyde or ketone from its 2,4-DNPH derivative? <i>[2 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)(i) 2,4-DNPH:</b><br>
+              Both: yellow/orange precipitate (2,4-dinitrophenylhydrazone). No distinction possible.<br><br>
+              <b>(ii) Tollens&rsquo;:</b><br>
+              Ethanal: CH<sub>3</sub>CHO + 2Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup> + 2OH<sup>&minus;</sup> &rarr; CH<sub>3</sub>COO<sup>&minus;</sup> + 2Ag(s) + 4NH<sub>3</sub> + H<sub>2</sub>O (<b>silver mirror</b>)<br>
+              Propanone: no reaction (no silver mirror)<br><br>
+              <b>(iii) Fehling&rsquo;s:</b><br>
+              Ethanal: CH<sub>3</sub>CHO + 2Cu<sup>2+</sup> + 5OH<sup>&minus;</sup> &rarr; CH<sub>3</sub>COO<sup>&minus;</sup> + Cu<sub>2</sub>O(s) + 3H<sub>2</sub>O (<b>brick-red ppt</b>)<br>
+              Propanone: no reaction (solution stays blue)<br><br>
+              <b>(iv) NaBH<sub>4</sub>:</b><br>
+              Ethanal: CH<sub>3</sub>CHO + 2[H] &rarr; CH<sub>3</sub>CH<sub>2</sub>OH (ethanol, primary alcohol)<br>
+              Propanone: CH<sub>3</sub>COCH<sub>3</sub> + 2[H] &rarr; CH<sub>3</sub>CH(OH)CH<sub>3</sub> (propan-2-ol, secondary alcohol)<br><br>
+              <b>(v) HCN:</b><br>
+              Ethanal: CH<sub>3</sub>CHO + HCN &rarr; CH<sub>3</sub>CH(OH)CN (2-hydroxypropanenitrile)<br>
+              Propanone: CH<sub>3</sub>COCH<sub>3</sub> + HCN &rarr; (CH<sub>3</sub>)<sub>2</sub>C(OH)CN (2-hydroxy-2-methylpropanenitrile)<br>
+              Both react; ethanal is more reactive (less steric hindrance, more &delta;+ on C).<br><br>
+              <b>(b)</b> The 2,4-DNPH derivative (hydrazone) is purified by recrystallisation and its <b>melting point</b> is measured. This is compared against a data book of known melting points for hydrazones of different carbonyl compounds. Each specific aldehyde/ketone gives a hydrazone with a characteristic, sharp melting point.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q8 [10 marks]</span>
+          <p><b>(a)</b> Describe the mechanism of nucleophilic addition of HCN to ethanal. Identify the nucleophile, electrophile, and name the product. <i>[4 marks]</i></p>
+          <p><b>(b)</b> The hydroxynitrile product from ethanal can be converted into two further products. Name these and give equations. <i>[3 marks]</i></p>
+          <p><b>(c)</b> Starting from butan-2-ol, describe with equations and conditions how you would prepare: (i) butan-2-one; (ii) but-2-ene; (iii) 3-hydroxybutanenitrile (a hydroxynitrile). <i>[3 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a) Mechanism:</b><br>
+              Electrophile: carbonyl carbon of ethanal (C<sup>&delta;+</sup>)<br>
+              Nucleophile: CN<sup>&minus;</sup> ion<br><br>
+              Step 1: CN<sup>&minus;</sup> attacks the &delta;+ carbon of C=O: CH<sub>3</sub>CHO + CN<sup>&minus;</sup> &rarr; CH<sub>3</sub>CH(O<sup>&minus;</sup>)CN (alkoxide intermediate)<br>
+              Step 2: Protonation by HCN (or H<sub>2</sub>O/H<sup>+</sup>): CH<sub>3</sub>CH(O<sup>&minus;</sup>)CN + H<sup>+</sup> &rarr; CH<sub>3</sub>CH(OH)CN<br>
+              Product: <b>2-hydroxypropanenitrile</b><br><br>
+              <b>(b) Further conversions:</b><br>
+              (i) Hydrolysis of CN to COOH: CH<sub>3</sub>CH(OH)CN + H<sub>2</sub>O &rarr;<sup>H<sup>+</sup>/heat</sup> CH<sub>3</sub>CH(OH)COOH (<b>lactic acid / 2-hydroxypropanoic acid</b>)<br>
+              (ii) Reduction of CN to CH<sub>2</sub>NH<sub>2</sub>: CH<sub>3</sub>CH(OH)CN + 2H<sub>2</sub> &rarr;<sup>LiAlH<sub>4</sub></sup> CH<sub>3</sub>CH(OH)CH<sub>2</sub>NH<sub>2</sub> (<b>2-amino-1-propanol</b>; an amino alcohol)<br><br>
+              <b>(c)</b><br>
+              (i) Butan-2-one: CH<sub>3</sub>CH(OH)CH<sub>2</sub>CH<sub>3</sub> &rarr;<sup>K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sup>+</sup></sup> CH<sub>3</sub>COCH<sub>2</sub>CH<sub>3</sub> + H<sub>2</sub>O (oxidation of 2&deg; alcohol)<br>
+              (ii) But-2-ene: CH<sub>3</sub>CH(OH)CH<sub>2</sub>CH<sub>3</sub> &rarr;<sup>conc. H<sub>2</sub>SO<sub>4</sub>, 170&deg;C</sup> CH<sub>3</sub>CH=CHCH<sub>3</sub> + H<sub>2</sub>O (dehydration)<br>
+              (iii) 3-hydroxybutanenitrile: First oxidise butan-2-ol &rarr; butan-2-one (step i), then: CH<sub>3</sub>COCH<sub>2</sub>CH<sub>3</sub> + HCN &rarr; CH<sub>3</sub>C(OH)(CN)CH<sub>2</sub>CH<sub>3</sub> (<b>3-hydroxy-3-methylbutanenitrile</b>... or directly: butan-2-one is not 3-hydroxybutanenitrile precursor &mdash; need to use butanal instead)<br>
+              Corrected: Use butanal + HCN &rarr; CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH(OH)CN = <b>3-hydroxybutanenitrile</b> (prepare butanal first from butan-1-ol by oxidation).
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="unit-nav">
+  <a class="nav-btn prev" href="unit5_alcohols_ethers.html">&larr; Unit 5: Alcohols &amp; Ethers</a>
+  <a class="nav-btn next" href="unit7_carboxylic_acids.html">Unit 7: Carboxylic Acids &rarr;</a>
+</div>
+
+</main>
+
+<script>
+function toggleAnswer(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+const correctAnswers={q1:'b',q2:'c',q3:'b',q4:'c',q5:'c',q6:'c',q7:'c',q8:'b',q9:'b',q10:'c'};
+function submitQuiz(){
+  let score=0;
+  const total=Object.keys(correctAnswers).length;
+  Object.entries(correctAnswers).forEach(([q,correct])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{
+      if(o.value===correct)o.parentElement.classList.add('correct');
+    });
+    if(sel){if(sel.value===correct)score++;else sel.parentElement.classList.add('wrong');}
+    const exp=document.getElementById('exp'+q.slice(1));
+    if(exp)exp.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const pct=Math.round(score/total*100);
+  const res=document.getElementById('quizResult');
+  res.style.display='block';
+  res.style.background=pct>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  res.style.border='1px solid '+(pct>=70?'var(--green)':'var(--red)');
+  res.style.color=pct>=70?'var(--green)':'var(--red)';
+  res.innerHTML='Score: '+score+' / '+total+' ('+pct+'%) — '+(pct>=80?'Excellent! 🎉':pct>=60?'Good effort — review marked questions.':'Keep studying — re-read the notes and try again.');
+  document.querySelector('.quiz-submit').disabled=true;
+  document.querySelector('.quiz-submit').style.opacity='0.5';
+}
+</script>
+</body>
+</html>
