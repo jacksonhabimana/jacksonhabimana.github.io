@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S5 Chemistry – Unit 15: Entropy &amp; Free Energy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;
+    --accent:#f59e0b;--accent2:#f97316;
+    --gold:#e8c547;--green:#34d399;--red:#f87171;--amber:#f59e0b;--sky:#38bdf8;
+    --text:#e6edf3;--muted:#8b949e;--radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+  .hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#1c1400 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(245,158,11,.04) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(245,158,11,.04) 40px);pointer-events:none;}
+  .badge{display:inline-block;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:var(--amber);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  .complete-badge{display:inline-block;background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.4);color:var(--green);padding:6px 20px;border-radius:50px;font-size:.85rem;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;margin-left:12px;vertical-align:middle;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+  .hero h1 em{color:var(--amber);font-style:italic;}
+  .hero p.sub{color:var(--muted);font-size:1rem;max-width:640px;margin:0 auto 32px;}
+  .toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:860px;margin:0 auto;}
+  .toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+  .toc-grid a:hover{background:var(--amber);color:#000;border-color:var(--amber);}
+  .page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+  .section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--amber);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+  .section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+  .card p+p{margin-top:12px;}
+  .def-box{border-left:4px solid var(--amber);background:rgba(245,158,11,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+  .def-box strong{color:var(--amber);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+  .callout.info{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.25);}
+  .callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+  .callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+  .callout.amber{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);}
+  .callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+  .callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+  .tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:var(--surface2);}
+  th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--amber);white-space:nowrap;}
+  td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  .formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--amber);overflow-x:auto;white-space:pre;}
+  .diagram-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:20px 0;overflow-x:auto;}
+  .diagram-wrap svg{display:block;margin:0 auto;}
+  .example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+  .example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+  .example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+  .example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+  .example-body{padding:22px 26px;}
+  .example-body .q{color:var(--text);margin-bottom:14px;font-weight:600;}
+  .example-body .step{display:flex;gap:14px;margin:10px 0;}
+  .step-num{min-width:28px;height:28px;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--amber);flex-shrink:0;margin-top:3px;}
+  .step-text{flex:1;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .four-cell{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;}
+  .cell{border-radius:var(--radius);padding:18px 20px;border:1px solid var(--border);}
+  .cell.green{background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.3);}
+  .cell.red{background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.3);}
+  .cell.amber{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.3);}
+  .cell h4{font-family:'JetBrains Mono',monospace;font-size:.82rem;margin-bottom:8px;}
+  .cell.green h4{color:var(--green);}
+  .cell.red h4{color:var(--red);}
+  .cell.amber h4{color:var(--amber);}
+  .exercise-list{list-style:none;counter-reset:ex;}
+  .exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+  .exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--amber);display:block;margin-bottom:6px;}
+  .reveal-btn{margin-top:10px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--amber);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+  .reveal-btn:hover{background:var(--amber);color:#000;}
+  .answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(245,158,11,.06);border-left:3px solid var(--amber);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .answer.open{display:block;}
+  .quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+  .quiz-header{background:rgba(245,158,11,.1);border-bottom:1px solid rgba(245,158,11,.2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .quiz-header h3{font-family:'Playfair Display',serif;color:var(--amber);font-size:1.2rem;}
+  .quiz-body{padding:24px;}
+  .q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+  .q-block:last-of-type{border-bottom:none;}
+  .q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+  .q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--amber);display:block;margin-bottom:4px;}
+  .options{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+  .opt:hover{border-color:var(--amber);}
+  .opt input{margin-top:3px;accent-color:var(--amber);}
+  .opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+  .opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+  .q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(245,158,11,.07);border-left:3px solid var(--amber);border-radius:0 6px 6px 0;font-size:.88rem;}
+  .quiz-submit{background:var(--amber);color:#000;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;font-weight:700;transition:opacity .2s;}
+  .quiz-submit:hover{opacity:.85;}
+  .test-wrap{margin-top:40px;}
+  .test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px;}
+  .test-section-header{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .test-section-header h3{font-family:'Playfair Display',serif;color:var(--accent2);font-size:1.1rem;}
+  .marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(249,115,22,.2);color:var(--accent2);padding:4px 12px;border-radius:50px;}
+  .test-body{padding:24px;}
+  .test-q{margin-bottom:20px;padding:16px 18px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);}
+  .test-q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent2);margin-bottom:6px;display:block;}
+  .test-answer-reveal{margin-top:14px;}
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+  .nav-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s;}
+  .nav-btn.prev{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+  .nav-btn.prev:hover{border-color:var(--amber);color:var(--amber);}
+  .nav-btn.home{background:var(--amber);color:#000;font-weight:700;}
+  .nav-btn.home:hover{opacity:.88;}
+  h3.sub-heading{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+  sub,sup{font-size:.72em;}
+  @media(max-width:600px){.hero{padding:50px 20px 40px;}.page{padding:0 16px 60px;}.four-cell{grid-template-columns:1fr;}}
+  .completion-banner{background:linear-gradient(135deg,rgba(52,211,153,.12),rgba(245,158,11,.08));border:1px solid rgba(52,211,153,.3);border-radius:var(--radius);padding:30px;text-align:center;margin:50px 0;}
+  .completion-banner h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--green);margin-bottom:10px;}
+  .completion-banner p{color:var(--muted);}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Unit 15 &middot; Physical Chemistry <span class="complete-badge">✓ Final Unit</span></div>
+  <h1><em>Entropy &amp; Gibbs Free Energy</em></h1>
+  <p class="sub">The Second and Third Laws of Thermodynamics, entropy, Gibbs free energy, spontaneity criteria, the van't Hoff equation, and coupling of reactions.</p>
+  <nav class="toc-grid">
+    <a href="#entropy">15.1 Entropy</a>
+    <a href="#second">15.2 Second Law</a>
+    <a href="#third">15.3 Third Law</a>
+    <a href="#gibbs">15.4 Gibbs Free Energy</a>
+    <a href="#spontaneity">15.5 Spontaneity</a>
+    <a href="#temperature">15.6 Temperature Effects</a>
+    <a href="#vantHoff">15.7 van't Hoff Equation</a>
+    <a href="#coupling">15.8 Coupled Reactions</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<!-- 15.1 ENTROPY -->
+<section id="entropy">
+  <div class="section-header">
+    <span class="section-number">15.1</span>
+    <h2>Entropy</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Entropy (S)</strong>
+    <b>Entropy</b> is a measure of the <b>disorder</b> or <b>randomness</b> of a system — more precisely, it is a measure of the number of microstates (W) available to the system:<br><br>
+    <b>S = k<sub>B</sub> ln W</b> &nbsp; (Boltzmann equation; k<sub>B</sub> = 1.381&times;10<sup>&minus;23</sup> J/K)<br><br>
+    Units of entropy: <b>J/mol&middot;K</b> (or J/K for absolute entropy).<br>
+    &Delta;S = S<sub>final</sub> &minus; S<sub>initial</sub> &nbsp; (&Delta;S &gt; 0: more disorder; &Delta;S &lt; 0: less disorder)
+  </div>
+
+  <div class="card">
+    <h3>Factors That Increase Entropy</h3>
+    <ul style="padding-left:20px;line-height:2.2;">
+      <li><b>Change of state</b>: solid &rarr; liquid &rarr; gas. S(g) &gg; S(l) &gt; S(s). Gases have enormous positional freedom.</li>
+      <li><b>Increase in number of moles of gas</b>: more gas moles = more disorder.</li>
+      <li><b>Mixing</b>: mixing of different substances always increases entropy.</li>
+      <li><b>Dissolution</b>: dissolving a solid in water usually increases entropy (ions dispersed through solvent).</li>
+      <li><b>Increasing temperature</b>: more thermal energy &rarr; more microstates accessible.</li>
+      <li><b>Increasing volume</b>: more space &rarr; more positional microstates.</li>
+      <li><b>More complex molecules</b>: more atoms &rarr; more vibrational/rotational modes &rarr; higher S.</li>
+    </ul>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Substance</th><th>S&deg; (J/mol&middot;K) at 298 K</th><th>Substance</th><th>S&deg; (J/mol&middot;K) at 298 K</th></tr></thead>
+      <tbody>
+        <tr><td>H<sub>2</sub>(g)</td><td>130.6</td><td>H<sub>2</sub>O(l)</td><td>69.9</td></tr>
+        <tr><td>O<sub>2</sub>(g)</td><td>205.1</td><td>H<sub>2</sub>O(g)</td><td>188.7</td></tr>
+        <tr><td>N<sub>2</sub>(g)</td><td>191.6</td><td>CO<sub>2</sub>(g)</td><td>213.8</td></tr>
+        <tr><td>C(graphite)</td><td>5.7</td><td>CH<sub>4</sub>(g)</td><td>186.3</td></tr>
+        <tr><td>Fe(s)</td><td>27.3</td><td>NaCl(s)</td><td>72.1</td></tr>
+        <tr><td>Cu(s)</td><td>33.2</td><td>NH<sub>3</sub>(g)</td><td>192.5</td></tr>
+        <tr><td>Cl<sub>2</sub>(g)</td><td>223.1</td><td>C<sub>2</sub>H<sub>5</sub>OH(l)</td><td>160.7</td></tr>
+        <tr><td>HCl(g)</td><td>186.9</td><td>C(diamond)</td><td>2.4</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 1</span><h4>Predicting the Sign of ΔS</h4></div>
+    <div class="example-body">
+      <p class="q">Predict whether ΔS is positive or negative for each reaction. Justify.</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">CaCO<sub>3</sub>(s) &rarr; CaO(s) + CO<sub>2</sub>(g)<br>
+      <b>ΔS &gt; 0</b>: solid produces a gas — massive increase in disorder. n(gas) increases from 0 to 1.</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">N<sub>2</sub>(g) + 3H<sub>2</sub>(g) &rarr; 2NH<sub>3</sub>(g)<br>
+      <b>ΔS &lt; 0</b>: 4 mol gas &rarr; 2 mol gas. n(gas) decreases — fewer microstates. More ordered product.</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">NaCl(s) &rarr; Na<sup>+</sup>(aq) + Cl<sup>&minus;</sup>(aq)<br>
+      <b>ΔS &gt; 0</b>: ordered crystal lattice &rarr; dispersed ions in solution. Mixing and dissolution.</div></div>
+      <div class="step"><div class="step-num">d</div><div class="step-text">H<sub>2</sub>O(g) &rarr; H<sub>2</sub>O(l)<br>
+      <b>ΔS &lt; 0</b>: gas condenses to liquid. Huge decrease in positional freedom.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15.2 SECOND LAW -->
+<section id="second">
+  <div class="section-header">
+    <span class="section-number">15.2</span>
+    <h2>The Second Law of Thermodynamics</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Second Law</strong>
+    The total entropy of the universe always <b>increases</b> in any spontaneous process:<br><br>
+    <b>&Delta;S<sub>universe</sub> = &Delta;S<sub>system</sub> + &Delta;S<sub>surroundings</sub> &ge; 0</b><br><br>
+    For a spontaneous process: &Delta;S<sub>univ</sub> &gt; 0<br>
+    For a reversible (equilibrium) process: &Delta;S<sub>univ</sub> = 0<br>
+    For a non-spontaneous (impossible) process: &Delta;S<sub>univ</sub> &lt; 0
+  </div>
+
+  <div class="card">
+    <h3>Entropy Change of the Surroundings</h3>
+    <p>When a reaction releases heat q to the surroundings at temperature T:</p>
+    <div class="formula-block">ΔS_surr = -ΔH_system / T    (at constant T and P)
+
+- Exothermic reaction (ΔH < 0): ΔS_surr > 0  (surroundings gain entropy)
+- Endothermic reaction (ΔH > 0): ΔS_surr < 0  (surroundings lose entropy)
+
+The higher the temperature, the smaller the effect of heat transfer on ΔS_surr
+(at high T, the surroundings are already very disordered — adding more heat
+changes entropy less).</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 2</span><h4>Calculating ΔS°rxn from Absolute Entropies</h4></div>
+    <div class="example-body">
+      <p class="q">Calculate ΔS°rxn for: N<sub>2</sub>(g) + 3H<sub>2</sub>(g) &rarr; 2NH<sub>3</sub>(g)<br>
+      S&deg; (J/mol&middot;K): N<sub>2</sub>=191.6; H<sub>2</sub>=130.6; NH<sub>3</sub>=192.5</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">&Delta;S&deg;<sub>rxn</sub> = &Sigma;S&deg;(products) &minus; &Sigma;S&deg;(reactants)</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">&Sigma;S&deg;(products) = 2&times;S&deg;(NH<sub>3</sub>) = 2&times;192.5 = 385.0 J/mol&middot;K</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">&Sigma;S&deg;(reactants) = S&deg;(N<sub>2</sub>) + 3&times;S&deg;(H<sub>2</sub>) = 191.6 + 3&times;130.6 = 191.6 + 391.8 = 583.4 J/mol&middot;K</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">&Delta;S&deg;<sub>rxn</sub> = 385.0 &minus; 583.4 = <b>&minus;198.4 J/mol&middot;K</b> (negative — 4 mol gas &rarr; 2 mol gas)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15.3 THIRD LAW -->
+<section id="third">
+  <div class="section-header">
+    <span class="section-number">15.3</span>
+    <h2>The Third Law of Thermodynamics</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Third Law</strong>
+    The entropy of a <b>perfect crystalline substance</b> is <b>zero</b> at absolute zero (0 K).<br><br>
+    S(perfect crystal, 0 K) = 0<br><br>
+    This law establishes an <b>absolute scale for entropy</b> — unlike enthalpy (where only differences &Delta;H can be measured), absolute values of S can be determined. This is why standard entropies S&deg; are absolute values (not relative to elements in standard states).
+  </div>
+
+  <div class="card">
+    <h3>Absolute Entropy and Temperature</h3>
+    <p>As temperature increases from 0 K, the entropy of any substance increases because more energy levels become thermally accessible. The entropy rises continuously, with sharp increases at phase transitions (melting and boiling).</p>
+    <div class="formula-block">At constant pressure:  dS = Cp dT / T
+
+Integrating: S(T) = S(0) + ∫[0→T] Cp/T dT
+
+For a perfect crystal: S(0) = 0 (Third Law)
+
+At phase transitions:
+- Melting: ΔS_fus = ΔH_fus / T_m
+- Boiling: ΔS_vap = ΔH_vap / T_b  (Trouton's rule: ≈ 88 J/mol·K for most liquids)</div>
+  </div>
+</section>
+
+<!-- 15.4 GIBBS FREE ENERGY -->
+<section id="gibbs">
+  <div class="section-header">
+    <span class="section-number">15.4</span>
+    <h2>Gibbs Free Energy</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Gibbs Free Energy (G)</strong>
+    The <b>Gibbs free energy</b> G combines enthalpy and entropy into a single criterion for spontaneity at constant T and P:<br><br>
+    <b>G = H &minus; TS</b><br><br>
+    <b>&Delta;G = &Delta;H &minus; T&Delta;S</b><br><br>
+    A reaction is <b>spontaneous</b> if &Delta;G &lt; 0 (system can do useful work).<br>
+    At equilibrium: &Delta;G = 0.<br>
+    Non-spontaneous: &Delta;G &gt; 0.
+  </div>
+
+  <div class="card">
+    <h3>Standard Gibbs Free Energy Change</h3>
+    <div class="formula-block">ΔG° = ΔH° - TΔS°            (at temperature T, using standard values)
+
+ΔG°rxn = Σ ΔG°f(products) - Σ ΔG°f(reactants)
+
+where ΔG°f = standard Gibbs free energy of formation
+(ΔG°f of any element in standard state = 0)
+
+Relationship to equilibrium constant K:
+ΔG° = -RT ln K     (R = 8.314 J/mol·K)
+
+At equilibrium: ΔG = 0  (not ΔG°)
+When Q < K: ΔG < 0 (spontaneous forward)
+When Q > K: ΔG > 0 (spontaneous reverse)</div>
+  </div>
+
+  <div class="callout amber">
+    <span class="callout-icon">&#128204;</span>
+    <div class="callout-body">
+      <strong>&#916;G vs &#916;G&#176;</strong>
+      <b>&#916;G&#176;</b> is the free energy change when all reactants and products are in standard states (1 mol/L, 298 K). It is a fixed number for a given reaction at a given temperature.<br>
+      <b>&#916;G</b> is the free energy change at any specified conditions. &#916;G = &#916;G&#176; + RT ln Q.
+    </div>
+  </div>
+</section>
+
+<!-- 15.5 SPONTANEITY -->
+<section id="spontaneity">
+  <div class="section-header">
+    <span class="section-number">15.5</span>
+    <h2>Spontaneity Criteria</h2>
+  </div>
+
+  <div class="card">
+    <h3>The Four &#916;H / &#916;S Combinations</h3>
+    <p>Whether a reaction is spontaneous depends on the signs of &#916;H and &#916;S and the temperature T:</p>
+  </div>
+
+  <div class="four-cell">
+    <div class="cell green">
+      <h4>Case 1: &#916;H &lt; 0, &#916;S &gt; 0</h4>
+      <p>&#916;G = &#916;H &#8722; T&#916;S &lt; 0 at ALL temperatures.<br><b>Always spontaneous.</b><br>Example: combustion reactions (exothermic, produces gas).</p>
+    </div>
+    <div class="cell red">
+      <h4>Case 2: &#916;H &gt; 0, &#916;S &lt; 0</h4>
+      <p>&#916;G = &#916;H &#8722; T&#916;S &gt; 0 at ALL temperatures.<br><b>Never spontaneous.</b><br>Example: reverse Haber process (endothermic, fewer gas moles).</p>
+    </div>
+    <div class="cell amber">
+      <h4>Case 3: &#916;H &lt; 0, &#916;S &lt; 0</h4>
+      <p>&#916;G &lt; 0 only at <b>LOW temperatures</b> (enthalpy dominates).<br>Example: condensation of water vapour (exothermic but less disordered).</p>
+    </div>
+    <div class="cell amber">
+      <h4>Case 4: &#916;H &gt; 0, &#916;S &gt; 0</h4>
+      <p>&#916;G &lt; 0 only at <b>HIGH temperatures</b> (entropy dominates).<br>Example: decomposition of CaCO&#8323; (endothermic but more disordered).</p>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 3</span><h4>Calculating &#916;G&#176; and Checking Spontaneity</h4></div>
+    <div class="example-body">
+      <p class="q">For: N&#8322;(g) + 3H&#8322;(g) &#8594; 2NH&#8323;(g) at 298 K.<br>
+      &#916;H&#176; = &#8722;92.4 kJ/mol; &#916;S&#176; = &#8722;198.4 J/mol&#183;K.<br>
+      (a) Calculate &#916;G&#176; at 298 K. (b) Is the reaction spontaneous at 298 K? (c) At what temperature does &#916;G&#176; = 0?</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">&#916;G&#176; = &#916;H&#176; &#8722; T&#916;S&#176; = &#8722;92,400 &#8722; (298 &#215; &#8722;198.4) = &#8722;92,400 + 59,123 = <b>&#8722;33,277 J/mol = &#8722;33.3 kJ/mol</b></div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">&#916;G&#176; &lt; 0 &#8594; <b>spontaneous</b> at 298 K. The enthalpy term (&#8722;92.4 kJ) dominates over the unfavourable entropy term (+59.1 kJ).</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">At &#916;G&#176; = 0: T = &#916;H&#176;/&#916;S&#176; = &#8722;92,400/(&#8722;198.4) = <b>466 K</b>. Above 466 K, &#916;G&#176; &gt; 0 (non-spontaneous). This explains why the Haber process uses moderate temperatures.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15.6 TEMPERATURE EFFECTS -->
+<section id="temperature">
+  <div class="section-header">
+    <span class="section-number">15.6</span>
+    <h2>Temperature Effects on &#916;G</h2>
+  </div>
+
+  <div class="card">
+    <h3>Crossover Temperature</h3>
+    <p>The temperature at which a reaction changes from spontaneous to non-spontaneous is the <b>crossover temperature</b>:</p>
+    <div class="formula-block">At T_cross: &#916;G = 0
+Therefore: &#916;H = T_cross &#215; &#916;S
+T_cross = &#916;H / &#916;S    (units: K; use consistent units &#8212; both in J)</div>
+  </div>
+
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 560 280" width="560" height="280" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+      <rect width="560" height="280" fill="#1c2333" rx="8"/>
+      <line x1="50" y1="240" x2="540" y2="240" stroke="#30363d" stroke-width="1.5"/>
+      <line x1="50" y1="20" x2="50" y2="240" stroke="#30363d" stroke-width="1.5"/>
+      <line x1="50" y1="130" x2="540" y2="130" stroke="#30363d" stroke-width="1" stroke-dasharray="6,4"/>
+      <text x="38" y="134" fill="#8b949e" font-family="JetBrains Mono" font-size="9" text-anchor="middle">0</text>
+      <text x="295" y="258" fill="#8b949e" font-family="JetBrains Mono" font-size="11" text-anchor="middle">Temperature T</text>
+      <text x="18" y="130" fill="#8b949e" font-family="JetBrains Mono" font-size="11" text-anchor="middle" transform="rotate(-90,18,130)">&#916;G</text>
+      <path d="M55,80 L520,50" fill="none" stroke="#34d399" stroke-width="2.5"/>
+      <text x="400" y="44" fill="#34d399" font-family="JetBrains Mono" font-size="9">&#916;H&lt;0, &#916;S&gt;0 (always spon.)</text>
+      <path d="M55,180 L520,210" fill="none" stroke="#f87171" stroke-width="2.5"/>
+      <text x="380" y="224" fill="#f87171" font-family="JetBrains Mono" font-size="9">&#916;H&gt;0, &#916;S&lt;0 (never spon.)</text>
+      <path d="M55,70 L520,200" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="8,3"/>
+      <circle cx="220" cy="130" r="5" fill="#f59e0b"/>
+      <text x="228" y="124" fill="#f59e0b" font-family="JetBrains Mono" font-size="9">T_cross</text>
+      <text x="350" y="190" fill="#f59e0b" font-family="JetBrains Mono" font-size="9">&#916;H&lt;0, &#916;S&lt;0 (low T only)</text>
+      <path d="M55,200 L520,60" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="8,3"/>
+      <circle cx="340" cy="130" r="5" fill="#38bdf8"/>
+      <text x="348" y="124" fill="#38bdf8" font-family="JetBrains Mono" font-size="9">T_cross</text>
+      <text x="360" y="70" fill="#38bdf8" font-family="JetBrains Mono" font-size="9">&#916;H&gt;0, &#916;S&gt;0 (high T only)</text>
+      <text x="130" y="115" fill="#34d399" font-family="JetBrains Mono" font-size="9">SPONTANEOUS (&#916;G &lt; 0)</text>
+      <text x="130" y="158" fill="#f87171" font-family="JetBrains Mono" font-size="9">NON-SPONTANEOUS (&#916;G &gt; 0)</text>
+    </svg>
+    <p style="text-align:center;color:var(--muted);font-family:JetBrains Mono,monospace;font-size:.78rem;margin-top:12px;">&#916;G vs T for the four &#916;H/&#916;S combinations</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 4</span><h4>Crossover Temperature</h4></div>
+    <div class="example-body">
+      <p class="q">For: CaCO&#8323;(s) &#8594; CaO(s) + CO&#8322;(g): &#916;H&#176; = +178 kJ/mol; &#916;S&#176; = +165 J/mol&#183;K. Find the temperature above which the reaction becomes spontaneous.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">Case 4 (&#916;H &gt; 0, &#916;S &gt; 0) &#8212; spontaneous only above T_cross.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">T_cross = &#916;H&#176;/&#916;S&#176; = 178,000/165 = <b>1079 K &#8776; 806&#176;C</b></div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Above ~806&#176;C: &#916;G &lt; 0 &#8594; CaCO&#8323; decomposes spontaneously. Industrial lime kilns operate at &gt;900&#176;C for this reason.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15.7 VAN'T HOFF -->
+<section id="vantHoff">
+  <div class="section-header">
+    <span class="section-number">15.7</span>
+    <h2>The van&#39;t Hoff Equation</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Van&#39;t Hoff Equation</strong>
+    Relates the equilibrium constant K to temperature T:<br><br>
+    <b>ln K = &#8722;&#916;H&#176;/(RT) + &#916;S&#176;/R</b><br><br>
+    For change in K between two temperatures:<br>
+    <b>ln(K&#8322;/K&#8321;) = &#8722;(&#916;H&#176;/R)(1/T&#8322; &#8722; 1/T&#8321;)</b><br><br>
+    Plot of <b>ln K vs 1/T</b>: straight line, slope = <b>&#8722;&#916;H&#176;/R</b>, intercept = <b>&#916;S&#176;/R</b>.
+  </div>
+
+  <div class="card">
+    <h3>Derivation</h3>
+    <div class="formula-block">&#916;G&#176; = &#8722;RT ln K    and    &#916;G&#176; = &#916;H&#176; &#8722; T&#916;S&#176;
+
+&#8234;&#8756; &#8722;RT ln K = &#916;H&#176; &#8722; T&#916;S&#176;
+Divide by &#8722;RT:
+ln K = &#8722;&#916;H&#176;/(RT) + &#916;S&#176;/R
+
+Subtracting for two temperatures T&#8321; and T&#8322;:
+ln(K&#8322;/K&#8321;) = &#8722;(&#916;H&#176;/R)(1/T&#8322; &#8722; 1/T&#8321;)
+            = (&#916;H&#176;/R)(1/T&#8321; &#8722; 1/T&#8322;)</div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Exothermic (&#916;H&#176; &lt; 0)</h3>
+      <p>As T increases: K <b>decreases</b>. Equilibrium shifts left. Higher T disfavours exothermic direction &#8212; consistent with Le Chatelier.</p>
+    </div>
+    <div class="card">
+      <h3>Endothermic (&#916;H&#176; &gt; 0)</h3>
+      <p>As T increases: K <b>increases</b>. Equilibrium shifts right toward products. Higher T favours endothermic direction.</p>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 5</span><h4>Van&#39;t Hoff &#8212; K at New Temperature</h4></div>
+    <div class="example-body">
+      <p class="q">N&#8322;O&#8324;(g) &#8652; 2NO&#8322;(g): K = 0.113 at 298 K; &#916;H&#176; = +57.2 kJ/mol. Calculate K at 350 K.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">ln(K&#8322;/K&#8321;) = &#8722;(&#916;H&#176;/R)(1/T&#8322; &#8722; 1/T&#8321;) = &#8722;(57200/8.314)(1/350 &#8722; 1/298)</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">= &#8722;6879 &#215; (0.002857 &#8722; 0.003356) = &#8722;6879 &#215; (&#8722;4.99&#215;10&#8315;&#8308;) = +3.43</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">K&#8322;/K&#8321; = e&#179;&#183;&#8308;&#179; = 31.0; K&#8322; = 0.113 &#215; 31.0 = <b>3.50</b> (endothermic &#8594; K increases with T)</div></div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 6</span><h4>Calculating K from &#916;G&#176;</h4></div>
+    <div class="example-body">
+      <p class="q">2SO&#8322;(g) + O&#8322;(g) &#8594; 2SO&#8323;(g): &#916;H&#176; = &#8722;197.8 kJ/mol; &#916;S&#176; = &#8722;187.9 J/mol&#183;K. Find &#916;G&#176; and K at 298 K.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">&#916;G&#176; = &#8722;197,800 &#8722; (298)(&#8722;187.9) = &#8722;197,800 + 55,994 = <b>&#8722;141,806 J/mol = &#8722;141.8 kJ/mol</b></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">ln K = 141,806/(8.314&#215;298) = 57.23; K = e&#8309;&#8311;&#183;&#178;&#179; = <b>7.1&#215;10&#178;&#8308;</b> (extremely large &#8212; very favourable)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15.8 COUPLED REACTIONS -->
+<section id="coupling">
+  <div class="section-header">
+    <span class="section-number">15.8</span>
+    <h2>Coupled Reactions and Free Energy</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Coupled Reactions</strong>
+    A non-spontaneous reaction (&#916;G &gt; 0) can be driven by <b>coupling</b> it to a spontaneous reaction (&#916;G &lt; 0), provided the combined &#916;G&#8321; + &#916;G&#8322; &lt; 0. This is fundamental to biochemistry.
+  </div>
+
+  <div class="card">
+    <h3>Principle</h3>
+    <div class="formula-block">Reaction A (non-spontaneous): &#916;G_A &gt; 0
+Reaction B (spontaneous):     &#916;G_B &lt; 0
+
+Combined: &#916;G_total = &#916;G_A + &#916;G_B
+
+Condition for spontaneous coupling: |&#916;G_B| &gt; |&#916;G_A|</div>
+  </div>
+
+  <div class="card">
+    <h3>Biological Example: ATP</h3>
+    <div class="formula-block">ATP + H&#8322;O &#8594; ADP + P&#7522;     &#916;G&#176; = &#8722;30.5 kJ/mol
+
+Synthesis of glutamine (non-spontaneous alone):
+Glutamate + NH&#8323; &#8594; Glutamine + H&#8322;O  &#916;G&#176; = +14.2 kJ/mol
+
+Coupled:
+Glutamate + NH&#8323; + ATP &#8594; Glutamine + ADP + P&#7522;
+&#916;G&#176;_total = +14.2 + (&#8722;30.5) = &#8722;16.3 kJ/mol &#10003; Spontaneous!</div>
+  </div>
+
+  <div class="card">
+    <h3>Maximum Work and Electrochemistry</h3>
+    <div class="formula-block">Maximum useful work = &#916;G
+
+For electrochemical cells:
+&#916;G&#176; = &#8722;nFE&#176;cell
+(n = moles electrons; F = 96,500 C/mol; E&#176; = standard cell voltage)
+
+Combining &#916;G&#176; = &#8722;RT ln K and &#916;G&#176; = &#8722;nFE&#176;:
+E&#176;cell = (RT/nF) ln K = (0.0592/n) log K   at 298 K</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 7</span><h4>&#916;G&#176; and E&#176;cell</h4></div>
+    <div class="example-body">
+      <p class="q">Zn(s)|Zn&#178;&#8314;(aq)||Cu&#178;&#8314;(aq)|Cu(s): E&#176;cell = +1.10 V, n = 2. Calculate &#916;G&#176; and K at 298 K.</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">&#916;G&#176; = &#8722;nFE&#176; = &#8722;2 &#215; 96,500 &#215; 1.10 = <b>&#8722;212,300 J/mol = &#8722;212.3 kJ/mol</b></div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">ln K = 212,300/(8.314&#215;298) = 85.73; K = e&#8312;&#8309;&#183;&#8311;&#179; = <b>1.8&#215;10&#179;&#8311;</b> (reaction goes essentially to completion)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <div class="section-header">
+    <span class="section-number">&#9999;&#65039;</span>
+    <h2>Exercises</h2>
+  </div>
+  <ul class="exercise-list">
+
+    <li>
+      Predict the sign of &#916;S&#176; and justify: (a) 2H&#8322;O(l) &#8594; 2H&#8322;(g) + O&#8322;(g); (b) Ag&#8314;(aq) + Cl&#8315;(aq) &#8594; AgCl(s); (c) CO&#8322;(g) &#8594; CO&#8322;(s); (d) C&#8326;H&#8321;&#8322;O&#8326;(s) + 6O&#8322;(g) &#8594; 6CO&#8322;(g) + 6H&#8322;O(l).
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) <b>&#916;S &gt; 0</b>: liquid &#8594; gases. 3 mol gas produced from liquid. Huge increase in disorder.<br>
+        (b) <b>&#916;S &lt; 0</b>: dispersed aqueous ions &#8594; ordered solid precipitate. Lattice formed, decrease in disorder.<br>
+        (c) <b>&#916;S &lt; 0</b>: gas &#8594; solid. Very large decrease in disorder.<br>
+        (d) <b>&#916;S slightly negative</b>: reactants: 6 mol gas + 1 mol solid; products: 6 mol gas + 6 mol liquid. Gas moles unchanged; losing the ordered solid but gaining liquid water. Net slightly negative.
+      </div>
+    </li>
+
+    <li>
+      Calculate &#916;S&#176;rxn for: 2SO&#8322;(g) + O&#8322;(g) &#8594; 2SO&#8323;(g).<br>
+      S&#176; (J/mol&#183;K): SO&#8322;(g)=248.1; O&#8322;(g)=205.1; SO&#8323;(g)=256.6.
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        &#916;S&#176; = 2S&#176;(SO&#8323;) &#8722; [2S&#176;(SO&#8322;) + S&#176;(O&#8322;)]<br>
+        = 2&#215;256.6 &#8722; [2&#215;248.1 + 205.1]<br>
+        = 513.2 &#8722; 701.3 = <b>&#8722;188.1 J/mol&#183;K</b><br>
+        (Negative: 3 mol gas &#8594; 2 mol gas)
+      </div>
+    </li>
+
+    <li>
+      For: &#916;H&#176; = &#8722;241.8 kJ/mol; &#916;S&#176; = +44.4 J/mol&#183;K. Calculate &#916;G&#176; at (a) 298 K and (b) 1000 K. Spontaneous at each temperature?
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) &#916;G&#176;(298) = &#8722;241,800 &#8722; (298&#215;44.4) = &#8722;241,800 &#8722; 13,231 = <b>&#8722;255.0 kJ/mol</b> &#8594; spontaneous<br>
+        (b) &#916;G&#176;(1000) = &#8722;241,800 &#8722; (1000&#215;44.4) = <b>&#8722;286.2 kJ/mol</b> &#8594; spontaneous<br>
+        Case 1 (&#916;H&lt;0, &#916;S&gt;0): <b>always spontaneous</b> at all temperatures.
+      </div>
+    </li>
+
+    <li>
+      For N&#8322;(g) + 3H&#8322;(g) &#8594; 2NH&#8323;(g): K = 977 at 298 K and &#916;H&#176; = &#8722;92.4 kJ/mol. Calculate &#916;G&#176;(298) and K at 500 K.
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        &#916;G&#176;(298) = &#8722;RT ln K = &#8722;8.314&#215;298&#215;ln(977) = &#8722;2478&#215;6.884 = <b>&#8722;17.1 kJ/mol</b><br><br>
+        ln(K&#8325;&#8320;&#8320;/K&#8322;&#8313;&#8312;) = &#8722;(&#8722;92400/8.314)(1/500&#8722;1/298) = 11113&#215;(&#8722;1.356&#215;10&#8315;&#179;) = &#8722;15.07<br>
+        K&#8325;&#8320;&#8320; = 977 &#215; e&#8315;&#185;&#8309;&#183;&#8070;&#8311; = 977 &#215; 2.83&#215;10&#8315;&#8311; = <b>2.77&#215;10&#8315;&#8308;</b><br>
+        (K drops dramatically at 500 K &#8212; low yield at high temperature)
+      </div>
+    </li>
+
+    <li>
+      Calculate E&#176;cell for the Daniel cell given &#916;G&#176; = &#8722;212.3 kJ/mol and n = 2. Then find K at 298 K.
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        E&#176; = &#8722;&#916;G&#176;/(nF) = 212,300/(2&#215;96,500) = <b>+1.10 V</b><br>
+        ln K = 212,300/(8.314&#215;298) = 85.73; K = e&#8312;&#8309;&#183;&#8311;&#179; = <b>1.8&#215;10&#179;&#8311;</b>
+      </div>
+    </li>
+
+    <li>
+      Explain coupled reactions using the ATP example. State the condition for spontaneous coupling.
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>Coupled reactions</b>: a non-spontaneous process (&#916;G &gt; 0) is driven by coupling with a spontaneous process (&#916;G &lt; 0). &#916;G_total = &#916;G&#8321; + &#916;G&#8322; &lt; 0 required.<br>
+        <b>Condition</b>: |&#916;G(driving)| &gt; |&#916;G(driven)|.<br>
+        <b>ATP example</b>: ATP hydrolysis releases &#916;G&#176; = &#8722;30.5 kJ/mol. Couples to drive biosynthesis reactions up to +30.5 kJ/mol. E.g. glutamine synthesis (&#916;G&#176; = +14.2) coupled with ATP gives net &#8722;16.3 kJ/mol &#8594; spontaneous.
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="section-header">
+    <span class="section-number">&#129504;</span>
+    <h2>Interactive Quiz</h2>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>Unit 15 Quiz &#8212; Entropy &amp; Free Energy</h3>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);">25 Questions</span>
+    </div>
+    <div class="quiz-body">
+
+      <div class="q-block"><span class="q-num">Q1</span>
+        <p class="q-text">Entropy is best defined as a measure of:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="a"> Heat content of a system</label>
+          <label class="opt"><input type="radio" name="q1" value="b"> The number of accessible microstates &#8212; the degree of disorder or randomness</label>
+          <label class="opt"><input type="radio" name="q1" value="c"> The useful work available from a reaction</label>
+          <label class="opt"><input type="radio" name="q1" value="d"> The enthalpy change at constant pressure</label>
+        </div>
+        <div class="q-exp" id="exp1">S = k&#x2082; ln W: entropy is proportional to the logarithm of the number of <b>microstates W</b>. H is enthalpy; G is free energy (useful work); q is heat.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q2</span>
+        <p class="q-text">The Second Law states that in any spontaneous process:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="a"> Energy is conserved</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> The entropy of the universe increases (&#916;S_univ &gt; 0)</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> The entropy of the system decreases</label>
+          <label class="opt"><input type="radio" name="q2" value="d"> The enthalpy of the system decreases</label>
+        </div>
+        <div class="q-exp" id="exp2"><b>&#916;S_universe = &#916;S_system + &#916;S_surroundings &gt; 0</b> for any spontaneous process. Energy conservation is the First Law. System entropy can decrease (e.g. freezing) as long as surroundings gain more entropy.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q3</span>
+        <p class="q-text">The Third Law states that the entropy of a perfect crystal at 0 K is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="a"> Infinite</label>
+          <label class="opt"><input type="radio" name="q3" value="b"> Equal to its enthalpy</label>
+          <label class="opt"><input type="radio" name="q3" value="c"> Zero</label>
+          <label class="opt"><input type="radio" name="q3" value="d"> Equal to the Boltzmann constant</label>
+        </div>
+        <div class="q-exp" id="exp3">At 0 K, a perfect crystal has W = 1 microstate &#8594; S = k ln 1 = <b>0</b>. This gives an absolute scale for entropy &#8212; unlike enthalpy where only &#916;H can be measured.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q4</span>
+        <p class="q-text">A reaction is spontaneous when:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="a"> &#916;G &gt; 0</label>
+          <label class="opt"><input type="radio" name="q4" value="b"> &#916;G &lt; 0</label>
+          <label class="opt"><input type="radio" name="q4" value="c"> &#916;G = 0</label>
+          <label class="opt"><input type="radio" name="q4" value="d"> &#916;H &lt; 0 always</label>
+        </div>
+        <div class="q-exp" id="exp4"><b>&#916;G &lt; 0</b> &#8594; spontaneous. &#916;G = 0 &#8594; equilibrium. &#916;G &gt; 0 &#8594; non-spontaneous. &#916;H alone is insufficient &#8212; entropy also matters.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q5</span>
+        <p class="q-text">For &#916;H &gt; 0 and &#916;S &gt; 0, the reaction is spontaneous:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="a"> At all temperatures</label>
+          <label class="opt"><input type="radio" name="q5" value="b"> Never</label>
+          <label class="opt"><input type="radio" name="q5" value="c"> Only at high T (above T_cross = &#916;H/&#916;S)</label>
+          <label class="opt"><input type="radio" name="q5" value="d"> Only at low temperatures</label>
+        </div>
+        <div class="q-exp" id="exp5">Case 4: &#916;G = &#916;H &#8722; T&#916;S. At high T, T&#916;S dominates &#8594; &#916;G &lt; 0. Crossover: T_cross = &#916;H/&#916;S. Example: CaCO&#8323; decomposition.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q6</span>
+        <p class="q-text">&#916;S&#176; for: 2H&#8322;(g) + O&#8322;(g) &#8594; 2H&#8322;O(l) is expected to be:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="a"> Positive (gases form)</label>
+          <label class="opt"><input type="radio" name="q6" value="b"> Negative (3 mol gas &#8594; 2 mol liquid)</label>
+          <label class="opt"><input type="radio" name="q6" value="c"> Zero</label>
+          <label class="opt"><input type="radio" name="q6" value="d"> Positive only at high T</label>
+        </div>
+        <div class="q-exp" id="exp6">3 moles of gas &#8594; 2 moles of liquid. Gas &#8594; liquid is a huge decrease in entropy. <b>&#916;S &lt; 0</b> (approximately &#8722;327 J/mol&#183;K). Spontaneous only because &#916;H is very negative.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q7</span>
+        <p class="q-text">The relationship between &#916;G&#176; and K is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="a"> &#916;G&#176; = RT ln K</label>
+          <label class="opt"><input type="radio" name="q7" value="b"> &#916;G&#176; = &#8722;RT ln K</label>
+          <label class="opt"><input type="radio" name="q7" value="c"> &#916;G&#176; = &#8722;nRT</label>
+          <label class="opt"><input type="radio" name="q7" value="d"> K = &#916;G&#176;/RT</label>
+        </div>
+        <div class="q-exp" id="exp7"><b>&#916;G&#176; = &#8722;RT ln K</b>. K &gt; 1 &#8594; &#916;G&#176; &lt; 0; K &lt; 1 &#8594; &#916;G&#176; &gt; 0; K = 1 &#8594; &#916;G&#176; = 0.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q8</span>
+        <p class="q-text">For an exothermic reaction (&#916;H&#176; &lt; 0), increasing temperature:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="a"> Increases K</label>
+          <label class="opt"><input type="radio" name="q8" value="b"> Decreases K (equilibrium shifts left)</label>
+          <label class="opt"><input type="radio" name="q8" value="c"> Has no effect on K</label>
+          <label class="opt"><input type="radio" name="q8" value="d"> Doubles K for every 10 K rise</label>
+        </div>
+        <div class="q-exp" id="exp8">Van&#39;t Hoff: for &#916;H&#176; &lt; 0 and T&#8322; &gt; T&#8321;: ln(K&#8322;/K&#8321;) &lt; 0 &#8594; <b>K decreases</b>. Consistent with Le Chatelier.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q9</span>
+        <p class="q-text">T_cross where &#916;G changes sign equals:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="a"> &#916;S&#176;/&#916;H&#176;</label>
+          <label class="opt"><input type="radio" name="q9" value="b"> &#916;H&#176;/&#916;S&#176;</label>
+          <label class="opt"><input type="radio" name="q9" value="c"> R/&#916;G&#176;</label>
+          <label class="opt"><input type="radio" name="q9" value="d"> &#916;H&#176; &#215; &#916;S&#176;</label>
+        </div>
+        <div class="q-exp" id="exp9">At T_cross: &#916;G = 0 &#8594; &#916;H = T&#916;S &#8594; <b>T_cross = &#916;H/&#916;S</b>. Units: J/mol divided by J/mol&#183;K = K.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q10</span>
+        <p class="q-text">If &#916;G&#176; = &#8722;41.2 kJ/mol at 298 K, K equals approximately:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="a"> 2.1&#215;10&#8315;&#8312;</label>
+          <label class="opt"><input type="radio" name="q10" value="b"> 1.66&#215;10&#8311;</label>
+          <label class="opt"><input type="radio" name="q10" value="c"> 1.00</label>
+          <label class="opt"><input type="radio" name="q10" value="d"> 0.60</label>
+        </div>
+        <div class="q-exp" id="exp10">ln K = 41,200/(8.314&#215;298) = 16.62; K = e&#185;&#8310;&#183;&#8310;&#178; = <b>1.66&#215;10&#8311;</b>.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q11</span>
+        <p class="q-text">Which has the highest entropy at 298 K?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q11" value="a"> H&#8322;O(s)</label>
+          <label class="opt"><input type="radio" name="q11" value="b"> H&#8322;O(l)</label>
+          <label class="opt"><input type="radio" name="q11" value="c"> H&#8322;O(g)</label>
+          <label class="opt"><input type="radio" name="q11" value="d"> All the same</label>
+        </div>
+        <div class="q-exp" id="exp11"><b>H&#8322;O(g)</b> has by far the highest entropy: S&#176;(g) = 188.7 vs S&#176;(l) = 69.9 J/mol&#183;K. Gases have enormous positional freedom.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q12</span>
+        <p class="q-text">The Boltzmann equation S = k ln W relates entropy to:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q12" value="a"> Temperature and pressure</label>
+          <label class="opt"><input type="radio" name="q12" value="b"> Number of microstates W available to the system</label>
+          <label class="opt"><input type="radio" name="q12" value="c"> Molar mass</label>
+          <label class="opt"><input type="radio" name="q12" value="d"> Heat capacity at constant volume</label>
+        </div>
+        <div class="q-exp" id="exp12">W = number of <b>microstates</b>. More microstates &#8594; higher entropy. k = 1.381&#215;10&#8315;&#178;&#179; J/K (Boltzmann constant).</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q13</span>
+        <p class="q-text">For &#916;H &lt; 0 and &#916;S &lt; 0, the reaction is spontaneous:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q13" value="a"> At all temperatures</label>
+          <label class="opt"><input type="radio" name="q13" value="b"> Never</label>
+          <label class="opt"><input type="radio" name="q13" value="c"> Only at low temperatures</label>
+          <label class="opt"><input type="radio" name="q13" value="d"> Only at high temperatures</label>
+        </div>
+        <div class="q-exp" id="exp13">Case 3: at low T, |&#916;H| &gt; |T&#916;S| &#8594; &#916;G &lt; 0. At high T, T&#916;S dominates &#8594; &#916;G &gt; 0. <b>Low T only</b>. Example: condensation of steam.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q14</span>
+        <p class="q-text">A ln K vs 1/T plot has slope &#8722;6940 K. &#916;H&#176; equals:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q14" value="a"> &#8722;6940 kJ/mol</label>
+          <label class="opt"><input type="radio" name="q14" value="b"> +57.7 kJ/mol</label>
+          <label class="opt"><input type="radio" name="q14" value="c"> &#8722;57.7 kJ/mol</label>
+          <label class="opt"><input type="radio" name="q14" value="d"> +6940 kJ/mol</label>
+        </div>
+        <div class="q-exp" id="exp14">Slope = &#8722;&#916;H&#176;/R &#8594; &#916;H&#176; = &#8722;slope &#215; R = 6940 &#215; 8.314 = <b>+57.7 kJ/mol</b> (endothermic; K increases with T).</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q15</span>
+        <p class="q-text">&#916;G&#176; = &#8722;nFE&#176;cell connects free energy to:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q15" value="a"> Bond energy</label>
+          <label class="opt"><input type="radio" name="q15" value="b"> Electrochemical cell voltage</label>
+          <label class="opt"><input type="radio" name="q15" value="c"> Calorimetric heat</label>
+          <label class="opt"><input type="radio" name="q15" value="d"> Lattice enthalpy</label>
+        </div>
+        <div class="q-exp" id="exp15">&#916;G&#176; = &#8722;nFE&#176; links free energy to the <b>standard cell voltage</b>. Positive E&#176; &#8594; negative &#916;G&#176; &#8594; spontaneous. Allows K to be found from E&#176;.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q16</span>
+        <p class="q-text">Standard entropy values S&#176; are absolute because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q16" value="a"> They are measured directly by calorimetry</label>
+          <label class="opt"><input type="radio" name="q16" value="b"> The Third Law gives S = 0 at 0 K as an absolute reference</label>
+          <label class="opt"><input type="radio" name="q16" value="c"> Elements have zero entropy by convention</label>
+          <label class="opt"><input type="radio" name="q16" value="d"> Entropy is always positive</label>
+        </div>
+        <div class="q-exp" id="exp16">The <b>Third Law</b> gives an absolute reference (S=0 at 0 K). S values are calculated by integrating Cp dT/T from 0 K. Unlike enthalpy, absolute S can be tabulated.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q17</span>
+        <p class="q-text">For an endothermic reaction (&#916;H = +100 kJ/mol) at 298 K, &#916;S_surr equals:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q17" value="a"> +336 J/K</label>
+          <label class="opt"><input type="radio" name="q17" value="b"> &#8722;336 J/K</label>
+          <label class="opt"><input type="radio" name="q17" value="c"> 0</label>
+          <label class="opt"><input type="radio" name="q17" value="d"> +298 J/K</label>
+        </div>
+        <div class="q-exp" id="exp17">&#916;S_surr = &#8722;&#916;H/T = &#8722;100,000/298 = <b>&#8722;336 J/K</b>. Endothermic reaction absorbs heat from surroundings &#8594; surroundings cool &#8594; lose entropy.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q18</span>
+        <p class="q-text">Condition for spontaneous coupled reaction (&#916;G&#8321; &gt; 0 coupled with &#916;G&#8322; &lt; 0):</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q18" value="a"> &#916;G&#8321; + &#916;G&#8322; &gt; 0</label>
+          <label class="opt"><input type="radio" name="q18" value="b"> &#916;G&#8321; + &#916;G&#8322; &lt; 0 (|&#916;G&#8322;| &gt; |&#916;G&#8321;|)</label>
+          <label class="opt"><input type="radio" name="q18" value="c"> &#916;G&#8322; = &#8722;&#916;G&#8321;</label>
+          <label class="opt"><input type="radio" name="q18" value="d"> &#916;G&#8321; &#215; &#916;G&#8322; &lt; 0</label>
+        </div>
+        <div class="q-exp" id="exp18">&#916;G_total = &#916;G&#8321; + &#916;G&#8322; <b>&lt; 0</b> required. The driving reaction must release more free energy than the driven reaction needs: |&#916;G&#8322;| &gt; |&#916;G&#8321;|.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q19</span>
+        <p class="q-text">Trouton&#39;s rule (&#916;S_vap &#8776; 88 J/mol&#183;K for most liquids) holds because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q19" value="a"> All liquids boil at the same temperature</label>
+          <label class="opt"><input type="radio" name="q19" value="b"> The degree of disorder gained on vaporisation is similar for most non-associated liquids</label>
+          <label class="opt"><input type="radio" name="q19" value="c"> All vapours have the same molar mass</label>
+          <label class="opt"><input type="radio" name="q19" value="d"> &#916;H_vap is constant for all liquids</label>
+        </div>
+        <div class="q-exp" id="exp19">For most <b>non-associated liquids</b>, the increase in disorder going from liquid to gas is similar. Exceptions: H&#8322;O and ethanol (H-bonding) have &#916;S_vap &#8776; 109 J/mol&#183;K.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q20</span>
+        <p class="q-text">At equilibrium, &#916;G equals:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q20" value="a"> &#8722;RT</label>
+          <label class="opt"><input type="radio" name="q20" value="b"> &#916;G&#176;</label>
+          <label class="opt"><input type="radio" name="q20" value="c"> Zero</label>
+          <label class="opt"><input type="radio" name="q20" value="d"> RT ln K</label>
+        </div>
+        <div class="q-exp" id="exp20">At equilibrium, free energy is at minimum &#8594; <b>&#916;G = 0</b>. Note: &#916;G&#176; &#8800; 0 at equilibrium (unless K = 1).</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q21</span>
+        <p class="q-text">&#916;G&#176;f of any element in its standard state is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q21" value="a"> Positive</label>
+          <label class="opt"><input type="radio" name="q21" value="b"> Equal to its standard entropy</label>
+          <label class="opt"><input type="radio" name="q21" value="c"> Zero</label>
+          <label class="opt"><input type="radio" name="q21" value="d"> Equal to its ionisation energy</label>
+        </div>
+        <div class="q-exp" id="exp21">By definition, &#916;G&#176;f of any element in standard state = <b>0</b>. Same convention as &#916;H&#176;f. Allows &#916;G&#176;rxn = &#931;&#916;G&#176;f(products) &#8722; &#931;&#916;G&#176;f(reactants).</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q22</span>
+        <p class="q-text">When Q &lt; K (reaction not yet at equilibrium):</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q22" value="a"> &#916;G &gt; 0 (reaction goes in reverse)</label>
+          <label class="opt"><input type="radio" name="q22" value="b"> &#916;G &lt; 0 (reaction proceeds forward spontaneously)</label>
+          <label class="opt"><input type="radio" name="q22" value="c"> &#916;G = 0 (already at equilibrium)</label>
+          <label class="opt"><input type="radio" name="q22" value="d"> &#916;G = &#916;G&#176;</label>
+        </div>
+        <div class="q-exp" id="exp22">Q &lt; K: too few products &#8594; forward reaction favoured &#8594; <b>&#916;G &lt; 0</b>. Q &gt; K: reverse favoured &#8594; &#916;G &gt; 0. Q = K: equilibrium &#8594; &#916;G = 0.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q23</span>
+        <p class="q-text">K at 298 K for 2SO&#8322; + O&#8322; &#8594; 2SO&#8323; with &#916;G&#176; = &#8722;141.8 kJ/mol is approximately:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q23" value="a"> 1.0</label>
+          <label class="opt"><input type="radio" name="q23" value="b"> 7.1&#215;10&#178;&#8308;</label>
+          <label class="opt"><input type="radio" name="q23" value="c"> 141.8</label>
+          <label class="opt"><input type="radio" name="q23" value="d"> 2.7&#215;10&#8315;&#178;&#8309;</label>
+        </div>
+        <div class="q-exp" id="exp23">ln K = 141,800/(8.314&#215;298) = 57.23; K = e&#8309;&#8311;&#183;&#178;&#179; = <b>7.1&#215;10&#178;&#8308;</b>. Very large &#8212; SO&#8323; strongly favoured at 298 K.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q24</span>
+        <p class="q-text">A van&#39;t Hoff plot of ln K vs 1/T gives a straight line with:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q24" value="a"> Slope = +&#916;H&#176;/R; intercept = &#8722;&#916;S&#176;/R</label>
+          <label class="opt"><input type="radio" name="q24" value="b"> Slope = &#8722;&#916;H&#176;/R; intercept = +&#916;S&#176;/R</label>
+          <label class="opt"><input type="radio" name="q24" value="c"> A curved line</label>
+          <label class="opt"><input type="radio" name="q24" value="d"> Horizontal line if &#916;G&#176; is constant</label>
+        </div>
+        <div class="q-exp" id="exp24">ln K = (&#8722;&#916;H&#176;/R)(1/T) + &#916;S&#176;/R. <b>Slope = &#8722;&#916;H&#176;/R; intercept = &#916;S&#176;/R</b>. Negative slope &#8594; endothermic.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q25</span>
+        <p class="q-text">ATP hydrolysis drives biological reactions because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q25" value="a"> ATP raises cell temperature</label>
+          <label class="opt"><input type="radio" name="q25" value="b"> Free energy released (&#916;G&#176; &#8776; &#8722;30.5 kJ/mol) couples to drive non-spontaneous biosynthetic reactions</label>
+          <label class="opt"><input type="radio" name="q25" value="c"> ATP increases reactant concentrations</label>
+          <label class="opt"><input type="radio" name="q25" value="d"> ATP acts as an enzyme catalyst</label>
+        </div>
+        <div class="q-exp" id="exp25">ATP hydrolysis: &#916;G&#176; = &#8722;30.5 kJ/mol. This is <b>coupled</b> to drive reactions with &#916;G &lt; +30.5 kJ/mol (non-spontaneous alone). Net &#916;G &lt; 0 &#8594; spontaneous overall. ATP is consumed (not a catalyst).</div>
+      </div>
+
+    </div>
+    <div style="padding:0 24px 24px;">
+      <button class="quiz-submit" onclick="submitQuiz()">Submit All 25 Answers</button>
+      <div id="quizResult" style="display:none;margin-top:16px;border-radius:var(--radius);padding:16px 20px;font-family:'JetBrains Mono',monospace;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT TEST -->
+<section id="test">
+  <div class="section-header">
+    <span class="section-number">&#128221;</span>
+    <h2>Unit Test</h2>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">&#8505;&#65039;</span>
+    <div class="callout-body">
+      <strong>Instructions</strong>
+      Total: 50 marks &nbsp;|&nbsp; Time: 55 minutes &nbsp;|&nbsp; Show all working. R = 8.314 J/mol&#183;K.
+    </div>
+  </div>
+
+  <div class="test-wrap">
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section A &#8212; Short Answer</h3>
+        <span class="marks-badge">30 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q1 [4 marks]</span>
+          <p>Calculate &#916;S&#176;rxn for: CH&#8324;(g) + 2O&#8322;(g) &#8594; CO&#8322;(g) + 2H&#8322;O(l)<br>
+          S&#176; (J/mol&#183;K): CH&#8324;=186.3; O&#8322;=205.1; CO&#8322;=213.8; H&#8322;O(l)=69.9. Explain the sign in terms of states of matter.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              &#916;S&#176; = [S&#176;(CO&#8322;) + 2S&#176;(H&#8322;O(l))] &#8722; [S&#176;(CH&#8324;) + 2S&#176;(O&#8322;)]<br>
+              = [213.8 + 2&#215;69.9] &#8722; [186.3 + 2&#215;205.1]<br>
+              = 353.6 &#8722; 596.5 = <b>&#8722;242.9 J/mol&#183;K</b><br>
+              <b>Negative</b>: 3 mol gas &#8594; 1 mol gas + 2 mol liquid. Gas &#8594; liquid gives large decrease in entropy.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q2 [5 marks]</span>
+          <p>2NO(g) + O&#8322;(g) &#8594; 2NO&#8322;(g): &#916;H&#176; = &#8722;114.6 kJ/mol; &#916;S&#176; = &#8722;146.5 J/mol&#183;K.<br>
+          (a) &#916;G&#176; at 298 K; (b) Spontaneous at 298 K?; (c) T_cross; (d) Spontaneous above or below T_cross?</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) &#916;G&#176;(298) = &#8722;114,600 &#8722; 298&#215;(&#8722;146.5) = &#8722;114,600 + 43,657 = <b>&#8722;70.9 kJ/mol</b><br>
+              (b) &#916;G&#176; &lt; 0 &#8594; <b>spontaneous</b> at 298 K<br>
+              (c) T_cross = 114,600/146.5 = <b>782 K (509&#176;C)</b><br>
+              (d) Case 3 (&#916;H&lt;0, &#916;S&lt;0): spontaneous <b>below</b> T_cross. Above 782 K, &#916;G &gt; 0.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q3 [5 marks]</span>
+          <p>HF(g) &#8652; H(g) + F(g): K = 1.0&#215;10&#8315;&#185;&#179; at 298 K and 2.0&#215;10&#8315;&#8311; at 1000 K.<br>
+          (a) &#916;G&#176; at 298 K; (b) &#916;H&#176; via van&#39;t Hoff; (c) Exo- or endothermic? Consistent with Le Chatelier?</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) &#916;G&#176; = &#8722;RT ln K = &#8722;8.314&#215;298&#215;ln(10&#8315;&#185;&#179;) = &#8722;2478&#215;(&#8722;29.93) = <b>+74.2 kJ/mol</b><br>
+              (b) ln(2&#215;10&#8315;&#8311;/10&#8315;&#185;&#179;) = ln(2&#215;10&#8310;) = 14.51<br>
+              14.51 = &#8722;(&#916;H&#176;/8.314)(1/1000 &#8722; 1/298) = &#8722;(&#916;H&#176;/8.314)(&#8722;2.356&#215;10&#8315;&#179;)<br>
+              &#916;H&#176; = 14.51&#215;8.314/2.356&#215;10&#8315;&#179; = <b>+51.2 kJ/mol</b><br>
+              (c) <b>Endothermic</b>. Le Chatelier: increasing T increases K &#8594; more dissociation. Consistent.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q4 [5 marks]</span>
+          <p>Zn(s) + Cu&#178;&#8314;(aq) &#8594; Zn&#178;&#8314;(aq) + Cu(s): E&#176;cell = +1.10 V, n = 2, &#916;H&#176; = &#8722;218.7 kJ/mol.<br>
+          (a) &#916;G&#176;; (b) K at 298 K; (c) &#916;S&#176; from &#916;G&#176; = &#916;H&#176; &#8722; T&#916;S&#176;; (d) Verify &#916;G&#176;.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) &#916;G&#176; = &#8722;nFE&#176; = &#8722;2&#215;96500&#215;1.10 = <b>&#8722;212.3 kJ/mol</b><br>
+              (b) ln K = 212300/(8.314&#215;298) = 85.73; K = <b>1.8&#215;10&#179;&#8311;</b><br>
+              (c) &#916;S&#176; = (&#916;H&#176; &#8722; &#916;G&#176;)/T = (&#8722;218700 + 212300)/298 = &#8722;6400/298 = <b>&#8722;21.5 J/mol&#183;K</b><br>
+              (d) &#916;G&#176; = &#8722;218700 &#8722; 298&#215;(&#8722;21.5) = &#8722;218700 + 6407 = &#8722;212,293 J &#8776; <b>&#8722;212.3 kJ/mol</b> &#10003;
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q5 [5 marks]</span>
+          <p>State and explain the Second Law. Use it to explain spontaneous: (a) heat flow hot &#8594; cold; (b) gas expansion; (c) crystal dissolving in water.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Second Law</b>: In any spontaneous process, &#916;S_universe = &#916;S_system + &#916;S_surroundings &gt; 0.<br><br>
+              (a) Heat q from hot (T_h) to cold (T_c): &#916;S_total = q/T_c &#8722; q/T_h &gt; 0 (since T_c &lt; T_h). Universe entropy increases &#8594; spontaneous. Reverse would give &#916;S &lt; 0 &#8594; impossible.<br><br>
+              (b) Gas expanding: more volume &#8594; more positional microstates &#8594; W increases &#8594; S increases &#8594; &#916;S_universe &gt; 0 &#8594; spontaneous.<br><br>
+              (c) Crystal dissolving: ions from ordered lattice into disordered solution &#8594; enormous increase in microstates &#8594; &#916;S_system &#8811; 0. Even if endothermic (&#916;S_surr &lt; 0), net &#916;S_universe &gt; 0 &#8594; spontaneous.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q6 [6 marks]</span>
+          <p>2H&#8322;O&#8322;(l) &#8594; 2H&#8322;O(l) + O&#8322;(g): &#916;H&#176; = &#8722;196.1 kJ/mol.<br>
+          S&#176; (J/mol&#183;K): H&#8322;O&#8322;=109.6; H&#8322;O(l)=69.9; O&#8322;=205.1.<br>
+          (a) &#916;S&#176;; (b) &#916;G&#176; at 298 K; (c) K at 298 K; (d) K at 310 K; (e) Why is catalase needed biologically?</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) &#916;S&#176; = [2&#215;69.9 + 205.1] &#8722; 2&#215;109.6 = 344.9 &#8722; 219.2 = <b>+125.7 J/mol&#183;K</b><br>
+              (b) &#916;G&#176; = &#8722;196,100 &#8722; 298&#215;125.7 = &#8722;196,100 &#8722; 37,459 = <b>&#8722;233.6 kJ/mol</b><br>
+              (c) ln K = 233,600/(8.314&#215;298) = 94.27; K &#8776; <b>10&#8308;&#185;</b><br>
+              (d) ln(K&#8323;&#185;&#8320;/K&#8322;&#8313;&#8312;) = &#8722;(&#8722;196100/8.314)(1/310&#8722;1/298) = 23584&#215;(&#8722;1.30&#215;10&#8315;&#8308;) = &#8722;3.07; K&#8323;&#185;&#8320; &#8776; K&#8322;&#8313;&#8312; &#215; e&#8315;&#179;&#183;&#8070;&#8311; &#8776; <b>~5&#215;10&#179;&#8313;</b><br>
+              (e) K is enormous &#8594; thermodynamically very favourable. But decomposition is very <b>slow</b> without a catalyst (high activation energy). <b>Catalase</b> lowers activation energy to allow rapid decomposition of toxic H&#8322;O&#8322; in cells. Thermodynamics determines feasibility; kinetics determines rate.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section B &#8212; Extended Response</h3>
+        <span class="marks-badge">20 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q7 [10 marks]</span>
+          <p><b>(a)</b> State the Second and Third Laws of Thermodynamics. What does each tell us about entropy? [4]<br>
+          <b>(b)</b> CO(g) + &frac12;O&#8322;(g) &#8594; CO&#8322;(g): &#916;H&#176;=&#8722;283.0 kJ/mol; &#916;S&#176;=&#8722;86.8 J/mol&#183;K.<br>
+          (i) &#916;G&#176; at 298 K and 1500 K; (ii) K at both temperatures; (iii) Why is this reaction used in furnaces at high T despite decreasing K? [6]</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a) Second Law</b>: &#916;S_universe &gt; 0 for any spontaneous process. Natural processes move toward maximum disorder; the "arrow of time" is defined by increasing universal entropy.<br>
+              <b>Third Law</b>: S(perfect crystal, 0 K) = 0. Gives an absolute reference for entropy, allowing absolute S&#176; values to be tabulated (unlike enthalpy, where only &#916;H is measurable).<br><br>
+              <b>(b)(i)</b><br>
+              &#916;G&#176;(298) = &#8722;283,000 &#8722; 298&#215;(&#8722;86.8) = &#8722;283,000 + 25,866 = <b>&#8722;257.1 kJ/mol</b><br>
+              &#916;G&#176;(1500) = &#8722;283,000 &#8722; 1500&#215;(&#8722;86.8) = &#8722;283,000 + 130,200 = <b>&#8722;152.8 kJ/mol</b><br><br>
+              <b>(b)(ii)</b><br>
+              K(298): ln K = 257,100/(8.314&#215;298) = 103.7; K &#8776; <b>10&#8308;&#8309;</b><br>
+              K(1500): ln K = 152,800/(8.314&#215;1500) = 12.25; K &#8776; <b>2.1&#215;10&#8309;</b><br><br>
+              <b>(b)(iii)</b> K decreases dramatically (10&#8308;&#8309; &#8594; 10&#8309;) but both are still very large &#8594; still spontaneous. Furnaces use high T for <b>kinetic reasons</b>: CO combustion has a high activation energy. At room T, thermodynamically favourable but too slow. High T provides the activation energy for a practical combustion rate. This illustrates that thermodynamics (&#916;G) says whether a reaction CAN occur, but kinetics determines HOW FAST.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q8 [10 marks]</span>
+          <p><b>(a)</b> Derive the van&#39;t Hoff equation from &#916;G&#176; = &#916;H&#176; &#8722; T&#916;S&#176; and &#916;G&#176; = &#8722;RT ln K. Explain how a ln K vs 1/T graph yields &#916;H&#176; and &#916;S&#176;. [5]<br>
+          <b>(b)</b> Haber process: N&#8322; + 3H&#8322; &#8652; 2NH&#8323;: &#916;H&#176; = &#8722;92.4 kJ/mol; &#916;S&#176; = &#8722;198.4 J/mol&#183;K.<br>
+          (i) Show spontaneous at 298 K but not at 800 K; (ii) K at 298 K; (iii) K at 700 K via van&#39;t Hoff; (iv) Explain the industrial conditions (450&#176;C, 200 atm, Fe catalyst). [5]</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)</b> &#916;G&#176; = &#8722;RT ln K and &#916;G&#176; = &#916;H&#176; &#8722; T&#916;S&#176;<br>
+              &#8756; &#8722;RT ln K = &#916;H&#176; &#8722; T&#916;S&#176; &#8594; divide by &#8722;RT:<br>
+              <b>ln K = &#8722;&#916;H&#176;/(RT) + &#916;S&#176;/R</b><br>
+              y = mx + c form: y = ln K; x = 1/T; slope = &#8722;&#916;H&#176;/R; intercept = &#916;S&#176;/R<br>
+              &#916;H&#176; = &#8722;slope &#215; R; &#916;S&#176; = intercept &#215; R<br>
+              Negative slope &#8594; endothermic (K increases with T). Positive slope &#8594; exothermic.<br><br>
+              <b>(b)(i)</b><br>
+              &#916;G&#176;(298) = &#8722;92,400 &#8722; 298&#215;(&#8722;198.4) = &#8722;92,400 + 59,123 = <b>&#8722;33.3 kJ/mol</b> &#8594; spontaneous &#10003;<br>
+              &#916;G&#176;(800) = &#8722;92,400 &#8722; 800&#215;(&#8722;198.4) = &#8722;92,400 + 158,720 = <b>+66.3 kJ/mol</b> &#8594; non-spontaneous &#10003;<br>
+              T_cross = 92,400/198.4 = 466 K.<br><br>
+              <b>(b)(ii)</b> ln K = 33,277/(8.314&#215;298) = 13.43; K = e&#185;&#179;&#183;&#8308;&#179; = <b>677</b><br><br>
+              <b>(b)(iii)</b> ln(K&#8327;&#8320;&#8320;/K&#8322;&#8313;&#8312;) = &#8722;(&#8722;92400/8.314)(1/700&#8722;1/298) = 11113&#215;(&#8722;1.927&#215;10&#8315;&#179;) = &#8722;21.42<br>
+              K&#8327;&#8320;&#8320; = 677 &#215; e&#8315;&#178;&#185;&#183;&#8308;&#178; = 677 &#215; 4.45&#215;10&#8315;&#185;&#8304; = <b>3.0&#215;10&#8315;&#8311;</b> (very small &#8212; poor yield at 700 K)<br><br>
+              <b>(b)(iv) Industrial conditions</b>:<br>
+              &#8226; Low T favours thermodynamics (higher K, better yield) but too slow &#8594; <b>compromise at ~450&#176;C</b><br>
+              &#8226; High P (200 atm): 4 mol gas &#8594; 2 mol gas &#8594; Le Chatelier: high P shifts right &#8594; more NH&#8323;<br>
+              &#8226; Fe catalyst: lowers activation energy &#8594; acceptable rate at 450&#176;C without sacrificing K<br>
+              &#8226; Without catalyst, even 450&#176;C too slow. Thermodynamics + kinetics both must be optimised.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="completion-banner">
+  <h3>Course Complete! All 15 Units Done.</h3>
+  <p>You have completed the full S5 Chemistry course covering organic and physical chemistry.</p>
+</div>
+
+<div class="unit-nav">
+  <a class="nav-btn prev" href="unit14_enthalpy.html">&larr; Unit 14: Enthalpy Changes</a>
+  <a class="nav-btn home" href="s5-chemistry.html">&#127968; Course Home</a>
+</div>
+
+</main>
+
+<script>
+function toggleAnswer(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+const correctAnswers={q1:'b',q2:'b',q3:'c',q4:'b',q5:'c',q6:'b',q7:'b',q8:'b',q9:'b',q10:'b',q11:'c',q12:'b',q13:'c',q14:'b',q15:'b',q16:'b',q17:'b',q18:'b',q19:'b',q20:'c',q21:'c',q22:'b',q23:'b',q24:'b',q25:'b'};
+function submitQuiz(){
+  let score=0;
+  const total=Object.keys(correctAnswers).length;
+  Object.entries(correctAnswers).forEach(([q,correct])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{if(o.value===correct)o.parentElement.classList.add('correct');});
+    if(sel){if(sel.value===correct)score++;else sel.parentElement.classList.add('wrong');}
+    const exp=document.getElementById('exp'+q.slice(1));
+    if(exp)exp.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const pct=Math.round(score/total*100);
+  const res=document.getElementById('quizResult');
+  res.style.display='block';
+  res.style.background=pct>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  res.style.border='1px solid '+(pct>=70?'var(--green)':'var(--red)');
+  res.style.color=pct>=70?'var(--green)':'var(--red)';
+  res.innerHTML='Score: '+score+' / '+total+' ('+pct+'%) — '+(pct>=80?'Excellent! ★':pct>=60?'Good effort — review marked questions.':'Keep studying — re-read notes and try again.');
+  document.querySelector('.quiz-submit').disabled=true;
+  document.querySelector('.quiz-submit').style.opacity='0.5';
+}
+</script>
+</body>
+</html>
