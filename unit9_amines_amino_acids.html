@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S5 Chemistry – Unit 9: Amines and Amino Acids</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;
+    --accent:#58c4dc;--accent2:#f97316;--accent3:#a78bfa;
+    --gold:#e8c547;--green:#34d399;--red:#f87171;--lime:#84cc16;
+    --text:#e6edf3;--muted:#8b949e;--radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+  .hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#162100 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(132,204,22,.05) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(132,204,22,.05) 40px);pointer-events:none;}
+  .badge{display:inline-block;background:rgba(132,204,22,.12);border:1px solid rgba(132,204,22,.3);color:var(--lime);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+  .hero h1 em{color:var(--lime);font-style:italic;}
+  .hero p.sub{color:var(--muted);font-size:1rem;max-width:620px;margin:0 auto 32px;}
+  .toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:800px;margin:0 auto;}
+  .toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+  .toc-grid a:hover{background:var(--lime);color:#000;border-color:var(--lime);}
+  .page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+  .section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--lime);background:rgba(132,204,22,.1);border:1px solid rgba(132,204,22,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+  .section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+  .card p+p{margin-top:12px;}
+  .def-box{border-left:4px solid var(--lime);background:rgba(132,204,22,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+  .def-box strong{color:var(--lime);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+  .callout.info{background:rgba(88,196,220,.08);border:1px solid rgba(88,196,220,.25);}
+  .callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+  .callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+  .callout.lime{background:rgba(132,204,22,.08);border:1px solid rgba(132,204,22,.25);}
+  .callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+  .callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+  .tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:var(--surface2);}
+  th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--lime);white-space:nowrap;}
+  td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  td code{background:rgba(132,204,22,.12);padding:2px 7px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.85em;}
+  .formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--lime);overflow-x:auto;white-space:pre;}
+  .example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+  .example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+  .example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+  .example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+  .example-body{padding:22px 26px;}
+  .example-body .q{color:var(--text);margin-bottom:14px;font-weight:600;}
+  .example-body .step{display:flex;gap:14px;margin:10px 0;}
+  .step-num{min-width:28px;height:28px;background:rgba(132,204,22,.15);border:1px solid rgba(132,204,22,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--lime);flex-shrink:0;margin-top:3px;}
+  .step-text{flex:1;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .exercise-list{list-style:none;counter-reset:ex;}
+  .exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+  .exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--lime);display:block;margin-bottom:6px;}
+  .reveal-btn{margin-top:10px;background:rgba(132,204,22,.1);border:1px solid rgba(132,204,22,.3);color:var(--lime);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+  .reveal-btn:hover{background:var(--lime);color:#000;}
+  .answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(132,204,22,.06);border-left:3px solid var(--lime);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .answer.open{display:block;}
+  .quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+  .quiz-header{background:rgba(132,204,22,.1);border-bottom:1px solid rgba(132,204,22,.2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .quiz-header h3{font-family:'Playfair Display',serif;color:var(--lime);font-size:1.2rem;}
+  .quiz-score-display{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);}
+  .quiz-body{padding:24px;}
+  .q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+  .q-block:last-of-type{border-bottom:none;}
+  .q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+  .q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--lime);display:block;margin-bottom:4px;}
+  .options{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+  .opt:hover{border-color:var(--lime);}
+  .opt input{margin-top:3px;accent-color:var(--lime);}
+  .opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+  .opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+  .q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(132,204,22,.07);border-left:3px solid var(--lime);border-radius:0 6px 6px 0;font-size:.88rem;}
+  .quiz-submit{background:var(--lime);color:#000;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;font-weight:600;transition:opacity .2s;}
+  .quiz-submit:hover{opacity:.85;}
+  .test-wrap{margin-top:40px;}
+  .test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px;}
+  .test-section-header{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .test-section-header h3{font-family:'Playfair Display',serif;color:var(--accent2);font-size:1.1rem;}
+  .marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(249,115,22,.2);color:var(--accent2);padding:4px 12px;border-radius:50px;}
+  .test-body{padding:24px;}
+  .test-q{margin-bottom:20px;padding:16px 18px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);}
+  .test-q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent2);margin-bottom:6px;display:block;}
+  .test-answer-reveal{margin-top:14px;}
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+  .nav-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s;}
+  .nav-btn.prev{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+  .nav-btn.prev:hover{border-color:var(--lime);color:var(--lime);}
+  .nav-btn.next{background:var(--lime);color:#000;font-weight:600;}
+  .nav-btn.next:hover{opacity:.88;}
+  h3.sub-heading{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+  sub,sup{font-size:.72em;}
+  @media(max-width:600px){.hero{padding:50px 20px 40px;}.page{padding:0 16px 60px;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Unit 9 &middot; Organic Chemistry</div>
+  <h1><em>Amines</em> and <em>Amino Acids</em></h1>
+  <p class="sub">Nomenclature, classification, basicity, preparation, reactions, optical isomers, peptides, and proteins.</p>
+  <nav class="toc-grid">
+    <a href="#nomenclature">9.1 Nomenclature &amp; Classification</a>
+    <a href="#properties">9.2 Physical Properties</a>
+    <a href="#basicity">9.3 Basicity</a>
+    <a href="#preparation">9.4 Preparation</a>
+    <a href="#reactions">9.5 Reactions</a>
+    <a href="#amino-acids">9.6 Amino Acids</a>
+    <a href="#optical">9.7 Optical Isomerism</a>
+    <a href="#peptides">9.8 Peptides &amp; Proteins</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<!-- 9.1 NOMENCLATURE AND CLASSIFICATION -->
+<section id="nomenclature">
+  <div class="section-header">
+    <span class="section-number">9.1</span>
+    <h2>Nomenclature and Classification</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Amines — Definition</strong>
+    Amines are organic compounds derived from <b>ammonia (NH<sub>3</sub>)</b> by replacing one, two, or three hydrogen atoms with alkyl or aryl groups. They contain a nitrogen atom with a lone pair. Named with the suffix <b>&ndash;amine</b> (for aliphatic amines) or as <b>N-substituted amines</b>.
+  </div>
+
+  <h3 class="sub-heading">Classification by Degree of Substitution</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Class</th><th>Structure</th><th>Definition</th><th>Example</th><th>Name</th></tr></thead>
+      <tbody>
+        <tr><td><b>Primary (1&deg;)</b></td><td>RNH<sub>2</sub></td><td>N bonded to 1 alkyl group</td><td>CH<sub>3</sub>NH<sub>2</sub></td><td>Methylamine</td></tr>
+        <tr><td><b>Secondary (2&deg;)</b></td><td>R<sub>2</sub>NH</td><td>N bonded to 2 alkyl groups</td><td>(CH<sub>3</sub>)<sub>2</sub>NH</td><td>Dimethylamine</td></tr>
+        <tr><td><b>Tertiary (3&deg;)</b></td><td>R<sub>3</sub>N</td><td>N bonded to 3 alkyl groups</td><td>(CH<sub>3</sub>)<sub>3</sub>N</td><td>Trimethylamine</td></tr>
+        <tr><td><b>Quaternary (4&deg;) salt</b></td><td>R<sub>4</sub>N<sup>+</sup>X<sup>&minus;</sup></td><td>N bonded to 4 alkyl groups (cation)</td><td>(CH<sub>3</sub>)<sub>4</sub>N<sup>+</sup>I<sup>&minus;</sup></td><td>Tetramethylammonium iodide</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <span class="callout-icon">&#128204;</span>
+    <div class="callout-body">
+      <strong>Important: Amine Classification vs Alcohol Classification</strong>
+      For alcohols, the classification (1&deg;/2&deg;/3&deg;) refers to the carbon bearing &ndash;OH. For amines, the classification refers to the <b>nitrogen atom</b> directly — how many carbon atoms are bonded to N. E.g. (CH<sub>3</sub>)<sub>3</sub>CNH<sub>2</sub> has a tertiary carbon but is a <b>primary amine</b> (N bonded to 1 C).
+    </div>
+  </div>
+
+  <h3 class="sub-heading">IUPAC Nomenclature</h3>
+  <div class="card">
+    <ol style="padding-left:20px;line-height:2.1;">
+      <li><b>Simple amines:</b> Name the alkyl group(s) attached to N, then add &ndash;amine. E.g. CH<sub>3</sub>NH<sub>2</sub> = methylamine; (C<sub>2</sub>H<sub>5</sub>)<sub>2</sub>NH = diethylamine.</li>
+      <li><b>IUPAC systematic:</b> Name the longest chain attached to N as the parent alkane, replace &ndash;e with &ndash;amine, and give the position of &ndash;NH<sub>2</sub>. E.g. CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub> = propan-1-amine.</li>
+      <li><b>N-substituents:</b> Use N&ndash; prefix for substituents on nitrogen. E.g. CH<sub>3</sub>NHCH<sub>2</sub>CH<sub>3</sub> = N-methylethanamine (or methyl ethylamine).</li>
+      <li><b>Aromatic amines:</b> Phenylamine (aniline) = C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub>.</li>
+    </ol>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Name</th><th>Formula</th><th>Class</th><th>Smell</th></tr></thead>
+      <tbody>
+        <tr><td>Methylamine</td><td>CH<sub>3</sub>NH<sub>2</sub></td><td>1&deg;</td><td>Fishy/ammonia</td></tr>
+        <tr><td>Ethylamine</td><td>C<sub>2</sub>H<sub>5</sub>NH<sub>2</sub></td><td>1&deg;</td><td>Fishy</td></tr>
+        <tr><td>Propylamine</td><td>C<sub>3</sub>H<sub>7</sub>NH<sub>2</sub></td><td>1&deg;</td><td>Fishy/putrid</td></tr>
+        <tr><td>Dimethylamine</td><td>(CH<sub>3</sub>)<sub>2</sub>NH</td><td>2&deg;</td><td>Fishy/ammonia</td></tr>
+        <tr><td>Trimethylamine</td><td>(CH<sub>3</sub>)<sub>3</sub>N</td><td>3&deg;</td><td>Fishy (dead fish)</td></tr>
+        <tr><td>Phenylamine (aniline)</td><td>C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub></td><td>1&deg; (aromatic)</td><td>Unpleasant</td></tr>
+        <tr><td>Putrescine (1,4-diaminobutane)</td><td>H<sub>2</sub>N(CH<sub>2</sub>)<sub>4</sub>NH<sub>2</sub></td><td>1&deg; diamine</td><td>Rotting flesh</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 1</span><h4>Naming and Classifying Amines</h4></div>
+    <div class="example-body">
+      <p class="q">Name and classify: (a) CH<sub>3</sub>CH<sub>2</sub>NHCH<sub>3</sub> &nbsp; (b) (C<sub>2</sub>H<sub>5</sub>)<sub>3</sub>N &nbsp; (c) (CH<sub>3</sub>)<sub>3</sub>CNH<sub>2</sub></p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">N bonded to CH<sub>3</sub> and C<sub>2</sub>H<sub>5</sub> &rarr; 2 groups on N &rarr; <b>secondary</b>. Name: <b>N-methylethanamine</b> (or methyl ethylamine).</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">N bonded to 3 ethyl groups &rarr; <b>tertiary</b>. Name: <b>triethylamine</b>.</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">N bonded to 1 group (the C(CH<sub>3</sub>)<sub>3</sub> group) &rarr; <b>primary</b> amine (the carbon bearing N is tertiary but the amine itself is primary). Name: <b>2-methylpropan-2-amine</b> (or tert-butylamine).</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9.2 PHYSICAL PROPERTIES -->
+<section id="properties">
+  <div class="section-header">
+    <span class="section-number">9.2</span>
+    <h2>Physical Properties</h2>
+  </div>
+
+  <div class="card">
+    <h3>Boiling Points and Hydrogen Bonding</h3>
+    <p>Primary and secondary amines can form <b>N&ndash;H&middot;&middot;&middot;N hydrogen bonds</b> between molecules, but these are <b>weaker than O&ndash;H&middot;&middot;&middot;O bonds</b> in alcohols (N is less electronegative than O). Therefore amines have higher boiling points than alkanes of similar M<sub>r</sub>, but lower than alcohols.</p>
+    <p>Tertiary amines cannot form N&ndash;H&middot;&middot;&middot;N H-bonds (no N&ndash;H). They have even lower boiling points — similar to ethers.</p>
+  </div>
+
+  <div class="card">
+    <h3>Solubility in Water</h3>
+    <p>Short-chain amines (C<sub>1</sub>&ndash;C<sub>6</sub>) are <b>soluble in water</b>: the N atom accepts H-bonds from water (N&middot;&middot;&middot;H&ndash;O), and N&ndash;H can donate H-bonds to water. As chain length increases, solubility decreases. All amines are <b>basic</b> in water (produce OH<sup>&minus;</sup>).</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Amine</th><th>M<sub>r</sub></th><th>B.P. (&deg;C)</th><th>Compare to alcohol</th></tr></thead>
+      <tbody>
+        <tr><td>Methylamine (1&deg;)</td><td>31</td><td>&minus;6</td><td>Methanol B.P. = 65&deg;C</td></tr>
+        <tr><td>Ethylamine (1&deg;)</td><td>45</td><td>+17</td><td>Ethanol B.P. = 78&deg;C</td></tr>
+        <tr><td>Propylamine (1&deg;)</td><td>59</td><td>+48</td><td>Propan-1-ol B.P. = 97&deg;C</td></tr>
+        <tr><td>Dimethylamine (2&deg;)</td><td>45</td><td>+7</td><td>&mdash;</td></tr>
+        <tr><td>Trimethylamine (3&deg;)</td><td>59</td><td>+3</td><td>No N&ndash;H bonds</td></tr>
+        <tr><td>Phenylamine (aromatic)</td><td>93</td><td>+184</td><td>High B.P. due to ring London forces</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 9.3 BASICITY -->
+<section id="basicity">
+  <div class="section-header">
+    <span class="section-number">9.3</span>
+    <h2>Basicity of Amines</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Basicity</strong>
+    Amines act as <b>Brønsted-Lowry bases</b> by accepting a proton (H<sup>+</sup>) using the lone pair on nitrogen: RNH<sub>2</sub> + H<sub>2</sub>O &rightleftharpoons; RNH<sub>3</sub><sup>+</sup> + OH<sup>&minus;</sup>. They also act as <b>Lewis bases</b> (lone pair donors). The strength of a base is measured by pK<sub>b</sub>; lower pK<sub>b</sub> = stronger base.
+  </div>
+
+  <div class="card">
+    <h3>Factors Affecting Amine Basicity</h3>
+    <p><b>1. Alkyl groups (electron-donating):</b> Alkyl groups donate electrons to N, increasing the electron density on N and making it a better H<sup>+</sup> acceptor. Thus: alkylamines are stronger bases than NH<sub>3</sub>.</p>
+    <p><b>2. Aromatic ring (electron-withdrawing by resonance):</b> In phenylamine (aniline), the lone pair on N is delocalised into the benzene ring (resonance), making it less available for protonation. Phenylamine is therefore a <b>much weaker base</b> than aliphatic amines.</p>
+    <p><b>3. Order of basicity:</b> 2&deg; alkylamine &gt; 1&deg; alkylamine &gt; NH<sub>3</sub> &gt; phenylamine (aromatic) &gt; amides.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Base</th><th>pK<sub>b</sub></th><th>Relative Strength</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Diethylamine (2&deg;)</td><td>3.0</td><td>Strongest (aliphatic)</td><td>Two electron-donating ethyl groups</td></tr>
+        <tr><td>Ethylamine (1&deg;)</td><td>3.4</td><td>Strong</td><td>One ethyl group donates electrons to N</td></tr>
+        <tr><td>Methylamine (1&deg;)</td><td>3.4</td><td>Strong</td><td>Methyl group donates electrons to N</td></tr>
+        <tr><td>Ammonia (NH<sub>3</sub>)</td><td>4.7</td><td>Moderate</td><td>No alkyl groups; reference</td></tr>
+        <tr><td>Phenylamine (C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub>)</td><td>9.4</td><td>Weak</td><td>Lone pair delocalised into benzene ring</td></tr>
+        <tr><td>Ethanamide (CH<sub>3</sub>CONH<sub>2</sub>)</td><td>~15</td><td>Extremely weak</td><td>Lone pair delocalised into C=O; barely basic</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>Reactions as Bases</h3>
+    <div class="formula-block">With water (weak base equilibrium):
+RNH2  +  H2O  <==>  RNH3+  +  OH-
+
+With acids (strong base reaction, forms salt):
+RNH2  +  HCl  -->  RNH3+Cl-  (alkylammonium chloride salt)
+RNH2  +  H2SO4  -->  (RNH3)2SO4
+
+e.g.  CH3NH2  +  HCl  -->  CH3NH3+Cl-
+      (methylamine)         (methylammonium chloride)</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 2</span><h4>Comparing Basicities</h4></div>
+    <div class="example-body">
+      <p class="q">Arrange in order of increasing base strength: phenylamine, ethylamine, ammonia, diethylamine. Explain the trend.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><b>Phenylamine</b> is weakest: lone pair on N delocalised into benzene ring &rarr; less available for H<sup>+</sup> &rarr; pK<sub>b</sub> = 9.4.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><b>Ammonia</b>: no alkyl groups, no resonance &rarr; pK<sub>b</sub> = 4.7.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><b>Ethylamine</b>: one electron-donating ethyl group increases e<sup>&minus;</sup> density on N &rarr; pK<sub>b</sub> = 3.4.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text"><b>Diethylamine</b>: two ethyl groups &rarr; most electron-dense N &rarr; pK<sub>b</sub> = 3.0 &rarr; strongest base.</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Order: phenylamine &lt; NH<sub>3</sub> &lt; ethylamine &lt; diethylamine.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9.4 PREPARATION -->
+<section id="preparation">
+  <div class="section-header">
+    <span class="section-number">9.4</span>
+    <h2>Preparation of Amines</h2>
+  </div>
+
+  <h3 class="sub-heading">Method 1: Reduction of Nitriles (LiAlH<sub>4</sub>)</h3>
+  <div class="card">
+    <div class="formula-block">R-CN  +  4[H]  --LiAlH4, dry ether-->  R-CH2-NH2  (primary amine)
+
+e.g.  CH3CN  +  4[H]  -->  CH3CH2NH2  (ethylamine)</div>
+    <p>Chain is extended by 1C from the nitrile carbon. This is an excellent route to primary amines.</p>
+  </div>
+
+  <h3 class="sub-heading">Method 2: Reduction of Amides (LiAlH<sub>4</sub>)</h3>
+  <div class="card">
+    <div class="formula-block">RCONH2  +  4[H]  --LiAlH4-->  RCH2NH2  (primary amine)
+RCONHR' +  4[H]  --LiAlH4-->  RCH2NHR' (secondary amine)
+RCONR'2 +  4[H]  --LiAlH4-->  RCH2NR'2 (tertiary amine)</div>
+  </div>
+
+  <h3 class="sub-heading">Method 3: Nucleophilic Substitution of Halogenoalkanes with Excess NH<sub>3</sub></h3>
+  <div class="card">
+    <p>A halogenoalkane reacts with excess concentrated ammonia in ethanol in a sealed tube. The product is a mixture, but using excess NH<sub>3</sub> favours the primary amine.</p>
+    <div class="formula-block">R-X  +  NH3 (excess, alc.)  -->  R-NH2  +  HX   (primary amine, major)
+R-NH2  +  R-X  -->  R2NH  +  HX        (secondary, minor)
+R2NH  +  R-X   -->  R3N  +  HX         (tertiary, minor)
+R3N   +  R-X   -->  R4N+X-             (quaternary salt)</div>
+    <p>The reaction produces a mixture; excess NH<sub>3</sub> minimises secondary and tertiary formation.</p>
+  </div>
+
+  <h3 class="sub-heading">Method 4: Reduction of Nitrobenzene (for Phenylamine)</h3>
+  <div class="card">
+    <div class="formula-block">C6H5NO2  +  6[H]  --Sn/HCl, then NaOH-->  C6H5NH2  +  2H2O
+(nitrobenzene)                              (phenylamine/aniline)</div>
+    <p>Tin (Sn) and concentrated HCl are used as the reducing agent. The phenylamine salt formed is treated with NaOH to liberate free phenylamine.</p>
+  </div>
+
+  <h3 class="sub-heading">Method 5: Gabriel Synthesis (Pure Primary Amines)</h3>
+  <div class="card">
+    <p>The Gabriel synthesis gives pure primary amines without contamination by secondary or tertiary amines. Potassium phthalimide reacts with a halogenoalkane; hydrolysis liberates the primary amine.</p>
+    <div class="formula-block">Phthalimide-K+  +  R-X  -->  N-alkylphthalimide  +  KX
+N-alkylphthalimide  +  H2O/H+  (or hydrazine)  -->  R-NH2  +  phthalic acid</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 3</span><h4>Preparing Propylamine from 1-Bromopropane</h4></div>
+    <div class="example-body">
+      <p class="q">Describe two methods to prepare propylamine (CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub>) from 1-bromopropane.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><b>Method A (via NH<sub>3</sub>):</b><br>
+        CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>Br + excess NH<sub>3</sub>(alc.) &rarr; CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub> + HBr<br>
+        (Gives mixture of 1&deg;, 2&deg;, 3&deg;; use excess NH<sub>3</sub> to favour 1&deg;)</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><b>Method B (via nitrile, purer):</b><br>
+        Step 1: CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>Br + KCN &rarr; CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CN + KBr (butanenitrile)<br>
+        Step 2: CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CN + 4[H] &rarr;<sup>LiAlH<sub>4</sub></sup> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub> (butan-1-amine, 4C)<br>
+        Note: this gives butan-1-amine (4C), not propylamine (3C). For propylamine via nitrile: start from ethyl bromide &rarr; propanenitrile &rarr; propylamine.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9.5 REACTIONS -->
+<section id="reactions">
+  <div class="section-header">
+    <span class="section-number">9.5</span>
+    <h2>Reactions of Amines</h2>
+  </div>
+
+  <h3 class="sub-heading">Reaction 1: As Bases (with acids)</h3>
+  <div class="card">
+    <div class="formula-block">RNH2  +  HCl  -->  RNH3+Cl-  (alkylammonium chloride)
+RNH2  +  H2SO4  -->  (RNH3)2SO4
+(C6H5)NH2  +  HCl  -->  (C6H5)NH3+Cl-  (phenylammonium chloride)</div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 2: Acylation with Acyl Chlorides &rarr; Amide</h3>
+  <div class="card">
+    <div class="formula-block">RNH2  +  R'COCl  -->  R'CONHR  +  HCl  (N-substituted amide)
+
+e.g.  CH3NH2  +  CH3COCl  -->  CH3CONHCH3  +  HCl
+      (methylamine) (ethanoyl chloride)  (N-methylethanamide)</div>
+    <p>This is an <b>acylation</b> reaction — introduces an acyl group (&ndash;COR') onto N. Used to make paracetamol (acylation of 4-aminophenol with ethanoic anhydride).</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 3: Acylation with Acid Anhydrides &rarr; Amide</h3>
+  <div class="card">
+    <div class="formula-block">RNH2  +  (R'CO)2O  -->  R'CONHR  +  R'COOH
+
+e.g.  C6H5NH2  +  (CH3CO)2O  -->  CH3CONHC6H5  +  CH3COOH
+      (phenylamine)  (ethanoic anhydride)  (N-phenylethanamide/acetanilide)</div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 4: Reaction with Halogenoalkanes &rarr; Higher Amines / Quaternary Salt</h3>
+  <div class="card">
+    <div class="formula-block">RNH2  +  R'X  -->  RNHR'  +  HX  (secondary amine)
+RNHR' +  R'X  -->  RNR'2  +  HX  (tertiary amine)
+RNR'2 +  R'X  -->  RN+(R')3 X-   (quaternary ammonium salt)</div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 5: Diazotisation (Phenylamine only)</h3>
+  <div class="card">
+    <p>Phenylamine reacts with <b>NaNO<sub>2</sub> + HCl at 0&ndash;5&deg;C</b> to form a <b>diazonium salt</b>. This reaction must be kept cold because diazonium salts decompose above 5&deg;C.</p>
+    <div class="formula-block">C6H5NH2  +  NaNO2  +  2HCl  --0-5 degC-->  C6H5N2+Cl-  +  NaCl  +  2H2O
+(phenylamine)                                (benzenediazonium chloride)</div>
+    <p>Diazonium salts undergo <b>coupling reactions</b> with activated aromatic compounds (e.g. phenol, naphthol) to give intensely coloured <b>azo dyes</b>:</p>
+    <div class="formula-block">C6H5N2+Cl-  +  C6H5OH  --NaOH (alkaline)-->  C6H5-N=N-C6H4OH  +  HCl
+(benzenediazonium)  (phenol)                (yellow/orange azo dye)</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 4</span><h4>Synthesis of Paracetamol</h4></div>
+    <div class="example-body">
+      <p class="q">Paracetamol is made by acylation of 4-aminophenol (H<sub>2</sub>N&ndash;C<sub>6</sub>H<sub>4</sub>&ndash;OH) with ethanoic anhydride. Write the equation and name the reaction type.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">4-aminophenol has &ndash;NH<sub>2</sub> group that reacts with ethanoic anhydride.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">H<sub>2</sub>N&ndash;C<sub>6</sub>H<sub>4</sub>&ndash;OH + (CH<sub>3</sub>CO)<sub>2</sub>O &rarr; CH<sub>3</sub>CO&ndash;NH&ndash;C<sub>6</sub>H<sub>4</sub>&ndash;OH + CH<sub>3</sub>COOH</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Product: <b>paracetamol</b> (N-(4-hydroxyphenyl)ethanamide). Reaction type: <b>acylation</b> (nucleophilic acyl substitution at the &ndash;NH<sub>2</sub> group).</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Ethanoic anhydride is preferred over ethanoyl chloride: no corrosive HCl; by-product is ethanoic acid (recyclable).</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9.6 AMINO ACIDS -->
+<section id="amino-acids">
+  <div class="section-header">
+    <span class="section-number">9.6</span>
+    <h2>Amino Acids</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Amino Acids — Definition</strong>
+    Amino acids are compounds containing both an <b>amino group (&ndash;NH<sub>2</sub>)</b> and a <b>carboxyl group (&ndash;COOH)</b> in the same molecule. In &alpha;-amino acids (the biologically important ones), both groups are on the <b>same carbon (&alpha;-carbon)</b>. General formula: <b>H<sub>2</sub>N&ndash;CHR&ndash;COOH</b> where R is the side chain.
+  </div>
+
+  <div class="card">
+    <h3>Amphoteric Nature of Amino Acids</h3>
+    <p>Amino acids are <b>amphoteric</b> — they can act as both an acid and a base:</p>
+    <div class="formula-block">As a base (accepts H+):
+H2N-CHR-COOH  +  H+  -->  +H3N-CHR-COOH  (cation, acidic solution)
+
+As an acid (donates H+):
+H2N-CHR-COOH  +  OH-  -->  H2N-CHR-COO-  +  H2O  (anion, alkaline solution)
+
+At the isoelectric point (zwitterion form):
+H2N-CHR-COOH  <==>  +H3N-CHR-COO-
+(neutral molecule)      (zwitterion -- internal salt)</div>
+    <p>The <b>zwitterion</b> (dipolar ion) is the predominant form at the isoelectric point (pI) — when the amino acid carries no net charge. This is the form that exists as a solid.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Amino Acid</th><th>Abbreviation</th><th>R Group</th><th>Essential?</th><th>Character</th></tr></thead>
+      <tbody>
+        <tr><td>Glycine</td><td>Gly (G)</td><td>&ndash;H</td><td>No</td><td>Simplest; no chiral centre</td></tr>
+        <tr><td>Alanine</td><td>Ala (A)</td><td>&ndash;CH<sub>3</sub></td><td>No</td><td>Simplest chiral amino acid</td></tr>
+        <tr><td>Valine</td><td>Val (V)</td><td>&ndash;CH(CH<sub>3</sub>)<sub>2</sub></td><td>Yes</td><td>Branched non-polar</td></tr>
+        <tr><td>Serine</td><td>Ser (S)</td><td>&ndash;CH<sub>2</sub>OH</td><td>No</td><td>Polar, &ndash;OH side chain</td></tr>
+        <tr><td>Cysteine</td><td>Cys (C)</td><td>&ndash;CH<sub>2</sub>SH</td><td>No</td><td>Forms disulfide bridges</td></tr>
+        <tr><td>Phenylalanine</td><td>Phe (F)</td><td>&ndash;CH<sub>2</sub>C<sub>6</sub>H<sub>5</sub></td><td>Yes</td><td>Aromatic, non-polar</td></tr>
+        <tr><td>Lysine</td><td>Lys (K)</td><td>&ndash;(CH<sub>2</sub>)<sub>4</sub>NH<sub>2</sub></td><td>Yes</td><td>Basic side chain</td></tr>
+        <tr><td>Aspartic acid</td><td>Asp (D)</td><td>&ndash;CH<sub>2</sub>COOH</td><td>No</td><td>Acidic side chain</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 9.7 OPTICAL ISOMERISM -->
+<section id="optical">
+  <div class="section-header">
+    <span class="section-number">9.7</span>
+    <h2>Optical Isomerism</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Optical Isomerism</strong>
+    Optical isomers (enantiomers) are non-superimposable mirror images of each other. They arise when a molecule contains a <b>chiral centre</b> &mdash; a carbon atom bonded to <b>four different groups</b>. The two isomers rotate plane-polarised light in opposite directions: the (+) or (d) form rotates it clockwise; the (&minus;) or (l) form rotates it anticlockwise.
+  </div>
+
+  <div class="card">
+    <h3>Chirality in Amino Acids</h3>
+    <p>All &alpha;-amino acids (except glycine) have a chiral &alpha;-carbon bonded to: &ndash;H, &ndash;NH<sub>2</sub>, &ndash;COOH, and &ndash;R (side chain, 4 different groups). They therefore exist as two enantiomers.</p>
+    <p>Almost all natural amino acids have the <b>L configuration</b> (same spatial arrangement as L-glyceraldehyde) and are biologically active. The D-enantiomers are rare in nature but occur in some bacterial cell walls.</p>
+  </div>
+
+  <div class="card">
+    <h3>Racemic Mixture</h3>
+    <p>A <b>racemic mixture</b> (racemate) contains equal amounts of both enantiomers. It has no net optical activity (the rotations cancel). Racemic mixtures are produced in laboratory synthesis (because attack occurs equally from both faces of the molecule) but not in biological systems (enzymes are stereospecific).</p>
+  </div>
+
+  <div class="card">
+    <h3>Conditions for Optical Isomerism</h3>
+    <ul style="padding-left:20px;line-height:2.1;">
+      <li>The molecule must have at least one <b>chiral centre</b> (asymmetric carbon &mdash; C bonded to 4 different groups).</li>
+      <li>The molecule must be <b>non-superimposable on its mirror image</b>.</li>
+      <li>Example: 2-hydroxypropanoic acid (lactic acid): CH<sub>3</sub>CH(OH)COOH &mdash; C2 is bonded to H, OH, CH<sub>3</sub>, and COOH &rarr; all 4 different &rarr; chiral.</li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 5</span><h4>Identifying Chiral Centres</h4></div>
+    <div class="example-body">
+      <p class="q">Which of these compounds has a chiral centre? (a) CH<sub>3</sub>CH<sub>2</sub>OH &nbsp; (b) CH<sub>3</sub>CH(OH)CH<sub>3</sub> &nbsp; (c) CH<sub>3</sub>CH(Br)COOH &nbsp; (d) Glycine (H<sub>2</sub>NCH<sub>2</sub>COOH)</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">CH<sub>3</sub>CH<sub>2</sub>OH: C1 = CH<sub>3</sub> (no); C2 = C bonded to OH, H, H, CH<sub>3</sub> &mdash; two identical H &rarr; <b>no chiral centre</b>.</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">CH<sub>3</sub>CH(OH)CH<sub>3</sub>: C2 bonded to OH, H, CH<sub>3</sub>, CH<sub>3</sub> &mdash; two identical CH<sub>3</sub> &rarr; <b>no chiral centre</b>.</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">CH<sub>3</sub>CH(Br)COOH: C2 bonded to Br, H, CH<sub>3</sub>, COOH &mdash; all 4 different &rarr; <b>chiral centre &#10004;</b>. Shows optical isomerism.</div></div>
+      <div class="step"><div class="step-num">d</div><div class="step-text">Glycine H<sub>2</sub>NCH<sub>2</sub>COOH: &alpha;-C bonded to NH<sub>2</sub>, H, H, COOH &mdash; two identical H &rarr; <b>no chiral centre</b>. Glycine is the only achiral amino acid.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9.8 PEPTIDES AND PROTEINS -->
+<section id="peptides">
+  <div class="section-header">
+    <span class="section-number">9.8</span>
+    <h2>Peptides and Proteins</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Peptide Bond</strong>
+    A <b>peptide bond</b> is an amide bond (&ndash;CO&ndash;NH&ndash;) formed between the &ndash;COOH of one amino acid and the &ndash;NH<sub>2</sub> of another, with the loss of water (condensation reaction). Dipeptide = 2 amino acids linked; polypeptide = many; protein = large polypeptide(s) with specific 3D structure.
+  </div>
+
+  <div class="card">
+    <h3>Formation of a Dipeptide</h3>
+    <div class="formula-block">H2N-CHR1-COOH  +  H2N-CHR2-COOH  -->
+        H2N-CHR1-CO-NH-CHR2-COOH  +  H2O
+                    ^peptide bond^
+(dipeptide -- R1 at N-terminus, R2 at C-terminus)</div>
+    <p>Note that two different dipeptides are possible from two different amino acids: R1&ndash;R2 and R2&ndash;R1 (different N- and C-terminus arrangements).</p>
+  </div>
+
+  <div class="card">
+    <h3>Hydrolysis of Peptides</h3>
+    <div class="formula-block">Acid hydrolysis (breaks all peptide bonds):
+Polypeptide  +  nH2O  --6M HCl, 110 degC, 24h-->  mixture of amino acids
+
+Enzymatic hydrolysis (specific):
+Trypsin, pepsin, etc. cleave specific peptide bonds selectively.</div>
+  </div>
+
+  <div class="card">
+    <h3>Levels of Protein Structure</h3>
+    <ul style="padding-left:20px;line-height:2.1;">
+      <li><b>Primary structure</b>: the sequence of amino acids (determined by DNA); held by peptide bonds.</li>
+      <li><b>Secondary structure</b>: local folding patterns &mdash; &alpha;-helix and &beta;-pleated sheet; held by H-bonds between C=O and N&ndash;H of the backbone.</li>
+      <li><b>Tertiary structure</b>: overall 3D shape; held by H-bonds, disulfide bridges (&ndash;S&ndash;S&ndash;), ionic interactions, van der Waals forces, and hydrophobic interactions.</li>
+      <li><b>Quaternary structure</b>: arrangement of multiple polypeptide subunits (e.g. haemoglobin = 4 subunits).</li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 6</span><h4>Drawing Dipeptide Structures</h4></div>
+    <div class="example-body">
+      <p class="q">Write the structural formula of the dipeptide formed between glycine (H<sub>2</sub>NCH<sub>2</sub>COOH) and alanine (H<sub>2</sub>NCHCH<sub>3</sub>COOH). How many different dipeptides are possible from these two amino acids?</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><b>Gly&ndash;Ala:</b> H<sub>2</sub>N&ndash;CH<sub>2</sub>&ndash;CO&ndash;NH&ndash;CH(CH<sub>3</sub>)&ndash;COOH (glycine at N-terminus, alanine at C-terminus)</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><b>Ala&ndash;Gly:</b> H<sub>2</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;CO&ndash;NH&ndash;CH<sub>2</sub>&ndash;COOH (alanine at N-terminus, glycine at C-terminus)</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text"><b>Two</b> different dipeptides are possible: Gly&ndash;Ala and Ala&ndash;Gly. They are different compounds with different properties.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <div class="section-header">
+    <span class="section-number">&#9999;&#65039;</span>
+    <h2>Exercises</h2>
+  </div>
+  <ul class="exercise-list">
+
+    <li>
+      Classify each amine as primary, secondary, or tertiary and give its IUPAC name:<br>
+      (a) CH<sub>3</sub>CH<sub>2</sub>NH<sub>2</sub> &nbsp; (b) (CH<sub>3</sub>)<sub>2</sub>NCH<sub>2</sub>CH<sub>3</sub> &nbsp; (c) (CH<sub>3</sub>CH<sub>2</sub>)<sub>2</sub>NH &nbsp; (d) C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub>
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) <b>Primary</b>; <b>ethanamine</b> (ethylamine)<br>
+        (b) <b>Tertiary</b>; <b>N,N-dimethylethanamine</b> (dimethylethylamine); N bonded to 3 carbons<br>
+        (c) <b>Secondary</b>; <b>diethylamine</b> (N-ethylethanamine); N bonded to 2 C groups<br>
+        (d) <b>Primary</b> (aromatic); <b>phenylamine</b> (aniline)
+      </div>
+    </li>
+
+    <li>
+      Explain why phenylamine is a much weaker base than ethylamine, even though both are primary amines.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        In <b>ethylamine</b>, the ethyl group donates electrons to N (inductive effect), increasing electron density on N and making the lone pair more available for protonation &rarr; stronger base (pK<sub>b</sub> ≈ 3.4).<br><br>
+        In <b>phenylamine</b>, the lone pair on N is <b>delocalised by resonance into the benzene ring</b> (overlap of N lone pair with the &pi; system of the ring). This reduces the electron density on N and makes the lone pair much less available for protonation &rarr; much weaker base (pK<sub>b</sub> ≈ 9.4).
+      </div>
+    </li>
+
+    <li>
+      Write equations for the reactions of methylamine with: (a) HCl; (b) ethanoyl chloride; (c) bromoethane (1 mole).
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) CH<sub>3</sub>NH<sub>2</sub> + HCl &rarr; CH<sub>3</sub>NH<sub>3</sub><sup>+</sup>Cl<sup>&minus;</sup> (methylammonium chloride — salt)<br>
+        (b) CH<sub>3</sub>NH<sub>2</sub> + CH<sub>3</sub>COCl &rarr; CH<sub>3</sub>CONHCH<sub>3</sub> + HCl (N-methylethanamide — secondary amide)<br>
+        (c) CH<sub>3</sub>NH<sub>2</sub> + C<sub>2</sub>H<sub>5</sub>Br &rarr; CH<sub>3</sub>NHC<sub>2</sub>H<sub>5</sub> + HBr (N-methylethanamine — secondary amine)
+      </div>
+    </li>
+
+    <li>
+      Explain what a zwitterion is and describe the behaviour of an amino acid in acidic, neutral, and alkaline solution.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        A <b>zwitterion</b> is a molecule that carries both a positive and a negative charge simultaneously but has no net overall charge. In amino acids, at the isoelectric point: the &ndash;COOH has lost H<sup>+</sup> (&rarr; &ndash;COO<sup>&minus;</sup>) and the &ndash;NH<sub>2</sub> has gained H<sup>+</sup> (&rarr; &ndash;NH<sub>3</sub><sup>+</sup>).<br><br>
+        <b>Acidic solution:</b> excess H<sup>+</sup> protonates &ndash;COO<sup>&minus;</sup> &rarr; <sup>+</sup>H<sub>3</sub>N&ndash;CHR&ndash;COOH (cation, positive charge)<br>
+        <b>Neutral/isoelectric pH:</b> <sup>+</sup>H<sub>3</sub>N&ndash;CHR&ndash;COO<sup>&minus;</sup> (zwitterion, no net charge)<br>
+        <b>Alkaline solution:</b> OH<sup>&minus;</sup> removes H<sup>+</sup> from &ndash;NH<sub>3</sub><sup>+</sup> &rarr; H<sub>2</sub>N&ndash;CHR&ndash;COO<sup>&minus;</sup> (anion, negative charge)
+      </div>
+    </li>
+
+    <li>
+      Which of the following has a chiral centre? For those that do, draw/describe the two enantiomers.<br>
+      (a) CH<sub>3</sub>CHBrCH<sub>3</sub> &nbsp; (b) CH<sub>3</sub>CH(NH<sub>2</sub>)COOH &nbsp; (c) CH<sub>3</sub>COCH<sub>3</sub> &nbsp; (d) CHClBrI
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) CH<sub>3</sub>CHBrCH<sub>3</sub>: C2 bonded to Br, H, CH<sub>3</sub>, CH<sub>3</sub> — two identical CH<sub>3</sub> &rarr; <b>no chiral centre</b>.<br>
+        (b) CH<sub>3</sub>CH(NH<sub>2</sub>)COOH: C2 bonded to NH<sub>2</sub>, H, CH<sub>3</sub>, COOH — all different &rarr; <b>chiral centre</b> &#10004;. Enantiomers: L-alanine (natural) and D-alanine (mirror image).<br>
+        (c) CH<sub>3</sub>COCH<sub>3</sub>: carbonyl carbon bonded to two CH<sub>3</sub> &rarr; <b>no chiral centre</b>.<br>
+        (d) CHClBrI: C bonded to H, Cl, Br, I — all different &rarr; <b>chiral centre</b> &#10004;. Two mirror-image enantiomers exist.
+      </div>
+    </li>
+
+    <li>
+      Write the structural formula of the dipeptide Ala&ndash;Gly (alanine at N-terminus, glycine at C-terminus). How many water molecules are lost when a tripeptide forms from three amino acids?
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>Ala&ndash;Gly:</b> H<sub>2</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;CO&ndash;NH&ndash;CH<sub>2</sub>&ndash;COOH<br>
+        The CO&ndash;NH is the peptide bond.<br><br>
+        For a tripeptide from 3 amino acids: <b>2 water molecules</b> are lost (one per peptide bond formed; n amino acids &rarr; n&minus;1 peptide bonds &rarr; n&minus;1 water molecules).
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- QUIZ (25 questions) -->
+<section id="quiz">
+  <div class="section-header">
+    <span class="section-number">&#129504;</span>
+    <h2>Interactive Quiz</h2>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>Unit 9 Quiz &mdash; Amines &amp; Amino Acids</h3>
+      <span class="quiz-score-display">25 Questions</span>
+    </div>
+    <div class="quiz-body">
+
+      <div class="q-block">
+        <span class="q-num">Q1</span>
+        <p class="q-text">(CH<sub>3</sub>)<sub>2</sub>CHNH<sub>2</sub> is classified as:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="a"> Secondary amine</label>
+          <label class="opt"><input type="radio" name="q1" value="b"> Primary amine</label>
+          <label class="opt"><input type="radio" name="q1" value="c"> Tertiary amine</label>
+          <label class="opt"><input type="radio" name="q1" value="d"> Quaternary ammonium salt</label>
+        </div>
+        <div class="q-exp" id="exp1">(CH<sub>3</sub>)<sub>2</sub>CHNH<sub>2</sub>: the N is bonded to only <b>one carbon group</b> (the isopropyl group) &rarr; <b>primary amine</b>. Amine class is determined by the number of carbons on N, not on the carbon bearing N.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q2</span>
+        <p class="q-text">Which amine is the strongest base?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="a"> Phenylamine (C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub>)</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> Ammonia (NH<sub>3</sub>)</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> Dimethylamine ((CH<sub>3</sub>)<sub>2</sub>NH)</label>
+          <label class="opt"><input type="radio" name="q2" value="d"> Methylamine (CH<sub>3</sub>NH<sub>2</sub>)</label>
+        </div>
+        <div class="q-exp" id="exp2"><b>Dimethylamine</b> is strongest: two methyl groups donate electrons to N, giving the highest electron density on N (pK<sub>b</sub> ≈ 3.3). Order: (CH<sub>3</sub>)<sub>2</sub>NH &gt; CH<sub>3</sub>NH<sub>2</sub> &gt; NH<sub>3</sub> &gt; C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q3</span>
+        <p class="q-text">Why is phenylamine a weaker base than methylamine?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="a"> Phenylamine has a larger molecular mass</label>
+          <label class="opt"><input type="radio" name="q3" value="b"> The lone pair on N is delocalised into the benzene ring, reducing availability for protonation</label>
+          <label class="opt"><input type="radio" name="q3" value="c"> The benzene ring donates electrons to N</label>
+          <label class="opt"><input type="radio" name="q3" value="d"> Phenylamine is not soluble in water</label>
+        </div>
+        <div class="q-exp" id="exp3">In phenylamine, the lone pair on N overlaps with the &pi; system of benzene &rarr; <b>delocalised into the ring</b> &rarr; lone pair less available for H<sup>+</sup> acceptance &rarr; weaker base.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q4</span>
+        <p class="q-text">The product of reacting ethylamine with ethanoyl chloride is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="a"> A salt</label>
+          <label class="opt"><input type="radio" name="q4" value="b"> A secondary amine</label>
+          <label class="opt"><input type="radio" name="q4" value="c"> N-ethylethanamide (a secondary amide)</label>
+          <label class="opt"><input type="radio" name="q4" value="d"> Ethyl ethanoate</label>
+        </div>
+        <div class="q-exp" id="exp4">C<sub>2</sub>H<sub>5</sub>NH<sub>2</sub> + CH<sub>3</sub>COCl &rarr; CH<sub>3</sub>CO&ndash;NH&ndash;C<sub>2</sub>H<sub>5</sub> + HCl. The product is <b>N-ethylethanamide</b>, a secondary amide (acylation reaction).</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q5</span>
+        <p class="q-text">Reduction of ethanenitrile (CH<sub>3</sub>CN) with LiAlH<sub>4</sub> gives:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="a"> Methylamine</label>
+          <label class="opt"><input type="radio" name="q5" value="b"> Ethylamine</label>
+          <label class="opt"><input type="radio" name="q5" value="c"> Ethanol</label>
+          <label class="opt"><input type="radio" name="q5" value="d"> Ethanoic acid</label>
+        </div>
+        <div class="q-exp" id="exp5">CH<sub>3</sub>CN + 4[H] &rarr; CH<sub>3</sub>CH<sub>2</sub>NH<sub>2</sub>. Reduction of a nitrile gives a primary amine with the same number of carbons as the nitrile. Ethanenitrile (2C) &rarr; <b>ethylamine</b> (2C).</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q6</span>
+        <p class="q-text">The diazotisation of phenylamine requires what conditions?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="a"> NaNO<sub>2</sub> + HCl at 0&ndash;5&deg;C</label>
+          <label class="opt"><input type="radio" name="q6" value="b"> NaNO<sub>2</sub> + HCl at room temperature</label>
+          <label class="opt"><input type="radio" name="q6" value="c"> NaNO<sub>3</sub> + H<sub>2</sub>SO<sub>4</sub> at 60&deg;C</label>
+          <label class="opt"><input type="radio" name="q6" value="d"> NaNO<sub>2</sub> + NaOH</label>
+        </div>
+        <div class="q-exp" id="exp6">Diazotisation: C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + NaNO<sub>2</sub> + 2HCl &rarr; C<sub>6</sub>H<sub>5</sub>N<sub>2</sub><sup>+</sup>Cl<sup>&minus;</sup> + NaCl + 2H<sub>2</sub>O. Temperature must be kept at <b>0&ndash;5&deg;C</b> &mdash; diazonium salts decompose above 5&deg;C.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q7</span>
+        <p class="q-text">A zwitterion is best described as:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="a"> A neutral molecule with no charges anywhere</label>
+          <label class="opt"><input type="radio" name="q7" value="b"> A molecule bearing both a positive and a negative charge with no net charge</label>
+          <label class="opt"><input type="radio" name="q7" value="c"> A molecule with only a positive charge</label>
+          <label class="opt"><input type="radio" name="q7" value="d"> An ion with multiple negative charges</label>
+        </div>
+        <div class="q-exp" id="exp7">A <b>zwitterion</b> (dipolar ion) carries both a + and a &minus; charge simultaneously but has zero net charge. In amino acids: <sup>+</sup>H<sub>3</sub>N&ndash;CHR&ndash;COO<sup>&minus;</sup>. It is the predominant form at the isoelectric point.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q8</span>
+        <p class="q-text">Which amino acid has NO chiral centre?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="a"> Alanine (H<sub>2</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;COOH)</label>
+          <label class="opt"><input type="radio" name="q8" value="b"> Glycine (H<sub>2</sub>N&ndash;CH<sub>2</sub>&ndash;COOH)</label>
+          <label class="opt"><input type="radio" name="q8" value="c"> Serine (H<sub>2</sub>N&ndash;CH(CH<sub>2</sub>OH)&ndash;COOH)</label>
+          <label class="opt"><input type="radio" name="q8" value="d"> Valine</label>
+        </div>
+        <div class="q-exp" id="exp8"><b>Glycine</b>: its &alpha;-carbon is bonded to H, H, NH<sub>2</sub>, and COOH &mdash; two identical H atoms &rarr; not a chiral centre. All other &alpha;-amino acids have four different groups on the &alpha;-carbon.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q9</span>
+        <p class="q-text">The bond between amino acids in a peptide is called:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="a"> Ester bond</label>
+          <label class="opt"><input type="radio" name="q9" value="b"> Peptide bond (amide bond)</label>
+          <label class="opt"><input type="radio" name="q9" value="c"> Glycosidic bond</label>
+          <label class="opt"><input type="radio" name="q9" value="d"> Disulfide bond</label>
+        </div>
+        <div class="q-exp" id="exp9">The bond linking amino acids is the <b>peptide bond</b> (&ndash;CO&ndash;NH&ndash;), which is the same as an amide bond. It forms by condensation (loss of H<sub>2</sub>O) between &ndash;COOH of one amino acid and &ndash;NH<sub>2</sub> of another.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q10</span>
+        <p class="q-text">How many different dipeptides can be formed from two different amino acids A and B?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="a"> 1</label>
+          <label class="opt"><input type="radio" name="q10" value="b"> 2</label>
+          <label class="opt"><input type="radio" name="q10" value="c"> 4</label>
+          <label class="opt"><input type="radio" name="q10" value="d"> 3</label>
+        </div>
+        <div class="q-exp" id="exp10"><b>2 dipeptides</b>: A&ndash;B (A at N-terminus) and B&ndash;A (B at N-terminus). These are different compounds because the sequence of amino acids matters &mdash; the N-terminus and C-terminus are different ends.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q11</span>
+        <p class="q-text">The primary structure of a protein is maintained by:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q11" value="a"> Hydrogen bonds</label>
+          <label class="opt"><input type="radio" name="q11" value="b"> Peptide (covalent amide) bonds</label>
+          <label class="opt"><input type="radio" name="q11" value="c"> Disulfide bridges</label>
+          <label class="opt"><input type="radio" name="q11" value="d"> Ionic interactions</label>
+        </div>
+        <div class="q-exp" id="exp11">The <b>primary structure</b> (sequence of amino acids) is held together by <b>covalent peptide bonds</b> (&ndash;CO&ndash;NH&ndash;). Secondary structure uses H-bonds; tertiary uses H-bonds, disulfide bridges, and other interactions.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q12</span>
+        <p class="q-text">Which reagent reduces nitrobenzene to phenylamine?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q12" value="a"> NaBH<sub>4</sub></label>
+          <label class="opt"><input type="radio" name="q12" value="b"> Sn/HCl followed by NaOH</label>
+          <label class="opt"><input type="radio" name="q12" value="c"> LiAlH<sub>4</sub> alone</label>
+          <label class="opt"><input type="radio" name="q12" value="d"> H<sub>2</sub>/Pt</label>
+        </div>
+        <div class="q-exp" id="exp12">C<sub>6</sub>H<sub>5</sub>NO<sub>2</sub> + 6[H] &rarr;<sup>Sn/HCl</sup> C<sub>6</sub>H<sub>5</sub>NH<sub>3</sub><sup>+</sup>Cl<sup>&minus;</sup> &rarr;<sup>NaOH</sup> C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub>. <b>Tin (Sn) and concentrated HCl</b> reduces the nitro group; NaOH is then added to liberate free phenylamine from the salt.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q13</span>
+        <p class="q-text">Amines act as nucleophiles because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q13" value="a"> They are positively charged</label>
+          <label class="opt"><input type="radio" name="q13" value="b"> The nitrogen atom has a lone pair of electrons that can be donated</label>
+          <label class="opt"><input type="radio" name="q13" value="c"> They have very high boiling points</label>
+          <label class="opt"><input type="radio" name="q13" value="d"> They are soluble in water</label>
+        </div>
+        <div class="q-exp" id="exp13">Amines have a <b>lone pair on nitrogen</b> that is available for donation to electrophiles. This makes them nucleophiles (electron donors) as well as bases (H<sup>+</sup> acceptors). This lone pair is the key feature driving all amine reactions.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q14</span>
+        <p class="q-text">The reaction of phenylamine with HCl produces:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q14" value="a"> A diazonium salt</label>
+          <label class="opt"><input type="radio" name="q14" value="b"> Phenylammonium chloride (C<sub>6</sub>H<sub>5</sub>NH<sub>3</sub><sup>+</sup>Cl<sup>&minus;</sup>)</label>
+          <label class="opt"><input type="radio" name="q14" value="c"> Chlorobenzene</label>
+          <label class="opt"><input type="radio" name="q14" value="d"> N-phenylethanamide</label>
+        </div>
+        <div class="q-exp" id="exp14">C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + HCl &rarr; C<sub>6</sub>H<sub>5</sub>NH<sub>3</sub><sup>+</sup>Cl<sup>&minus;</sup> (<b>phenylammonium chloride</b>). All amines act as bases and form ammonium salts with acids.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q15</span>
+        <p class="q-text">An amino acid in an alkaline solution exists predominantly as:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q15" value="a"> <sup>+</sup>H<sub>3</sub>N&ndash;CHR&ndash;COOH (cation)</label>
+          <label class="opt"><input type="radio" name="q15" value="b"> H<sub>2</sub>N&ndash;CHR&ndash;COOH (neutral)</label>
+          <label class="opt"><input type="radio" name="q15" value="c"> H<sub>2</sub>N&ndash;CHR&ndash;COO<sup>&minus;</sup> (anion)</label>
+          <label class="opt"><input type="radio" name="q15" value="d"> <sup>+</sup>H<sub>3</sub>N&ndash;CHR&ndash;COO<sup>&minus;</sup> (zwitterion)</label>
+        </div>
+        <div class="q-exp" id="exp15">In alkaline solution, OH<sup>&minus;</sup> removes H<sup>+</sup> from <sup>+</sup>NH<sub>3</sub>: <sup>+</sup>H<sub>3</sub>N&ndash;CHR&ndash;COO<sup>&minus;</sup> + OH<sup>&minus;</sup> &rarr; H<sub>2</sub>N&ndash;CHR&ndash;COO<sup>&minus;</sup>. The amino acid becomes an <b>anion</b> (negatively charged overall).</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q16</span>
+        <p class="q-text">The secondary structure of a protein (&alpha;-helix) is held by:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q16" value="a"> Covalent peptide bonds</label>
+          <label class="opt"><input type="radio" name="q16" value="b"> Disulfide bridges between cysteine residues</label>
+          <label class="opt"><input type="radio" name="q16" value="c"> Hydrogen bonds between backbone C=O and N&ndash;H groups</label>
+          <label class="opt"><input type="radio" name="q16" value="d"> Ionic bonds between R groups</label>
+        </div>
+        <div class="q-exp" id="exp16">The &alpha;-helix (secondary structure) is maintained by <b>hydrogen bonds between C=O of one peptide bond and the N&ndash;H of another</b> four residues along the chain. These are backbone H-bonds, not side chain interactions.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q17</span>
+        <p class="q-text">Optical isomers differ in:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q17" value="a"> Their molecular formula</label>
+          <label class="opt"><input type="radio" name="q17" value="b"> The direction they rotate plane-polarised light</label>
+          <label class="opt"><input type="radio" name="q17" value="c"> The number of carbon atoms</label>
+          <label class="opt"><input type="radio" name="q17" value="d"> Their boiling points</label>
+        </div>
+        <div class="q-exp" id="exp17">Optical isomers (enantiomers) have identical physical properties (B.P., M.P., solubility) EXCEPT for <b>the direction they rotate plane-polarised light</b>: (+) form clockwise; (&minus;) form anticlockwise. They also have different biological activity.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q18</span>
+        <p class="q-text">The preparation of phenylamine from nitrobenzene is classified as:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q18" value="a"> Oxidation</label>
+          <label class="opt"><input type="radio" name="q18" value="b"> Substitution</label>
+          <label class="opt"><input type="radio" name="q18" value="c"> Reduction</label>
+          <label class="opt"><input type="radio" name="q18" value="d"> Elimination</label>
+        </div>
+        <div class="q-exp" id="exp18">C<sub>6</sub>H<sub>5</sub>NO<sub>2</sub> + 6[H] &rarr; C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + 2H<sub>2</sub>O. The nitrogen is reduced from &ndash;NO<sub>2</sub> (oxidation state +3) to &ndash;NH<sub>2</sub> (oxidation state &minus;3) &rarr; <b>reduction</b>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q19</span>
+        <p class="q-text">The racemic mixture of an amino acid:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q19" value="a"> Rotates plane-polarised light strongly clockwise</label>
+          <label class="opt"><input type="radio" name="q19" value="b"> Has no net optical activity</label>
+          <label class="opt"><input type="radio" name="q19" value="c"> Is the same as the L-form</label>
+          <label class="opt"><input type="radio" name="q19" value="d"> Cannot be prepared in the laboratory</label>
+        </div>
+        <div class="q-exp" id="exp19">A <b>racemic mixture</b> contains equal amounts of (+) and (&minus;) enantiomers. Their optical rotations are equal and opposite &rarr; they cancel &rarr; <b>no net optical activity</b>. Laboratory synthesis usually produces racemic mixtures.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q20</span>
+        <p class="q-text">An azo dye is formed when a diazonium salt undergoes:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q20" value="a"> Reduction</label>
+          <label class="opt"><input type="radio" name="q20" value="b"> Coupling with an activated aromatic compound (e.g. phenol)</label>
+          <label class="opt"><input type="radio" name="q20" value="c"> Hydrolysis with water</label>
+          <label class="opt"><input type="radio" name="q20" value="d"> Acylation with an acyl chloride</label>
+        </div>
+        <div class="q-exp" id="exp20">Diazonium salts undergo <b>coupling reactions</b> with electron-rich aromatic compounds (phenols, naphthols, arylamines) in alkaline conditions to form <b>azo dyes</b> containing the &ndash;N=N&ndash; (azo) group. These are intensely coloured due to extended conjugation.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q21</span>
+        <p class="q-text">Which statement about the reaction of excess NH<sub>3</sub> with halogenoalkanes is correct?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q21" value="a"> Only the primary amine is formed</label>
+          <label class="opt"><input type="radio" name="q21" value="b"> A mixture of primary, secondary, tertiary amines and quaternary salt is formed</label>
+          <label class="opt"><input type="radio" name="q21" value="c"> Only the quaternary salt is formed</label>
+          <label class="opt"><input type="radio" name="q21" value="d"> No reaction occurs</label>
+        </div>
+        <div class="q-exp" id="exp21">Halogenoalkanes react with NH<sub>3</sub> to give a <b>mixture</b>: primary amine, secondary amine, tertiary amine, and quaternary ammonium salt. Excess NH<sub>3</sub> favours the primary amine but cannot prevent all further substitution.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q22</span>
+        <p class="q-text">Hydrolysis of a polypeptide with 6M HCl at 110&deg;C gives:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q22" value="a"> Fatty acids and glycerol</label>
+          <label class="opt"><input type="radio" name="q22" value="b"> Nucleotides</label>
+          <label class="opt"><input type="radio" name="q22" value="c"> A mixture of amino acids</label>
+          <label class="opt"><input type="radio" name="q22" value="d"> Glucose monomers</label>
+        </div>
+        <div class="q-exp" id="exp22">Acid hydrolysis (6M HCl, 110&deg;C, 24 hours) breaks all peptide bonds in a polypeptide, giving a <b>mixture of amino acids</b>. This is used in amino acid analysis to determine the composition of a protein.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q23</span>
+        <p class="q-text">The tertiary structure of a protein is held by all of the following EXCEPT:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q23" value="a"> Disulfide bridges</label>
+          <label class="opt"><input type="radio" name="q23" value="b"> Hydrogen bonds between R groups</label>
+          <label class="opt"><input type="radio" name="q23" value="c"> Covalent peptide bonds between all amino acids in the chain</label>
+          <label class="opt"><input type="radio" name="q23" value="d"> Hydrophobic interactions</label>
+        </div>
+        <div class="q-exp" id="exp23">Tertiary structure is held by non-covalent interactions (H-bonds, hydrophobic, ionic) <b>plus</b> disulfide bridges. Covalent peptide bonds define primary structure &mdash; they hold the whole chain together, not specifically the 3D fold. The question asks what does NOT contribute to tertiary folding specifically: <b>peptide bonds</b> are the primary structure bonds, not specifically tertiary folding forces.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q24</span>
+        <p class="q-text">2-aminopropanoic acid (alanine, CH<sub>3</sub>CH(NH<sub>2</sub>)COOH) is optically active because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q24" value="a"> It contains a carbon&ndash;nitrogen bond</label>
+          <label class="opt"><input type="radio" name="q24" value="b"> Its &alpha;-carbon carries four different groups (H, NH<sub>2</sub>, CH<sub>3</sub>, COOH)</label>
+          <label class="opt"><input type="radio" name="q24" value="c"> It has a C=O group</label>
+          <label class="opt"><input type="radio" name="q24" value="d"> It is soluble in water</label>
+        </div>
+        <div class="q-exp" id="exp24">Alanine&rsquo;s &alpha;-carbon is bonded to <b>four different groups</b>: H, NH<sub>2</sub>, CH<sub>3</sub>, and COOH &rarr; chiral centre &rarr; two non-superimposable mirror images (enantiomers) that rotate plane-polarised light in opposite directions.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q25</span>
+        <p class="q-text">Paracetamol is synthesised by acylation of 4-aminophenol. The most suitable acylating agent and reason for its use is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q25" value="a"> Ethanoyl chloride — because it reacts fastest</label>
+          <label class="opt"><input type="radio" name="q25" value="b"> Ethanoic anhydride — because it produces no corrosive HCl; by-product (ethanoic acid) is safe and recyclable</label>
+          <label class="opt"><input type="radio" name="q25" value="c"> Ethanoic acid — because it is cheapest</label>
+          <label class="opt"><input type="radio" name="q25" value="d"> Acetic acid with H<sub>2</sub>SO<sub>4</sub> catalyst — because it is reversible</label>
+        </div>
+        <div class="q-exp" id="exp25"><b>Ethanoic anhydride</b> is preferred for paracetamol manufacture: by-product is ethanoic acid (non-toxic, recyclable), no corrosive HCl fumes produced, safer large-scale handling compared to ethanoyl chloride, yet still gives fast, essentially complete reaction.</div>
+      </div>
+
+    </div>
+    <div style="padding:0 24px 24px;">
+      <button class="quiz-submit" onclick="submitQuiz()">Submit All 25 Answers</button>
+      <div id="quizResult" style="display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius);font-family:'JetBrains Mono',monospace;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT TEST -->
+<section id="test">
+  <div class="section-header">
+    <span class="section-number">&#128221;</span>
+    <h2>Unit Test</h2>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">&#8505;&#65039;</span>
+    <div class="callout-body">
+      <strong>Instructions</strong>
+      Total: 50 marks &nbsp;|&nbsp; Time: 55 minutes &nbsp;|&nbsp; Attempt all questions &nbsp;|&nbsp; Show all working.
+    </div>
+  </div>
+
+  <div class="test-wrap">
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section A &mdash; Short Answer</h3>
+        <span class="marks-badge">30 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q1 [4 marks]</span>
+          <p>Name and classify each as primary, secondary, or tertiary:<br>
+          (a) CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub> &nbsp; (b) (CH<sub>3</sub>CH<sub>2</sub>)<sub>2</sub>NH &nbsp; (c) (CH<sub>3</sub>)<sub>3</sub>N &nbsp; (d) C<sub>6</sub>H<sub>5</sub>NHCH<sub>3</sub></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) <b>Propan-1-amine</b> (propylamine); <b>primary</b><br>
+              (b) <b>Diethylamine</b> (N-ethylethanamine); <b>secondary</b><br>
+              (c) <b>Trimethylamine</b>; <b>tertiary</b><br>
+              (d) <b>N-methylphenylamine</b>; <b>secondary</b> (N bonded to phenyl and methyl)
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q2 [5 marks]</span>
+          <p>Explain with reference to electron donation/withdrawal why the base strength follows this order:<br>
+          diethylamine &gt; ethylamine &gt; NH<sub>3</sub> &gt; phenylamine &gt; ethanamide.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              Base strength depends on availability of lone pair on N for H<sup>+</sup> acceptance.<br><br>
+              <b>Diethylamine</b>: two ethyl groups donate electrons to N (inductive) &rarr; highest e<sup>&minus;</sup> density &rarr; strongest base.<br>
+              <b>Ethylamine</b>: one ethyl group donates &rarr; less e<sup>&minus;</sup> donation than diethylamine.<br>
+              <b>Ammonia</b>: no alkyl groups; bare lone pair, moderate availability.<br>
+              <b>Phenylamine</b>: lone pair delocalised into benzene &pi; system by resonance &rarr; much less available &rarr; weak base (pK<sub>b</sub> 9.4).<br>
+              <b>Ethanamide</b>: lone pair delocalised into C=O (amide resonance) &rarr; almost completely unavailable &rarr; extremely weak base (barely basic).
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q3 [6 marks]</span>
+          <p>Write equations for the following reactions:<br>
+          (a) Ethylamine + HCl &nbsp; (b) Ethylamine + ethanoyl chloride &nbsp; (c) Ethylamine + bromoethane (excess) &nbsp; (d) Phenylamine + NaNO<sub>2</sub>/HCl at 0&deg;C &nbsp; (e) Phenylamine + ethanoic anhydride &nbsp; (f) The coupling of benzenediazonium chloride with phenol<br>
+          Name all organic products.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) C<sub>2</sub>H<sub>5</sub>NH<sub>2</sub> + HCl &rarr; C<sub>2</sub>H<sub>5</sub>NH<sub>3</sub><sup>+</sup>Cl<sup>&minus;</sup> — <b>ethylammonium chloride</b><br>
+              (b) C<sub>2</sub>H<sub>5</sub>NH<sub>2</sub> + CH<sub>3</sub>COCl &rarr; CH<sub>3</sub>CONHC<sub>2</sub>H<sub>5</sub> + HCl — <b>N-ethylethanamide</b><br>
+              (c) C<sub>2</sub>H<sub>5</sub>NH<sub>2</sub> + C<sub>2</sub>H<sub>5</sub>Br &rarr; (C<sub>2</sub>H<sub>5</sub>)<sub>2</sub>NH + HBr — <b>diethylamine</b> (then further to triethylamine etc. with excess)<br>
+              (d) C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + NaNO<sub>2</sub> + 2HCl &rarr;<sup>0&ndash;5&deg;C</sup> C<sub>6</sub>H<sub>5</sub>N<sub>2</sub><sup>+</sup>Cl<sup>&minus;</sup> + NaCl + 2H<sub>2</sub>O — <b>benzenediazonium chloride</b><br>
+              (e) C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + (CH<sub>3</sub>CO)<sub>2</sub>O &rarr; CH<sub>3</sub>CONHC<sub>6</sub>H<sub>5</sub> + CH<sub>3</sub>COOH — <b>N-phenylethanamide</b> (acetanilide)<br>
+              (f) C<sub>6</sub>H<sub>5</sub>N<sub>2</sub><sup>+</sup>Cl<sup>&minus;</sup> + C<sub>6</sub>H<sub>5</sub>OH &rarr;<sup>NaOH</sup> C<sub>6</sub>H<sub>5</sub>&ndash;N=N&ndash;C<sub>6</sub>H<sub>4</sub>OH + HCl — <b>an orange/yellow azo dye</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q4 [5 marks]</span>
+          <p>Describe the amphoteric behaviour of amino acids. Using alanine (CH<sub>3</sub>CH(NH<sub>2</sub>)COOH) as your example, write equations showing its behaviour in: (a) acidic solution; (b) alkaline solution; (c) at its isoelectric point.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              Amino acids are <b>amphoteric</b> — they have both acidic (&ndash;COOH) and basic (&ndash;NH<sub>2</sub>) groups and can react with both acids and bases.<br><br>
+              (a) <b>Acidic solution</b> (excess H<sup>+</sup>):<br>
+              <sup>+</sup>H<sub>3</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;COO<sup>&minus;</sup> + H<sup>+</sup> &rarr; <sup>+</sup>H<sub>3</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;COOH (cation, net +1 charge)<br><br>
+              (b) <b>Alkaline solution</b> (excess OH<sup>&minus;</sup>):<br>
+              <sup>+</sup>H<sub>3</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;COO<sup>&minus;</sup> + OH<sup>&minus;</sup> &rarr; H<sub>2</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;COO<sup>&minus;</sup> + H<sub>2</sub>O (anion, net &minus;1 charge)<br><br>
+              (c) <b>Isoelectric point</b> (zwitterion):<br>
+              H<sub>2</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;COOH &rightleftharpoons; <sup>+</sup>H<sub>3</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;COO<sup>&minus;</sup> (no net charge; this is the predominant solid form)
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q5 [4 marks]</span>
+          <p>Explain what is meant by optical isomerism. State the condition required for a molecule to show optical isomerism and identify which of these has a chiral centre: (a) CH<sub>3</sub>CHClCH<sub>3</sub>; (b) CH<sub>3</sub>CHClCH<sub>2</sub>CH<sub>3</sub>; (c) glycine.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Optical isomerism:</b> Two molecules with the same structural formula that are non-superimposable mirror images of each other. They rotate plane-polarised light in opposite directions.<br><br>
+              <b>Condition:</b> At least one chiral centre &mdash; a carbon bonded to <b>four different groups</b>.<br><br>
+              (a) CH<sub>3</sub>CHClCH<sub>3</sub>: C2 bonded to Cl, H, CH<sub>3</sub>, CH<sub>3</sub> &mdash; two identical CH<sub>3</sub> &rarr; <b>no chiral centre</b>.<br>
+              (b) CH<sub>3</sub>CHClCH<sub>2</sub>CH<sub>3</sub>: C2 bonded to Cl, H, CH<sub>3</sub>, CH<sub>2</sub>CH<sub>3</sub> &mdash; all four different &rarr; <b>chiral centre &#10004;</b>.<br>
+              (c) Glycine H<sub>2</sub>NCH<sub>2</sub>COOH: &alpha;-C bonded to H, H, NH<sub>2</sub>, COOH &mdash; two identical H &rarr; <b>no chiral centre</b>.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q6 [6 marks]</span>
+          <p>Write the structural formula of the dipeptide Val&ndash;Ala (valine at N-terminus, alanine at C-terminus). Using the general structure H<sub>2</sub>N&ndash;CHR&ndash;COOH:<br>
+          (a) Mark the peptide bond clearly. <i>[2]</i><br>
+          (b) Show what happens when this dipeptide is hydrolysed with 6M HCl. <i>[2]</i><br>
+          (c) How many peptide bonds are in a protein containing 200 amino acid residues? <i>[2]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Val&ndash;Ala dipeptide:</b><br>
+              H<sub>2</sub>N&ndash;CH(CH(CH<sub>3</sub>)<sub>2</sub>)&ndash;<u>CO&ndash;NH</u>&ndash;CH(CH<sub>3</sub>)&ndash;COOH<br>
+              (underlined = peptide bond)<br><br>
+              (a) The peptide bond is the &ndash;CO&ndash;NH&ndash; linkage between the two amino acid residues. It is a covalent amide bond formed by condensation (loss of H<sub>2</sub>O) from the &ndash;COOH of valine and &ndash;NH<sub>2</sub> of alanine.<br><br>
+              (b) Hydrolysis:<br>
+              Val&ndash;Ala + H<sub>2</sub>O &rarr;<sup>6M HCl, 110&deg;C</sup> H<sub>2</sub>N&ndash;CH(iPr)&ndash;COOH + H<sub>2</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;COOH<br>
+              (valine + alanine as free amino acids)<br><br>
+              (c) A polypeptide with n amino acids has <b>n&minus;1 peptide bonds</b>. For 200 amino acids: <b>199 peptide bonds</b>.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section B &mdash; Extended Response</h3>
+        <span class="marks-badge">20 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q7 [10 marks]</span>
+          <p><b>(a)</b> Describe the preparation of phenylamine from benzene in two steps: nitration of benzene to give nitrobenzene, then reduction to phenylamine. Write equations and state conditions for each step. <i>[4 marks]</i></p>
+          <p><b>(b)</b> Phenylamine can be converted into an azo dye. Describe the two-stage process (diazotisation then coupling), giving equations, conditions, and why low temperature is essential. <i>[4 marks]</i></p>
+          <p><b>(c)</b> Compare phenylamine and ethylamine as bases, explaining the difference in terms of electronic structure. <i>[2 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)</b><br>
+              Step 1 &mdash; Nitration: C<sub>6</sub>H<sub>6</sub> + HNO<sub>3</sub> &rarr;<sup>conc. H<sub>2</sub>SO<sub>4</sub>, 50&deg;C</sup> C<sub>6</sub>H<sub>5</sub>NO<sub>2</sub> + H<sub>2</sub>O (electrophilic substitution; NO<sub>2</sub><sup>+</sup> electrophile)<br><br>
+              Step 2 &mdash; Reduction: C<sub>6</sub>H<sub>5</sub>NO<sub>2</sub> + 6[H] &rarr;<sup>Sn/conc. HCl</sup> C<sub>6</sub>H<sub>5</sub>NH<sub>3</sub><sup>+</sup>Cl<sup>&minus;</sup> &rarr;<sup>NaOH</sup> C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + NaCl + H<sub>2</sub>O<br>
+              (phenylammonium chloride first; NaOH liberates free phenylamine)<br><br>
+              <b>(b)</b><br>
+              Stage 1 &mdash; Diazotisation (0&ndash;5&deg;C):<br>
+              C<sub>6</sub>H<sub>5</sub>NH<sub>2</sub> + NaNO<sub>2</sub> + 2HCl &rarr;<sup>0&ndash;5&deg;C</sup> C<sub>6</sub>H<sub>5</sub>N<sub>2</sub><sup>+</sup>Cl<sup>&minus;</sup> + NaCl + 2H<sub>2</sub>O<br>
+              <b>Why cold?</b> Diazonium salts (C<sub>6</sub>H<sub>5</sub>N<sub>2</sub><sup>+</sup>) are unstable and decompose above 5&deg;C: C<sub>6</sub>H<sub>5</sub>N<sub>2</sub><sup>+</sup> + H<sub>2</sub>O &rarr; C<sub>6</sub>H<sub>5</sub>OH + N<sub>2</sub>.<br><br>
+              Stage 2 &mdash; Coupling (alkaline conditions):<br>
+              C<sub>6</sub>H<sub>5</sub>N<sub>2</sub><sup>+</sup>Cl<sup>&minus;</sup> + C<sub>6</sub>H<sub>5</sub>OH &rarr;<sup>NaOH</sup> C<sub>6</sub>H<sub>5</sub>&ndash;N=N&ndash;C<sub>6</sub>H<sub>4</sub>OH + HCl<br>
+              Gives intensely coloured azo dye (orange/yellow) due to extended conjugated &pi; system.<br><br>
+              <b>(c)</b><br>
+              Ethylamine (pK<sub>b</sub> 3.4): ethyl group donates electrons inductively to N &rarr; lone pair electron density increased &rarr; stronger base.<br>
+              Phenylamine (pK<sub>b</sub> 9.4): lone pair on N delocalised into benzene ring by resonance &rarr; significantly reduced availability for H<sup>+</sup> acceptance &rarr; much weaker base. Difference of ~6 pK<sub>b</sub> units means phenylamine is ~10<sup>6</sup> times weaker than ethylamine.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q8 [10 marks]</span>
+          <p><b>(a)</b> Amino acids show optical isomerism. Explain what this means, why almost all natural amino acids are L-form, and what a racemic mixture is. <i>[4 marks]</i></p>
+          <p><b>(b)</b> Draw the structures of all possible tripeptides that can be formed from one molecule of glycine (Gly) and two molecules of alanine (Ala). How many distinct tripeptides are possible? <i>[3 marks]</i></p>
+          <p><b>(c)</b> Describe the four levels of protein structure, stating the type of interaction that maintains each level. <i>[3 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)</b><br>
+              Amino acids (except glycine) have a chiral &alpha;-carbon bonded to 4 different groups. Two non-superimposable mirror image forms (enantiomers) exist, rotating plane-polarised light in opposite directions.<br>
+              <b>L-form in nature:</b> Enzymes that synthesise proteins are themselves chiral (made of L-amino acids) and are stereospecific &mdash; they only incorporate L-amino acids into polypeptides. L-amino acids are recognised and used by ribosomes; D-amino acids are not (with rare exceptions in bacteria).<br>
+              <b>Racemic mixture:</b> Equal amounts of L- and D-enantiomers with no net optical rotation. Formed in laboratory synthesis (equal probability of attack from both faces).<br><br>
+              <b>(b) Tripeptides from 1 Gly + 2 Ala:</b><br>
+              Positions for G and A,A in a tripeptide (3 positions):<br>
+              1. <b>Gly&ndash;Ala&ndash;Ala</b>: H<sub>2</sub>N&ndash;CH<sub>2</sub>&ndash;CO&ndash;NH&ndash;CH(CH<sub>3</sub>)&ndash;CO&ndash;NH&ndash;CH(CH<sub>3</sub>)&ndash;COOH<br>
+              2. <b>Ala&ndash;Gly&ndash;Ala</b>: H<sub>2</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;CO&ndash;NH&ndash;CH<sub>2</sub>&ndash;CO&ndash;NH&ndash;CH(CH<sub>3</sub>)&ndash;COOH<br>
+              3. <b>Ala&ndash;Ala&ndash;Gly</b>: H<sub>2</sub>N&ndash;CH(CH<sub>3</sub>)&ndash;CO&ndash;NH&ndash;CH(CH<sub>3</sub>)&ndash;CO&ndash;NH&ndash;CH<sub>2</sub>&ndash;COOH<br>
+              Total: <b>3 distinct tripeptides</b>.<br><br>
+              <b>(c) Four levels of protein structure:</b><br>
+              <b>1&deg; Primary:</b> Sequence of amino acids; maintained by <b>covalent peptide bonds</b>.<br>
+              <b>2&deg; Secondary:</b> Local folding (&alpha;-helix, &beta;-sheet); maintained by <b>hydrogen bonds</b> between backbone C=O and N&ndash;H.<br>
+              <b>3&deg; Tertiary:</b> Overall 3D shape; maintained by <b>H-bonds, disulfide bridges, ionic interactions, and hydrophobic interactions</b> between R groups.<br>
+              <b>4&deg; Quaternary:</b> Assembly of multiple polypeptide subunits; maintained by same interactions as tertiary (no new bond type; same non-covalent forces between subunits).
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="unit-nav">
+  <a class="nav-btn prev" href="unit8_esters_amides.html">&larr; Unit 8: Esters, Amides &amp; Nitriles</a>
+  <a class="nav-btn next" href="unit10_phase_diagrams.html">Unit 10: Phase Diagrams &rarr;</a>
+</div>
+
+</main>
+
+<script>
+function toggleAnswer(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+
+const correctAnswers={
+  q1:'b',q2:'c',q3:'b',q4:'c',q5:'b',q6:'a',q7:'b',q8:'b',q9:'b',q10:'b',
+  q11:'b',q12:'b',q13:'b',q14:'b',q15:'c',q16:'c',q17:'b',q18:'c',q19:'b',q20:'b',
+  q21:'b',q22:'c',q23:'c',q24:'b',q25:'b'
+};
+
+function submitQuiz(){
+  let score=0;
+  const total=Object.keys(correctAnswers).length;
+  Object.entries(correctAnswers).forEach(([q,correct])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{
+      if(o.value===correct)o.parentElement.classList.add('correct');
+    });
+    if(sel){if(sel.value===correct)score++;else sel.parentElement.classList.add('wrong');}
+    const exp=document.getElementById('exp'+q.slice(1));
+    if(exp)exp.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const pct=Math.round(score/total*100);
+  const res=document.getElementById('quizResult');
+  res.style.display='block';
+  res.style.background=pct>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  res.style.border='1px solid '+(pct>=70?'var(--green)':'var(--red)');
+  res.style.color=pct>=70?'var(--green)':'var(--red)';
+  res.style.borderRadius='var(--radius)';
+  res.style.padding='16px 20px';
+  res.innerHTML='Score: '+score+' / '+total+' ('+pct+'%) &mdash; '+(pct>=80?'Excellent! 🎉':pct>=60?'Good effort &mdash; review marked questions.':'Keep studying &mdash; re-read the notes and try again.');
+  document.querySelector('.quiz-submit').disabled=true;
+  document.querySelector('.quiz-submit').style.opacity='0.5';
+}
+</script>
+</body>
+</html>
