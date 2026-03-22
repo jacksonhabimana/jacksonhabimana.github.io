@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S5 Chemistry – Unit 7: Carboxylic Acids and Acyl Chlorides</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;
+    --accent:#58c4dc;--accent2:#f97316;--accent3:#a78bfa;
+    --gold:#e8c547;--green:#34d399;--red:#f87171;--rose:#f43f5e;
+    --text:#e6edf3;--muted:#8b949e;--radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+  .hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#2a0d15 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(244,63,94,.05) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(244,63,94,.05) 40px);pointer-events:none;}
+  .badge{display:inline-block;background:rgba(244,63,94,.12);border:1px solid rgba(244,63,94,.3);color:var(--rose);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+  .hero h1 em{color:var(--rose);font-style:italic;}
+  .hero p.sub{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto 32px;}
+  .toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:760px;margin:0 auto;}
+  .toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+  .toc-grid a:hover{background:var(--rose);color:#fff;border-color:var(--rose);}
+  .page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+  .section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--rose);background:rgba(244,63,94,.1);border:1px solid rgba(244,63,94,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+  .section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+  .card p+p{margin-top:12px;}
+  .def-box{border-left:4px solid var(--rose);background:rgba(244,63,94,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+  .def-box strong{color:var(--rose);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+  .callout.info{background:rgba(88,196,220,.08);border:1px solid rgba(88,196,220,.25);}
+  .callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+  .callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+  .callout.rose{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.25);}
+  .callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+  .callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+  .tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:var(--surface2);}
+  th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--rose);white-space:nowrap;}
+  td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  td code{background:rgba(244,63,94,.12);padding:2px 7px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.85em;}
+  .formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--rose);overflow-x:auto;white-space:pre;}
+  .example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+  .example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+  .example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+  .example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+  .example-body{padding:22px 26px;}
+  .example-body .q{color:var(--text);margin-bottom:14px;font-weight:600;}
+  .example-body .step{display:flex;gap:14px;margin:10px 0;}
+  .step-num{min-width:28px;height:28px;background:rgba(244,63,94,.15);border:1px solid rgba(244,63,94,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--rose);flex-shrink:0;margin-top:3px;}
+  .step-text{flex:1;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .exercise-list{list-style:none;counter-reset:ex;}
+  .exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+  .exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--rose);display:block;margin-bottom:6px;}
+  .reveal-btn{margin-top:10px;background:rgba(244,63,94,.1);border:1px solid rgba(244,63,94,.3);color:var(--rose);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+  .reveal-btn:hover{background:var(--rose);color:#fff;}
+  .answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(244,63,94,.06);border-left:3px solid var(--rose);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .answer.open{display:block;}
+  .quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+  .quiz-header{background:rgba(244,63,94,.1);border-bottom:1px solid rgba(244,63,94,.2);padding:16px 24px;}
+  .quiz-header h3{font-family:'Playfair Display',serif;color:var(--rose);font-size:1.2rem;}
+  .quiz-body{padding:24px;}
+  .q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+  .q-block:last-of-type{border-bottom:none;}
+  .q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+  .q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--rose);display:block;margin-bottom:4px;}
+  .options{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+  .opt:hover{border-color:var(--rose);}
+  .opt input{margin-top:3px;accent-color:var(--rose);}
+  .opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+  .opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+  .q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(244,63,94,.07);border-left:3px solid var(--rose);border-radius:0 6px 6px 0;font-size:.88rem;}
+  .quiz-submit{background:var(--rose);color:#fff;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:opacity .2s;font-weight:600;}
+  .quiz-submit:hover{opacity:.85;}
+  .test-wrap{margin-top:40px;}
+  .test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px;}
+  .test-section-header{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .test-section-header h3{font-family:'Playfair Display',serif;color:var(--accent2);font-size:1.1rem;}
+  .marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(249,115,22,.2);color:var(--accent2);padding:4px 12px;border-radius:50px;}
+  .test-body{padding:24px;}
+  .test-q{margin-bottom:20px;padding:16px 18px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);}
+  .test-q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent2);margin-bottom:6px;display:block;}
+  .test-answer-reveal{margin-top:14px;}
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+  .nav-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s;}
+  .nav-btn.prev{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+  .nav-btn.prev:hover{border-color:var(--rose);color:var(--rose);}
+  .nav-btn.next{background:var(--rose);color:#fff;font-weight:600;}
+  .nav-btn.next:hover{opacity:.88;}
+  h3.sub-heading{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+  sub,sup{font-size:.72em;}
+  @media(max-width:600px){.hero{padding:50px 20px 40px;}.page{padding:0 16px 60px;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Unit 7 &middot; Organic Chemistry</div>
+  <h1><em>Carboxylic Acids</em> &amp; Acyl Chlorides</h1>
+  <p class="sub">Structure, acidity, preparation, reactions, uses &mdash; and the highly reactive acyl chloride functional group.</p>
+  <nav class="toc-grid">
+    <a href="#structure">7.1 Structure &amp; Nomenclature</a>
+    <a href="#properties">7.2 Physical Properties</a>
+    <a href="#acidity">7.3 Acidity</a>
+    <a href="#preparation">7.4 Preparation</a>
+    <a href="#reactions">7.5 Reactions</a>
+    <a href="#acyl">7.6 Acyl Chlorides</a>
+    <a href="#uses">7.7 Uses</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<!-- 7.1 STRUCTURE AND NOMENCLATURE -->
+<section id="structure">
+  <div class="section-header">
+    <span class="section-number">7.1</span>
+    <h2>Structure and Nomenclature</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Carboxylic Acids</strong>
+    Organic compounds containing the <b>carboxyl functional group (&ndash;COOH)</b>, which combines a carbonyl (C=O) and a hydroxyl (&ndash;OH) on the same carbon. General formula: <b>R&ndash;COOH</b> or <b>C<sub>n</sub>H<sub>2n+1</sub>COOH</b>. Named with the suffix <b>&ndash;oic acid</b>.
+  </div>
+
+  <div class="card">
+    <h3>The Carboxyl Group</h3>
+    <p>The &ndash;COOH group is planar (sp<sup>2</sup> carbonyl carbon). The O&ndash;H bond is more acidic than in alcohols because the carboxylate anion (RCOO<sup>&minus;</sup>) formed after deprotonation is stabilised by <b>resonance delocalization</b> of the negative charge over both oxygen atoms.</p>
+  </div>
+
+  <h3 class="sub-heading">IUPAC Nomenclature</h3>
+  <div class="card">
+    <ol style="padding-left:20px;line-height:2.1;">
+      <li>Find the <b>longest chain including the &ndash;COOH carbon</b>. The &ndash;COOH carbon is always <b>C1</b>.</li>
+      <li>Replace the final &ndash;e of the parent alkane with <b>&ndash;oic acid</b>.</li>
+      <li>Number substituents from the &ndash;COOH end (C1).</li>
+      <li>Diacids (two &ndash;COOH groups): use suffix <b>&ndash;dioic acid</b>.</li>
+    </ol>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>IUPAC Name</th><th>Formula</th><th>Structure</th><th>Common Name</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Methanoic acid</td><td>HCOOH</td><td>H&ndash;COOH</td><td>Formic acid</td><td>Ant venom</td></tr>
+        <tr><td>Ethanoic acid</td><td>CH<sub>3</sub>COOH</td><td>CH<sub>3</sub>&ndash;COOH</td><td>Acetic acid</td><td>Vinegar</td></tr>
+        <tr><td>Propanoic acid</td><td>C<sub>2</sub>H<sub>5</sub>COOH</td><td>CH<sub>3</sub>CH<sub>2</sub>&ndash;COOH</td><td>Propionic acid</td><td>&mdash;</td></tr>
+        <tr><td>Butanoic acid</td><td>C<sub>3</sub>H<sub>7</sub>COOH</td><td>CH<sub>3</sub>(CH<sub>2</sub>)<sub>2</sub>COOH</td><td>Butyric acid</td><td>Rancid butter</td></tr>
+        <tr><td>Pentanoic acid</td><td>C<sub>4</sub>H<sub>9</sub>COOH</td><td>&mdash;</td><td>Valeric acid</td><td>&mdash;</td></tr>
+        <tr><td>Hexadecanoic acid</td><td>C<sub>15</sub>H<sub>31</sub>COOH</td><td>&mdash;</td><td>Palmitic acid</td><td>Palm oil (saturated fat)</td></tr>
+        <tr><td>Octadecanoic acid</td><td>C<sub>17</sub>H<sub>35</sub>COOH</td><td>&mdash;</td><td>Stearic acid</td><td>Animal fat</td></tr>
+        <tr><td>Ethanedioic acid</td><td>(COOH)<sub>2</sub></td><td>HOOC&ndash;COOH</td><td>Oxalic acid</td><td>Rhubarb, spinach</td></tr>
+        <tr><td>Benzene-1,2-dicarboxylic acid</td><td>&mdash;</td><td>&mdash;</td><td>Phthalic acid</td><td>Industrial</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 1</span><h4>Naming Carboxylic Acids</h4></div>
+    <div class="example-body">
+      <p class="q">Name: (a) CH<sub>3</sub>CH(CH<sub>3</sub>)COOH &nbsp; (b) HOOCCH<sub>2</sub>CH<sub>2</sub>COOH &nbsp; (c) CH<sub>3</sub>CH<sub>2</sub>CH(Br)COOH</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">Longest chain including COOH = 3 C &rarr; propanoic acid. Methyl branch at C2 &rarr; <b>2-methylpropanoic acid</b> (isobutyric acid).</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">Two COOH groups; chain between them = 2 C + 2 COOH carbons = 4 C total &rarr; <b>butanedioic acid</b> (succinic acid).</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">Chain = 4 C (butanoic acid). Br at C2 (next to COOH) &rarr; <b>2-bromobutanoic acid</b>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7.2 PHYSICAL PROPERTIES -->
+<section id="properties">
+  <div class="section-header">
+    <span class="section-number">7.2</span>
+    <h2>Physical Properties</h2>
+  </div>
+
+  <div class="card">
+    <h3>Boiling Points &mdash; Very High</h3>
+    <p>Carboxylic acids have <b>exceptionally high boiling points</b> compared to alcohols, aldehydes, and ketones of similar molecular mass. This is because they form <b>hydrogen-bonded dimers</b> in the liquid state &mdash; two molecules pair up via two O&ndash;H&middot;&middot;&middot;O=C hydrogen bonds, effectively doubling the apparent molecular mass.</p>
+    <p>Example: ethanoic acid (M<sub>r</sub>=60, B.P.=118&deg;C) vs propan-1-ol (M<sub>r</sub>=60, B.P.=97&deg;C).</p>
+  </div>
+
+  <div class="card">
+    <h3>Solubility</h3>
+    <p>Short-chain acids (C<sub>1</sub>&ndash;C<sub>4</sub>) are <b>completely miscible with water</b>. The &ndash;COOH group forms strong H-bonds with water. Solubility decreases as chain length increases; long-chain acids (fats) are practically insoluble in water.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Acid</th><th>M<sub>r</sub></th><th>B.P. (&deg;C)</th><th>M.P. (&deg;C)</th><th>Smell</th></tr></thead>
+      <tbody>
+        <tr><td>Methanoic acid</td><td>46</td><td>101</td><td>8</td><td>Pungent (ant sting)</td></tr>
+        <tr><td>Ethanoic acid</td><td>60</td><td>118</td><td>17</td><td>Vinegar</td></tr>
+        <tr><td>Propanoic acid</td><td>74</td><td>141</td><td>&minus;21</td><td>Rancid, sweaty</td></tr>
+        <tr><td>Butanoic acid</td><td>88</td><td>164</td><td>&minus;6</td><td>Rancid butter, vomit</td></tr>
+        <tr><td>Pentanoic acid</td><td>102</td><td>186</td><td>&minus;34</td><td>Cheese, sweat</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 7.3 ACIDITY -->
+<section id="acidity">
+  <div class="section-header">
+    <span class="section-number">7.3</span>
+    <h2>Acidity of Carboxylic Acids</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Acidity</strong>
+    Carboxylic acids are <b>weak acids</b>: they partially dissociate in water to give H<sup>+</sup> (or H<sub>3</sub>O<sup>+</sup>) and the carboxylate anion (RCOO<sup>&minus;</sup>).
+    <br><br>
+    RCOOH &rightleftharpoons; RCOO<sup>&minus;</sup> + H<sup>+</sup> &nbsp;&nbsp; (K<sub>a</sub> ~ 10<sup>&minus;5</sup> for ethanoic acid)
+  </div>
+
+  <div class="card">
+    <h3>Why Carboxylic Acids are More Acidic than Alcohols</h3>
+    <p>Carboxylic acids (pK<sub>a</sub> ~4&ndash;5) are far more acidic than alcohols (pK<sub>a</sub> ~16). After an alcohol loses H<sup>+</sup>, the negative charge on the alkoxide (RO<sup>&minus;</sup>) is localised on one oxygen atom. In a carboxylate (RCOO<sup>&minus;</sup>), the negative charge is <b>delocalised by resonance over both oxygen atoms</b> (both C&ndash;O bonds become equivalent, bond order 1.5), greatly stabilising the anion and favouring deprotonation.</p>
+  </div>
+
+  <div class="card">
+    <h3>Factors Affecting Acid Strength</h3>
+    <p><b>Electron-withdrawing groups</b> (e.g. halogens, &ndash;NO<sub>2</sub>) near the &ndash;COOH increase acidity by further stabilising the carboxylate anion (withdrawing electron density, reducing the negative charge).</p>
+    <p><b>Electron-donating groups</b> (e.g. alkyl groups) decrease acidity by destabilising the carboxylate anion.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Acid</th><th>Structure</th><th>pK<sub>a</sub></th><th>Relative Strength</th></tr></thead>
+      <tbody>
+        <tr><td>Trichloroacetic acid</td><td>CCl<sub>3</sub>COOH</td><td>0.66</td><td>Stronger (3 Cl, very electron-withdrawing)</td></tr>
+        <tr><td>Dichloroacetic acid</td><td>CHCl<sub>2</sub>COOH</td><td>1.48</td><td>Stronger</td></tr>
+        <tr><td>Chloroacetic acid</td><td>ClCH<sub>2</sub>COOH</td><td>2.86</td><td>Stronger than ethanoic</td></tr>
+        <tr><td>Methanoic acid</td><td>HCOOH</td><td>3.75</td><td>Stronger than ethanoic (H not alkyl)</td></tr>
+        <tr><td>Ethanoic acid</td><td>CH<sub>3</sub>COOH</td><td>4.76</td><td>Reference</td></tr>
+        <tr><td>Propanoic acid</td><td>C<sub>2</sub>H<sub>5</sub>COOH</td><td>4.87</td><td>Slightly weaker (longer alkyl)</td></tr>
+        <tr><td>Ethanol</td><td>C<sub>2</sub>H<sub>5</sub>OH</td><td>~16</td><td>Far weaker (no resonance stabilisation)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 2</span><h4>Comparing Acid Strengths</h4></div>
+    <div class="example-body">
+      <p class="q">Arrange in order of increasing acid strength: ethanoic acid, chloroacetic acid (ClCH<sub>2</sub>COOH), propanoic acid. Explain.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">Propanoic acid has a longer alkyl chain (electron-donating) &rarr; <b>weakest</b> (pK<sub>a</sub> 4.87).</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Ethanoic acid: alkyl group is CH<sub>3</sub> &rarr; middle (pK<sub>a</sub> 4.76).</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Chloroacetic acid: Cl is highly electron-withdrawing, stabilising COO<sup>&minus;</sup> &rarr; <b>strongest</b> (pK<sub>a</sub> 2.86).</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Order: propanoic &lt; ethanoic &lt; chloroacetic (increasing acid strength).</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7.4 PREPARATION -->
+<section id="preparation">
+  <div class="section-header">
+    <span class="section-number">7.4</span>
+    <h2>Preparation of Carboxylic Acids</h2>
+  </div>
+
+  <h3 class="sub-heading">Method 1: Oxidation of Primary Alcohols or Aldehydes</h3>
+  <div class="card">
+    <div class="formula-block">RCH2OH  --excess K2Cr2O7/H2SO4, reflux-->  RCOOH
+RCHO   --excess K2Cr2O7/H2SO4, reflux-->  RCOOH
+
+e.g.  CH3CH2OH  --[O]-->  CH3CHO  --[O]-->  CH3COOH
+      (ethanol)   (ethanal)          (ethanoic acid)</div>
+  </div>
+
+  <h3 class="sub-heading">Method 2: Hydrolysis of Nitriles</h3>
+  <div class="card">
+    <p>A nitrile (R&ndash;CN) is hydrolysed by heating with dilute acid (or alkali) to give a carboxylic acid. This is useful for synthesising acids with one more carbon than the starting halogenoalkane.</p>
+    <div class="formula-block">R-CN  +  H2O  --dil. HCl or NaOH, reflux-->  RCOOH  +  NH3
+
+e.g.  CH3CN  +  H2O  --H+, heat-->  CH3COOH  +  NH3
+      (ethanenitrile)                 (ethanoic acid)</div>
+  </div>
+
+  <h3 class="sub-heading">Method 3: Hydrolysis of Esters</h3>
+  <div class="card">
+    <div class="formula-block">RCOOR'  +  H2O  --H+ or OH-, heat-->  RCOOH  +  R'OH
+
+e.g.  CH3COOC2H5  +  H2O  --H+, heat-->  CH3COOH  +  C2H5OH
+      (ethyl ethanoate)                    (ethanoic acid) (ethanol)</div>
+  </div>
+
+  <h3 class="sub-heading">Method 4: Reaction of Grignard Reagents with CO<sub>2</sub></h3>
+  <div class="card">
+    <div class="formula-block">RMgX  +  CO2  --dry ether-->  RCOOMgX  --H2O/H+-->  RCOOH  +  Mg(OH)X
+
+e.g.  CH3MgBr  +  CO2  -->  CH3COOMgBr  --H+/H2O-->  CH3COOH
+      (methylmagnesium bromide)               (ethanoic acid)</div>
+    <p>This method introduces a &ndash;COOH group using CO<sub>2</sub> as the electrophile.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 3</span><h4>Two-Step Synthesis of Propanoic Acid</h4></div>
+    <div class="example-body">
+      <p class="q">Show how ethanol can be converted to propanoic acid using two steps (chain extension).</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><b>Step 1:</b> Convert ethanol &rarr; bromoethane: C<sub>2</sub>H<sub>5</sub>OH + HBr &rarr; C<sub>2</sub>H<sub>5</sub>Br + H<sub>2</sub>O</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><b>Step 2a:</b> C<sub>2</sub>H<sub>5</sub>Br + KCN(alc) &rarr; C<sub>2</sub>H<sub>5</sub>CN + KBr (propanenitrile)</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text"><b>Step 2b:</b> C<sub>2</sub>H<sub>5</sub>CN + H<sub>2</sub>O &rarr;<sup>H<sup>+</sup>, heat</sup> C<sub>2</sub>H<sub>5</sub>COOH + NH<sub>3</sub> (propanoic acid)</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Overall: ethanol (2C) &rarr; propanoic acid (3C). Chain extended by one carbon via nitrile.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7.5 REACTIONS -->
+<section id="reactions">
+  <div class="section-header">
+    <span class="section-number">7.5</span>
+    <h2>Reactions of Carboxylic Acids</h2>
+  </div>
+
+  <h3 class="sub-heading">Reaction 1: Acid&ndash;Base Reactions</h3>
+  <div class="card">
+    <div class="formula-block"><b>With metals:</b>
+2 RCOOH  +  Mg  -->  (RCOO)2Mg  +  H2(g)
+2 CH3COOH  +  Zn  -->  (CH3COO)2Zn  +  H2
+
+<b>With bases (NaOH, KOH):</b>
+RCOOH  +  NaOH  -->  RCOONa  +  H2O
+CH3COOH  +  NaOH  -->  CH3COONa  +  H2O
+                         (sodium ethanoate)
+
+<b>With carbonates / bicarbonates:</b>
+2 RCOOH  +  Na2CO3  -->  2 RCOONa  +  H2O  +  CO2(g)
+RCOOH  +  NaHCO3  -->  RCOONa  +  H2O  +  CO2(g)</div>
+    <div class="callout tip" style="margin-top:12px;">
+      <span class="callout-icon">&#128161;</span>
+      <div class="callout-body">
+        <strong>Test for Carboxylic Acids</strong>
+        Carboxylic acids <b>effervesce with NaHCO<sub>3</sub></b> solution (CO<sub>2</sub> produced). Phenols and alcohols do NOT react with NaHCO<sub>3</sub>. This is the key test to distinguish carboxylic acids from other acidic compounds.
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 2: Esterification</h3>
+  <div class="card">
+    <div class="formula-block">RCOOH  +  R'OH  <==>  RCOOR'  +  H2O
+                  conc. H2SO4 catalyst, heat
+
+e.g.  CH3COOH  +  C2H5OH  <==>  CH3COOC2H5  +  H2O
+      (ethanoic acid) (ethanol)    (ethyl ethanoate)</div>
+    <p>Reversible equilibrium. Yield improved by: excess alcohol, removing water, or removing ester by distillation.</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 3: Reduction to Primary Alcohol</h3>
+  <div class="card">
+    <div class="formula-block">RCOOH  +  4[H]  --LiAlH4, dry ether-->  RCH2OH  +  H2O
+
+e.g.  CH3COOH  +  4[H]  -->  CH3CH2OH  (ethanol)
+
+Note: NaBH4 does NOT reduce carboxylic acids (too mild). LiAlH4 only.</div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 4: Conversion to Acyl Chloride</h3>
+  <div class="card">
+    <div class="formula-block">RCOOH  +  PCl5  -->  RCOCl  +  POCl3  +  HCl
+RCOOH  +  SOCl2  -->  RCOCl  +  SO2  +  HCl  (preferred method)
+
+e.g.  CH3COOH  +  SOCl2  -->  CH3COCl  +  SO2  +  HCl
+      (ethanoic acid)           (ethanoyl chloride)</div>
+    <p>SOCl<sub>2</sub> is preferred because both by-products (SO<sub>2</sub> and HCl) are gases and leave the reaction mixture, giving a pure product.</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 5: Decarboxylation</h3>
+  <div class="card">
+    <div class="formula-block">RCOONa  +  NaOH  --CaO, heat-->  R-H  +  Na2CO3
+
+e.g.  CH3COONa  +  NaOH  --CaO, heat-->  CH4  +  Na2CO3
+      (sodium ethanoate)                   (methane)</div>
+    <p>The sodium salt of the acid loses &ndash;COO<sup>&minus;</sup> to give an alkane with one fewer carbon (Kolbe&rsquo;s method &mdash; see Unit 2).</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 4</span><h4>Reactions of Ethanoic Acid</h4></div>
+    <div class="example-body">
+      <p class="q">Write equations for the reactions of ethanoic acid with: (a) NaHCO<sub>3</sub>; (b) Mg; (c) ethanol (conc. H<sub>2</sub>SO<sub>4</sub>); (d) LiAlH<sub>4</sub>.</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">CH<sub>3</sub>COOH + NaHCO<sub>3</sub> &rarr; CH<sub>3</sub>COONa + H<sub>2</sub>O + CO<sub>2</sub>&uarr; (effervescence)</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">2 CH<sub>3</sub>COOH + Mg &rarr; (CH<sub>3</sub>COO)<sub>2</sub>Mg + H<sub>2</sub>&uarr; (magnesium ethanoate + hydrogen)</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">CH<sub>3</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH &rightleftharpoons;<sup>conc. H<sub>2</sub>SO<sub>4</sub></sup> CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O (ethyl ethanoate)</div></div>
+      <div class="step"><div class="step-num">d</div><div class="step-text">CH<sub>3</sub>COOH + 4[H] &rarr;<sup>LiAlH<sub>4</sub></sup> CH<sub>3</sub>CH<sub>2</sub>OH + H<sub>2</sub>O (ethanol)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7.6 ACYL CHLORIDES -->
+<section id="acyl">
+  <div class="section-header">
+    <span class="section-number">7.6</span>
+    <h2>Acyl Chlorides</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Acyl Chlorides (Acid Chlorides)</strong>
+    Acyl chlorides contain the <b>acyl chloride functional group (&ndash;COCl)</b>. General formula: <b>RCOCl</b>. Named by replacing &ndash;ic acid of the parent carboxylic acid with <b>&ndash;oyl chloride</b>. Example: ethanoic acid &rarr; <b>ethanoyl chloride</b> (CH<sub>3</sub>COCl).
+  </div>
+
+  <div class="card">
+    <h3>Why Acyl Chlorides are More Reactive than Carboxylic Acids</h3>
+    <p>The C&ndash;Cl bond in acyl chlorides is more polarised than C&ndash;OH in acids (Cl is a better leaving group than OH). The carbonyl carbon is more electrophilic. Acyl chlorides undergo <b>nucleophilic acyl substitution</b> much faster than carboxylic acids, reacting vigorously with water, alcohols, and amines at room temperature.</p>
+  </div>
+
+  <h3 class="sub-heading">Reactions of Acyl Chlorides</h3>
+
+  <div class="card">
+    <h3>1. With Water &rarr; Carboxylic Acid (Hydrolysis)</h3>
+    <div class="formula-block">RCOCl  +  H2O  -->  RCOOH  +  HCl  (vigorous, steamy fumes of HCl)
+
+e.g.  CH3COCl  +  H2O  -->  CH3COOH  +  HCl</div>
+  </div>
+
+  <div class="card">
+    <h3>2. With Alcohols &rarr; Ester (faster than esterification)</h3>
+    <div class="formula-block">RCOCl  +  R'OH  -->  RCOOR'  +  HCl
+
+e.g.  CH3COCl  +  C2H5OH  -->  CH3COOC2H5  +  HCl
+      (ethanoyl chloride)  (ethanol)  (ethyl ethanoate)</div>
+    <p>This reaction is fast and irreversible (unlike acid + alcohol esterification). HCl fumes are produced.</p>
+  </div>
+
+  <div class="card">
+    <h3>3. With Ammonia &rarr; Primary Amide</h3>
+    <div class="formula-block">RCOCl  +  2NH3  -->  RCONH2  +  NH4Cl
+
+e.g.  CH3COCl  +  2NH3  -->  CH3CONH2  +  NH4Cl
+      (ethanoyl chloride)      (ethanamide)</div>
+    <p>Two moles of NH<sub>3</sub> are used: one reacts, one neutralises the HCl produced.</p>
+  </div>
+
+  <div class="card">
+    <h3>4. With Primary Amines &rarr; Secondary Amide (N-substituted)</h3>
+    <div class="formula-block">RCOCl  +  R'NH2  -->  RCONHR'  +  HCl
+
+e.g.  CH3COCl  +  C2H5NH2  -->  CH3CONHC2H5  +  HCl
+      (ethanoyl chloride)  (ethylamine)  (N-ethylethanamide)</div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Nucleophile</th><th>Product</th><th>By-product</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>H<sub>2</sub>O</td><td>Carboxylic acid (RCOOH)</td><td>HCl</td><td>CH<sub>3</sub>COCl + H<sub>2</sub>O &rarr; CH<sub>3</sub>COOH + HCl</td></tr>
+        <tr><td>ROH (alcohol)</td><td>Ester (RCOOR')</td><td>HCl</td><td>CH<sub>3</sub>COCl + C<sub>2</sub>H<sub>5</sub>OH &rarr; CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + HCl</td></tr>
+        <tr><td>NH<sub>3</sub></td><td>Primary amide (RCONH<sub>2</sub>)</td><td>NH<sub>4</sub>Cl</td><td>CH<sub>3</sub>COCl + 2NH<sub>3</sub> &rarr; CH<sub>3</sub>CONH<sub>2</sub> + NH<sub>4</sub>Cl</td></tr>
+        <tr><td>R'NH<sub>2</sub> (amine)</td><td>Secondary amide (RCONHR')</td><td>HCl (or amine salt)</td><td>CH<sub>3</sub>COCl + C<sub>2</sub>H<sub>5</sub>NH<sub>2</sub> &rarr; CH<sub>3</sub>CONHC<sub>2</sub>H<sub>5</sub> + HCl</td></tr>
+        <tr><td>R'OH (phenol)</td><td>Phenyl ester</td><td>HCl</td><td>CH<sub>3</sub>COCl + C<sub>6</sub>H<sub>5</sub>OH &rarr; CH<sub>3</sub>COOC<sub>6</sub>H<sub>5</sub> + HCl</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout rose">
+    <span class="callout-icon">&#9888;&#65039;</span>
+    <div class="callout-body">
+      <strong>Acyl Chlorides vs Carboxylic Acids &mdash; Key Differences</strong>
+      Acyl chlorides react with water instantly (fuming), with alcohols at room temperature without catalyst, and with amines without heating. Carboxylic acids require concentrated H<sub>2</sub>SO<sub>4</sub> catalyst and heat for esterification, react slowly with amines, and do not fume in air. Acyl chlorides are used in synthesis when fast, complete reactions are needed.
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 5</span><h4>Reactions of Ethanoyl Chloride</h4></div>
+    <div class="example-body">
+      <p class="q">Write equations for the reactions of ethanoyl chloride with: (a) water; (b) propan-1-ol; (c) methylamine (CH<sub>3</sub>NH<sub>2</sub>). Name all organic products.</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">CH<sub>3</sub>COCl + H<sub>2</sub>O &rarr; CH<sub>3</sub>COOH + HCl<br>Product: <b>ethanoic acid</b></div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">CH<sub>3</sub>COCl + CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH &rarr; CH<sub>3</sub>COOCH<sub>2</sub>CH<sub>2</sub>CH<sub>3</sub> + HCl<br>Product: <b>propyl ethanoate</b></div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">CH<sub>3</sub>COCl + 2CH<sub>3</sub>NH<sub>2</sub> &rarr; CH<sub>3</sub>CONHCH<sub>3</sub> + CH<sub>3</sub>NH<sub>3</sub>Cl<br>Product: <b>N-methylethanamide</b></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7.7 USES -->
+<section id="uses">
+  <div class="section-header">
+    <span class="section-number">7.7</span>
+    <h2>Uses of Carboxylic Acids and Acyl Chlorides</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Compound</th><th>Use</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Ethanoic acid (acetic acid)</td><td>Vinegar (5% solution); food preservative (E260)</td><td>Inhibits microbial growth</td></tr>
+        <tr><td>Ethanoic acid</td><td>Manufacture of cellulose acetate (rayon, photographic film)</td><td>Reaction with cellulose &ndash;OH groups</td></tr>
+        <tr><td>Ethanoic acid</td><td>Synthesis of aspirin (acetylsalicylic acid) via acylation</td><td>Reacts with salicylic acid</td></tr>
+        <tr><td>Methanoic acid</td><td>Descaling agent; rubber coagulation; leather tanning</td><td>Stronger acid than ethanoic</td></tr>
+        <tr><td>Long-chain fatty acids</td><td>Soap making (saponification of fats with NaOH)</td><td>Palmitic, stearic, oleic acids</td></tr>
+        <tr><td>Benzoic acid</td><td>Food preservative (sodium benzoate, E211)</td><td>Inhibits yeast and fungi</td></tr>
+        <tr><td>Lactic acid</td><td>Food industry (yoghurt, cheese); biodegradable plastic (PLA)</td><td>2-hydroxypropanoic acid</td></tr>
+        <tr><td>Citric acid</td><td>Food flavouring and preservative; cleaning agent</td><td>Tricarboxylic acid from citrus fruits</td></tr>
+        <tr><td>Ethanoyl chloride</td><td>Acetylation reactions in synthesis (aspirin, paracetamol)</td><td>Introduces CH<sub>3</sub>CO&ndash; group rapidly</td></tr>
+        <tr><td>Acyl chlorides generally</td><td>Manufacturing pharmaceuticals, dyes, agrochemicals</td><td>Highly reactive acylating agents</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <div class="section-header">
+    <span class="section-number">&#9999;&#65039;</span>
+    <h2>Exercises</h2>
+  </div>
+
+  <ul class="exercise-list">
+
+    <li>
+      Name the following compounds:<br>
+      (a) CH<sub>3</sub>CH<sub>2</sub>COOH &nbsp; (b) (CH<sub>3</sub>)<sub>2</sub>CHCOOH &nbsp; (c) ClCH<sub>2</sub>COOH &nbsp; (d) CH<sub>3</sub>CH(OH)COOH
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) <b>Propanoic acid</b><br>
+        (b) <b>2-methylpropanoic acid</b> (isobutyric acid)<br>
+        (c) <b>Chloroacetic acid</b> (or 2-chloroethanoic acid / chloroethanoic acid)<br>
+        (d) <b>2-hydroxypropanoic acid</b> (lactic acid)
+      </div>
+    </li>
+
+    <li>
+      Explain why ethanoic acid (pK<sub>a</sub> 4.76) is a much stronger acid than ethanol (pK<sub>a</sub> ~16).
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        When ethanoic acid loses H<sup>+</sup>, the carboxylate anion (CH<sub>3</sub>COO<sup>&minus;</sup>) is formed. The negative charge is <b>delocalised by resonance over both oxygen atoms</b> (both C&ndash;O bonds become equivalent, length 1.5). This resonance stabilisation greatly lowers the energy of the anion, making deprotonation thermodynamically favourable.<br><br>
+        When ethanol loses H<sup>+</sup>, the ethoxide ion (C<sub>2</sub>H<sub>5</sub>O<sup>&minus;</sup>) has the negative charge <b>localised on one oxygen</b> with no resonance stabilisation &rarr; much higher energy &rarr; deprotonation much less favourable &rarr; far weaker acid.
+      </div>
+    </li>
+
+    <li>
+      Write the equation for the reaction of propanoic acid with: (a) NaHCO<sub>3</sub>; (b) ethanol (conc. H<sub>2</sub>SO<sub>4</sub>); (c) SOCl<sub>2</sub>. Name all products.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) C<sub>2</sub>H<sub>5</sub>COOH + NaHCO<sub>3</sub> &rarr; C<sub>2</sub>H<sub>5</sub>COONa + H<sub>2</sub>O + CO<sub>2</sub>&uarr;<br>Products: <b>sodium propanoate</b>, water, carbon dioxide<br><br>
+        (b) C<sub>2</sub>H<sub>5</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH &rightleftharpoons;<sup>conc. H<sub>2</sub>SO<sub>4</sub></sup> C<sub>2</sub>H<sub>5</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O<br>Product: <b>ethyl propanoate</b><br><br>
+        (c) C<sub>2</sub>H<sub>5</sub>COOH + SOCl<sub>2</sub> &rarr; C<sub>2</sub>H<sub>5</sub>COCl + SO<sub>2</sub> + HCl<br>Product: <b>propanoyl chloride</b>
+      </div>
+    </li>
+
+    <li>
+      Compare the reactions of ethanoic acid and ethanoyl chloride with ethanol. Give equations for both and explain why ethanoyl chloride is preferred in synthesis.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>Ethanoic acid + ethanol:</b><br>
+        CH<sub>3</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH &rightleftharpoons;<sup>conc. H<sub>2</sub>SO<sub>4</sub>, heat</sup> CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O<br>
+        Slow, reversible, requires catalyst and heat. Max yield ~65%.<br><br>
+        <b>Ethanoyl chloride + ethanol:</b><br>
+        CH<sub>3</sub>COCl + C<sub>2</sub>H<sub>5</sub>OH &rarr; CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + HCl<br>
+        Fast, irreversible, no catalyst or heat needed. Near 100% yield.<br><br>
+        <b>Why preferred:</b> Faster, irreversible reaction gives higher yield; no catalyst needed; reaction complete at room temperature.
+      </div>
+    </li>
+
+    <li>
+      Write equations for all the reactions of propanoyl chloride (C<sub>2</sub>H<sub>5</sub>COCl) with: (a) water; (b) ammonia; (c) methylamine (CH<sub>3</sub>NH<sub>2</sub>). Name all organic products.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) C<sub>2</sub>H<sub>5</sub>COCl + H<sub>2</sub>O &rarr; C<sub>2</sub>H<sub>5</sub>COOH + HCl &mdash; <b>propanoic acid</b><br>
+        (b) C<sub>2</sub>H<sub>5</sub>COCl + 2NH<sub>3</sub> &rarr; C<sub>2</sub>H<sub>5</sub>CONH<sub>2</sub> + NH<sub>4</sub>Cl &mdash; <b>propanamide</b><br>
+        (c) C<sub>2</sub>H<sub>5</sub>COCl + 2CH<sub>3</sub>NH<sub>2</sub> &rarr; C<sub>2</sub>H<sub>5</sub>CONHCH<sub>3</sub> + CH<sub>3</sub>NH<sub>3</sub>Cl &mdash; <b>N-methylpropanamide</b>
+      </div>
+    </li>
+
+    <li>
+      Describe how you would prepare ethanoic acid starting from ethanol, using two different methods. Write equations for each.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>Method 1 &mdash; Direct oxidation:</b><br>
+        CH<sub>3</sub>CH<sub>2</sub>OH &rarr;<sup>excess K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sub>2</sub>SO<sub>4</sub>, reflux</sup> CH<sub>3</sub>COOH + H<sub>2</sub>O<br><br>
+        <b>Method 2 &mdash; Via nitrile (chain shortening issue: gives same length):</b><br>
+        Step 1: CH<sub>3</sub>CH<sub>2</sub>OH + HBr &rarr; CH<sub>3</sub>CH<sub>2</sub>Br + H<sub>2</sub>O (bromoethane)<br>
+        Step 2: CH<sub>3</sub>CH<sub>2</sub>Br + KCN &rarr; CH<sub>3</sub>CH<sub>2</sub>CN + KBr (propanenitrile, 3C)<br>
+        (To get ethanoic acid via nitrile: start from CH<sub>3</sub>Br &rarr; CH<sub>3</sub>CN &rarr; CH<sub>3</sub>COOH)<br>
+        CH<sub>3</sub>Br + KCN &rarr; CH<sub>3</sub>CN; CH<sub>3</sub>CN + H<sub>2</sub>O &rarr;<sup>H<sup>+</sup>, heat</sup> CH<sub>3</sub>COOH + NH<sub>3</sub>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="section-header">
+    <span class="section-number">&#129504;</span>
+    <h2>Interactive Quiz</h2>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-header"><h3>Unit 7 Quiz &mdash; Carboxylic Acids &amp; Acyl Chlorides (10 Questions)</h3></div>
+    <div class="quiz-body">
+
+      <div class="q-block">
+        <span class="q-num">Q1</span>
+        <p class="q-text">The IUPAC name of (CH<sub>3</sub>)<sub>2</sub>CHCOOH is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="a"> Butanoic acid</label>
+          <label class="opt"><input type="radio" name="q1" value="b"> 2-methylpropanoic acid</label>
+          <label class="opt"><input type="radio" name="q1" value="c"> 3-methylbutanoic acid</label>
+          <label class="opt"><input type="radio" name="q1" value="d"> Isobutyric acid</label>
+        </div>
+        <div class="q-exp" id="exp1">(CH<sub>3</sub>)<sub>2</sub>CHCOOH: longest chain including COOH = 3 C &rarr; propanoic acid. CH<sub>3</sub> branch at C2 &rarr; <b>2-methylpropanoic acid</b>. &ldquo;Isobutyric acid&rdquo; is a common name only.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q2</span>
+        <p class="q-text">Which reagent is used to distinguish a carboxylic acid from a phenol?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="a"> Litmus paper</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> NaOH solution</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> NaHCO<sub>3</sub> solution</label>
+          <label class="opt"><input type="radio" name="q2" value="d"> Acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub></label>
+        </div>
+        <div class="q-exp" id="exp2"><b>NaHCO<sub>3</sub></b>: carboxylic acids react with NaHCO<sub>3</sub> to give CO<sub>2</sub> (effervescence). Phenols are too weak to react with NaHCO<sub>3</sub> (both react with NaOH). Litmus would show both as acidic.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q3</span>
+        <p class="q-text">Why is chloroacetic acid (ClCH<sub>2</sub>COOH) stronger than ethanoic acid (CH<sub>3</sub>COOH)?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="a"> Cl makes the molecule larger</label>
+          <label class="opt"><input type="radio" name="q3" value="b"> Cl is electron-withdrawing, further stabilising the carboxylate anion</label>
+          <label class="opt"><input type="radio" name="q3" value="c"> Cl weakens the O&ndash;H bond directly</label>
+          <label class="opt"><input type="radio" name="q3" value="d"> CH<sub>3</sub> donates electrons to strengthen the O&ndash;H bond</label>
+        </div>
+        <div class="q-exp" id="exp3">Cl is highly electronegative and <b>withdraws electron density</b> from the carboxylate anion, dispersing the negative charge further and lowering its energy &rarr; more stable anion &rarr; stronger acid. CH<sub>3</sub> donates electrons (inductive), slightly destabilising the anion &rarr; weaker acid. Both B and D are partially correct but B is the primary explanation.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q4</span>
+        <p class="q-text">The product of reducing propanoic acid with LiAlH<sub>4</sub> is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="a"> Propanal</label>
+          <label class="opt"><input type="radio" name="q4" value="b"> Propan-1-ol</label>
+          <label class="opt"><input type="radio" name="q4" value="c"> Propan-2-ol</label>
+          <label class="opt"><input type="radio" name="q4" value="d"> Propanone</label>
+        </div>
+        <div class="q-exp" id="exp4">LiAlH<sub>4</sub> reduces carboxylic acids all the way to <b>primary alcohols</b>: C<sub>2</sub>H<sub>5</sub>COOH + 4[H] &rarr; C<sub>2</sub>H<sub>5</sub>CH<sub>2</sub>OH = <b>propan-1-ol</b>. NaBH<sub>4</sub> is too mild to reduce carboxylic acids.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q5</span>
+        <p class="q-text">The reaction of an acyl chloride with ammonia gives:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="a"> A carboxylic acid</label>
+          <label class="opt"><input type="radio" name="q5" value="b"> An ester</label>
+          <label class="opt"><input type="radio" name="q5" value="c"> A primary amide</label>
+          <label class="opt"><input type="radio" name="q5" value="d"> An amine</label>
+        </div>
+        <div class="q-exp" id="exp5">RCOCl + 2NH<sub>3</sub> &rarr; RCONH<sub>2</sub> + NH<sub>4</sub>Cl. The product is a <b>primary amide</b>. Two moles of NH<sub>3</sub> are needed: one for the reaction, one to neutralise HCl.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q6</span>
+        <p class="q-text">Why does ethanoic acid have an unusually high boiling point (118&deg;C) compared to other organic compounds of similar M<sub>r</sub>?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="a"> It is ionic</label>
+          <label class="opt"><input type="radio" name="q6" value="b"> It forms hydrogen-bonded dimers, doubling the effective molecular mass</label>
+          <label class="opt"><input type="radio" name="q6" value="c"> It has strong covalent bonds between molecules</label>
+          <label class="opt"><input type="radio" name="q6" value="d"> It has a very high density</label>
+        </div>
+        <div class="q-exp" id="exp6">Carboxylic acids form <b>hydrogen-bonded dimers</b> in the liquid: two molecules pair via two O&ndash;H&middot;&middot;&middot;O=C hydrogen bonds. This effectively doubles the molecular mass, requiring much more energy to vaporise &rarr; very high boiling point.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q7</span>
+        <p class="q-text">Acyl chlorides react with water to produce:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="a"> An ester and NaOH</label>
+          <label class="opt"><input type="radio" name="q7" value="b"> A carboxylic acid and HCl</label>
+          <label class="opt"><input type="radio" name="q7" value="c"> An amide and H<sub>2</sub></label>
+          <label class="opt"><input type="radio" name="q7" value="d"> An alcohol and CO<sub>2</sub></label>
+        </div>
+        <div class="q-exp" id="exp7">RCOCl + H<sub>2</sub>O &rarr; <b>RCOOH + HCl</b>. Acyl chlorides are hydrolysed rapidly by water, producing the corresponding carboxylic acid and HCl (steamy fumes in moist air).</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q8</span>
+        <p class="q-text">Which method is preferred for preparing an acyl chloride from a carboxylic acid?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="a"> PCl<sub>3</sub></label>
+          <label class="opt"><input type="radio" name="q8" value="b"> PCl<sub>5</sub></label>
+          <label class="opt"><input type="radio" name="q8" value="c"> SOCl<sub>2</sub> (thionyl chloride)</label>
+          <label class="opt"><input type="radio" name="q8" value="d"> Cl<sub>2</sub> under UV light</label>
+        </div>
+        <div class="q-exp" id="exp8"><b>SOCl<sub>2</sub></b> is preferred because both by-products (SO<sub>2</sub> and HCl) are gases and leave the reaction mixture, giving a pure product without difficult separation. PCl<sub>5</sub> leaves POCl<sub>3</sub> as a liquid by-product that must be separated.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q9</span>
+        <p class="q-text">Hydrolysis of a nitrile (R&ndash;CN) gives:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="a"> An alcohol with the same number of carbons</label>
+          <label class="opt"><input type="radio" name="q9" value="b"> A carboxylic acid with one more carbon than the original halogenoalkane used to make the nitrile</label>
+          <label class="opt"><input type="radio" name="q9" value="c"> A ketone</label>
+          <label class="opt"><input type="radio" name="q9" value="d"> An aldehyde</label>
+        </div>
+        <div class="q-exp" id="exp9">R&ndash;CN + H<sub>2</sub>O &rarr; R&ndash;COOH + NH<sub>3</sub>. The nitrile is made from R&ndash;X + CN<sup>&minus;</sup> (adds one C), then hydrolysed to RCOOH. So the acid has <b>one more carbon</b> than the original halogenoalkane. This is a key chain-extension strategy.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q10</span>
+        <p class="q-text">Which of the following is a use of ethanoic acid?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="a"> Oxy-acetylene welding</label>
+          <label class="opt"><input type="radio" name="q10" value="b"> As the monomer for polyethylene</label>
+          <label class="opt"><input type="radio" name="q10" value="c"> As vinegar and in the manufacture of cellulose acetate</label>
+          <label class="opt"><input type="radio" name="q10" value="d"> As an anaesthetic</label>
+        </div>
+        <div class="q-exp" id="exp10">Ethanoic acid (acetic acid) is used as <b>vinegar</b> (5% aqueous solution) and in manufacturing <b>cellulose acetate</b> (synthetic fibre, photographic film). Oxy-acetylene uses ethyne; polyethylene monomer is ethene.</div>
+      </div>
+
+    </div>
+    <div style="padding:0 24px 24px;">
+      <button class="quiz-submit" onclick="submitQuiz()">Submit Answers</button>
+      <div id="quizResult" style="display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius);font-family:'JetBrains Mono',monospace;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT TEST -->
+<section id="test">
+  <div class="section-header">
+    <span class="section-number">&#128221;</span>
+    <h2>Unit Test</h2>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">&#8505;&#65039;</span>
+    <div class="callout-body">
+      <strong>Instructions</strong>
+      Total: 50 marks &nbsp;|&nbsp; Time: 50 minutes &nbsp;|&nbsp; Attempt all questions &nbsp;|&nbsp; Show all working.
+    </div>
+  </div>
+
+  <div class="test-wrap">
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section A &mdash; Short Answer</h3>
+        <span class="marks-badge">30 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q1 [4 marks]</span>
+          <p>Name the following:<br>
+          (a) CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>COOH &nbsp; (b) (CH<sub>3</sub>)<sub>2</sub>CHCH<sub>2</sub>COOH &nbsp; (c) HOOCCOOH &nbsp; (d) BrCH<sub>2</sub>CH<sub>2</sub>COOH</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) <b>Butanoic acid</b><br>
+              (b) <b>3-methylbutanoic acid</b> (branch at C3 from COOH end)<br>
+              (c) <b>Ethanedioic acid</b> (oxalic acid)<br>
+              (d) <b>3-bromopropanoic acid</b> (Br at C3, counting from COOH as C1)
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q2 [4 marks]</span>
+          <p>Explain why carboxylic acids have higher boiling points than alcohols of similar molecular mass, and why they are more acidic than alcohols. Use ethanoic acid vs ethanol as your example.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Higher boiling point:</b> Ethanoic acid (B.P. 118&deg;C) forms <b>hydrogen-bonded dimers</b> in the liquid state via two O&ndash;H&middot;&middot;&middot;O=C hydrogen bonds per pair of molecules. This effectively doubles the molecular mass, requiring much more energy to separate molecules. Ethanol (B.P. 78&deg;C) forms H-bonds but only as single O&ndash;H&middot;&middot;&middot;O links &rarr; lower B.P.<br><br>
+              <b>Greater acidity:</b> On losing H<sup>+</sup>, ethanoic acid forms CH<sub>3</sub>COO<sup>&minus;</sup> where the negative charge is <b>delocalised by resonance over both oxygens</b> &rarr; very stable anion. Ethanol forms C<sub>2</sub>H<sub>5</sub>O<sup>&minus;</sup> with no resonance stabilisation &rarr; localised charge &rarr; less stable &rarr; much weaker acid (pK<sub>a</sub> ~16 vs 4.76).
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q3 [6 marks]</span>
+          <p>Write balanced equations for the following reactions:<br>
+          (a) Ethanoic acid + Na<sub>2</sub>CO<sub>3</sub> &nbsp; (b) Propanoic acid + NaHCO<sub>3</sub> &nbsp; (c) Ethanoic acid + Mg &nbsp; (d) Butanoic acid + LiAlH<sub>4</sub> &nbsp; (e) Ethanoic acid + SOCl<sub>2</sub> &nbsp; (f) Ethanoic acid + PCl<sub>5</sub><br>
+          Name all organic products.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) 2CH<sub>3</sub>COOH + Na<sub>2</sub>CO<sub>3</sub> &rarr; 2CH<sub>3</sub>COONa + H<sub>2</sub>O + CO<sub>2</sub> &mdash; <b>sodium ethanoate</b><br>
+              (b) C<sub>2</sub>H<sub>5</sub>COOH + NaHCO<sub>3</sub> &rarr; C<sub>2</sub>H<sub>5</sub>COONa + H<sub>2</sub>O + CO<sub>2</sub> &mdash; <b>sodium propanoate</b><br>
+              (c) 2CH<sub>3</sub>COOH + Mg &rarr; (CH<sub>3</sub>COO)<sub>2</sub>Mg + H<sub>2</sub> &mdash; <b>magnesium ethanoate</b><br>
+              (d) C<sub>3</sub>H<sub>7</sub>COOH + 4[H] &rarr;<sup>LiAlH<sub>4</sub></sup> C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>OH + H<sub>2</sub>O &mdash; <b>butan-1-ol</b><br>
+              (e) CH<sub>3</sub>COOH + SOCl<sub>2</sub> &rarr; CH<sub>3</sub>COCl + SO<sub>2</sub> + HCl &mdash; <b>ethanoyl chloride</b><br>
+              (f) CH<sub>3</sub>COOH + PCl<sub>5</sub> &rarr; CH<sub>3</sub>COCl + POCl<sub>3</sub> + HCl &mdash; <b>ethanoyl chloride</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q4 [5 marks]</span>
+          <p>Write equations for all the reactions of ethanoyl chloride (CH<sub>3</sub>COCl) with: (a) water; (b) ethanol; (c) phenol (C<sub>6</sub>H<sub>5</sub>OH); (d) ammonia; (e) ethylamine (C<sub>2</sub>H<sub>5</sub>NH<sub>2</sub>). Name all organic products.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) CH<sub>3</sub>COCl + H<sub>2</sub>O &rarr; CH<sub>3</sub>COOH + HCl &mdash; <b>ethanoic acid</b><br>
+              (b) CH<sub>3</sub>COCl + C<sub>2</sub>H<sub>5</sub>OH &rarr; CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + HCl &mdash; <b>ethyl ethanoate</b><br>
+              (c) CH<sub>3</sub>COCl + C<sub>6</sub>H<sub>5</sub>OH &rarr; CH<sub>3</sub>COOC<sub>6</sub>H<sub>5</sub> + HCl &mdash; <b>phenyl ethanoate</b><br>
+              (d) CH<sub>3</sub>COCl + 2NH<sub>3</sub> &rarr; CH<sub>3</sub>CONH<sub>2</sub> + NH<sub>4</sub>Cl &mdash; <b>ethanamide</b><br>
+              (e) CH<sub>3</sub>COCl + 2C<sub>2</sub>H<sub>5</sub>NH<sub>2</sub> &rarr; CH<sub>3</sub>CONHC<sub>2</sub>H<sub>5</sub> + C<sub>2</sub>H<sub>5</sub>NH<sub>3</sub>Cl &mdash; <b>N-ethylethanamide</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q5 [5 marks]</span>
+          <p>Describe two different methods for preparing propanoic acid from ethanol. Write equations and state all conditions. (Hint: one method uses direct oxidation; the other extends the chain via a nitrile.)</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Method 1 &mdash; Direct oxidation of propan-1-ol:</b><br>
+              First make propan-1-ol (not directly from ethanol in one step, but showing oxidation):<br>
+              CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH &rarr;<sup>excess K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sub>2</sub>SO<sub>4</sub>, reflux</sup> CH<sub>3</sub>CH<sub>2</sub>COOH<br><br>
+              <b>Method 2 &mdash; Chain extension via nitrile (from ethanol):</b><br>
+              Step 1: C<sub>2</sub>H<sub>5</sub>OH + HBr &rarr; C<sub>2</sub>H<sub>5</sub>Br + H<sub>2</sub>O<br>
+              Step 2: C<sub>2</sub>H<sub>5</sub>Br + KCN(alc) &rarr; C<sub>2</sub>H<sub>5</sub>CN + KBr (propanenitrile; chain extended 2C &rarr; 3C)<br>
+              Step 3: C<sub>2</sub>H<sub>5</sub>CN + H<sub>2</sub>O &rarr;<sup>dil. HCl, reflux</sup> C<sub>2</sub>H<sub>5</sub>COOH + NH<sub>3</sub> (propanoic acid)<br>
+              This route uses ethanol (2C) &rarr; bromoethane &rarr; propanenitrile &rarr; propanoic acid (3C).
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q6 [6 marks]</span>
+          <p>Arrange the following in order of increasing acid strength and explain the trend using electronic theory: methanoic acid (HCOOH), ethanoic acid (CH<sub>3</sub>COOH), trifluoroacetic acid (CF<sub>3</sub>COOH), propanoic acid (C<sub>2</sub>H<sub>5</sub>COOH).</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Order (weakest &rarr; strongest):</b><br>
+              Propanoic acid (pK<sub>a</sub> 4.87) &lt; Ethanoic acid (4.76) &lt; Methanoic acid (3.75) &lt; Trifluoroacetic acid (0.52)<br><br>
+              <b>Explanation:</b><br>
+              Acid strength depends on stability of the carboxylate anion (RCOO<sup>&minus;</sup>).<br>
+              &bull; <b>Propanoic &lt; Ethanoic</b>: longer alkyl chain = more electron-donating (inductive) = more electron density on anion = less stable = weaker acid.<br>
+              &bull; <b>Ethanoic &lt; Methanoic</b>: methanoic has H instead of CH<sub>3</sub>; H is less electron-donating than CH<sub>3</sub> &rarr; slightly less destabilisation of anion &rarr; stronger.<br>
+              &bull; <b>Methanoic &lt; CF<sub>3</sub>COOH</b>: three F atoms are strongly electron-withdrawing, withdrawing electron density from COO<sup>&minus;</sup>, greatly stabilising the anion by dispersing the negative charge &rarr; much stronger acid.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section B &mdash; Extended Response</h3>
+        <span class="marks-badge">20 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q7 [10 marks]</span>
+          <p><b>(a)</b> Compare acyl chlorides and carboxylic acids as acylating agents. In your answer: define acylation, explain why acyl chlorides are more reactive, and compare their reactions with water, alcohols, and amines with equations. <i>[7 marks]</i></p>
+          <p><b>(b)</b> Describe the industrial manufacture of aspirin (acetylsalicylic acid) from salicylic acid using ethanoyl chloride. Write the equation. <i>[3 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a) Acylation:</b> The introduction of an acyl group (RCO&ndash;) into a molecule, replacing an active H on O, N, or C.<br><br>
+              <b>Why acyl chlorides are more reactive:</b> The C&ndash;Cl bond is more polarised than C&ndash;OH; Cl<sup>&minus;</sup> is a better leaving group than OH<sup>&minus;</sup>; the carbonyl carbon in RCOCl is more electrophilic &rarr; faster nucleophilic acyl substitution.<br><br>
+              <b>With water:</b><br>
+              RCOOH + H<sub>2</sub>O: very slow (essentially no reaction at RT)<br>
+              RCOCl + H<sub>2</sub>O &rarr; RCOOH + HCl (immediate, steamy fumes)<br><br>
+              <b>With alcohols:</b><br>
+              RCOOH + R&rsquo;OH &rightleftharpoons; RCOOR&rsquo; + H<sub>2</sub>O (slow, reversible, needs H<sub>2</sub>SO<sub>4</sub> catalyst, heat)<br>
+              RCOCl + R&rsquo;OH &rarr; RCOOR&rsquo; + HCl (fast, irreversible, RT, no catalyst)<br><br>
+              <b>With amines:</b><br>
+              RCOOH + R&rsquo;NH<sub>2</sub> &rarr; RCOOH&middot;NH<sub>2</sub>R&rsquo; (ammonium salt first; amide only on strong heating)<br>
+              RCOCl + 2R&rsquo;NH<sub>2</sub> &rarr; RCONHR&rsquo; + R&rsquo;NH<sub>3</sub>Cl (fast, RT)<br><br>
+              <b>(b) Aspirin synthesis:</b><br>
+              Salicylic acid (2-hydroxybenzoic acid) + ethanoyl chloride:<br>
+              HOC<sub>6</sub>H<sub>4</sub>COOH + CH<sub>3</sub>COCl &rarr; CH<sub>3</sub>COOC<sub>6</sub>H<sub>4</sub>COOH + HCl<br>
+              (aspirin = acetylsalicylic acid)<br>
+              The phenolic &ndash;OH of salicylic acid is acylated by ethanoyl chloride. The reaction is fast and gives good yield. HCl is evolved as a gas.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q8 [10 marks]</span>
+          <p><b>(a)</b> Starting from butanol, describe with equations how you would prepare: (i) butanoic acid; (ii) pentanenitrile (5C nitrile); (iii) pentanoic acid; (iv) butanoyl chloride. State reagents and conditions for each step. <i>[8 marks]</i></p>
+          <p><b>(b)</b> Methanoic acid (HCOOH) is unusual in that it gives a positive Tollens&rsquo; test (silver mirror). Explain why, using an equation. <i>[2 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)(i) Butanoic acid from butan-1-ol:</b><br>
+              C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>OH &rarr;<sup>excess K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sub>2</sub>SO<sub>4</sub>, reflux</sup> C<sub>3</sub>H<sub>7</sub>COOH<br><br>
+              <b>(ii) Pentanenitrile from butan-1-ol:</b><br>
+              Step 1: C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>OH + HBr &rarr; C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>Br + H<sub>2</sub>O (1-bromobutane)<br>
+              Step 2: C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>Br + KCN(alc) &rarr; C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>CN + KBr (pentanenitrile, 5C)<br><br>
+              <b>(iii) Pentanoic acid from pentanenitrile:</b><br>
+              C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>CN + H<sub>2</sub>O &rarr;<sup>dil. HCl, reflux</sup> C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>COOH + NH<sub>3</sub> (pentanoic acid)<br><br>
+              <b>(iv) Butanoyl chloride from butanoic acid:</b><br>
+              C<sub>3</sub>H<sub>7</sub>COOH + SOCl<sub>2</sub> &rarr; C<sub>3</sub>H<sub>7</sub>COCl + SO<sub>2</sub> + HCl (butanoyl chloride)<br><br>
+              <b>(b)</b> Methanoic acid (HCOOH) has the structure H&ndash;COOH: the carbon of the &ndash;COOH group is bonded directly to H. This gives it the structural feature of an <b>aldehyde group</b> (H&ndash;C=O) as well as an acid group. It can therefore be <b>oxidised</b> by Tollens&rsquo; reagent:<br>
+              HCOOH + 2Ag(NH<sub>3</sub>)<sub>2</sub><sup>+</sup> + 2OH<sup>&minus;</sup> &rarr; CO<sub>2</sub> + 2Ag(s) + 4NH<sub>3</sub> + H<sub>2</sub>O<br>
+              (Silver mirror forms; HCOOH is oxidised to CO<sub>2</sub>.)
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="unit-nav">
+  <a class="nav-btn prev" href="unit6_carbonyl.html">&larr; Unit 6: Aldehydes &amp; Ketones</a>
+  <a class="nav-btn next" href="unit8_esters_amides.html">Unit 8: Esters, Amides &amp; Nitriles &rarr;</a>
+</div>
+
+</main>
+
+<script>
+function toggleAnswer(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+const correctAnswers={q1:'b',q2:'c',q3:'b',q4:'b',q5:'c',q6:'b',q7:'b',q8:'c',q9:'b',q10:'c'};
+function submitQuiz(){
+  let score=0;
+  const total=Object.keys(correctAnswers).length;
+  Object.entries(correctAnswers).forEach(([q,correct])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{
+      if(o.value===correct)o.parentElement.classList.add('correct');
+    });
+    if(sel){if(sel.value===correct)score++;else sel.parentElement.classList.add('wrong');}
+    const exp=document.getElementById('exp'+q.slice(1));
+    if(exp)exp.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const pct=Math.round(score/total*100);
+  const res=document.getElementById('quizResult');
+  res.style.display='block';
+  res.style.background=pct>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  res.style.border='1px solid '+(pct>=70?'var(--green)':'var(--red)');
+  res.style.color=pct>=70?'var(--green)':'var(--red)';
+  res.innerHTML='Score: '+score+' / '+total+' ('+pct+'%) — '+(pct>=80?'Excellent! 🎉':pct>=60?'Good effort — review marked questions.':'Keep studying — re-read the notes and try again.');
+  document.querySelector('.quiz-submit').disabled=true;
+  document.querySelector('.quiz-submit').style.opacity='0.5';
+}
+</script>
+</body>
+</html>
