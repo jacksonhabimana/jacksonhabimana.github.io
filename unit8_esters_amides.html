@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S5 Chemistry – Unit 8: Esters, Acid Anhydrides, Amides and Nitriles</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;
+    --accent:#58c4dc;--accent2:#f97316;--accent3:#a78bfa;
+    --gold:#e8c547;--green:#34d399;--red:#f87171;--cyan:#22d3ee;
+    --text:#e6edf3;--muted:#8b949e;--radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+  .hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#062028 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(34,211,238,.05) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(34,211,238,.05) 40px);pointer-events:none;}
+  .badge{display:inline-block;background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.3);color:var(--cyan);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+  .hero h1 em{color:var(--cyan);font-style:italic;}
+  .hero p.sub{color:var(--muted);font-size:1rem;max-width:620px;margin:0 auto 32px;}
+  .toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:800px;margin:0 auto;}
+  .toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+  .toc-grid a:hover{background:var(--cyan);color:#000;border-color:var(--cyan);}
+  .page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+  .section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--cyan);background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+  .section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+  .card p+p{margin-top:12px;}
+  .def-box{border-left:4px solid var(--cyan);background:rgba(34,211,238,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+  .def-box strong{color:var(--cyan);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+  .callout.info{background:rgba(88,196,220,.08);border:1px solid rgba(88,196,220,.25);}
+  .callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+  .callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+  .callout.cyan{background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.25);}
+  .callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+  .callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+  .tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:var(--surface2);}
+  th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--cyan);white-space:nowrap;}
+  td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  td code{background:rgba(34,211,238,.12);padding:2px 7px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.85em;}
+  .formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--cyan);overflow-x:auto;white-space:pre;}
+  .example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+  .example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+  .example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+  .example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+  .example-body{padding:22px 26px;}
+  .example-body .q{color:var(--text);margin-bottom:14px;font-weight:600;}
+  .example-body .step{display:flex;gap:14px;margin:10px 0;}
+  .step-num{min-width:28px;height:28px;background:rgba(34,211,238,.15);border:1px solid rgba(34,211,238,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--cyan);flex-shrink:0;margin-top:3px;}
+  .step-text{flex:1;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .exercise-list{list-style:none;counter-reset:ex;}
+  .exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+  .exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--cyan);display:block;margin-bottom:6px;}
+  .reveal-btn{margin-top:10px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);color:var(--cyan);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+  .reveal-btn:hover{background:var(--cyan);color:#000;}
+  .answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(34,211,238,.06);border-left:3px solid var(--cyan);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .answer.open{display:block;}
+  .quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+  .quiz-header{background:rgba(34,211,238,.1);border-bottom:1px solid rgba(34,211,238,.2);padding:16px 24px;}
+  .quiz-header h3{font-family:'Playfair Display',serif;color:var(--cyan);font-size:1.2rem;}
+  .quiz-body{padding:24px;}
+  .q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+  .q-block:last-of-type{border-bottom:none;}
+  .q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+  .q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--cyan);display:block;margin-bottom:4px;}
+  .options{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+  .opt:hover{border-color:var(--cyan);}
+  .opt input{margin-top:3px;accent-color:var(--cyan);}
+  .opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+  .opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+  .q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(34,211,238,.07);border-left:3px solid var(--cyan);border-radius:0 6px 6px 0;font-size:.88rem;}
+  .quiz-submit{background:var(--cyan);color:#000;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;font-weight:600;}
+  .quiz-submit:hover{opacity:.85;}
+  .test-wrap{margin-top:40px;}
+  .test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px;}
+  .test-section-header{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .test-section-header h3{font-family:'Playfair Display',serif;color:var(--accent2);font-size:1.1rem;}
+  .marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(249,115,22,.2);color:var(--accent2);padding:4px 12px;border-radius:50px;}
+  .test-body{padding:24px;}
+  .test-q{margin-bottom:20px;padding:16px 18px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);}
+  .test-q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent2);margin-bottom:6px;display:block;}
+  .test-answer-reveal{margin-top:14px;}
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+  .nav-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s;}
+  .nav-btn.prev{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+  .nav-btn.prev:hover{border-color:var(--cyan);color:var(--cyan);}
+  .nav-btn.next{background:var(--cyan);color:#000;font-weight:600;}
+  .nav-btn.next:hover{opacity:.88;}
+  h3.sub-heading{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+  sub,sup{font-size:.72em;}
+  @media(max-width:600px){.hero{padding:50px 20px 40px;}.page{padding:0 16px 60px;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Unit 8 &middot; Organic Chemistry</div>
+  <h1><em>Esters</em>, Acid Anhydrides, <em>Amides</em> &amp; Nitriles</h1>
+  <p class="sub">Structure, nomenclature, preparation, properties, saponification, detergents, and industrial applications.</p>
+  <nav class="toc-grid">
+    <a href="#esters">8.1 Esters</a>
+    <a href="#anhydrides">8.2 Acid Anhydrides</a>
+    <a href="#amides">8.3 Amides</a>
+    <a href="#nitriles">8.4 Nitriles</a>
+    <a href="#saponification">8.5 Saponification</a>
+    <a href="#detergents">8.6 Detergents &amp; Soaps</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<!-- 8.1 ESTERS -->
+<section id="esters">
+  <div class="section-header">
+    <span class="section-number">8.1</span>
+    <h2>Esters</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Definition</strong>
+    Esters are organic compounds formed by the reaction of a carboxylic acid and an alcohol, with the general structure <b>RCOOR'</b>. They contain the ester functional group <b>&ndash;COO&ndash;</b>. Named as <b>alkyl alkanoate</b>: the alkyl group from the alcohol comes first, then the acyl part of the acid ending in <b>&ndash;oate</b>.
+  </div>
+
+  <h3 class="sub-heading">IUPAC Nomenclature of Esters</h3>
+  <div class="card">
+    <ol style="padding-left:20px;line-height:2.1;">
+      <li>Identify the <b>alcohol part</b> (R'&ndash;O): becomes the alkyl prefix (e.g. methyl&ndash;, ethyl&ndash;, propyl&ndash;).</li>
+      <li>Identify the <b>acid part</b> (R&ndash;CO): name the acid, replace &ndash;ic acid with <b>&ndash;ate</b>.</li>
+      <li>Combine: <b>alkyl alkanoate</b>. Example: CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> = ethanoate (from ethanoic acid) + ethyl (from ethanol) &rarr; <b>ethyl ethanoate</b>.</li>
+    </ol>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Name</th><th>Structure</th><th>Acid Part</th><th>Alcohol Part</th><th>Smell/Use</th></tr></thead>
+      <tbody>
+        <tr><td>Methyl methanoate</td><td>HCOOCH<sub>3</sub></td><td>Methanoic acid</td><td>Methanol</td><td>Fruity</td></tr>
+        <tr><td>Ethyl ethanoate</td><td>CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub></td><td>Ethanoic acid</td><td>Ethanol</td><td>Nail polish/solvent</td></tr>
+        <tr><td>Pentyl ethanoate</td><td>CH<sub>3</sub>COO(CH<sub>2</sub>)<sub>4</sub>CH<sub>3</sub></td><td>Ethanoic acid</td><td>Pentan-1-ol</td><td>Banana</td></tr>
+        <tr><td>Octyl ethanoate</td><td>CH<sub>3</sub>COO(CH<sub>2</sub>)<sub>7</sub>CH<sub>3</sub></td><td>Ethanoic acid</td><td>Octan-1-ol</td><td>Orange</td></tr>
+        <tr><td>Ethyl butanoate</td><td>C<sub>3</sub>H<sub>7</sub>COOC<sub>2</sub>H<sub>5</sub></td><td>Butanoic acid</td><td>Ethanol</td><td>Pineapple</td></tr>
+        <tr><td>Methyl salicylate</td><td>HOC<sub>6</sub>H<sub>4</sub>COOCH<sub>3</sub></td><td>Salicylic acid</td><td>Methanol</td><td>Wintergreen (muscle rubs)</td></tr>
+        <tr><td>Glyceryl trinitrate</td><td>Glycerol + 3 HNO<sub>3</sub></td><td>Nitric acid</td><td>Glycerol</td><td>Explosive (dynamite)/angina drug</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-heading">Physical Properties of Esters</h3>
+  <div class="card">
+    <p>Esters have <b>lower boiling points than carboxylic acids</b> of similar M<sub>r</sub> because they cannot form H-bonds with each other (no O&ndash;H group). However, they have higher boiling points than alkanes of similar M<sub>r</sub> due to dipole&ndash;dipole interactions.</p>
+    <p>Short-chain esters are <b>slightly soluble</b> in water (C=O can accept H-bonds from water). Most esters are insoluble in water but dissolve in organic solvents. They have characteristic <b>pleasant fruity smells</b> and are used as food flavourings and perfumes.</p>
+  </div>
+
+  <h3 class="sub-heading">Preparation of Esters</h3>
+  <div class="card">
+    <h3>Method 1: Fischer Esterification (Acid + Alcohol)</h3>
+    <div class="formula-block">RCOOH  +  R'OH  <==>  RCOOR'  +  H2O
+             conc. H2SO4 catalyst, heat (reversible)
+
+e.g. CH3COOH  +  C2H5OH  <==>  CH3COOC2H5  +  H2O
+     (ethanoic acid) (ethanol)    (ethyl ethanoate)</div>
+  </div>
+
+  <div class="card">
+    <h3>Method 2: Acyl Chloride + Alcohol (faster, irreversible)</h3>
+    <div class="formula-block">RCOCl  +  R'OH  -->  RCOOR'  +  HCl
+(no catalyst needed, room temperature, near 100% yield)
+
+e.g. CH3COCl  +  C2H5OH  -->  CH3COOC2H5  +  HCl</div>
+  </div>
+
+  <div class="card">
+    <h3>Method 3: Acid Anhydride + Alcohol</h3>
+    <div class="formula-block">(RCO)2O  +  R'OH  -->  RCOOR'  +  RCOOH
+(less vigorous than acyl chloride, no HCl fumes)
+
+e.g. (CH3CO)2O  +  C2H5OH  -->  CH3COOC2H5  +  CH3COOH</div>
+  </div>
+
+  <h3 class="sub-heading">Reactions of Esters</h3>
+  <div class="card">
+    <h3>Hydrolysis (Acid-catalysed &mdash; reversible)</h3>
+    <div class="formula-block">RCOOR'  +  H2O  <==>  RCOOH  +  R'OH
+              H+ catalyst, heat
+
+e.g. CH3COOC2H5  +  H2O  <==>  CH3COOH  +  C2H5OH</div>
+  </div>
+
+  <div class="card">
+    <h3>Hydrolysis (Base-catalysed &mdash; saponification, irreversible)</h3>
+    <div class="formula-block">RCOOR'  +  NaOH  -->  RCOONa  +  R'OH
+              heat (irreversible -- drives equilibrium to completion)
+
+e.g. CH3COOC2H5  +  NaOH  -->  CH3COONa  +  C2H5OH
+     (ethyl ethanoate)          (sodium ethanoate) (ethanol)</div>
+    <p>Base hydrolysis is <b>irreversible</b> because the carboxylate salt (RCOO<sup>&minus;</sup>Na<sup>+</sup>) does not react back with the alcohol. This is the basis of soap making (saponification).</p>
+  </div>
+
+  <div class="card">
+    <h3>Reduction with LiAlH<sub>4</sub></h3>
+    <div class="formula-block">RCOOR'  +  4[H]  --LiAlH4, dry ether-->  RCH2OH  +  R'OH
+(gives two alcohols: primary alcohol from acid part + alcohol from alkyl part)
+
+e.g. CH3COOC2H5  +  4[H]  -->  CH3CH2OH  +  C2H5OH</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 1</span><h4>Naming and Preparing Esters</h4></div>
+    <div class="example-body">
+      <p class="q">Name the ester CH<sub>3</sub>CH<sub>2</sub>COOCH<sub>2</sub>CH<sub>3</sub> and write the equation for its preparation from an acid and an alcohol.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">Acid part: CH<sub>3</sub>CH<sub>2</sub>COO&ndash; = propanoate (from propanoic acid).</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Alcohol part: &ndash;OCH<sub>2</sub>CH<sub>3</sub> = ethyl (from ethanol).</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Name: <b>ethyl propanoate</b>.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Equation: CH<sub>3</sub>CH<sub>2</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH &rightleftharpoons;<sup>conc. H<sub>2</sub>SO<sub>4</sub></sup> CH<sub>3</sub>CH<sub>2</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8.2 ACID ANHYDRIDES -->
+<section id="anhydrides">
+  <div class="section-header">
+    <span class="section-number">8.2</span>
+    <h2>Acid Anhydrides</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Definition</strong>
+    Acid anhydrides are formed by the <b>elimination of water from two carboxylic acid molecules</b>. They contain the group <b>RCO&ndash;O&ndash;COR'</b>. Named by replacing &ldquo;acid&rdquo; with <b>&ldquo;anhydride&rdquo;</b>: e.g. ethanoic anhydride = (CH<sub>3</sub>CO)<sub>2</sub>O. Cyclic anhydrides form from diacids (e.g. maleic anhydride, phthalic anhydride).
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Name</th><th>Structure</th><th>Parent Acid</th></tr></thead>
+      <tbody>
+        <tr><td>Ethanoic anhydride (acetic anhydride)</td><td>(CH<sub>3</sub>CO)<sub>2</sub>O</td><td>Ethanoic acid</td></tr>
+        <tr><td>Propanoic anhydride</td><td>(C<sub>2</sub>H<sub>5</sub>CO)<sub>2</sub>O</td><td>Propanoic acid</td></tr>
+        <tr><td>Maleic anhydride</td><td>Cyclic (C<sub>4</sub>H<sub>2</sub>O<sub>3</sub>)</td><td>Maleic acid (cis-butenedioic acid)</td></tr>
+        <tr><td>Phthalic anhydride</td><td>Cyclic (C<sub>8</sub>H<sub>4</sub>O<sub>3</sub>)</td><td>Phthalic acid</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-heading">Reactions of Acid Anhydrides</h3>
+  <div class="card">
+    <p>Acid anhydrides are <b>less reactive than acyl chlorides</b> but more reactive than carboxylic acids. They react with nucleophiles by <b>nucleophilic acyl substitution</b>, giving one mole of ester (or amide) and one mole of carboxylic acid.</p>
+    <div class="formula-block"><b>With water:</b>
+(RCO)2O  +  H2O  -->  2 RCOOH
+
+<b>With alcohol:</b>
+(RCO)2O  +  R'OH  -->  RCOOR'  +  RCOOH
+
+<b>With ammonia:</b>
+(RCO)2O  +  2NH3  -->  RCONH2  +  RCOONH4
+
+<b>With amine:</b>
+(RCO)2O  +  R'NH2  -->  RCONHR'  +  RCOOH
+
+<b>Aspirin synthesis (ethanoic anhydride + salicylic acid):</b>
+(CH3CO)2O  +  HOC6H4COOH  -->  CH3COOC6H4COOH  +  CH3COOH
+                                    (aspirin)</div>
+    <div class="callout tip">
+      <span class="callout-icon">&#128161;</span>
+      <div class="callout-body">
+        <strong>Acid Anhydride vs Acyl Chloride in Industry</strong>
+        Ethanoic anhydride is preferred over ethanoyl chloride for manufacturing aspirin because: no corrosive HCl fumes produced; safer to handle; by-product is ethanoic acid (recyclable); more economical at industrial scale.
+      </div>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 2</span><h4>Aspirin Synthesis</h4></div>
+    <div class="example-body">
+      <p class="q">Write the equation for the manufacture of aspirin from salicylic acid and ethanoic anhydride. State the advantage over using ethanoyl chloride.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">(CH<sub>3</sub>CO)<sub>2</sub>O + HOC<sub>6</sub>H<sub>4</sub>COOH &rarr; CH<sub>3</sub>COOC<sub>6</sub>H<sub>4</sub>COOH + CH<sub>3</sub>COOH</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">The &ndash;OH group of salicylic acid is <b>acylated</b> to form the phenyl ester (aspirin).</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Advantage: by-product is <b>ethanoic acid</b> (non-corrosive, recyclable) rather than HCl (corrosive, toxic). Anhydride is also safer to handle.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8.3 AMIDES -->
+<section id="amides">
+  <div class="section-header">
+    <span class="section-number">8.3</span>
+    <h2>Amides</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Definition</strong>
+    Amides contain the <b>amide functional group (&ndash;CONH<sub>2</sub>)</b> or <b>&ndash;CONHR</b> / <b>&ndash;CONR<sub>2</sub></b>. They are formed by the reaction of a carboxylic acid (or acyl chloride) with ammonia or an amine. Named by replacing &ndash;oic acid with <b>&ndash;amide</b>. N-substituted amides have the prefix N&ndash; before the alkyl substituent.
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Name</th><th>Structure</th><th>Class</th></tr></thead>
+      <tbody>
+        <tr><td>Methanamide</td><td>HCONH<sub>2</sub></td><td>Primary amide</td></tr>
+        <tr><td>Ethanamide</td><td>CH<sub>3</sub>CONH<sub>2</sub></td><td>Primary amide</td></tr>
+        <tr><td>Propanamide</td><td>C<sub>2</sub>H<sub>5</sub>CONH<sub>2</sub></td><td>Primary amide</td></tr>
+        <tr><td>N-methylethanamide</td><td>CH<sub>3</sub>CONHCH<sub>3</sub></td><td>Secondary amide</td></tr>
+        <tr><td>N,N-dimethylethanamide</td><td>CH<sub>3</sub>CON(CH<sub>3</sub>)<sub>2</sub></td><td>Tertiary amide</td></tr>
+        <tr><td>Benzamide</td><td>C<sub>6</sub>H<sub>5</sub>CONH<sub>2</sub></td><td>Primary amide (aromatic)</td></tr>
+        <tr><td>Paracetamol (drug)</td><td>HOC<sub>6</sub>H<sub>4</sub>NHCOCH<sub>3</sub></td><td>Secondary amide</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-heading">Physical Properties of Amides</h3>
+  <div class="card">
+    <p>Primary and secondary amides have <b>very high melting and boiling points</b> due to strong N&ndash;H&middot;&middot;&middot;O=C hydrogen bonding between molecules. Ethanamide (M<sub>r</sub>=59) has B.P. 221&deg;C — far higher than ethanoic acid (B.P. 118&deg;C) of similar M<sub>r</sub>.</p>
+    <p>Short-chain primary amides are <b>soluble in water</b> due to H-bonding with water. Amides are much <b>weaker bases</b> than amines because the lone pair on N is delocalised into the C=O group, reducing its availability for protonation.</p>
+  </div>
+
+  <h3 class="sub-heading">Preparation of Amides</h3>
+  <div class="card">
+    <div class="formula-block"><b>From acyl chloride + ammonia (best method):</b>
+RCOCl  +  2NH3  -->  RCONH2  +  NH4Cl
+
+<b>From acid anhydride + ammonia:</b>
+(RCO)2O  +  2NH3  -->  RCONH2  +  RCOONH4
+
+<b>From carboxylic acid + ammonia (indirect -- via ammonium salt, then heat):</b>
+RCOOH  +  NH3  -->  RCOONH4  (ammonium salt)
+RCOONH4  --heat-->  RCONH2  +  H2O</div>
+  </div>
+
+  <h3 class="sub-heading">Reactions of Amides</h3>
+  <div class="card">
+    <h3>Hydrolysis (Acid or Base)</h3>
+    <div class="formula-block"><b>Acid hydrolysis:</b>
+RCONH2  +  H2O  --dil. HCl, reflux-->  RCOOH  +  NH4Cl
+
+<b>Base hydrolysis:</b>
+RCONH2  +  NaOH  --reflux-->  RCOONa  +  NH3(g)</div>
+  </div>
+
+  <div class="card">
+    <h3>Dehydration &rarr; Nitrile</h3>
+    <div class="formula-block">RCONH2  --P2O5, heat (dehydrating agent)-->  RCN  +  H2O
+e.g. CH3CONH2  --P2O5-->  CH3CN  +  H2O
+     (ethanamide)             (ethanenitrile)</div>
+  </div>
+
+  <div class="card">
+    <h3>Reduction with LiAlH<sub>4</sub> &rarr; Amine</h3>
+    <div class="formula-block">RCONH2  +  4[H]  --LiAlH4, dry ether-->  RCH2NH2
+e.g. CH3CONH2  +  4[H]  -->  CH3CH2NH2  (ethylamine)</div>
+  </div>
+
+  <div class="callout info">
+    <span class="callout-icon">&#128204;</span>
+    <div class="callout-body">
+      <strong>Amide Bond in Biology &mdash; The Peptide Bond</strong>
+      The amide bond (&ndash;CO&ndash;NH&ndash;) is the same as the <b>peptide bond</b> that links amino acids in proteins. The C&ndash;N bond in amides has partial double-bond character due to resonance delocalisation, making it planar and rigid &mdash; this is fundamental to protein secondary structure (alpha helices, beta sheets).
+    </div>
+  </div>
+</section>
+
+<!-- 8.4 NITRILES -->
+<section id="nitriles">
+  <div class="section-header">
+    <span class="section-number">8.4</span>
+    <h2>Nitriles</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Definition</strong>
+    Nitriles contain the <b>cyano group (&ndash;C&equiv;N)</b>. General formula: <b>R&ndash;C&equiv;N</b>. Named by counting the CN carbon as part of the chain and adding the suffix <b>&ndash;nitrile</b>, or as alkanenitriles. Example: CH<sub>3</sub>CN = ethanenitrile (acetonitrile); CH<sub>3</sub>CH<sub>2</sub>CN = propanenitrile.
+  </div>
+
+  <div class="card">
+    <h3>Physical Properties</h3>
+    <p>Nitriles are polar (C&equiv;N is very polar) and have higher boiling points than alkanes but lower than amides of similar M<sub>r</sub>. Lower nitriles are miscible with water; they are also good polar aprotic solvents for organic reactions.</p>
+  </div>
+
+  <h3 class="sub-heading">Preparation of Nitriles</h3>
+  <div class="card">
+    <div class="formula-block"><b>From halogenoalkanes + KCN (nucleophilic substitution):</b>
+R-X  +  KCN(alc)  --heat-->  R-CN  +  KX   (chain extended by 1C)
+
+<b>From amides (dehydration):</b>
+RCONH2  --P2O5, heat-->  RCN  +  H2O
+
+<b>Industrial: from alkenes + HCN (hydrocyanation):</b>
+CH2=CH2  +  HCN  --catalyst-->  CH3CH2CN  (propanenitrile)</div>
+  </div>
+
+  <h3 class="sub-heading">Reactions of Nitriles</h3>
+  <div class="card">
+    <div class="formula-block"><b>Hydrolysis to carboxylic acid:</b>
+R-CN  +  H2O  --dil. HCl or NaOH, reflux-->  RCOOH  +  NH3
+
+<b>Reduction to primary amine (LiAlH4):</b>
+R-CN  +  4[H]  --LiAlH4, dry ether-->  RCH2NH2  (chain extended by 1C)
+
+e.g.  CH3CN  +  4[H]  -->  CH3CH2NH2  (ethylamine)
+
+<b>Addition of HCN to carbonyl (Unit 6):</b>
+RCHO  +  HCN  -->  RCH(OH)CN  (hydroxynitrile)</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 3</span><h4>Synthetic Route: Halogenoalkane &rarr; Amine via Nitrile</h4></div>
+    <div class="example-body">
+      <p class="q">Show how 1-bromopropane can be converted to butan-1-amine (a primary amine with 4 carbons) in two steps.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><b>Step 1:</b> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>Br + KCN(alc) &rarr; CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CN + KBr<br>Product: <b>butanenitrile</b> (4C &mdash; chain extended by 1C).</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><b>Step 2:</b> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CN + 4[H] &rarr;<sup>LiAlH<sub>4</sub>, dry ether</sup> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub><br>Product: <b>butan-1-amine</b> (primary amine, 4C).</div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Net: 3C halogenoalkane &rarr; 4C primary amine. Both steps extend/use the chain effectively.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8.5 SAPONIFICATION -->
+<section id="saponification">
+  <div class="section-header">
+    <span class="section-number">8.5</span>
+    <h2>Saponification and Fats</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Saponification</strong>
+    Saponification is the <b>base hydrolysis of an ester (especially a fat or oil)</b> to give a carboxylate salt (soap) and glycerol. The word comes from Latin <em>sapo</em> (soap). The reaction is irreversible because the carboxylate salt does not react back with the alcohol.
+  </div>
+
+  <div class="card">
+    <h3>Fats and Oils &mdash; Triglycerides</h3>
+    <p>Fats (solid) and oils (liquid) are <b>triglycerides</b> &mdash; triesters of glycerol (propane-1,2,3-triol) with three long-chain fatty acids (C<sub>12</sub>&ndash;C<sub>20</sub>). Fats have mainly saturated fatty acid chains (all single C&ndash;C bonds &rarr; can pack closely &rarr; solid at room temperature). Oils have unsaturated chains (C=C bonds &rarr; cannot pack as closely &rarr; liquid at room temperature).</p>
+    <div class="formula-block">Structure of a triglyceride (fat/oil):
+
+CH2-OOC-R1          R1, R2, R3 = long-chain fatty acid chains
+|                    (e.g. C15H31- for palmitic acid)
+CH-OOC-R2
+|
+CH2-OOC-R3</div>
+  </div>
+
+  <div class="card">
+    <h3>Saponification Reaction (Soap Making)</h3>
+    <div class="formula-block">Triglyceride  +  3 NaOH  --heat-->  Glycerol  +  3 RCOONa
+(fat/oil)                          (propane-1,2,3-triol)  (soap = sodium salt of fatty acid)
+
+Example with glyceryl tristearate (hard fat):
+(C17H35COO)3C3H5  +  3NaOH  -->  C3H5(OH)3  +  3 C17H35COONa
+(tristearate)                      (glycerol)    (sodium stearate = soap)</div>
+    <p>The soap (sodium salt) is precipitated by adding NaCl to the reaction mixture (<b>salting out</b>), then separated and processed. Potassium salts (made with KOH) give softer soaps (e.g. shaving cream).</p>
+  </div>
+
+  <div class="card">
+    <h3>Common Fatty Acids</h3>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Name</th><th>Formula</th><th>Saturated?</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>Palmitic acid</td><td>C<sub>15</sub>H<sub>31</sub>COOH (C16:0)</td><td>Yes</td><td>Palm oil, animal fat</td></tr>
+        <tr><td>Stearic acid</td><td>C<sub>17</sub>H<sub>35</sub>COOH (C18:0)</td><td>Yes</td><td>Animal fat, cocoa butter</td></tr>
+        <tr><td>Oleic acid</td><td>C<sub>17</sub>H<sub>33</sub>COOH (C18:1)</td><td>No (1 C=C)</td><td>Olive oil</td></tr>
+        <tr><td>Linoleic acid</td><td>C<sub>17</sub>H<sub>31</sub>COOH (C18:2)</td><td>No (2 C=C)</td><td>Sunflower oil</td></tr>
+        <tr><td>Linolenic acid</td><td>C<sub>17</sub>H<sub>29</sub>COOH (C18:3)</td><td>No (3 C=C)</td><td>Linseed oil</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 8.6 DETERGENTS AND SOAPS -->
+<section id="detergents">
+  <div class="section-header">
+    <span class="section-number">8.6</span>
+    <h2>Detergents and Soaps</h2>
+  </div>
+
+  <div class="card">
+    <h3>Structure of Soap Molecules</h3>
+    <p>A soap molecule (e.g. sodium stearate, C<sub>17</sub>H<sub>35</sub>COONa) has two distinct parts:</p>
+    <ul style="padding-left:20px;line-height:2.1;">
+      <li><b>Hydrophilic (water-loving) head</b>: the charged carboxylate group (&ndash;COO<sup>&minus;</sup>Na<sup>+</sup>) &mdash; ionic, interacts with water.</li>
+      <li><b>Hydrophobic (water-hating) tail</b>: the long non-polar hydrocarbon chain (C<sub>17</sub>H<sub>35</sub>&ndash;) &mdash; interacts with grease and oils.</li>
+    </ul>
+    <p>This dual character makes soaps <b>surfactants</b> (surface-active agents) that can emulsify grease in water.</p>
+  </div>
+
+  <div class="card">
+    <h3>How Soap Cleans &mdash; Micelle Formation</h3>
+    <ol style="padding-left:20px;line-height:2.2;">
+      <li>Soap molecules arrange around grease droplets with hydrophobic tails pointing inward (into the grease) and hydrophilic heads pointing outward (into the water).</li>
+      <li>This spherical arrangement is called a <b>micelle</b>.</li>
+      <li>The charged outer surface of the micelle keeps it dispersed in water (repulsion between like charges).</li>
+      <li>Grease is thus <b>emulsified</b> and can be rinsed away with water.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>Hard Water Problem with Soaps</h3>
+    <p>In hard water (containing Ca<sup>2+</sup> and Mg<sup>2+</sup> ions), soap molecules form insoluble precipitates called <b>scum</b>:</p>
+    <div class="formula-block">2 RCOONa  +  CaCl2  -->  (RCOO)2Ca(s)  +  2 NaCl
+                                (calcium soap = scum, insoluble)</div>
+    <p>This wastes soap, leaves deposits, and reduces cleaning efficiency.</p>
+  </div>
+
+  <div class="card">
+    <h3>Soapless (Synthetic) Detergents</h3>
+    <p>Synthetic detergents are also surfactants but their calcium and magnesium salts are <b>soluble</b> &mdash; they work in hard water without forming scum. They are made from petroleum-derived alkylbenzene sulfonates or alkyl sulfates:</p>
+    <div class="formula-block">R-C6H4-SO3-Na+     (sodium alkylbenzenesulfonate -- anionic detergent)
+R-OSO3-Na+        (sodium alkyl sulfate -- e.g. sodium lauryl sulfate in shampoos)</div>
+    <p>Types of synthetic detergents: <b>anionic</b> (sulfonate/sulfate head, most common), <b>cationic</b> (ammonium head, fabric softeners, disinfectants), <b>non-ionic</b> (polyether head, gentle, used in washing-up liquid).</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Property</th><th>Soaps</th><th>Synthetic Detergents</th></tr></thead>
+      <tbody>
+        <tr><td>Raw material</td><td>Natural fats/oils (renewable)</td><td>Petroleum products (non-renewable)</td></tr>
+        <tr><td>Hard water</td><td>Forms scum (insoluble Ca/Mg salts)</td><td>No scum (soluble Ca/Mg salts)</td></tr>
+        <tr><td>Biodegradability</td><td>Fully biodegradable</td><td>Some are biodegradable; early ones were not</td></tr>
+        <tr><td>Skin sensitivity</td><td>Generally mild; slightly alkaline</td><td>Some can irritate skin (strong anionic types)</td></tr>
+        <tr><td>Cost</td><td>Relatively cheap</td><td>Variable; specialty types more expensive</td></tr>
+        <tr><td>pH</td><td>Slightly alkaline (~9&ndash;10)</td><td>Near neutral (some formulations)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 4</span><h4>Saponification Calculation</h4></div>
+    <div class="example-body">
+      <p class="q">Calculate the mass of NaOH needed to completely saponify 89 g of glyceryl tripalmitate (M<sub>r</sub> = 807 g/mol, formula (C<sub>15</sub>H<sub>31</sub>COO)<sub>3</sub>C<sub>3</sub>H<sub>5</sub>).</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">Equation: (C<sub>15</sub>H<sub>31</sub>COO)<sub>3</sub>C<sub>3</sub>H<sub>5</sub> + 3 NaOH &rarr; C<sub>3</sub>H<sub>5</sub>(OH)<sub>3</sub> + 3 C<sub>15</sub>H<sub>31</sub>COONa</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Moles of fat = 89 &divide; 807 = 0.110 mol</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Moles of NaOH = 3 &times; 0.110 = 0.330 mol</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Mass of NaOH = 0.330 &times; 40 = <b>13.2 g</b></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <div class="section-header">
+    <span class="section-number">&#9999;&#65039;</span>
+    <h2>Exercises</h2>
+  </div>
+  <ul class="exercise-list">
+
+    <li>
+      Name the following esters and give the acid and alcohol from which each is made:<br>
+      (a) CH<sub>3</sub>COOCH<sub>3</sub> &nbsp; (b) C<sub>2</sub>H<sub>5</sub>COOC<sub>3</sub>H<sub>7</sub> &nbsp; (c) HCOOC<sub>2</sub>H<sub>5</sub>
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) <b>Methyl ethanoate</b>; from ethanoic acid + methanol<br>
+        (b) <b>Propyl propanoate</b>; from propanoic acid + propan-1-ol<br>
+        (c) <b>Ethyl methanoate</b>; from methanoic acid + ethanol
+      </div>
+    </li>
+
+    <li>
+      Compare the reactions of ethanoic anhydride and ethanoyl chloride with ethanol. Write equations for both and state which is preferred industrially and why.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>Ethanoyl chloride:</b><br>
+        CH<sub>3</sub>COCl + C<sub>2</sub>H<sub>5</sub>OH &rarr; CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + HCl (fumes, very fast)<br><br>
+        <b>Ethanoic anhydride:</b><br>
+        (CH<sub>3</sub>CO)<sub>2</sub>O + C<sub>2</sub>H<sub>5</sub>OH &rarr; CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + CH<sub>3</sub>COOH (milder, no HCl)<br><br>
+        <b>Industrial preference: ethanoic anhydride</b> — no corrosive HCl produced; by-product (ethanoic acid) is recyclable; safer handling; used for aspirin manufacture.
+      </div>
+    </li>
+
+    <li>
+      Write equations for the acid and base hydrolysis of ethanamide. What gas is produced in the base hydrolysis?
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>Acid hydrolysis:</b><br>
+        CH<sub>3</sub>CONH<sub>2</sub> + H<sub>2</sub>O &rarr;<sup>dil. HCl, reflux</sup> CH<sub>3</sub>COOH + NH<sub>4</sub>Cl<br><br>
+        <b>Base hydrolysis:</b><br>
+        CH<sub>3</sub>CONH<sub>2</sub> + NaOH &rarr;<sup>reflux</sup> CH<sub>3</sub>COONa + NH<sub>3</sub>(g)<br><br>
+        Gas produced: <b>ammonia (NH<sub>3</sub>)</b> — recognisable by its pungent smell and turning damp red litmus blue.
+      </div>
+    </li>
+
+    <li>
+      Explain, using a diagram description, how soap cleans greasy dishes. Why does soap not work well in hard water?
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Soap molecules have a <b>hydrophilic head</b> (&ndash;COO<sup>&minus;</sup>Na<sup>+</sup>) and a <b>hydrophobic tail</b> (long alkyl chain). When soap is added to greasy water, the hydrophobic tails bury into the grease while the hydrophilic heads point outward into the water, forming <b>micelles</b> (spherical clusters). The negatively charged outer surface keeps micelles dispersed in water and prevents them from re-depositing. The emulsified grease is then rinsed away.<br><br>
+        <b>Hard water problem:</b> Ca<sup>2+</sup> and Mg<sup>2+</sup> ions in hard water react with soap to form insoluble <b>scum</b>: 2 RCOONa + CaCl<sub>2</sub> &rarr; (RCOO)<sub>2</sub>Ca &darr; + 2 NaCl. This wastes soap and leaves grey deposits on surfaces.
+      </div>
+    </li>
+
+    <li>
+      Starting from ethanenitrile (CH<sub>3</sub>CN), show how you would prepare: (a) ethanoic acid; (b) ethylamine (CH<sub>3</sub>CH<sub>2</sub>NH<sub>2</sub>); (c) ethanamide.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) CH<sub>3</sub>CN + H<sub>2</sub>O &rarr;<sup>dil. HCl, reflux</sup> CH<sub>3</sub>COOH + NH<sub>3</sub> &mdash; <b>ethanoic acid</b><br>
+        (b) CH<sub>3</sub>CN + 4[H] &rarr;<sup>LiAlH<sub>4</sub>, dry ether</sup> CH<sub>3</sub>CH<sub>2</sub>NH<sub>2</sub> &mdash; <b>ethylamine</b><br>
+        (c) CH<sub>3</sub>CN + H<sub>2</sub>O &rarr;<sup>partial hydrolysis, controlled</sup> CH<sub>3</sub>CONH<sub>2</sub> &mdash; <b>ethanamide</b> (stop before full hydrolysis to acid)
+      </div>
+    </li>
+
+    <li>
+      A fat (triglyceride) has M<sub>r</sub> = 890. Calculate the mass of NaOH (M<sub>r</sub> = 40) needed to saponify 44.5 g of this fat completely.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Moles of fat = 44.5 &divide; 890 = 0.050 mol<br>
+        Each mole of triglyceride requires 3 moles of NaOH.<br>
+        Moles of NaOH = 3 &times; 0.050 = 0.150 mol<br>
+        Mass of NaOH = 0.150 &times; 40 = <b>6.0 g</b>
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="section-header">
+    <span class="section-number">&#129504;</span>
+    <h2>Interactive Quiz</h2>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-header"><h3>Unit 8 Quiz &mdash; Esters, Anhydrides, Amides &amp; Nitriles (10 Questions)</h3></div>
+    <div class="quiz-body">
+
+      <div class="q-block">
+        <span class="q-num">Q1</span>
+        <p class="q-text">The IUPAC name of CH<sub>3</sub>CH<sub>2</sub>COOCH<sub>3</sub> is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="a"> Methyl ethanoate</label>
+          <label class="opt"><input type="radio" name="q1" value="b"> Ethyl propanoate</label>
+          <label class="opt"><input type="radio" name="q1" value="c"> Methyl propanoate</label>
+          <label class="opt"><input type="radio" name="q1" value="d"> Propyl methanoate</label>
+        </div>
+        <div class="q-exp" id="exp1">CH<sub>3</sub>CH<sub>2</sub>COO&ndash; = propanoate (from propanoic acid). &ndash;OCH<sub>3</sub> = methyl (from methanol). &rarr; <b>methyl propanoate</b>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q2</span>
+        <p class="q-text">Base hydrolysis of an ester is called saponification. It is irreversible because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="a"> The ester is too stable to react further</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> The carboxylate salt produced does not react with the alcohol</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> NaOH is a catalyst, not a reactant</label>
+          <label class="opt"><input type="radio" name="q2" value="d"> The reaction produces a gas that escapes</label>
+        </div>
+        <div class="q-exp" id="exp2">Base hydrolysis is irreversible because the product is a <b>carboxylate salt</b> (RCOO<sup>&minus;</sup>), which is stabilised by resonance and does not react back with the alcohol under these conditions &mdash; unlike acid hydrolysis which is reversible.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q3</span>
+        <p class="q-text">Why is ethanoic anhydride preferred over ethanoyl chloride for making aspirin industrially?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="a"> It is cheaper to buy</label>
+          <label class="opt"><input type="radio" name="q3" value="b"> It produces no corrosive HCl by-product; only ethanoic acid which is recyclable</label>
+          <label class="opt"><input type="radio" name="q3" value="c"> It reacts faster than ethanoyl chloride</label>
+          <label class="opt"><input type="radio" name="q3" value="d"> It gives a higher percentage yield</label>
+        </div>
+        <div class="q-exp" id="exp3">Ethanoic anhydride is preferred because its by-product is <b>ethanoic acid</b> (non-corrosive, recyclable). Ethanoyl chloride produces corrosive HCl fumes which are hazardous and require costly handling/neutralisation.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q4</span>
+        <p class="q-text">The product of reducing ethanenitrile (CH<sub>3</sub>CN) with LiAlH<sub>4</sub> is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="a"> Ethanol</label>
+          <label class="opt"><input type="radio" name="q4" value="b"> Ethanoic acid</label>
+          <label class="opt"><input type="radio" name="q4" value="c"> Ethylamine</label>
+          <label class="opt"><input type="radio" name="q4" value="d"> Ethanamide</label>
+        </div>
+        <div class="q-exp" id="exp4">CH<sub>3</sub>CN + 4[H] &rarr; CH<sub>3</sub>CH<sub>2</sub>NH<sub>2</sub> (<b>ethylamine</b>). LiAlH<sub>4</sub> reduces nitriles to primary amines. The carbon count stays the same (2C in &rarr; 2C out).</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q5</span>
+        <p class="q-text">Soap molecules form micelles because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="a"> They are ionic compounds</label>
+          <label class="opt"><input type="radio" name="q5" value="b"> Their hydrophobic tails dissolve in grease while hydrophilic heads face the water</label>
+          <label class="opt"><input type="radio" name="q5" value="c"> They react chemically with grease</label>
+          <label class="opt"><input type="radio" name="q5" value="d"> They lower the surface tension permanently</label>
+        </div>
+        <div class="q-exp" id="exp5">Soap molecules are amphiphilic: <b>hydrophobic tails</b> (alkyl chain) dissolve in the grease/oil and <b>hydrophilic heads</b> (&ndash;COO<sup>&minus;</sup>) point into water &rarr; spherical micelle with grease inside, charged surface outside &rarr; grease emulsified and rinsed away.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q6</span>
+        <p class="q-text">Amides have very high boiling points compared to esters of similar molecular mass because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="a"> Amides are ionic</label>
+          <label class="opt"><input type="radio" name="q6" value="b"> N&ndash;H&middot;&middot;&middot;O=C hydrogen bonds form between amide molecules</label>
+          <label class="opt"><input type="radio" name="q6" value="c"> Amides have larger molecular masses</label>
+          <label class="opt"><input type="radio" name="q6" value="d"> Amides contain double bonds</label>
+        </div>
+        <div class="q-exp" id="exp6">Primary and secondary amides form strong <b>N&ndash;H&middot;&middot;&middot;O=C hydrogen bonds</b> between molecules. These require substantial energy to break &rarr; very high boiling points. Esters have no N&ndash;H or O&ndash;H and cannot H-bond with each other.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q7</span>
+        <p class="q-text">Which statement about synthetic detergents is correct?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="a"> They form scum in hard water just like soaps</label>
+          <label class="opt"><input type="radio" name="q7" value="b"> Their calcium and magnesium salts are soluble, so they work in hard water</label>
+          <label class="opt"><input type="radio" name="q7" value="c"> They are made from natural fats</label>
+          <label class="opt"><input type="radio" name="q7" value="d"> They are always anionic</label>
+        </div>
+        <div class="q-exp" id="exp7">Synthetic detergents (e.g. alkylbenzenesulfonates) form <b>soluble calcium/magnesium salts</b> in hard water &rarr; no scum. Soaps form insoluble Ca/Mg scum. Detergents can be anionic, cationic, or non-ionic.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q8</span>
+        <p class="q-text">The gas produced when an amide is hydrolysed with NaOH(aq) is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="a"> CO<sub>2</sub></label>
+          <label class="opt"><input type="radio" name="q8" value="b"> H<sub>2</sub></label>
+          <label class="opt"><input type="radio" name="q8" value="c"> NH<sub>3</sub></label>
+          <label class="opt"><input type="radio" name="q8" value="d"> HCl</label>
+        </div>
+        <div class="q-exp" id="exp8">RCONH<sub>2</sub> + NaOH &rarr; RCOONa + <b>NH<sub>3</sub></b>. Ammonia is released as a gas on base hydrolysis of an amide. It turns damp red litmus paper blue.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q9</span>
+        <p class="q-text">What type of compound is formed when a nitrile is hydrolysed?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="a"> An alcohol</label>
+          <label class="opt"><input type="radio" name="q9" value="b"> A carboxylic acid (and ammonia)</label>
+          <label class="opt"><input type="radio" name="q9" value="c"> An aldehyde</label>
+          <label class="opt"><input type="radio" name="q9" value="d"> An ester</label>
+        </div>
+        <div class="q-exp" id="exp9">R&ndash;CN + H<sub>2</sub>O &rarr;<sup>H<sup>+</sup>, heat</sup> R&ndash;COOH + NH<sub>3</sub>. Hydrolysis of a nitrile gives a <b>carboxylic acid</b> with the same number of carbons as the nitrile, plus ammonia.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q10</span>
+        <p class="q-text">Fats are solid at room temperature while oils are liquid because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="a"> Fats have higher molecular masses than oils</label>
+          <label class="opt"><input type="radio" name="q10" value="b"> Fats have saturated chains that pack closely; oils have unsaturated chains (C=C) that cannot pack as tightly</label>
+          <label class="opt"><input type="radio" name="q10" value="c"> Fats contain more oxygen than oils</label>
+          <label class="opt"><input type="radio" name="q10" value="d"> Oils are not triglycerides</label>
+        </div>
+        <div class="q-exp" id="exp10">Fats have mainly <b>saturated</b> fatty acid chains (all C&ndash;C single bonds, straight chains) that can pack closely together &rarr; stronger van der Waals forces &rarr; solid. Oils have <b>unsaturated</b> chains (C=C double bonds create kinks) that cannot pack as tightly &rarr; weaker forces &rarr; liquid.</div>
+      </div>
+
+    </div>
+    <div style="padding:0 24px 24px;">
+      <button class="quiz-submit" onclick="submitQuiz()">Submit Answers</button>
+      <div id="quizResult" style="display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius);font-family:'JetBrains Mono',monospace;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT TEST -->
+<section id="test">
+  <div class="section-header">
+    <span class="section-number">&#128221;</span>
+    <h2>Unit Test</h2>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">&#8505;&#65039;</span>
+    <div class="callout-body">
+      <strong>Instructions</strong>
+      Total: 50 marks &nbsp;|&nbsp; Time: 50 minutes &nbsp;|&nbsp; Attempt all questions &nbsp;|&nbsp; Show all working.
+    </div>
+  </div>
+
+  <div class="test-wrap">
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section A &mdash; Short Answer</h3>
+        <span class="marks-badge">30 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q1 [4 marks]</span>
+          <p>Name the following compounds:<br>
+          (a) CH<sub>3</sub>COOCH<sub>2</sub>CH<sub>3</sub> &nbsp; (b) C<sub>3</sub>H<sub>7</sub>COOCH<sub>3</sub> &nbsp; (c) CH<sub>3</sub>CH<sub>2</sub>CONH<sub>2</sub> &nbsp; (d) CH<sub>3</sub>CH<sub>2</sub>C&equiv;N</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) <b>Ethyl ethanoate</b><br>
+              (b) <b>Methyl butanoate</b><br>
+              (c) <b>Propanamide</b><br>
+              (d) <b>Propanenitrile</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q2 [5 marks]</span>
+          <p>Write equations for:<br>
+          (a) Preparation of ethyl propanoate from propanoic acid and ethanol<br>
+          (b) Preparation of ethyl propanoate from propanoyl chloride and ethanol<br>
+          (c) Base hydrolysis (saponification) of ethyl propanoate<br>
+          (d) Reduction of ethyl ethanoate with LiAlH<sub>4</sub><br>
+          (e) Acid hydrolysis of propanamide</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) C<sub>2</sub>H<sub>5</sub>COOH + C<sub>2</sub>H<sub>5</sub>OH &rightleftharpoons;<sup>conc. H<sub>2</sub>SO<sub>4</sub></sup> C<sub>2</sub>H<sub>5</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O<br>
+              (b) C<sub>2</sub>H<sub>5</sub>COCl + C<sub>2</sub>H<sub>5</sub>OH &rarr; C<sub>2</sub>H<sub>5</sub>COOC<sub>2</sub>H<sub>5</sub> + HCl<br>
+              (c) C<sub>2</sub>H<sub>5</sub>COOC<sub>2</sub>H<sub>5</sub> + NaOH &rarr; C<sub>2</sub>H<sub>5</sub>COONa + C<sub>2</sub>H<sub>5</sub>OH<br>
+              (d) CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + 4[H] &rarr;<sup>LiAlH<sub>4</sub></sup> CH<sub>3</sub>CH<sub>2</sub>OH + C<sub>2</sub>H<sub>5</sub>OH<br>
+              (e) C<sub>2</sub>H<sub>5</sub>CONH<sub>2</sub> + H<sub>2</sub>O &rarr;<sup>dil. HCl, reflux</sup> C<sub>2</sub>H<sub>5</sub>COOH + NH<sub>4</sub>Cl
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q3 [5 marks]</span>
+          <p>Describe the industrial manufacture of soap by saponification. Include: the raw materials, the reaction equation (use general formula), conditions, and how the soap is separated from the reaction mixture.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Raw materials:</b> Animal fat or vegetable oil (triglyceride) + concentrated NaOH solution (lye).<br><br>
+              <b>Equation:</b><br>
+              (RCOO)<sub>3</sub>C<sub>3</sub>H<sub>5</sub> + 3 NaOH &rarr;<sup>heat</sup> C<sub>3</sub>H<sub>5</sub>(OH)<sub>3</sub> + 3 RCOONa<br>
+              (triglyceride) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(glycerol) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(soap)<br><br>
+              <b>Conditions:</b> Heat with concentrated NaOH; boil for several hours; reaction is irreversible.<br><br>
+              <b>Separation:</b> Add sodium chloride (<b>salting out</b>) &mdash; the increased ionic strength reduces soap solubility and it precipitates. The soap floats to the top and is skimmed off. Glycerol remains in the aqueous layer and is recovered as a valuable by-product.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q4 [5 marks]</span>
+          <p>Explain how soap cleans greasy surfaces. Why does soap not work well in hard water, and how do synthetic detergents overcome this problem?</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Cleaning action:</b> Soap molecules are amphiphilic &mdash; they have a hydrophobic tail (long alkyl chain) and a hydrophilic head (&ndash;COO<sup>&minus;</sup>Na<sup>+</sup>). In water, the hydrophobic tails embed into grease particles while the hydrophilic heads project into the water, forming spherical <b>micelles</b>. The negatively charged micelle surface prevents aggregation; grease is emulsified and rinsed away.<br><br>
+              <b>Hard water problem:</b> Ca<sup>2+</sup>/Mg<sup>2+</sup> ions react with soap: 2 RCOONa + Ca<sup>2+</sup> &rarr; (RCOO)<sub>2</sub>Ca&darr; (scum, insoluble). This wastes soap and leaves deposits.<br><br>
+              <b>Synthetic detergents:</b> Have the same amphiphilic structure but the ionic head is a sulfonate (&ndash;SO<sub>3</sub><sup>&minus;</sup>) or sulfate (&ndash;OSO<sub>3</sub><sup>&minus;</sup>). Their calcium/magnesium salts are <b>soluble</b> &rarr; no scum forms in hard water.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q5 [5 marks]</span>
+          <p>Show how butanenitrile (CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CN) can be prepared from 1-bromopropane, and then converted into: (a) pentanoic acid; (b) butan-1-amine; (c) butanamide. Write equations and conditions for each step.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Preparation of butanenitrile:</b><br>
+              CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>Br + KCN(alc) &rarr;<sup>heat/reflux</sup> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CN + KBr<br><br>
+              <b>(a) Pentanoic acid:</b><br>
+              CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CN + H<sub>2</sub>O &rarr;<sup>dil. HCl, reflux</sup> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>COOH + NH<sub>3</sub><br>
+              (4C nitrile &rarr; 4C acid = butanoic acid, not pentanoic. For pentanoic acid, start from 1-bromobutane.)<br><br>
+              <b>Corrected (a):</b> Butanenitrile &rarr; butanoic acid (C<sub>4</sub>): CH<sub>3</sub>(CH<sub>2</sub>)<sub>2</sub>CN + H<sub>2</sub>O &rarr; CH<sub>3</sub>(CH<sub>2</sub>)<sub>2</sub>COOH + NH<sub>3</sub><br><br>
+              <b>(b) Butan-1-amine:</b><br>
+              CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CN + 4[H] &rarr;<sup>LiAlH<sub>4</sub>, dry ether</sup> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CH<sub>2</sub>NH<sub>2</sub> (butan-1-amine, 4C)<br><br>
+              <b>(c) Butanamide:</b><br>
+              CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CN + H<sub>2</sub>O &rarr;<sup>controlled partial hydrolysis</sup> CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CONH<sub>2</sub> (butanamide)
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q6 [6 marks]</span>
+          <p>A student prepares a sample of ethanamide by three different routes from ethanoyl chloride, ethanoic anhydride, and ethanoic acid respectively. Write equations for all three preparations and compare the advantages and disadvantages of each route.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Route 1: Ethanoyl chloride + ammonia</b><br>
+              CH<sub>3</sub>COCl + 2NH<sub>3</sub> &rarr; CH<sub>3</sub>CONH<sub>2</sub> + NH<sub>4</sub>Cl<br>
+              Fast, room temperature, near-quantitative yield. Disadvantage: HCl/NH<sub>4</sub>Cl by-products; ethanoyl chloride is corrosive and moisture-sensitive.<br><br>
+              <b>Route 2: Ethanoic anhydride + ammonia</b><br>
+              (CH<sub>3</sub>CO)<sub>2</sub>O + 2NH<sub>3</sub> &rarr; CH<sub>3</sub>CONH<sub>2</sub> + CH<sub>3</sub>COONH<sub>4</sub><br>
+              Safer, no HCl fumes. By-product is ammonium ethanoate (can recycle acid). Slightly slower than acyl chloride.<br><br>
+              <b>Route 3: Ethanoic acid + ammonia (two steps)</b><br>
+              Step 1: CH<sub>3</sub>COOH + NH<sub>3</sub> &rarr; CH<sub>3</sub>COONH<sub>4</sub> (ammonium ethanoate)<br>
+              Step 2: CH<sub>3</sub>COONH<sub>4</sub> &rarr;<sup>heat strongly</sup> CH<sub>3</sub>CONH<sub>2</sub> + H<sub>2</sub>O<br>
+              Cheapest reagents; no corrosive intermediates. Disadvantage: requires high temperature; partial decomposition; lowest yield; two steps needed.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section B &mdash; Extended Response</h3>
+        <span class="marks-badge">20 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q7 [10 marks]</span>
+          <p><b>(a)</b> Describe the structure of fats and oils as triglycerides. Explain the difference between saturated and unsaturated fatty acids and how this explains why fats are solid and oils are liquid at room temperature. <i>[4 marks]</i></p>
+          <p><b>(b)</b> Write the equation for the saponification of glyceryl tristearate (C<sub>17</sub>H<sub>35</sub>COO)<sub>3</sub>C<sub>3</sub>H<sub>5</sub> with NaOH. Calculate the mass of soap produced from 100 g of this fat. (M<sub>r</sub>: glyceryl tristearate = 890; sodium stearate = 306.) <i>[4 marks]</i></p>
+          <p><b>(c)</b> Explain the difference between soaps and synthetic detergents in terms of structure and behaviour in hard water. <i>[2 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)</b> Triglycerides are triesters of glycerol (propane-1,2,3-triol) with three fatty acid molecules (R<sub>1</sub>COOH, R<sub>2</sub>COOH, R<sub>3</sub>COOH). The three &ndash;OH groups of glycerol form ester linkages with the carboxyl groups of the fatty acids.<br><br>
+              Saturated fatty acids: all C&ndash;C single bonds &rarr; straight, flexible chains &rarr; can pack closely together &rarr; stronger van der Waals forces &rarr; higher melting point &rarr; solid (fats). Unsaturated fatty acids: contain C=C double bonds &rarr; introduces kinks/bends in chain &rarr; cannot pack as tightly &rarr; weaker forces &rarr; lower melting point &rarr; liquid (oils).<br><br>
+              <b>(b)</b> Equation:<br>
+              (C<sub>17</sub>H<sub>35</sub>COO)<sub>3</sub>C<sub>3</sub>H<sub>5</sub> + 3NaOH &rarr; C<sub>3</sub>H<sub>5</sub>(OH)<sub>3</sub> + 3C<sub>17</sub>H<sub>35</sub>COONa<br>
+              Moles of fat = 100 &divide; 890 = 0.1124 mol<br>
+              Moles of soap = 3 &times; 0.1124 = 0.3371 mol<br>
+              Mass of soap = 0.3371 &times; 306 = <b>103.1 g ≈ 103 g</b><br><br>
+              <b>(c)</b> Both soaps and synthetic detergents have an amphiphilic structure (hydrophobic tail + hydrophilic head). In soaps, the head is &ndash;COO<sup>&minus;</sup>Na<sup>+</sup>; its Ca/Mg salt is insoluble &rarr; forms scum in hard water. In synthetic detergents, the head is &ndash;SO<sub>3</sub><sup>&minus;</sup>Na<sup>+</sup> or &ndash;OSO<sub>3</sub><sup>&minus;</sup>Na<sup>+</sup>; their Ca/Mg salts are soluble &rarr; no scum in hard water.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q8 [10 marks]</span>
+          <p><b>(a)</b> Complete the following reaction summary for ethanoic anhydride, writing equations for its reactions with: water, ethanol, ammonia, and methylamine. Name all organic products. <i>[4 marks]</i></p>
+          <p><b>(b)</b> Starting from propan-1-ol only (and any inorganic reagents), design a four-step synthesis of pentanenitrile (C<sub>4</sub>H<sub>9</sub>CN). Write an equation for each step and name all organic intermediates. <i>[6 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)</b><br>
+              Water: (CH<sub>3</sub>CO)<sub>2</sub>O + H<sub>2</sub>O &rarr; 2 CH<sub>3</sub>COOH &mdash; <b>ethanoic acid</b><br>
+              Ethanol: (CH<sub>3</sub>CO)<sub>2</sub>O + C<sub>2</sub>H<sub>5</sub>OH &rarr; CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + CH<sub>3</sub>COOH &mdash; <b>ethyl ethanoate</b> + ethanoic acid<br>
+              Ammonia: (CH<sub>3</sub>CO)<sub>2</sub>O + 2NH<sub>3</sub> &rarr; CH<sub>3</sub>CONH<sub>2</sub> + CH<sub>3</sub>COONH<sub>4</sub> &mdash; <b>ethanamide</b><br>
+              Methylamine: (CH<sub>3</sub>CO)<sub>2</sub>O + CH<sub>3</sub>NH<sub>2</sub> &rarr; CH<sub>3</sub>CONHCH<sub>3</sub> + CH<sub>3</sub>COOH &mdash; <b>N-methylethanamide</b><br><br>
+              <b>(b) Synthesis of pentanenitrile from propan-1-ol (3C &rarr; 5C):</b><br>
+              Target: C<sub>4</sub>H<sub>9</sub>CN = pentanenitrile (5C). Need to add 2 carbons. Use two chain-extension steps via nitrile.<br><br>
+              Step 1: C<sub>3</sub>H<sub>7</sub>OH + HBr &rarr; C<sub>3</sub>H<sub>7</sub>Br + H<sub>2</sub>O &mdash; <b>1-bromopropane</b><br>
+              Step 2: C<sub>3</sub>H<sub>7</sub>Br + KCN(alc) &rarr; C<sub>3</sub>H<sub>7</sub>CN + KBr &mdash; <b>butanenitrile</b> (4C)<br>
+              Step 3: C<sub>3</sub>H<sub>7</sub>CN + 4[H] &rarr;<sup>LiAlH<sub>4</sub></sup> C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>NH<sub>2</sub> &mdash; <b>butan-1-amine</b> (4C)<br>
+              Step 4: C<sub>3</sub>H<sub>7</sub>CH<sub>2</sub>NH<sub>2</sub> &rarr; convert to bromide then CN: C<sub>4</sub>H<sub>9</sub>Br + KCN &rarr; C<sub>4</sub>H<sub>9</sub>CN &mdash; <b>pentanenitrile</b> (5C)<br><br>
+              Alternative route (2 chain extensions via nitrile each time): propan-1-ol &rarr; 1-bromopropane &rarr; butanenitrile &rarr; butanoic acid &rarr; 1-bromobutane &rarr; pentanenitrile.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="unit-nav">
+  <a class="nav-btn prev" href="unit7_carboxylic_acids.html">&larr; Unit 7: Carboxylic Acids</a>
+  <a class="nav-btn next" href="unit9_amines_amino_acids.html">Unit 9: Amines &amp; Amino Acids &rarr;</a>
+</div>
+
+</main>
+
+<script>
+function toggleAnswer(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+const correctAnswers={q1:'c',q2:'b',q3:'b',q4:'c',q5:'b',q6:'b',q7:'b',q8:'c',q9:'b',q10:'b'};
+function submitQuiz(){
+  let score=0;
+  const total=Object.keys(correctAnswers).length;
+  Object.entries(correctAnswers).forEach(([q,correct])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{
+      if(o.value===correct)o.parentElement.classList.add('correct');
+    });
+    if(sel){if(sel.value===correct)score++;else sel.parentElement.classList.add('wrong');}
+    const exp=document.getElementById('exp'+q.slice(1));
+    if(exp)exp.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const pct=Math.round(score/total*100);
+  const res=document.getElementById('quizResult');
+  res.style.display='block';
+  res.style.background=pct>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  res.style.border='1px solid '+(pct>=70?'var(--green)':'var(--red)');
+  res.style.color=pct>=70?'var(--green)':'var(--red)';
+  res.innerHTML='Score: '+score+' / '+total+' ('+pct+'%) — '+(pct>=80?'Excellent! 🎉':pct>=60?'Good effort — review marked questions.':'Keep studying — re-read the notes and try again.');
+  document.querySelector('.quiz-submit').disabled=true;
+  document.querySelector('.quiz-submit').style.opacity='0.5';
+}
+</script>
+</body>
+</html>
