@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S5 Chemistry – Unit 5: Alcohols and Ethers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;
+    --accent:#58c4dc;--accent2:#f97316;--accent3:#a78bfa;
+    --gold:#e8c547;--green:#34d399;--red:#f87171;--teal:#2dd4bf;
+    --text:#e6edf3;--muted:#8b949e;--radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+  .hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#0d2a28 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(45,212,191,.05) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(45,212,191,.05) 40px);pointer-events:none;}
+  .badge{display:inline-block;background:rgba(45,212,191,.12);border:1px solid rgba(45,212,191,.3);color:var(--teal);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+  .hero h1 em{color:var(--teal);font-style:italic;}
+  .hero p.sub{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto 32px;}
+  .toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:760px;margin:0 auto;}
+  .toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+  .toc-grid a:hover{background:var(--teal);color:#000;border-color:var(--teal);}
+  .page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+  .section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--teal);background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+  .section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+  .card p+p{margin-top:12px;}
+  .def-box{border-left:4px solid var(--teal);background:rgba(45,212,191,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+  .def-box strong{color:var(--teal);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+  .callout.info{background:rgba(88,196,220,.08);border:1px solid rgba(88,196,220,.25);}
+  .callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+  .callout.tip{background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.25);}
+  .callout.purple{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.25);}
+  .callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+  .callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+  .tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:var(--surface2);}
+  th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--teal);white-space:nowrap;}
+  td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  td code{background:rgba(45,212,191,.12);padding:2px 7px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.85em;}
+  .formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--teal);overflow-x:auto;white-space:pre;}
+  .example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+  .example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+  .example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+  .example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+  .example-body{padding:22px 26px;}
+  .example-body .q{color:var(--text);margin-bottom:14px;font-weight:600;}
+  .example-body .step{display:flex;gap:14px;margin:10px 0;}
+  .step-num{min-width:28px;height:28px;background:rgba(45,212,191,.15);border:1px solid rgba(45,212,191,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--teal);flex-shrink:0;margin-top:3px;}
+  .step-text{flex:1;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .exercise-list{list-style:none;counter-reset:ex;}
+  .exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+  .exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--teal);display:block;margin-bottom:6px;}
+  .reveal-btn{margin-top:10px;background:rgba(45,212,191,.1);border:1px solid rgba(45,212,191,.3);color:var(--teal);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+  .reveal-btn:hover{background:var(--teal);color:#000;}
+  .answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(45,212,191,.06);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .answer.open{display:block;}
+  .quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+  .quiz-header{background:rgba(45,212,191,.1);border-bottom:1px solid rgba(45,212,191,.2);padding:16px 24px;}
+  .quiz-header h3{font-family:'Playfair Display',serif;color:var(--teal);font-size:1.2rem;}
+  .quiz-body{padding:24px;}
+  .q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+  .q-block:last-of-type{border-bottom:none;}
+  .q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+  .q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--teal);display:block;margin-bottom:4px;}
+  .options{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+  .opt:hover{border-color:var(--teal);}
+  .opt input{margin-top:3px;accent-color:var(--teal);}
+  .opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+  .opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+  .q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(45,212,191,.07);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;font-size:.88rem;}
+  .quiz-submit{background:var(--teal);color:#000;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:opacity .2s;font-weight:600;}
+  .quiz-submit:hover{opacity:.85;}
+  .test-wrap{margin-top:40px;}
+  .test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px;}
+  .test-section-header{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .test-section-header h3{font-family:'Playfair Display',serif;color:var(--accent2);font-size:1.1rem;}
+  .marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(249,115,22,.2);color:var(--accent2);padding:4px 12px;border-radius:50px;}
+  .test-body{padding:24px;}
+  .test-q{margin-bottom:20px;padding:16px 18px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);}
+  .test-q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent2);margin-bottom:6px;display:block;}
+  .test-answer-reveal{margin-top:14px;}
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+  .nav-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s;}
+  .nav-btn.prev{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+  .nav-btn.prev:hover{border-color:var(--teal);color:var(--teal);}
+  .nav-btn.next{background:var(--teal);color:#000;font-weight:600;}
+  .nav-btn.next:hover{opacity:.88;}
+  h3.sub-heading{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+  sub,sup{font-size:.72em;}
+  @media(max-width:600px){.hero{padding:50px 20px 40px;}.page{padding:0 16px 60px;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Unit 5 &middot; Organic Chemistry</div>
+  <h1><em>Alcohols</em> and <em>Ethers</em></h1>
+  <p class="sub">Nomenclature, classification, physical properties, preparation, fermentation, reactions, and uses.</p>
+  <nav class="toc-grid">
+    <a href="#nomenclature">5.1 Nomenclature &amp; Classification</a>
+    <a href="#properties">5.2 Physical Properties</a>
+    <a href="#preparation">5.3 Preparation</a>
+    <a href="#fermentation">5.4 Fermentation</a>
+    <a href="#reactions">5.5 Reactions of Alcohols</a>
+    <a href="#ethers">5.6 Ethers</a>
+    <a href="#uses">5.7 Uses</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<!-- 5.1 NOMENCLATURE AND CLASSIFICATION -->
+<section id="nomenclature">
+  <div class="section-header">
+    <span class="section-number">5.1</span>
+    <h2>Nomenclature and Classification</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Alcohols — Definition</strong>
+    Alcohols are organic compounds containing the <b>hydroxyl functional group (&ndash;OH)</b> bonded to a saturated carbon atom. General formula for monohydric alcohols: <b>C<sub>n</sub>H<sub>2n+1</sub>OH</b> (or R&ndash;OH). They are named using the suffix <b>&ndash;ol</b>.
+  </div>
+
+  <h3 class="sub-heading">IUPAC Nomenclature Rules for Alcohols</h3>
+  <div class="card">
+    <ol style="padding-left:20px;line-height:2.1;">
+      <li>Find the <b>longest chain containing the &ndash;OH group</b>. Replace &ndash;e of the alkane with <b>&ndash;ol</b>.</li>
+      <li><b>Number the chain</b> to give the &ndash;OH group the <b>lowest locant</b>.</li>
+      <li>State the locant of &ndash;OH before &ndash;ol: e.g. propan-<b>1</b>-ol, propan-<b>2</b>-ol.</li>
+      <li>Name and number other substituents alphabetically as usual.</li>
+      <li>Diols: suffix <b>&ndash;diol</b>; triols: <b>&ndash;triol</b>.</li>
+    </ol>
+  </div>
+
+  <h3 class="sub-heading">Classification by Degree of Substitution</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Class</th><th>Definition</th><th>Example</th><th>IUPAC Name</th></tr></thead>
+      <tbody>
+        <tr><td><b>Primary (1&deg;)</b></td><td>C bearing &ndash;OH bonded to <b>1 other C</b> (or 0 for methanol)</td><td>CH<sub>3</sub>CH<sub>2</sub>OH</td><td>Ethanol</td></tr>
+        <tr><td><b>Secondary (2&deg;)</b></td><td>C bearing &ndash;OH bonded to <b>2 other C</b></td><td>CH<sub>3</sub>CH(OH)CH<sub>3</sub></td><td>Propan-2-ol</td></tr>
+        <tr><td><b>Tertiary (3&deg;)</b></td><td>C bearing &ndash;OH bonded to <b>3 other C</b></td><td>(CH<sub>3</sub>)<sub>3</sub>COH</td><td>2-methylpropan-2-ol</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-heading">Common Alcohols</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Name</th><th>Formula</th><th>Class</th><th>Common Name</th></tr></thead>
+      <tbody>
+        <tr><td>Methanol</td><td>CH<sub>3</sub>OH</td><td>Primary</td><td>Wood alcohol</td></tr>
+        <tr><td>Ethanol</td><td>CH<sub>3</sub>CH<sub>2</sub>OH</td><td>Primary</td><td>Alcohol (drinking)</td></tr>
+        <tr><td>Propan-1-ol</td><td>CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH</td><td>Primary</td><td>&ndash;</td></tr>
+        <tr><td>Propan-2-ol</td><td>CH<sub>3</sub>CH(OH)CH<sub>3</sub></td><td>Secondary</td><td>Isopropanol / rubbing alcohol</td></tr>
+        <tr><td>Butan-1-ol</td><td>CH<sub>3</sub>(CH<sub>2</sub>)<sub>3</sub>OH</td><td>Primary</td><td>n-butanol</td></tr>
+        <tr><td>Butan-2-ol</td><td>CH<sub>3</sub>CH(OH)CH<sub>2</sub>CH<sub>3</sub></td><td>Secondary</td><td>&ndash;</td></tr>
+        <tr><td>2-methylpropan-2-ol</td><td>(CH<sub>3</sub>)<sub>3</sub>COH</td><td>Tertiary</td><td>tert-butanol</td></tr>
+        <tr><td>Ethane-1,2-diol</td><td>HOCH<sub>2</sub>CH<sub>2</sub>OH</td><td>Diol</td><td>Ethylene glycol</td></tr>
+        <tr><td>Propane-1,2,3-triol</td><td>HOCH<sub>2</sub>CH(OH)CH<sub>2</sub>OH</td><td>Triol</td><td>Glycerol</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 1</span><h4>Naming and Classifying Alcohols</h4></div>
+    <div class="example-body">
+      <p class="q">Name and classify: (a) CH<sub>3</sub>CH(OH)CH<sub>2</sub>CH<sub>3</sub> &nbsp; (b) (CH<sub>3</sub>)<sub>2</sub>C(OH)CH<sub>2</sub>CH<sub>3</sub></p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">Longest chain containing &ndash;OH = 4 C (butane). &ndash;OH on C2 from left (lower than C3). &rarr; <b>Butan-2-ol</b>. C2 bonded to C1 and C3 &rarr; <b>Secondary</b>.</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">Longest chain = 4 C. &ndash;OH on C2. Two CH<sub>3</sub> on C2. &rarr; <b>2-methylbutan-2-ol</b>. C2 bonded to C1, C3, and CH<sub>3</sub> (3 carbons) &rarr; <b>Tertiary</b>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5.2 PHYSICAL PROPERTIES -->
+<section id="properties">
+  <div class="section-header">
+    <span class="section-number">5.2</span>
+    <h2>Physical Properties</h2>
+  </div>
+
+  <div class="card">
+    <h3>Hydrogen Bonding</h3>
+    <p>The &ndash;OH group can form <b>intermolecular hydrogen bonds</b> (O&ndash;H&middot;&middot;&middot;O) between alcohol molecules. This makes alcohols have <b>much higher boiling points</b> than alkanes or ethers of similar molecular mass.</p>
+    <p>Example: ethanol (M<sub>r</sub> = 46, B.P. = 78&deg;C) vs propane (M<sub>r</sub> = 44, B.P. = &minus;42&deg;C).</p>
+  </div>
+
+  <div class="card">
+    <h3>Solubility in Water</h3>
+    <p>Short-chain alcohols (C<sub>1</sub>&ndash;C<sub>4</sub>) are <b>completely miscible with water</b> because the &ndash;OH group can form H-bonds with water molecules. As chain length increases, the non-polar hydrocarbon chain dominates and solubility decreases. Long-chain alcohols (C<sub>6+</sub>) are practically insoluble in water.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Alcohol</th><th>M<sub>r</sub></th><th>B.P. (&deg;C)</th><th>Solubility in H<sub>2</sub>O</th><th>State</th></tr></thead>
+      <tbody>
+        <tr><td>Methanol</td><td>32</td><td>+65</td><td>Miscible</td><td>Liquid</td></tr>
+        <tr><td>Ethanol</td><td>46</td><td>+78</td><td>Miscible</td><td>Liquid</td></tr>
+        <tr><td>Propan-1-ol</td><td>60</td><td>+97</td><td>Miscible</td><td>Liquid</td></tr>
+        <tr><td>Butan-1-ol</td><td>74</td><td>+118</td><td>Slightly soluble</td><td>Liquid</td></tr>
+        <tr><td>Pentan-1-ol</td><td>88</td><td>+138</td><td>Slightly soluble</td><td>Liquid</td></tr>
+        <tr><td>Hexan-1-ol</td><td>102</td><td>+157</td><td>Insoluble</td><td>Liquid</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout info">
+    <span class="callout-icon">&#128204;</span>
+    <div class="callout-body">
+      <strong>Comparing Boiling Points: 1&deg; vs 2&deg; vs 3&deg;</strong>
+      For the same molecular formula, boiling points follow: 1&deg; &gt; 2&deg; &gt; 3&deg; alcohols — branching reduces surface area and hence van der Waals forces, lowering B.P. slightly. All three are much higher than the corresponding alkane due to H-bonding.
+    </div>
+  </div>
+</section>
+
+<!-- 5.3 PREPARATION -->
+<section id="preparation">
+  <div class="section-header">
+    <span class="section-number">5.3</span>
+    <h2>Preparation of Alcohols</h2>
+  </div>
+
+  <h3 class="sub-heading">Method 1: Hydrolysis of Halogenoalkanes</h3>
+  <div class="card">
+    <div class="formula-block">R-X  +  NaOH(aq)  --heat/reflux-->  R-OH  +  NaX
+
+e.g.  CH3CH2Br  +  NaOH(aq)  -->  CH3CH2OH  +  NaBr
+      (bromoethane)                   (ethanol)</div>
+  </div>
+
+  <h3 class="sub-heading">Method 2: Hydration of Alkenes</h3>
+  <div class="card">
+    <p><b>Industrial method</b> for ethanol: ethene reacts with steam over a phosphoric acid catalyst.</p>
+    <div class="formula-block">CH2=CH2  +  H2O  --conc. H3PO4, 300 degC, 60 atm-->  CH3CH2OH
+
+For unsymmetrical alkenes, Markovnikov's rule applies:
+CH3CH=CH2  +  H2O  --H+-->  CH3CH(OH)CH3  (major: propan-2-ol)</div>
+  </div>
+
+  <h3 class="sub-heading">Method 3: Reduction of Carbonyl Compounds</h3>
+  <div class="card">
+    <div class="formula-block">Aldehyde  +  2[H]  --LiAlH4 or NaBH4-->  Primary alcohol
+RCHO  +  2[H]  -->  RCH2OH
+
+Ketone  +  2[H]  --LiAlH4 or NaBH4-->  Secondary alcohol
+RCOR' +  2[H]  -->  RCH(OH)R'</div>
+    <p>LiAlH<sub>4</sub> (in dry ether) is a powerful reducing agent. NaBH<sub>4</sub> (in water or ethanol) is milder and more selective.</p>
+  </div>
+
+  <h3 class="sub-heading">Method 4: Fermentation (see Section 5.4)</h3>
+  <div class="card">
+    <p>Ethanol is produced industrially and traditionally by fermentation of sugars using yeast enzymes.</p>
+  </div>
+
+  <h3 class="sub-heading">Method 5: Reaction of Grignard Reagents with Carbonyl Compounds</h3>
+  <div class="card">
+    <p>A Grignard reagent (RMgX, prepared from R&ndash;X + Mg in dry ether) adds to aldehydes or ketones to give alcohols after hydrolysis:</p>
+    <div class="formula-block">RCHO  +  R'MgX  -->  [R'RCH-OMgX]  --H2O/H+-->  R'RCH-OH
+(aldehyde)                                              (secondary alcohol)
+
+HCHO  +  RMgX  -->  RCH2OH  (primary alcohol)
+RCOR' +  R''MgX -->  RR'R''COH  (tertiary alcohol)</div>
+  </div>
+</section>
+
+<!-- 5.4 FERMENTATION -->
+<section id="fermentation">
+  <div class="section-header">
+    <span class="section-number">5.4</span>
+    <h2>Fermentation</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Fermentation</strong>
+    Fermentation is the <b>anaerobic (without oxygen) breakdown of sugars</b> by enzymes in yeast to produce ethanol and carbon dioxide. It is the biological method for producing ethanol.
+  </div>
+
+  <div class="card">
+    <h3>Overall Equation</h3>
+    <div class="formula-block">C6H12O6  --yeast enzymes, 25-35 degC-->  2 C2H5OH  +  2 CO2
+(glucose)                                  (ethanol)    (carbon dioxide)</div>
+    <p>The reaction is carried out at <b>25&ndash;35&deg;C</b> (optimal enzyme activity). Above ~37&deg;C, enzymes denature. Below 25&deg;C, the reaction is too slow.</p>
+  </div>
+
+  <div class="card">
+    <h3>Conditions for Fermentation</h3>
+    <ul style="padding-left:20px;line-height:2.1;">
+      <li><b>Yeast</b> (Saccharomyces cerevisiae) — contains the enzyme zymase</li>
+      <li><b>Temperature</b>: 25&ndash;35&deg;C (optimum ~30&deg;C)</li>
+      <li><b>Anaerobic conditions</b> (no oxygen — otherwise yeast uses aerobic respiration: C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> + 6O<sub>2</sub> &rarr; 6CO<sub>2</sub> + 6H<sub>2</sub>O)</li>
+      <li><b>pH</b>: slightly acidic (~pH 4&ndash;6)</li>
+      <li><b>Aqueous medium</b> (water as solvent)</li>
+      <li>Ethanol concentration cannot exceed ~14% — at higher concentrations yeast is killed</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Source of Sugar</h3>
+    <p>Sugar cane and sugar beet provide sucrose (C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>) which is first hydrolysed to glucose and fructose by invertase. Grain starch is first hydrolysed to glucose by amylase, then fermented. In developing countries, cassava, banana, and other starchy crops are used.</p>
+  </div>
+
+  <div class="card">
+    <h3>Industrial Ethanol: Fermentation vs Hydration of Ethene</h3>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Fermentation</th><th>Hydration of Ethene</th></tr></thead>
+      <tbody>
+        <tr><td>Raw material</td><td>Sugars/starch (renewable)</td><td>Ethene from crude oil (non-renewable)</td></tr>
+        <tr><td>Temperature</td><td>~30&deg;C (low energy)</td><td>~300&deg;C (high energy)</td></tr>
+        <tr><td>Pressure</td><td>Atmospheric</td><td>~60 atm (high)</td></tr>
+        <tr><td>Catalyst</td><td>Yeast (biological)</td><td>H<sub>3</sub>PO<sub>4</sub> (chemical)</td></tr>
+        <tr><td>Rate</td><td>Slow (batch process)</td><td>Fast (continuous process)</td></tr>
+        <tr><td>Purity</td><td>Low (requires distillation)</td><td>High (more pure product)</td></tr>
+        <tr><td>Sustainability</td><td>Renewable; carbon neutral</td><td>Fossil fuel dependent</td></tr>
+        <tr><td>Used in</td><td>Developing countries; biofuels</td><td>Industrial scale in developed countries</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 2</span><h4>Fermentation Calculation</h4></div>
+    <div class="example-body">
+      <p class="q">Calculate the mass of ethanol produced when 180 g of glucose undergoes complete fermentation.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">Equation: C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> &rarr; 2 C<sub>2</sub>H<sub>5</sub>OH + 2 CO<sub>2</sub></div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">M<sub>r</sub>(glucose) = 180 g/mol &rarr; 180 g = <b>1 mol</b> glucose.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">1 mol glucose &rarr; 2 mol ethanol. M<sub>r</sub>(ethanol) = 46 g/mol.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">Mass of ethanol = 2 &times; 46 = <b>92 g</b>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5.5 REACTIONS OF ALCOHOLS -->
+<section id="reactions">
+  <div class="section-header">
+    <span class="section-number">5.5</span>
+    <h2>Reactions of Alcohols</h2>
+  </div>
+
+  <h3 class="sub-heading">Reaction 1: Combustion</h3>
+  <div class="card">
+    <div class="formula-block">C2H5OH  +  3O2  -->  2CO2  +  3H2O   (complete combustion)
+General: CnH(2n+1)OH  +  (3n/2) O2  -->  n CO2  +  (n+1) H2O</div>
+    <p>Alcohols burn with a less luminous flame than alkenes/alkynes due to their lower C:H ratio.</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 2: Reaction with Sodium Metal</h3>
+  <div class="card">
+    <p>Alcohols react with sodium metal to produce hydrogen gas and a sodium alkoxide. This shows alcohols are weakly acidic (though much weaker than water):</p>
+    <div class="formula-block">2 R-OH  +  2 Na  -->  2 R-O-Na+  +  H2(g)
+
+e.g.  2 C2H5OH  +  2 Na  -->  2 C2H5ONa  +  H2
+      (ethanol)               (sodium ethoxide)</div>
+    <p>The reaction is <b>less vigorous</b> than sodium with water (because the O&ndash;H bond in alcohol is slightly less polar than in water). Effervescence of H<sub>2</sub> is observed.</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 3: Dehydration to Alkenes</h3>
+  <div class="card">
+    <div class="formula-block">R-CHOH-CH2R'  --conc. H2SO4, ~170 degC (or Al2O3, heat)-->  R-CH=CH-R'  +  H2O
+
+e.g.  CH3CH2OH  --conc. H2SO4, 170 degC-->  CH2=CH2  +  H2O
+      (ethanol)                               (ethene)</div>
+    <p><b>At ~140&deg;C</b> (lower temperature), the <b>ether</b> is the major product instead (intermolecular dehydration).</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 4: Conversion to Halogenoalkanes</h3>
+  <div class="card">
+    <div class="formula-block">R-OH  +  PCl5  -->  R-Cl  +  POCl3  +  HCl
+R-OH  +  SOCl2  -->  R-Cl  +  SO2  +  HCl
+R-OH  +  HBr  -->  R-Br  +  H2O   (with conc. H2SO4 and NaBr)</div>
+    <p>(See Unit 4 for full details.)</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 5: Oxidation</h3>
+  <div class="card">
+    <p>The oxidation products depend on whether the alcohol is primary, secondary, or tertiary. Oxidising agents used: acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> (orange &rarr; green) or acidified KMnO<sub>4</sub>.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Alcohol Class</th><th>Oxidation Product (mild)</th><th>Oxidation Product (excess/reflux)</th></tr></thead>
+      <tbody>
+        <tr><td><b>Primary (R&ndash;CH<sub>2</sub>OH)</b></td><td>Aldehyde (RCHO) — distil off immediately</td><td>Carboxylic acid (RCOOH) — with excess oxidant/reflux</td></tr>
+        <tr><td><b>Secondary (R<sub>2</sub>CHOH)</b></td><td>Ketone (RCOR') — cannot be further oxidised easily</td><td>Ketone (same product)</td></tr>
+        <tr><td><b>Tertiary (R<sub>3</sub>COH)</b></td><td><b>Not oxidised</b> (no H on C&ndash;OH)</td><td>Not oxidised under normal conditions</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="formula-block">Primary:   RCH2OH  --[O]-->  RCHO  --[O]-->  RCOOH
+           (primary alcohol)   (aldehyde)       (carboxylic acid)
+
+Secondary: R2CHOH  --[O]-->  RCOR'  (no further oxidation)
+           (secondary)        (ketone)
+
+Tertiary:  R3COH   --[O]-->  no reaction under normal conditions</div>
+
+  <div class="callout tip">
+    <span class="callout-icon">&#128161;</span>
+    <div class="callout-body">
+      <strong>Test: Distinguishing 1&deg;, 2&deg;, 3&deg; Alcohols by Oxidation</strong>
+      Add acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> (orange) and warm.<br>
+      &bull; <b>Primary</b>: orange &rarr; green (oxidised to aldehyde, then acid if excess oxidant)<br>
+      &bull; <b>Secondary</b>: orange &rarr; green (oxidised to ketone)<br>
+      &bull; <b>Tertiary</b>: no colour change (not oxidised)<br>
+      To distinguish 1&deg; from 2&deg;: use Tollens&rsquo; reagent or Fehling&rsquo;s (Unit 6) — only aldehydes (from 1&deg;) give positive results.
+    </div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 6: Esterification</h3>
+  <div class="card">
+    <p>Alcohols react with carboxylic acids in the presence of a <b>concentrated H<sub>2</sub>SO<sub>4</sub> catalyst</b> to form esters and water (reversible reaction):</p>
+    <div class="formula-block">R-OH  +  R'COOH  <==>  R'COOR  +  H2O
+           (alcohol) (carboxylic acid)   (ester)   (water)
+
+e.g.  C2H5OH  +  CH3COOH  <==>  CH3COOC2H5  +  H2O
+      (ethanol) (ethanoic acid)  (ethyl ethanoate)</div>
+    <p>This is a reversible, equilibrium reaction. Yield is improved by: using excess of one reactant, removing water (molecular sieves), or distilling off the ester as it forms.</p>
+  </div>
+
+  <h3 class="sub-heading">Reaction 7: Intermolecular Dehydration &rarr; Ether</h3>
+  <div class="card">
+    <div class="formula-block">2 R-OH  --conc. H2SO4, ~140 degC-->  R-O-R  +  H2O
+
+e.g.  2 C2H5OH  --conc. H2SO4, 140 degC-->  C2H5-O-C2H5  +  H2O
+      (ethanol)                               (ethoxyethane / diethyl ether)</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 3</span><h4>Oxidation Products of Alcohols</h4></div>
+    <div class="example-body">
+      <p class="q">Give the oxidation products of: (a) butan-1-ol with limited K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sup>+</sup>; (b) butan-1-ol with excess K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sup>+</sup> under reflux; (c) butan-2-ol; (d) 2-methylpropan-2-ol.</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">Butan-1-ol is <b>primary</b>. Limited oxidant, distil off product &rarr; <b>butanal</b> (CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>CHO).</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">Excess oxidant, reflux &rarr; <b>butanoic acid</b> (CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>COOH).</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">Butan-2-ol is <b>secondary</b> &rarr; <b>butan-2-one</b> (CH<sub>3</sub>COCH<sub>2</sub>CH<sub>3</sub>, a ketone). Orange &rarr; green.</div></div>
+      <div class="step"><div class="step-num">d</div><div class="step-text">2-methylpropan-2-ol is <b>tertiary</b> &rarr; <b>no reaction</b>. Dichromate remains orange.</div></div>
+    </div>
+  </div>
+
+  <h3 class="sub-heading">Reaction 8: Iodoform (Triiodomethane) Test</h3>
+  <div class="card">
+    <p>Ethanol and all secondary alcohols with the structure CH<sub>3</sub>CH(OH)R (methyl carbinols) give a <b>yellow precipitate of CHI<sub>3</sub></b> (triiodomethane / iodoform) when warmed with iodine in alkaline solution (I<sub>2</sub>/NaOH). This is a confirmatory test for ethanol and methyl ketones.</p>
+    <div class="formula-block">CH3CH(OH)R  +  I2/NaOH  -->  CHI3(s)  +  RCOONa
+                                  (yellow ppt)</div>
+  </div>
+</section>
+
+<!-- 5.6 ETHERS -->
+<section id="ethers">
+  <div class="section-header">
+    <span class="section-number">5.6</span>
+    <h2>Ethers</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Ethers — Definition</strong>
+    Ethers are organic compounds with the general structure <b>R&ndash;O&ndash;R'</b>, where two alkyl or aryl groups are joined by an oxygen atom. They are named as <b>alkoxyalkanes</b> (IUPAC) or as dialkyl ethers (common). General formula: C<sub>n</sub>H<sub>2n+2</sub>O (same as monohydric alcohols — they are isomers).
+  </div>
+
+  <h3 class="sub-heading">IUPAC Nomenclature of Ethers</h3>
+  <div class="card">
+    <p>The larger alkyl group is the parent chain; the smaller alkyl group + &ldquo;oxy&rdquo; is the prefix.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Structure</th><th>IUPAC Name</th><th>Common Name</th></tr></thead>
+        <tbody>
+          <tr><td>CH<sub>3</sub>&ndash;O&ndash;CH<sub>3</sub></td><td>Methoxymethane</td><td>Dimethyl ether</td></tr>
+          <tr><td>CH<sub>3</sub>&ndash;O&ndash;C<sub>2</sub>H<sub>5</sub></td><td>Methoxyethane</td><td>Methyl ethyl ether</td></tr>
+          <tr><td>C<sub>2</sub>H<sub>5</sub>&ndash;O&ndash;C<sub>2</sub>H<sub>5</sub></td><td>Ethoxyethane</td><td>Diethyl ether</td></tr>
+          <tr><td>C<sub>3</sub>H<sub>7</sub>&ndash;O&ndash;CH<sub>3</sub></td><td>Methoxypropane</td><td>Methyl propyl ether</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3 class="sub-heading">Physical Properties of Ethers</h3>
+  <div class="card">
+    <p>Ethers have <b>no O&ndash;H group</b>, so they <b>cannot form H-bonds with each other</b>. Their boiling points are similar to alkanes of comparable M<sub>r</sub> and much lower than isomeric alcohols.</p>
+    <p>Example: ethoxyethane (C<sub>4</sub>H<sub>10</sub>O, B.P. 35&deg;C) vs butan-1-ol (C<sub>4</sub>H<sub>10</sub>O, B.P. 118&deg;C).</p>
+    <p>Ethers can accept H-bonds from water (O atom acts as H-bond acceptor), so short-chain ethers have slight solubility in water.</p>
+  </div>
+
+  <h3 class="sub-heading">Chemical Properties of Ethers</h3>
+  <div class="card">
+    <p>Ethers are <b>chemically very unreactive</b> (stable C&ndash;O&ndash;C linkage). They do not react with sodium, oxidising agents, or bases under normal conditions. They are excellent <b>inert solvents</b> for organic reactions.</p>
+    <p><b>Important hazard:</b> diethyl ether is extremely flammable (B.P. 35&deg;C) and forms explosive peroxides on prolonged storage in air.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Alcohols vs Ethers (Isomers)</h3>
+      <p>Alcohols and ethers with the same molecular formula are <b>functional group isomers</b>. Example: ethanol (CH<sub>3</sub>CH<sub>2</sub>OH) and methoxymethane (CH<sub>3</sub>OCH<sub>3</sub>) are both C<sub>2</sub>H<sub>6</sub>O.</p>
+    </div>
+    <div class="card">
+      <h3>Key Differences</h3>
+      <p>Alcohols: react with Na (H<sub>2</sub> gas), oxidised by Cr<sub>2</sub>O<sub>7</sub><sup>2&minus;</sup>, form H-bonds, higher B.P. Ethers: do not react with Na, not oxidised, cannot H-bond with each other, lower B.P.</p>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 4</span><h4>Distinguishing Ethanol from Ethoxyethane</h4></div>
+    <div class="example-body">
+      <p class="q">Describe two chemical tests to distinguish ethanol (CH<sub>3</sub>CH<sub>2</sub>OH) from ethoxyethane (C<sub>2</sub>H<sub>5</sub>OC<sub>2</sub>H<sub>5</sub>).</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text"><b>Test 1 &mdash; Sodium metal:</b><br>
+        Ethanol: effervescence (H<sub>2</sub> gas), sodium dissolves.<br>
+        Ethoxyethane: no reaction with sodium.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text"><b>Test 2 &mdash; Acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>:</b><br>
+        Ethanol: orange solution turns green (oxidised to ethanal/ethanoic acid).<br>
+        Ethoxyethane: no colour change (ethers not oxidised).</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5.7 USES -->
+<section id="uses">
+  <div class="section-header">
+    <span class="section-number">5.7</span>
+    <h2>Uses of Alcohols and Ethers</h2>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Compound</th><th>Use</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>Ethanol</td><td>Alcoholic beverages</td><td>Produced by fermentation</td></tr>
+        <tr><td>Ethanol</td><td>Solvent (perfumes, medicines, paints)</td><td>Miscible with water and organic compounds</td></tr>
+        <tr><td>Ethanol</td><td>Biofuel (E10, E85 petrol blends)</td><td>Renewable; burns cleanly</td></tr>
+        <tr><td>Ethanol</td><td>Antiseptic and disinfectant (70% solution)</td><td>Denatures bacterial proteins</td></tr>
+        <tr><td>Methanol</td><td>Fuel (racing cars, camping stoves)</td><td>Burns cleanly; high octane</td></tr>
+        <tr><td>Methanol</td><td>Manufacture of methanal (formaldehyde) and acetic acid</td><td>Industrial feedstock</td></tr>
+        <tr><td>Methanol</td><td>Added to industrial ethanol (methylated spirits) as a denaturant</td><td>Makes ethanol unfit to drink (toxic)</td></tr>
+        <tr><td>Propan-2-ol</td><td>Rubbing alcohol; hand sanitiser</td><td>Antiseptic; evaporates quickly</td></tr>
+        <tr><td>Ethane-1,2-diol</td><td>Antifreeze in car radiators</td><td>Lowers freezing point of water</td></tr>
+        <tr><td>Ethane-1,2-diol</td><td>Manufacture of polyesters (PET)</td><td>Diol monomer for condensation polymerisation</td></tr>
+        <tr><td>Glycerol</td><td>Moisturiser in cosmetics and food</td><td>Hygroscopic; non-toxic</td></tr>
+        <tr><td>Glycerol</td><td>Manufacture of nitroglycerine (explosive); pharmaceuticals</td><td>Triol functional groups</td></tr>
+        <tr><td>Diethyl ether</td><td>Solvent for organic reactions (Grignard, LiAlH<sub>4</sub>)</td><td>Inert; non-polar; low B.P.</td></tr>
+        <tr><td>Diethyl ether</td><td>Formerly used as anaesthetic</td><td>Now replaced due to flammability hazard</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <div class="section-header">
+    <span class="section-number">&#9999;&#65039;</span>
+    <h2>Exercises</h2>
+  </div>
+
+  <ul class="exercise-list">
+
+    <li>
+      Name and classify each alcohol:<br>
+      (a) CH<sub>3</sub>CH<sub>2</sub>CH(OH)CH<sub>3</sub> &nbsp; (b) (CH<sub>3</sub>)<sub>3</sub>COH &nbsp; (c) HOCH<sub>2</sub>CH<sub>2</sub>OH
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) <b>Butan-2-ol</b>; <b>secondary</b> (C2 bonded to C1 and C3)<br>
+        (b) <b>2-methylpropan-2-ol</b>; <b>tertiary</b> (C2 bonded to three CH<sub>3</sub> groups)<br>
+        (c) <b>Ethane-1,2-diol</b>; <b>primary diol</b> (each OH on a primary carbon)
+      </div>
+    </li>
+
+    <li>
+      Explain why ethanol (M<sub>r</sub> = 46, B.P. = 78&deg;C) has a much higher boiling point than propane (M<sub>r</sub> = 44, B.P. = &minus;42&deg;C), despite having similar molecular masses.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Ethanol contains an &ndash;OH group and can form <b>intermolecular hydrogen bonds</b> (O&ndash;H&middot;&middot;&middot;O) between molecules. These are much stronger than the van der Waals forces in propane. Significantly more thermal energy is required to overcome H-bonds, giving ethanol a much higher boiling point despite similar M<sub>r</sub>.
+      </div>
+    </li>
+
+    <li>
+      Write the equation for the fermentation of glucose and state three conditions needed.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> &rarr;<sup>yeast</sup> 2 C<sub>2</sub>H<sub>5</sub>OH + 2 CO<sub>2</sub><br><br>
+        Conditions: (1) <b>Yeast</b> (contains enzyme zymase); (2) <b>Temperature 25&ndash;35&deg;C</b>; (3) <b>Anaerobic conditions</b> (no oxygen); (4) Slightly acidic pH (~4&ndash;6).
+      </div>
+    </li>
+
+    <li>
+      What are the products when propan-1-ol is oxidised with: (a) limited acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> (distil off product); (b) excess acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> under reflux?
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Propan-1-ol is a <b>primary alcohol</b>.<br>
+        (a) Limited oxidant, distil: &rarr; <b>propanal</b> (CH<sub>3</sub>CH<sub>2</sub>CHO) — an aldehyde. Orange &rarr; green.<br>
+        (b) Excess oxidant, reflux: &rarr; <b>propanoic acid</b> (CH<sub>3</sub>CH<sub>2</sub>COOH). Orange &rarr; green.
+      </div>
+    </li>
+
+    <li>
+      Give the IUPAC name and the common name for C<sub>2</sub>H<sub>5</sub>&ndash;O&ndash;C<sub>2</sub>H<sub>5</sub>. Explain why this compound has a much lower boiling point (35&deg;C) than butan-1-ol (118&deg;C), even though both have the formula C<sub>4</sub>H<sub>10</sub>O.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>IUPAC:</b> ethoxyethane; <b>Common:</b> diethyl ether.<br><br>
+        Butan-1-ol has an &ndash;OH group and forms <b>strong intermolecular hydrogen bonds</b>, requiring much more energy to vaporise. Ethoxyethane has no O&ndash;H group and <b>cannot form H-bonds between its own molecules</b>; it has only weaker van der Waals forces, giving it a much lower boiling point despite identical molecular formula.
+      </div>
+    </li>
+
+    <li>
+      A student reacts ethanol with ethanoic acid in the presence of concentrated H<sub>2</sub>SO<sub>4</sub>. (a) Name the type of reaction. (b) Write the equation. (c) Name the organic product. (d) How could the yield be increased?
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) <b>Esterification</b> (Fischer esterification)<br>
+        (b) C<sub>2</sub>H<sub>5</sub>OH + CH<sub>3</sub>COOH &rightleftharpoons;<sup>conc. H<sub>2</sub>SO<sub>4</sub></sup> CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O<br>
+        (c) <b>Ethyl ethanoate</b><br>
+        (d) Use excess of one reactant (e.g. excess alcohol); remove water as it forms (molecular sieves or distillation); distil off ester as it forms to shift equilibrium to right (Le Chatelier's principle).
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="section-header">
+    <span class="section-number">&#129504;</span>
+    <h2>Interactive Quiz</h2>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-header"><h3>Unit 5 Quiz &mdash; Alcohols &amp; Ethers (10 Questions)</h3></div>
+    <div class="quiz-body">
+
+      <div class="q-block">
+        <span class="q-num">Q1</span>
+        <p class="q-text">The correct IUPAC name for (CH<sub>3</sub>)<sub>2</sub>CHOH is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="a"> Propan-1-ol</label>
+          <label class="opt"><input type="radio" name="q1" value="b"> Propan-2-ol</label>
+          <label class="opt"><input type="radio" name="q1" value="c"> Isopropyl alcohol</label>
+          <label class="opt"><input type="radio" name="q1" value="d"> 2-methylethanol</label>
+        </div>
+        <div class="q-exp" id="exp1">(CH<sub>3</sub>)<sub>2</sub>CHOH = CH<sub>3</sub>CH(OH)CH<sub>3</sub>. Longest chain = 3 C (propane); &ndash;OH on C2 &rarr; <b>propan-2-ol</b>. &ldquo;Isopropyl alcohol&rdquo; is a common name only.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q2</span>
+        <p class="q-text">Why do alcohols have much higher boiling points than alkanes of similar molecular mass?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="a"> Alcohols have stronger van der Waals forces</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> Alcohols form intermolecular hydrogen bonds via the &ndash;OH group</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> Alcohols are ionic compounds</label>
+          <label class="opt"><input type="radio" name="q2" value="d"> Alcohols are less volatile</label>
+        </div>
+        <div class="q-exp" id="exp2">The &ndash;OH group forms <b>hydrogen bonds</b> (O&ndash;H&middot;&middot;&middot;O) between alcohol molecules. These are much stronger than van der Waals forces, requiring more energy to break &rarr; much higher boiling point.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q3</span>
+        <p class="q-text">Fermentation of glucose produces:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="a"> Methanol and CO<sub>2</sub></label>
+          <label class="opt"><input type="radio" name="q3" value="b"> Ethanol and H<sub>2</sub>O</label>
+          <label class="opt"><input type="radio" name="q3" value="c"> Ethanol and CO<sub>2</sub></label>
+          <label class="opt"><input type="radio" name="q3" value="d"> Ethanol and O<sub>2</sub></label>
+        </div>
+        <div class="q-exp" id="exp3">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> &rarr; 2 C<sub>2</sub>H<sub>5</sub>OH + 2 CO<sub>2</sub>. Fermentation produces <b>ethanol and carbon dioxide</b>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q4</span>
+        <p class="q-text">Which alcohol is NOT oxidised by acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="a"> Ethanol</label>
+          <label class="opt"><input type="radio" name="q4" value="b"> Propan-2-ol</label>
+          <label class="opt"><input type="radio" name="q4" value="c"> 2-methylpropan-2-ol</label>
+          <label class="opt"><input type="radio" name="q4" value="d"> Butan-1-ol</label>
+        </div>
+        <div class="q-exp" id="exp4"><b>2-methylpropan-2-ol</b> is a <b>tertiary alcohol</b>. It has no H on the carbon bearing &ndash;OH, so it cannot be oxidised under normal conditions. The dichromate remains orange.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q5</span>
+        <p class="q-text">The product of oxidising a secondary alcohol is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="a"> A primary alcohol</label>
+          <label class="opt"><input type="radio" name="q5" value="b"> An aldehyde</label>
+          <label class="opt"><input type="radio" name="q5" value="c"> A ketone</label>
+          <label class="opt"><input type="radio" name="q5" value="d"> A carboxylic acid</label>
+        </div>
+        <div class="q-exp" id="exp5">Secondary alcohols are oxidised to <b>ketones</b> (R<sub>2</sub>C=O). They cannot be further oxidised easily. Primary alcohols give aldehydes (then acids). Tertiary alcohols are not oxidised.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q6</span>
+        <p class="q-text">What is the major product when ethanol is heated with concentrated H<sub>2</sub>SO<sub>4</sub> at 170&deg;C?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="a"> Diethyl ether</label>
+          <label class="opt"><input type="radio" name="q6" value="b"> Ethene</label>
+          <label class="opt"><input type="radio" name="q6" value="c"> Ethanoic acid</label>
+          <label class="opt"><input type="radio" name="q6" value="d"> Ethanal</label>
+        </div>
+        <div class="q-exp" id="exp6">At <b>~170&deg;C</b> with conc. H<sub>2</sub>SO<sub>4</sub>, <b>intramolecular</b> dehydration occurs giving <b>ethene</b>. At ~140&deg;C, <b>intermolecular</b> dehydration gives diethyl ether.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q7</span>
+        <p class="q-text">Ethanol reacts with ethanoic acid to form ethyl ethanoate. This reaction is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="a"> Irreversible with 100% yield</label>
+          <label class="opt"><input type="radio" name="q7" value="b"> A reversible equilibrium reaction catalysed by conc. H<sub>2</sub>SO<sub>4</sub></label>
+          <label class="opt"><input type="radio" name="q7" value="c"> An addition reaction</label>
+          <label class="opt"><input type="radio" name="q7" value="d"> A substitution reaction using a halogen</label>
+        </div>
+        <div class="q-exp" id="exp7">Esterification is a <b>reversible equilibrium</b> catalysed by conc. H<sub>2</sub>SO<sub>4</sub>: R&ndash;OH + R&rsquo;COOH &rightleftharpoons; R&rsquo;COOR + H<sub>2</sub>O. Maximum yield ~65% at equilibrium without yield-improving measures.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q8</span>
+        <p class="q-text">Ethoxyethane (diethyl ether) has a much lower boiling point than butan-1-ol because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="a"> It has a lower molecular mass</label>
+          <label class="opt"><input type="radio" name="q8" value="b"> It cannot form H-bonds between its own molecules (no O&ndash;H group)</label>
+          <label class="opt"><input type="radio" name="q8" value="c"> It is ionic</label>
+          <label class="opt"><input type="radio" name="q8" value="d"> It has a longer carbon chain</label>
+        </div>
+        <div class="q-exp" id="exp8">Ethoxyethane has no O&ndash;H group &rarr; <b>cannot H-bond with itself</b>. Only weak van der Waals forces exist between ether molecules &rarr; much lower B.P. than butan-1-ol (same formula C<sub>4</sub>H<sub>10</sub>O, but B.P. 35&deg;C vs 118&deg;C).</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q9</span>
+        <p class="q-text">What is produced when ethanol reacts with sodium metal?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="a"> Sodium hydroxide and hydrogen</label>
+          <label class="opt"><input type="radio" name="q9" value="b"> Sodium ethoxide and hydrogen</label>
+          <label class="opt"><input type="radio" name="q9" value="c"> Ethene and sodium hydroxide</label>
+          <label class="opt"><input type="radio" name="q9" value="d"> Sodium carbonate and water</label>
+        </div>
+        <div class="q-exp" id="exp9">2 C<sub>2</sub>H<sub>5</sub>OH + 2 Na &rarr; 2 C<sub>2</sub>H<sub>5</sub>ONa + H<sub>2</sub>. Products are <b>sodium ethoxide</b> (C<sub>2</sub>H<sub>5</sub>ONa) and <b>hydrogen gas</b>. The reaction is less vigorous than Na with water.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q10</span>
+        <p class="q-text">Which statement about fermentation vs hydration of ethene is CORRECT?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="a"> Fermentation uses a higher temperature and gives a purer product</label>
+          <label class="opt"><input type="radio" name="q10" value="b"> Hydration of ethene uses a renewable raw material</label>
+          <label class="opt"><input type="radio" name="q10" value="c"> Fermentation uses a renewable raw material and is more sustainable but gives a less pure product</label>
+          <label class="opt"><input type="radio" name="q10" value="d"> Both processes are carried out at the same temperature</label>
+        </div>
+        <div class="q-exp" id="exp10">Fermentation uses <b>sugars (renewable)</b> at low temperature (~30&deg;C), but gives dilute ethanol requiring distillation (less pure). Hydration of ethene uses a fossil-fuel derived feedstock at 300&deg;C, giving a purer but less sustainable product. Answer: <b>C</b>.</div>
+      </div>
+
+    </div>
+    <div style="padding:0 24px 24px;">
+      <button class="quiz-submit" onclick="submitQuiz()">Submit Answers</button>
+      <div id="quizResult" style="display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius);font-family:'JetBrains Mono',monospace;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT TEST -->
+<section id="test">
+  <div class="section-header">
+    <span class="section-number">&#128221;</span>
+    <h2>Unit Test</h2>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">&#8505;&#65039;</span>
+    <div class="callout-body">
+      <strong>Instructions</strong>
+      Total: 50 marks &nbsp;|&nbsp; Time: 50 minutes &nbsp;|&nbsp; Attempt all questions &nbsp;|&nbsp; Show all working.
+    </div>
+  </div>
+
+  <div class="test-wrap">
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section A &mdash; Short Answer</h3>
+        <span class="marks-badge">30 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q1 [4 marks]</span>
+          <p>Name and classify each as primary, secondary, or tertiary:<br>
+          (a) CH<sub>3</sub>OH &nbsp; (b) CH<sub>3</sub>CH(OH)CH<sub>2</sub>CH<sub>3</sub> &nbsp; (c) (CH<sub>3</sub>)<sub>3</sub>COH &nbsp; (d) HOCH<sub>2</sub>CH(OH)CH<sub>2</sub>OH</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) <b>Methanol</b>; primary<br>
+              (b) <b>Butan-2-ol</b>; secondary<br>
+              (c) <b>2-methylpropan-2-ol</b>; tertiary<br>
+              (d) <b>Propane-1,2,3-triol</b> (glycerol); primary (C1 and C3) and secondary (C2)
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q2 [5 marks]</span>
+          <p>State all the conditions required for fermentation. Write the equation for the fermentation of glucose. Calculate the volume of CO<sub>2</sub> produced at STP when 90 g of glucose is fermented completely. (Molar volume at STP = 22.4 L/mol)</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Conditions:</b> yeast (enzyme zymase); temperature 25&ndash;35&deg;C; anaerobic conditions (no O<sub>2</sub>); slightly acidic pH (~4&ndash;6).<br><br>
+              <b>Equation:</b> C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> &rarr; 2 C<sub>2</sub>H<sub>5</sub>OH + 2 CO<sub>2</sub><br><br>
+              <b>Calculation:</b><br>
+              M<sub>r</sub>(glucose) = 180 g/mol &rarr; 90 g = 0.5 mol glucose<br>
+              1 mol glucose &rarr; 2 mol CO<sub>2</sub>&rarr; 0.5 mol &rarr; 1.0 mol CO<sub>2</sub><br>
+              Volume = 1.0 &times; 22.4 = <b>22.4 L</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q3 [6 marks]</span>
+          <p>Write equations for the following reactions of propan-1-ol:<br>
+          (a) Combustion (complete) &nbsp; (b) Reaction with sodium &nbsp; (c) Oxidation with limited K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sup>+</sup> &nbsp; (d) Oxidation with excess K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sup>+</sup> under reflux &nbsp; (e) Dehydration with conc. H<sub>2</sub>SO<sub>4</sub> at 170&deg;C &nbsp; (f) Esterification with propanoic acid (name the ester)</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) 2 C<sub>3</sub>H<sub>7</sub>OH + 9 O<sub>2</sub> &rarr; 6 CO<sub>2</sub> + 8 H<sub>2</sub>O<br>
+              (b) 2 CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH + 2 Na &rarr; 2 CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>ONa + H<sub>2</sub><br>
+              (c) CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH &rarr;<sup>[O]</sup> CH<sub>3</sub>CH<sub>2</sub>CHO (propanal)<br>
+              (d) CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH &rarr;<sup>[O] excess</sup> CH<sub>3</sub>CH<sub>2</sub>COOH (propanoic acid)<br>
+              (e) CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>OH &rarr;<sup>conc. H<sub>2</sub>SO<sub>4</sub>, 170&deg;C</sup> CH<sub>3</sub>CH=CH<sub>2</sub> + H<sub>2</sub>O (propene)<br>
+              (f) C<sub>3</sub>H<sub>7</sub>OH + C<sub>2</sub>H<sub>5</sub>COOH &rightleftharpoons;<sup>conc. H<sub>2</sub>SO<sub>4</sub></sup> C<sub>2</sub>H<sub>5</sub>COOC<sub>3</sub>H<sub>7</sub> + H<sub>2</sub>O &mdash; <b>propyl propanoate</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q4 [4 marks]</span>
+          <p>Give the IUPAC name and common name of C<sub>2</sub>H<sub>5</sub>OC<sub>2</sub>H<sub>5</sub>. Give two properties that make it a useful laboratory solvent, and one safety hazard associated with its use.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>IUPAC:</b> ethoxyethane; <b>Common:</b> diethyl ether<br><br>
+              <b>Properties as solvent:</b> (any two) chemically inert (does not react with most reagents); low boiling point (35&deg;C, easy to remove by evaporation); good solubility for non-polar and polar organic compounds; immiscible with water (useful for extraction).<br><br>
+              <b>Safety hazard:</b> extremely flammable (B.P. 35&deg;C; flash point &minus;45&deg;C); forms explosive peroxides on prolonged storage in air.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q5 [5 marks]</span>
+          <p>Compare fermentation and hydration of ethene as industrial methods of producing ethanol. Discuss raw materials, conditions, rate, purity, and sustainability. Conclude which is preferable in a country that lacks oil but has abundant agricultural land.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Fermentation:</b> Raw material = sugars/starch (renewable, agricultural); T = 25&ndash;35&deg;C (low energy); atmospheric pressure; slow batch process; dilute product (~14%) requiring distillation; sustainable; carbon-neutral cycle.<br><br>
+              <b>Hydration:</b> Raw material = ethene from crude oil (non-renewable); T = ~300&deg;C (high energy); P = ~60 atm; fast continuous process; purer product; not sustainable long-term.<br><br>
+              <b>Conclusion:</b> For a country without oil but with agricultural land, <b>fermentation is preferable</b>: it uses locally available renewable crops, requires less energy and infrastructure, and is economically viable without importing petroleum.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q6 [6 marks]</span>
+          <p>Three unlabelled bottles contain ethanol, propan-2-ol, and 2-methylpropan-2-ol. Describe a sequence of chemical tests to identify each compound. State the reagent(s) used, observations, and reasoning for each step.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Test 1 &mdash; Acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub> (warm):</b><br>
+              All three give orange solution. Add and warm.<br>
+              &bull; Two samples turn green (ethanol and propan-2-ol are oxidised).<br>
+              &bull; One sample stays orange &rarr; <b>2-methylpropan-2-ol identified</b> (tertiary, not oxidised).<br><br>
+              <b>Test 2 &mdash; Distinguish ethanol from propan-2-ol using iodoform test:</b><br>
+              Add I<sub>2</sub>/NaOH solution and warm to the two remaining samples.<br>
+              &bull; Yellow precipitate of CHI<sub>3</sub> &rarr; <b>ethanol identified</b> (has CH<sub>3</sub>CH(OH)&ndash; structure).<br>
+              &bull; No yellow precipitate &rarr; <b>propan-2-ol identified</b> (wait — propan-2-ol also has CH<sub>3</sub>CHOH structure &rarr; also gives iodoform!)<br><br>
+              <b>Revised Test 2 &mdash; Oxidation product test:</b><br>
+              Oxidise both remaining with K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>/H<sup>+</sup> and test the product with Tollens&rsquo; reagent (ammoniacal AgNO<sub>3</sub>):<br>
+              &bull; Silver mirror &rarr; aldehyde produced &rarr; original alcohol was <b>ethanol</b> (primary &rarr; ethanal).<br>
+              &bull; No silver mirror &rarr; ketone produced &rarr; original alcohol was <b>propan-2-ol</b> (secondary &rarr; propanone).
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section B &mdash; Extended Response</h3>
+        <span class="marks-badge">20 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q7 [10 marks]</span>
+          <p><b>(a)</b> Describe all the chemical reactions of ethanol, writing equations for each. Include: combustion, reaction with sodium, dehydration, esterification, oxidation (to aldehyde and acid), and conversion to a halogenoalkane. <i>[8 marks]</i></p>
+          <p><b>(b)</b> Ethanol can be produced both by fermentation and by hydration of ethene. Write the equation for each process and state the conditions. <i>[2 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)</b><br>
+              <b>Combustion:</b> C<sub>2</sub>H<sub>5</sub>OH + 3O<sub>2</sub> &rarr; 2CO<sub>2</sub> + 3H<sub>2</sub>O<br>
+              <b>With Na:</b> 2C<sub>2</sub>H<sub>5</sub>OH + 2Na &rarr; 2C<sub>2</sub>H<sub>5</sub>ONa + H<sub>2</sub><br>
+              <b>Dehydration (alkene):</b> C<sub>2</sub>H<sub>5</sub>OH &rarr;<sup>conc. H<sub>2</sub>SO<sub>4</sub>, 170&deg;C</sup> CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub>O<br>
+              <b>Dehydration (ether):</b> 2C<sub>2</sub>H<sub>5</sub>OH &rarr;<sup>conc. H<sub>2</sub>SO<sub>4</sub>, 140&deg;C</sup> C<sub>2</sub>H<sub>5</sub>OC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O<br>
+              <b>Esterification:</b> C<sub>2</sub>H<sub>5</sub>OH + CH<sub>3</sub>COOH &rightleftharpoons;<sup>conc. H<sub>2</sub>SO<sub>4</sub></sup> CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O<br>
+              <b>Oxidation to aldehyde:</b> C<sub>2</sub>H<sub>5</sub>OH &rarr;<sup>[O] limited, distil</sup> CH<sub>3</sub>CHO (ethanal)<br>
+              <b>Oxidation to acid:</b> C<sub>2</sub>H<sub>5</sub>OH &rarr;<sup>[O] excess, reflux</sup> CH<sub>3</sub>COOH (ethanoic acid)<br>
+              <b>Halogenoalkane:</b> C<sub>2</sub>H<sub>5</sub>OH + PCl<sub>5</sub> &rarr; C<sub>2</sub>H<sub>5</sub>Cl + POCl<sub>3</sub> + HCl<br><br>
+              <b>(b)</b><br>
+              <b>Fermentation:</b> C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> &rarr;<sup>yeast, 30&deg;C, anaerobic</sup> 2 C<sub>2</sub>H<sub>5</sub>OH + 2 CO<sub>2</sub><br>
+              <b>Hydration:</b> CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub>O &rarr;<sup>conc. H<sub>3</sub>PO<sub>4</sub>, 300&deg;C, 60 atm</sup> C<sub>2</sub>H<sub>5</sub>OH
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q8 [10 marks]</span>
+          <p><b>(a)</b> Using ethanol as your starting material and any other inorganic reagents, describe with equations how you would prepare: (i) ethanal; (ii) ethanoic acid; (iii) ethene; (iv) bromoethane; (v) ethyl ethanoate. State conditions for each. <i>[8 marks]</i></p>
+          <p><b>(b)</b> Ethane-1,2-diol is used as antifreeze. Explain, in terms of intermolecular forces, why it is effective at preventing water from freezing, and state one other use. <i>[2 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)(i) Ethanal:</b> C<sub>2</sub>H<sub>5</sub>OH &rarr;<sup>acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>, limited, distil off</sup> CH<sub>3</sub>CHO<br>
+              <b>(ii) Ethanoic acid:</b> C<sub>2</sub>H<sub>5</sub>OH &rarr;<sup>excess acidified K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>, reflux</sup> CH<sub>3</sub>COOH<br>
+              <b>(iii) Ethene:</b> C<sub>2</sub>H<sub>5</sub>OH &rarr;<sup>conc. H<sub>2</sub>SO<sub>4</sub>, 170&deg;C</sup> CH<sub>2</sub>=CH<sub>2</sub> + H<sub>2</sub>O<br>
+              <b>(iv) Bromoethane:</b> C<sub>2</sub>H<sub>5</sub>OH + HBr &rarr;<sup>NaBr + conc. H<sub>2</sub>SO<sub>4</sub>, heat</sup> C<sub>2</sub>H<sub>5</sub>Br + H<sub>2</sub>O<br>
+              <b>(v) Ethyl ethanoate:</b> C<sub>2</sub>H<sub>5</sub>OH + CH<sub>3</sub>COOH &rightleftharpoons;<sup>conc. H<sub>2</sub>SO<sub>4</sub></sup> CH<sub>3</sub>COOC<sub>2</sub>H<sub>5</sub> + H<sub>2</sub>O<br><br>
+              <b>(b)</b> Ethane-1,2-diol (HOCH<sub>2</sub>CH<sub>2</sub>OH) has two &ndash;OH groups that form many hydrogen bonds with water molecules. This disrupts the regular H-bond network needed for ice crystal formation, <b>lowering the freezing point</b> of the mixture significantly below 0&deg;C.<br>
+              Other use: manufacture of <b>PET (polyethylene terephthalate)</b> polyester — reacts with terephthalic acid in condensation polymerisation.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="unit-nav">
+  <a class="nav-btn prev" href="unit4_halogenoalkanes.html">&larr; Unit 4: Halogenoalkanes</a>
+  <a class="nav-btn next" href="unit6_carbonyl.html">Unit 6: Aldehydes &amp; Ketones &rarr;</a>
+</div>
+
+</main>
+
+<script>
+function toggleAnswer(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+const correctAnswers={q1:'b',q2:'b',q3:'c',q4:'c',q5:'c',q6:'b',q7:'b',q8:'b',q9:'b',q10:'c'};
+function submitQuiz(){
+  let score=0;
+  const total=Object.keys(correctAnswers).length;
+  Object.entries(correctAnswers).forEach(([q,correct])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{
+      if(o.value===correct)o.parentElement.classList.add('correct');
+    });
+    if(sel){if(sel.value===correct)score++;else sel.parentElement.classList.add('wrong');}
+    const exp=document.getElementById('exp'+q.slice(1));
+    if(exp)exp.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const pct=Math.round(score/total*100);
+  const res=document.getElementById('quizResult');
+  res.style.display='block';
+  res.style.background=pct>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  res.style.border='1px solid '+(pct>=70?'var(--green)':'var(--red)');
+  res.style.color=pct>=70?'var(--green)':'var(--red)';
+  res.innerHTML='Score: '+score+' / '+total+' ('+pct+'%) — '+(pct>=80?'Excellent! 🎉':pct>=60?'Good effort — review marked questions.':'Keep studying — re-read the notes and try again.');
+  document.querySelector('.quiz-submit').disabled=true;
+  document.querySelector('.quiz-submit').style.opacity='0.5';
+}
+</script>
+</body>
+</html>
