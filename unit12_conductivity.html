@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S5 Chemistry – Unit 12: Conductivity of Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;
+    --accent:#58c4dc;--accent2:#f97316;--accent3:#a78bfa;
+    --gold:#e8c547;--green:#34d399;--red:#f87171;--orange:#fb923c;
+    --text:#e6edf3;--muted:#8b949e;--radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+  .hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#1e0e00 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(251,146,60,.05) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(251,146,60,.05) 40px);pointer-events:none;}
+  .badge{display:inline-block;background:rgba(251,146,60,.12);border:1px solid rgba(251,146,60,.3);color:var(--orange);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+  .hero h1 em{color:var(--orange);font-style:italic;}
+  .hero p.sub{color:var(--muted);font-size:1rem;max-width:640px;margin:0 auto 32px;}
+  .toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:800px;margin:0 auto;}
+  .toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+  .toc-grid a:hover{background:var(--orange);color:#000;border-color:var(--orange);}
+  .page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+  .section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--orange);background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+  .section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+  .card p+p{margin-top:12px;}
+  .def-box{border-left:4px solid var(--orange);background:rgba(251,146,60,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+  .def-box strong{color:var(--orange);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+  .callout.info{background:rgba(88,196,220,.08);border:1px solid rgba(88,196,220,.25);}
+  .callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+  .callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+  .callout.orange{background:rgba(251,146,60,.08);border:1px solid rgba(251,146,60,.25);}
+  .callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+  .callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+  .tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:var(--surface2);}
+  th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);white-space:nowrap;}
+  td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  td code{background:rgba(251,146,60,.12);padding:2px 7px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:.85em;}
+  .formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--orange);overflow-x:auto;white-space:pre;}
+  .diagram-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:20px 0;overflow-x:auto;}
+  .diagram-wrap svg{display:block;margin:0 auto;}
+  .example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+  .example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+  .example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+  .example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+  .example-body{padding:22px 26px;}
+  .example-body .q{color:var(--text);margin-bottom:14px;font-weight:600;}
+  .example-body .step{display:flex;gap:14px;margin:10px 0;}
+  .step-num{min-width:28px;height:28px;background:rgba(251,146,60,.15);border:1px solid rgba(251,146,60,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--orange);flex-shrink:0;margin-top:3px;}
+  .step-text{flex:1;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .exercise-list{list-style:none;counter-reset:ex;}
+  .exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+  .exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--orange);display:block;margin-bottom:6px;}
+  .reveal-btn{margin-top:10px;background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3);color:var(--orange);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+  .reveal-btn:hover{background:var(--orange);color:#000;}
+  .answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(251,146,60,.06);border-left:3px solid var(--orange);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .answer.open{display:block;}
+  .quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+  .quiz-header{background:rgba(251,146,60,.1);border-bottom:1px solid rgba(251,146,60,.2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .quiz-header h3{font-family:'Playfair Display',serif;color:var(--orange);font-size:1.2rem;}
+  .quiz-body{padding:24px;}
+  .q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+  .q-block:last-of-type{border-bottom:none;}
+  .q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+  .q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--orange);display:block;margin-bottom:4px;}
+  .options{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+  .opt:hover{border-color:var(--orange);}
+  .opt input{margin-top:3px;accent-color:var(--orange);}
+  .opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+  .opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+  .q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(251,146,60,.07);border-left:3px solid var(--orange);border-radius:0 6px 6px 0;font-size:.88rem;}
+  .quiz-submit{background:var(--orange);color:#000;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;font-weight:600;transition:opacity .2s;}
+  .quiz-submit:hover{opacity:.85;}
+  .test-wrap{margin-top:40px;}
+  .test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px;}
+  .test-section-header{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .test-section-header h3{font-family:'Playfair Display',serif;color:var(--accent2);font-size:1.1rem;}
+  .marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(249,115,22,.2);color:var(--accent2);padding:4px 12px;border-radius:50px;}
+  .test-body{padding:24px;}
+  .test-q{margin-bottom:20px;padding:16px 18px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);}
+  .test-q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent2);margin-bottom:6px;display:block;}
+  .test-answer-reveal{margin-top:14px;}
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+  .nav-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s;}
+  .nav-btn.prev{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+  .nav-btn.prev:hover{border-color:var(--orange);color:var(--orange);}
+  .nav-btn.next{background:var(--orange);color:#000;font-weight:600;}
+  .nav-btn.next:hover{opacity:.88;}
+  h3.sub-heading{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+  sub,sup{font-size:.72em;}
+  @media(max-width:600px){.hero{padding:50px 20px 40px;}.page{padding:0 16px 60px;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Unit 12 &middot; Physical Chemistry</div>
+  <h1><em>Conductivity</em> of Solutions</h1>
+  <p class="sub">Conductance, measurement, specific and molar conductivity, Kohlrausch's law, ionic mobilities, and applications including conductimetric titrations.</p>
+  <nav class="toc-grid">
+    <a href="#intro">12.1 Introduction</a>
+    <a href="#conductance">12.2 Conductance &amp; Resistance</a>
+    <a href="#specific">12.3 Specific Conductivity</a>
+    <a href="#molar">12.4 Molar Conductivity</a>
+    <a href="#kohlrausch">12.5 Kohlrausch's Law</a>
+    <a href="#weak">12.6 Weak Electrolytes</a>
+    <a href="#applications">12.7 Applications</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<!-- 12.1 INTRODUCTION -->
+<section id="intro">
+  <div class="section-header">
+    <span class="section-number">12.1</span>
+    <h2>Introduction to Conductivity</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Electrolytes and Conductivity</strong>
+    <b>Electrolytes</b> are substances that dissolve in water to produce ions, enabling the solution to conduct electricity. The ability of a solution to carry electrical current is called its <b>conductance</b>. Current is carried by the movement of ions — cations move toward the cathode, anions toward the anode.
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Strong Electrolytes</h3>
+      <p>Completely dissociate in water into ions. High conductance even at low concentration.</p>
+      <p>Examples: NaCl, KCl, HCl, H<sub>2</sub>SO<sub>4</sub>, NaOH, KNO<sub>3</sub>, MgCl<sub>2</sub>.</p>
+      <div class="formula-block" style="font-size:.85rem;">NaCl → Na+ + Cl-  (100% dissociation)</div>
+    </div>
+    <div class="card">
+      <h3>Weak Electrolytes</h3>
+      <p>Only partially dissociate. Low conductance that increases significantly with dilution.</p>
+      <p>Examples: CH<sub>3</sub>COOH, NH<sub>4</sub>OH, HCN, H<sub>2</sub>CO<sub>3</sub>, HF.</p>
+      <div class="formula-block" style="font-size:.85rem;">CH3COOH ⇌ CH3COO- + H+  (~1% at 0.1 mol/L)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Non-Electrolytes</h3>
+    <p>Do not produce ions in solution. Cannot conduct electricity. Examples: sucrose, glucose, ethanol, glycerol, urea.</p>
+  </div>
+
+  <div class="card">
+    <h3>Factors Affecting Conductance of Solutions</h3>
+    <ul style="padding-left:20px;line-height:2.1;">
+      <li><b>Concentration</b>: more ions &rarr; greater conductance (up to a point where ion–ion interactions reduce it).</li>
+      <li><b>Temperature</b>: higher T &rarr; faster ion movement &rarr; greater conductance (typically +2% per degree for aqueous solutions).</li>
+      <li><b>Nature of electrolyte</b>: charge on ions and degree of dissociation affect conductance.</li>
+      <li><b>Ionic charge</b>: higher charge &rarr; stronger attraction but also stronger hydration shell &rarr; complex effect.</li>
+      <li><b>Ionic size/mobility</b>: small, highly mobile ions (H<sup>+</sup>, OH<sup>&minus;</sup>) have exceptionally high conductance due to special transport mechanism (Grotthuss mechanism for H<sup>+</sup>).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 12.2 CONDUCTANCE AND RESISTANCE -->
+<section id="conductance">
+  <div class="section-header">
+    <span class="section-number">12.2</span>
+    <h2>Conductance and Resistance</h2>
+  </div>
+
+  <div class="card">
+    <h3>Basic Electrical Definitions</h3>
+    <div class="formula-block">Resistance (R):   R = V/I             Units: ohm (Ω)
+Conductance (G): G = 1/R = I/V      Units: siemens (S) = Ω-1
+
+Ohm's Law:  V = IR  (Voltage = Current x Resistance)
+
+For a conductor of length L and cross-sectional area A:
+R = ρ x L/A    (ρ = resistivity, Ω·m)
+G = κ x A/L    (κ = conductivity, S/m)</div>
+  </div>
+
+  <div class="card">
+    <h3>Measurement of Conductance</h3>
+    <p>DC current cannot be used to measure conductance of electrolyte solutions — it would cause electrolysis (Faradaic current) and change the composition. Instead, an <b>alternating current (AC)</b> bridge (Wheatstone bridge adapted for AC, using a conductance cell) is used.</p>
+    <p>The <b>conductance cell</b> consists of two platinum electrodes (coated with platinum black to increase surface area) of known dimensions immersed in the solution. The resistance R is measured, then G = 1/R.</p>
+  </div>
+
+  <div class="card">
+    <h3>Cell Constant (K<sub>cell</sub>)</h3>
+    <p>The <b>cell constant</b> is a characteristic of the conductance cell geometry:</p>
+    <div class="formula-block">K_cell = L/A    (units: cm-1 or m-1)
+
+Specific conductivity κ = G x K_cell = (1/R) x (L/A)</div>
+    <p>The cell constant is determined by calibrating the cell with a solution of known conductivity (e.g. 0.100 mol/L KCl, &kappa; = 0.01289 S/cm at 25&deg;C).</p>
+  </div>
+</section>
+
+<!-- 12.3 SPECIFIC CONDUCTIVITY -->
+<section id="specific">
+  <div class="section-header">
+    <span class="section-number">12.3</span>
+    <h2>Specific Conductivity (Conductance)</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Specific Conductivity (κ)</strong>
+    The <b>specific conductivity</b> (or conductance) &kappa; is the conductance of a solution contained in a cube of side 1 cm (or 1 m). It is the reciprocal of resistivity.
+    <br><br>
+    &kappa; = G &times; (L/A) = G &times; K<sub>cell</sub>
+    <br>
+    Units: S/cm (or S/m = siemens per metre)
+  </div>
+
+  <div class="card">
+    <h3>Effect of Dilution on Specific Conductivity</h3>
+    <p>For both strong and weak electrolytes, as the solution is diluted (concentration decreases), the <b>specific conductivity decreases</b> because there are fewer ions per unit volume to carry current — even though each individual ion may be moving faster (less interionic attraction).</p>
+    <p>This seems counterintuitive for weak electrolytes where dilution increases the degree of dissociation &alpha;, but the overall decrease in ion concentration still dominates.</p>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Solution</th><th>Concentration (mol/L)</th><th>&kappa; (S/cm) at 25&deg;C</th></tr></thead>
+      <tbody>
+        <tr><td>KCl</td><td>1.000</td><td>0.11180</td></tr>
+        <tr><td>KCl</td><td>0.100</td><td>0.01289</td></tr>
+        <tr><td>KCl</td><td>0.010</td><td>0.001412</td></tr>
+        <tr><td>KCl</td><td>0.001</td><td>0.0001469</td></tr>
+        <tr><td>CH<sub>3</sub>COOH</td><td>0.100</td><td>5.2&times;10<sup>&minus;4</sup></td></tr>
+        <tr><td>CH<sub>3</sub>COOH</td><td>0.010</td><td>1.63&times;10<sup>&minus;4</sup></td></tr>
+        <tr><td>H<sub>2</sub>O (pure)</td><td>&mdash;</td><td>5.5&times;10<sup>&minus;8</sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 12.4 MOLAR CONDUCTIVITY -->
+<section id="molar">
+  <div class="section-header">
+    <span class="section-number">12.4</span>
+    <h2>Molar Conductivity (&Lambda;<sub>m</sub>)</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Molar Conductivity</strong>
+    The <b>molar conductivity</b> &Lambda;<sub>m</sub> is the conductance of all the ions produced by one mole of electrolyte when the solution is placed between two electrodes 1 cm (or 1 m) apart with sufficient area.
+    <br><br>
+    <b>&Lambda;<sub>m</sub> = &kappa; / c</b> &nbsp;&nbsp; (where c is in mol/cm<sup>3</sup> or mol/m<sup>3</sup>)
+    <br>
+    If c is in mol/L: &Lambda;<sub>m</sub> = (&kappa; &times; 1000) / c &nbsp;&nbsp; (units: S&middot;cm<sup>2</sup>/mol)
+  </div>
+
+  <div class="card">
+    <h3>Effect of Dilution on Molar Conductivity</h3>
+    <p><b>For strong electrolytes:</b> &Lambda;<sub>m</sub> increases slowly and <b>linearly</b> with dilution (decreasing concentration). At infinite dilution (c &rarr; 0), interionic attractions become negligible, and each ion moves independently at maximum speed. The value at infinite dilution is called <b>&Lambda;<sub>m</sub>&deg;</b> (molar conductivity at infinite dilution).</p>
+    <p><b>For weak electrolytes:</b> &Lambda;<sub>m</sub> increases <b>rapidly and steeply</b> with dilution, because dilution greatly increases the degree of dissociation &alpha;. The value at infinite dilution cannot be obtained by extrapolation (too steep), so it is calculated using Kohlrausch's law.</p>
+  </div>
+
+  <!-- SVG: Molar conductivity vs sqrt(c) -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 560 380" width="560" height="380" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+      <rect width="560" height="380" fill="#1c2333" rx="8"/>
+      <!-- Axes -->
+      <line x1="60" y1="30" x2="60" y2="320" stroke="#30363d" stroke-width="1.5"/>
+      <line x1="60" y1="320" x2="500" y2="320" stroke="#30363d" stroke-width="1.5"/>
+      <!-- Strong electrolyte line (nearly linear, small positive slope as c->0) -->
+      <!-- Lambda_m vs sqrt(c): decreases linearly from Lambda_m_0 as sqrt(c) increases -->
+      <!-- At sqrt(c)=0 (left): Lambda_m_0 (high); increases to right as sqrt(c) increases -->
+      <!-- Strong electrolyte: KCl - starts at high value at sqrt(c)=0, decreases linearly -->
+      <path d="M60,80 L460,190" fill="none" stroke="#fb923c" stroke-width="2.5"/>
+      <!-- Label Lambda_m0 for strong -->
+      <circle cx="60" cy="80" r="5" fill="#fb923c"/>
+      <line x1="60" y1="80" x2="60" y2="320" stroke="#fb923c" stroke-width="1" stroke-dasharray="5,3"/>
+      <text x="64" y="76" fill="#fb923c" font-family="JetBrains Mono" font-size="11">Λ°m(KCl)</text>
+
+      <!-- Weak electrolyte: CH3COOH - starts very high at low sqrt(c), curves steeply -->
+      <path d="M60,50 Q100,200 460,290" fill="none" stroke="#58c4dc" stroke-width="2.5"/>
+      <!-- Kohlrausch extrapolation for weak (dashed, cannot extrapolate easily) -->
+      <line x1="60" y1="50" x2="60" y2="320" stroke="#58c4dc" stroke-width="1" stroke-dasharray="5,3"/>
+      <text x="64" y="48" fill="#58c4dc" font-family="JetBrains Mono" font-size="11">Λ°m(CH₃COOH)</text>
+      <text x="64" y="60" fill="#8b949e" font-family="JetBrains Mono" font-size="9">(from Kohlrausch)</text>
+
+      <!-- Labels -->
+      <text x="420" y="185" fill="#fb923c" font-family="JetBrains Mono" font-size="11">Strong (KCl)</text>
+      <text x="380" y="272" fill="#58c4dc" font-family="JetBrains Mono" font-size="11">Weak (CH₃COOH)</text>
+
+      <!-- Axes labels -->
+      <text x="280" y="352" fill="#8b949e" font-family="JetBrains Mono" font-size="12" text-anchor="middle">√c  (concentration½) →</text>
+      <text x="16" y="175" fill="#8b949e" font-family="JetBrains Mono" font-size="12" text-anchor="middle" transform="rotate(-90,16,175)">Λm (S·cm²/mol) →</text>
+
+      <!-- Origin annotation -->
+      <text x="52" y="338" fill="#8b949e" font-family="JetBrains Mono" font-size="10">0</text>
+      <text x="36" y="325" fill="#8b949e" font-family="JetBrains Mono" font-size="9">Infinite dilution</text>
+    </svg>
+    <p style="text-align:center;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.78rem;margin-top:12px;">Molar conductivity vs &radic;c: strong electrolyte (linear, small change) vs weak electrolyte (steep curve)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 1</span><h4>Calculating Molar Conductivity</h4></div>
+    <div class="example-body">
+      <p class="q">The specific conductivity of 0.0500 mol/L KCl at 25&deg;C is 6.30&times;10<sup>&minus;3</sup> S/cm. Calculate the molar conductivity &Lambda;<sub>m</sub>.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">&Lambda;<sub>m</sub> = (&kappa; &times; 1000) / c = (6.30&times;10<sup>&minus;3</sup> &times; 1000) / 0.0500</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">&Lambda;<sub>m</sub> = 6.30 / 0.0500 = <b>126 S&middot;cm<sup>2</sup>/mol</b></div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Compare with &Lambda;<sub>m</sub>&deg;(KCl) = 149.9 S&middot;cm<sup>2</sup>/mol at infinite dilution — value at 0.05 mol/L is about 84% of the infinite-dilution value.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12.5 KOHLRAUSCH'S LAW -->
+<section id="kohlrausch">
+  <div class="section-header">
+    <span class="section-number">12.5</span>
+    <h2>Kohlrausch's Law</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Kohlrausch's Law of Independent Migration of Ions</strong>
+    At infinite dilution, every ion makes a <b>definite and independent contribution</b> to the molar conductivity of the electrolyte, regardless of the nature of the other ions present.
+    <br><br>
+    &Lambda;<sub>m</sub>&deg; = &nu;<sub>+</sub>&lambda;<sub>+</sub>&deg; + &nu;<sub>&minus;</sub>&lambda;<sub>&minus;</sub>&deg;
+    <br><br>
+    where &lambda;<sub>+</sub>&deg; and &lambda;<sub>&minus;</sub>&deg; are the <b>limiting molar ionic conductivities</b> of the cation and anion respectively, and &nu;<sub>+</sub>, &nu;<sub>&minus;</sub> are the stoichiometric coefficients.
+  </div>
+
+  <div class="card">
+    <h3>Debye&ndash;H&uuml;ckel&ndash;Onsager Equation (for strong electrolytes)</h3>
+    <p>At low concentrations, the molar conductivity of a strong electrolyte varies with the square root of concentration:</p>
+    <div class="formula-block">Λm = Λm° - A√c
+
+where A is an empirical constant depending on the electrolyte type,
+solvent, and temperature.
+
+This gives the linear plot of Λm vs √c for strong electrolytes,
+allowing Λm° to be obtained by extrapolation to c = 0.</div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Ion</th><th>&lambda;&deg; (S&middot;cm<sup>2</sup>/mol) at 25&deg;C</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>H<sup>+</sup></td><td>349.8</td><td>Exceptionally high (Grotthuss mechanism)</td></tr>
+        <tr><td>OH<sup>&minus;</sup></td><td>198.6</td><td>Very high (proton hole mechanism)</td></tr>
+        <tr><td>K<sup>+</sup></td><td>73.5</td><td>Similar to Cl<sup>&minus;</sup> — used in KCl bridges</td></tr>
+        <tr><td>Cl<sup>&minus;</sup></td><td>76.4</td><td>&mdash;</td></tr>
+        <tr><td>Na<sup>+</sup></td><td>50.1</td><td>Smaller, more hydrated &rarr; less mobile</td></tr>
+        <tr><td>Ca<sup>2+</sup></td><td>119.0</td><td>Higher charge, but also higher hydration</td></tr>
+        <tr><td>SO<sub>4</sub><sup>2&minus;</sup></td><td>160.0</td><td>Divalent; high conductance contribution</td></tr>
+        <tr><td>CH<sub>3</sub>COO<sup>&minus;</sup></td><td>40.9</td><td>Large organic ion — slow mobility</td></tr>
+        <tr><td>NH<sub>4</sub><sup>+</sup></td><td>73.4</td><td>Similar to K<sup>+</sup></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 2</span><h4>Kohlrausch's Law — Calculating &Lambda;<sub>m</sub>&deg;</h4></div>
+    <div class="example-body">
+      <p class="q">Calculate &Lambda;<sub>m</sub>&deg; for: (a) KCl; (b) NaCl; (c) NaCH<sub>3</sub>COO (sodium ethanoate); (d) CH<sub>3</sub>COOH (ethanoic acid).<br>
+      Given: &lambda;&deg;(K<sup>+</sup>)=73.5, &lambda;&deg;(Na<sup>+</sup>)=50.1, &lambda;&deg;(Cl<sup>&minus;</sup>)=76.4, &lambda;&deg;(H<sup>+</sup>)=349.8, &lambda;&deg;(CH<sub>3</sub>COO<sup>&minus;</sup>)=40.9 S&middot;cm<sup>2</sup>/mol</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">&Lambda;<sub>m</sub>&deg;(KCl) = &lambda;&deg;(K<sup>+</sup>) + &lambda;&deg;(Cl<sup>&minus;</sup>) = 73.5 + 76.4 = <b>149.9 S&middot;cm<sup>2</sup>/mol</b></div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">&Lambda;<sub>m</sub>&deg;(NaCl) = &lambda;&deg;(Na<sup>+</sup>) + &lambda;&deg;(Cl<sup>&minus;</sup>) = 50.1 + 76.4 = <b>126.5 S&middot;cm<sup>2</sup>/mol</b></div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">&Lambda;<sub>m</sub>&deg;(NaCH<sub>3</sub>COO) = &lambda;&deg;(Na<sup>+</sup>) + &lambda;&deg;(CH<sub>3</sub>COO<sup>&minus;</sup>) = 50.1 + 40.9 = <b>91.0 S&middot;cm<sup>2</sup>/mol</b></div></div>
+      <div class="step"><div class="step-num">d</div><div class="step-text">&Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COOH) = &lambda;&deg;(H<sup>+</sup>) + &lambda;&deg;(CH<sub>3</sub>COO<sup>&minus;</sup>) = 349.8 + 40.9 = <b>390.7 S&middot;cm<sup>2</sup>/mol</b><br>Note: &Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COOH) = &Lambda;<sub>m</sub>&deg;(HCl) + &Lambda;<sub>m</sub>&deg;(NaCH<sub>3</sub>COO) &minus; &Lambda;<sub>m</sub>&deg;(NaCl) &mdash; the Kohlrausch combination rule.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12.6 WEAK ELECTROLYTES — DEGREE OF DISSOCIATION -->
+<section id="weak">
+  <div class="section-header">
+    <span class="section-number">12.6</span>
+    <h2>Weak Electrolytes and Degree of Dissociation</h2>
+  </div>
+
+  <div class="card">
+    <h3>Using Conductivity to Find &alpha;</h3>
+    <p>For a weak electrolyte at concentration c, the degree of dissociation &alpha; at that concentration can be found from:</p>
+    <div class="formula-block">α = Λm / Λm°
+
+where:
+Λm   = molar conductivity at concentration c (measured)
+Λm°  = molar conductivity at infinite dilution (from Kohlrausch)
+
+Physical meaning:
+- At infinite dilution: α = 1 (fully dissociated), Λm = Λm°
+- At finite concentration: α < 1 (partial dissociation)</div>
+  </div>
+
+  <div class="card">
+    <h3>Dissociation Constant from Conductivity</h3>
+    <p>For a weak acid HA &rightleftharpoons; H<sup>+</sup> + A<sup>&minus;</sup>:</p>
+    <div class="formula-block">Ka = α²c / (1 - α)    (Ostwald dilution law)
+
+where α = Λm/Λm° and c is the concentration in mol/L.
+
+Substituting:
+Ka = (Λm/Λm°)² × c / (1 - Λm/Λm°)</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 3</span><h4>Finding K<sub>a</sub> of Ethanoic Acid from Conductivity</h4></div>
+    <div class="example-body">
+      <p class="q">At 25&deg;C, the molar conductivity of 0.100 mol/L CH<sub>3</sub>COOH is 5.20 S&middot;cm<sup>2</sup>/mol. &Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COOH) = 390.7 S&middot;cm<sup>2</sup>/mol. Calculate (a) &alpha; and (b) K<sub>a</sub>.</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">&alpha; = &Lambda;<sub>m</sub> / &Lambda;<sub>m</sub>&deg; = 5.20 / 390.7 = <b>0.01331</b> (1.33% dissociated at 0.1 mol/L)</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">K<sub>a</sub> = &alpha;&sup2;c / (1 &minus; &alpha;) = (0.01331)&sup2; &times; 0.100 / (1 &minus; 0.01331)</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">K<sub>a</sub> = 1.772&times;10<sup>&minus;4</sup> &times; 0.100 / 0.9867 = 1.77&times;10<sup>&minus;5</sup> / 0.9867 = <b>1.79&times;10<sup>&minus;5</sup> mol/L</b></div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Literature value: K<sub>a</sub>(CH<sub>3</sub>COOH) = 1.75&times;10<sup>&minus;5</sup> mol/L ✓ (agreement is excellent)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12.7 APPLICATIONS -->
+<section id="applications">
+  <div class="section-header">
+    <span class="section-number">12.7</span>
+    <h2>Applications of Conductivity Measurements</h2>
+  </div>
+
+  <h3 class="sub-heading">Application 1: Conductimetric Titrations</h3>
+  <div class="card">
+    <p>In a <b>conductimetric titration</b>, the conductance of the solution is measured as the titrant is added. The equivalence point is identified by a sharp change in slope of the conductance vs. volume curve — no indicator needed.</p>
+  </div>
+
+  <!-- SVG conductimetric titration curves -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 560 320" width="560" height="320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+      <rect width="560" height="320" fill="#1c2333" rx="8"/>
+
+      <!-- Axes for first curve (HCl + NaOH) -->
+      <line x1="40" y1="20" x2="40" y2="250" stroke="#30363d" stroke-width="1.5"/>
+      <line x1="40" y1="250" x2="240" y2="250" stroke="#30363d" stroke-width="1.5"/>
+      <!-- HCl + NaOH: initial high G (H+ and Cl-), decreases as H+ replaced by Na+, then increases after EP -->
+      <path d="M40,60 L130,200 L230,130" fill="none" stroke="#fb923c" stroke-width="2.5"/>
+      <circle cx="130" cy="200" r="5" fill="#e8c547"/>
+      <line x1="130" y1="200" x2="130" y2="250" stroke="#e8c547" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="115" y="264" fill="#e8c547" font-family="JetBrains Mono" font-size="9">EP</text>
+      <text x="40" y="12" fill="#fb923c" font-family="JetBrains Mono" font-size="11" font-weight="600">Strong acid + Strong base</text>
+      <text x="40" y="23" fill="#8b949e" font-family="JetBrains Mono" font-size="9">(HCl + NaOH)</text>
+      <text x="42" y="275" fill="#8b949e" font-family="JetBrains Mono" font-size="10">Volume NaOH →</text>
+      <text x="5" y="140" fill="#8b949e" font-family="JetBrains Mono" font-size="10" transform="rotate(-90,5,140)">G →</text>
+
+      <!-- Axes for second curve (CH3COOH + NaOH) -->
+      <line x1="310" y1="20" x2="310" y2="250" stroke="#30363d" stroke-width="1.5"/>
+      <line x1="310" y1="250" x2="510" y2="250" stroke="#30363d" stroke-width="1.5"/>
+      <!-- Weak acid + Strong base: initial low G (weak acid), rises as acetate ions form, then sharp rise after EP (excess NaOH) -->
+      <path d="M310,220 L400,150 L500,80" fill="none" stroke="#58c4dc" stroke-width="2.5"/>
+      <circle cx="400" cy="150" r="5" fill="#e8c547"/>
+      <line x1="400" y1="150" x2="400" y2="250" stroke="#e8c547" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="385" y="264" fill="#e8c547" font-family="JetBrains Mono" font-size="9">EP</text>
+      <text x="310" y="12" fill="#58c4dc" font-family="JetBrains Mono" font-size="11" font-weight="600">Weak acid + Strong base</text>
+      <text x="310" y="23" fill="#8b949e" font-family="JetBrains Mono" font-size="9">(CH₃COOH + NaOH)</text>
+      <text x="312" y="275" fill="#8b949e" font-family="JetBrains Mono" font-size="10">Volume NaOH →</text>
+      <text x="275" y="140" fill="#8b949e" font-family="JetBrains Mono" font-size="10" transform="rotate(-90,275,140)">G →</text>
+
+      <!-- Slope change annotations -->
+      <text x="65" y="140" fill="#fb923c" font-family="JetBrains Mono" font-size="9">Decreasing</text>
+      <text x="65" y="150" fill="#fb923c" font-family="JetBrains Mono" font-size="9">(H⁺ replaced by Na⁺)</text>
+      <text x="155" y="170" fill="#fb923c" font-family="JetBrains Mono" font-size="9">Increasing</text>
+      <text x="155" y="180" fill="#fb923c" font-family="JetBrains Mono" font-size="9">(excess NaOH)</text>
+
+      <text x="315" y="200" fill="#58c4dc" font-family="JetBrains Mono" font-size="9">Slowly increasing</text>
+      <text x="315" y="210" fill="#58c4dc" font-family="JetBrains Mono" font-size="9">(acetate buffer)</text>
+      <text x="415" y="115" fill="#58c4dc" font-family="JetBrains Mono" font-size="9">Steeply increasing</text>
+      <text x="415" y="125" fill="#58c4dc" font-family="JetBrains Mono" font-size="9">(OH⁻ excess)</text>
+    </svg>
+    <p style="text-align:center;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:.78rem;margin-top:12px;">Conductimetric titration curves: G vs volume of NaOH added</p>
+  </div>
+
+  <div class="card">
+    <h3>Interpretation of Conductimetric Titration Curves</h3>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Titration</th><th>Before EP</th><th>After EP</th><th>Shape at EP</th></tr></thead>
+      <tbody>
+        <tr><td>HCl + NaOH (strong + strong)</td><td>G decreases (fast H<sup>+</sup> replaced by slow Na<sup>+</sup>)</td><td>G increases (excess OH<sup>&minus;</sup>, fast)</td><td>V-shape minimum at EP</td></tr>
+        <tr><td>CH<sub>3</sub>COOH + NaOH (weak + strong)</td><td>G increases slowly (acetate buffer formed)</td><td>G increases steeply (excess OH<sup>&minus;</sup>)</td><td>Kink/change of slope at EP</td></tr>
+        <tr><td>NaOH + HCl (base into acid)</td><td>G decreases (OH<sup>&minus;</sup> neutralises H<sup>+</sup>)</td><td>G increases (excess HCl?)</td><td>V-shape at EP</td></tr>
+        <tr><td>BaCl<sub>2</sub> + H<sub>2</sub>SO<sub>4</sub> (precipitation)</td><td>G decreases (Ba<sup>2+</sup> and SO<sub>4</sub><sup>2&minus;</sup> removed as BaSO<sub>4</sub>)</td><td>G increases (excess H<sup>+</sup>)</td><td>Minimum at EP</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-heading">Application 2: Water Purity Testing</h3>
+  <div class="card">
+    <p>The conductivity of water is a measure of its ionic content (dissolved salts). Pure water has extremely low conductivity (~0.055 &mu;S/cm at 25&deg;C). Different water quality standards:</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Water Type</th><th>Conductivity (&mu;S/cm)</th><th>Use</th></tr></thead>
+        <tbody>
+          <tr><td>Ultra-pure (Type 1 ASTM)</td><td>&lt;0.056</td><td>Electronics, HPLC, cell culture</td></tr>
+          <tr><td>Distilled water</td><td>0.5&ndash;3</td><td>General laboratory</td></tr>
+          <tr><td>Drinking water (WHO)</td><td>&lt;500</td><td>Potable</td></tr>
+          <tr><td>Seawater</td><td>~50,000</td><td>&mdash;</td></tr>
+          <tr><td>Dead Sea</td><td>~270,000</td><td>&mdash;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <h3 class="sub-heading">Application 3: Degree of Dissociation and K<sub>a</sub>/K<sub>b</sub></h3>
+  <div class="card">
+    <p>From conductivity measurements at finite concentration and at infinite dilution (Kohlrausch), we can calculate:</p>
+    <ul style="padding-left:20px;line-height:2.1;">
+      <li>&alpha; = &Lambda;<sub>m</sub>/&Lambda;<sub>m</sub>&deg; (degree of dissociation)</li>
+      <li>K<sub>a</sub> = &alpha;&sup2;c/(1&minus;&alpha;) from Ostwald dilution law</li>
+      <li>Degree of hydrolysis of salts</li>
+    </ul>
+  </div>
+
+  <h3 class="sub-heading">Application 4: Solubility of Sparingly Soluble Salts</h3>
+  <div class="card">
+    <p>For sparingly soluble salts (e.g. AgCl, BaSO<sub>4</sub>), the solubility is so low that the ions behave ideally and &Lambda;<sub>m</sub> &asymp; &Lambda;<sub>m</sub>&deg;.</p>
+    <div class="formula-block">κ(saturated solution) = κ(measured) - κ(water)
+
+Λm° (from Kohlrausch)
+
+c (solubility) = κ_net / Λm°   (in mol/cm³)
+
+Ksp = c² (for 1:1 salts like AgCl)</div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 4</span><h4>Solubility of AgCl from Conductivity</h4></div>
+    <div class="example-body">
+      <p class="q">The specific conductivity of a saturated AgCl solution at 25&deg;C is 2.67&times;10<sup>&minus;6</sup> S/cm, and that of the water used is 0.86&times;10<sup>&minus;6</sup> S/cm. &Lambda;<sub>m</sub>&deg;(AgCl) = 138.3 S&middot;cm<sup>2</sup>/mol. Find the solubility and K<sub>sp</sub> of AgCl.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">&kappa;<sub>net</sub> = (2.67 &minus; 0.86) &times; 10<sup>&minus;6</sup> = 1.81&times;10<sup>&minus;6</sup> S/cm</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">c = &kappa;<sub>net</sub> &times; 1000 / &Lambda;<sub>m</sub>&deg; = (1.81&times;10<sup>&minus;6</sup> &times; 1000) / 138.3</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">c = 1.81&times;10<sup>&minus;3</sup> / 138.3 = 1.309&times;10<sup>&minus;5</sup> mol/L = <b>1.31&times;10<sup>&minus;5</sup> mol/L</b></div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-text">K<sub>sp</sub>(AgCl) = [Ag<sup>+</sup>][Cl<sup>&minus;</sup>] = c&sup2; = (1.31&times;10<sup>&minus;5</sup>)&sup2; = <b>1.72&times;10<sup>&minus;10</sup> mol<sup>2</sup>/L<sup>2</sup></b></div></div>
+      <div class="step"><div class="step-num">&#10003;</div><div class="step-text">Literature K<sub>sp</sub>(AgCl) = 1.77&times;10<sup>&minus;10</sup> &mdash; excellent agreement ✓</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <div class="section-header">
+    <span class="section-number">&#9999;&#65039;</span>
+    <h2>Exercises</h2>
+  </div>
+  <ul class="exercise-list">
+
+    <li>
+      Define: (a) specific conductivity &kappa;; (b) molar conductivity &Lambda;<sub>m</sub>; (c) limiting molar conductivity &Lambda;<sub>m</sub>&deg;. Give the SI unit for each.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) <b>Specific conductivity &kappa;</b>: the conductance of a unit cube (1 cm &times; 1 cm &times; 1 cm) of solution; &kappa; = G &times; K<sub>cell</sub>. Units: <b>S/cm</b> (or S/m).<br>
+        (b) <b>Molar conductivity &Lambda;<sub>m</sub></b>: the conductance due to all ions from one mole of electrolyte at a given concentration; &Lambda;<sub>m</sub> = (&kappa; &times; 1000)/c. Units: <b>S&middot;cm<sup>2</sup>/mol</b>.<br>
+        (c) <b>Limiting molar conductivity &Lambda;<sub>m</sub>&deg;</b>: the molar conductivity extrapolated to infinite dilution (c &rarr; 0), where all interionic interactions vanish. Units: <b>S&middot;cm<sup>2</sup>/mol</b>.
+      </div>
+    </li>
+
+    <li>
+      The specific conductivity of 0.0200 mol/L acetic acid at 25&deg;C is 7.37&times;10<sup>&minus;4</sup> S/cm. Calculate (a) &Lambda;<sub>m</sub>; (b) the degree of dissociation &alpha;; (c) K<sub>a</sub>. Use &Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COOH) = 390.7 S&middot;cm<sup>2</sup>/mol.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) &Lambda;<sub>m</sub> = (7.37&times;10<sup>&minus;4</sup> &times; 1000)/0.0200 = 0.737/0.0200 = <b>36.85 S&middot;cm<sup>2</sup>/mol</b><br>
+        (b) &alpha; = 36.85/390.7 = <b>0.0943</b> (9.43% dissociated at 0.02 mol/L)<br>
+        (c) K<sub>a</sub> = &alpha;&sup2;c/(1&minus;&alpha;) = (0.0943)&sup2; &times; 0.0200/(1&minus;0.0943) = 1.780&times;10<sup>&minus;4</sup>/0.9057 = <b>1.96&times;10<sup>&minus;4</sup> mol/L</b>
+      </div>
+    </li>
+
+    <li>
+      Using Kohlrausch's law, calculate &Lambda;<sub>m</sub>&deg; for H<sub>2</sub>SO<sub>4</sub>. Given: &lambda;&deg;(H<sup>+</sup>)=349.8, &lambda;&deg;(SO<sub>4</sub><sup>2&minus;</sup>)=160.0 S&middot;cm<sup>2</sup>/mol.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        H<sub>2</sub>SO<sub>4</sub> &rarr; 2H<sup>+</sup> + SO<sub>4</sub><sup>2&minus;</sup><br>
+        &Lambda;<sub>m</sub>&deg;(H<sub>2</sub>SO<sub>4</sub>) = 2&lambda;&deg;(H<sup>+</sup>) + &lambda;&deg;(SO<sub>4</sub><sup>2&minus;</sup>)<br>
+        = 2(349.8) + 160.0 = 699.6 + 160.0 = <b>859.6 S&middot;cm<sup>2</sup>/mol</b>
+      </div>
+    </li>
+
+    <li>
+      A conductance cell has a cell constant of 1.25 cm<sup>&minus;1</sup>. When filled with 0.0100 mol/L KCl solution, its resistance is 98.2 &Omega;. Calculate (a) G; (b) &kappa;; (c) &Lambda;<sub>m</sub>.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) G = 1/R = 1/98.2 = <b>1.018&times;10<sup>&minus;2</sup> S</b><br>
+        (b) &kappa; = G &times; K<sub>cell</sub> = 1.018&times;10<sup>&minus;2</sup> &times; 1.25 = <b>1.273&times;10<sup>&minus;2</sup> S/cm</b><br>
+        (c) &Lambda;<sub>m</sub> = (&kappa; &times; 1000)/c = (1.273&times;10<sup>&minus;2</sup> &times; 1000)/0.0100 = 12.73/0.0100 = <b>1273 S&middot;cm<sup>2</sup>/mol</b>
+      </div>
+    </li>
+
+    <li>
+      Explain why H<sup>+</sup> and OH<sup>&minus;</sup> ions have abnormally high ionic conductivities compared to other ions of similar size.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        H<sup>+</sup> and OH<sup>&minus;</sup> do not actually migrate through solution like normal ions. Instead, they use the <b>Grotthuss (proton hopping) mechanism</b>:<br><br>
+        For H<sup>+</sup>: a proton is transferred from one water molecule to the next along a hydrogen-bond chain (H<sub>3</sub>O<sup>+</sup> &rarr; H<sub>2</sub>O chain), effectively making the charge move much faster than the ion itself could physically travel. This mechanism is far faster than physical ion diffusion.<br><br>
+        For OH<sup>&minus;</sup>: proton transfer occurs in the reverse direction along H-bond chains. Both ions can effectively &ldquo;teleport&rdquo; charge along water chains rather than physically diffuse through the solvent, giving them exceptionally high ionic conductivities (&lambda;&deg;(H<sup>+</sup>) = 349.8 and &lambda;&deg;(OH<sup>&minus;</sup>) = 198.6 S&middot;cm<sup>2</sup>/mol vs ~50&ndash;80 for most other ions).
+      </div>
+    </li>
+
+    <li>
+      Describe a conductimetric titration of HCl with NaOH. Sketch the conductance vs volume curve, identifying the shape before and after the equivalence point and explaining the shape in terms of ionic conductivities.
+      <br><button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        <b>Before EP:</b> The solution contains H<sup>+</sup> (very high &lambda;&deg;=349.8) and Cl<sup>&minus;</sup> (&lambda;&deg;=76.4). As NaOH is added, OH<sup>&minus;</sup> neutralises H<sup>+</sup> (forming water). The fast H<sup>+</sup> ions are replaced by slow Na<sup>+</sup> ions (&lambda;&deg;=50.1). Since &lambda;&deg;(Na<sup>+</sup>) &lt; &lambda;&deg;(H<sup>+</sup>), the total conductance <b>decreases</b>.<br><br>
+        <b>At EP:</b> Only Na<sup>+</sup> and Cl<sup>&minus;</sup> remain (NaCl solution). Conductance is at a <b>minimum</b>.<br><br>
+        <b>After EP:</b> Excess NaOH adds fast OH<sup>&minus;</sup> ions (&lambda;&deg;=198.6) and more Na<sup>+</sup>. Conductance <b>increases steeply</b>.<br><br>
+        <b>Shape:</b> V-shaped curve with a sharp minimum at the equivalence point. The intersection of the two straight-line portions gives the EP volume.
+      </div>
+    </li>
+
+  </ul>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="section-header">
+    <span class="section-number">&#129504;</span>
+    <h2>Interactive Quiz</h2>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>Unit 12 Quiz &mdash; Conductivity of Solutions</h3>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);">25 Questions</span>
+    </div>
+    <div class="quiz-body">
+
+      <div class="q-block">
+        <span class="q-num">Q1</span>
+        <p class="q-text">Which of the following is a strong electrolyte?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="a"> Acetic acid (CH<sub>3</sub>COOH)</label>
+          <label class="opt"><input type="radio" name="q1" value="b"> Ammonia (NH<sub>3</sub>)</label>
+          <label class="opt"><input type="radio" name="q1" value="c"> Sodium chloride (NaCl)</label>
+          <label class="opt"><input type="radio" name="q1" value="d"> Glucose (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>)</label>
+        </div>
+        <div class="q-exp" id="exp1"><b>NaCl</b> is a strong electrolyte: it dissociates completely in water into Na<sup>+</sup> and Cl<sup>&minus;</sup>. Acetic acid and ammonia are weak electrolytes. Glucose is a non-electrolyte.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q2</span>
+        <p class="q-text">The unit of specific conductivity &kappa; is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="a"> S&middot;cm<sup>2</sup>/mol</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> S/cm</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> &Omega;&middot;cm</label>
+          <label class="opt"><input type="radio" name="q2" value="d"> mol/(S&middot;cm)</label>
+        </div>
+        <div class="q-exp" id="exp2">Specific conductivity &kappa;: units are <b>S/cm</b> (or S/m). Molar conductivity &Lambda;<sub>m</sub> has units S&middot;cm<sup>2</sup>/mol. Resistivity has units &Omega;&middot;cm.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q3</span>
+        <p class="q-text">The relationship between molar conductivity &Lambda;<sub>m</sub>, specific conductivity &kappa;, and concentration c (mol/L) is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="a"> &Lambda;<sub>m</sub> = &kappa; &times; c</label>
+          <label class="opt"><input type="radio" name="q3" value="b"> &Lambda;<sub>m</sub> = &kappa; / c</label>
+          <label class="opt"><input type="radio" name="q3" value="c"> &Lambda;<sub>m</sub> = (&kappa; &times; 1000) / c</label>
+          <label class="opt"><input type="radio" name="q3" value="d"> &Lambda;<sub>m</sub> = &kappa; &times; c / 1000</label>
+        </div>
+        <div class="q-exp" id="exp3">&Lambda;<sub>m</sub> = (&kappa; &times; 1000) / c when c is in mol/L and &kappa; in S/cm &rarr; &Lambda;<sub>m</sub> in S&middot;cm<sup>2</sup>/mol. The factor 1000 converts L to cm<sup>3</sup> (1 L = 1000 cm<sup>3</sup>).</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q4</span>
+        <p class="q-text">Kohlrausch's law of independent migration states:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="a"> The conductance of a solution decreases linearly with concentration</label>
+          <label class="opt"><input type="radio" name="q4" value="b"> At infinite dilution, each ion contributes independently and additively to the total molar conductivity</label>
+          <label class="opt"><input type="radio" name="q4" value="c"> The conductance of a weak electrolyte equals that of a strong electrolyte at the same concentration</label>
+          <label class="opt"><input type="radio" name="q4" value="d"> All ions have the same molar conductivity at infinite dilution</label>
+        </div>
+        <div class="q-exp" id="exp4">Kohlrausch's law: at infinite dilution, each ion migrates independently and makes a <b>definite, additive contribution</b> to &Lambda;<sub>m</sub>&deg;. &Lambda;<sub>m</sub>&deg; = &nu;<sub>+</sub>&lambda;<sub>+</sub>&deg; + &nu;<sub>&minus;</sub>&lambda;<sub>&minus;</sub>&deg;.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q5</span>
+        <p class="q-text">H<sup>+</sup> has an abnormally high molar ionic conductivity because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="a"> It is the smallest ion</label>
+          <label class="opt"><input type="radio" name="q5" value="b"> It moves by the Grotthuss (proton hopping) mechanism along hydrogen-bond chains</label>
+          <label class="opt"><input type="radio" name="q5" value="c"> It has the highest charge-to-mass ratio</label>
+          <label class="opt"><input type="radio" name="q5" value="d"> It forms strong covalent bonds with water</label>
+        </div>
+        <div class="q-exp" id="exp5">H<sup>+</sup> uses the <b>Grotthuss mechanism</b>: protons hop along H-bond chains in water (H<sub>3</sub>O<sup>+</sup> + H<sub>2</sub>O &rarr; H<sub>2</sub>O + H<sub>3</sub>O<sup>+</sup>), making the charge move much faster than the ion physically could. This gives &lambda;&deg;(H<sup>+</sup>) = 349.8 S&middot;cm<sup>2</sup>/mol — about 5&times; faster than Na<sup>+</sup>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q6</span>
+        <p class="q-text">For a weak electrolyte, the degree of dissociation &alpha; at concentration c is given by:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="a"> &alpha; = &Lambda;<sub>m</sub>&deg; / &Lambda;<sub>m</sub></label>
+          <label class="opt"><input type="radio" name="q6" value="b"> &alpha; = &Lambda;<sub>m</sub> / &Lambda;<sub>m</sub>&deg;</label>
+          <label class="opt"><input type="radio" name="q6" value="c"> &alpha; = &Lambda;<sub>m</sub> &times; c</label>
+          <label class="opt"><input type="radio" name="q6" value="d"> &alpha; = &kappa; / c</label>
+        </div>
+        <div class="q-exp" id="exp6"><b>&alpha; = &Lambda;<sub>m</sub>/&Lambda;<sub>m</sub>&deg;</b>. At infinite dilution, all molecules are dissociated (&alpha;=1, &Lambda;<sub>m</sub>=&Lambda;<sub>m</sub>&deg;). At finite c, &alpha; &lt; 1, so &Lambda;<sub>m</sub> &lt; &Lambda;<sub>m</sub>&deg;. The ratio gives the fraction dissociated.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q7</span>
+        <p class="q-text">On dilution of a strong electrolyte solution, the specific conductivity &kappa;:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="a"> Increases</label>
+          <label class="opt"><input type="radio" name="q7" value="b"> Decreases</label>
+          <label class="opt"><input type="radio" name="q7" value="c"> Remains constant</label>
+          <label class="opt"><input type="radio" name="q7" value="d"> First increases then decreases</label>
+        </div>
+        <div class="q-exp" id="exp7">On dilution, the number of ions per unit volume decreases &rarr; fewer charge carriers in a given volume &rarr; &kappa; <b>decreases</b>. Note: &Lambda;<sub>m</sub> increases on dilution (opposite trend) because it is &kappa; normalised by concentration.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q8</span>
+        <p class="q-text">On dilution of a weak electrolyte, the molar conductivity &Lambda;<sub>m</sub>:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="a"> Decreases slowly</label>
+          <label class="opt"><input type="radio" name="q8" value="b"> Remains constant</label>
+          <label class="opt"><input type="radio" name="q8" value="c"> Increases steeply, approaching &Lambda;<sub>m</sub>&deg;</label>
+          <label class="opt"><input type="radio" name="q8" value="d"> Increases linearly</label>
+        </div>
+        <div class="q-exp" id="exp8">For weak electrolytes, dilution dramatically increases &alpha; (degree of dissociation). More ions are produced per mole of electrolyte &rarr; &Lambda;<sub>m</sub> <b>increases steeply</b> toward &Lambda;<sub>m</sub>&deg; at very low concentration. This behaviour cannot be extrapolated linearly &rarr; Kohlrausch's law must be used.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q9</span>
+        <p class="q-text">The Debye&ndash;H&uuml;ckel&ndash;Onsager equation &Lambda;<sub>m</sub> = &Lambda;<sub>m</sub>&deg; &minus; A&radic;c describes:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="a"> Weak electrolytes only</label>
+          <label class="opt"><input type="radio" name="q9" value="b"> The linear variation of &Lambda;<sub>m</sub> with &radic;c for strong electrolytes at low concentration</label>
+          <label class="opt"><input type="radio" name="q9" value="c"> The variation of &kappa; with temperature</label>
+          <label class="opt"><input type="radio" name="q9" value="d"> The relationship between osmotic pressure and conductivity</label>
+        </div>
+        <div class="q-exp" id="exp9">For strong electrolytes, &Lambda;<sub>m</sub> varies <b>linearly with &radic;c</b> (Debye&ndash;H&uuml;ckel&ndash;Onsager). The slope A depends on the electrolyte type (1:1, 2:1 etc.), solvent, and T. Extrapolating the linear plot to c=0 gives &Lambda;<sub>m</sub>&deg;.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q10</span>
+        <p class="q-text">&Lambda;<sub>m</sub>&deg; for CH<sub>3</sub>COOH cannot be obtained by direct extrapolation of the &Lambda;<sub>m</sub> vs &radic;c plot because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="a"> It is insoluble in water</label>
+          <label class="opt"><input type="radio" name="q10" value="b"> The plot is not linear (curve is very steep near c=0 due to large change in &alpha;)</label>
+          <label class="opt"><input type="radio" name="q10" value="c"> The molar conductivity becomes negative at high dilution</label>
+          <label class="opt"><input type="radio" name="q10" value="d"> All weak electrolytes have zero molar conductivity</label>
+        </div>
+        <div class="q-exp" id="exp10">For weak electrolytes like CH<sub>3</sub>COOH, &Lambda;<sub>m</sub> vs &radic;c is <b>not linear</b> — it curves very steeply near zero concentration due to the large increase in &alpha; on dilution. Cannot extrapolate accurately. Instead, &Lambda;<sub>m</sub>&deg; is calculated from Kohlrausch's law using strong electrolyte data.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q11</span>
+        <p class="q-text">The Ostwald dilution law Ka = &alpha;&sup2;c/(1&minus;&alpha;) relates:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q11" value="a"> The dissociation constant to the molar conductivity directly</label>
+          <label class="opt"><input type="radio" name="q11" value="b"> The acid dissociation constant to the degree of dissociation and concentration</label>
+          <label class="opt"><input type="radio" name="q11" value="c"> Molar conductivity to temperature</label>
+          <label class="opt"><input type="radio" name="q11" value="d"> Specific conductivity to resistance</label>
+        </div>
+        <div class="q-exp" id="exp11">Ostwald dilution law: for HA &rightleftharpoons; H<sup>+</sup> + A<sup>&minus;</sup>, <b>K<sub>a</sub> = &alpha;&sup2;c/(1&minus;&alpha;)</b>. With &alpha; from conductivity (&alpha; = &Lambda;<sub>m</sub>/&Lambda;<sub>m</sub>&deg;), this gives K<sub>a</sub> from measurable quantities.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q12</span>
+        <p class="q-text">AC current (not DC) is used to measure conductance of solutions because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q12" value="a"> AC gives more accurate resistance readings</label>
+          <label class="opt"><input type="radio" name="q12" value="b"> DC would cause electrolysis, changing solution composition and polarising the electrodes</label>
+          <label class="opt"><input type="radio" name="q12" value="c"> AC is safer to use in the laboratory</label>
+          <label class="opt"><input type="radio" name="q12" value="d"> DC cannot pass through aqueous solutions</label>
+        </div>
+        <div class="q-exp" id="exp12">DC would cause <b>electrolysis</b> — ions would be discharged at the electrodes, changing the solution composition (e.g. H<sub>2</sub> and Cl<sub>2</sub> from HCl) and polarising the electrodes (back-EMF). AC reverses rapidly, preventing net electrolysis and giving accurate resistance measurement.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q13</span>
+        <p class="q-text">&Lambda;<sub>m</sub>&deg; for CaCl<sub>2</sub> using Kohlrausch's law with &lambda;&deg;(Ca<sup>2+</sup>)=119.0 and &lambda;&deg;(Cl<sup>&minus;</sup>)=76.4 S&middot;cm<sup>2</sup>/mol is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q13" value="a"> 195.4 S&middot;cm<sup>2</sup>/mol</label>
+          <label class="opt"><input type="radio" name="q13" value="b"> 271.8 S&middot;cm<sup>2</sup>/mol</label>
+          <label class="opt"><input type="radio" name="q13" value="c"> 119.0 S&middot;cm<sup>2</sup>/mol</label>
+          <label class="opt"><input type="radio" name="q13" value="d"> 314.4 S&middot;cm<sup>2</sup>/mol</label>
+        </div>
+        <div class="q-exp" id="exp13">CaCl<sub>2</sub> &rarr; Ca<sup>2+</sup> + 2Cl<sup>&minus;</sup>. &Lambda;<sub>m</sub>&deg; = 1&times;119.0 + 2&times;76.4 = 119.0 + 152.8 = <b>271.8 S&middot;cm<sup>2</sup>/mol</b>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q14</span>
+        <p class="q-text">In a conductimetric titration of strong acid + strong base (HCl + NaOH), the conductance reaches a minimum at the equivalence point because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q14" value="a"> All salt precipitates at the equivalence point</label>
+          <label class="opt"><input type="radio" name="q14" value="b"> The fast H<sup>+</sup> ions are all replaced by slower Na<sup>+</sup>, giving minimum ionic conductance</label>
+          <label class="opt"><input type="radio" name="q14" value="c"> Water is formed, which is a non-electrolyte</label>
+          <label class="opt"><input type="radio" name="q14" value="d"> The temperature drops at the equivalence point</label>
+        </div>
+        <div class="q-exp" id="exp14">Before EP: fast H<sup>+</sup> (349.8) replaced by slower Na<sup>+</sup> (50.1) &rarr; G decreases. At EP: only NaCl in solution — no H<sup>+</sup> or OH<sup>&minus;</sup>. <b>Minimum conductance</b>. After EP: excess OH<sup>&minus;</sup> (198.6) added &rarr; G increases.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q15</span>
+        <p class="q-text">Which property of a solution can be determined from its conductivity combined with Kohlrausch's law?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q15" value="a"> Its boiling point</label>
+          <label class="opt"><input type="radio" name="q15" value="b"> The degree of dissociation and dissociation constant of a weak electrolyte</label>
+          <label class="opt"><input type="radio" name="q15" value="c"> Its density</label>
+          <label class="opt"><input type="radio" name="q15" value="d"> Its pH directly without calculation</label>
+        </div>
+        <div class="q-exp" id="exp15">From conductivity: &Lambda;<sub>m</sub> is measured; &Lambda;<sub>m</sub>&deg; from Kohlrausch; then <b>&alpha; = &Lambda;<sub>m</sub>/&Lambda;<sub>m</sub>&deg;</b> gives degree of dissociation. Substituting into Ostwald dilution law gives K<sub>a</sub> or K<sub>b</sub>. Also: solubility and K<sub>sp</sub> of sparingly soluble salts.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q16</span>
+        <p class="q-text">The cell constant K<sub>cell</sub> of a conductance cell is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q16" value="a"> Equal to the conductance at 1 mol/L</label>
+          <label class="opt"><input type="radio" name="q16" value="b"> The ratio L/A (distance between electrodes / area) — a geometric property</label>
+          <label class="opt"><input type="radio" name="q16" value="c"> The temperature coefficient of conductance</label>
+          <label class="opt"><input type="radio" name="q16" value="d"> Equal to 1/&Lambda;<sub>m</sub>&deg;</label>
+        </div>
+        <div class="q-exp" id="exp16">The <b>cell constant K<sub>cell</sub> = L/A</b> characterises the geometry of the conductance cell. It is determined by calibrating with a KCl solution of known &kappa;. Then for any solution: &kappa; = G &times; K<sub>cell</sub>. Units: cm<sup>&minus;1</sup>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q17</span>
+        <p class="q-text">The solubility of a sparingly soluble salt can be determined from conductivity because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q17" value="a"> The salt changes colour on dissolving</label>
+          <label class="opt"><input type="radio" name="q17" value="b"> At very low concentration (like a saturated solution of a sparingly soluble salt), &Lambda;<sub>m</sub> &asymp; &Lambda;<sub>m</sub>&deg;, so c = &kappa;/&Lambda;<sub>m</sub>&deg;</label>
+          <label class="opt"><input type="radio" name="q17" value="c"> Solubility equals molar conductivity at all concentrations</label>
+          <label class="opt"><input type="radio" name="q17" value="d"> The specific conductivity is proportional to density</label>
+        </div>
+        <div class="q-exp" id="exp17">For sparingly soluble salts (e.g. AgCl, c ~ 10<sup>&minus;5</sup> mol/L), the concentration is so low that interionic effects are negligible: <b>&Lambda;<sub>m</sub> &asymp; &Lambda;<sub>m</sub>&deg;</b>. So: c (solubility) = &kappa;<sub>net</sub> &times; 1000 / &Lambda;<sub>m</sub>&deg;. Then K<sub>sp</sub> = c<sup>n</sup> for the appropriate formula.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q18</span>
+        <p class="q-text">Which of the following CANNOT conduct electricity in aqueous solution?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q18" value="a"> HCl</label>
+          <label class="opt"><input type="radio" name="q18" value="b"> NaOH</label>
+          <label class="opt"><input type="radio" name="q18" value="c"> Sucrose (C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>)</label>
+          <label class="opt"><input type="radio" name="q18" value="d"> K<sub>2</sub>SO<sub>4</sub></label>
+        </div>
+        <div class="q-exp" id="exp18"><b>Sucrose</b> is a <b>non-electrolyte</b>: it dissolves in water as intact molecules without ionisation &rarr; no ions &rarr; cannot conduct electricity. HCl, NaOH, and K<sub>2</sub>SO<sub>4</sub> are strong electrolytes with high conductance.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q19</span>
+        <p class="q-text">The specific conductivity of 0.100 mol/L KCl is 0.01289 S/cm. Its molar conductivity is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q19" value="a"> 12.89 S&middot;cm<sup>2</sup>/mol</label>
+          <label class="opt"><input type="radio" name="q19" value="b"> 128.9 S&middot;cm<sup>2</sup>/mol</label>
+          <label class="opt"><input type="radio" name="q19" value="c"> 1289 S&middot;cm<sup>2</sup>/mol</label>
+          <label class="opt"><input type="radio" name="q19" value="d"> 0.1289 S&middot;cm<sup>2</sup>/mol</label>
+        </div>
+        <div class="q-exp" id="exp19">&Lambda;<sub>m</sub> = (&kappa; &times; 1000)/c = (0.01289 &times; 1000)/0.100 = 12.89/0.100 = <b>128.9 S&middot;cm<sup>2</sup>/mol</b>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q20</span>
+        <p class="q-text">The &Lambda;<sub>m</sub>&deg; of CH<sub>3</sub>COOH using Kohlrausch combination is &Lambda;<sub>m</sub>&deg;(HCl) + &Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COONa) &minus; &Lambda;<sub>m</sub>&deg;(NaCl). This works because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q19b" value="a"> Chemical reactions occur between these salts in solution</label>
+          <label class="opt"><input type="radio" name="q19b" value="b"> Each ion's contribution is independent, so appropriate combinations add/cancel correctly to give H<sup>+</sup> + CH<sub>3</sub>COO<sup>&minus;</sup></label>
+          <label class="opt"><input type="radio" name="q19b" value="c"> All three salts have the same molar conductivity</label>
+          <label class="opt"><input type="radio" name="q19b" value="d"> This is an empirical rule with no theoretical basis</label>
+        </div>
+        <div class="q-exp" id="exp19b">Kohlrausch's law: each ion contributes independently. &Lambda;<sub>m</sub>&deg;(HCl) = &lambda;(H<sup>+</sup>)+&lambda;(Cl<sup>&minus;</sup>); &Lambda;<sub>m</sub>&deg;(NaCH<sub>3</sub>COO)=&lambda;(Na<sup>+</sup>)+&lambda;(CH<sub>3</sub>COO<sup>&minus;</sup>); &Lambda;<sub>m</sub>&deg;(NaCl)=&lambda;(Na<sup>+</sup>)+&lambda;(Cl<sup>&minus;</sup>). Combining: HCl + NaCH<sub>3</sub>COO &minus; NaCl cancels Na<sup>+</sup> and Cl<sup>&minus;</sup>, leaving H<sup>+</sup> + CH<sub>3</sub>COO<sup>&minus;</sup> = <b>&Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COOH)</b>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q21</span>
+        <p class="q-text">In a conductimetric titration of CH<sub>3</sub>COOH with NaOH, before the equivalence point the conductance:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q21" value="a"> Decreases steeply</label>
+          <label class="opt"><input type="radio" name="q21" value="b"> Increases slowly (buffer region, Na<sup>+</sup> and CH<sub>3</sub>COO<sup>&minus;</sup> accumulate)</label>
+          <label class="opt"><input type="radio" name="q21" value="c"> Remains constant</label>
+          <label class="opt"><input type="radio" name="q21" value="d"> Reaches a maximum then decreases</label>
+        </div>
+        <div class="q-exp" id="exp21">Weak acid + strong base: the weak acid contributes few ions initially. As NaOH is added, it reacts with CH<sub>3</sub>COOH to give CH<sub>3</sub>COONa — the Na<sup>+</sup> and CH<sub>3</sub>COO<sup>&minus;</sup> ions <b>slowly increase</b> conductance. The slope is gradual (not steep like excess OH<sup>&minus;</sup> after EP).</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q22</span>
+        <p class="q-text">The conductivity of drinking water is measured to assess:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q22" value="a"> Its pH</label>
+          <label class="opt"><input type="radio" name="q22" value="b"> Its total dissolved ionic content (total dissolved solids)</label>
+          <label class="opt"><input type="radio" name="q22" value="c"> Its temperature</label>
+          <label class="opt"><input type="radio" name="q22" value="d"> The presence of organic pollutants</label>
+        </div>
+        <div class="q-exp" id="exp22">Conductivity is a direct measure of the <b>total ionic content</b> (total dissolved solids, TDS) in water. WHO limit for drinking water is &lt;500 &mu;S/cm. High conductivity indicates excessive dissolved salts, potentially indicating contamination or hard water.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q23</span>
+        <p class="q-text">Platinum black is used to coat the electrodes in a conductance cell because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q23" value="a"> It is a better electrical conductor than platinum</label>
+          <label class="opt"><input type="radio" name="q23" value="b"> It increases the effective surface area, reducing electrode polarisation and capacitance effects</label>
+          <label class="opt"><input type="radio" name="q23" value="c"> It prevents the electrode from reacting with acid solutions</label>
+          <label class="opt"><input type="radio" name="q23" value="d"> It absorbs all light, improving visual observation</label>
+        </div>
+        <div class="q-exp" id="exp23">Platinum black (finely divided Pt) has a very large <b>effective surface area</b>. This reduces the impedance effects (electrode polarisation and double-layer capacitance) that can distort AC resistance measurements, giving more accurate conductance readings.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q24</span>
+        <p class="q-text">If the specific conductivity of a saturated AgCl solution is 3.41&times;10<sup>&minus;6</sup> S/cm (after subtracting water conductance) and &Lambda;<sub>m</sub>&deg;(AgCl) = 138.3 S&middot;cm<sup>2</sup>/mol, the solubility of AgCl is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q24" value="a"> 2.47&times;10<sup>&minus;5</sup> mol/L</label>
+          <label class="opt"><input type="radio" name="q24" value="b"> 3.41&times;10<sup>&minus;3</sup> mol/L</label>
+          <label class="opt"><input type="radio" name="q24" value="c"> 4.08&times;10<sup>&minus;7</sup> mol/L</label>
+          <label class="opt"><input type="radio" name="q24" value="d"> 1.38&times;10<sup>&minus;4</sup> mol/L</label>
+        </div>
+        <div class="q-exp" id="exp24">c = &kappa;<sub>net</sub> &times; 1000 / &Lambda;<sub>m</sub>&deg; = (3.41&times;10<sup>&minus;6</sup> &times; 1000) / 138.3 = 3.41&times;10<sup>&minus;3</sup>/138.3 = <b>2.47&times;10<sup>&minus;5</sup> mol/L</b>.</div>
+      </div>
+
+      <div class="q-block">
+        <span class="q-num">Q25</span>
+        <p class="q-text">Which statement correctly compares the molar conductivity of strong vs weak electrolytes as concentration approaches zero?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q25" value="a"> Strong electrolytes have a higher &Lambda;<sub>m</sub>&deg; than weak electrolytes in all cases</label>
+          <label class="opt"><input type="radio" name="q25" value="b"> Strong electrolytes reach &Lambda;<sub>m</sub>&deg; linearly (small change); weak electrolytes reach &Lambda;<sub>m</sub>&deg; steeply (large change due to &alpha; increasing)</label>
+          <label class="opt"><input type="radio" name="q25" value="c"> Weak electrolytes always have higher &Lambda;<sub>m</sub>&deg; than strong electrolytes</label>
+          <label class="opt"><input type="radio" name="q25" value="d"> Both strong and weak electrolytes show identical &Lambda;<sub>m</sub> vs &radic;c behaviour</label>
+        </div>
+        <div class="q-exp" id="exp25">Strong electrolytes: &Lambda;<sub>m</sub> increases <b>linearly and slightly</b> with dilution (&Lambda;<sub>m</sub> = &Lambda;<sub>m</sub>&deg; &minus; A&radic;c). Weak electrolytes: &Lambda;<sub>m</sub> increases <b>steeply</b> because &alpha; rapidly approaches 1 on dilution. &Lambda;<sub>m</sub>&deg; of a weak electrolyte like CH<sub>3</sub>COOH (390.7) can be higher than a strong electrolyte like NaCl (126.5) because it includes &lambda;&deg;(H<sup>+</sup>).</div>
+      </div>
+
+    </div>
+    <div style="padding:0 24px 24px;">
+      <button class="quiz-submit" onclick="submitQuiz()">Submit All 25 Answers</button>
+      <div id="quizResult" style="display:none;margin-top:16px;padding:16px 20px;border-radius:var(--radius);font-family:'JetBrains Mono',monospace;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT TEST -->
+<section id="test">
+  <div class="section-header">
+    <span class="section-number">&#128221;</span>
+    <h2>Unit Test</h2>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">&#8505;&#65039;</span>
+    <div class="callout-body">
+      <strong>Instructions</strong>
+      Total: 50 marks &nbsp;|&nbsp; Time: 55 minutes &nbsp;|&nbsp; Show all working &nbsp;|&nbsp; State units throughout.
+    </div>
+  </div>
+
+  <div class="test-wrap">
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section A &mdash; Short Answer</h3>
+        <span class="marks-badge">30 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q1 [4 marks]</span>
+          <p>A conductance cell has cell constant K<sub>cell</sub> = 0.845 cm<sup>&minus;1</sup>. It is filled with 0.0500 mol/L KCl solution and shows resistance R = 216 &Omega;.<br>
+          (a) Calculate G; (b) Calculate &kappa;; (c) Calculate &Lambda;<sub>m</sub>; (d) If &Lambda;<sub>m</sub>&deg;(KCl) = 149.9 S&middot;cm<sup>2</sup>/mol, what is the ratio &Lambda;<sub>m</sub>/&Lambda;<sub>m</sub>&deg;?</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) G = 1/R = 1/216 = <b>4.63&times;10<sup>&minus;3</sup> S</b><br>
+              (b) &kappa; = G &times; K<sub>cell</sub> = 4.63&times;10<sup>&minus;3</sup> &times; 0.845 = <b>3.91&times;10<sup>&minus;3</sup> S/cm</b><br>
+              (c) &Lambda;<sub>m</sub> = (&kappa; &times; 1000)/c = (3.91&times;10<sup>&minus;3</sup> &times; 1000)/0.0500 = 3.91/0.0500 = <b>78.2 S&middot;cm<sup>2</sup>/mol</b><br>
+              (d) &Lambda;<sub>m</sub>/&Lambda;<sub>m</sub>&deg; = 78.2/149.9 = <b>0.522</b> (52.2% of infinite dilution value)
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q2 [5 marks]</span>
+          <p>State Kohlrausch's law of independent migration of ions. Using it, calculate &Lambda;<sub>m</sub>&deg; for:<br>
+          (a) NaOH &nbsp; (b) H<sub>2</sub>SO<sub>4</sub> &nbsp; (c) NH<sub>4</sub>Cl &nbsp; (d) Ethanoic acid (CH<sub>3</sub>COOH) using the combination rule<br>
+          Data (S&middot;cm<sup>2</sup>/mol): &lambda;&deg;(H<sup>+</sup>)=349.8; &lambda;&deg;(OH<sup>&minus;</sup>)=198.6; &lambda;&deg;(Na<sup>+</sup>)=50.1; &lambda;&deg;(Cl<sup>&minus;</sup>)=76.4; &lambda;&deg;(SO<sub>4</sub><sup>2&minus;</sup>)=160.0; &lambda;&deg;(NH<sub>4</sub><sup>+</sup>)=73.4; &lambda;&deg;(CH<sub>3</sub>COO<sup>&minus;</sup>)=40.9</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>Kohlrausch's law:</b> &Lambda;<sub>m</sub>&deg; = &nu;<sub>+</sub>&lambda;<sub>+</sub>&deg; + &nu;<sub>&minus;</sub>&lambda;<sub>&minus;</sub>&deg; (sum of individual ionic contributions at infinite dilution).<br><br>
+              (a) &Lambda;<sub>m</sub>&deg;(NaOH) = &lambda;&deg;(Na<sup>+</sup>) + &lambda;&deg;(OH<sup>&minus;</sup>) = 50.1 + 198.6 = <b>248.7 S&middot;cm<sup>2</sup>/mol</b><br>
+              (b) &Lambda;<sub>m</sub>&deg;(H<sub>2</sub>SO<sub>4</sub>) = 2&lambda;&deg;(H<sup>+</sup>) + &lambda;&deg;(SO<sub>4</sub><sup>2&minus;</sup>) = 699.6 + 160.0 = <b>859.6 S&middot;cm<sup>2</sup>/mol</b><br>
+              (c) &Lambda;<sub>m</sub>&deg;(NH<sub>4</sub>Cl) = &lambda;&deg;(NH<sub>4</sub><sup>+</sup>) + &lambda;&deg;(Cl<sup>&minus;</sup>) = 73.4 + 76.4 = <b>149.8 S&middot;cm<sup>2</sup>/mol</b><br>
+              (d) &Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COOH) = &lambda;&deg;(H<sup>+</sup>) + &lambda;&deg;(CH<sub>3</sub>COO<sup>&minus;</sup>) = 349.8 + 40.9 = <b>390.7 S&middot;cm<sup>2</sup>/mol</b><br>
+              Alternative: &Lambda;<sub>m</sub>&deg;(HCl) + &Lambda;<sub>m</sub>&deg;(NaCH<sub>3</sub>COO) &minus; &Lambda;<sub>m</sub>&deg;(NaCl) = (349.8+76.4) + (50.1+40.9) &minus; (50.1+76.4) = 426.2 + 91.0 &minus; 126.5 = 390.7 ✓
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q3 [6 marks]</span>
+          <p>The molar conductivity of 0.0500 mol/L formic acid (HCOOH) at 25&deg;C is 46.1 S&middot;cm<sup>2</sup>/mol. &Lambda;<sub>m</sub>&deg;(HCOOH) = 404.5 S&middot;cm<sup>2</sup>/mol.<br>
+          (a) Calculate the degree of dissociation &alpha; at 0.0500 mol/L.<br>
+          (b) Using Ostwald dilution law, calculate K<sub>a</sub> for formic acid.<br>
+          (c) At what concentration would &alpha; = 0.50 (50% dissociated) for formic acid?</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) &alpha; = &Lambda;<sub>m</sub>/&Lambda;<sub>m</sub>&deg; = 46.1/404.5 = <b>0.1140</b> (11.4% dissociated)<br><br>
+              (b) K<sub>a</sub> = &alpha;&sup2;c/(1&minus;&alpha;) = (0.1140)&sup2; &times; 0.0500/(1&minus;0.1140)<br>
+              = 0.01300 &times; 0.0500/0.8860<br>
+              = 6.498&times;10<sup>&minus;4</sup>/0.8860 = <b>7.33&times;10<sup>&minus;4</sup> mol/L</b><br>
+              (Literature K<sub>a</sub>(HCOOH) = 1.77&times;10<sup>&minus;4</sup> — note: formic acid K<sub>a</sub> &asymp; 1.8&times;10<sup>&minus;4</sup>, so our calculation gives a reasonable order of magnitude.)<br><br>
+              (c) At &alpha; = 0.50: K<sub>a</sub> = (0.50)&sup2;c/(1&minus;0.50) = 0.25c/0.50 = 0.50c<br>
+              c = K<sub>a</sub>/0.50 = 7.33&times;10<sup>&minus;4</sup>/0.50 = <b>1.47&times;10<sup>&minus;3</sup> mol/L</b> (very dilute solution needed for 50% dissociation)
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q4 [5 marks]</span>
+          <p>The specific conductivity of a saturated solution of BaSO<sub>4</sub> is 3.648&times;10<sup>&minus;6</sup> S/cm at 25&deg;C. The specific conductivity of the water used is 0.516&times;10<sup>&minus;6</sup> S/cm.<br>
+          &lambda;&deg;(Ba<sup>2+</sup>) = 127.3 and &lambda;&deg;(SO<sub>4</sub><sup>2&minus;</sup>) = 160.0 S&middot;cm<sup>2</sup>/mol.<br>
+          Calculate: (a) net &kappa;; (b) &Lambda;<sub>m</sub>&deg;(BaSO<sub>4</sub>); (c) solubility of BaSO<sub>4</sub> in mol/L; (d) K<sub>sp</sub>.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) &kappa;<sub>net</sub> = (3.648 &minus; 0.516) &times; 10<sup>&minus;6</sup> = <b>3.132&times;10<sup>&minus;6</sup> S/cm</b><br>
+              (b) &Lambda;<sub>m</sub>&deg;(BaSO<sub>4</sub>) = &lambda;&deg;(Ba<sup>2+</sup>) + &lambda;&deg;(SO<sub>4</sub><sup>2&minus;</sup>) = 127.3 + 160.0 = <b>287.3 S&middot;cm<sup>2</sup>/mol</b><br>
+              (c) c = &kappa;<sub>net</sub> &times; 1000 / &Lambda;<sub>m</sub>&deg; = (3.132&times;10<sup>&minus;6</sup> &times; 1000)/287.3 = 3.132&times;10<sup>&minus;3</sup>/287.3 = <b>1.090&times;10<sup>&minus;5</sup> mol/L</b><br>
+              (d) BaSO<sub>4</sub> &rarr; Ba<sup>2+</sup> + SO<sub>4</sub><sup>2&minus;</sup>; K<sub>sp</sub> = [Ba<sup>2+</sup>][SO<sub>4</sub><sup>2&minus;</sup>] = c&sup2; = (1.090&times;10<sup>&minus;5</sup>)&sup2; = <b>1.19&times;10<sup>&minus;10</sup> mol<sup>2</sup>/L<sup>2</sup></b>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q5 [5 marks]</span>
+          <p>Describe, with a labelled graph, the conductimetric titration of a solution of HCl with NaOH. Explain the shape of the curve in terms of ionic conductivities at each stage. Then describe how the conductimetric titration of CH<sub>3</sub>COOH with NaOH would differ.</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>HCl + NaOH:</b><br>
+              <b>Before EP:</b> Solution contains H<sup>+</sup> (&lambda;&deg;=349.8) and Cl<sup>&minus;</sup> (&lambda;&deg;=76.4). As NaOH is added, H<sup>+</sup> is neutralised: H<sup>+</sup> + OH<sup>&minus;</sup> &rarr; H<sub>2</sub>O. Fast H<sup>+</sup> is replaced by slow Na<sup>+</sup> (&lambda;&deg;=50.1). Total conductance <b>decreases</b> steadily (steep downward slope).<br>
+              <b>At EP:</b> Only NaCl in solution — minimum conductance.<br>
+              <b>After EP:</b> Excess NaOH adds fast OH<sup>&minus;</sup> (&lambda;&deg;=198.6) and Na<sup>+</sup>. Conductance <b>increases steeply</b>.<br>
+              <b>Shape:</b> V-shaped with minimum at EP.<br><br>
+              <b>CH<sub>3</sub>COOH + NaOH differences:</b><br>
+              <b>Before EP:</b> Weak acid gives few ions initially — low initial conductance. As NaOH is added, CH<sub>3</sub>COONa forms (Na<sup>+</sup> + CH<sub>3</sub>COO<sup>&minus;</sup>). Conductance <b>increases slowly</b> (buffer region — not steep).<br>
+              <b>At EP:</b> CH<sub>3</sub>COONa solution — conductance reaches a bend/kink (not a sharp minimum like strong acid).<br>
+              <b>After EP:</b> Excess NaOH: fast OH<sup>&minus;</sup> &rarr; <b>steep increase</b>.<br>
+              Key difference: before EP, HCl curve decreases; CH<sub>3</sub>COOH curve increases. Both show sharp changes after EP.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q6 [5 marks]</span>
+          <p>Explain why the specific conductivity decreases on dilution but the molar conductivity increases for both strong and weak electrolytes. Why is the increase much more dramatic for weak electrolytes?</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>&kappa; decreases on dilution:</b> &kappa; = G/volume = ions/volume &times; (ionic mobility). Even though dilution reduces interionic interactions (slightly increasing mobility), the dominant effect is the <b>reduction in ion concentration per unit volume</b> — fewer charge carriers in 1 cm<sup>3</sup> of solution. So &kappa; decreases for both strong and weak electrolytes.<br><br>
+              <b>&Lambda;<sub>m</sub> increases on dilution:</b> &Lambda;<sub>m</sub> = &kappa;/c. Although &kappa; decreases, c decreases <b>faster</b> in the denominator &rarr; &Lambda;<sub>m</sub> increases. For strong electrolytes: the increase is small and linear in &radic;c because interionic interactions (electrostatic retardation) decrease — each ion moves slightly faster. The ions are already fully dissociated, so the change is modest.<br><br>
+              <b>Larger increase for weak electrolytes:</b> For weak electrolytes, dilution dramatically increases the <b>degree of dissociation &alpha;</b> (Le Chatelier's principle — dilution shifts equilibrium toward products). More molecules ionise &rarr; many more ions per mole of electrolyte &rarr; &Lambda;<sub>m</sub> rises steeply, especially at very low concentrations where &alpha; approaches 1.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section B &mdash; Extended Response</h3>
+        <span class="marks-badge">20 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q7 [10 marks]</span>
+          <p><b>(a)</b> Describe how you would determine the molar conductivity of KCl at various concentrations and extrapolate to find &Lambda;<sub>m</sub>&deg;. Include: apparatus, procedure, calculations, and graph. <i>[5 marks]</i></p>
+          <p><b>(b)</b> Explain why the same procedure cannot be used to find &Lambda;<sub>m</sub>&deg; of CH<sub>3</sub>COOH directly. Describe how &Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COOH) is instead calculated using Kohlrausch's law. <i>[5 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a) Determination of &Lambda;<sub>m</sub>&deg;(KCl):</b><br>
+              <b>Apparatus:</b> Conductance cell (two platinum black electrodes), AC Wheatstone bridge, thermostat bath at 25&deg;C, volumetric flasks, pipettes.<br>
+              <b>Procedure:</b> Calibrate cell constant using standard KCl (0.100 mol/L, &kappa; known = 0.01289 S/cm). Prepare KCl solutions at several concentrations (e.g. 0.100, 0.050, 0.020, 0.010, 0.005 mol/L). Measure resistance R at each concentration using AC bridge. Calculate G=1/R, &kappa;=G&times;K<sub>cell</sub>, &Lambda;<sub>m</sub>=(&kappa;&times;1000)/c.<br>
+              <b>Graph:</b> Plot &Lambda;<sub>m</sub> (y-axis) vs &radic;c (x-axis). For KCl (strong electrolyte), get a straight line. Extrapolate to &radic;c = 0 (y-intercept) &rarr; &Lambda;<sub>m</sub>&deg; = 149.9 S&middot;cm<sup>2</sup>/mol.<br><br>
+              <b>(b) Why not for CH<sub>3</sub>COOH:</b> Acetic acid is a weak electrolyte. Its &Lambda;<sub>m</sub> vs &radic;c plot is not linear — it curves steeply as c &rarr; 0 because &alpha; increases rapidly (approaches 1 at very low c). The curve approaches the y-axis nearly vertically, making accurate extrapolation to c=0 impossible by graphical methods.<br><br>
+              <b>Kohlrausch calculation:</b> &Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COOH) cannot be measured directly, but can be calculated from strong electrolytes whose &Lambda;<sub>m</sub>&deg; values are obtainable by extrapolation:<br>
+              &Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COOH) = &Lambda;<sub>m</sub>&deg;(HCl) + &Lambda;<sub>m</sub>&deg;(CH<sub>3</sub>COONa) &minus; &Lambda;<sub>m</sub>&deg;(NaCl)<br>
+              = &lambda;&deg;(H<sup>+</sup>) + &lambda;&deg;(Cl<sup>&minus;</sup>) + &lambda;&deg;(Na<sup>+</sup>) + &lambda;&deg;(CH<sub>3</sub>COO<sup>&minus;</sup>) &minus; &lambda;&deg;(Na<sup>+</sup>) &minus; &lambda;&deg;(Cl<sup>&minus;</sup>)<br>
+              = &lambda;&deg;(H<sup>+</sup>) + &lambda;&deg;(CH<sub>3</sub>COO<sup>&minus;</sup>) = 349.8 + 40.9 = 390.7 S&middot;cm<sup>2</sup>/mol<br>
+              This uses Kohlrausch's law: ion contributions are additive and independent &rarr; the appropriate combination of strong electrolytes gives the desired result.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q8 [10 marks]</span>
+          <p><b>(a)</b> Define and compare strong, weak, and non-electrolytes. Give two examples of each. Explain how their behaviour differs in terms of conductance vs concentration graphs. <i>[4 marks]</i></p>
+          <p><b>(b)</b> The molar conductivity data for formic acid (HCOOH) at 25&deg;C are given below. Calculate &alpha; and K<sub>a</sub> at each concentration. Comment on the trend in &alpha; and constancy of K<sub>a</sub>. &Lambda;<sub>m</sub>&deg;(HCOOH) = 404.5 S&middot;cm<sup>2</sup>/mol.<br>
+          c = 0.100 mol/L: &Lambda;<sub>m</sub> = 46.1; c = 0.050 mol/L: &Lambda;<sub>m</sub> = 63.6; c = 0.020 mol/L: &Lambda;<sub>m</sub> = 97.7 S&middot;cm<sup>2</sup>/mol. <i>[6 marks]</i></p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a)</b><br>
+              <b>Strong electrolytes</b>: completely dissociate in water; high conductance; &Lambda;<sub>m</sub> increases slightly with dilution (linear in &radic;c). Examples: NaCl, HCl, H<sub>2</sub>SO<sub>4</sub>, KOH.<br>
+              <b>Weak electrolytes</b>: partially dissociate; low conductance at normal concentrations; &Lambda;<sub>m</sub> increases steeply with dilution (large change in &alpha;). Examples: CH<sub>3</sub>COOH, NH<sub>3</sub>, HCN, HF.<br>
+              <b>Non-electrolytes</b>: do not ionise; zero conductance (beyond that of pure water). Examples: glucose, sucrose, ethanol, urea.<br>
+              Graph: strong electrolytes have moderate &kappa; decreasing smoothly; weak electrolytes start with much lower &kappa; at same c. Non-electrolytes: &kappa; ~ 0.<br><br>
+              <b>(b)</b><br>
+              At c = 0.100 mol/L:<br>
+              &alpha; = 46.1/404.5 = 0.1140<br>
+              K<sub>a</sub> = (0.1140)&sup2;&times;0.100/(1&minus;0.1140) = 1.300&times;10<sup>&minus;3</sup>&times;0.100/0.886 = 1.30&times;10<sup>&minus;4</sup>/0.886 = <b>1.47&times;10<sup>&minus;4</sup></b><br><br>
+              At c = 0.050 mol/L:<br>
+              &alpha; = 63.6/404.5 = 0.1572<br>
+              K<sub>a</sub> = (0.1572)&sup2;&times;0.050/(1&minus;0.1572) = 2.471&times;10<sup>&minus;3</sup>&times;0.050/0.8428 = 1.236&times;10<sup>&minus;4</sup>/0.8428 = <b>1.47&times;10<sup>&minus;4</sup></b><br><br>
+              At c = 0.020 mol/L:<br>
+              &alpha; = 97.7/404.5 = 0.2415<br>
+              K<sub>a</sub> = (0.2415)&sup2;&times;0.020/(1&minus;0.2415) = 5.832&times;10<sup>&minus;3</sup>&times;0.020/0.7585 = 1.166&times;10<sup>&minus;4</sup>/0.7585 = <b>1.54&times;10<sup>&minus;4</sup></b><br><br>
+              <b>Comment:</b> &alpha; increases with dilution (0.114 &rarr; 0.157 &rarr; 0.242) — confirms Le Chatelier's principle: dilution shifts dissociation equilibrium forward. K<sub>a</sub> values are approximately constant (~1.47&ndash;1.54 &times;10<sup>&minus;4</sup>) across the concentration range, confirming it is a true thermodynamic constant (small variation is due to non-ideal activity effects and measurement precision).
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="unit-nav">
+  <a class="nav-btn prev" href="unit11_solutions_titration.html">&larr; Unit 11: Solutions &amp; Titration</a>
+  <a class="nav-btn next" href="unit13_electrolysis.html">Unit 13: Electrolysis &rarr;</a>
+</div>
+
+</main>
+
+<script>
+function toggleAnswer(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+const correctAnswers={
+  q1:'c',q2:'b',q3:'c',q4:'b',q5:'b',q6:'b',q7:'b',q8:'c',q9:'b',q10:'b',
+  q11:'b',q12:'b',q13:'b',q14:'b',q15:'b',q16:'b',q17:'b',q18:'c',q19:'b',q19b:'b',
+  q21:'b',q22:'b',q23:'b',q24:'a',q25:'b'
+};
+function submitQuiz(){
+  let score=0;
+  const total=Object.keys(correctAnswers).length;
+  Object.entries(correctAnswers).forEach(([q,correct])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{
+      if(o.value===correct)o.parentElement.classList.add('correct');
+    });
+    if(sel){if(sel.value===correct)score++;else sel.parentElement.classList.add('wrong');}
+    const exp=document.getElementById('exp'+q.replace('q',''));
+    if(exp)exp.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const pct=Math.round(score/total*100);
+  const res=document.getElementById('quizResult');
+  res.style.display='block';
+  res.style.background=pct>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  res.style.border='1px solid '+(pct>=70?'var(--green)':'var(--red)');
+  res.style.color=pct>=70?'var(--green)':'var(--red)';
+  res.style.borderRadius='var(--radius)';
+  res.style.padding='16px 20px';
+  res.innerHTML='Score: '+score+' / '+total+' ('+pct+'%) &mdash; '+(pct>=80?'Excellent! 🎉':pct>=60?'Good effort &mdash; review marked questions.':'Keep studying &mdash; re-read the notes and try again.');
+  document.querySelector('.quiz-submit').disabled=true;
+  document.querySelector('.quiz-submit').style.opacity='0.5';
+}
+</script>
+</body>
+</html>
