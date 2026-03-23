@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S6 Chemistry – Unit 3: NPK & Fertilisers</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#f59e0b;--gold:#e8c547;--green:#34d399;--red:#f87171;--amber:#f59e0b;--sky:#38bdf8;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+.hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#001220 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(56,189,248,.04) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(56,189,248,.04) 40px);pointer-events:none;}
+.badge{display:inline-block;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);color:var(--accent);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+.hero h1 em{color:var(--accent);font-style:italic;}
+.hero p.sub{color:var(--muted);font-size:1rem;max-width:640px;margin:0 auto 32px;}
+.toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:860px;margin:0 auto;}
+.toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+.toc-grid a:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+.page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+.section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+.section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+.card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+.card p+p{margin-top:12px;}
+.def-box{border-left:4px solid var(--accent);background:rgba(56,189,248,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+.def-box strong{color:var(--accent);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+.callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout.info{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.25);}
+.callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+.callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+.callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+.callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+.tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:var(--surface2);}
+th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);white-space:nowrap;}
+td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--accent);overflow-x:auto;white-space:pre-wrap;}
+.example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+.example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+.example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+.example-body{padding:22px 26px;}
+.example-body .q{margin-bottom:14px;font-weight:600;}
+.step{display:flex;gap:14px;margin:10px 0;}
+.step-num{min-width:28px;height:28px;background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);flex-shrink:0;margin-top:3px;}
+.step-text{flex:1;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+@media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+.exercise-list{list-style:none;counter-reset:ex;}
+.exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+.exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);display:block;margin-bottom:6px;}
+.reveal-btn{margin-top:10px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);color:var(--accent);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+.reveal-btn:hover{background:var(--accent);color:#000;}
+.answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(56,189,248,.06);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.9rem;}
+.answer.open{display:block;}
+.quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+.quiz-header{background:rgba(56,189,248,.1);border-bottom:1px solid rgba(56,189,248,.2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.quiz-header h3{font-family:'Playfair Display',serif;color:var(--accent);font-size:1.2rem;}
+.quiz-body{padding:24px;}
+.q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+.q-block:last-of-type{border-bottom:none;}
+.q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);display:block;margin-bottom:4px;}
+.options{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+.opt:hover{border-color:var(--accent);}
+.opt input{margin-top:3px;accent-color:var(--accent);}
+.opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+.opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+.q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(56,189,248,.07);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.88rem;}
+.quiz-submit{background:var(--accent);color:#000;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;font-weight:700;transition:opacity .2s;}
+.quiz-submit:hover{opacity:.85;}
+.test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px;}
+.test-section-header{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+.test-section-header h3{font-family:'Playfair Display',serif;color:#f97316;font-size:1.1rem;}
+.marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(249,115,22,.2);color:#f97316;padding:4px 12px;border-radius:50px;}
+.test-body{padding:24px;}
+.test-q{margin-bottom:20px;padding:16px 18px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);}
+.test-q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#f97316;margin-bottom:6px;display:block;}
+.unit-nav{display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+.nav-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s;}
+.nav-btn.prev{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+.nav-btn.prev:hover{border-color:var(--accent);color:var(--accent);}
+.nav-btn.next{background:var(--accent);color:#000;font-weight:700;}
+.nav-btn.next:hover{opacity:.88;}
+h3.sub{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+sub,sup{font-size:.72em;}
+@media(max-width:600px){.hero{padding:50px 20px 40px;}.page{padding:0 16px 60px;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="badge">Unit 3 &middot; S6 Chemistry</div>
+  <h1><em>NPK & Fertilisers</em></h1>
+  <p class="sub">Types, manufacture, NPK calculations, Haber/Ostwald/Contact processes, organic vs inorganic comparison, eutrophication, and dangers of substandard fertilisers.</p>
+  <nav class="toc-grid"><a href="#types">3.1 Types</a>
+<a href="#components">3.2 N, P, K</a>
+<a href="#manufacture">3.3 Manufacture</a>
+<a href="#advantages">3.4 Adv/Disadv</a>
+<a href="#substandard">3.5 Dangers</a>
+<a href="#exercises">Exercises</a>
+<a href="#quiz">Quiz</a>
+<a href="#test">Unit Test</a></nav>
+</header>
+<main class="page">
+<section id="types">
+  <div class="section-header"><span class="section-number">3.1</span><h2>Types of Fertilisers</h2></div>
+  <div class="def-box"><strong>Fertiliser</strong>A <b>fertiliser</b> is any substance added to soil to supply plant nutrients that are lacking or deficient, thereby increasing crop yield. Fertilisers can be <b>organic</b> (derived from living organisms) or <b>inorganic</b> (synthetic chemicals).</div><div class="tbl-wrap"><table><thead><tr><th>Type</th><th>Source</th><th>Examples</th><th>N-P-K availability</th></tr></thead><tbody><tr><td>Organic</td><td>Living organisms</td><td>Manure, compost, bone meal, blood meal</td><td>Slow release — mineralised by soil bacteria</td></tr><tr><td>Inorganic</td><td>Chemical manufacture</td><td>Ammonium nitrate, urea, superphosphate</td><td>Fast, direct — immediately available to plants</td></tr><tr><td>Biofertiliser</td><td>Microorganisms</td><td>Rhizobium, Azotobacter, mycorrhizae</td><td>Biological N fixation — sustainable</td></tr></tbody></table></div>
+</section><section id="components">
+  <div class="section-header"><span class="section-number">3.2</span><h2>Components of a Fertiliser — N, P, K</h2></div>
+  <div class="card"><h3>Why NPK?</h3><p>Three <b>macronutrients</b> are almost always needed in significant quantities:</p><div class="tbl-wrap"><table><thead><tr><th>Nutrient</th><th>Role in plants</th><th>Deficiency symptom</th><th>Common fertiliser source</th></tr></thead><tbody><tr><td>N (Nitrogen)</td><td>Proteins, chlorophyll, DNA — leaf and shoot growth</td><td>Yellowing (chlorosis), stunted growth</td><td>NH₄NO₃, urea CO(NH₂)₂, (NH₄)₂SO₄</td></tr><tr><td>P (Phosphorus)</td><td>ATP, DNA, cell membranes — root development</td><td>Purple discolouration of leaves, poor root growth</td><td>Ca(H₂PO₄)₂ (superphosphate), triple superphosphate</td></tr><tr><td>K (Potassium)</td><td>Enzyme activation, stomatal control, disease resistance</td><td>Brown leaf edges, wilting</td><td>KCl (muriate of potash), K₂SO₄, KNO₃</td></tr></tbody></table></div><p>NPK grade: written as <b>N-P-K</b> ratio by mass of element (e.g. 15-5-10 means 15% N, 5% P, 10% K).</p></div><div class="card"><h3>Calculating NPK Values</h3><div class="formula-block">Mass percentage of N in NH₄NO₃:
+  M(NH₄NO₃) = 14+4+14+48 = 80 g/mol; 2 N atoms; mass N = 28
+  %N = 28/80 × 100 = 35%
+
+Mass % of N in urea CO(NH₂)₂:
+  M = 12+16+2(14+2) = 60; 2N = 28; %N = 28/60 × 100 = 46.7%
+
+Mass % of P₂O₅ equivalent in Ca(H₂PO₄)₂:
+  Used to express P content as P₂O₅ by convention
+  2P atoms in Ca(H₂PO₄)₂; M = 40+4(1)+4(2×16+1) = 234
+  Actually: Ca(H₂PO₄)₂ = 40+2(2+31+64) = 40+194 = 234 g/mol</div></div>
+</section><section id="manufacture">
+  <div class="section-header"><span class="section-number">3.3</span><h2>Manufacture of Fertilisers</h2></div>
+  <div class="card"><h3>Haber Process — Ammonia (N source)</h3><div class="formula-block">N₂(g) + 3H₂(g) ⇌ 2NH₃(g)   ΔH° = −92.4 kJ/mol
+
+Conditions:
+  Temperature: 400–450°C (compromise — thermodynamics vs kinetics)
+  Pressure: 200 atm (high P favours product: 4 mol → 2 mol gas)
+  Catalyst: iron (Fe) with promoters Al₂O₃ and K₂O
+  Yield: ~15% per pass; unreacted gases recycled
+
+N₂ source: fractional distillation of liquid air
+H₂ source: steam reforming of natural gas: CH₄ + H₂O → CO + 3H₂</div></div><div class="card"><h3>Ostwald Process — Nitric Acid (for ammonium nitrate)</h3><div class="formula-block">Step 1: 4NH₃ + 5O₂ → 4NO + 6H₂O  (Pt/Rh catalyst, 900°C)
+Step 2: 2NO + O₂ → 2NO₂
+Step 3: 4NO₂ + O₂ + 2H₂O → 4HNO₃
+
+Manufacture of ammonium nitrate fertiliser:
+  NH₃ + HNO₃ → NH₄NO₃   (neutralisation; very exothermic)
+  NH₄NO₃ is granulated or prilled for sale</div></div><div class="card"><h3>Contact Process — Sulfuric Acid (for superphosphate)</h3><div class="formula-block">Step 1: S + O₂ → SO₂   (or 4FeS₂ + 11O₂ → 2Fe₂O₃ + 8SO₂)
+Step 2: 2SO₂ + O₂ → 2SO₃  (V₂O₅ catalyst, 450°C, 1–2 atm)
+Step 3: SO₃ + H₂SO₄ → H₂S₂O₇ (oleum)
+        H₂S₂O₇ + H₂O → 2H₂SO₄
+
+Superphosphate manufacture:
+  Ca₃(PO₄)₂ + 2H₂SO₄ → Ca(H₂PO₄)₂ + 2CaSO₄
+  (rock phosphate + sulfuric acid → single superphosphate)
+  Triple superphosphate: Ca₃(PO₄)₂ + 4H₃PO₄ → 3Ca(H₂PO₄)₂</div></div>
+</section><section id="advantages">
+  <div class="section-header"><span class="section-number">3.4</span><h2>Advantages and Disadvantages</h2></div>
+  <div class="tbl-wrap"><table><thead><tr><th>Feature</th><th>Inorganic fertilisers</th><th>Organic fertilisers</th></tr></thead><tbody><tr><td>Nutrient availability</td><td>Fast, direct uptake</td><td>Slow (microbial breakdown first)</td></tr><tr><td>Application accuracy</td><td>Precise NPK ratio</td><td>Variable composition</td></tr><tr><td>Cost</td><td>Lower cost per kg nutrient</td><td>Higher cost, labour-intensive</td></tr><tr><td>Soil structure</td><td>Does not improve soil structure</td><td>Improves soil water retention and aeration</td></tr><tr><td>Soil microbes</td><td>Can reduce microbial diversity (salt effect)</td><td>Feeds soil microbes, improves biodiversity</td></tr><tr><td>Leaching risk</td><td>High — nitrates very soluble</td><td>Lower — nutrients released slowly</td></tr><tr><td>Eutrophication risk</td><td>High (excess N, P run into water)</td><td>Moderate</td></tr><tr><td>Long-term sustainability</td><td>Depletes organic matter</td><td>Sustainable — returns organic matter</td></tr><tr><td>Energy</td><td>High energy to produce (Haber needs CH₄)</td><td>Low energy</td></tr></tbody></table></div><div class="card"><h3>Eutrophication</h3><p>Excess nitrates (NO₃⁻) and phosphates (PO₄³⁻) run off fields into rivers and lakes. This causes:</p><ol style="padding-left:20px;line-height:2.2;"><li>Algal bloom — rapid algae growth (algae use nutrients)</li><li>Algae die and decompose — aerobic bacteria use O₂</li><li>O₂ depleted (BOD increases) — fish and aquatic animals die</li><li>Anaerobic bacteria produce CH₄, H₂S — foul smell</li></ol><p>Prevention: slow-release fertilisers, buffer strips, constructed wetlands.</p></div>
+</section><section id="substandard">
+  <div class="section-header"><span class="section-number">3.5</span><h2>Dangers of Substandard Fertilisers</h2></div>
+  <div class="card"><h3>Risks</h3><ul style="padding-left:20px;line-height:2.2;"><li><b>Incorrect NPK ratio</b>: toxic salt burn to plants; nutrient imbalance inhibits crop growth</li><li><b>Heavy metal contamination</b>: cadmium (Cd), arsenic (As), lead (Pb) in low-grade phosphate rock accumulate in soil and food chain</li><li><b>Biuret contamination in urea</b>: formed when urea is overheated; toxic to plants — inhibits protein synthesis</li><li><b>Moisture content</b>: clumping, uneven spreading, reduced efficacy</li><li><b>Counterfeit fertilisers</b>: inert fillers sold as nutrient-containing products; farmers lose money, crops fail</li></ul></div>
+</section>
+<section id="exercises">
+  <div class="section-header"><span class="section-number">&#9999;&#65039;</span><h2>Exercises</h2></div>
+  <ul class="exercise-list"><li>Calculate the percentage by mass of nitrogen in: (a) NH₄NO₃ (b) urea CO(NH₂)₂ (c) (NH₄)₂SO₄. Which has the highest nitrogen content?
+    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">(a) M(NH₄NO₃)=80; N=28; %N=35%<br>(b) M(urea)=60; N=28; %N=46.7% (highest)<br>(c) M((NH₄)₂SO₄)=132; N=28; %N=21.2%</div></li><li>Write all steps of the Haber process and explain the choice of conditions (T, P, catalyst).
+    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">N₂+3H₂⇌2NH₃, ΔH°=−92.4 kJ/mol. T=400–450°C: lower T gives better yield but too slow; 450°C gives acceptable rate+yield compromise. P=200 atm: high P favours NH₃ (4 mol→2 mol gas); limited by equipment cost/safety. Catalyst=Fe+promoters: lowers Eₐ for acceptable rate at moderate T. Gases recycled to improve overall yield.</div></li><li>Describe eutrophication. Explain the role of fertilisers and how it can be prevented.
+    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">Excess N (NO₃⁻) and P (PO₄³⁻) from fertilisers run into water bodies. Algal bloom → algae die → bacteria decompose them aerobically → O₂ depleted → fish die. Prevention: buffer strips of vegetation near water, slow-release fertilisers, precision application (right rate+time), constructed wetlands to capture runoff.</div></li><li>Compare inorganic and organic fertilisers under the headings: cost, nutrient availability, effect on soil, and environmental impact.
+    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">Cost: inorganic cheaper per kg nutrient; organic more expensive. Availability: inorganic immediate; organic slow (depends on microbial action). Soil: inorganic no benefit to structure; organic improves structure, water retention, microbial diversity. Environment: inorganic higher leaching/eutrophication risk; organic lower but can still contribute if over-applied.</div></li><li>Write the equations for the Ostwald process and show how ammonium nitrate fertiliser is produced from the products.
+    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">4NH₃+5O₂→4NO+6H₂O (Pt/Rh, 900°C); 2NO+O₂→2NO₂; 4NO₂+O₂+2H₂O→4HNO₃.<br>NH₃+HNO₃→NH₄NO₃ (neutralisation; NH₃ from Haber process; HNO₃ from Ostwald process).</div></li><li>A bag of fertiliser is labelled 20-10-5 (N-P-K). What do these numbers mean, and what is the total mass of nutrients in a 50 kg bag?
+    <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+    <div class="answer">The numbers mean 20% N, 10% P (as P₂O₅ equivalent), 5% K (as K₂O equivalent) by mass.<br>Total nutrient mass = (20+10+5)% × 50 kg = 35% × 50 = 17.5 kg. The remaining 32.5 kg is filler, carrier, or other compounds.</div></li></ul>
+</section>
+<section id="quiz">
+  <div class="section-header"><span class="section-number">&#129504;</span><h2>Interactive Quiz</h2></div>
+  <div class="quiz-wrap">
+    <div class="quiz-header"><h3>Unit 3 Quiz &mdash; NPK & Fertilisers</h3><span style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);">25 Questions</span></div>
+    <div class="quiz-body"><div class="q-block"><span class="q-num">Q1</span>
+    <p class="q-text">The Haber process produces:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q1" value="a"> Nitric acid</label><label class="opt"><input type="radio" name="q1" value="b"> Ammonia</label><label class="opt"><input type="radio" name="q1" value="c"> Ammonium nitrate</label><label class="opt"><input type="radio" name="q1" value="d"> Urea</label></div>
+    <div class="q-exp" id="exp1">N₂ + 3H₂ ⇌ 2NH₃. The Haber process synthesises ammonia. This is then used as a raw material for other nitrogen-containing fertilisers (ammonium nitrate via Ostwald/neutralisation, urea, etc.).</div>
+    </div>
+<div class="q-block"><span class="q-num">Q2</span>
+    <p class="q-text">Which macronutrient is most responsible for leaf and shoot growth in plants?</p>
+    <div class="options"><label class="opt"><input type="radio" name="q2" value="a"> Phosphorus (P)</label><label class="opt"><input type="radio" name="q2" value="b"> Potassium (K)</label><label class="opt"><input type="radio" name="q2" value="c"> Nitrogen (N)</label><label class="opt"><input type="radio" name="q2" value="d"> Calcium (Ca)</label></div>
+    <div class="q-exp" id="exp2">Nitrogen is essential for proteins, chlorophyll (green pigment), and nucleic acids — all needed for rapid vegetative (leaf and shoot) growth. N deficiency causes chlorosis (yellowing of leaves).</div>
+    </div>
+<div class="q-block"><span class="q-num">Q3</span>
+    <p class="q-text">The catalyst used in the Haber process is:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q3" value="a"> V₂O₅</label><label class="opt"><input type="radio" name="q3" value="b"> Platinum</label><label class="opt"><input type="radio" name="q3" value="c"> Iron with promoters (Al₂O₃, K₂O)</label><label class="opt"><input type="radio" name="q3" value="d"> Nickel</label></div>
+    <div class="q-exp" id="exp3">Iron (Fe) with promoters Al₂O₃ (structural promoter) and K₂O (electronic promoter) is the catalyst. V₂O₅ is for the Contact process; Pt/Rh is for the Ostwald process; Ni is for alkene hydrogenation.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q4</span>
+    <p class="q-text">The Contact process manufactures:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q4" value="a"> Ammonia</label><label class="opt"><input type="radio" name="q4" value="b"> Nitric acid</label><label class="opt"><input type="radio" name="q4" value="c"> Sulfuric acid</label><label class="opt"><input type="radio" name="q4" value="d"> Phosphoric acid</label></div>
+    <div class="q-exp" id="exp4">The Contact process: S→SO₂→SO₃→H₂SO₄. H₂SO₄ is then used to make superphosphate fertiliser from rock phosphate. Step 2 (2SO₂+O₂→2SO₃) uses V₂O₅ catalyst at ~450°C.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q5</span>
+    <p class="q-text">Eutrophication of water bodies is caused by:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q5" value="a"> Acid rain from power stations</label><label class="opt"><input type="radio" name="q5" value="b"> Excess nitrates and phosphates running off fertilised fields</label><label class="opt"><input type="radio" name="q5" value="c"> Heavy metals from industrial discharge</label><label class="opt"><input type="radio" name="q5" value="d"> Depletion of dissolved CO₂</label></div>
+    <div class="q-exp" id="exp5">Excess NO₃⁻ and PO₄³⁻ from over-applied fertilisers enter rivers/lakes, causing algal blooms. When algae die and decompose, O₂ is consumed, causing death of fish and aquatic organisms.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q6</span>
+    <p class="q-text">The nitrogen content (%N) of urea CO(NH₂)₂ is:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q6" value="a"> 35%</label><label class="opt"><input type="radio" name="q6" value="b"> 21%</label><label class="opt"><input type="radio" name="q6" value="c"> 46.7%</label><label class="opt"><input type="radio" name="q6" value="d"> 33%</label></div>
+    <div class="q-exp" id="exp6">M(urea) = 12+16+2(14+2×1) = 60 g/mol; mass of 2N = 28. %N = 28/60 × 100 = 46.7%. Urea has the highest N% of common fertilisers.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q7</span>
+    <p class="q-text">Single superphosphate is made by reacting:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q7" value="a"> NH₃ with HNO₃</label><label class="opt"><input type="radio" name="q7" value="b"> Rock phosphate Ca₃(PO₄)₂ with H₂SO₄</label><label class="opt"><input type="radio" name="q7" value="c"> Potash KCl with H₃PO₄</label><label class="opt"><input type="radio" name="q7" value="d"> P₄ with H₂O</label></div>
+    <div class="q-exp" id="exp7">Ca₃(PO₄)₂ + 2H₂SO₄ → Ca(H₂PO₄)₂ + 2CaSO₄. Ca(H₂PO₄)₂ is soluble and available to plants. Triple superphosphate uses H₃PO₄ instead, giving higher P content without the CaSO₄ filler.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q8</span>
+    <p class="q-text">In the Ostwald process, the catalyst used in step 1 (oxidation of NH₃) is:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q8" value="a"> Fe</label><label class="opt"><input type="radio" name="q8" value="b"> V₂O₅</label><label class="opt"><input type="radio" name="q8" value="c"> Pt/Rh gauze</label><label class="opt"><input type="radio" name="q8" value="d"> Ni</label></div>
+    <div class="q-exp" id="exp8">4NH₃ + 5O₂ → 4NO + 6H₂O uses a Pt/Rh (platinum-rhodium) gauze catalyst at ~900°C. This is a short-contact-time reactor to prevent over-oxidation of NO. V₂O₅ is for the Contact process.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q9</span>
+    <p class="q-text">A fertiliser labelled 15-15-15 is called:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q9" value="a"> Single-nutrient fertiliser</label><label class="opt"><input type="radio" name="q9" value="b"> Balanced/complete NPK fertiliser</label><label class="opt"><input type="radio" name="q9" value="c"> Organic fertiliser</label><label class="opt"><input type="radio" name="q9" value="d"> Biofertiliser</label></div>
+    <div class="q-exp" id="exp9">15-15-15 means equal proportions of N:P:K — a balanced/complete fertiliser. It provides all three macronutrients in equal amounts, suitable for general application where soil analysis is not available.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q10</span>
+    <p class="q-text">The main advantage of organic fertilisers over inorganic fertilisers is:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q10" value="a"> Higher N content</label><label class="opt"><input type="radio" name="q10" value="b"> Faster nutrient release</label><label class="opt"><input type="radio" name="q10" value="c"> Improves soil structure and supports microbial life</label><label class="opt"><input type="radio" name="q10" value="d"> Cheaper to produce</label></div>
+    <div class="q-exp" id="exp10">Organic fertilisers (manure, compost) add humus to soil, improving structure (aeration, water retention) and feeding soil microbiota. This improves long-term soil health. Inorganic fertilisers are faster-acting but do not improve soil structure.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q11</span>
+    <p class="q-text">Biuret contamination in urea fertiliser is harmful because:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q11" value="a"> It contains heavy metals</label><label class="opt"><input type="radio" name="q11" value="b"> It inhibits seed germination and protein synthesis in plants</label><label class="opt"><input type="radio" name="q11" value="c"> It reacts with soil water to produce acid</label><label class="opt"><input type="radio" name="q11" value="d"> It increases soil pH excessively</label></div>
+    <div class="q-exp" id="exp11">Biuret [NH₂CONHCONH₂] is formed when urea is overheated during manufacture. It is absorbed by plant roots and inhibits enzymes involved in protein synthesis, causing leaf damage and reduced growth. Urea fertiliser must meet biuret content standards (<1.2%).</div>
+    </div>
+<div class="q-block"><span class="q-num">Q12</span>
+    <p class="q-text">The pressure used in the Haber process (200 atm) favours ammonia production because:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q12" value="a"> High pressure increases the reaction temperature</label><label class="opt"><input type="radio" name="q12" value="b"> The forward reaction reduces the number of moles of gas (4→2), so high pressure shifts equilibrium right</label><label class="opt"><input type="radio" name="q12" value="c"> High pressure activates the iron catalyst</label><label class="opt"><input type="radio" name="q12" value="d"> The reaction has a positive ΔS</label></div>
+    <div class="q-exp" id="exp12">N₂+3H₂→2NH₃: 4 moles of gas reactants → 2 moles of gas products. By Le Chatelier's principle, high pressure shifts equilibrium toward fewer moles of gas — favouring NH₃ formation.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q13</span>
+    <p class="q-text">Which process is used to convert N₂ into NH₃ industrially?</p>
+    <div class="options"><label class="opt"><input type="radio" name="q13" value="a"> Contact process</label><label class="opt"><input type="radio" name="q13" value="b"> Haber process</label><label class="opt"><input type="radio" name="q13" value="c"> Ostwald process</label><label class="opt"><input type="radio" name="q13" value="d"> Bayer process</label></div>
+    <div class="q-exp" id="exp13">The Haber process (Fritz Haber/Carl Bosch): N₂ + 3H₂ ⇌ 2NH₃. Fe catalyst, 400–450°C, 200 atm. NH₃ is the starting material for most N-fertilisers. The Contact, Ostwald, and Bayer processes produce H₂SO₄, HNO₃, and Al₂O₃ respectively.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q14</span>
+    <p class="q-text">Potassium deficiency in plants causes:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q14" value="a"> Yellowing of leaves (chlorosis)</label><label class="opt"><input type="radio" name="q14" value="b"> Purple discolouration and poor root growth</label><label class="opt"><input type="radio" name="q14" value="c"> Brown leaf edges, wilting, and reduced disease resistance</label><label class="opt"><input type="radio" name="q14" value="d"> Stunted stem growth</label></div>
+    <div class="q-exp" id="exp14">K deficiency: brown/scorched leaf margins, wilting (K controls stomata), reduced disease resistance. N deficiency: chlorosis (yellowing). P deficiency: purple leaves and poor roots. K is essential for enzyme activation, osmoregulation, and phloem loading.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q15</span>
+    <p class="q-text">The formula of ammonium nitrate is:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q15" value="a"> (NH₄)₂SO₄</label><label class="opt"><input type="radio" name="q15" value="b"> NH₄NO₃</label><label class="opt"><input type="radio" name="q15" value="c"> CO(NH₂)₂</label><label class="opt"><input type="radio" name="q15" value="d"> NH₄H₂PO₄</label></div>
+    <div class="q-exp" id="exp15">NH₄NO₃ — ammonium nitrate. (NH₄)₂SO₄ is ammonium sulfate; CO(NH₂)₂ is urea; NH₄H₂PO₄ is monoammonium phosphate (MAP). NH₄NO₃ has 35%N and is a common N fertiliser.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q16</span>
+    <p class="q-text">Rhizobium bacteria are used as biofertilisers because they:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q16" value="a"> Produce H₂SO₄ to acidify soil</label><label class="opt"><input type="radio" name="q16" value="b"> Fix atmospheric N₂ into NH₄⁺ in root nodules of legumes</label><label class="opt"><input type="radio" name="q16" value="c"> Decompose organic matter to release P</label><label class="opt"><input type="radio" name="q16" value="d"> Produce IAA to stimulate root growth</label></div>
+    <div class="q-exp" id="exp16">Rhizobium live symbiotically in root nodules of legumes (beans, peas, clover). They fix N₂ using nitrogenase enzyme: N₂ + 8H⁺ + 8e⁻ → 2NH₃ + H₂. The plant supplies carbohydrates; Rhizobium supplies fixed N. This reduces the need for synthetic N fertilisers.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q17</span>
+    <p class="q-text">Triple superphosphate has a higher P content than single superphosphate because:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q17" value="a"> It contains three different phosphate salts</label><label class="opt"><input type="radio" name="q17" value="b"> It is made with H₃PO₄ instead of H₂SO₄, giving Ca(H₂PO₄)₂ without the CaSO₄ filler</label><label class="opt"><input type="radio" name="q17" value="c"> It is produced at higher temperature</label><label class="opt"><input type="radio" name="q17" value="d"> It contains potassium as well as phosphorus</label></div>
+    <div class="q-exp" id="exp17">Single superphosphate: Ca₃(PO₄)₂ + 2H₂SO₄ → Ca(H₂PO₄)₂ + 2CaSO₄. ~18% P₂O₅.<br>Triple superphosphate: Ca₃(PO₄)₂ + 4H₃PO₄ → 3Ca(H₂PO₄)₂. No CaSO₄ filler → ~46% P₂O₅. Higher P content per kg.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q18</span>
+    <p class="q-text">The main environmental concern with the Haber process is:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q18" value="a"> Production of toxic SO₂ gas</label><label class="opt"><input type="radio" name="q18" value="b"> Large consumption of natural gas (CH₄) — a fossil fuel — for H₂ production and energy</label><label class="opt"><input type="radio" name="q18" value="c"> Release of Cl₂ gas</label><label class="opt"><input type="radio" name="q18" value="d"> Heavy metal contamination of soil</label></div>
+    <div class="q-exp" id="exp18">The Haber process requires H₂ (from steam reforming of CH₄: a fossil fuel) and is energy-intensive. It contributes ~1–2% of global CO₂ emissions. Green hydrogen (from electrolysis using renewable energy) could make it carbon-neutral. Green ammonia is an active area of research.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q19</span>
+    <p class="q-text">Why is ammonium nitrate (NH₄NO₃) considered hazardous?</p>
+    <div class="options"><label class="opt"><input type="radio" name="q19" value="a"> It produces toxic SO₂ gas on decomposition</label><label class="opt"><input type="radio" name="q19" value="b"> It is an oxidising agent that can decompose explosively if contaminated or heated strongly</label><label class="opt"><input type="radio" name="q19" value="c"> It is highly acidic and corrodes metals</label><label class="opt"><input type="radio" name="q19" value="d"> It is radioactive</label></div>
+    <div class="q-exp" id="exp19">NH₄NO₃ is a powerful oxidiser. Pure dry NH₄NO₄ at >200°C or contaminated NH₄NO₃ can decompose explosively: NH₄NO₃ → N₂O + 2H₂O, or in larger amounts → N₂ + O₂ + H₂O. Several major industrial accidents (Beirut 2020, Texas City 1947) involved NH₄NO₃.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q20</span>
+    <p class="q-text">What is the NPK grade of a fertiliser containing 46% N, 0% P, 0% K?</p>
+    <div class="options"><label class="opt"><input type="radio" name="q20" value="a"> 0-46-0</label><label class="opt"><input type="radio" name="q20" value="b"> 46-0-0</label><label class="opt"><input type="radio" name="q20" value="c"> 0-0-46</label><label class="opt"><input type="radio" name="q20" value="d"> 46-46-46</label></div>
+    <div class="q-exp" id="exp20">NPK is stated in order N-P-K. 46% N, 0% P, 0% K = <b>46-0-0</b>. This is consistent with urea (CO(NH₂)₂) which has ~46.7% N and no P or K. It is a straight N fertiliser.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q21</span>
+    <p class="q-text">Buffer strips near agricultural fields help reduce fertiliser runoff by:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q21" value="a"> Absorbing fertilisers through roots before they reach waterways</label><label class="opt"><input type="radio" name="q21" value="b"> Increasing the slope of the land</label><label class="opt"><input type="radio" name="q21" value="c"> Producing more N₂ from the soil</label><label class="opt"><input type="radio" name="q21" value="d"> Reducing rainfall</label></div>
+    <div class="q-exp" id="exp21">Buffer strips are bands of permanent vegetation (grasses, trees) between fields and water bodies. They trap sediment, absorb nutrients (NO₃⁻, PO₄³⁻) through plant uptake, and allow microbial denitrification, preventing these nutrients from reaching rivers and causing eutrophication.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q22</span>
+    <p class="q-text">Phosphorus deficiency in plants typically causes:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q22" value="a"> Yellow leaves</label><label class="opt"><input type="radio" name="q22" value="b"> Purple/red discolouration of leaves and poor root growth</label><label class="opt"><input type="radio" name="q22" value="c"> Brown leaf edges</label><label class="opt"><input type="radio" name="q22" value="d"> Wilting in hot weather</label></div>
+    <div class="q-exp" id="exp22">P is needed for ATP, DNA, phospholipids, and root development. P deficiency: dark green then reddish-purple leaves (anthocyanin accumulates), slow root growth, delayed maturity. The purple colouration distinguishes P deficiency from N deficiency (yellowing).</div>
+    </div>
+<div class="q-block"><span class="q-num">Q23</span>
+    <p class="q-text">In the equation Ca₃(PO₄)₂ + 2H₂SO₄ → Ca(H₂PO₄)₂ + 2CaSO₄, the Ca(H₂PO₄)₂ is beneficial because:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q23" value="a"> It is insoluble and stays in soil longer</label><label class="opt"><input type="radio" name="q23" value="b"> It is soluble in soil water and directly available for plant uptake</label><label class="opt"><input type="radio" name="q23" value="c"> It reacts with N in the soil to form proteins</label><label class="opt"><input type="radio" name="q23" value="d"> It neutralises soil acidity</label></div>
+    <div class="q-exp" id="exp23">Ca(H₂PO₄)₂ (calcium dihydrogen phosphate) is water-soluble, making P available to plant roots. Ca₃(PO₄)₂ (rock phosphate) is very insoluble and unavailable. The reaction with H₂SO₄ converts insoluble phosphate to a soluble, plant-available form.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q24</span>
+    <p class="q-text">Cadmium (Cd) contamination of soils from fertilisers comes mainly from:</p>
+    <div class="options"><label class="opt"><input type="radio" name="q24" value="a"> Ammonium nitrate</label><label class="opt"><input type="radio" name="q24" value="b"> Urea</label><label class="opt"><input type="radio" name="q24" value="c"> Phosphate rock containing trace Cd impurities</label><label class="opt"><input type="radio" name="q24" value="d"> Potassium chloride</label></div>
+    <div class="q-exp" id="exp24">Phosphate rock (used to make superphosphate) often contains trace cadmium (Cd) impurities. Repeated application can cause Cd to accumulate in soil and be taken up by crops, entering the food chain. This is why low-Cd phosphate rock sources and Cd limits in fertilisers are regulated.</div>
+    </div>
+<div class="q-block"><span class="q-num">Q25</span>
+    <p class="q-text">Which gas produced in the Ostwald process is also an air pollutant contributing to smog and acid rain?</p>
+    <div class="options"><label class="opt"><input type="radio" name="q25" value="a"> NH₃</label><label class="opt"><input type="radio" name="q25" value="b"> NO₂</label><label class="opt"><input type="radio" name="q25" value="c"> CO₂</label><label class="opt"><input type="radio" name="q25" value="d"> N₂</label></div>
+    <div class="q-exp" id="exp25">NO₂ (nitrogen dioxide) is produced in step 2: 2NO + O₂ → 2NO₂. In the atmosphere, NOₓ (NO + NO₂) contributes to smog formation and acid rain (4NO₂ + O₂ + 2H₂O → 4HNO₃). Industrial plants must minimise NOₓ emissions.</div>
+    </div></div>
+    <div style="padding:0 24px 24px;">
+      <button class="quiz-submit" onclick="submitQuiz()">Submit All 25 Answers</button>
+      <div id="quizResult" style="display:none;margin-top:16px;border-radius:var(--radius);padding:16px 20px;font-family:'JetBrains Mono',monospace;"></div>
+    </div>
+  </div>
+</section>
+<section id="test">
+  <div class="section-header"><span class="section-number">&#128221;</span><h2>Unit Test</h2></div>
+  <div class="callout info" style="background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.25);border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;">
+    <span style="font-size:1.3rem;">&#8505;&#65039;</span>
+    <div><strong style="display:block;margin-bottom:4px;color:#fff;">Instructions</strong>Total: 50 marks &nbsp;|&nbsp; Time: 55 minutes &nbsp;|&nbsp; Show all working and write equations where appropriate.</div>
+  </div>
+  <div class="test-section">
+  <div class="test-section-header"><h3>Section A — Short Answer</h3><span class="marks-badge">30 marks</span></div>
+  <div class="test-body"><div class="test-q">
+  <span class="test-q-num">Q1 [5 marks]</span>
+  <p>(a) Write equations for ALL steps of the Haber process from N₂ and CH₄ to NH₃. Include conditions for each step. [3] (b) Explain the choice of 400–450°C as the operating temperature. [2]</p>
+  <div style="margin-top:14px;"><button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+  <div class="answer">(a) Steam reforming of CH₄: CH₄ + H₂O → CO + 3H₂ (Ni catalyst, 800°C); water-gas shift: CO + H₂O → CO₂ + H₂; N₂ source: fractional distillation of liquid air.<br>Haber: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH° = −92.4 kJ/mol. Conditions: 400–450°C, 200 atm, Fe catalyst (with Al₂O₃ and K₂O promoters), unreacted gases recycled.<br>(b) Low T thermodynamically favours NH₃ (exothermic reaction, equilibrium shifts right as T decreases) but rate is too slow at very low T. High T gives faster rate but lower equilibrium yield. 400–450°C is the optimal compromise. With the catalyst, the rate is acceptable at this temperature.</div></div>
+</div><div class="test-q">
+  <span class="test-q-num">Q2 [5 marks]</span>
+  <p>Compare organic and inorganic fertilisers with respect to: (a) rate of nutrient release; (b) effect on soil structure; (c) risk of eutrophication; (d) energy requirements for production; (e) suitability for large-scale commercial farming. [5]</p>
+  <div style="margin-top:14px;"><button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+  <div class="answer">(a) Inorganic: immediately available (soluble salts); Organic: slow (microbial mineralisation needed).<br>(b) Inorganic: no improvement; Organic: improves water retention, aeration, microbial diversity.<br>(c) Inorganic: high risk (highly soluble NO₃⁻ leaches readily); Organic: lower risk (nutrients bound in organic matter).<br>(d) Inorganic: high (Haber needs CH₄, high pressure); Organic: low (animal/plant waste).<br>(e) Inorganic: more suitable (precise NPK, easy to apply, consistent quality); Organic: harder to scale, variable composition, high labour.</div></div>
+</div><div class="test-q">
+  <span class="test-q-num">Q3 [6 marks]</span>
+  <p>Calculate: (a) the %N in ammonium sulfate (NH₄)₂SO₄. [2] (b) the mass of ammonium nitrate needed to supply 50 kg of pure nitrogen. [2] (c) the %P₂O₅ equivalent in Ca(H₂PO₄)₂ (show working). [2] [Ar: N=14, H=1, S=32, O=16, Ca=40, P=31]</p>
+  <div style="margin-top:14px;"><button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+  <div class="answer">(a) M((NH₄)₂SO₄)=2(14+4)+32+64=132. 2N=28. %N=28/132×100=21.2%<br>(b) NH₄NO₃: M=80; %N=28/80=35%. Mass needed = 50/0.35 = 142.9 kg<br>(c) Ca(H₂PO₄)₂: M=40+2(2+31+64)=40+194=234. Contains 2P, which as P₂O₅ is equivalent to 1 mole P₂O₅=142 g. So P₂O₅ in 234g = 142g. %P₂O₅ = 142/234×100 = 60.7%</div></div>
+</div><div class="test-q">
+  <span class="test-q-num">Q4 [5 marks]</span>
+  <p>Describe the process of eutrophication, explaining (a) how it begins, (b) how it leads to depletion of dissolved oxygen, (c) the effect on aquatic life, and (d) two measures to prevent it. [5]</p>
+  <div style="margin-top:14px;"><button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+  <div class="answer">(a) Excess NO₃⁻ and PO₄³⁻ from fertiliser run-off enter still or slow-moving water bodies. These nutrients stimulate rapid growth of algae (algal bloom), which covers the water surface.<br>(b) Algae die (blocked from light below; nutrients used up) and are decomposed by aerobic bacteria. The huge amount of organic matter causes explosive bacterial growth, which rapidly consumes dissolved O₂ (biological oxygen demand, BOD, rises dramatically).<br>(c) Fish and other aquatic organisms suffocate as O₂ levels drop below survival threshold. Anaerobic bacteria then dominate, producing toxic CH₄ and H₂S, killing remaining organisms. Biodiversity collapses.<br>(d) Measures: (i) buffer strips of permanent vegetation along field margins absorb runoff; (ii) precision/slow-release fertilisers applied at correct rates and times to prevent excess; (iii) constructed wetlands to filter agricultural runoff.</div></div>
+</div><div class="test-q">
+  <span class="test-q-num">Q5 [4 marks]</span>
+  <p>State four dangers of using substandard or counterfeit fertilisers, and explain the consequences for farmers and the environment. [4]</p>
+  <div style="margin-top:14px;"><button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+  <div class="answer">1. Incorrect NPK ratio: crops receive wrong nutrients — excess N causes soft, disease-prone growth; insufficient P causes poor roots; all reduce yield.<br>2. Heavy metal contamination (Cd, As, Pb) from low-grade phosphate rock: accumulates in soil, absorbed by crops, enters human food chain — long-term health risks.<br>3. Biuret contamination in overheated urea: inhibits plant enzymes, causes leaf scorch, reduces yield.<br>4. Inert filler sold as fertiliser: farmers pay for nutrients they don't receive — direct financial loss; crops fail, food insecurity.</div></div>
+</div><div class="test-q">
+  <span class="test-q-num">Q6 [5 marks]</span>
+  <p>Write equations for all steps of the Ostwald process and show how the product is combined with ammonia to produce ammonium nitrate. State the conditions for step 1 and state the importance of Pt/Rh catalyst. [5]</p>
+  <div style="margin-top:14px;"><button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+  <div class="answer">Step 1: 4NH₃ + 5O₂ → 4NO + 6H₂O (Pt/Rh gauze, 900°C, 8 atm). Short contact time prevents re-oxidation of NO back to NO₂ on catalyst.<br>Step 2: 2NO + O₂ → 2NO₂ (no catalyst; cooling; gas phase).<br>Step 3: 4NO₂ + O₂ + 2H₂O → 4HNO₃ (absorption in water). Dilute HNO₃ (~60–68%) formed.<br>Fertiliser: NH₃(g) + HNO₃(aq) → NH₄NO₃(aq) (strong neutralisation); then evaporated, granulated/prilled. Pt/Rh catalyst: gives extremely high selectivity for NO formation (>95%); resists high temperature; can be recovered (expensive). Without catalyst, NH₃ would mainly be oxidised to N₂ (not NO).</div></div>
+</div></div>
+</div><div class="test-section">
+  <div class="test-section-header"><h3>Section B — Extended Response</h3><span class="marks-badge">20 marks</span></div>
+  <div class="test-body"><div class="test-q">
+  <span class="test-q-num">Q7 [10 marks]</span>
+  <p>Describe in detail the industrial manufacture of ammonia (Haber process) and nitric acid (Ostwald process). For each process, state: (i) the raw materials and their sources; (ii) the chemical equations and conditions; (iii) the catalyst used and its function; (iv) the economic and environmental significance. [10]</p>
+  <div style="margin-top:14px;"><button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+  <div class="answer">Haber process: Raw materials: N₂ (from fractional distillation of liquid air), H₂ (from steam reforming of natural gas: CH₄+H₂O→CO+3H₂; water-gas shift: CO+H₂O→CO₂+H₂).<br>Reaction: N₂+3H₂⇌2NH₃ ΔH°=−92.4 kJ/mol.<br>Conditions: 400–450°C, 200 atm, Fe catalyst+Al₂O₃+K₂O promoters; yield ~15% per pass; gases recycled.<br>Catalyst: Fe lowers activation energy; allows acceptable rate at moderate T; Al₂O₃ maintains Fe surface area (structural); K₂O increases electron density (electronic promoter).<br>Economics: basis of 80%+ of world nitrogen fertiliser production; cheap N source. Environment: ~1-2% global CO₂; uses fossil fuel CH₄; green H₂ alternative being developed.<br><br>Ostwald process: Raw material: NH₃ (from Haber process), air (O₂).<br>Step 1: 4NH₃+5O₂→4NO+6H₂O (Pt/Rh, 900°C). Step 2: 2NO+O₂→2NO₂. Step 3: 4NO₂+O₂+2H₂O→4HNO₃.<br>Catalyst: Pt/Rh gauze — high selectivity for NO, resists high T, recoverable.<br>Economics: HNO₃ used to make NH₄NO₃ fertiliser, explosives (TNT, nitroglycerin), nylon.<br>Environment: NOₓ releases can contribute to acid rain; modern plants use tail-gas treatment to reduce emissions.</div></div>
+</div><div class="test-q">
+  <span class="test-q-num">Q8 [10 marks]</span>
+  <p>(a) Explain the role of each of N, P, and K in plant growth, the symptoms of deficiency, and name one fertiliser source for each. [6] (b) Discuss the environmental impact of excessive fertiliser use, including eutrophication and the risks associated with nitrogen compounds entering water supplies. [4]</p>
+  <div style="margin-top:14px;"><button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+  <div class="answer">(a) N: component of amino acids, proteins, chlorophyll, nucleic acids — essential for vegetative growth (leaves, shoots). Deficiency: chlorosis (yellowing) starting from older leaves; stunted growth. Source: NH₄NO₃, urea, (NH₄)₂SO₄.<br>P: component of ATP (energy transfer), DNA, phospholipids (cell membranes) — critical for root development, flower/seed formation, energy metabolism. Deficiency: purple/red leaves (anthocyanin accumulation), poor root system, delayed maturity. Source: superphosphate Ca(H₂PO₄)₂, triple superphosphate, MAP.<br>K: enzyme activator (>60 enzymes), controls stomatal aperture (water loss regulation), phloem loading, disease resistance. Deficiency: brown leaf margins (scorch), wilting, reduced pest resistance. Source: KCl (muriate of potash), K₂SO₄, KNO₃.<br><br>(b) Eutrophication: NO₃⁻ and PO₄³⁻ run off into rivers/lakes → algal bloom → O₂ depletion → death of fish and aquatic biodiversity → anaerobic decomposition → H₂S and CH₄ → foul water. Economic damage to fishing, tourism, water supply.<br>Nitrate in drinking water: high NO₃⁻ (>50 mg/L, WHO limit) converted to NO₂⁻ in infant gut by bacteria → binds haemoglobin → methemoglobinaemia (blue baby syndrome). Adults: possible link to stomach cancer with chronic exposure. EU Nitrates Directive limits N application in vulnerable zones.<br>N₂O (nitrous oxide) from denitrification is a potent greenhouse gas (298× CO₂ over 100 years) and stratospheric ozone depleter.</div></div>
+</div></div>
+</div>
+</section>
+<div class="unit-nav">
+  <a class="nav-btn prev" href="unit2_extraction_metals.html">&larr; Unit 2: Extraction of Metals</a>
+  <a class="nav-btn next" href="unit4_benzene.html">Unit 4: Benzene &rarr;</a>
+</div>
+</main>
+<script>
+function toggleAnswer(btn){var a=btn.nextElementSibling;a.classList.toggle('open');btn.textContent=a.classList.contains('open')?'Hide Answer':'Show Answer';}
+var CA={"q1": "b", "q2": "c", "q3": "c", "q4": "c", "q5": "b", "q6": "c", "q7": "b", "q8": "c", "q9": "b", "q10": "c", "q11": "b", "q12": "b", "q13": "b", "q14": "c", "q15": "b", "q16": "b", "q17": "b", "q18": "b", "q19": "b", "q20": "b", "q21": "a", "q22": "b", "q23": "b", "q24": "c", "q25": "b"};
+function submitQuiz(){
+  var score=0,total=Object.keys(CA).length;
+  Object.entries(CA).forEach(function([q,c]){
+    var sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(function(o){if(o.value===c)o.parentElement.classList.add('correct');});
+    if(sel){if(sel.value===c)score++;else sel.parentElement.classList.add('wrong');}
+    var exp=document.getElementById('exp'+q.replace('q',''));
+    if(exp)exp.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(function(o){o.disabled=true;});
+  });
+  var pct=Math.round(score/total*100),res=document.getElementById('quizResult');
+  res.style.display='block';
+  res.style.background=pct>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  res.style.border='1px solid '+(pct>=70?'var(--green)':'var(--red)');
+  res.style.color=pct>=70?'var(--green)':'var(--red)';
+  res.innerHTML='Score: '+score+' / '+total+' ('+pct+'%) &mdash; '+(pct>=80?'Excellent! &#127881;':pct>=60?'Good effort &mdash; review marked questions.':'Keep studying &mdash; re-read notes and try again.');
+  document.querySelector('.quiz-submit').disabled=true;
+  document.querySelector('.quiz-submit').style.opacity='0.5';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S6 Chemistry – Unit 2: Extraction of Metals</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#34d399;--accent2:#f97316;--gold:#e8c547;--green:#34d399;--red:#f87171;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
+  *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+  .hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#001a0e 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(52,211,153,.04) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(52,211,153,.04) 40px);pointer-events:none;}
+  .badge{display:inline-block;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.3);color:var(--accent);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+  .hero h1 em{color:var(--accent);font-style:italic;}
+  .hero p.sub{color:var(--muted);font-size:1rem;max-width:640px;margin:0 auto 32px;}
+  .toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:860px;margin:0 auto;}
+  .toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+  .toc-grid a:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+  .page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+  .section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+  .section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+  .card p+p{margin-top:12px;}
+  .def-box{border-left:4px solid var(--accent);background:rgba(52,211,153,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+  .def-box strong{color:var(--accent);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+  .callout.info{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+  .callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+  .callout.tip{background:rgba(232,197,71,.08);border:1px solid rgba(232,197,71,.25);}
+  .callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+  .callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+  .tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:var(--surface2);}
+  th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);white-space:nowrap;}
+  td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  .formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--accent);overflow-x:auto;white-space:pre;}
+  .example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+  .example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+  .example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+  .example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+  .example-body{padding:22px 26px;}
+  .example-body .q{margin-bottom:14px;font-weight:600;}
+  .example-body .step{display:flex;gap:14px;margin:10px 0;}
+  .step-num{min-width:28px;height:28px;background:rgba(52,211,153,.15);border:1px solid rgba(52,211,153,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);flex-shrink:0;margin-top:3px;}
+  .step-text{flex:1;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .diagram-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:20px 0;overflow-x:auto;}
+  .diagram-wrap svg{display:block;margin:0 auto;}
+  .exercise-list{list-style:none;counter-reset:ex;}
+  .exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+  .exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);display:block;margin-bottom:6px;}
+  .reveal-btn{margin-top:10px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--accent);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+  .reveal-btn:hover{background:var(--accent);color:#000;}
+  .answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(52,211,153,.06);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .answer.open{display:block;}
+  .quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+  .quiz-header{background:rgba(52,211,153,.1);border-bottom:1px solid rgba(52,211,153,.2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .quiz-header h3{font-family:'Playfair Display',serif;color:var(--accent);font-size:1.2rem;}
+  .quiz-body{padding:24px;}
+  .q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+  .q-block:last-of-type{border-bottom:none;}
+  .q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+  .q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);display:block;margin-bottom:4px;}
+  .options{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+  .opt:hover{border-color:var(--accent);}
+  .opt input{margin-top:3px;accent-color:var(--accent);}
+  .opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+  .opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+  .q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(52,211,153,.07);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.88rem;}
+  .quiz-submit{background:var(--accent);color:#000;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;font-weight:700;transition:opacity .2s;}
+  .quiz-submit:hover{opacity:.85;}
+  .test-wrap{margin-top:40px;}
+  .test-header{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);border-radius:var(--radius);padding:20px 26px;margin-bottom:24px;}
+  .test-header h3{font-family:'Playfair Display',serif;color:var(--accent);font-size:1.3rem;margin-bottom:6px;}
+  .test-q{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px;margin-bottom:16px;}
+  .test-q .marks{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--gold);float:right;}
+  .test-q p{margin-top:10px;}
+  .test-ans{display:none;margin-top:14px;padding:14px 18px;background:rgba(52,211,153,.06);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .test-ans.open{display:block;}
+  .back-link{display:inline-flex;align-items:center;gap:8px;color:var(--accent);text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.82rem;margin:30px 0 0 28px;opacity:.8;transition:opacity .2s;}
+  .back-link:hover{opacity:1;}
+  @media(max-width:640px){.hero{padding:60px 20px 50px;}.page{padding:0 16px 60px;}}
+</style>
+</head>
+<body>
+
+<a href="s6-chemistry.html" class="back-link">&#8592; Back to S6 Course</a>
+
+<header class="hero">
+  <div class="badge">S6 Chemistry &bull; Unit 2</div>
+  <h1>Extraction of <em>Metals</em></h1>
+  <p class="sub">Principles of metallurgy, blast furnace, electrolytic processes, and extraction of Fe, Sn, Zn, Na, Al, W, and Ta — with industrial applications and safety.</p>
+  <nav class="toc-grid">
+    <a href="#s2-1">2.1 Principles</a>
+    <a href="#s2-2">2.2 Iron</a>
+    <a href="#s2-3">2.3 Tin</a>
+    <a href="#s2-4">2.4 Zinc</a>
+    <a href="#s2-5">2.5 Sodium</a>
+    <a href="#s2-6">2.6 Aluminium</a>
+    <a href="#s2-7">2.7 Tungsten</a>
+    <a href="#s2-8">2.8 Tantalum</a>
+    <a href="#s2-9">2.9 Dangers</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Test</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<!-- ===== 2.1 PRINCIPLES ===== -->
+<div id="s2-1" class="section-header">
+  <span class="section-number">2.1</span>
+  <h2>Principles of Metal Extraction</h2>
+</div>
+
+<div class="card">
+  <h3>What is Metallurgy?</h3>
+  <p>Metallurgy is the science and technology of obtaining metals from their ores and preparing them for use. Most metals occur in nature as compounds (ores) — oxides, sulphides, carbonates, or chlorides — because they have reacted with elements in the environment.</p>
+  <p>The choice of extraction method depends on the <strong>position of the metal in the reactivity series</strong>: the more reactive the metal, the harder it is to extract.</p>
+</div>
+
+<div class="def-box">
+  <strong>Definition — Ore</strong>
+  A naturally occurring mineral from which a metal can be extracted economically. Not all minerals containing a metal are ores — the concentration must be high enough to make extraction profitable.
+</div>
+
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Reactivity</th><th>Metal</th><th>Extraction Method</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Very high</td><td>K, Na, Ca, Mg, Al</td><td>Electrolysis of molten compound</td><td>Al from Al₂O₃</td></tr>
+      <tr><td>Medium</td><td>Zn, Fe, Sn, Pb</td><td>Reduction with carbon (coke)</td><td>Fe from Fe₂O₃</td></tr>
+      <tr><td>Low</td><td>Cu</td><td>Reduction or smelting</td><td>Cu from Cu₂S</td></tr>
+      <tr><td>Very low</td><td>Ag, Au, Pt</td><td>Found native; simple physical methods</td><td>Au panning</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h3>General Steps in Extraction</h3>
+  <p><strong>1. Mining:</strong> The ore is dug from the ground (open-cast or underground mining).</p>
+  <p><strong>2. Concentration (ore dressing):</strong> Removal of impurities (gangue). Methods include froth flotation, magnetic separation, and gravity separation.</p>
+  <p><strong>3. Reduction/Smelting:</strong> The metal compound is converted to the free metal by reduction (using carbon, CO, hydrogen, or electrolysis).</p>
+  <p><strong>4. Refining/Purification:</strong> The crude metal is purified — by electrolytic refining, zone refining, or distillation.</p>
+</div>
+
+<div class="callout info">
+  <span class="callout-icon">&#128161;</span>
+  <div class="callout-body">
+    <strong>Thermite Reduction</strong>
+    Some metals (Cr, Mn) are extracted by reduction with aluminium — the thermite reaction. Al is a stronger reducing agent than C at the temperatures involved: Cr₂O₃ + 2Al → Al₂O₃ + 2Cr. This reaction is highly exothermic.
+  </div>
+</div>
+
+<!-- ===== 2.2 IRON ===== -->
+<div id="s2-2" class="section-header">
+  <span class="section-number">2.2</span>
+  <h2>Extraction of Iron — The Blast Furnace</h2>
+</div>
+
+<div class="card">
+  <h3>Raw Materials</h3>
+  <p>The blast furnace uses three raw materials: <strong>haematite (Fe₂O₃)</strong> or magnetite (Fe₃O₄) as the ore, <strong>coke (C)</strong> as the reducing agent and fuel, and <strong>limestone (CaCO₃)</strong> to remove acidic impurities (silica, SiO₂).</p>
+</div>
+
+<div class="diagram-wrap">
+  <svg viewBox="0 0 420 340" width="420" height="340" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono',monospace" font-size="11">
+    <!-- Furnace body -->
+    <path d="M120,20 L300,20 L330,280 L90,280 Z" fill="#1c2333" stroke="#34d399" stroke-width="2"/>
+    <!-- Labels -->
+    <text x="210" y="15" fill="#8b949e" text-anchor="middle" font-size="10">Raw materials added here</text>
+    <text x="60" y="80" fill="#34d399" text-anchor="end">Zone 1</text>
+    <text x="60" y="95" fill="#8b949e" text-anchor="end" font-size="9">CO₂ + C → 2CO</text>
+    <text x="60" y="150" fill="#34d399" text-anchor="end">Zone 2</text>
+    <text x="60" y="165" fill="#8b949e" text-anchor="end" font-size="9">Fe₂O₃ + 3CO</text>
+    <text x="60" y="178" fill="#8b949e" text-anchor="end" font-size="9">→ 2Fe + 3CO₂</text>
+    <text x="60" y="230" fill="#34d399" text-anchor="end">Zone 3</text>
+    <text x="60" y="245" fill="#8b949e" text-anchor="end" font-size="9">CaCO₃ → CaO + CO₂</text>
+    <!-- Hot air blasts -->
+    <line x1="60" y1="270" x2="94" y2="270" stroke="#f97316" stroke-width="2" marker-end="url(#arr)"/>
+    <line x1="360" y1="270" x2="326" y2="270" stroke="#f97316" stroke-width="2" marker-end="url(#arr2)"/>
+    <text x="210" y="270" fill="#f97316" text-anchor="middle" font-size="9">Hot air (blast)</text>
+    <!-- Outputs -->
+    <rect x="80" y="285" width="90" height="28" rx="4" fill="#1c2333" stroke="#34d399"/>
+    <text x="125" y="302" fill="#34d399" text-anchor="middle" font-size="9">Molten iron</text>
+    <rect x="245" y="285" width="90" height="28" rx="4" fill="#1c2333" stroke="#8b949e"/>
+    <text x="290" y="302" fill="#8b949e" text-anchor="middle" font-size="9">Slag</text>
+    <!-- Waste gas -->
+    <text x="210" y="40" fill="#8b949e" text-anchor="middle" font-size="9">CO₂, CO waste gases ↑</text>
+    <defs>
+      <marker id="arr" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#f97316"/></marker>
+      <marker id="arr2" markerWidth="6" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6" fill="#f97316"/></marker>
+    </defs>
+  </svg>
+</div>
+
+<div class="card">
+  <h3>Reactions in the Blast Furnace</h3>
+  <div class="formula-block">Zone 1 — Combustion (bottom, ~2000°C):
+C(s) + O₂(g) → CO₂(g)     ΔH = −394 kJ/mol
+
+Zone 1 — CO formation:
+CO₂(g) + C(s) → 2CO(g)    ΔH = +173 kJ/mol
+
+Zone 2 — Reduction of iron ore (~900°C):
+Fe₂O₃(s) + 3CO(g) → 2Fe(l) + 3CO₂(g)
+Fe₃O₄(s) + 4CO(g) → 3Fe(l) + 4CO₂(g)
+
+Zone 3 — Limestone decomposition (~800°C):
+CaCO₃(s) → CaO(s) + CO₂(g)
+
+Zone 3 — Slag formation:
+CaO(s) + SiO₂(s) → CaSiO₃(l)    [slag]</div>
+</div>
+
+<div class="callout tip">
+  <span class="callout-icon">&#128204;</span>
+  <div class="callout-body">
+    <strong>Why limestone?</strong>
+    Sand (SiO₂) is an acidic impurity in the ore. Limestone provides CaO (a base) to react with SiO₂ to form calcium silicate (CaSiO₃) — the slag. Slag is less dense than iron so it floats on top and is tapped off separately.
+  </div>
+</div>
+
+<div class="card">
+  <h3>Products and Uses</h3>
+  <p><strong>Pig iron (cast iron):</strong> The direct product of the blast furnace — contains about 4% carbon plus other impurities. It is brittle and used directly for decorative castings or further processed.</p>
+  <p><strong>Steel:</strong> Pig iron is converted to steel by reducing the carbon content (to 0.1–1.5%) in a basic oxygen furnace (BOF) or electric arc furnace (EAF). Steel is stronger, more malleable, and widely used in construction, vehicles, and tools.</p>
+  <p><strong>Slag:</strong> Used as a building material and in road construction.</p>
+</div>
+
+<div class="example-box">
+  <div class="example-header"><span class="tag">Worked Example 2.1</span><h4>Blast Furnace Mass Calculation</h4></div>
+  <div class="example-body">
+    <p class="q">Calculate the mass of iron produced when 1600 kg of Fe₂O₃ reacts completely with CO. (M<sub>r</sub>: Fe = 56, O = 16)</p>
+    <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Write the balanced equation:</strong><br>Fe₂O₃ + 3CO → 2Fe + 3CO₂</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text"><strong>Molar mass of Fe₂O₃:</strong><br>M(Fe₂O₃) = 2(56) + 3(16) = 112 + 48 = 160 g/mol</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text"><strong>Moles of Fe₂O₃:</strong><br>n = 1,600,000 g ÷ 160 g/mol = 10,000 mol</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text"><strong>Moles of Fe (ratio 1:2):</strong><br>n(Fe) = 2 × 10,000 = 20,000 mol</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-text"><strong>Mass of Fe:</strong><br>m = 20,000 × 56 = 1,120,000 g = <strong>1120 kg</strong></div></div>
+  </div>
+</div>
+
+<!-- ===== 2.3 TIN ===== -->
+<div id="s2-3" class="section-header">
+  <span class="section-number">2.3</span>
+  <h2>Extraction of Tin</h2>
+</div>
+
+<div class="card">
+  <h3>Ore and Process</h3>
+  <p>Tin is extracted from <strong>cassiterite (SnO₂)</strong>, the main ore. The process involves:</p>
+  <p><strong>1. Concentration:</strong> The crushed ore is concentrated by gravity separation (shaking tables) because SnO₂ is denser than gangue minerals.</p>
+  <p><strong>2. Roasting:</strong> If sulphide impurities are present, the ore is roasted to convert them to oxides.</p>
+  <p><strong>3. Reduction with coke:</strong> SnO₂ is reduced by carbon in a reverberatory furnace at ~1300°C:</p>
+  <div class="formula-block">SnO₂(s) + 2C(s) → Sn(l) + 2CO(g)</div>
+  <p><strong>4. Refining:</strong> Molten tin is heated gently on a sloping hearth — tin melts and runs down (liquation), leaving higher-melting impurities behind. Further electrolytic refining gives high-purity tin.</p>
+</div>
+
+<div class="callout info">
+  <span class="callout-icon">&#9432;</span>
+  <div class="callout-body">
+    <strong>Uses of Tin</strong>
+    Tin is used for tin-plating steel (tin cans for food), making bronze (Cu-Sn alloy), solder (Sn-Pb or Sn-Ag-Cu), and pewter. Rwanda and neighbouring DRC are among the world's leading producers of cassiterite.
+  </div>
+</div>
+
+<!-- ===== 2.4 ZINC ===== -->
+<div id="s2-4" class="section-header">
+  <span class="section-number">2.4</span>
+  <h2>Extraction of Zinc</h2>
+</div>
+
+<div class="card">
+  <h3>Ore and Process</h3>
+  <p>The main ore is <strong>sphalerite (ZnS)</strong>, also called zinc blende. Extraction steps:</p>
+  <p><strong>1. Froth flotation:</strong> The crushed ore is mixed with water, pine oil, and air. ZnS particles attach to bubbles and float to the surface while gangue sinks.</p>
+  <p><strong>2. Roasting (in excess air):</strong> ZnS is converted to ZnO:</p>
+  <div class="formula-block">2ZnS(s) + 3O₂(g) → 2ZnO(s) + 2SO₂(g)</div>
+  <p><strong>3. Reduction with coke:</strong> ZnO is reduced by carbon in a retort at ~1200°C. Because Zn boils at 907°C, it distils as a vapour and is condensed:</p>
+  <div class="formula-block">ZnO(s) + C(s) → Zn(g) + CO(g)</div>
+  <p><strong>4. Electrolytic refining:</strong> For high-purity zinc, the crude metal is dissolved in H₂SO₄ and electrolytically deposited on aluminium cathodes.</p>
+</div>
+
+<div class="callout tip">
+  <span class="callout-icon">&#128204;</span>
+  <div class="callout-body">
+    <strong>Uses of Zinc</strong>
+    Galvanising steel (protecting against corrosion), die-casting alloys, brass (Cu-Zn), and zinc-carbon batteries. SO₂ produced during roasting is used to make sulphuric acid (contact process).
+  </div>
+</div>
+
+<div class="example-box">
+  <div class="example-header"><span class="tag">Worked Example 2.2</span><h4>Zinc from Roasting ZnS</h4></div>
+  <div class="example-body">
+    <p class="q">If 9.7 g of ZnS is roasted completely, what mass of ZnO is produced? (M<sub>r</sub>: Zn = 65, S = 32, O = 16)</p>
+    <div class="step"><div class="step-num">1</div><div class="step-text"><strong>Equation:</strong> 2ZnS + 3O₂ → 2ZnO + 2SO₂</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">M(ZnS) = 65 + 32 = 97 g/mol; n(ZnS) = 9.7 ÷ 97 = 0.1 mol</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Ratio ZnS:ZnO = 2:2 = 1:1, so n(ZnO) = 0.1 mol</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">M(ZnO) = 65 + 16 = 81 g/mol; m(ZnO) = 0.1 × 81 = <strong>8.1 g</strong></div></div>
+  </div>
+</div>
+
+<!-- ===== 2.5 SODIUM ===== -->
+<div id="s2-5" class="section-header">
+  <span class="section-number">2.5</span>
+  <h2>Extraction of Sodium — The Downs Cell</h2>
+</div>
+
+<div class="card">
+  <h3>Why Electrolysis?</h3>
+  <p>Sodium is too reactive to be extracted by chemical reduction — carbon cannot reduce sodium compounds. Electrolysis of <strong>molten sodium chloride (NaCl)</strong> is used in the Downs cell.</p>
+  <p>Water is NOT used because sodium reacts violently with water. CaCl₂ is added to lower the melting point of NaCl from 801°C to about 600°C, saving energy.</p>
+</div>
+
+<div class="card">
+  <h3>Downs Cell — Electrode Reactions</h3>
+  <div class="formula-block">Cathode (−): Na⁺(l) + e⁻ → Na(l)         [reduction]
+Anode  (+): 2Cl⁻(l) → Cl₂(g) + 2e⁻      [oxidation]
+
+Overall:  2NaCl(l) → 2Na(l) + Cl₂(g)</div>
+  <p>A cylindrical iron cathode surrounds a central graphite anode. A steel gauze diaphragm separates the products — liquid sodium (less dense) rises to a collector ring, while Cl₂ gas exits from a dome above the anode.</p>
+</div>
+
+<div class="callout warn">
+  <span class="callout-icon">⚠️</span>
+  <div class="callout-body">
+    <strong>Why keep products separate?</strong>
+    If Na and Cl₂ were allowed to mix they would recombine violently: 2Na + Cl₂ → 2NaCl. The steel gauze diaphragm is essential for safety and efficiency.
+  </div>
+</div>
+
+<div class="card">
+  <h3>Uses of Sodium and Chlorine</h3>
+  <p><strong>Sodium:</strong> Production of sodium peroxide, tetraethyl lead (anti-knock agent), sodamide (NaNH₂), heat exchange fluid in nuclear reactors, and sodium vapour lamps.</p>
+  <p><strong>Chlorine:</strong> Manufacture of PVC (polyvinyl chloride), pesticides, bleach (NaOCl), hydrochloric acid, and water treatment.</p>
+</div>
+
+<!-- ===== 2.6 ALUMINIUM ===== -->
+<div id="s2-6" class="section-header">
+  <span class="section-number">2.6</span>
+  <h2>Extraction of Aluminium — Hall-Héroult Process</h2>
+</div>
+
+<div class="card">
+  <h3>Ore and Purification (Bayer Process)</h3>
+  <p>Aluminium is the most abundant metal in the Earth's crust. It is extracted from <strong>bauxite (Al₂O₃·2H₂O)</strong>.</p>
+  <p><strong>Bayer Process</strong> — purification of bauxite:</p>
+  <p>1. Bauxite is dissolved in hot concentrated NaOH: Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O. Iron oxide impurities do not dissolve and are filtered off as "red mud".</p>
+  <p>2. The solution is diluted and seeded with Al(OH)₃ crystals — aluminium hydroxide precipitates: NaAlO₂ + 2H₂O → Al(OH)₃ + NaOH</p>
+  <p>3. Al(OH)₃ is filtered and calcined (heated strongly) to give pure Al₂O₃ (alumina): 2Al(OH)₃ → Al₂O₃ + 3H₂O</p>
+</div>
+
+<div class="card">
+  <h3>Hall-Héroult Electrolysis</h3>
+  <p>Pure Al₂O₃ (m.p. 2072°C) is dissolved in molten cryolite (Na₃AlF₆) which reduces the operating temperature to ~950°C. Calcium fluoride (CaF₂) is added to lower the melting point further.</p>
+  <div class="formula-block">Cathode (−): Al³⁺ + 3e⁻ → Al(l)            [reduction]
+Anode  (+): 2O²⁻ → O₂(g) + 4e⁻            [oxidation]
+
+Overall:  2Al₂O₃(l) → 4Al(l) + 3O₂(g)</div>
+  <p>The carbon anode is <strong>consumed</strong> by the hot O₂ produced (C + O₂ → CO₂), requiring regular replacement. Molten aluminium (denser than cryolite) sinks to the bottom of the cell and is tapped off.</p>
+</div>
+
+<div class="callout warn">
+  <span class="callout-icon">⚡</span>
+  <div class="callout-body">
+    <strong>Energy Consumption</strong>
+    The Hall-Héroult process uses about 15 kWh of electricity per kg of Al produced — very energy-intensive. This is why aluminium smelters are located near cheap hydroelectric power. Recycling Al uses only 5% of this energy.
+  </div>
+</div>
+
+<div class="example-box">
+  <div class="example-header"><span class="tag">Worked Example 2.3</span><h4>Electrolytic Deposition of Aluminium</h4></div>
+  <div class="example-body">
+    <p class="q">A current of 5000 A is passed through a Hall-Héroult cell for 2 hours. Calculate the mass of aluminium deposited. (M<sub>r</sub>: Al = 27; F = 96500 C/mol)</p>
+    <div class="step"><div class="step-num">1</div><div class="step-text">Charge Q = I × t = 5000 A × (2 × 3600 s) = 36,000,000 C = 3.6 × 10⁷ C</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Al³⁺ + 3e⁻ → Al; 3 mol electrons deposit 1 mol Al</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Moles of electrons = Q ÷ F = 3.6 × 10⁷ ÷ 96500 = 373.1 mol e⁻</div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-text">Moles of Al = 373.1 ÷ 3 = 124.4 mol</div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-text">Mass of Al = 124.4 × 27 = <strong>3358 g ≈ 3.36 kg</strong></div></div>
+  </div>
+</div>
+
+<!-- ===== 2.7 TUNGSTEN ===== -->
+<div id="s2-7" class="section-header">
+  <span class="section-number">2.7</span>
+  <h2>Extraction of Tungsten</h2>
+</div>
+
+<div class="card">
+  <h3>Ore and Process</h3>
+  <p>Tungsten is extracted mainly from <strong>wolframite [(Fe,Mn)WO₄]</strong> and <strong>scheelite (CaWO₄)</strong>. It has the highest melting point of all metals (3422°C), making conventional smelting impossible.</p>
+  <p><strong>1. Ore treatment:</strong> The ore is fused with NaOH to form sodium tungstate: (Fe,Mn)WO₄ + 2NaOH → Na₂WO₄ + Fe(OH)₂ + Mn(OH)₂</p>
+  <p><strong>2. Acidification:</strong> The solution is acidified to precipitate tungstic acid: Na₂WO₄ + 2HCl → H₂WO₄ + 2NaCl</p>
+  <p><strong>3. Calcination:</strong> Tungstic acid is heated to give WO₃: H₂WO₄ → WO₃ + H₂O</p>
+  <p><strong>4. Hydrogen reduction:</strong> WO₃ is reduced by hydrogen gas at ~700–850°C:</p>
+  <div class="formula-block">WO₃(s) + 3H₂(g) → W(s) + 3H₂O(g)</div>
+  <p><strong>5. Powder metallurgy:</strong> Tungsten powder is pressed into shapes and sintered (heated under pressure) at high temperature to produce solid tungsten parts.</p>
+</div>
+
+<div class="callout info">
+  <span class="callout-icon">&#128161;</span>
+  <div class="callout-body">
+    <strong>Uses of Tungsten</strong>
+    Tungsten's exceptionally high melting point makes it ideal for light bulb filaments, X-ray tube targets, cutting tools (WC — tungsten carbide), rocket nozzles, and armour-piercing shells.
+  </div>
+</div>
+
+<!-- ===== 2.8 TANTALUM ===== -->
+<div id="s2-8" class="section-header">
+  <span class="section-number">2.8</span>
+  <h2>Extraction of Tantalum</h2>
+</div>
+
+<div class="card">
+  <h3>Ore and Global Significance</h3>
+  <p>Tantalum is extracted from <strong>coltan (columbite-tantalite, (Fe,Mn)(Nb,Ta)₂O₆)</strong>. The DRC and Rwanda together produce over 60% of the world's coltan. Tantalum is a critical element in modern electronics.</p>
+</div>
+
+<div class="card">
+  <h3>Extraction Process</h3>
+  <p><strong>1. Ore concentration:</strong> Coltan is concentrated by gravity separation (similar to tin extraction) using shaking tables and sluices.</p>
+  <p><strong>2. Digestion with HF/H₂SO₄:</strong> The concentrated ore is dissolved in a mixture of hydrofluoric acid and sulphuric acid to form fluorotantalate and fluoroniobate complexes:</p>
+  <div class="formula-block">Ta₂O₅ + 14HF → 2H₂TaF₇ + 5H₂O</div>
+  <p><strong>3. Solvent extraction:</strong> Tantalum (H₂TaF₇) is separated from niobium (H₂NbF₇) by selective extraction into methyl isobutyl ketone (MIBK). Niobium is more soluble in the aqueous phase at higher HF concentrations.</p>
+  <p><strong>4. Precipitation and calcination:</strong> Ammonia is added to the organic phase: H₂TaF₇ + 5NH₄OH → Ta(OH)₅ + 5NH₄F + H₂O. The hydroxide is calcined to Ta₂O₅.</p>
+  <p><strong>5. Reduction with sodium:</strong> Ta₂O₅ is reduced by sodium metal (sodium reduction / metallothermic reduction):</p>
+  <div class="formula-block">Ta₂O₅ + 10Na → 2Ta + 5Na₂O</div>
+  <p>Alternatively, K₂TaF₇ can be reduced by sodium in a molten salt bath (SodiumReduction / MSE process).</p>
+  <p><strong>6. Electron beam melting:</strong> The tantalum powder is melted and refined using an electron beam furnace to produce high-purity ingots.</p>
+</div>
+
+<div class="callout info">
+  <span class="callout-icon">&#128247;</span>
+  <div class="callout-body">
+    <strong>Uses of Tantalum</strong>
+    About 60% of tantalum goes into capacitors used in mobile phones, laptops, and medical devices. It is also used in surgical implants (biocompatible), jet engine components, and chemical equipment (resistant to most acids).
+  </div>
+</div>
+
+<!-- ===== 2.9 DANGERS ===== -->
+<div id="s2-9" class="section-header">
+  <span class="section-number">2.9</span>
+  <h2>Dangers of Metal Extraction &amp; Prevention</h2>
+</div>
+
+<div class="tbl-wrap">
+  <table>
+    <thead><tr><th>Metal/Process</th><th>Hazard</th><th>Prevention</th></tr></thead>
+    <tbody>
+      <tr><td>Blast furnace (Fe)</td><td>CO gas (odourless, toxic); molten metal burns; slag explosions</td><td>CO detectors; protective clothing; dry slag handling</td></tr>
+      <tr><td>Downs cell (Na)</td><td>Molten Na reacts violently with water; Cl₂ gas (toxic)</td><td>Keep cell dry; Cl₂ extraction hoods; gas masks</td></tr>
+      <tr><td>Hall-Héroult (Al)</td><td>Fluoride fumes from cryolite (respiratory damage); electrical hazards</td><td>Fume extraction; insulated equipment; PPE</td></tr>
+      <tr><td>Roasting (Zn, Sn)</td><td>SO₂ gas (causes acid rain; toxic); high temperatures</td><td>SO₂ scrubbers; recover SO₂ for H₂SO₄ manufacture</td></tr>
+      <tr><td>Coltan mining (Ta)</td><td>Radiation (coltan is mildly radioactive); lung disease from dust; unsafe mining practices</td><td>Radiation monitoring; dust masks; regulation of artisanal mining</td></tr>
+      <tr><td>Tungsten processing</td><td>H₂ gas (flammable, explosive); HF (corrosive)</td><td>No ignition sources; HF-resistant gloves and face shields; fume cupboards</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h3>Environmental Impact</h3>
+  <p><strong>Air pollution:</strong> SO₂ from roasting causes acid rain. CO₂ from coke combustion contributes to climate change.</p>
+  <p><strong>Water pollution:</strong> Acid mine drainage (AMD) — water reacts with exposed sulphide ores, producing sulphuric acid that contaminates rivers and groundwater.</p>
+  <p><strong>Land degradation:</strong> Open-cast mining destroys habitats. Tailings ponds (containing toxic chemical waste) can leak.</p>
+  <p><strong>Mitigation:</strong> Recycling metals (especially Al) dramatically reduces energy use and emissions. SO₂ recovery for H₂SO₄ production turns a pollutant into profit. Land reclamation and rehabilitation programmes restore mined areas.</p>
+</div>
+
+<!-- ===== EXERCISES ===== -->
+<div id="exercises" class="section-header">
+  <span class="section-number">Ex</span>
+  <h2>Exercises</h2>
+</div>
+
+<ul class="exercise-list">
+  <li>
+    State the three raw materials added to a blast furnace and give the role of each.
+    <button class="reveal-btn" onclick="toggleAns(this)">Show Answer</button>
+    <div class="answer">
+      <strong>Haematite (Fe₂O₃)</strong> — the iron ore (source of iron). <strong>Coke (C)</strong> — fuel (burns to provide heat) and reducing agent (produces CO which reduces iron oxide). <strong>Limestone (CaCO₃)</strong> — decomposes to CaO which reacts with silica impurities to form slag (CaSiO₃).
+    </div>
+  </li>
+  <li>
+    Write equations for: (a) roasting of ZnS, and (b) reduction of ZnO with carbon.
+    <button class="reveal-btn" onclick="toggleAns(this)">Show Answer</button>
+    <div class="answer">
+      (a) 2ZnS(s) + 3O₂(g) → 2ZnO(s) + 2SO₂(g)<br>
+      (b) ZnO(s) + C(s) → Zn(g) + CO(g)
+    </div>
+  </li>
+  <li>
+    Explain why CaCl₂ is added to NaCl in the Downs cell, and why the products must be kept separate.
+    <button class="reveal-btn" onclick="toggleAns(this)">Show Answer</button>
+    <div class="answer">
+      CaCl₂ lowers the melting point of NaCl from 801°C to ~600°C, reducing energy costs. The products must be kept separate because sodium metal reacts vigorously with chlorine gas to re-form NaCl, wasting the products and causing a dangerous exothermic reaction.
+    </div>
+  </li>
+  <li>
+    A current of 2000 A is passed through a Hall-Héroult cell for 3 hours. Calculate the mass of Al deposited. (F = 96500 C/mol, M<sub>r</sub>(Al) = 27)
+    <button class="reveal-btn" onclick="toggleAns(this)">Show Answer</button>
+    <div class="answer">
+      Q = 2000 × (3 × 3600) = 21,600,000 C<br>
+      mol e⁻ = 21,600,000 ÷ 96500 = 223.8 mol<br>
+      Al³⁺ + 3e⁻ → Al, so mol Al = 223.8 ÷ 3 = 74.6 mol<br>
+      Mass = 74.6 × 27 = <strong>2014 g ≈ 2.01 kg</strong>
+    </div>
+  </li>
+  <li>
+    Explain why carbon cannot be used to extract sodium, but can be used to extract iron. What method is used for sodium instead?
+    <button class="reveal-btn" onclick="toggleAns(this)">Show Answer</button>
+    <div class="answer">
+      Sodium is above carbon in the reactivity series — it is more reactive than carbon, so carbon cannot displace sodium from its compounds. Iron is below carbon in the reactivity series, so carbon (as coke/CO) can reduce iron oxides. Sodium is extracted by electrolysis of molten NaCl in the Downs cell.
+    </div>
+  </li>
+  <li>
+    Describe the role of cryolite (Na₃AlF₆) in the Hall-Héroult process and explain why the carbon anodes must be replaced regularly.
+    <button class="reveal-btn" onclick="toggleAns(this)">Show Answer</button>
+    <div class="answer">
+      Cryolite acts as a solvent for Al₂O₃, lowering the operating temperature from 2072°C to ~950°C, which saves energy and makes the process economically feasible. The carbon anodes must be replaced regularly because the O₂ produced at the anode reacts with the hot carbon: C + O₂ → CO₂, gradually burning the anodes away.
+    </div>
+  </li>
+</ul>
+
+<!-- ===== QUIZ ===== -->
+<div id="quiz" class="section-header">
+  <span class="section-number">Quiz</span>
+  <h2>25-Question Multiple Choice Quiz</h2>
+</div>
+
+<div class="quiz-wrap">
+  <div class="quiz-header">
+    <h3>Unit 2 — Extraction of Metals</h3>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);">25 Questions</span>
+  </div>
+  <div class="quiz-body" id="quizBody"></div>
+  <div style="padding:0 24px 24px;">
+    <button class="quiz-submit" onclick="submitQuiz()">Submit Quiz</button>
+    <div id="quizResult" style="margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:1rem;"></div>
+  </div>
+</div>
+
+<!-- ===== TEST ===== -->
+<div id="test" class="section-header">
+  <span class="section-number">Test</span>
+  <h2>50-Mark Unit Test</h2>
+</div>
+
+<div class="test-wrap">
+  <div class="test-header">
+    <h3>Unit 2 Test — Extraction of Metals</h3>
+    <p style="color:var(--muted);font-size:.9rem;">Total: 50 marks &bull; Answer all questions &bull; Show all working for calculation questions</p>
+  </div>
+
+  <div class="test-q">
+    <span class="marks">[6 marks]</span>
+    <strong>Question 1</strong>
+    <p>(a) Name the main ore of iron and give its chemical formula. [2]</p>
+    <p>(b) Write the equation for the formation of slag in the blast furnace. [2]</p>
+    <p>(c) State one use of slag. [1]</p>
+    <p>(d) Name one other product of the blast furnace and give one use. [1]</p>
+    <button class="reveal-btn" onclick="toggleTest(this)">Show Model Answer</button>
+    <div class="test-ans">
+      (a) Haematite, Fe₂O₃ [2]<br>
+      (b) CaO(s) + SiO₂(s) → CaSiO₃(l) [2]<br>
+      (c) Road building / cement / aggregate [1]<br>
+      (d) Pig iron — used in construction / converted to steel [1]
+    </div>
+  </div>
+
+  <div class="test-q">
+    <span class="marks">[8 marks]</span>
+    <strong>Question 2</strong>
+    <p>Write equations for the four main reactions that occur in the blast furnace, indicating approximate temperatures. [8]</p>
+    <button class="reveal-btn" onclick="toggleTest(this)">Show Model Answer</button>
+    <div class="test-ans">
+      1. C + O₂ → CO₂ (~2000°C) [2]<br>
+      2. CO₂ + C → 2CO (~1500°C) [2]<br>
+      3. Fe₂O₃ + 3CO → 2Fe + 3CO₂ (~900°C) [2]<br>
+      4. CaCO₃ → CaO + CO₂ (~800°C) [1] and CaO + SiO₂ → CaSiO₃ [1]
+    </div>
+  </div>
+
+  <div class="test-q">
+    <span class="marks">[8 marks]</span>
+    <strong>Question 3</strong>
+    <p>(a) Draw a labelled diagram of the Downs cell used to extract sodium. [4]</p>
+    <p>(b) Write electrode equations for both the cathode and anode reactions. [2]</p>
+    <p>(c) Why is CaCl₂ added to the NaCl electrolyte? [1]</p>
+    <p>(d) Why must the products be kept separate? [1]</p>
+    <button class="reveal-btn" onclick="toggleTest(this)">Show Model Answer</button>
+    <div class="test-ans">
+      (a) Diagram showing: cylindrical iron cathode surrounding a graphite anode, steel gauze diaphragm between them, outlet for Na(l) at top of cathode, outlet for Cl₂(g) above anode dome, molten NaCl/CaCl₂ electrolyte. [4]<br>
+      (b) Cathode: Na⁺ + e⁻ → Na(l); Anode: 2Cl⁻ → Cl₂(g) + 2e⁻ [2]<br>
+      (c) To lower the melting point of NaCl (from 801°C to ~600°C) saving energy [1]<br>
+      (d) Na reacts with Cl₂ to reform NaCl (2Na + Cl₂ → 2NaCl) — products would be lost [1]
+    </div>
+  </div>
+
+  <div class="test-q">
+    <span class="marks">[10 marks]</span>
+    <strong>Question 4</strong>
+    <p>(a) Describe the Bayer process for purifying bauxite to give pure Al₂O₃. Include equations. [5]</p>
+    <p>(b) Write the electrode equations in the Hall-Héroult process. [2]</p>
+    <p>(c) A current of 10,000 A is passed through a Hall-Héroult cell. How long (in hours) is needed to produce 270 kg of aluminium? (F = 96500 C/mol, M<sub>r</sub>(Al) = 27) [3]</p>
+    <button class="reveal-btn" onclick="toggleTest(this)">Show Model Answer</button>
+    <div class="test-ans">
+      (a) Bauxite dissolved in hot NaOH: Al₂O₃ + 2NaOH → 2NaAlO₂ + H₂O [1]; iron oxide impurities filtered off [1]; dilute and seed with Al(OH)₃: NaAlO₂ + 2H₂O → Al(OH)₃ + NaOH [1]; filter Al(OH)₃ and calcine: 2Al(OH)₃ → Al₂O₃ + 3H₂O [1]; dissolved in molten cryolite [1] [5]<br>
+      (b) Cathode: Al³⁺ + 3e⁻ → Al(l); Anode: 2O²⁻ → O₂ + 4e⁻ [2]<br>
+      (c) mol Al = 270,000 ÷ 27 = 10,000 mol; mol e⁻ = 30,000 mol; Q = 30,000 × 96500 = 2.895 × 10⁹ C; t = Q ÷ I = 2.895 × 10⁹ ÷ 10,000 = 289,500 s = <strong>80.4 hours</strong> [3]
+    </div>
+  </div>
+
+  <div class="test-q">
+    <span class="marks">[8 marks]</span>
+    <strong>Question 5</strong>
+    <p>(a) Name the main ore of zinc and describe how it is concentrated before smelting. [3]</p>
+    <p>(b) Write the equation for roasting of ZnS. Why is the SO₂ produced important? [3]</p>
+    <p>(c) Why does zinc distil out during reduction with carbon? [2]</p>
+    <button class="reveal-btn" onclick="toggleTest(this)">Show Model Answer</button>
+    <div class="test-ans">
+      (a) Sphalerite / zinc blende (ZnS) [1]; froth flotation — crushed ore mixed with water and pine oil, air blown through, ZnS sticks to bubbles and floats to surface, gangue sinks [2] [3]<br>
+      (b) 2ZnS + 3O₂ → 2ZnO + 2SO₂ [1]; SO₂ is used to manufacture sulphuric acid (contact process), converting a pollutant into a valuable product [2] [3]<br>
+      (c) Zinc boils at 907°C which is below the reaction temperature of ~1200°C, so Zn vaporises as it forms and can be collected by condensation [2]
+    </div>
+  </div>
+
+  <div class="test-q">
+    <span class="marks">[5 marks]</span>
+    <strong>Question 6</strong>
+    <p>Describe the extraction of tungsten from wolframite. Include all relevant equations. [5]</p>
+    <button class="reveal-btn" onclick="toggleTest(this)">Show Model Answer</button>
+    <div class="test-ans">
+      Ore fused with NaOH to form Na₂WO₄ [1]; acidified with HCl to precipitate H₂WO₄ [1]; H₂WO₄ calcined to WO₃ [1]; WO₃ reduced with H₂: WO₃ + 3H₂ → W + 3H₂O [1]; tungsten powder sintered (powder metallurgy) to produce solid metal [1].
+    </div>
+  </div>
+
+  <div class="test-q">
+    <span class="marks">[5 marks]</span>
+    <strong>Question 7</strong>
+    <p>(a) State two environmental hazards associated with roasting sulphide ores. [2]</p>
+    <p>(b) State two dangers specific to the Hall-Héroult process and how each is controlled. [3]</p>
+    <button class="reveal-btn" onclick="toggleTest(this)">Show Model Answer</button>
+    <div class="test-ans">
+      (a) Any 2: SO₂ causes acid rain; CO₂ from coke contributes to greenhouse effect / climate change; mining destroys habitats; acid mine drainage contaminates water [2]<br>
+      (b) Fluoride fumes from cryolite — fume extraction systems [1]; high electrical currents — insulated equipment [1]; molten aluminium at 950°C — heat-resistant PPE / protective clothing [1] [accept any 2 dangers with controls, 3 marks]
+    </div>
+  </div>
+
+</div><!-- /test-wrap -->
+
+</main>
+
+<script>
+function toggleAns(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+function toggleTest(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Model Answer';
+}
+
+const questions=[
+  {q:"Which ore is the primary source of iron in the blast furnace?",opts:["Bauxite","Cassiterite","Haematite","Sphalerite"],ans:2,exp:"Haematite (Fe₂O₃) is the main iron ore used in the blast furnace."},
+  {q:"What is the role of coke in the blast furnace?",opts:["To remove silica impurities","To form slag","As fuel and reducing agent","As a flux"],ans:2,exp:"Coke burns to provide heat and forms CO which reduces iron oxides."},
+  {q:"The reaction CO₂(g) + C(s) → 2CO(g) in the blast furnace is:",opts:["Exothermic reduction","Endothermic and produces the main reducing agent","The slag-forming reaction","The combustion of iron"],ans:1,exp:"This endothermic reaction produces CO, which is the actual reducing agent that reduces Fe₂O₃."},
+  {q:"Why is limestone added to the blast furnace?",opts:["To provide extra carbon","To lower the melting point of iron","To react with silica and form slag","To act as a reducing agent"],ans:2,exp:"Limestone decomposes to CaO which reacts with SiO₂ (an acidic impurity) to form CaSiO₃ (slag)."},
+  {q:"In the Downs cell, which electrode does sodium form at?",opts:["Anode","Carbon electrode","Graphite plate","Cathode"],ans:3,exp:"Na⁺ ions are reduced at the cathode: Na⁺ + e⁻ → Na."},
+  {q:"What is the purpose of CaCl₂ in the Downs cell?",opts:["To provide extra chloride ions","To lower the melting point of NaCl","To oxidise sodium","To reduce chlorine"],ans:1,exp:"CaCl₂ lowers the melting point of NaCl from 801°C to ~600°C, saving energy."},
+  {q:"The overall reaction in the Downs cell is:",opts:["2NaCl → 2Na + Cl₂","NaCl → Na + Cl","2Na + Cl₂ → 2NaCl","Na + Cl → NaCl"],ans:0,exp:"Electrolysis of molten NaCl gives sodium metal and chlorine gas: 2NaCl → 2Na + Cl₂."},
+  {q:"Which process is used to purify bauxite before aluminium extraction?",opts:["Froth flotation","Hall-Héroult process","Downs process","Bayer process"],ans:3,exp:"The Bayer process uses hot NaOH to dissolve Al₂O₃ selectively, leaving iron oxide impurities behind."},
+  {q:"Why is cryolite used in the Hall-Héroult process?",opts:["It is a better conductor than Al₂O₃","It dissolves Al₂O₃ and lowers the operating temperature","It reacts with Al₂O₃ to form aluminium","It acts as a reducing agent"],ans:1,exp:"Cryolite (Na₃AlF₆) acts as a solvent for Al₂O₃, reducing the operating temperature from 2072°C to ~950°C."},
+  {q:"The carbon anodes in the Hall-Héroult cell must be replaced regularly because:",opts:["They melt at 950°C","They react with the aluminium product","They are oxidised by oxygen produced at the anode","They dissolve in cryolite"],ans:2,exp:"O₂ produced at the anode reacts with the hot carbon: C + O₂ → CO₂, burning the anodes away."},
+  {q:"Which gas is produced at the anode during electrolysis of Al₂O₃?",opts:["Chlorine","Fluorine","Carbon dioxide","Oxygen"],ans:3,exp:"O²⁻ ions are oxidised at the anode: 2O²⁻ → O₂ + 4e⁻."},
+  {q:"The main ore of zinc is:",opts:["Wolframite","Cassiterite","Sphalerite","Haematite"],ans:2,exp:"Sphalerite (ZnS), also called zinc blende, is the main zinc ore."},
+  {q:"Why does zinc vapour form during reduction with carbon?",opts:["Because zinc reacts with carbon","Because zinc's boiling point (907°C) is below the reaction temperature","Because ZnO is more stable than Fe₂O₃","Because zinc is more reactive than carbon"],ans:1,exp:"At ~1200°C, the reaction temperature exceeds zinc's boiling point (907°C), so zinc forms as vapour."},
+  {q:"Roasting ZnS in air produces:",opts:["Zn and SO₂","ZnO and S","ZnO and SO₂","Zn and SO₃"],ans:2,exp:"2ZnS + 3O₂ → 2ZnO + 2SO₂. The SO₂ can be used to make H₂SO₄."},
+  {q:"Tin is extracted from the ore:",opts:["Cassiterite (SnO₂)","Sphalerite (ZnS)","Galena (PbS)","Wolframite"],ans:0,exp:"Cassiterite (SnO₂) is the main tin ore."},
+  {q:"In the extraction of tin, which method is used to concentrate the ore?",opts:["Froth flotation","Magnetic separation","Gravity separation","Electrostatic separation"],ans:2,exp:"SnO₂ is denser than gangue, so gravity separation (shaking tables) is used."},
+  {q:"Tungsten is reduced from WO₃ using:",opts:["Carbon monoxide","Carbon","Hydrogen gas","Sodium"],ans:2,exp:"WO₃ + 3H₂ → W + 3H₂O. H₂ is used because the high melting point of tungsten makes carbon reduction impractical."},
+  {q:"What is coltan, and why is it important?",opts:["An iron-nickel alloy used in batteries","A columbite-tantalite mineral from which tantalum and niobium are extracted","A copper ore found in Rwanda","A tungsten compound used in light bulbs"],ans:1,exp:"Coltan (columbite-tantalite) is the main source of tantalum, used in electronics capacitors. Rwanda and DRC are major producers."},
+  {q:"In tantalum extraction, solvent extraction separates Ta from Nb because:",opts:["Ta has a lower melting point","H₂TaF₇ preferentially extracts into an organic solvent (MIBK) under specific HF concentration conditions","Nb is denser","Ta reacts with water"],ans:1,exp:"The different chemical behaviours of H₂TaF₇ and H₂NbF₇ towards MIBK at specific HF concentrations allow selective separation."},
+  {q:"Which reagent reduces Ta₂O₅ to tantalum metal?",opts:["Carbon","Hydrogen","Sodium","Aluminium"],ans:2,exp:"Ta₂O₅ + 10Na → 2Ta + 5Na₂O. Sodium metallothermic reduction is used for tantalum."},
+  {q:"In a Hall-Héroult cell, a current of 1000 A flows for 1 hour. How many moles of electrons are transferred? (F = 96500 C/mol)",opts:["0.037 mol","37.3 mol","0.373 mol","3.73 mol"],ans:0,exp:"Q = 1000 × 3600 = 3,600,000 C; mol e⁻ = 3,600,000 ÷ 96,500 ≈ 37.3 mol. Wait — correct answer is 37.3 mol, which is option B."},
+  {q:"A current of 1000 A flows for 1 hour in a Hall-Héroult cell. How many moles of Al are deposited? (F = 96500 C/mol, Al³⁺ + 3e⁻ → Al)",opts:["37.3 mol","12.4 mol","111.9 mol","3.73 mol"],ans:1,exp:"mol e⁻ = 3,600,000 ÷ 96,500 = 37.3 mol; mol Al = 37.3 ÷ 3 = 12.4 mol."},
+  {q:"Which environmental problem is caused by roasting sulphide ores?",opts:["Acid mine drainage","SO₂ emissions causing acid rain","Radioactive contamination","CO poisoning"],ans:1,exp:"SO₂ released during roasting reacts with water in the atmosphere to form acid rain (H₂SO₃/H₂SO₄)."},
+  {q:"What is acid mine drainage (AMD)?",opts:["Drainage of acid used in ore processing into rivers","Water reacting with exposed sulphide ores to form sulphuric acid which contaminates waterways","The collection of acid produced in the Bayer process","Acid produced by CO₂ dissolving in groundwater near mines"],ans:1,exp:"When sulphide ores are exposed to air and water, they oxidise to produce H₂SO₄ which runs into rivers and groundwater."},
+  {q:"Why is recycling aluminium much more energy-efficient than primary production?",opts:["Recycled Al is purer","The Bayer process is not needed and no electrolysis is required — melting uses only ~5% of the energy of electrolysis","Recycling uses carbon reduction instead of electrolysis","Recycled Al has a lower melting point"],ans:1,exp:"Primary production requires energy-intensive electrolysis. Recycling only requires melting, using about 5% of the energy — making it highly cost-effective and environmentally beneficial."},
+];
+
+// Fix question 21 (index 20) - the answer explanation was wrong, correct answer is index 1 (37.3 mol)
+questions[20]={q:"A current of 1000 A flows for 1 hour in a Hall-Héroult cell. How many moles of electrons are transferred? (F = 96500 C/mol)",opts:["0.037 mol","37.3 mol","3730 mol","373 mol"],ans:1,exp:"Q = 1000 × 3600 = 3,600,000 C; mol e⁻ = 3,600,000 ÷ 96,500 ≈ 37.3 mol."};
+
+function buildQuiz(){
+  const body=document.getElementById('quizBody');
+  body.innerHTML=questions.map((q,i)=>`
+    <div class="q-block" id="qb${i}">
+      <span class="q-num">Question ${i+1} of ${questions.length}</span>
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o,j)=>`
+          <label class="opt" id="opt${i}_${j}">
+            <input type="radio" name="q${i}" value="${j}" onchange="selectOpt(${i},${j})"/>
+            <span>${String.fromCharCode(65+j)}. ${o}</span>
+          </label>`).join('')}
+      </div>
+      <div class="q-exp" id="exp${i}">${q.exp}</div>
+    </div>`).join('');
+}
+function selectOpt(qi,oi){}
+function submitQuiz(){
+  let score=0;
+  questions.forEach((q,i)=>{
+    const sel=document.querySelector(`input[name="q${i}"]:checked`);
+    const exp=document.getElementById(`exp${i}`);
+    exp.style.display='block';
+    q.opts.forEach((_,j)=>{
+      const el=document.getElementById(`opt${i}_${j}`);
+      el.classList.remove('correct','wrong');
+      if(j===q.ans) el.classList.add('correct');
+    });
+    if(sel){
+      const v=parseInt(sel.value);
+      if(v===q.ans) score++;
+      else document.getElementById(`opt${i}_${v}`).classList.add('wrong');
+    }
+  });
+  const r=document.getElementById('quizResult');
+  const pct=Math.round(score/questions.length*100);
+  r.innerHTML=`Score: <span style="color:var(--accent)">${score}/${questions.length}</span> (${pct}%) — ${pct>=80?'Excellent!':pct>=60?'Good effort!':'Keep practising!'}`;
+}
+buildQuiz();
+</script>
+</body>
+</html>

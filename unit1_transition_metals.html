@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S6 Chemistry – Unit 1: Transition Metals</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#38bdf8;--accent2:#f97316;--gold:#e8c547;--green:#34d399;--red:#f87171;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
+  *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+  .hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#001528 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(56,189,248,.04) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(56,189,248,.04) 40px);pointer-events:none;}
+  .badge{display:inline-block;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.3);color:var(--accent);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+  .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+  .hero h1 em{color:var(--accent);font-style:italic;}
+  .hero p.sub{color:var(--muted);font-size:1rem;max-width:640px;margin:0 auto 32px;}
+  .toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:860px;margin:0 auto;}
+  .toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+  .toc-grid a:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+  .page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+  .section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+  .section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+  .section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+  .card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:12px;}
+  .card p+p{margin-top:12px;}
+  .def-box{border-left:4px solid var(--accent);background:rgba(56,189,248,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+  .def-box strong{color:var(--accent);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+  .callout.info{background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.25);}
+  .callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+  .callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+  .callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+  .callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+  .tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+  table{width:100%;border-collapse:collapse;}
+  thead tr{background:var(--surface2);}
+  th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);white-space:nowrap;}
+  td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;}
+  tr:hover td{background:rgba(255,255,255,.02);}
+  .formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px 26px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--accent);overflow-x:auto;white-space:pre;}
+  .example-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin:26px 0;}
+  .example-header{background:rgba(232,197,71,.1);border-bottom:1px solid rgba(232,197,71,.2);padding:14px 22px;display:flex;align-items:center;gap:12px;}
+  .example-header span.tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;background:var(--gold);color:#000;padding:3px 10px;border-radius:4px;font-weight:600;}
+  .example-header h4{color:var(--gold);font-family:'Playfair Display',serif;font-size:1rem;}
+  .example-body{padding:22px 26px;}
+  .example-body .q{margin-bottom:14px;font-weight:600;}
+  .example-body .step{display:flex;gap:14px;margin:10px 0;}
+  .step-num{min-width:28px;height:28px;background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);flex-shrink:0;margin-top:3px;}
+  .step-text{flex:1;}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0;}
+  @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
+  .diagram-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin:20px 0;overflow-x:auto;}
+  .diagram-wrap svg{display:block;margin:0 auto;}
+  .exercise-list{list-style:none;counter-reset:ex;}
+  .exercise-list li{counter-increment:ex;margin-bottom:16px;padding:16px 20px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+  .exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);display:block;margin-bottom:6px;}
+  .reveal-btn{margin-top:10px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.3);color:var(--accent);padding:6px 16px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+  .reveal-btn:hover{background:var(--accent);color:#000;}
+  .answer{display:none;margin-top:12px;padding:12px 16px;background:rgba(56,189,248,.06);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.9rem;}
+  .answer.open{display:block;}
+  .quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:32px;}
+  .quiz-header{background:rgba(56,189,248,.1);border-bottom:1px solid rgba(56,189,248,.2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .quiz-header h3{font-family:'Playfair Display',serif;color:var(--accent);font-size:1.2rem;}
+  .quiz-body{padding:24px;}
+  .q-block{margin-bottom:26px;padding-bottom:26px;border-bottom:1px solid var(--border);}
+  .q-block:last-of-type{border-bottom:none;}
+  .q-text{font-weight:600;margin-bottom:12px;color:#fff;}
+  .q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);display:block;margin-bottom:4px;}
+  .options{display:flex;flex-direction:column;gap:8px;}
+  .opt{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+  .opt:hover{border-color:var(--accent);}
+  .opt input{margin-top:3px;accent-color:var(--accent);}
+  .opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+  .opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+  .q-exp{display:none;margin-top:10px;padding:10px 14px;background:rgba(56,189,248,.07);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.88rem;}
+  .quiz-submit{background:var(--accent);color:#000;border:none;padding:12px 32px;border-radius:8px;font-size:1rem;font-family:'JetBrains Mono',monospace;cursor:pointer;font-weight:700;transition:opacity .2s;}
+  .quiz-submit:hover{opacity:.85;}
+  .test-wrap{margin-top:40px;}
+  .test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:28px;}
+  .test-section-header{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .test-section-header h3{font-family:'Playfair Display',serif;color:var(--accent2);font-size:1.1rem;}
+  .marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(249,115,22,.2);color:var(--accent2);padding:4px 12px;border-radius:50px;}
+  .test-body{padding:24px;}
+  .test-q{margin-bottom:20px;padding:16px 18px;background:var(--surface2);border-radius:8px;border:1px solid var(--border);}
+  .test-q-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent2);margin-bottom:6px;display:block;}
+  .test-answer-reveal{margin-top:14px;}
+  .unit-nav{display:flex;justify-content:space-between;align-items:center;margin-top:72px;padding-top:32px;border-top:1px solid var(--border);flex-wrap:wrap;gap:16px;}
+  .nav-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:8px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.85rem;transition:all .2s;}
+  .nav-btn.prev{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+  .nav-btn.prev:hover{border-color:var(--accent);color:var(--accent);}
+  .nav-btn.next{background:var(--accent);color:#000;font-weight:700;}
+  .nav-btn.next:hover{opacity:.88;}
+  h3.sub-heading{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+  sub,sup{font-size:.72em;}
+  @media(max-width:600px){.hero{padding:50px 20px 40px;}.page{padding:0 16px 60px;}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge">Unit 1 &middot; Inorganic Chemistry</div>
+  <h1><em>Transition Metals</em></h1>
+  <p class="sub">Electronic configuration, characteristic properties, complex ions, isomerism, chemistry of individual transition metals, and ion identification.</p>
+  <nav class="toc-grid">
+    <a href="#definition">1.1 Definition &amp; Config</a>
+    <a href="#properties">1.2 Properties</a>
+    <a href="#anomalous">1.3 Anomalous: Zn &amp; Sc</a>
+    <a href="#complex">1.4 Complex Ions</a>
+    <a href="#individual">1.5 Individual Metals</a>
+    <a href="#identification">1.6 Ion Identification</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </nav>
+</header>
+
+<main class="page">
+
+<!-- 1.1 DEFINITION AND ELECTRONIC CONFIGURATION -->
+<section id="definition">
+  <div class="section-header">
+    <span class="section-number">1.1</span>
+    <h2>Definition &amp; Electronic Configuration</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Transition Metal — Definition</strong>
+    A <b>transition metal</b> is an element that forms at least one stable ion with an <b>incompletely filled d sub-shell</b>.<br><br>
+    The d-block elements occupy Groups 3–12 of the Periodic Table (Period 4: Sc to Zn).<br>
+    Note: Sc and Zn do <b>not</b> satisfy this definition strictly (see Section 1.3).
+  </div>
+
+  <div class="card">
+    <h3>Writing Electronic Configurations</h3>
+    <p>The 3d sub-shell fills <b>after</b> the 4s sub-shell (Aufbau principle), but the 3d electrons are <b>lost first</b> when forming cations (since 4s has higher energy in multi-electron ions).</p>
+    <div class="formula-block">General pattern for Period 4 d-block:
+[Ar] 3d^n 4s^2   (n = 1 to 10)
+
+Exceptions (half-filled and fully-filled d-shells are extra stable):
+  Cr: [Ar] 3d^5 4s^1   (NOT [Ar] 3d^4 4s^2)
+  Cu: [Ar] 3d^10 4s^1  (NOT [Ar] 3d^9 4s^2)
+
+When forming cations: 4s electrons lost FIRST
+  Fe:  [Ar] 3d^6 4s^2
+  Fe²⁺:[Ar] 3d^6         (both 4s removed)
+  Fe³⁺:[Ar] 3d^5         (one 3d also removed)</div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Element</th><th>Symbol</th><th>Z</th><th>Config (atom)</th><th>Common ions</th><th>Ion config</th></tr></thead>
+      <tbody>
+        <tr><td>Scandium</td><td>Sc</td><td>21</td><td>[Ar] 3d&#185; 4s&#178;</td><td>Sc&#179;&#8314;</td><td>[Ar] (empty d)</td></tr>
+        <tr><td>Titanium</td><td>Ti</td><td>22</td><td>[Ar] 3d&#178; 4s&#178;</td><td>Ti&#178;&#8314;, Ti&#8308;&#8314;</td><td>[Ar] 3d&#178;; [Ar]</td></tr>
+        <tr><td>Vanadium</td><td>V</td><td>23</td><td>[Ar] 3d&#179; 4s&#178;</td><td>V&#178;&#8314; to V&#8309;&#8314;</td><td>[Ar] 3d&#179; etc.</td></tr>
+        <tr><td>Chromium</td><td>Cr</td><td>24</td><td>[Ar] 3d&#8309; 4s&#185;</td><td>Cr&#178;&#8314;, Cr&#179;&#8314;</td><td>[Ar] 3d&#8308;; [Ar] 3d&#179;</td></tr>
+        <tr><td>Manganese</td><td>Mn</td><td>25</td><td>[Ar] 3d&#8309; 4s&#178;</td><td>Mn&#178;&#8314;, Mn&#8308;&#8314;, Mn&#8311;&#8314;</td><td>[Ar] 3d&#8309;; [Ar] 3d&#179;</td></tr>
+        <tr><td>Iron</td><td>Fe</td><td>26</td><td>[Ar] 3d&#8310; 4s&#178;</td><td>Fe&#178;&#8314;, Fe&#179;&#8314;</td><td>[Ar] 3d&#8310;; [Ar] 3d&#8309;</td></tr>
+        <tr><td>Cobalt</td><td>Co</td><td>27</td><td>[Ar] 3d&#8311; 4s&#178;</td><td>Co&#178;&#8314;, Co&#179;&#8314;</td><td>[Ar] 3d&#8311;; [Ar] 3d&#8310;</td></tr>
+        <tr><td>Nickel</td><td>Ni</td><td>28</td><td>[Ar] 3d&#8312; 4s&#178;</td><td>Ni&#178;&#8314;</td><td>[Ar] 3d&#8312;</td></tr>
+        <tr><td>Copper</td><td>Cu</td><td>29</td><td>[Ar] 3d&#185;&#8304; 4s&#185;</td><td>Cu&#8314;, Cu&#178;&#8314;</td><td>[Ar] 3d&#185;&#8304;; [Ar] 3d&#8313;</td></tr>
+        <tr><td>Zinc</td><td>Zn</td><td>30</td><td>[Ar] 3d&#185;&#8304; 4s&#178;</td><td>Zn&#178;&#8314;</td><td>[Ar] 3d&#185;&#8304; (full d)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 1.2 PROPERTIES -->
+<section id="properties">
+  <div class="section-header">
+    <span class="section-number">1.2</span>
+    <h2>Properties of Transition Metals</h2>
+  </div>
+
+  <div class="card">
+    <h3>1. Variable Oxidation States</h3>
+    <p>Transition metals exhibit <b>multiple oxidation states</b> because the energy difference between 3d and 4s orbitals is small — varying numbers of d and s electrons can be involved in bonding.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Metal</th><th>Oxidation states</th><th>Most common</th><th>Example compound</th></tr></thead>
+        <tbody>
+          <tr><td>Ti</td><td>+2, +3, +4</td><td>+4</td><td>TiO&#8322; (titanium dioxide)</td></tr>
+          <tr><td>V</td><td>+2, +3, +4, +5</td><td>+5</td><td>V&#8322;O&#8309; (vanadium pentoxide)</td></tr>
+          <tr><td>Cr</td><td>+2, +3, +6</td><td>+3</td><td>Cr&#8322;O&#8323; (green); CrO&#8324;&#178;&#8315; (yellow)</td></tr>
+          <tr><td>Mn</td><td>+2, +3, +4, +6, +7</td><td>+2, +7</td><td>MnSO&#8324;; KMnO&#8324;</td></tr>
+          <tr><td>Fe</td><td>+2, +3</td><td>+2, +3</td><td>FeCl&#8322;; FeCl&#8323;</td></tr>
+          <tr><td>Co</td><td>+2, +3</td><td>+2</td><td>CoCl&#8322;; Co&#8322;O&#8323;</td></tr>
+          <tr><td>Cu</td><td>+1, +2</td><td>+2</td><td>Cu&#8322;O; CuSO&#8324;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2. Formation of Coloured Ions</h3>
+    <p>Many transition metal ions are <b>coloured</b> in solution because of <b>d-d transitions</b> — electrons absorb photons of visible light and jump to higher-energy d-orbitals. The colour observed is the <b>complementary colour</b> of the light absorbed.</p>
+    <p>This only occurs when the d sub-shell is <b>partially filled</b> (Sc&#179;&#8314; and Zn&#178;&#8314; are colourless because d is empty and full respectively).</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Ion</th><th>Colour</th><th>Ion</th><th>Colour</th></tr></thead>
+        <tbody>
+          <tr><td>Ti&#179;&#8314;</td><td>Purple</td><td>Cr&#179;&#8314;</td><td>Green (dark)</td></tr>
+          <tr><td>V&#178;&#8314;</td><td>Violet</td><td>CrO&#8324;&#178;&#8315;</td><td>Yellow</td></tr>
+          <tr><td>V&#179;&#8314;</td><td>Green</td><td>Cr&#8322;O&#8311;&#178;&#8315;</td><td>Orange</td></tr>
+          <tr><td>Mn&#178;&#8314;</td><td>Very pale pink</td><td>MnO&#8324;&#8315;</td><td>Purple</td></tr>
+          <tr><td>Fe&#178;&#8314;</td><td>Pale green</td><td>Fe&#179;&#8314;</td><td>Yellow-brown</td></tr>
+          <tr><td>Co&#178;&#8314;</td><td>Pink (aq); blue (anhydrous)</td><td>Ni&#178;&#8314;</td><td>Green</td></tr>
+          <tr><td>Cu&#178;&#8314;</td><td>Blue (aq)</td><td>Zn&#178;&#8314;</td><td>Colourless</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>3. Catalytic Activity</h3>
+    <p>Transition metals and their compounds are excellent <b>catalysts</b> because:</p>
+    <ul style="padding-left:20px;line-height:2.2;">
+      <li>They can adopt variable oxidation states, acting as electron transfer agents.</li>
+      <li>Their surfaces can adsorb reactant molecules, weakening bonds (heterogeneous catalysis).</li>
+    </ul>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Catalyst</th><th>Reaction</th><th>Process</th></tr></thead>
+        <tbody>
+          <tr><td>Fe</td><td>N&#8322; + 3H&#8322; &#8594; 2NH&#8323;</td><td>Haber process</td></tr>
+          <tr><td>V&#8322;O&#8309;</td><td>2SO&#8322; + O&#8322; &#8594; 2SO&#8323;</td><td>Contact process</td></tr>
+          <tr><td>Pt or Pd</td><td>C=C + H&#8322; &#8594; C&#8211;C</td><td>Hydrogenation of alkenes</td></tr>
+          <tr><td>Ni</td><td>Vegetable oils + H&#8322;</td><td>Hardening of fats (margarine)</td></tr>
+          <tr><td>MnO&#8322;</td><td>2H&#8322;O&#8322; &#8594; 2H&#8322;O + O&#8322;</td><td>Decomposition of H&#8322;O&#8322;</td></tr>
+          <tr><td>Fe&#179;&#8314;</td><td>Electron transfer reactions</td><td>Biological (enzymes)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>4. Magnetic Properties</h3>
+    <p><b>Paramagnetism</b>: Substances with unpaired electrons are attracted to a magnetic field. All transition metals with unpaired d-electrons are paramagnetic.<br>
+    <b>Ferromagnetism</b>: Fe, Co, and Ni are ferromagnetic — they can be permanently magnetised because of cooperative alignment of electron spins in domains.<br>
+    <b>Diamagnetism</b>: Substances with all electrons paired are weakly repelled (Sc&#179;&#8314;, Zn&#178;&#8314;, Cu&#8314; are diamagnetic).</p>
+  </div>
+
+  <div class="card">
+    <h3>5. Formation of Complex Ions</h3>
+    <p>Transition metals form <b>complex ions</b> by accepting lone pairs from <b>ligands</b> (Lewis bases) into empty d/s/p orbitals. This is explained in detail in Section 1.4.</p>
+  </div>
+
+  <div class="card">
+    <h3>6. Physical Properties</h3>
+    <p>Transition metals generally have <b>high melting points</b>, <b>high densities</b>, and are <b>good conductors</b> of heat and electricity. These arise from strong <b>metallic bonding</b> involving both 3d and 4s electrons.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Metal</th><th>MP (&#176;C)</th><th>Density (g/cm&#179;)</th><th>Atomic radius (pm)</th></tr></thead>
+        <tbody>
+          <tr><td>Sc</td><td>1541</td><td>2.99</td><td>162</td></tr>
+          <tr><td>Ti</td><td>1668</td><td>4.51</td><td>147</td></tr>
+          <tr><td>Cr</td><td>1907</td><td>7.19</td><td>128</td></tr>
+          <tr><td>Mn</td><td>1246</td><td>7.43</td><td>127</td></tr>
+          <tr><td>Fe</td><td>1538</td><td>7.87</td><td>126</td></tr>
+          <tr><td>Co</td><td>1495</td><td>8.90</td><td>125</td></tr>
+          <tr><td>Ni</td><td>1455</td><td>8.91</td><td>124</td></tr>
+          <tr><td>Cu</td><td>1085</td><td>8.96</td><td>128</td></tr>
+          <tr><td>Zn</td><td>420</td><td>7.13</td><td>134</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Note how atomic radius stays <b>nearly constant</b> across the series (128&#8211;162 pm) — the increasing nuclear charge is offset by increasing d-electron shielding.</p>
+  </div>
+</section>
+
+<!-- 1.3 ANOMALOUS Zn and Sc -->
+<section id="anomalous">
+  <div class="section-header">
+    <span class="section-number">1.3</span>
+    <h2>Anomalous Properties of Zinc and Scandium</h2>
+  </div>
+
+  <div class="callout warn">
+    <span class="callout-icon">&#9888;&#65039;</span>
+    <div class="callout-body">
+      <strong>Why Sc and Zn are not strictly transition metals</strong>
+      By IUPAC definition: a transition metal forms at least one ion with an incomplete d sub-shell. Sc and Zn do not satisfy this — yet they are always studied alongside transition metals as they occupy the same d-block.
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h3>Scandium (Sc)</h3>
+      <p>Sc only forms Sc&#179;&#8314; ions, which have configuration [Ar] — an <b>empty d sub-shell</b>. Therefore Sc has no partially filled d-shell in any of its ions.</p>
+      <p><b>Anomalies:</b></p>
+      <ul style="padding-left:18px;line-height:2;">
+        <li>Sc&#179;&#8314; is colourless (no d-d transitions possible)</li>
+        <li>No catalytic activity through variable oxidation states</li>
+        <li>Not paramagnetic in its common ion</li>
+        <li>Only one oxidation state (+3)</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Zinc (Zn)</h3>
+      <p>Zn only forms Zn&#178;&#8314; ions, which have configuration [Ar] 3d&#185;&#8304; — a <b>completely filled d sub-shell</b>. Therefore Zn has no partially filled d-shell in any of its ions.</p>
+      <p><b>Anomalies:</b></p>
+      <ul style="padding-left:18px;line-height:2;">
+        <li>Zn&#178;&#8314; is colourless (full d — no d-d transitions)</li>
+        <li>Low melting point (420&#176;C) compared to other transition metals</li>
+        <li>Less dense; softer</li>
+        <li>Only one oxidation state (+2)</li>
+        <li>Diamagnetic (all electrons paired)</li>
+        <li>Low reactivity but forms complexes (e.g. [Zn(NH&#8323;)&#8324;]&#178;&#8314;)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 1.4 COMPLEX IONS -->
+<section id="complex">
+  <div class="section-header">
+    <span class="section-number">1.4</span>
+    <h2>Complex Ions and Isomerism</h2>
+  </div>
+
+  <div class="def-box">
+    <strong>Complex Ion</strong>
+    A <b>complex ion</b> consists of a central metal atom/ion bonded to a number of <b>ligands</b> by coordinate (dative) bonds. The ligands donate lone pairs into empty orbitals on the metal.<br><br>
+    <b>Coordination number</b> = total number of coordinate bonds from ligands to the metal.
+  </div>
+
+  <div class="card">
+    <h3>Ligands</h3>
+    <p><b>Monodentate ligands</b> — donate one lone pair per ligand:</p>
+    <div class="formula-block">H&#8322;O  (water)     NH&#8323; (ammonia)    Cl&#8315; (chloride)
+CN&#8315; (cyanide)   OH&#8315; (hydroxide)  CO  (carbon monoxide)</div>
+    <p><b>Bidentate ligands</b> — donate two lone pairs per ligand:</p>
+    <div class="formula-block">en   (ethylenediamine, H&#8322;N&#8211;CH&#8322;&#8211;CH&#8322;&#8211;NH&#8322;)
+ox²&#8315; (oxalate, C&#8322;O&#8324;&#178;&#8315;)</div>
+    <p><b>Polydentate (chelating) ligands</b> — donate multiple lone pairs:</p>
+    <div class="formula-block">EDTA&#8308;&#8315; (ethylenediaminetetraacetate) &#8212; hexadentate; forms very stable complexes</div>
+  </div>
+
+  <div class="card">
+    <h3>Naming Complex Ions</h3>
+    <div class="formula-block">Rules:
+1. Ligands named BEFORE the metal.
+2. Anionic ligands: replace &#8211;ide with &#8211;o (e.g. chloride &#8594; chloro; hydroxide &#8594; hydroxo)
+   Neutral ligands: use special names: H&#8322;O = aqua; NH&#8323; = ammine; CO = carbonyl
+3. Number of ligands: mono, di, tri, tetra, penta, hexa
+   (or bis, tris, tetrakis for complex ligand names)
+4. Metal name: in CATION or neutral &#8594; English name + oxidation state (Roman)
+              in ANION &#8594; Latin root + &#8211;ate + oxidation state
+              (Fe &#8594; ferrate; Cu &#8594; cuprate; Co &#8594; cobaltate; Cr &#8594; chromate; Mn &#8594; manganate)
+
+Examples:
+[Cu(H&#8322;O)&#8326;]&#178;&#8314;         hexaaquacopper(II)
+[Fe(CN)&#8326;]&#8308;&#8315;         hexacyanoferrate(II)
+[CoCl&#8322;(NH&#8323;)&#8324;]&#8314;    tetraamminedichlorocobalt(III)
+[Cr(en)&#8323;]&#179;&#8314;           tris(ethylenediamine)chromium(III)</div>
+  </div>
+
+  <div class="card">
+    <h3>Shapes of Complex Ions</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>CN</th><th>Shape</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>2</td><td>Linear</td><td>[Ag(NH&#8323;)&#8322;]&#8314; (diamminesilver(I))</td></tr>
+          <tr><td>4</td><td>Tetrahedral</td><td>[CoCl&#8324;]&#178;&#8315; (tetrachlorocobaltate(II))</td></tr>
+          <tr><td>4</td><td>Square planar</td><td>[Pt(NH&#8323;)&#8322;Cl&#8322;] (cisplatin)</td></tr>
+          <tr><td>6</td><td>Octahedral</td><td>[Fe(H&#8322;O)&#8326;]&#178;&#8314; (hexaaquairon(II))</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SVG showing octahedral complex -->
+  <div class="diagram-wrap">
+    <svg viewBox="0 0 500 260" width="500" height="260" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
+      <rect width="500" height="260" fill="#1c2333" rx="8"/>
+      <text x="250" y="22" fill="#38bdf8" font-family="JetBrains Mono" font-size="12" font-weight="700" text-anchor="middle">OCTAHEDRAL COMPLEX [M(L)&#8326;] — Coordination Number 6</text>
+      <!-- Central metal -->
+      <circle cx="250" cy="135" r="22" fill="#38bdf8" opacity=".9"/>
+      <text x="250" y="140" fill="#000" font-family="JetBrains Mono" font-size="13" font-weight="700" text-anchor="middle">M</text>
+      <!-- 6 ligands: top, bottom, left, right, front-left, back-right -->
+      <circle cx="250" cy="60" r="16" fill="#f59e0b" opacity=".85"/>
+      <text x="250" y="65" fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle">L</text>
+      <circle cx="250" cy="210" r="16" fill="#f59e0b" opacity=".85"/>
+      <text x="250" y="215" fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle">L</text>
+      <circle cx="140" cy="135" r="16" fill="#f59e0b" opacity=".85"/>
+      <text x="140" y="140" fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle">L</text>
+      <circle cx="360" cy="135" r="16" fill="#f59e0b" opacity=".85"/>
+      <text x="360" y="140" fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle">L</text>
+      <circle cx="185" cy="90" r="16" fill="#f59e0b" opacity=".75"/>
+      <text x="185" y="95" fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle">L</text>
+      <circle cx="315" cy="180" r="16" fill="#f59e0b" opacity=".75"/>
+      <text x="315" y="185" fill="#000" font-family="JetBrains Mono" font-size="10" font-weight="700" text-anchor="middle">L</text>
+      <!-- Bonds -->
+      <line x1="250" y1="113" x2="250" y2="76" stroke="#8b949e" stroke-width="2"/>
+      <line x1="250" y1="157" x2="250" y2="194" stroke="#8b949e" stroke-width="2"/>
+      <line x1="228" y1="135" x2="156" y2="135" stroke="#8b949e" stroke-width="2"/>
+      <line x1="272" y1="135" x2="344" y2="135" stroke="#8b949e" stroke-width="2"/>
+      <line x1="238" y1="115" x2="198" y2="101" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <line x1="262" y1="155" x2="302" y2="169" stroke="#8b949e" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <!-- Labels -->
+      <text x="250" y="247" fill="#8b949e" font-family="JetBrains Mono" font-size="10" text-anchor="middle">Bond angles: 90&#176; and 180&#176; | M&#8211;L distances equal | Symmetrical arrangement</text>
+    </svg>
+  </div>
+
+  <h3 class="sub-heading">Isomerism in Complex Ions</h3>
+
+  <div class="card">
+    <h3>Structural Isomerism</h3>
+    <ul style="padding-left:18px;line-height:2.2;">
+      <li><b>Ionisation isomers</b>: [CoCl(NH&#8323;)&#8325;]SO&#8324; vs [Co(SO&#8324;)(NH&#8323;)&#8325;]Cl — different ions in solution.</li>
+      <li><b>Hydrate isomers</b>: [Cr(H&#8322;O)&#8326;]Cl&#8323; (violet) vs [CrCl(H&#8322;O)&#8325;]Cl&#8322;&#183;H&#8322;O (pale green) — different number of water molecules in coordination sphere.</li>
+      <li><b>Linkage isomers</b>: ambidentate ligands (e.g. NO&#8322;&#8315;) can bond through N or O. [Co(NO&#8322;)(NH&#8323;)&#8325;]&#178;&#8314; (nitro, N-bonded) vs [Co(ONO)(NH&#8323;)&#8325;]&#178;&#8314; (nitrito, O-bonded).</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Geometric (Stereochemical) Isomerism</h3>
+    <p>Occurs in <b>square planar</b> (4-coordinate) and <b>octahedral</b> (6-coordinate) complexes when the same ligands can be adjacent (cis) or opposite (trans):</p>
+    <div class="formula-block">Square planar example: [Pt(NH&#8323;)&#8322;Cl&#8322;]
+  cis (Cl atoms adjacent, 90&#176;): cisplatin &#8212; used as anticancer drug
+  trans (Cl atoms opposite, 180&#176;): transplatin &#8212; no anticancer activity
+
+Octahedral example: [CoCl&#8322;(NH&#8323;)&#8324;]&#8314;
+  cis: two Cl atoms at 90&#176; to each other
+  trans: two Cl atoms at 180&#176; to each other (opposite vertices)</div>
+  </div>
+
+  <div class="card">
+    <h3>Optical Isomerism</h3>
+    <p>Octahedral complexes with three bidentate ligands (e.g. [Cr(en)&#8323;]&#179;&#8314; or [Co(ox)&#8323;]&#179;&#8315;) can exist as non-superimposable mirror images called <b>enantiomers</b> (labelled &#923; and &#916;). They rotate polarised light in opposite directions.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 1</span><h4>Naming and Working Out Charges</h4></div>
+    <div class="example-body">
+      <p class="q">(a) Name [Fe(H&#8322;O)&#8325;(OH)]&#178;&#8314;. (b) What is the oxidation state of Co in [CoCl&#8324;]&#178;&#8315;? (c) What is the charge on [Ni(CN)&#8324;]^n if Ni is +2?</p>
+      <div class="step"><div class="step-num">a</div><div class="step-text">Ligands: 5 aqua (H&#8322;O) + 1 hydroxo (OH&#8315;). Metal: Fe, charge +2. Ion is cationic &#8594; use English name: <b>pentaaquahydroxoiron(II) ion</b>.</div></div>
+      <div class="step"><div class="step-num">b</div><div class="step-text">4&#215;(&#8722;1) + Co = &#8722;2. Co + (&#8722;4) = &#8722;2. Co = <b>+2</b>.</div></div>
+      <div class="step"><div class="step-num">c</div><div class="step-text">Ni = +2; CN&#8315; contributes 4&#215;(&#8722;1) = &#8722;4. Total charge = +2 + (&#8722;4) = <b>&#8722;2</b>. Ion is [Ni(CN)&#8324;]&#178;&#8315; (tetracyanonickelate(II)).</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 1.5 INDIVIDUAL TRANSITION METALS -->
+<section id="individual">
+  <div class="section-header">
+    <span class="section-number">1.5</span>
+    <h2>Chemistry of Individual Transition Metals</h2>
+  </div>
+
+  <h3 class="sub-heading">Iron (Fe)</h3>
+  <div class="card">
+    <h3>Oxidation States and Reactions</h3>
+    <div class="formula-block">Fe&#178;&#8314; (pale green): [Fe(H&#8322;O)&#8326;]&#178;&#8314; &#8212; oxidised easily to Fe&#179;&#8314;
+Fe&#179;&#8314; (yellow-brown): [Fe(H&#8322;O)&#8326;]&#179;&#8314; &#8212; stronger oxidant/Lewis acid
+
+Fe&#178;&#8314; &#8594; Fe&#179;&#8314;: 
+  4Fe(OH)&#8322; + O&#8322; + 2H&#8322;O &#8594; 4Fe(OH)&#8323;  (rusting mechanism)
+
+Fe&#178;&#8314; + &#189;Cl&#8322; &#8594; Fe&#179;&#8314; + Cl&#8315;
+Fe&#179;&#8314; + I&#8315; &#8594; Fe&#178;&#8314; + &#189;I&#8322;  (I&#8315; reduces Fe&#179;&#8314;)
+
+Key complexes:
+  [Fe(CN)&#8326;]&#8308;&#8315; &#8212; hexacyanoferrate(II), yellow solution
+  [Fe(CN)&#8326;]&#179;&#8315; &#8212; hexacyanoferrate(III), red-brown solution
+  Fe&#179;&#8314; + SCN&#8315; &#8594; [Fe(SCN)(H&#8322;O)&#8325;]&#178;&#8314; &#8212; blood red (test for Fe&#179;&#8314;)</div>
+  </div>
+
+  <h3 class="sub-heading">Copper (Cu)</h3>
+  <div class="card">
+    <h3>Oxidation States and Reactions</h3>
+    <div class="formula-block">Cu&#8314; (colourless): unstable in aq. &#8594; disproportionates: 2Cu&#8314; &#8594; Cu + Cu&#178;&#8314;
+Cu&#178;&#8314; (blue in water): [Cu(H&#8322;O)&#8326;]&#178;&#8314;
+
+Cu&#178;&#8314; + 4NH&#8323; &#8594; [Cu(NH&#8323;)&#8324;(H&#8322;O)&#8322;]&#178;&#8314; + 2H&#8322;O  (deep blue &#8212; test for Cu&#178;&#8314;)
+Cu&#178;&#8314; + 2OH&#8315; &#8594; Cu(OH)&#8322; (blue ppt) &#8594; CuO (black) on heating
+
+Cu is below H in reactivity series:
+  Cu + 2H&#8322;SO&#8324;(conc.) &#8594; CuSO&#8324; + SO&#8322; + 2H&#8322;O
+  Cu + 4HNO&#8323;(conc.) &#8594; Cu(NO&#8323;)&#8322; + 2NO&#8322; + 2H&#8322;O
+
+Cu&#182;Sn&#8308; &#8212; bronze (alloy)   Cu&#8322;Zn &#8212; brass</div>
+  </div>
+
+  <h3 class="sub-heading">Chromium (Cr)</h3>
+  <div class="card">
+    <h3>Oxidation States and Reactions</h3>
+    <div class="formula-block">Cr&#178;&#8314; (blue): strong reducing agent
+Cr&#179;&#8314; (green/violet): most stable; [Cr(H&#8322;O)&#8326;]&#179;&#8314;
+Cr&#8310;&#8314;: strong oxidant (toxic, carcinogenic)
+
+Key equilibrium (pH-dependent):
+  CrO&#8324;&#178;&#8315; (yellow, alkaline) &#8652; Cr&#8322;O&#8311;&#178;&#8315; (orange, acidic)
+  2CrO&#8324;&#178;&#8315; + 2H&#8314; &#8652; Cr&#8322;O&#8311;&#178;&#8315; + H&#8322;O
+
+Reactions of Cr&#8322;O&#8311;&#178;&#8315; as oxidant:
+  Cr&#8322;O&#8311;&#178;&#8315; + 14H&#8314; + 6e&#8315; &#8594; 2Cr&#179;&#8314; + 7H&#8322;O  (E&#176; = +1.33 V)
+  K&#8322;Cr&#8322;O&#8311; oxidises alcohols: primary &#8594; carboxylic acid; secondary &#8594; ketone
+
+Amphoteric behaviour of Cr(OH)&#8323;:
+  Cr(OH)&#8323; + 3H&#8314; &#8594; Cr&#179;&#8314; + 3H&#8322;O  (acid)
+  Cr(OH)&#8323; + OH&#8315; &#8594; [Cr(OH)&#8324;]&#8315;      (base)</div>
+  </div>
+
+  <h3 class="sub-heading">Manganese (Mn)</h3>
+  <div class="card">
+    <h3>Oxidation States and Reactions</h3>
+    <div class="formula-block">Mn shows most oxidation states of any transition metal:
+  Mn&#178;&#8314; (pale pink): MnSO&#8324; &#8212; most stable in acidic solution
+  Mn&#8308;&#8314;: MnO&#8322; (brown/black solid) &#8212; catalyst for H&#8322;O&#8322; decomposition
+  Mn&#8311;&#8314;: MnO&#8324;&#8315; (permanganate, purple) &#8212; powerful oxidant
+
+KMnO&#8324; reactions:
+  In acid:   MnO&#8324;&#8315; + 8H&#8314; + 5e&#8315; &#8594; Mn&#178;&#8314; + 4H&#8322;O  (purple &#8594; colourless)
+  In alkali: MnO&#8324;&#8315; + 2H&#8322;O + 3e&#8315; &#8594; MnO&#8322; + 4OH&#8315; (purple &#8594; brown ppt)
+
+Uses: KMnO&#8324; as oxidant in volumetric analysis (self-indicating, Section 11)
+      MnO&#8322; in dry cells (depolariser)</div>
+  </div>
+</section>
+
+<!-- 1.6 IDENTIFICATION OF TRANSITION METAL IONS -->
+<section id="identification">
+  <div class="section-header">
+    <span class="section-number">1.6</span>
+    <h2>Identification of Transition Metal Ions</h2>
+  </div>
+
+  <div class="card">
+    <h3>Reactions with NaOH(aq)</h3>
+    <p>Adding NaOH solution to a transition metal salt solution typically forms a coloured <b>metal hydroxide precipitate</b>. Some are amphoteric and dissolve in excess NaOH.</p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Ion</th><th>Precipitate + colour</th><th>Excess NaOH</th></tr></thead>
+        <tbody>
+          <tr><td>Fe&#178;&#8314;</td><td>Fe(OH)&#8322; — green ppt</td><td>Insoluble; oxidises in air to brown Fe(OH)&#8323;</td></tr>
+          <tr><td>Fe&#179;&#8314;</td><td>Fe(OH)&#8323; — red-brown ppt</td><td>Insoluble</td></tr>
+          <tr><td>Cu&#178;&#8314;</td><td>Cu(OH)&#8322; — blue ppt</td><td>Insoluble</td></tr>
+          <tr><td>Cr&#179;&#8314;</td><td>Cr(OH)&#8323; — green ppt</td><td>Dissolves (amphoteric): [Cr(OH)&#8324;]&#8315; (dark green soln)</td></tr>
+          <tr><td>Co&#178;&#8314;</td><td>Co(OH)&#8322; — pink/blue ppt</td><td>Insoluble</td></tr>
+          <tr><td>Ni&#178;&#8314;</td><td>Ni(OH)&#8322; — green ppt</td><td>Insoluble</td></tr>
+          <tr><td>Mn&#178;&#8314;</td><td>Mn(OH)&#8322; — white/pale pink ppt</td><td>Insoluble; oxidises in air &#8594; MnO&#8322; (brown)</td></tr>
+          <tr><td>Zn&#178;&#8314;</td><td>Zn(OH)&#8322; — white ppt</td><td>Dissolves: [Zn(OH)&#8324;]&#178;&#8315; (colourless soln)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Reactions with NH&#8323;(aq)</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Ion</th><th>With excess NH&#8323;</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Cu&#178;&#8314;</td><td>Dissolves in excess</td><td>[Cu(NH&#8323;)&#8324;(H&#8322;O)&#8322;]&#178;&#8314; — deep blue soln</td></tr>
+          <tr><td>Co&#178;&#8314;</td><td>Dissolves in excess</td><td>[Co(NH&#8323;)&#8326;]&#178;&#8314; — yellow/brown</td></tr>
+          <tr><td>Ni&#178;&#8314;</td><td>Dissolves in excess</td><td>[Ni(NH&#8323;)&#8326;]&#178;&#8314; — blue/violet</td></tr>
+          <tr><td>Cr&#179;&#8314;</td><td>Dissolves in excess</td><td>[Cr(NH&#8323;)&#8326;]&#179;&#8314; — purple</td></tr>
+          <tr><td>Fe&#178;&#8314;, Fe&#179;&#8314;</td><td>Insoluble in excess</td><td>Hydroxide ppt remains</td></tr>
+          <tr><td>Zn&#178;&#8314;</td><td>Dissolves in excess</td><td>[Zn(NH&#8323;)&#8324;]&#178;&#8314; — colourless</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Other Specific Tests</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Test</th><th>Reagent</th><th>Observation</th><th>Ion confirmed</th></tr></thead>
+        <tbody>
+          <tr><td>SCN&#8315; test</td><td>KSCN(aq)</td><td>Blood-red solution [Fe(SCN)(H&#8322;O)&#8325;]&#178;&#8314;</td><td>Fe&#179;&#8314;</td></tr>
+          <tr><td>Prussian blue</td><td>K&#8323;[Fe(CN)&#8326;] added</td><td>Dark blue/Prussian blue ppt</td><td>Fe&#178;&#8314;</td></tr>
+          <tr><td>Turnbull blue</td><td>K&#8324;[Fe(CN)&#8326;] added</td><td>Dark blue ppt</td><td>Fe&#179;&#8314;</td></tr>
+          <tr><td>Deep blue</td><td>Excess NH&#8323;</td><td>[Cu(NH&#8323;)&#8324;]&#178;&#8314; deep blue</td><td>Cu&#178;&#8314;</td></tr>
+          <tr><td>Lilac/purple</td><td>Acidify + KMnO&#8324;</td><td>Decolourises KMnO&#8324;</td><td>Reducing agents (Fe&#178;&#8314;, Mn&#178;&#8314;)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="example-box">
+    <div class="example-header"><span class="tag">Example 2</span><h4>Ion Identification Flow</h4></div>
+    <div class="example-body">
+      <p class="q">An aqueous solution gives a blue precipitate with NaOH that does not dissolve in excess NaOH but dissolves in excess NH&#8323; to give a deep blue solution. Identify the metal ion.</p>
+      <div class="step"><div class="step-num">1</div><div class="step-text">Blue ppt with NaOH &#8594; Cu(OH)&#8322;: consistent with Cu&#178;&#8314;.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-text">Insoluble in excess NaOH: rules out Cr&#179;&#8314;, Zn&#178;&#8314; (which would dissolve). Still consistent with Cu&#178;&#8314;.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-text">Dissolves in excess NH&#8323; &#8594; deep blue [Cu(NH&#8323;)&#8324;(H&#8322;O)&#8322;]&#178;&#8314;: <b>confirms Cu&#178;&#8314;</b>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXERCISES -->
+<section id="exercises">
+  <div class="section-header">
+    <span class="section-number">&#9999;&#65039;</span>
+    <h2>Exercises</h2>
+  </div>
+  <ul class="exercise-list">
+    <li>Write the electronic configuration of: (a) Cr (b) Cu (c) Fe&#178;&#8314; (d) Mn&#8311;&#8314;. Explain the exceptions in Cr and Cu.
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) Cr: [Ar] 3d&#8309; 4s&#185; — half-filled d gives extra stability vs [Ar] 3d&#8308; 4s&#178;<br>
+        (b) Cu: [Ar] 3d&#185;&#8304; 4s&#185; — fully filled d gives extra stability vs [Ar] 3d&#8313; 4s&#178;<br>
+        (c) Fe&#178;&#8314;: [Ar] 3d&#8310; — both 4s electrons removed first from Fe ([Ar] 3d&#8310; 4s&#178;)<br>
+        (d) Mn&#8311;&#8314;: [Ar] — all 3d and 4s electrons removed (7 total, but Mn has [Ar] 3d&#8309; 4s&#178; = 7 outer electrons). Actually Mn&#8311;&#8314; = [Ar] with no 3d electrons: [Ar].
+      </div>
+    </li>
+    <li>Explain why transition metal ions are coloured but Sc&#179;&#8314; and Zn&#178;&#8314; are colourless.
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        Colour arises from <b>d-d transitions</b>: electrons absorb visible light photons and jump from lower to higher d-orbitals. For this to happen, the d sub-shell must be <b>partially filled</b>.<br>
+        Sc&#179;&#8314; has [Ar] — empty d sub-shell — no d electrons to excite &#8594; colourless.<br>
+        Zn&#178;&#8314; has [Ar] 3d&#185;&#8304; — full d sub-shell — no empty d orbitals to accept electrons &#8594; no d-d transitions &#8594; colourless.
+      </div>
+    </li>
+    <li>Name the following complexes: (a) [Fe(CN)&#8326;]&#8308;&#8315; (b) [CoCl&#8322;(NH&#8323;)&#8324;]&#8314; (c) [Cr(H&#8322;O)&#8326;]&#179;&#8314; (d) [Pt(NH&#8323;)&#8322;Cl&#8322;] (neutral).
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) hexacyanoferrate(II) ion (anionic complex &#8594; Latin name ferrate)<br>
+        (b) tetraamminedichlorocobalt(III) ion (Co oxidation state: 4&#215;0 + 2&#215;(&#8722;1) + Co = +1 &#8594; Co = +3)<br>
+        (c) hexaaquachromium(III) ion<br>
+        (d) diamminedichloroplatinum(II) — cisplatin if Cl atoms adjacent; transplatin if opposite.
+      </div>
+    </li>
+    <li>What is observed when excess NaOH is added to (a) FeCl&#8322; solution (b) CrCl&#8323; solution (c) ZnSO&#8324; solution? Write ionic equations for each.
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) FeCl&#8322; + 2NaOH &#8594; Fe(OH)&#8322;&#8595; (green ppt) + 2NaCl. Insoluble in excess. In air, green ppt slowly turns red-brown (oxidised to Fe(OH)&#8323;).<br>
+        Ionic: Fe&#178;&#8314; + 2OH&#8315; &#8594; Fe(OH)&#8322;&#8595;<br><br>
+        (b) CrCl&#8323; + 3NaOH &#8594; Cr(OH)&#8323;&#8595; (green ppt) + 3NaCl. <b>Dissolves</b> in excess NaOH: Cr(OH)&#8323; + OH&#8315; &#8594; [Cr(OH)&#8324;]&#8315; (dark green soln) — amphoteric.<br><br>
+        (c) ZnSO&#8324; + 2NaOH &#8594; Zn(OH)&#8322;&#8595; (white ppt). <b>Dissolves</b> in excess NaOH: Zn(OH)&#8322; + 2OH&#8315; &#8594; [Zn(OH)&#8324;]&#178;&#8315; (colourless soln) — amphoteric.
+      </div>
+    </li>
+    <li>Explain, with relevant equations, why MnO&#8324;&#8315; acts as an oxidising agent in acidic solution but not in alkaline solution in the same way.
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        In <b>acid</b>: MnO&#8324;&#8315; + 8H&#8314; + 5e&#8315; &#8594; Mn&#178;&#8314; + 4H&#8322;O (E&#176; = +1.51 V). Mn is reduced from +7 to +2. Very powerful oxidant — decolourises from purple to colourless.<br><br>
+        In <b>alkali</b>: MnO&#8324;&#8315; + 2H&#8322;O + 3e&#8315; &#8594; MnO&#8322; + 4OH&#8315; (E&#176; = +0.59 V). Mn is reduced only to +4 (forms brown MnO&#8322; precipitate). Less powerful. Solution turns brown, not colourless.<br><br>
+        The H&#8314; concentration controls the equilibrium potential and the product formed. Acidic conditions strongly favour reduction all the way to Mn&#178;&#8314;.
+      </div>
+    </li>
+    <li>Describe what would be observed, and write equations, for the reactions of Fe&#179;&#8314; with: (a) NaOH(aq), (b) KSCN(aq), (c) KI(aq). What do these reactions tell you about Fe&#179;&#8314;?
+      <button class="reveal-btn" onclick="toggleAnswer(this)">Show Answer</button>
+      <div class="answer">
+        (a) Fe&#179;&#8314; + 3OH&#8315; &#8594; Fe(OH)&#8323;&#8595; — red-brown precipitate, insoluble in excess NaOH.<br>
+        (b) Fe&#179;&#8314; + SCN&#8315; &#8594; [Fe(SCN)]&#178;&#8314; — blood-red colour (characteristic confirmatory test for Fe&#179;&#8314;).<br>
+        (c) 2Fe&#179;&#8314; + 2I&#8315; &#8594; 2Fe&#178;&#8314; + I&#8322; — Fe&#179;&#8314; is reduced to Fe&#178;&#8314;; I&#8315; is oxidised to I&#8322; (solution turns brown; starch test gives blue-black).<br><br>
+        Conclusions: Fe&#179;&#8314; is a <b>Lewis acid</b> (accepts lone pairs from OH&#8315; and SCN&#8315;). Fe&#179;&#8314; is an <b>oxidising agent</b> (reduced by I&#8315; to Fe&#178;&#8314;). The SCN&#8315; reaction provides a very sensitive test since the red colour is visible at very low concentrations.
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="section-header">
+    <span class="section-number">&#129504;</span>
+    <h2>Interactive Quiz</h2>
+  </div>
+  <div class="quiz-wrap">
+    <div class="quiz-header">
+      <h3>Unit 1 Quiz &mdash; Transition Metals</h3>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);">25 Questions</span>
+    </div>
+    <div class="quiz-body">
+
+      <div class="q-block"><span class="q-num">Q1</span>
+        <p class="q-text">A transition metal is defined as an element that:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q1" value="a"> Has at least one electron in the d sub-shell</label>
+          <label class="opt"><input type="radio" name="q1" value="b"> Forms at least one stable ion with an incompletely filled d sub-shell</label>
+          <label class="opt"><input type="radio" name="q1" value="c"> Occupies Groups 3&#8211;12 of the periodic table</label>
+          <label class="opt"><input type="radio" name="q1" value="d"> Has variable oxidation states</label>
+        </div>
+        <div class="q-exp" id="exp1">The IUPAC definition: <b>forms at least one stable ion with an incompletely filled d sub-shell</b>. This excludes Sc (Sc&#179;&#8314; has empty d) and Zn (Zn&#178;&#8314; has full d). Having d electrons or variable states alone is not sufficient.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q2</span>
+        <p class="q-text">The electronic configuration of Cr is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q2" value="a"> [Ar] 3d&#8308; 4s&#178;</label>
+          <label class="opt"><input type="radio" name="q2" value="b"> [Ar] 3d&#8309; 4s&#178;</label>
+          <label class="opt"><input type="radio" name="q2" value="c"> [Ar] 3d&#8309; 4s&#185;</label>
+          <label class="opt"><input type="radio" name="q2" value="d"> [Ar] 3d&#8310; 4s&#178;</label>
+        </div>
+        <div class="q-exp" id="exp2">Cr is [Ar] <b>3d&#8309; 4s&#185;</b> — an exception to the Aufbau principle. A half-filled 3d sub-shell (3d&#8309;) gives extra stability, so one 4s electron is promoted to give 3d&#8309; 4s&#185; rather than 3d&#8308; 4s&#178;.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q3</span>
+        <p class="q-text">The colour of Fe&#179;&#8314; in aqueous solution is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q3" value="a"> Pale green</label>
+          <label class="opt"><input type="radio" name="q3" value="b"> Blue</label>
+          <label class="opt"><input type="radio" name="q3" value="c"> Yellow-brown</label>
+          <label class="opt"><input type="radio" name="q3" value="d"> Purple</label>
+        </div>
+        <div class="q-exp" id="exp3">Fe&#179;&#8314; is <b>yellow-brown</b> in solution as [Fe(H&#8322;O)&#8326;]&#179;&#8314;. Pale green is Fe&#178;&#8314;; blue is Cu&#178;&#8314;; purple is MnO&#8324;&#8315; or Ti&#179;&#8314;. The d&#8309; configuration of Fe&#179;&#8314; allows d-d transitions absorbing in the blue/green region.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q4</span>
+        <p class="q-text">Zn&#178;&#8314; ions are colourless because:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q4" value="a"> Zn is not a transition metal</label>
+          <label class="opt"><input type="radio" name="q4" value="b"> The 3d sub-shell is completely full — no d-d transitions are possible</label>
+          <label class="opt"><input type="radio" name="q4" value="c"> Zn&#178;&#8314; has no electrons at all</label>
+          <label class="opt"><input type="radio" name="q4" value="d"> Zn does not form complex ions</label>
+        </div>
+        <div class="q-exp" id="exp4">Zn&#178;&#8314; has [Ar] 3d&#185;&#8304; — <b>all 10 d-electrons fill all 5 d-orbitals</b>. There is no vacancy for an excited electron to jump into (no empty d orbital), so no d-d absorption of visible light occurs &#8594; colourless.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q5</span>
+        <p class="q-text">The coordination number of the complex [CoCl&#8324;]&#178;&#8315; is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q5" value="a"> 2</label>
+          <label class="opt"><input type="radio" name="q5" value="b"> 4</label>
+          <label class="opt"><input type="radio" name="q5" value="c"> 6</label>
+          <label class="opt"><input type="radio" name="q5" value="d"> &#8722;2</label>
+        </div>
+        <div class="q-exp" id="exp5">Coordination number = total number of coordinate bonds from ligands to the metal. [CoCl&#8324;]&#178;&#8315; has <b>4</b> Cl&#8315; ligands, each donating one lone pair &#8594; CN = 4. Shape is tetrahedral.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q6</span>
+        <p class="q-text">Which catalyst is used in the Contact process (manufacture of H&#8322;SO&#8324;)?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q6" value="a"> Fe</label>
+          <label class="opt"><input type="radio" name="q6" value="b"> Ni</label>
+          <label class="opt"><input type="radio" name="q6" value="c"> V&#8322;O&#8309;</label>
+          <label class="opt"><input type="radio" name="q6" value="d"> Pt</label>
+        </div>
+        <div class="q-exp" id="exp6"><b>V&#8322;O&#8309;</b> (vanadium pentoxide) catalyses 2SO&#8322; + O&#8322; &#8594; 2SO&#8323; in the Contact process. Fe is the Haber process catalyst; Ni is used for hydrogenation of oils; Pt is used in catalytic converters and Ostwald process.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q7</span>
+        <p class="q-text">The oxidation state of Mn in KMnO&#8324; is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q7" value="a"> +4</label>
+          <label class="opt"><input type="radio" name="q7" value="b"> +5</label>
+          <label class="opt"><input type="radio" name="q7" value="c"> +6</label>
+          <label class="opt"><input type="radio" name="q7" value="d"> +7</label>
+        </div>
+        <div class="q-exp" id="exp7">K = +1; each O = &#8722;2; so: +1 + Mn + 4(&#8722;2) = 0 &#8594; Mn = +7. KMnO&#8324; is potassium permanganate — Mn is in its highest common oxidation state of <b>+7</b>.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q8</span>
+        <p class="q-text">Adding excess NH&#8323;(aq) to Cu&#178;&#8314; solution gives:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q8" value="a"> A white precipitate that remains</label>
+          <label class="opt"><input type="radio" name="q8" value="b"> A deep blue solution of [Cu(NH&#8323;)&#8324;(H&#8322;O)&#8322;]&#178;&#8314;</label>
+          <label class="opt"><input type="radio" name="q8" value="c"> A green solution</label>
+          <label class="opt"><input type="radio" name="q8" value="d"> A blood-red solution</label>
+        </div>
+        <div class="q-exp" id="exp8">Cu(OH)&#8322; blue ppt first forms, then dissolves in excess NH&#8323; to form the <b>tetraamminecopper(II) complex [Cu(NH&#8323;)&#8324;(H&#8322;O)&#8322;]&#178;&#8314;</b> — deep blue/royal blue. This is the characteristic test for Cu&#178;&#8314;.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q9</span>
+        <p class="q-text">Cisplatin is an example of which type of isomerism?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q9" value="a"> Optical isomerism</label>
+          <label class="opt"><input type="radio" name="q9" value="b"> Linkage isomerism</label>
+          <label class="opt"><input type="radio" name="q9" value="c"> Geometric (cis-trans) isomerism</label>
+          <label class="opt"><input type="radio" name="q9" value="d"> Ionisation isomerism</label>
+        </div>
+        <div class="q-exp" id="exp9">Cisplatin [Pt(NH&#8323;)&#8322;Cl&#8322;] is the <b>cis</b> isomer — Cl atoms at 90&#176; to each other in a square planar complex. The <b>trans</b> isomer has Cl atoms at 180&#176;. This is <b>geometric isomerism</b>. Cisplatin is an anticancer drug; transplatin has no anticancer activity.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q10</span>
+        <p class="q-text">The test reagent that gives a blood-red colour with Fe&#179;&#8314; is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q10" value="a"> NaOH</label>
+          <label class="opt"><input type="radio" name="q10" value="b"> NH&#8323;</label>
+          <label class="opt"><input type="radio" name="q10" value="c"> KSCN</label>
+          <label class="opt"><input type="radio" name="q10" value="d"> KI</label>
+        </div>
+        <div class="q-exp" id="exp10">Fe&#179;&#8314; + SCN&#8315; &#8594; [Fe(SCN)(H&#8322;O)&#8325;]&#178;&#8314; — <b>blood-red</b>. <b>KSCN</b> (potassium thiocyanate) is the confirmatory test for Fe&#179;&#8314;. NaOH gives a red-brown ppt; NH&#8323; also gives a ppt; KI reduces Fe&#179;&#8314; to Fe&#178;&#8314;.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q11</span>
+        <p class="q-text">The electronic configuration of Fe&#179;&#8314; is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q11" value="a"> [Ar] 3d&#8310; 4s&#178;</label>
+          <label class="opt"><input type="radio" name="q11" value="b"> [Ar] 3d&#8310;</label>
+          <label class="opt"><input type="radio" name="q11" value="c"> [Ar] 3d&#8309;</label>
+          <label class="opt"><input type="radio" name="q11" value="d"> [Ar] 3d&#8308; 4s&#178;</label>
+        </div>
+        <div class="q-exp" id="exp11">Fe: [Ar] 3d&#8310; 4s&#178;. Forming Fe&#179;&#8314;: lose 4s&#178; first &#8594; [Ar] 3d&#8310; then lose one 3d &#8594; <b>[Ar] 3d&#8309;</b>. This is the half-filled d&#8309; configuration — same as Mn&#178;&#8314;. This partly explains the stability of Fe&#179;&#8314;.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q12</span>
+        <p class="q-text">The chromate/dichromate equilibrium CrO&#8324;&#178;&#8315; &#8652; Cr&#8322;O&#8311;&#178;&#8315; shifts to the right when:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q12" value="a"> pH increases (base added)</label>
+          <label class="opt"><input type="radio" name="q12" value="b"> pH decreases (acid added)</label>
+          <label class="opt"><input type="radio" name="q12" value="c"> Temperature increases</label>
+          <label class="opt"><input type="radio" name="q12" value="d"> Water is added</label>
+        </div>
+        <div class="q-exp" id="exp12">2CrO&#8324;&#178;&#8315; + 2H&#8314; &#8652; Cr&#8322;O&#8311;&#178;&#8315; + H&#8322;O. Adding acid (H&#8314;) drives equilibrium to the <b>right</b> &#8594; orange Cr&#8322;O&#8311;&#178;&#8315; forms. Adding alkali (OH&#8315;) drives it left &#8594; yellow CrO&#8324;&#178;&#8315; forms. Colour is therefore pH-dependent.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q13</span>
+        <p class="q-text">Transition metals are good catalysts partly because they:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q13" value="a"> Are all solids at room temperature</label>
+          <label class="opt"><input type="radio" name="q13" value="b"> Can adopt variable oxidation states, acting as electron transfer intermediates</label>
+          <label class="opt"><input type="radio" name="q13" value="c"> Have very large atomic radii</label>
+          <label class="opt"><input type="radio" name="q13" value="d"> Have low melting points</label>
+        </div>
+        <div class="q-exp" id="exp13">The key catalytic feature is <b>variable oxidation states</b> — the metal can be oxidised and then reduced back in a catalytic cycle, transferring electrons between reactants. Additionally, transition metal surfaces can adsorb reactants (heterogeneous catalysis), providing an alternative lower-energy pathway.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q14</span>
+        <p class="q-text">Which of the following gives a white precipitate that dissolves in excess NaOH?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q14" value="a"> Fe&#178;&#8314;</label>
+          <label class="opt"><input type="radio" name="q14" value="b"> Cu&#178;&#8314;</label>
+          <label class="opt"><input type="radio" name="q14" value="c"> Zn&#178;&#8314;</label>
+          <label class="opt"><input type="radio" name="q14" value="d"> Mn&#178;&#8314;</label>
+        </div>
+        <div class="q-exp" id="exp14">Zn&#178;&#8314; + 2OH&#8315; &#8594; Zn(OH)&#8322;&#8595; (<b>white</b> ppt). Excess NaOH: Zn(OH)&#8322; + 2OH&#8315; &#8594; [Zn(OH)&#8324;]&#178;&#8315; (dissolves). <b>Zn(OH)&#8322; is amphoteric</b>. Cr&#179;&#8314; gives green ppt that also dissolves. Fe&#178;&#8314; green ppt stays; Cu&#178;&#8314; blue ppt stays; Mn&#178;&#8314; pale ppt stays.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q15</span>
+        <p class="q-text">The shape of [Fe(H&#8322;O)&#8326;]&#178;&#8314; is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q15" value="a"> Tetrahedral</label>
+          <label class="opt"><input type="radio" name="q15" value="b"> Square planar</label>
+          <label class="opt"><input type="radio" name="q15" value="c"> Linear</label>
+          <label class="opt"><input type="radio" name="q15" value="d"> Octahedral</label>
+        </div>
+        <div class="q-exp" id="exp15">CN = 6 &#8594; <b>octahedral</b>. Six H&#8322;O ligands point to the six corners of an octahedron around the central Fe&#178;&#8314; ion. All bond angles are 90&#176; (adjacent) or 180&#176; (opposite). This is the most common coordination geometry for transition metal ions in water.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q16</span>
+        <p class="q-text">Why does atomic radius change very little across the first-row transition metals (Sc to Zn)?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q16" value="a"> All d-block elements have the same nuclear charge</label>
+          <label class="opt"><input type="radio" name="q16" value="b"> Increasing nuclear charge is offset by increasing d-electron shielding</label>
+          <label class="opt"><input type="radio" name="q16" value="c"> All transition metals have the same electronic configuration</label>
+          <label class="opt"><input type="radio" name="q16" value="d"> Metallic bonding prevents radius changes</label>
+        </div>
+        <div class="q-exp" id="exp16">As Z increases across the series, nuclear charge increases (pulls electrons in) but each new electron enters the 3d sub-shell, which <b>shields effectively</b>. The two effects nearly cancel, so atomic radius changes little (roughly 162 pm at Sc to 124&#8211;134 pm at Ni/Cu/Zn).</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q17</span>
+        <p class="q-text">An optical isomer of a complex ion is its non-superimposable mirror image. This occurs for:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q17" value="a"> [CoCl&#8322;(NH&#8323;)&#8324;]&#8314; square planar</label>
+          <label class="opt"><input type="radio" name="q17" value="b"> [Cr(en)&#8323;]&#179;&#8314; octahedral with 3 bidentate ligands</label>
+          <label class="opt"><input type="radio" name="q17" value="c"> [CuCl&#8324;]&#178;&#8315; tetrahedral</label>
+          <label class="opt"><input type="radio" name="q17" value="d"> [Ag(NH&#8323;)&#8322;]&#8314; linear</label>
+        </div>
+        <div class="q-exp" id="exp17">[Cr(en)&#8323;]&#179;&#8314; has three bidentate (en) ligands arranged octahedrally, giving a <b>chiral (propeller-like) structure</b> that exists as &#923; and &#916; enantiomers — non-superimposable mirror images. Square planar, tetrahedral with all-same ligands, and linear complexes do not show optical isomerism.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q18</span>
+        <p class="q-text">EDTA is described as a hexadentate ligand. This means it:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q18" value="a"> Contains six carbon atoms</label>
+          <label class="opt"><input type="radio" name="q18" value="b"> Donates six lone pairs to the metal from six different donor atoms</label>
+          <label class="opt"><input type="radio" name="q18" value="c"> Forms six different complexes</label>
+          <label class="opt"><input type="radio" name="q18" value="d"> Has a coordination number of 6</label>
+        </div>
+        <div class="q-exp" id="exp18">Hexadentate means <b>6 donor atoms</b> — EDTA&#8308;&#8315; has 2 N atoms and 4 O atoms that each donate a lone pair to the metal, forming 6 coordinate bonds from a single ligand. This makes EDTA complexes very stable (chelate effect — entropy gain from releasing 6 water molecules).</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q19</span>
+        <p class="q-text">Prussian blue is formed when K&#8323;[Fe(CN)&#8326;] (potassium hexacyanoferrate(III)) is added to a solution containing:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q19" value="a"> Fe&#179;&#8314;</label>
+          <label class="opt"><input type="radio" name="q19" value="b"> Fe&#178;&#8314;</label>
+          <label class="opt"><input type="radio" name="q19" value="c"> Cu&#178;&#8314;</label>
+          <label class="opt"><input type="radio" name="q19" value="d"> Zn&#178;&#8314;</label>
+        </div>
+        <div class="q-exp" id="exp19">K&#8323;[Fe(CN)&#8326;] + Fe&#178;&#8314; &#8594; Prussian blue (dark blue precipitate). This is the test for <b>Fe&#178;&#8314;</b>. Conversely, K&#8324;[Fe(CN)&#8326;] + Fe&#179;&#8314; also gives Prussian blue (Turnbull's blue). The KSCN test is more selective for Fe&#179;&#8314;.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q20</span>
+        <p class="q-text">The disproportionation of Cu&#8314; in water gives:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q20" value="a"> Cu&#178;&#8314; only</label>
+          <label class="opt"><input type="radio" name="q20" value="b"> Cu metal + Cu&#178;&#8314;</label>
+          <label class="opt"><input type="radio" name="q20" value="c"> Cu metal only</label>
+          <label class="opt"><input type="radio" name="q20" value="d"> CuO</label>
+        </div>
+        <div class="q-exp" id="exp20">Disproportionation: 2Cu&#8314;(aq) &#8594; Cu(s) + Cu&#178;&#8314;(aq). One Cu&#8314; is oxidised to Cu&#178;&#8314;; another is reduced to Cu(0). <b>Cu&#8314; is unstable in aqueous solution</b> and spontaneously disproportionates, which is why Cu&#178;&#8314; is much more common than Cu&#8314; in water.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q21</span>
+        <p class="q-text">Which transition metal complex is used as an anticancer drug?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q21" value="a"> [Fe(CN)&#8326;]&#8308;&#8315;</label>
+          <label class="opt"><input type="radio" name="q21" value="b"> [Cu(NH&#8323;)&#8324;]&#178;&#8314;</label>
+          <label class="opt"><input type="radio" name="q21" value="c"> cis-[Pt(NH&#8323;)&#8322;Cl&#8322;] (cisplatin)</label>
+          <label class="opt"><input type="radio" name="q21" value="d"> [Cr(H&#8322;O)&#8326;]&#179;&#8314;</label>
+        </div>
+        <div class="q-exp" id="exp21"><b>Cisplatin</b> cis-[Pt(NH&#8323;)&#8322;Cl&#8322;] is used to treat cancers (e.g. testicular, ovarian). It works by binding to DNA, preventing replication of cancer cells. The trans isomer has no anticancer activity — demonstrating how geometry affects biological function.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q22</span>
+        <p class="q-text">When KMnO&#8324; reacts in acidic solution, the half-equation is: MnO&#8324;&#8315; + 8H&#8314; + 5e&#8315; &#8594; Mn&#178;&#8314; + 4H&#8322;O. The change in oxidation state of Mn is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q22" value="a"> +7 to +2 (decrease of 5)</label>
+          <label class="opt"><input type="radio" name="q22" value="b"> +7 to +4 (decrease of 3)</label>
+          <label class="opt"><input type="radio" name="q22" value="c"> +4 to +2 (decrease of 2)</label>
+          <label class="opt"><input type="radio" name="q22" value="d"> +2 to +7 (increase of 5)</label>
+        </div>
+        <div class="q-exp" id="exp22">In KMnO&#8324;, Mn is +7. In MnSO&#8324; (Mn&#178;&#8314;), Mn is +2. Change = +7 &#8594; +2 = <b>decrease of 5</b>, consistent with gaining 5 electrons (5e&#8315; in the half-equation). The solution turns from purple (MnO&#8324;&#8315;) to nearly colourless (Mn&#178;&#8314;).</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q23</span>
+        <p class="q-text">The correct IUPAC name for [Ag(NH&#8323;)&#8322;]&#8314; is:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q23" value="a"> Silver diamine(I)</label>
+          <label class="opt"><input type="radio" name="q23" value="b"> Diamminesilver(I)</label>
+          <label class="opt"><input type="radio" name="q23" value="c"> Bis(ammine)silver(I)</label>
+          <label class="opt"><input type="radio" name="q23" value="d"> Silver(I) ammine</label>
+        </div>
+        <div class="q-exp" id="exp23">IUPAC: ligands first, then metal. NH&#8323; is the neutral ligand named <b>ammine</b> (double m). Two of them = <b>diammine</b>. Metal Ag in cation = silver with oxidation state (I). Full name: <b>diamminesilver(I)</b>. This complex is Tollens' reagent.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q24</span>
+        <p class="q-text">Why is Fe ferromagnetic but Cu is not?</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q24" value="a"> Fe has a higher melting point than Cu</label>
+          <label class="opt"><input type="radio" name="q24" value="b"> Fe has unpaired d-electrons that can align cooperatively in magnetic domains; Cu&#8314; has all electrons paired</label>
+          <label class="opt"><input type="radio" name="q24" value="c"> Fe is more reactive than Cu</label>
+          <label class="opt"><input type="radio" name="q24" value="d"> Cu has a completely full d sub-shell</label>
+        </div>
+        <div class="q-exp" id="exp24">Fe has 4 unpaired 3d electrons per atom. In iron metal, these spins align cooperatively in <b>magnetic domains</b>, creating ferromagnetism. Cu has [Ar] 3d&#185;&#8304; 4s&#185; — the 3d is full, and the 4s electron is delocalized in the metal. No unpaired d-electrons &#8594; no ferromagnetism. Cu is weakly diamagnetic.</div>
+      </div>
+
+      <div class="q-block"><span class="q-num">Q25</span>
+        <p class="q-text">A solution of Cr&#179;&#8314; gives a green precipitate with NaOH. On adding excess NaOH, the precipitate dissolves. On then adding H&#8322;SO&#8324;(aq), a green precipitate re-forms. This sequence demonstrates:</p>
+        <div class="options">
+          <label class="opt"><input type="radio" name="q25" value="a"> Variable oxidation states of Cr</label>
+          <label class="opt"><input type="radio" name="q25" value="b"> The amphoteric nature of Cr(OH)&#8323;</label>
+          <label class="opt"><input type="radio" name="q25" value="c"> The catalytic activity of Cr</label>
+          <label class="opt"><input type="radio" name="q25" value="d"> Optical isomerism in Cr complexes</label>
+        </div>
+        <div class="q-exp" id="exp25">Cr(OH)&#8323; dissolves in excess NaOH: Cr(OH)&#8323; + OH&#8315; &#8594; [Cr(OH)&#8324;]&#8315; (acts as acid). Re-adding H&#8322;SO&#8324; reprotonates and re-precipitates Cr(OH)&#8323;. This sequence demonstrates that <b>Cr(OH)&#8323; is amphoteric</b> — it reacts with both acids and bases.</div>
+      </div>
+
+    </div>
+    <div style="padding:0 24px 24px;">
+      <button class="quiz-submit" onclick="submitQuiz()">Submit All 25 Answers</button>
+      <div id="quizResult" style="display:none;margin-top:16px;border-radius:var(--radius);padding:16px 20px;font-family:'JetBrains Mono',monospace;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIT TEST -->
+<section id="test">
+  <div class="section-header">
+    <span class="section-number">&#128221;</span>
+    <h2>Unit Test</h2>
+  </div>
+  <div class="callout info">
+    <span class="callout-icon">&#8505;&#65039;</span>
+    <div class="callout-body">
+      <strong>Instructions</strong>
+      Total: 50 marks &nbsp;|&nbsp; Time: 55 minutes &nbsp;|&nbsp; Show all working and write ionic equations where appropriate.
+    </div>
+  </div>
+
+  <div class="test-wrap">
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section A &mdash; Short Answer</h3>
+        <span class="marks-badge">30 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q1 [5 marks]</span>
+          <p>(a) Write the full electronic configuration of Cr and Cu, explaining why each is an exception to the Aufbau principle. [3]<br>
+          (b) Write the configuration of Fe&#178;&#8314; and Fe&#179;&#8314;. Explain which is lost first when Fe is ionised. [2]</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) Cr: [Ar] 3d&#8309; 4s&#185; (NOT 3d&#8308; 4s&#178;). A half-filled 3d sub-shell (5 electrons in 5 orbitals, each singly occupied) has extra stability through exchange energy. One 4s electron is promoted to 3d to achieve this.<br>
+              Cu: [Ar] 3d&#185;&#8304; 4s&#185; (NOT 3d&#8313; 4s&#178;). A completely filled 3d sub-shell also has extra stability. Again, one 4s electron is promoted to complete the 3d.<br>
+              (b) Fe: [Ar] 3d&#8310; 4s&#178;. The 4s sub-shell is <b>lost first</b> when forming cations (4s is higher in energy in multi-electron atoms than 3d once core charge builds up).<br>
+              Fe&#178;&#8314;: [Ar] 3d&#8310; (both 4s electrons removed).<br>
+              Fe&#179;&#8314;: [Ar] 3d&#8309; (additionally one 3d electron removed).
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q2 [5 marks]</span>
+          <p>(a) Name the complex [CoCl&#8322;(en)&#8322;]&#8314;. State its coordination number and oxidation state of Co. [3]<br>
+          (b) Draw the two geometric isomers of [CoCl&#8322;(en)&#8322;]&#8314; and state which shows optical isomerism. [2]</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) en = ethylenediamine (bidentate, counts as 2 coordinate bonds each). Ligands: 2&#215;Cl&#8315; (dichloro) + 2&#215;en (bis(ethylenediamine)). Metal: Co, positive charge complex = +1 overall. Charge: 2(&#8722;1) + Co + 0 + 0 = +1 &#8594; Co = +3.<br>
+              Name: <b>dichloridobis(ethylenediamine)cobalt(III)</b>. CN = 6 (2&#215;Cl + 2&#215;2 from en). Oxidation state = +3.<br>
+              (b) cis isomer: both Cl atoms adjacent (90&#176;) &#8212; this cis isomer has a chiral axis and exists as &#923; and &#916; <b>optical isomers</b>.<br>
+              trans isomer: Cl atoms opposite (180&#176;) &#8212; has a plane of symmetry; no optical isomers.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q3 [5 marks]</span>
+          <p>Give the observations and write ionic equations for the reactions of the following with NaOH(aq) and then with excess NaOH: (a) FeSO&#8324; solution [2] (b) CrCl&#8323; solution [2] (c) ZnSO&#8324; solution [1]</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) FeSO&#8324;: Fe&#178;&#8314;(aq) + 2OH&#8315;(aq) &#8594; Fe(OH)&#8322;(s)&#8595; — <b>green precipitate</b>. Insoluble in excess NaOH. In air, slowly turns red-brown (oxidised to Fe(OH)&#8323;).<br><br>
+              (b) CrCl&#8323;: Cr&#179;&#8314;(aq) + 3OH&#8315;(aq) &#8594; Cr(OH)&#8323;(s)&#8595; — <b>green precipitate</b>. In excess NaOH: Cr(OH)&#8323;(s) + OH&#8315;(aq) &#8594; [Cr(OH)&#8324;]&#8315;(aq) — dark green solution (amphoteric).<br><br>
+              (c) ZnSO&#8324;: Zn&#178;&#8314;(aq) + 2OH&#8315;(aq) &#8594; Zn(OH)&#8322;(s)&#8595; — <b>white precipitate</b>. In excess NaOH: Zn(OH)&#8322;(s) + 2OH&#8315;(aq) &#8594; [Zn(OH)&#8324;]&#178;&#8315;(aq) — colourless solution (amphoteric).
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q4 [5 marks]</span>
+          <p>Manganese exhibits oxidation states +2, +4, and +7 in its common compounds.<br>
+          (a) Give one compound/ion for each oxidation state and state its colour. [3]<br>
+          (b) Write the half-equation for the reduction of MnO&#8324;&#8315; in acidic solution and in alkaline solution. State the product in each case. [2]</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) +2: MnSO&#8324; (Mn&#178;&#8314; in solution) — <b>very pale pink</b><br>
+              +4: MnO&#8322; — <b>black/dark brown solid</b><br>
+              +7: KMnO&#8324; (MnO&#8324;&#8315;) — <b>purple/violet solution</b><br><br>
+              (b) In acidic solution: MnO&#8324;&#8315; + 8H&#8314; + 5e&#8315; &#8594; Mn&#178;&#8314; + 4H&#8322;O. Product: Mn&#178;&#8314; (pale pink/colourless). Solution decolourises from purple.<br>
+              In alkaline solution: MnO&#8324;&#8315; + 2H&#8322;O + 3e&#8315; &#8594; MnO&#8322; + 4OH&#8315;. Product: MnO&#8322; (brown precipitate). Purple solution forms brown ppt.
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q5 [5 marks]</span>
+          <p>Explain why transition metals are good catalysts with reference to BOTH: (a) their variable oxidation states (give an example) [2]; (b) the properties of their surfaces (heterogeneous catalysis) [3].</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) Transition metals can change oxidation state by accepting/donating electrons, allowing them to act as <b>electron transfer intermediates</b>. Example: Fe&#179;&#8314; + e&#8315; &#8596; Fe&#178;&#8314;. In the reaction between I&#8315; and S&#8322;O&#8312;&#178;&#8315; (thiosulfate), Fe&#179;&#8314; first oxidises I&#8315; to I&#8322; (Fe&#179;&#8314; &#8594; Fe&#178;&#8314;), then Fe&#178;&#8314; reduces S&#8322;O&#8312;&#178;&#8315; back (Fe&#178;&#8314; &#8594; Fe&#179;&#8314;). Overall rate is much faster via this two-step route than the direct (very slow) reaction.<br><br>
+              (b) Heterogeneous catalysis (e.g. Fe in Haber process, Ni in hydrogenation): reactant molecules are <b>adsorbed</b> onto the catalyst surface. This:<br>
+              &#8226; Weakens bonds within the adsorbed molecules (lower activation energy)<br>
+              &#8226; Holds reactants close together in the correct orientation<br>
+              &#8226; Provides an alternative reaction pathway with lower E&#8322;&#8323;<br>
+              &#8226; Products are then <b>desorbed</b> from the surface, regenerating the catalyst<br>
+              The partially filled d-orbitals of transition metal surfaces form suitable bonds with adsorbed molecules — neither too strong (which would poison the catalyst) nor too weak (which would not activate the molecules).
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q6 [5 marks]</span>
+          <p>Describe a chemical test to distinguish between each of the following pairs. In each case state the reagent used, the observation with each ion, and write ionic equations.<br>
+          (a) Fe&#178;&#8314; from Fe&#179;&#8314; [3]<br>
+          (b) Cu&#178;&#8314; from Zn&#178;&#8314; [2]</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              (a) Reagent: <b>KSCN(aq)</b>.<br>
+              Fe&#178;&#8314;: no significant red colour formed (very pale or no colour).<br>
+              Fe&#179;&#8314;: blood-red colour &#8594; [Fe(SCN)(H&#8322;O)&#8325;]&#178;&#8314; formed.<br>
+              Equation: Fe&#179;&#8314;(aq) + SCN&#8315;(aq) &#8594; [Fe(SCN)]&#178;&#8314;(aq) (blood-red)<br><br>
+              Alternatively: use NaOH(aq).<br>
+              Fe&#178;&#8314;: green precipitate Fe(OH)&#8322;&#8595;; Fe&#179;&#8314;: red-brown precipitate Fe(OH)&#8323;&#8595;.<br><br>
+              (b) Reagent: <b>excess NH&#8323;(aq)</b>.<br>
+              Cu&#178;&#8314;: pale blue precipitate Cu(OH)&#8322; forms first, then <b>dissolves</b> in excess NH&#8323; to give deep blue [Cu(NH&#8323;)&#8324;(H&#8322;O)&#8322;]&#178;&#8314;.<br>
+              Zn&#178;&#8314;: white precipitate Zn(OH)&#8322; forms, dissolves in excess NH&#8323; to give <b>colourless</b> [Zn(NH&#8323;)&#8324;]&#178;&#8314;.<br>
+              The deep blue colour of the Cu&#178;&#8314; ammonia complex distinguishes them.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="test-section">
+      <div class="test-section-header">
+        <h3>Section B &mdash; Extended Response</h3>
+        <span class="marks-badge">20 marks</span>
+      </div>
+      <div class="test-body">
+
+        <div class="test-q">
+          <span class="test-q-num">Q7 [10 marks]</span>
+          <p><b>(a)</b> State five characteristic properties of transition metals and explain the electronic origin of each property. [5 marks]</p>
+          <p><b>(b)</b> Explain why Sc and Zn are anomalous members of the d-block in terms of the IUPAC definition. Compare their properties with those of a typical transition metal (e.g. Fe or Cu), addressing: colour of ions, number of oxidation states, catalytic activity, and magnetic properties. [5 marks]</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a) Five characteristic properties:</b><br>
+              1. <b>Variable oxidation states</b>: arise because the energy difference between 3d and 4s electrons is small, so different numbers of electrons can be involved in bonding. E.g. Fe: +2 (loses 4s&#178;) and +3 (loses 4s&#178; + one 3d).<br>
+              2. <b>Coloured ions</b>: partially filled d-orbitals split in energy in a ligand field. Electrons absorb visible light photons to make d-d transitions to higher d-orbitals. The complementary colour is observed. E.g. Cu&#178;&#8314; absorbs red &#8594; appears blue.<br>
+              3. <b>Catalytic activity</b>: variable oxidation states allow electron transfer; d-orbital surfaces can adsorb reactants. E.g. V&#8322;O&#8309; in Contact process cycles between V&#8309;&#8314; and V&#8308;&#8314;.<br>
+              4. <b>Complex ion formation</b>: available d, s, p orbitals accept lone pairs from ligands. High charge density of small ions attracts ligands. E.g. [Fe(H&#8322;O)&#8326;]&#178;&#8314;.<br>
+              5. <b>Paramagnetic/ferromagnetic behaviour</b>: unpaired d-electrons create magnetic moments. Fe, Co, Ni show ferromagnetism due to cooperative domain alignment.<br><br>
+              <b>(b) Sc and Zn anomalies:</b><br>
+              IUPAC definition: a transition metal must form at least one stable ion with an <b>incompletely filled</b> d sub-shell.<br>
+              Sc&#179;&#8314; = [Ar] (empty d); Zn&#178;&#8314; = [Ar] 3d&#185;&#8304; (full d). Neither satisfies the definition.<br><br>
+              Comparison with Fe/Cu:<br>
+              &#8226; <b>Colour</b>: Sc&#179;&#8314; and Zn&#178;&#8314; are <b>colourless</b> (no d-d transitions possible: no vacancy/no electrons to promote). Fe&#178;&#8314; is pale green; Cu&#178;&#8314; is blue.<br>
+              &#8226; <b>Oxidation states</b>: Sc only has +3; Zn only has +2. Very limited. Fe has +2, +3; Cu has +1, +2; Mn has +2 to +7.<br>
+              &#8226; <b>Catalytic activity</b>: Sc and Zn cannot cycle between oxidation states &#8594; no catalytic activity via electron transfer. Fe (Haber) and V (Contact) are important industrial catalysts.<br>
+              &#8226; <b>Magnetic properties</b>: Sc&#179;&#8314; (empty d, diamagnetic) and Zn&#178;&#8314; (full d, all paired, diamagnetic). Fe has 4 unpaired d-electrons &#8594; paramagnetic and ferromagnetic in the metal. Cu (metal, 3d&#185;&#8304; 4s&#185;) has one unpaired electron &#8594; weakly paramagnetic.<br>
+              Despite not fitting the IUPAC definition, Sc and Zn are always studied with transition metals as they complete the d-block and have some similar physical properties (metallic conductors, hard, relatively high MP except Zn).
+            </div>
+          </div>
+        </div>
+
+        <div class="test-q">
+          <span class="test-q-num">Q8 [10 marks]</span>
+          <p><b>(a)</b> Describe the types of isomerism that can occur in transition metal complexes. Give a named example of each type and state its significance. [6 marks]</p>
+          <p><b>(b)</b> The complex [CoCl&#8322;(NH&#8323;)&#8324;]&#8314; exists as two geometric isomers. (i) State their names and sketch the two structures, labelling the Co and all ligands. (ii) State which isomer could also exhibit optical isomerism and explain why. [4 marks]</p>
+          <div class="test-answer-reveal">
+            <button class="reveal-btn" onclick="toggleAnswer(this)">Show Model Answer</button>
+            <div class="answer">
+              <b>(a) Types of isomerism:</b><br>
+              1. <b>Geometric (cis-trans) isomerism</b>: occurs in square planar (4-coordinate) and octahedral complexes when identical ligands can be adjacent (cis, 90&#176;) or opposite (trans, 180&#176;). Example: [Pt(NH&#8323;)&#8322;Cl&#8322;] &#8212; cisplatin (cis) is an anticancer drug; transplatin is inactive, showing that geometry determines biological activity.<br><br>
+              2. <b>Optical isomerism</b>: non-superimposable mirror image (enantiomer) pairs. Occur in octahedral complexes with 3 bidentate ligands or 2 bidentate + 2 different monodentate ligands in cis arrangement. Example: [Cr(en)&#8323;]&#179;&#8314; exists as &#923; and &#916; forms; the two enantiomers rotate plane-polarised light in opposite directions. Significance: drug chirality (enantiomers can have different pharmacological effects).<br><br>
+              3. <b>Linkage isomerism</b>: ambidentate ligands (e.g. NO&#8322;&#8315;, SCN&#8315;) can bond through different atoms. Example: [Co(NO&#8322;)(NH&#8323;)&#8325;]&#178;&#8314; (nitro, N-bonded) vs [Co(ONO)(NH&#8323;)&#8325;]&#178;&#8314; (nitrito, O-bonded). Different spectroscopic and chemical properties.<br><br>
+              4. <b>Ionisation isomerism</b>: different ions in solution due to ligands swapping in/out of coordination sphere. Example: [CoCl(NH&#8323;)&#8325;]SO&#8324; (gives SO&#8324;&#178;&#8315; ions in solution) vs [Co(SO&#8324;)(NH&#8323;)&#8325;]Cl (gives Cl&#8315; ions). Different conductivities in solution.<br><br>
+              5. <b>Hydrate isomerism</b>: water molecules inside vs outside the coordination sphere. Example: [Cr(H&#8322;O)&#8326;]Cl&#8323; (violet) vs [CrCl(H&#8322;O)&#8325;]Cl&#8322;&#183;H&#8322;O (pale green). Different colour and number of ions in solution.<br><br>
+              <b>(b)</b> [CoCl&#8322;(NH&#8323;)&#8324;]&#8314; is octahedral (CN = 6: 2 Cl + 4 NH&#8323;).<br>
+              (i) Two geometric isomers:<br>
+              <b>cis-[CoCl&#8322;(NH&#8323;)&#8324;]&#8314;</b>: the two Cl&#8315; ligands are 90&#176; apart (adjacent). Violet/purple colour.<br>
+              <b>trans-[CoCl&#8322;(NH&#8323;)&#8324;]&#8314;</b>: the two Cl&#8315; ligands are 180&#176; apart (opposite). Green colour.<br>
+              [Sketches: octahedral diagrams with Co at centre, showing Cl and NH&#8323; positions]<br><br>
+              (ii) The <b>cis isomer</b> can show optical isomerism. In the cis isomer, the two Cl&#8315; ligands and the four NH&#8323; ligands create an arrangement with no plane of symmetry — the molecule has a non-superimposable mirror image. The two non-superimposable forms (enantiomers) rotate plane-polarised light in opposite directions. The trans isomer has a C&#8322; axis and planes of symmetry &#8594; superimposable on its mirror image &#8594; no optical isomers.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="unit-nav">
+  <a class="nav-btn prev" href="s6-chemistry.html">&#8592; Course Home</a>
+  <a class="nav-btn next" href="unit2_extraction_metals.html">Unit 2: Extraction of Metals &#8594;</a>
+</div>
+
+</main>
+
+<script>
+function toggleAnswer(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+const correctAnswers={q1:'b',q2:'c',q3:'c',q4:'b',q5:'b',q6:'c',q7:'d',q8:'b',q9:'c',q10:'c',q11:'c',q12:'b',q13:'b',q14:'c',q15:'d',q16:'b',q17:'b',q18:'b',q19:'b',q20:'b',q21:'c',q22:'a',q23:'b',q24:'b',q25:'b'};
+function submitQuiz(){
+  let score=0;
+  const total=Object.keys(correctAnswers).length;
+  Object.entries(correctAnswers).forEach(([q,correct])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{if(o.value===correct)o.parentElement.classList.add('correct');});
+    if(sel){if(sel.value===correct)score++;else sel.parentElement.classList.add('wrong');}
+    const num=q.replace('q','');
+    const exp=document.getElementById('exp'+num);
+    if(exp)exp.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const pct=Math.round(score/total*100);
+  const res=document.getElementById('quizResult');
+  res.style.display='block';
+  res.style.background=pct>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  res.style.border='1px solid '+(pct>=70?'var(--green)':'var(--red)');
+  res.style.color=pct>=70?'var(--green)':'var(--red)';
+  res.innerHTML='Score: '+score+' / '+total+' ('+pct+'%) &mdash; '+(pct>=80?'Excellent! &#127881;':pct>=60?'Good effort &mdash; review marked questions.':'Keep studying &mdash; re-read the notes and try again.');
+  document.querySelector('.quiz-submit').disabled=true;
+  document.querySelector('.quiz-submit').style.opacity='0.5';
+}
+</script>
+</body>
+</html>

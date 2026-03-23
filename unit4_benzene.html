@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S6 Chemistry – Unit 4: Benzene</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--ac:#a78bfa;--a2:#f97316;--gold:#e8c547;--green:#34d399;--red:#f87171;--text:#e6edf3;--muted:#8b949e;--r:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+.hero{position:relative;padding:70px 40px 50px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#120a2a 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(167,139,250,.04) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(167,139,250,.04) 40px);pointer-events:none;}
+.badge{display:inline-block;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);color:var(--ac);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.15;color:#fff;max-width:800px;margin:0 auto 16px;}
+.hero h1 em{color:var(--ac);font-style:italic;}
+.hero p.sub{color:var(--muted);font-size:1rem;max-width:640px;margin:0 auto 28px;}
+.page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+.sh{display:flex;align-items:center;gap:16px;margin:56px 0 24px;padding-bottom:12px;border-bottom:2px solid var(--border);}
+.sn{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--ac);background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+.sh h2{font-family:'Playfair Display',serif;font-size:1.65rem;color:#fff;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:22px 26px;margin-bottom:18px;}
+.card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);margin-bottom:10px;}
+.card p+p{margin-top:9px;}
+.def{border-left:4px solid var(--ac);background:rgba(167,139,250,.07);border-radius:0 var(--r) var(--r) 0;padding:16px 20px;margin:18px 0;}
+.def strong{color:var(--ac);display:block;font-size:.76rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px;}
+.fb{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:16px 22px;margin:12px 0;font-family:'JetBrains Mono',monospace;font-size:.88rem;color:var(--ac);overflow-x:auto;white-space:pre;}
+.c2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+@media(max-width:640px){.c2{grid-template-columns:1fr;}}
+.tw{overflow-x:auto;margin:16px 0;border-radius:var(--r);border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:var(--surface2);}
+th{padding:11px 14px;text-align:left;font-size:.8rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);}
+td{padding:10px 14px;border-top:1px solid var(--border);font-size:.88rem;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.el{list-style:none;counter-reset:e;}
+.el li{counter-increment:e;margin-bottom:12px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r);}
+.el li::before{content:'Q' counter(e) '.';font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--ac);display:block;margin-bottom:4px;}
+.rb{margin-top:7px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);color:var(--ac);padding:4px 12px;border-radius:5px;cursor:pointer;font-size:.78rem;font-family:'JetBrains Mono',monospace;}
+.rb:hover{background:var(--ac);color:#000;}
+.ans{display:none;margin-top:9px;padding:10px 13px;background:rgba(167,139,250,.06);border-left:3px solid var(--ac);border-radius:0 5px 5px 0;font-size:.87rem;}
+.ans.open{display:block;}
+.qw{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-top:24px;}
+.qh{background:rgba(167,139,250,.1);border-bottom:1px solid rgba(167,139,250,.2);padding:13px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:7px;}
+.qh h3{font-family:'Playfair Display',serif;color:var(--ac);font-size:1.1rem;}
+.qb{padding:20px;}
+.qbl{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+.qbl:last-of-type{border-bottom:none;}
+.qt{font-weight:600;margin-bottom:9px;color:#fff;}
+.qn{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--ac);display:block;margin-bottom:3px;}
+.opts{display:flex;flex-direction:column;gap:6px;}
+.opt{display:flex;align-items:flex-start;gap:8px;padding:8px 12px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;cursor:pointer;transition:all .15s;font-size:.88rem;}
+.opt:hover{border-color:var(--ac);}
+.opt input{margin-top:3px;accent-color:var(--ac);}
+.opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+.opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+.qe{display:none;margin-top:7px;padding:8px 12px;background:rgba(167,139,250,.07);border-left:3px solid var(--ac);border-radius:0 4px 4px 0;font-size:.84rem;}
+.qs{background:var(--ac);color:#000;border:none;padding:10px 26px;border-radius:7px;font-size:.9rem;font-family:'JetBrains Mono',monospace;cursor:pointer;font-weight:700;}
+.qs:hover{opacity:.85;}
+.ts{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:20px;}
+.tsh{background:rgba(249,115,22,.1);border-bottom:1px solid rgba(249,115,22,.2);padding:11px 20px;display:flex;justify-content:space-between;align-items:center;}
+.tsh h3{font-family:'Playfair Display',serif;color:var(--a2);font-size:1rem;}
+.mb{font-family:'JetBrains Mono',monospace;font-size:.7rem;background:rgba(249,115,22,.2);color:var(--a2);padding:3px 9px;border-radius:50px;}
+.tb{padding:20px;}
+.tq{margin-bottom:16px;padding:13px 15px;background:var(--surface2);border-radius:7px;border:1px solid var(--border);}
+.tqn{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--a2);margin-bottom:4px;display:block;}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:50px;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px;}
+.nb{display:inline-flex;align-items:center;gap:7px;padding:10px 20px;border-radius:7px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.81rem;transition:all .2s;}
+.nb.p{background:var(--surface);border:1px solid var(--border);color:var(--muted);}
+.nb.p:hover{border-color:var(--ac);color:var(--ac);}
+.nb.n{background:var(--ac);color:#000;font-weight:700;}
+.nb.n:hover{opacity:.88;}
+h3.sub{font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--gold);margin:22px 0 9px;}
+sub,sup{font-size:.72em;}
+.svg-wrap{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin:16px 0;text-align:center;}
+.svg-wrap p{font-size:.84rem;color:var(--muted);margin-top:10px;}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="badge">Unit 4 · Organic Chemistry</div>
+  <h1><em>Benzene &amp; Aromaticity</em></h1>
+  <p class="sub">Kekulé vs delocalised model, Hückel aromaticity, electrophilic aromatic substitution, nomenclature, and positional isomerism.</p>
+</header>
+<main class="page">
+
+<section id="structure">
+<div class="sh"><span class="sn">4.1</span><h2>Structure of Benzene</h2></div>
+<div class="def"><strong>Benzene</strong>Benzene C&#8326;H&#8326; is a cyclic, planar hydrocarbon with the molecular formula C&#8326;H&#8326;. All six carbon-carbon bonds are identical in length (139 pm — between single 154 pm and double 134 pm bonds), and all bond angles are 120°.</div>
+<div class="c2">
+<div class="card">
+<h3>Kekulé Model (1865)</h3>
+<p>August Kekulé proposed alternating single and double bonds in a hexagonal ring. Predicts two different C–C bond lengths and that benzene should decolourise Br&#8322; rapidly (like alkenes). <b>Both predictions are wrong.</b></p>
+<p>Kekulé later suggested rapid equilibrium between two structures — still inadequate.</p>
+</div>
+<div class="card">
+<h3>Delocalised (Resonance) Model</h3>
+<p>Each C atom is sp² hybridised with a p-orbital perpendicular to the ring plane. All six p-electrons overlap sideways to form a continuous <b>&#960;-cloud above and below the ring</b>. Electrons are delocalised over all 6 carbons — no alternating single/double bonds.</p>
+<p>This explains equal bond lengths and stability. Represented by a hexagon with an inscribed circle.</p>
+</div>
+</div>
+<div class="card">
+<h3>Evidence for the Delocalised Model</h3>
+<div class="tw"><table>
+<thead><tr><th>Evidence</th><th>What Kekulé Predicts</th><th>What is Observed</th></tr></thead>
+<tbody>
+<tr><td>C–C bond lengths</td><td>Two alternating lengths (134 pm, 154 pm)</td><td>All 139 pm (intermediate) ✓ delocalised</td></tr>
+<tr><td>Reaction with Br&#8322;</td><td>Rapid decolourisation (addition)</td><td>No reaction with Br&#8322;(aq); needs catalyst for substitution</td></tr>
+<tr><td>Thermochemical stability</td><td>Enthalpy of hydrogenation ~360 kJ/mol</td><td>Only 208 kJ/mol — 152 kJ/mol more stable (delocalisation energy)</td></tr>
+<tr><td>X-ray crystallography</td><td>Two types of bonds</td><td>Regular hexagon with equal bonds</td></tr>
+</tbody>
+</table></div>
+</div>
+</section>
+
+<section id="aromaticity">
+<div class="sh"><span class="sn">4.2</span><h2>Hückel's Rule &amp; Aromaticity</h2></div>
+<div class="def"><strong>Hückel's Rule</strong>A cyclic, planar, fully conjugated molecule is <b>aromatic</b> if it has (4n + 2) π-electrons, where n = 0, 1, 2, 3…<br>
+n=0: 2e; n=1: 6e; n=2: 10e; n=3: 14e…</div>
+<div class="card">
+<h3>Criteria for Aromaticity</h3>
+<p>A molecule is aromatic if it is: (1) <b>Cyclic</b> — closed ring; (2) <b>Planar</b> — all atoms in one plane; (3) <b>Fully conjugated</b> — each atom contributes a p-orbital; (4) Has <b>(4n+2) π-electrons</b> (Hückel).</p>
+<div class="tw"><table>
+<thead><tr><th>Molecule</th><th>π-electrons</th><th>n</th><th>Aromatic?</th></tr></thead>
+<tbody>
+<tr><td>Benzene C&#8326;H&#8326;</td><td>6</td><td>1</td><td>Yes ✓</td></tr>
+<tr><td>Naphthalene C&#8321;&#8320;H&#8328;</td><td>10</td><td>2</td><td>Yes ✓</td></tr>
+<tr><td>Cyclobutadiene C&#8324;H&#8324;</td><td>4</td><td>—</td><td>No — antiaromatic (4n)</td></tr>
+<tr><td>Cyclopentadienyl anion C&#8325;H&#8325;&#8315;</td><td>6</td><td>1</td><td>Yes ✓</td></tr>
+<tr><td>Pyridine C&#8325;H&#8325;N</td><td>6</td><td>1</td><td>Yes ✓</td></tr>
+</tbody>
+</table></div>
+</div>
+</section>
+
+<section id="eas">
+<div class="sh"><span class="sn">4.3</span><h2>Electrophilic Aromatic Substitution (EAS)</h2></div>
+<div class="def"><strong>EAS Mechanism</strong>The &#960;-electrons of benzene act as a nucleophile, attacking an electrophile (E&#8314;). A carbocation intermediate (arenium ion / &#963;-complex) forms, then H&#8314; is lost to restore aromaticity. Overall: substitution, not addition — aromaticity is preserved.</div>
+<div class="fb">General mechanism:
+  Step 1: E&#8314; attacks benzene &#960;-system &#8594; &#963;-complex (arenium ion, non-aromatic cation)
+  Step 2: Base removes H&#8314; from sp&#179; carbon &#8594; rearomatisation
+  Net result: C&#8326;H&#8326; + E&#8314; &#8594; C&#8326;H&#8325;E + H&#8314;</div>
+
+<h3 class="sub">Nitration</h3>
+<div class="card">
+<p><b>Reagents</b>: concentrated HNO&#8323; + concentrated H&#8322;SO&#8324; (nitrating mixture), 50–60°C.</p>
+<div class="fb">Generation of electrophile (nitronium ion NO&#8322;&#8314;):
+  HNO&#8323; + H&#8322;SO&#8324; &#8594; NO&#8322;&#8314; + HSO&#8324;&#8315; + H&#8322;O
+
+Reaction: C&#8326;H&#8326; + NO&#8322;&#8314; &#8594; C&#8326;H&#8325;NO&#8322; + H&#8314;
+Product: nitrobenzene (pale yellow oil)</div>
+<p><b>Why concentrated H&#8322;SO&#8324;</b>: protonates HNO&#8323; to generate NO&#8322;&#8314;; H&#8322;SO&#8324; is the stronger acid.</p>
+</div>
+
+<h3 class="sub">Halogenation</h3>
+<div class="card">
+<p><b>Reagents</b>: Cl&#8322; or Br&#8322; + Lewis acid catalyst (AlCl&#8323; or FeBr&#8323;), room temperature, anhydrous.</p>
+<div class="fb">Generation of electrophile:
+  Br&#8322; + FeBr&#8323; &#8594; Br&#8314; [FeBr&#8324;]&#8315; (activated bromine)
+
+Reaction: C&#8326;H&#8326; + Br&#8322; &#8594; C&#8326;H&#8325;Br + HBr
+Products: bromobenzene + HBr (catalyst FeBr&#8323; regenerated)
+
+Note: In light (no catalyst) benzene undergoes radical ADDITION with Cl&#8322;
+to give benzene hexachloride C&#8326;H&#8326;Cl&#8326; (BHC/Lindane) &#8212; different reaction!</div>
+</div>
+
+<h3 class="sub">Friedel-Crafts Alkylation</h3>
+<div class="card">
+<p><b>Reagents</b>: haloalkane RCl + AlCl&#8323; catalyst, anhydrous.</p>
+<div class="fb">Generation of carbocation electrophile:
+  RCl + AlCl&#8323; &#8594; R&#8314; [AlCl&#8324;]&#8315;
+
+Reaction: C&#8326;H&#8326; + RCl &#8594; C&#8326;H&#8325;R + HCl (e.g. methylbenzene if R=CH&#8323;)
+
+Problems: polyalkylation (product more reactive than starting material);
+carbocation rearrangement (primary carbocations rearrange to tertiary)</div>
+</div>
+
+<h3 class="sub">Friedel-Crafts Acylation</h3>
+<div class="card">
+<p><b>Reagents</b>: acyl chloride RCOCl + AlCl&#8323;, anhydrous.</p>
+<div class="fb">Generation of acylium ion electrophile:
+  RCOCl + AlCl&#8323; &#8594; RCO&#8314; [AlCl&#8324;]&#8315;
+
+Reaction: C&#8326;H&#8326; + RCOCl &#8594; C&#8326;H&#8325;COR + HCl (e.g. acetophenone if R=CH&#8323;)
+
+Advantage over alkylation: acylium ion does NOT rearrange; product is
+LESS reactive than benzene &#8594; no polyacylation (ketone group deactivates ring)
+Product can be reduced to alkylbenzene (Clemmensen or Wolff-Kishner)</div>
+</div>
+
+<h3 class="sub">Sulfonation</h3>
+<div class="card">
+<p><b>Reagents</b>: fuming H&#8322;SO&#8324; (oleum), heat.</p>
+<div class="fb">C&#8326;H&#8326; + H&#8322;SO&#8324; &#8652; C&#8326;H&#8325;SO&#8323;H + H&#8322;O (reversible — desulfonation at 200&#176;C)
+Product: benzenesulfonic acid
+Application: manufacture of detergents, dyes, saccharin</div>
+</div>
+</section>
+
+<section id="nomenclature">
+<div class="sh"><span class="sn">4.4</span><h2>Nomenclature &amp; Positional Isomerism</h2></div>
+<div class="card">
+<h3>Naming Benzene Derivatives</h3>
+<p>When benzene has <b>one substituent</b>: name = substituent + benzene (e.g. chlorobenzene, nitrobenzene) or use retained names (toluene = methylbenzene, aniline = aminobenzene, phenol = hydroxybenzene).</p>
+<p>When benzene has <b>two substituents</b>: use numbering or ortho (1,2), meta (1,3), para (1,4) prefixes.</p>
+<p>When benzene has <b>three or more substituents</b>: number the ring, choosing the lowest set of locants. Substituents listed alphabetically.</p>
+</div>
+<div class="tw"><table>
+<thead><tr><th>Position</th><th>Prefix</th><th>Relationship</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td>1,2-</td><td>ortho (o-)</td><td>Adjacent carbons</td><td>o-dichlorobenzene</td></tr>
+<tr><td>1,3-</td><td>meta (m-)</td><td>One carbon apart</td><td>m-nitrotoluene</td></tr>
+<tr><td>1,4-</td><td>para (p-)</td><td>Opposite sides</td><td>p-aminophenol</td></tr>
+</tbody>
+</table></div>
+<div class="card">
+<h3>Worked Example: How many dichlorobenzene isomers exist?</h3>
+<p>Three: <b>1,2- (ortho)</b> — Cl atoms adjacent; <b>1,3- (meta)</b> — one C apart; <b>1,4- (para)</b> — Cl atoms opposite. All have formula C&#8326;H&#8324;Cl&#8322; but different physical properties (e.g. different melting points).</p>
+</div>
+<div class="card">
+<h3>Common Retained Names</h3>
+<div class="tw"><table>
+<thead><tr><th>Compound</th><th>IUPAC Name</th><th>Retained Name</th></tr></thead>
+<tbody>
+<tr><td>C&#8326;H&#8325;CH&#8323;</td><td>Methylbenzene</td><td>Toluene</td></tr>
+<tr><td>C&#8326;H&#8325;OH</td><td>Hydroxybenzene</td><td>Phenol</td></tr>
+<tr><td>C&#8326;H&#8325;NH&#8322;</td><td>Aminobenzene</td><td>Aniline</td></tr>
+<tr><td>C&#8326;H&#8325;CHO</td><td>Benzenecarboxaldehyde</td><td>Benzaldehyde</td></tr>
+<tr><td>C&#8326;H&#8325;COOH</td><td>Benzenecarboxylic acid</td><td>Benzoic acid</td></tr>
+<tr><td>C&#8326;H&#8325;COCH&#8323;</td><td>1-phenylethan-1-one</td><td>Acetophenone</td></tr>
+</tbody>
+</table></div>
+</div>
+</section>
+
+<section id="exercises">
+<div class="sh"><span class="sn">✏️</span><h2>Exercises</h2></div>
+<ul class="el">
+<li>Give THREE pieces of evidence that benzene has a delocalised electron structure rather than the Kekulé alternating bond structure.<button class="rb" onclick="toggleAnswer(this)">Show Answer</button><div class="ans">1. <b>Equal C–C bond lengths</b> (all 139 pm, intermediate between single 154 pm and double 134 pm) — Kekulé predicts two alternating lengths. 2. <b>Thermochemical stability</b>: enthalpy of hydrogenation is only 208 kJ/mol vs expected ~360 kJ/mol for three isolated double bonds. The 152 kJ/mol difference is the delocalisation (resonance) energy. 3. <b>Resistance to addition</b>: benzene does not decolourise Br&#8322;(aq) — Kekulé structure predicts rapid addition; instead, electrophilic substitution occurs to preserve aromaticity.</div></li>
+<li>Write the mechanism for the nitration of benzene, showing the formation of the electrophile, the two steps of EAS, and the product.<button class="rb" onclick="toggleAnswer(this)">Show Answer</button><div class="ans"><b>Step 1 — Formation of electrophile</b>: HNO&#8323; + H&#8322;SO&#8324; &#8594; NO&#8322;&#8314; + HSO&#8324;&#8315; + H&#8322;O. The nitronium ion NO&#8322;&#8314; is the electrophile.<br><b>Step 2 — EAS Step 1</b>: NO&#8322;&#8314; attacks benzene &#960;-system &#8594; &#963;-complex (arenium ion), a delocalized carbocation (non-aromatic).<br><b>Step 3 — EAS Step 2</b>: HSO&#8324;&#8315; acts as base, removes H&#8314; from sp³ carbon &#8594; rearomatisation &#8594; nitrobenzene C&#8326;H&#8325;NO&#8322; + H&#8322;SO&#8324;.<br>Overall: C&#8326;H&#8326; + HNO&#8323; &#8594; C&#8326;H&#8325;NO&#8322; + H&#8322;O.</div></li>
+<li>Explain why Friedel-Crafts acylation is preferred over alkylation for introducing a carbon chain onto benzene.<button class="rb" onclick="toggleAnswer(this)">Show Answer</button><div class="ans">1. <b>No polysubstitution</b>: the ketone product (C&#8326;H&#8325;COR) is electron-withdrawing, deactivating the ring. Further acylation is much slower. In alkylation, the alkyl group activates the ring &#8594; polyalkylation occurs. 2. <b>No rearrangement</b>: acylium ions (RCO&#8314;) are stable and do not rearrange. Carbocations in alkylation can rearrange (e.g. 1° &#8594; 2° or 3°), giving unexpected products. After acylation, the ketone can be reduced to the alkyl group (Clemmensen: Zn/Hg, HCl; or Wolff-Kishner: N&#8322;H&#8324;, KOH, heat).</div></li>
+<li>Apply Hückel's rule to determine whether cyclopentadienyl anion (C&#8325;H&#8325;&#8315;) is aromatic.<button class="rb" onclick="toggleAnswer(this)">Show Answer</button><div class="ans">C&#8325;H&#8325;&#8315; has 5 carbons in a ring. The anion has a lone pair on C5 in a p-orbital. All 5 carbons contribute one p-electron, plus the extra electron from the negative charge &#8594; total = <b>6 π-electrons</b>. 4n+2: n=1 gives 6 ✓. The anion is also cyclic and planar. Therefore C&#8325;H&#8325;&#8315; is <b>aromatic</b>. This explains the acidity of cyclopentadiene (pKa ~16) — its conjugate base is stabilised by aromaticity.</div></li>
+<li>Name the following compounds: (a) benzene with Cl at 1 and NO&#8322; at 4; (b) benzene with CH&#8323; at 1 and OH at 3; (c) benzene with Br at 1, Cl at 2, and CH&#8323; at 4.<button class="rb" onclick="toggleAnswer(this)">Show Answer</button><div class="ans">(a) <b>1-chloro-4-nitrobenzene</b> or p-chloronitrobenzene (para). (b) <b>3-methylphenol</b> (using phenol as base name with OH as principal group) or m-cresol. (c) Number to give lowest locants: Br=1, Cl=2, CH&#8323;=4 &#8594; <b>1-bromo-2-chloro-4-methylbenzene</b>. List substituents alphabetically.</div></li>
+<li>In the halogenation of benzene, what is the role of FeBr&#8323;? Why does benzene not react with Br&#8322; directly?<button class="rb" onclick="toggleAnswer(this)">Show Answer</button><div class="ans">FeBr&#8323; is a <b>Lewis acid catalyst</b>. It accepts a lone pair from Br&#8322;: Br&#8322; + FeBr&#8323; &#8594; Br&#8314; [FeBr&#8324;]&#8315;. This polarises/breaks the Br–Br bond, generating the electrophilic Br&#8314;.<br>Without a catalyst, Br&#8322; is not electrophilic enough to attack benzene's stable &#960;-system (delocalisation energy = 152 kJ/mol). The ring is electron-rich but the high activation energy is not overcome by Br&#8322; alone. FeBr&#8323; lowers this energy by generating a better electrophile.</div></li>
+</ul>
+</section>
+
+<section id="quiz">
+<div class="sh"><span class="sn">🧠</span><h2>Quiz — 25 Questions</h2></div>
+<div class="qw"><div class="qh"><h3>Unit 4: Benzene</h3><span style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);">25 Qs</span></div>
+<div class="qb">
+<script>window._CA={q1:'b',q2:'c',q3:'b',q4:'b',q5:'a',q6:'b',q7:'c',q8:'b',q9:'b',q10:'b',q11:'c',q12:'a',q13:'b',q14:'b',q15:'b',q16:'c',q17:'b',q18:'a',q19:'b',q20:'c',q21:'b',q22:'b',q23:'a',q24:'b',q25:'b'};</script>
+
+<div class="qbl"><span class="qn">Q1</span><p class="qt">The C–C bond length in benzene (139 pm) is:</p><div class="opts">
+<label class="opt"><input type="radio" name="q1" value="a"> Equal to a C=C double bond (134 pm)</label>
+<label class="opt"><input type="radio" name="q1" value="b"> Intermediate between C–C (154 pm) and C=C (134 pm)</label>
+<label class="opt"><input type="radio" name="q1" value="c"> Equal to a C–C single bond (154 pm)</label>
+<label class="opt"><input type="radio" name="q1" value="d"> Longer than any known C–C bond</label>
+</div><div class="qe" id="e1">139 pm is <b>intermediate</b> between C–C (154 pm) and C=C (134 pm), consistent with delocalised bond order of 1.5. This is the key evidence for the delocalised structure.</div></div>
+
+<div class="qbl"><span class="qn">Q2</span><p class="qt">The electrophile in the nitration of benzene is:</p><div class="opts">
+<label class="opt"><input type="radio" name="q2" value="a"> HNO&#8323;</label>
+<label class="opt"><input type="radio" name="q2" value="b"> HSO&#8324;&#8315;</label>
+<label class="opt"><input type="radio" name="q2" value="c"> NO&#8322;&#8314; (nitronium ion)</label>
+<label class="opt"><input type="radio" name="q2" value="d"> H&#8314;</label>
+</div><div class="qe" id="e2"><b>NO&#8322;&#8314;</b> (nitronium ion) formed by: HNO&#8323; + H&#8322;SO&#8324; &#8594; NO&#8322;&#8314; + HSO&#8324;&#8315; + H&#8322;O. The strong acid H&#8322;SO&#8324; protonates HNO&#8323;, which loses water to give NO&#8322;&#8314;.</div></div>
+
+<div class="qbl"><span class="qn">Q3</span><p class="qt">In Friedel-Crafts alkylation, a Lewis acid catalyst is needed to:</p><div class="opts">
+<label class="opt"><input type="radio" name="q3" value="a"> Neutralise HCl produced</label>
+<label class="opt"><input type="radio" name="q3" value="b"> Generate a carbocation (R&#8314;) electrophile from the haloalkane</label>
+<label class="opt"><input type="radio" name="q3" value="c"> Deactivate the benzene ring</label>
+<label class="opt"><input type="radio" name="q3" value="d"> Break the C–H bonds in benzene</label>
+</div><div class="qe" id="e3">AlCl&#8323; is a Lewis acid: accepts lone pair from RCl to form R&#8314; [AlCl&#8324;]&#8315;. The carbocation R&#8314; is the electrophile that attacks benzene. Without AlCl&#8323;, the haloalkane is not electrophilic enough.</div></div>
+
+<div class="qbl"><span class="qn">Q4</span><p class="qt">Hückel's rule states an aromatic compound has:</p><div class="opts">
+<label class="opt"><input type="radio" name="q4" value="a"> 4n π-electrons (n = 1,2,3…)</label>
+<label class="opt"><input type="radio" name="q4" value="b"> (4n + 2) π-electrons (n = 0,1,2…) in a cyclic planar conjugated system</label>
+<label class="opt"><input type="radio" name="q4" value="c"> At least 6 π-electrons in any ring system</label>
+<label class="opt"><input type="radio" name="q4" value="d"> Alternating single and double bonds</label>
+</div><div class="qe" id="e4"><b>(4n+2) π-electrons</b>: n=0 gives 2e, n=1 gives 6e (benzene), n=2 gives 10e (naphthalene). Must also be cyclic, planar, and fully conjugated. 4n electrons = antiaromatic (destabilised).</div></div>
+
+<div class="qbl"><span class="qn">Q5</span><p class="qt">Why does benzene undergo substitution rather than addition reactions?</p><div class="opts">
+<label class="opt"><input type="radio" name="q5" value="a"> Substitution preserves the aromatic &#960;-system and its 152 kJ/mol stabilisation energy</label>
+<label class="opt"><input type="radio" name="q5" value="b"> Benzene cannot react with nucleophiles</label>
+<label class="opt"><input type="radio" name="q5" value="c"> Addition reactions require high temperatures</label>
+<label class="opt"><input type="radio" name="q5" value="d"> Benzene has no double bonds to add across</label>
+</div><div class="qe" id="e5"><b>Aromaticity preservation</b>: addition would destroy the delocalised &#960;-system (loss of 152 kJ/mol resonance energy). Substitution restores aromaticity and is therefore strongly favoured thermodynamically.</div></div>
+
+<div class="qbl"><span class="qn">Q6</span><p class="qt">The product of the reaction of benzene with Br&#8322;/FeBr&#8323; is:</p><div class="opts">
+<label class="opt"><input type="radio" name="q6" value="a"> 1,2-dibromocyclohexane</label>
+<label class="opt"><input type="radio" name="q6" value="b"> Bromobenzene (C&#8326;H&#8325;Br) + HBr</label>
+<label class="opt"><input type="radio" name="q6" value="c"> Benzene hexabromide</label>
+<label class="opt"><input type="radio" name="q6" value="d"> No reaction</label>
+</div><div class="qe" id="e6"><b>C&#8326;H&#8325;Br + HBr</b>. FeBr&#8323; activates Br&#8322; to give Br&#8314; electrophile. EAS substitution gives bromobenzene. HBr is the other product. FeBr&#8323; is regenerated (catalyst).</div></div>
+
+<div class="qbl"><span class="qn">Q7</span><p class="qt">The delocalisation energy (resonance energy) of benzene is approximately:</p><div class="opts">
+<label class="opt"><input type="radio" name="q7" value="a"> 92 kJ/mol</label>
+<label class="opt"><input type="radio" name="q7" value="b"> 360 kJ/mol</label>
+<label class="opt"><input type="radio" name="q7" value="c"> 152 kJ/mol</label>
+<label class="opt"><input type="radio" name="q7" value="d"> 208 kJ/mol</label>
+</div><div class="qe" id="e7"><b>152 kJ/mol</b>: expected &#916;H&#8320; hydrogenation (Kekulé) = 3&#215;120 = 360 kJ/mol; observed = 208 kJ/mol. Difference = 360&#8722;208 = 152 kJ/mol. This is the extra stability from electron delocalisation — the resonance/delocalisation energy.</div></div>
+
+<div class="qbl"><span class="qn">Q8</span><p class="qt">In the Friedel-Crafts acylation, the electrophile is:</p><div class="opts">
+<label class="opt"><input type="radio" name="q8" value="a"> AlCl&#8324;&#8315;</label>
+<label class="opt"><input type="radio" name="q8" value="b"> RCO&#8314; (acylium ion)</label>
+<label class="opt"><input type="radio" name="q8" value="c"> RCl</label>
+<label class="opt"><input type="radio" name="q8" value="d"> Cl&#8314;</label>
+</div><div class="qe" id="e8">RCOCl + AlCl&#8323; &#8594; <b>RCO&#8314;</b> [AlCl&#8324;]&#8315;. The acylium ion is the electrophile. It is stabilised by resonance (lone pair on O) and does not rearrange — unlike carbocations in alkylation.</div></div>
+
+<div class="qbl"><span class="qn">Q9</span><p class="qt">The intermediate in EAS is called a:</p><div class="opts">
+<label class="opt"><input type="radio" name="q9" value="a"> Carbanion</label>
+<label class="opt"><input type="radio" name="q9" value="b"> Arenium ion / &#963;-complex / Wheland intermediate</label>
+<label class="opt"><input type="radio" name="q9" value="c"> Free radical</label>
+<label class="opt"><input type="radio" name="q9" value="d"> Carbene</label>
+</div><div class="qe" id="e9">The <b>arenium ion</b> (&#963;-complex / Wheland intermediate) is a delocalized carbocation where the electrophile has bonded to a ring carbon. The carbon at the point of attack is sp³ (tetrahedral). The positive charge is delocalized over three ring positions (ortho and para to the point of attack).</div></div>
+
+<div class="qbl"><span class="qn">Q10</span><p class="qt">Para-dichlorobenzene (1,4-dichlorobenzene) is an isomer of:</p><div class="opts">
+<label class="opt"><input type="radio" name="q10" value="a"> Chlorobenzene</label>
+<label class="opt"><input type="radio" name="q10" value="b"> 1,2-dichlorobenzene and 1,3-dichlorobenzene</label>
+<label class="opt"><input type="radio" name="q10" value="c"> Trichlorobenzene</label>
+<label class="opt"><input type="radio" name="q10" value="d"> Benzene hexachloride</label>
+</div><div class="qe" id="e10">All three dichlorobenzenes (1,2-, 1,3-, 1,4-) have molecular formula <b>C&#8326;H&#8324;Cl&#8322;</b> and are <b>positional isomers</b>. They differ only in the relative positions of the two Cl atoms on the ring. All are structural isomers of each other.</div></div>
+
+<div class="qbl"><span class="qn">Q11</span><p class="qt">The conditions for nitration of benzene are:</p><div class="opts">
+<label class="opt"><input type="radio" name="q11" value="a"> Dilute HNO&#8323; + room temperature</label>
+<label class="opt"><input type="radio" name="q11" value="b"> Conc HNO&#8323; + AlCl&#8323; + 100°C</label>
+<label class="opt"><input type="radio" name="q11" value="c"> Conc HNO&#8323; + conc H&#8322;SO&#8324; + 50–60°C</label>
+<label class="opt"><input type="radio" name="q11" value="d"> Fuming HNO&#8323; + Pt catalyst + heat</label>
+</div><div class="qe" id="e11"><b>Concentrated HNO&#8323; + concentrated H&#8322;SO&#8324;</b>, 50–60°C. H&#8322;SO&#8324; generates NO&#8322;&#8314;. Below 50°C: slow rate. Above 60°C: dinitration occurs. Temperature control is critical for monosubstitution.</div></div>
+
+<div class="qbl"><span class="qn">Q12</span><p class="qt">What is the IUPAC name of aniline?</p><div class="opts">
+<label class="opt"><input type="radio" name="q12" value="a"> Aminobenzene</label>
+<label class="opt"><input type="radio" name="q12" value="b"> Phenylamine hydrochloride</label>
+<label class="opt"><input type="radio" name="q12" value="c"> Benzeneamine</label>
+<label class="opt"><input type="radio" name="q12" value="d"> Nitrobenzene</label>
+</div><div class="qe" id="e12">Aniline's IUPAC name is <b>aminobenzene</b> (or benzenamine). Formula: C&#8326;H&#8325;NH&#8322;. It is a primary amine and an aromatic compound. Weakly basic (lone pair on N partially delocalized into ring, reducing basicity compared to aliphatic amines).</div></div>
+
+<div class="qbl"><span class="qn">Q13</span><p class="qt">In radical halogenation of benzene with Cl&#8322; in UV light, the product is:</p><div class="opts">
+<label class="opt"><input type="radio" name="q13" value="a"> Chlorobenzene (substitution)</label>
+<label class="opt"><input type="radio" name="q13" value="b"> Benzene hexachloride C&#8326;H&#8326;Cl&#8326; (addition)</label>
+<label class="opt"><input type="radio" name="q13" value="c"> Dichlorobenzene</label>
+<label class="opt"><input type="radio" name="q13" value="d"> No reaction with UV light</label>
+</div><div class="qe" id="e13">In UV light, Cl&#8322; undergoes homolytic fission to give Cl• radicals. These add across the &#960;-bonds of benzene (radical addition, not substitution), giving <b>benzene hexachloride (1,2,3,4,5,6-hexachlorocyclohexane)</b>. This is the pesticide Lindane (BHC). Different from EAS which gives chlorobenzene.</div></div>
+
+<div class="qbl"><span class="qn">Q14</span><p class="qt">Why is Friedel-Crafts acylation preferred over alkylation for synthesis?</p><div class="opts">
+<label class="opt"><input type="radio" name="q14" value="a"> Acylation uses cheaper reagents</label>
+<label class="opt"><input type="radio" name="q14" value="b"> No polysubstitution and no carbocation rearrangement</label>
+<label class="opt"><input type="radio" name="q14" value="c"> Acylation is faster</label>
+<label class="opt"><input type="radio" name="q14" value="d"> Alkylation gives phenols not alkylbenzenes</label>
+</div><div class="qe" id="e14"><b>Two advantages</b>: (1) The ketone product deactivates the ring → only monosubstitution occurs. (2) Acylium ions don't rearrange (unlike carbocations). Both problems of alkylation (polyalkylation, rearrangement) are avoided. The ketone can be reduced later if the alkyl group is needed.</div></div>
+
+<div class="qbl"><span class="qn">Q15</span><p class="qt">The sulfonation of benzene is reversible. The reverse reaction (desulfonation) occurs when:</p><div class="opts">
+<label class="opt"><input type="radio" name="q15" value="a"> Excess H&#8322;SO&#8324; is added</label>
+<label class="opt"><input type="radio" name="q15" value="b"> The product is heated with steam/dilute H&#8322;SO&#8324; at ~200°C</label>
+<label class="opt"><input type="radio" name="q15" value="c"> UV light is applied</label>
+<label class="opt"><input type="radio" name="q15" value="d"> A metal catalyst is added</label>
+</div><div class="qe" id="e15">C&#8326;H&#8325;SO&#8323;H + H&#8322;O &#8652; C&#8326;H&#8326; + H&#8322;SO&#8324;. Heating with <b>dilute acid/steam at ~200°C</b> drives the equilibrium back. This reversibility is useful in synthesis: add –SO&#8323;H to block a position, carry out another reaction, then remove –SO&#8323;H by desulfonation.</div></div>
+
+<div class="qbl"><span class="qn">Q16</span><p class="qt">The name of the intermediate in EAS formed when NO₂⁺ bonds to benzene is:</p><div class="opts">
+<label class="opt"><input type="radio" name="q16" value="a"> Benzene dication</label>
+<label class="opt"><input type="radio" name="q16" value="b"> Benzene radical anion</label>
+<label class="opt"><input type="radio" name="q16" value="c"> Arenium ion (sigma complex / Wheland intermediate)</label>
+<label class="opt"><input type="radio" name="q16" value="d"> Meisenheimer complex</label>
+</div><div class="qe" id="e16">The <b>arenium ion</b> (also called &#963;-complex or Wheland intermediate) is the key intermediate. One ring carbon becomes sp³ (bonded to both H and E&#8314;), and the positive charge is delocalized over the remaining five carbons (primarily at ortho and para positions).</div></div>
+
+<div class="qbl"><span class="qn">Q17</span><p class="qt">How many structural isomers of trichlorobenzene (C₆H₃Cl₃) exist?</p><div class="opts">
+<label class="opt"><input type="radio" name="q17" value="a"> 2</label>
+<label class="opt"><input type="radio" name="q17" value="b"> 3</label>
+<label class="opt"><input type="radio" name="q17" value="c"> 4</label>
+<label class="opt"><input type="radio" name="q17" value="d"> 6</label>
+</div><div class="qe" id="e17"><b>3 isomers</b>: 1,2,3-trichlorobenzene (consecutive); 1,2,4-trichlorobenzene (two adjacent, one para to one of them); 1,3,5-trichlorobenzene (alternating, symmetric). These are positional isomers — same formula, different substitution pattern.</div></div>
+
+<div class="qbl"><span class="qn">Q18</span><p class="qt">The term "ortho" in benzene nomenclature means substituents are at:</p><div class="opts">
+<label class="opt"><input type="radio" name="q18" value="a"> Adjacent positions (1,2)</label>
+<label class="opt"><input type="radio" name="q18" value="b"> Positions 1,3</label>
+<label class="opt"><input type="radio" name="q18" value="c"> Opposite positions (1,4)</label>
+<label class="opt"><input type="radio" name="q18" value="d"> Any two positions on the ring</label>
+</div><div class="qe" id="e18"><b>Ortho = 1,2</b> (adjacent carbons). Meta = 1,3 (one carbon apart). Para = 1,4 (opposite sides of ring). These prefixes are common in benzene chemistry but o-, m-, p- notation is being replaced by numerical locants in IUPAC nomenclature.</div></div>
+
+<div class="qbl"><span class="qn">Q19</span><p class="qt">Benzene is more stable than expected because:</p><div class="opts">
+<label class="opt"><input type="radio" name="q19" value="a"> It has a very low molecular weight</label>
+<label class="opt"><input type="radio" name="q19" value="b"> Six p-electrons are delocalised over all six carbons, giving extra stabilisation energy of ~152 kJ/mol</label>
+<label class="opt"><input type="radio" name="q19" value="c"> Carbon-carbon bonds in benzene are unusually strong</label>
+<label class="opt"><input type="radio" name="q19" value="d"> It has no functional groups</label>
+</div><div class="qe" id="e19"><b>Delocalisation energy (~152 kJ/mol)</b>: the six π-electrons occupy three bonding molecular orbitals that are lower in energy than the Kekulé model predicts. This extra stability means benzene resists addition reactions that would destroy the aromatic system.</div></div>
+
+<div class="qbl"><span class="qn">Q20</span><p class="qt">The reagents for Friedel-Crafts acylation are:</p><div class="opts">
+<label class="opt"><input type="radio" name="q20" value="a"> Acyl chloride + FeCl&#8323;</label>
+<label class="opt"><input type="radio" name="q20" value="b"> Carboxylic acid + H&#8322;SO&#8324;</label>
+<label class="opt"><input type="radio" name="q20" value="c"> Acyl chloride (RCOCl) + anhydrous AlCl&#8323;</label>
+<label class="opt"><input type="radio" name="q20" value="d"> Ketone + HCl</label>
+</div><div class="qe" id="e20">Friedel-Crafts acylation: <b>RCOCl + anhydrous AlCl&#8323;</b>. The AlCl&#8323; must be anhydrous (water destroys it). Product: aryl ketone (PhCOR). More AlCl&#8323; is needed than in alkylation because it forms a stable complex with the ketone product.</div></div>
+
+<div class="qbl"><span class="qn">Q21</span><p class="qt">Pyridine (C₅H₅N) is aromatic because:</p><div class="opts">
+<label class="opt"><input type="radio" name="q21" value="a"> It contains nitrogen</label>
+<label class="opt"><input type="radio" name="q21" value="b"> It has 6 π-electrons in a planar cyclic conjugated system (N contributes one p-electron to the π-system)</label>
+<label class="opt"><input type="radio" name="q21" value="c"> It has double bonds like benzene</label>
+<label class="opt"><input type="radio" name="q21" value="d"> It reacts with electrophiles</label>
+</div><div class="qe" id="e21">Pyridine: 5 carbons each contribute 1 p-electron + N contributes 1 p-electron = <b>6 π-electrons</b>. 4n+2 with n=1 ✓. The N lone pair is in the plane (not part of π-system), making pyridine basic. Compare pyrrole: N lone pair IS in the π-system (contributes 2e, total 6e).</div></div>
+
+<div class="qbl"><span class="qn">Q22</span><p class="qt">The product of nitration of benzene at >60°C is most likely:</p><div class="opts">
+<label class="opt"><input type="radio" name="q22" value="a"> Only nitrobenzene (same as at 50°C)</label>
+<label class="opt"><input type="radio" name="q22" value="b"> 1,3-dinitrobenzene (further nitration of nitrobenzene)</label>
+<label class="opt"><input type="radio" name="q22" value="c"> Trinitrobenzene (TNB)</label>
+<label class="opt"><input type="radio" name="q22" value="d"> Benzene decomposes at >60°C</label>
+</div><div class="qe" id="e22">Above 60°C, <b>dinitration</b> occurs: nitrobenzene undergoes a second nitration. The –NO&#8322; group is deactivating and meta-directing, so 1,3-dinitrobenzene forms. Further heating gives 1,3,5-trinitrobenzene. Temperature control is essential for monosubstitution.</div></div>
+
+<div class="qbl"><span class="qn">Q23</span><p class="qt">Which compound is used as the electrophilic species in the bromination of benzene?</p><div class="opts">
+<label class="opt"><input type="radio" name="q23" value="a"> Br&#8314; (generated with FeBr&#8323; Lewis acid)</label>
+<label class="opt"><input type="radio" name="q23" value="b"> Br&#8322; alone</label>
+<label class="opt"><input type="radio" name="q23" value="c"> HBr</label>
+<label class="opt"><input type="radio" name="q23" value="d"> Br&#8315;</label>
+</div><div class="qe" id="e23"><b>Br&#8314;</b> generated by: Br&#8322; + FeBr&#8323; &#8594; Br&#8314; [FeBr&#8324;]&#8315;. The Br&#8314; (electrophile) attacks the benzene &#960;-system. Br&#8322; alone is not electrophilic enough to overcome benzene's delocalisation energy.</div></div>
+
+<div class="qbl"><span class="qn">Q24</span><p class="qt">In EAS, the second step (loss of H⁺ from the arenium ion) is driven by:</p><div class="opts">
+<label class="opt"><input type="radio" name="q24" value="a"> The H⁺ reacting with the electrophile</label>
+<label class="opt"><input type="radio" name="q24" value="b"> Restoration of aromaticity (gaining ~152 kJ/mol stabilisation)</label>
+<label class="opt"><input type="radio" name="q24" value="c"> The reaction being exothermic overall</label>
+<label class="opt"><input type="radio" name="q24" value="d"> The H⁺ being more electronegative than carbon</label>
+</div><div class="qe" id="e24"><b>Restoration of aromaticity</b> is the main driving force. The arenium ion is non-aromatic and high in energy. Loss of H&#8314; (by the counterion, e.g. [AlCl&#8324;]&#8315; or HSO&#8324;&#8315;) allows the ring to rearomatise, gaining ~152 kJ/mol delocalisation energy. This makes the second step fast and irreversible.</div></div>
+
+<div class="qbl"><span class="qn">Q25</span><p class="qt">The retained name "toluene" refers to:</p><div class="opts">
+<label class="opt"><input type="radio" name="q25" value="a"> Hydroxybenzene</label>
+<label class="opt"><input type="radio" name="q25" value="b"> Methylbenzene</label>
+<label class="opt"><input type="radio" name="q25" value="c"> Aminobenzene</label>
+<label class="opt"><input type="radio" name="q25" value="d"> Chlorobenzene</label>
+</div><div class="qe" id="e25"><b>Methylbenzene (C&#8326;H&#8325;CH&#8323;)</b> is called toluene. It is a common solvent. Other retained names: phenol (hydroxybenzene), aniline (aminobenzene), benzaldehyde (benzenecarboxaldehyde), benzoic acid (benzenecarboxylic acid).</div></div>
+
+</div>
+<div style="padding:0 20px 20px;"><button class="qs" onclick="submitQuiz()">Submit All 25</button><div id="qR" style="display:none;margin-top:12px;border-radius:var(--r);padding:12px 16px;font-family:'JetBrains Mono',monospace;"></div></div>
+</div>
+</section>
+
+<section id="test">
+<div class="sh"><span class="sn">📝</span><h2>Unit Test — 50 marks</h2></div>
+<div class="ts"><div class="tsh"><h3>Section A — Short Answer</h3><span class="mb">30 marks</span></div><div class="tb">
+<div class="tq"><span class="tqn">Q1 [6 marks]</span><p>Describe the Kekulé and delocalised models of benzene. Give three pieces of experimental evidence that support the delocalised model over Kekulé's. [6]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">Kekulé: alternating single (154 pm) and double (134 pm) C–C bonds in a hexagon. Predicts: two different bond lengths, rapid decolourisation of Br&#8322;(aq) (addition), hydrogenation energy = 3×120 = 360 kJ/mol.<br>Delocalised: all 6 C are sp² hybridised; p-orbitals overlap to form a π-cloud above and below the ring; 6 π-electrons delocalised over all 6 carbons; represented by hexagon with inscribed circle.<br>Evidence: (1) All C–C bonds = 139 pm (intermediate, equal) — not two alternating lengths. (2) Benzene resists Br&#8322;(aq) — no addition; requires catalyst for substitution. (3) Enthalpy of hydrogenation = 208 kJ/mol, not 360 kJ/mol — 152 kJ/mol more stable than Kekulé predicts (delocalisation energy). [2 marks each evidence]</div></div>
+<div class="tq"><span class="tqn">Q2 [5 marks]</span><p>Write the mechanism for the nitration of benzene. Include: generation of the electrophile, both steps of the substitution mechanism, and the overall equation. [5]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">Electrophile: HNO&#8323; + H&#8322;SO&#8324; &#8594; NO&#8322;&#8314; + HSO&#8324;&#8315; + H&#8322;O [1]. Step 1: NO&#8322;&#8314; attacks benzene &#960;-system &#8594; arenium ion (&#963;-complex, delocalized carbocation, sp³ at point of attack) [2]. Step 2: HSO&#8324;&#8315; removes H&#8314; from sp³ carbon &#8594; rearomatisation [1]. Overall: C&#8326;H&#8326; + HNO&#8323; &#8594; C&#8326;H&#8325;NO&#8322; + H&#8322;O (50–60°C, conc H&#8322;SO&#8424;) [1].</div></div>
+<div class="tq"><span class="tqn">Q3 [5 marks]</span><p>Compare Friedel-Crafts alkylation and acylation: (a) reagents [2]; (b) electrophile formed [1]; (c) explain why acylation gives a better-defined product [2]. [5]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">(a) Alkylation: RCl + anhydrous AlCl&#8323;; Acylation: RCOCl + anhydrous AlCl&#8323;. (b) Alkylation: carbocation R&#8314;; Acylation: acylium ion RCO&#8314;. (c) Two reasons: Alkylation problem 1 — alkyl groups activate ring &#8594; polyalkylation occurs (multiple substituents). Acylation: ketone deactivates ring &#8594; only mono-substitution. Problem 2 — carbocations rearrange (e.g. 1° &#8594; 3°) giving unexpected products. Acylium ions are stabilised by resonance and do NOT rearrange &#8594; predictable product. [2 marks for both reasons clearly explained]</div></div>
+<div class="tq"><span class="tqn">Q4 [4 marks]</span><p>Draw and name all positional isomers of dichlorobenzene (C&#8326;H&#8324;Cl&#8322;). Predict which isomer has the highest melting point and explain. [4]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">Three isomers: <b>1,2-dichlorobenzene</b> (ortho) — Cl adjacent; <b>1,3-dichlorobenzene</b> (meta) — Cl one apart; <b>1,4-dichlorobenzene</b> (para) — Cl opposite. [2]<br>Para isomer has highest MP (~53°C vs ~24°C and ~25°C for ortho and meta). Para-dichlorobenzene is the most symmetric — molecules pack efficiently in the crystal lattice (highest crystal symmetry), maximising London dispersion forces and requiring more energy to melt. [2]</div></div>
+<div class="tq"><span class="tqn">Q5 [5 marks]</span><p>Apply Hückel's rule to determine whether the following are aromatic, antiaromatic, or non-aromatic: (a) benzene C&#8326;H&#8326; [1]; (b) cyclobutadiene C&#8324;H&#8324; [2]; (c) cyclopentadienyl anion C&#8325;H&#8325;&#8315; [2]. [5]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">(a) Benzene: 6 π-electrons, cyclic, planar, conjugated. 4n+2 with n=1 ✓ → <b>aromatic</b>.<br>(b) Cyclobutadiene: 4 π-electrons (4n with n=1), cyclic, planar, conjugated. 4n → <b>antiaromatic</b>. This molecule is highly unstable, exists only transiently.<br>(c) C&#8325;H&#8325;&#8315;: 5 C, each contributes 1 p-electron + extra e&#8315; from negative charge = <b>6 π-electrons</b>. 4n+2, n=1 ✓. Cyclic, planar. → <b>aromatic</b>. Explains high acidity of cyclopentadiene (pKa 16).</div></div>
+<div class="tq"><span class="tqn">Q6 [5 marks]</span><p>Name the following compounds using IUPAC nomenclature or retained names where appropriate: (a) C&#8326;H&#8325;OH; (b) C&#8326;H&#8325;NH&#8322;; (c) 1-bromo-4-chlorobenzene; (d) 1,2-dimethylbenzene; (e) C&#8326;H&#8325;COOH. [5]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">(a) <b>Phenol</b> (hydroxybenzene); (b) <b>Aniline</b> (aminobenzene); (c) <b>1-bromo-4-chlorobenzene</b> or para-bromochlorobenzene; (d) <b>1,2-dimethylbenzene</b> or ortho-xylene (o-xylene); (e) <b>Benzoic acid</b> (benzenecarboxylic acid).</div></div>
+</div></div>
+<div class="ts"><div class="tsh"><h3>Section B — Extended Response</h3><span class="mb">20 marks</span></div><div class="tb">
+<div class="tq"><span class="tqn">Q7 [10 marks]</span><p>(a) Describe what is meant by "electrophilic aromatic substitution" and explain why benzene undergoes substitution rather than addition. [3]<br>(b) For THREE of the following reactions of benzene, give: reagents and conditions, the electrophile formed, and the organic product: (i) nitration; (ii) bromination; (iii) Friedel-Crafts alkylation with CH&#8323;Cl; (iv) sulfonation. [6]<br>(c) In each EAS reaction, what drives the loss of H&#8314; in the second mechanistic step? [1]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">(a) EAS: the benzene π-system acts as a nucleophile, attacking an electrophile (E&#8314;). An arenium ion forms (Step 1), then H&#8314; is lost to restore aromaticity (Step 2). Substitution is preferred over addition because: addition would break the aromatic π-system, losing ~152 kJ/mol delocalisation energy. Substitution restores aromaticity and this thermodynamic gain drives the reaction. [3]<br>(b) (i) Nitration: conc HNO&#8323;/conc H&#8322;SO&#8424;, 50–60°C; electrophile: NO&#8322;&#8314;; product: nitrobenzene C&#8326;H&#8325;NO&#8322;. (ii) Bromination: Br&#8322;/FeBr&#8323;, anhydrous, RT; electrophile: Br&#8314; [FeBr&#8424;]&#8315;; product: bromobenzene C&#8326;H&#8325;Br + HBr. (iii) F-C alkylation: CH&#8323;Cl/anhydrous AlCl&#8323;; electrophile: CH&#8323;&#8314;; product: methylbenzene (toluene) C&#8326;H&#8325;CH&#8323; + HCl. (iv) Sulfonation: fuming H&#8322;SO&#8424; (oleum), heat; electrophile: SO&#8323;/H&#8322;S&#8322;O&#8327; (SO&#8323;); product: benzenesulfonic acid C&#8326;H&#8325;SO&#8323;H. [6: 2 per reaction, any three]<br>(c) Loss of H&#8314; is driven by <b>restoration of aromaticity</b> — the arenium ion is non-aromatic and high-energy; loss of H&#8314; re-establishes the delocalised π-system and releases ~152 kJ/mol. [1]</div></div>
+<div class="tq"><span class="tqn">Q8 [10 marks]</span><p>(a) What is Hückel's rule? State the four conditions for aromaticity. [3]<br>(b) Explain how the delocalised model accounts for the following observations: (i) benzene does not decolourise bromine water; (ii) all C–C bonds in benzene are the same length; (iii) benzene is less reactive than alkenes towards electrophilic addition. [4]<br>(c) Describe the sulfonation of benzene, including the reversibility of the reaction and how this reversibility can be exploited in organic synthesis. [3]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">(a) Hückel's rule: a cyclic, planar, fully conjugated molecule is aromatic if it has (4n+2) π-electrons (n=0,1,2…). Four conditions: (1) Cyclic ring, (2) Planar geometry, (3) Fully conjugated (p-orbital on every atom), (4) (4n+2) π-electrons. [3]<br>(b) (i) Benzene's π-electrons are delocalised and stabilised by 152 kJ/mol — not as accessible/reactive as alkene π-bonds. Bromine water (without catalyst) cannot provide an electrophile strong enough to overcome this activation energy. No addition across individual C=C bonds because no localised double bonds exist. [~1.5] (ii) All six C atoms are equivalent sp² carbons sharing delocalised electrons equally. Bond order is 1.5 for each C–C, giving uniform 139 pm. No alternating bond lengths because no localised single/double bonds exist. [~1.5] (iii) Alkenes have localised, accessible π-electrons with no resonance stabilisation — react readily with Br&#8322;. Benzene's delocalised electrons are lower in energy and much more stable. Any addition product would be a non-aromatic cyclohexadiene — losing 152 kJ/mol stabilisation. Alkenes gain stability on addition; benzene loses it. [1]<br>(c) Sulfonation: C&#8326;H&#8326; + H&#8322;SO&#8424; &#8652; C&#8326;H&#8325;SO&#8323;H + H&#8322;O, using fuming H&#8322;SO&#8424; (oleum), warm. The reaction is <b>reversible</b>: heating C&#8326;H&#8325;SO&#8323;H with steam at ~200°C regenerates benzene (desulfonation). Synthetic exploitation: the –SO&#8323;H group can be used as a <b>blocking group</b>. Add –SO&#8323;H to block a position on the ring (e.g. para), carry out another EAS at the remaining positions (e.g. nitration goes ortho to –SO&#8323;H), then remove –SO&#8323;H by desulfonation to get a product with a specific substitution pattern. [3]</div></div>
+</div></div>
+</section>
+
+<div class="nav">
+<a class="nb p" href="unit3_fertilisers.html">← Unit 3: Fertilisers</a>
+<a class="nb n" href="unit5_benzene_derivatives.html">Unit 5: Benzene Derivatives →</a>
+</div>
+</main>
+<script>
+function toggleAnswer(b){const a=b.nextElementSibling;a.classList.toggle('open');b.textContent=a.classList.contains('open')?'Hide Answer':'Show Answer';}
+function submitQuiz(){const CA=window._CA||{};let s=0,t=Object.keys(CA).length;Object.entries(CA).forEach(([q,c])=>{const sel=document.querySelector('input[name="'+q+'"]:checked');document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{if(o.value===c)o.parentElement.classList.add('correct');});if(sel){if(sel.value===c)s++;else sel.parentElement.classList.add('wrong');}const e=document.getElementById('e'+q.slice(1));if(e)e.style.display='block';document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);});const p=Math.round(s/t*100);const r=document.getElementById('qR');r.style.display='block';r.style.background=p>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';r.style.border='1px solid '+(p>=70?'var(--green)':'var(--red)');r.style.color=p>=70?'var(--green)':'var(--red)';r.innerHTML='Score: '+s+'/'+t+' ('+p+'%) — '+(p>=80?'Excellent!':p>=60?'Good — review marked.':'Keep studying!');document.querySelector('.qs').disabled=true;document.querySelector('.qs').style.opacity='.5';}
+</script>
+</body>
+</html>
