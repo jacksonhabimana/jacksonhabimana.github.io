@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Student Assessment | Jackson Habimana Chemistry</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#38bdf8;--gold:#e8c547;--green:#34d399;--red:#f87171;--orange:#f59e0b;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;user-select:none;}
+/* Block right-click and dev tools shortcuts */
+/* SCREENS */
+.screen{display:none;min-height:100vh;} .screen.active{display:block;}
+
+/* ─── UPLOAD SCREEN ─── */
+#upload-screen{display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:40px 24px;}
+.upload-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:50px 40px;max-width:500px;width:100%;}
+.upload-box h1{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:10px;}
+.upload-box p{color:var(--muted);margin-bottom:30px;font-size:.95rem;}
+.drop-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:36px;cursor:pointer;transition:all .2s;margin-bottom:20px;}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:rgba(56,189,248,.04);}
+.drop-zone .icon{font-size:2.5rem;margin-bottom:8px;}
+.drop-zone strong{color:var(--text);}
+.drop-zone p{color:var(--muted);font-size:.85rem;margin-top:4px;}
+
+/* ─── STUDENT INFO SCREEN ─── */
+#info-screen{display:flex;align-items:center;justify-content:center;padding:40px 24px;}
+.info-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:44px 40px;max-width:480px;width:100%;}
+.info-card h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:6px;}
+.info-card .exam-preview{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin:20px 0;}
+.info-card label{display:block;font-family:'JetBrains Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;}
+.info-card input{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:11px 14px;font-size:1rem;margin-bottom:16px;}
+.info-card input:focus{outline:none;border-color:var(--accent);}
+
+/* ─── EXAM SCREEN ─── */
+#exam-screen{flex-direction:column;}
+.exam-header{position:sticky;top:0;z-index:100;background:rgba(13,17,23,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;}
+.exam-header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px;}
+.exam-title-hdr{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.timer{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--green);background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);padding:6px 16px;border-radius:8px;min-width:80px;text-align:center;}
+.timer.warn{color:var(--orange);background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.25);}
+.timer.danger{color:var(--red);background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.25);animation:blink 1s step-end infinite;}
+@keyframes blink{50%{opacity:.5;}}
+.progress-bar{height:3px;background:var(--surface2);}
+.progress-fill{height:100%;background:var(--accent);transition:width .3s;}
+.exam-body{max-width:900px;margin:0 auto;padding:32px 24px 80px;}
+.violation-bar{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);border-radius:8px;padding:10px 16px;margin-bottom:20px;display:none;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--red);}
+.question-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 28px;margin-bottom:20px;}
+.q-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.q-num{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;}
+.q-marks{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);}
+.q-text{font-size:1rem;color:#fff;margin-bottom:18px;line-height:1.65;}
+.option-btn{display:flex;align-items:center;gap:12px;width:100%;padding:12px 16px;margin-bottom:8px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;text-align:left;color:var(--text);font-size:.93rem;}
+.option-btn:hover{border-color:var(--accent);}
+.option-btn.selected{background:rgba(56,189,248,.1);border-color:var(--accent);color:var(--accent);}
+.option-letter{font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;min-width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:4px;background:var(--surface);color:var(--muted);flex-shrink:0;}
+.option-btn.selected .option-letter{background:var(--accent);color:#000;}
+/* PROGRESS NAV */
+.q-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;}
+.q-nav-btn{width:36px;height:36px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:.75rem;border:1px solid var(--border);background:var(--surface2);color:var(--muted);cursor:pointer;transition:all .15s;}
+.q-nav-btn.answered{background:rgba(52,211,153,.15);border-color:var(--green);color:var(--green);}
+.q-nav-btn.current{border-color:var(--accent);color:var(--accent);}
+.submit-btn{display:block;width:100%;padding:14px;background:var(--accent);color:#000;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;border:none;border-radius:8px;cursor:pointer;margin-top:24px;transition:opacity .2s;}
+.submit-btn:hover{opacity:.88;}
+
+/* ─── WARNING MODAL ─── */
+#warning-modal{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:none;align-items:center;justify-content:center;}
+#warning-modal.show{display:flex;}
+.warning-box{background:var(--surface);border:2px solid var(--red);border-radius:16px;padding:40px 36px;max-width:440px;text-align:center;}
+.warning-box .icon{font-size:3rem;margin-bottom:14px;}
+.warning-box h2{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--red);margin-bottom:12px;}
+.warning-box p{color:var(--muted);margin-bottom:20px;font-size:.92rem;}
+.warning-count{font-family:'JetBrains Mono',monospace;font-size:1.1rem;color:var(--orange);margin-bottom:20px;}
+
+/* ─── RESULT SCREEN ─── */
+#result-screen{display:flex;align-items:center;justify-content:center;flex-direction:column;padding:40px 24px;text-align:center;}
+.result-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:48px 40px;max-width:560px;width:100%;}
+.result-icon{font-size:4rem;margin-bottom:16px;}
+.result-card h1{font-family:'Playfair Display',serif;font-size:2.2rem;margin-bottom:8px;}
+.result-card h1.pass{color:var(--green);}
+.result-card h1.fail{color:var(--red);}
+.result-score{font-family:'JetBrains Mono',monospace;font-size:3.5rem;font-weight:700;margin:20px 0;}
+.result-score.pass{color:var(--green);}
+.result-score.fail{color:var(--red);}
+.result-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0;}
+.result-stat{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px;}
+.rs-val{font-family:'JetBrains Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--accent);}
+.rs-lab{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:2px;}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:700;cursor:pointer;border:none;transition:all .18s;text-decoration:none;}
+.btn-primary{background:var(--accent);color:#000;}
+.btn-primary:hover{opacity:.85;}
+.btn-ghost{background:var(--surface2);border:1px solid var(--border);color:var(--text);}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+/* REVIEW TABLE */
+.review-table{text-align:left;margin-top:24px;width:100%;}
+.review-q{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:10px;}
+.review-q .qtext{font-size:.9rem;color:#fff;margin-bottom:8px;}
+.review-q .correct{color:var(--green);font-family:'JetBrains Mono',monospace;font-size:.8rem;}
+.review-q .wrong{color:var(--red);font-family:'JetBrains Mono',monospace;font-size:.8rem;}
+.review-q .your-ans{font-size:.82rem;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ -->
+<!--  SCREEN 1: UPLOAD EXAM FILE        -->
+<!-- ═══════════════════════════════════ -->
+<div class="screen active" id="upload-screen">
+  <div class="upload-box">
+    <div style="font-size:2.5rem;margin-bottom:12px;">⚗</div>
+    <h1>Student Exam Portal</h1>
+    <p>Upload the exam file your teacher gave you to begin your assessment.</p>
+    <div class="drop-zone" id="dz" onclick="document.getElementById('ef').click()">
+      <div class="icon">📄</div>
+      <strong>Click here or drag & drop your exam file</strong>
+      <p>Accepts <code>.json</code> exam files from your teacher</p>
+      <input type="file" id="ef" accept=".json" style="display:none;" onchange="loadExamFile(this.files[0])"/>
+    </div>
+    <p style="color:var(--red);font-size:.85rem;" id="upload-err"></p>
+    <p style="color:var(--muted);font-size:.8rem;">Jackson Habimana Chemistry Portal</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!--  SCREEN 2: STUDENT INFO            -->
+<!-- ═══════════════════════════════════ -->
+<div class="screen" id="info-screen">
+  <div class="info-card">
+    <h2>📝 Ready to Begin</h2>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:4px;">Please enter your details before starting.</p>
+    <div class="exam-preview" id="exam-preview"></div>
+    <label>Full Name *</label>
+    <input type="text" id="s-name" placeholder="e.g. Uwimana Jean"/>
+    <label>Student ID / Registration Number</label>
+    <input type="text" id="s-id" placeholder="e.g. 2024001 (optional)"/>
+    <div id="info-err" style="color:var(--red);font-size:.85rem;margin-bottom:12px;"></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;padding:13px;" onclick="startExam()">🚀 Start Exam</button>
+    <p style="color:var(--orange);font-size:.8rem;margin-top:14px;text-align:center;">⚠️ Once started, switching tabs or windows will be recorded as a violation.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!--  SCREEN 3: EXAM                    -->
+<!-- ═══════════════════════════════════ -->
+<div class="screen" id="exam-screen">
+  <div class="exam-header">
+    <div class="exam-header-inner">
+      <div class="exam-title-hdr" id="exam-hdr-title"></div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);" id="progress-text"></span>
+        <div class="timer" id="timer">00:00</div>
+      </div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+  </div>
+  <div class="exam-body">
+    <div class="violation-bar" id="vbar">⚠️ WARNING: Tab/window switch detected! Violations: <span id="vcount">0</span></div>
+    <div class="q-nav" id="q-nav"></div>
+    <div id="questions-area"></div>
+    <button class="submit-btn" onclick="confirmSubmit()">✅ Submit Exam</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!--  SCREEN 4: RESULT                  -->
+<!-- ═══════════════════════════════════ -->
+<div class="screen" id="result-screen">
+  <div class="result-card">
+    <div class="result-icon" id="res-icon"></div>
+    <h1 id="res-heading" class="pass"></h1>
+    <div class="result-score" id="res-score"></div>
+    <div class="result-stats">
+      <div class="result-stat"><div class="rs-val" id="rs-correct"></div><div class="rs-lab">Correct</div></div>
+      <div class="result-stat"><div class="rs-val" id="rs-wrong"></div><div class="rs-lab">Wrong</div></div>
+      <div class="result-stat"><div class="rs-val" id="rs-time"></div><div class="rs-lab">Time Taken</div></div>
+      <div class="result-stat"><div class="rs-val" id="rs-violations"></div><div class="rs-lab">Violations</div></div>
+    </div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
+      <button class="btn btn-primary" onclick="downloadResult()">⬇️ Download My Result</button>
+      <button class="btn btn-ghost" onclick="toggleReview()">🔍 Review Answers</button>
+    </div>
+    <p style="color:var(--muted);font-size:.8rem;margin-top:16px;">📩 Download your result and submit the file to your teacher.</p>
+    <div id="review-area" style="display:none;" class="review-table"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ -->
+<!--  WARNING MODAL                     -->
+<!-- ═══════════════════════════════════ -->
+<div id="warning-modal">
+  <div class="warning-box">
+    <div class="icon">⚠️</div>
+    <h2>Cheating Warning!</h2>
+    <p id="warning-msg">You left the exam window. This has been recorded.</p>
+    <div class="warning-count" id="warning-count-disp"></div>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center;" onclick="dismissWarning()">I Understand – Return to Exam</button>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════
+//  ANTI-CHEAT SETUP
+// ══════════════════════════════════════════════
+// Disable right-click
+document.addEventListener('contextmenu', e=>{ if(examActive) e.preventDefault(); });
+// Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+C etc during exam
+document.addEventListener('keydown', e=>{
+  if(!examActive) return;
+  const blocked = (e.key==='F12')||(e.ctrlKey&&e.shiftKey&&['I','J','C'].includes(e.key))||(e.ctrlKey&&e.key==='U');
+  if(blocked) e.preventDefault();
+});
+// Tab/window visibility change
+document.addEventListener('visibilitychange', ()=>{
+  if(!examActive) return;
+  if(document.hidden) recordViolation('You switched to another tab or minimised the window.');
+});
+window.addEventListener('blur', ()=>{
+  if(!examActive) return;
+  recordViolation('You switched to another application or window.');
+});
+
+// ══════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════
+let exam = null;
+let answers = {};
+let violations = 0;
+let examActive = false;
+let timerInterval = null;
+let timeLeft = 0;
+let startTime = null;
+let resultData = null;
+let dismissing = false;
+
+// ══════════════════════════════════════════════
+//  SCREEN HELPERS
+// ══════════════════════════════════════════════
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// ══════════════════════════════════════════════
+//  LOAD EXAM FILE
+// ══════════════════════════════════════════════
+const dz = document.getElementById('dz');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-over');});
+dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag-over');if(e.dataTransfer.files[0]) loadExamFile(e.dataTransfer.files[0]);});
+
+function loadExamFile(file){
+  const err = document.getElementById('upload-err');
+  if(!file){return;}
+  const reader = new FileReader();
+  reader.onload = e=>{
+    try{
+      const data = JSON.parse(e.target.result);
+      if(!data.title||!data.questions||!Array.isArray(data.questions)) throw new Error('Invalid exam file.');
+      exam = data;
+      showInfoScreen();
+    }catch(ex){
+      err.textContent = '❌ Invalid file: '+ex.message;
+    }
+  };
+  reader.readAsText(file);
+}
+
+function showInfoScreen(){
+  const p = document.getElementById('exam-preview');
+  p.innerHTML = `
+    <div style="margin-bottom:4px;"><strong style="color:#fff;">${exam.title}</strong></div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:12px;margin-top:6px;">
+      <span>📚 ${exam.subject||'General'}</span>
+      <span>⏱ ${exam.time} minutes</span>
+      <span>📝 ${exam.questions.length} questions</span>
+      <span>🎯 ${exam.totalMarks} marks</span>
+      <span>✅ Pass: ${exam.pass}%</span>
+    </div>
+    ${exam.instructions?`<div style="margin-top:10px;font-size:.85rem;color:var(--orange);">📌 ${exam.instructions}</div>`:''}`;
+  show('info-screen');
+}
+
+// ══════════════════════════════════════════════
+//  START EXAM
+// ══════════════════════════════════════════════
+function startExam(){
+  const name = document.getElementById('s-name').value.trim();
+  const err = document.getElementById('info-err');
+  if(!name){err.textContent='Please enter your full name.';return;}
+  err.textContent='';
+
+  document.getElementById('exam-hdr-title').textContent = exam.title;
+  answers = {};
+  violations = 0;
+  timeLeft = exam.time * 60;
+  startTime = new Date();
+  examActive = true;
+
+  buildQuestions();
+  buildNavDots();
+  updateProgress();
+  show('exam-screen');
+  startTimer();
+  // Try fullscreen
+  try{ document.documentElement.requestFullscreen(); }catch(e){}
+}
+
+function buildQuestions(){
+  const area = document.getElementById('questions-area');
+  area.innerHTML = exam.questions.map((q,i)=>`
+    <div class="question-card" id="qcard-${i}">
+      <div class="q-header">
+        <span class="q-num">Question ${i+1} of ${exam.questions.length}</span>
+        <span class="q-marks">${q.marks} mark${q.marks!==1?'s':''}</span>
+      </div>
+      <div class="q-text">${q.text}</div>
+      <div>
+        ${q.options.map((opt,oi)=>`
+          <button class="option-btn" id="opt-${i}-${oi}" onclick="selectAnswer(${i},${oi})">
+            <span class="option-letter">${String.fromCharCode(65+oi)}</span>
+            <span>${opt}</span>
+          </button>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+function buildNavDots(){
+  const nav = document.getElementById('q-nav');
+  nav.innerHTML = exam.questions.map((_,i)=>`<button class="q-nav-btn" id="nav-${i}" onclick="scrollToQ(${i})">${i+1}</button>`).join('');
+}
+
+function selectAnswer(qi, oi){
+  answers[qi] = oi;
+  // Update option buttons
+  for(let j=0;j<exam.questions[qi].options.length;j++){
+    document.getElementById(`opt-${qi}-${j}`).classList.toggle('selected',j===oi);
+  }
+  document.getElementById(`nav-${qi}`).classList.add('answered');
+  updateProgress();
+}
+
+function scrollToQ(i){
+  document.getElementById(`qcard-${i}`).scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+function updateProgress(){
+  const answered = Object.keys(answers).length;
+  const total = exam.questions.length;
+  document.getElementById('progress-text').textContent = `${answered}/${total} answered`;
+  document.getElementById('progress-fill').style.width = (answered/total*100)+'%';
+}
+
+// ══════════════════════════════════════════════
+//  TIMER
+// ══════════════════════════════════════════════
+function startTimer(){
+  timerInterval = setInterval(()=>{
+    timeLeft--;
+    const m = Math.floor(timeLeft/60);
+    const s = timeLeft%60;
+    const timerEl = document.getElementById('timer');
+    timerEl.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    if(timeLeft<=300) timerEl.className = 'timer warn';
+    if(timeLeft<=60) timerEl.className = 'timer danger';
+    if(timeLeft<=0){
+      clearInterval(timerInterval);
+      autoSubmit('Time expired');
+    }
+  },1000);
+}
+
+// ══════════════════════════════════════════════
+//  VIOLATIONS
+// ══════════════════════════════════════════════
+function recordViolation(msg){
+  if(dismissing) return;
+  violations++;
+  document.getElementById('vbar').style.display='block';
+  document.getElementById('vcount').textContent = violations;
+  document.getElementById('warning-msg').textContent = msg+' This has been recorded.';
+  document.getElementById('warning-count-disp').textContent = `⚠️ Warning ${violations} of ${exam.warnings}`;
+  document.getElementById('warning-modal').classList.add('show');
+  dismissing = true;
+  if(violations >= exam.warnings){
+    setTimeout(()=>autoSubmit('Maximum violations reached – auto-submitted.'),2000);
+  }
+}
+
+function dismissWarning(){
+  document.getElementById('warning-modal').classList.remove('show');
+  setTimeout(()=>dismissing=false, 1000);
+}
+
+// ══════════════════════════════════════════════
+//  SUBMIT
+// ══════════════════════════════════════════════
+function confirmSubmit(){
+  const unanswered = exam.questions.length - Object.keys(answers).length;
+  if(unanswered>0){
+    if(!confirm(`You have ${unanswered} unanswered question${unanswered>1?'s':''}. Submit anyway?`)) return;
+  } else {
+    if(!confirm('Submit your exam? You cannot change answers after submission.')) return;
+  }
+  submitExam('Student submitted');
+}
+
+function autoSubmit(reason){
+  examActive = false;
+  clearInterval(timerInterval);
+  submitExam(reason);
+}
+
+function submitExam(reason){
+  examActive = false;
+  clearInterval(timerInterval);
+  try{ document.exitFullscreen(); }catch(e){}
+
+  const endTime = new Date();
+  const timeTaken = Math.floor((endTime - startTime)/1000);
+  const mm = Math.floor(timeTaken/60);
+  const ss = timeTaken%60;
+  const timeTakenStr = `${mm}m ${ss}s`;
+
+  // Score
+  let score = 0;
+  const breakdown = exam.questions.map((q,i)=>{
+    const chosen = answers[i];
+    const correct = chosen === q.correct;
+    if(correct) score += q.marks;
+    return {text:q.text, chosen, correct: q.correct, isCorrect:correct, marks:q.marks, options:q.options};
+  });
+
+  const percent = Math.round(score / exam.totalMarks * 100);
+  const passed = percent >= exam.pass;
+
+  resultData = {
+    studentName: document.getElementById('s-name').value.trim(),
+    studentId: document.getElementById('s-id').value.trim(),
+    examId: exam.id,
+    examTitle: exam.title,
+    examSubject: exam.subject||'',
+    score, totalMarks: exam.totalMarks,
+    percent, passed,
+    violations,
+    timeTaken: timeTakenStr,
+    submittedAt: endTime.toISOString(),
+    submitReason: reason,
+    breakdown
+  };
+
+  showResult(resultData);
+}
+
+// ══════════════════════════════════════════════
+//  RESULT SCREEN
+// ══════════════════════════════════════════════
+function showResult(r){
+  show('result-screen');
+  document.getElementById('res-icon').textContent = r.passed ? '🏆' : '📚';
+  const heading = document.getElementById('res-heading');
+  heading.textContent = r.passed ? 'Congratulations!' : 'Keep Studying!';
+  heading.className = r.passed ? 'pass' : 'fail';
+  const scoreEl = document.getElementById('res-score');
+  scoreEl.textContent = r.percent + '%';
+  scoreEl.className = 'result-score '+(r.passed?'pass':'fail');
+  document.getElementById('rs-correct').textContent = r.breakdown.filter(q=>q.isCorrect).length;
+  document.getElementById('rs-wrong').textContent = r.breakdown.filter(q=>!q.isCorrect).length;
+  document.getElementById('rs-time').textContent = r.timeTaken;
+  document.getElementById('rs-violations').textContent = r.violations + (r.violations>0?' ⚠️':'');
+}
+
+function downloadResult(){
+  const data = JSON.stringify(resultData, null, 2);
+  const name = resultData.studentName.replace(/\s+/g,'_').toLowerCase();
+  const exam = resultData.examTitle.replace(/\s+/g,'_').toLowerCase().slice(0,20);
+  const filename = `result_${name}_${exam}.json`;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([data],{type:'application/json'}));
+  a.download = filename; a.click();
+}
+
+function toggleReview(){
+  const area = document.getElementById('review-area');
+  if(area.style.display==='none'){
+    area.style.display='block';
+    area.innerHTML = '<h3 style="font-family:Playfair Display,serif;color:#fff;margin-bottom:16px;">Answer Review</h3>' +
+      resultData.breakdown.map((q,i)=>`
+        <div class="review-q">
+          <div class="qtext"><strong>Q${i+1}:</strong> ${q.text}</div>
+          <div class="${q.isCorrect?'correct':'wrong'}">${q.isCorrect?'✅ Correct':'❌ Wrong'} (+${q.isCorrect?q.marks:0}/${q.marks} marks)</div>
+          ${!q.isCorrect&&q.chosen!==undefined?`<div class="your-ans">Your answer: ${String.fromCharCode(65+q.chosen)}) ${q.options[q.chosen]}</div>`:''}
+          <div class="your-ans" style="color:var(--green);">Correct answer: ${String.fromCharCode(65+q.correct)}) ${q.options[q.correct]}</div>
+        </div>`).join('');
+  } else {
+    area.style.display='none';
+  }
+}
+</script>
+</body>
+</html>
