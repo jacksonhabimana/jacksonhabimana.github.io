@@ -247,6 +247,54 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
       </div>
     </div>
 
+    <!-- ACCESS CODE -->
+    <div class="card" style="border-color:rgba(245,158,11,.35);">
+      <h2>🔑 Student Access Code</h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:18px;">Set a code that students must enter before attempting any quiz, test, or exam — including inside course units. Share the code (or the auto-generated link) with students.</p>
+
+      <!-- STEP 1: SET CODE -->
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin-bottom:16px;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:12px;">Step 1 — Set Your Code</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;">
+          <div style="flex:1;min-width:180px;">
+            <label>Access Code</label>
+            <input type="text" id="access-code-input" placeholder="e.g. CHEM2024" maxlength="20" style="font-family:'JetBrains Mono',monospace;font-size:1.3rem;letter-spacing:.12em;text-transform:uppercase;" oninput="this.value=this.value.toUpperCase();updateCodeLink()"/>
+          </div>
+          <div style="padding-bottom:16px;display:flex;gap:8px;">
+            <button class="btn btn-orange" onclick="saveAccessCode()">💾 Save Code</button>
+            <button class="btn btn-danger btn-sm" onclick="clearAccessCode()">🔓 Remove</button>
+          </div>
+        </div>
+        <div id="access-code-msg" style="font-family:'JetBrains Mono',monospace;font-size:.82rem;margin-top:4px;"></div>
+      </div>
+
+      <!-- STEP 2: SHARE -->
+      <div id="access-code-status" style="display:none;background:rgba(245,158,11,.08);border:2px solid rgba(245,158,11,.3);border-radius:8px;padding:20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);">🔒 Lock Active — Share ONE of these with students:</div>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);margin-bottom:6px;">OPTION A — Share just the code (students enter it manually):</div>
+          <div style="background:#0d1117;border:1px solid var(--border);border-radius:6px;padding:14px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--orange);letter-spacing:.25em;" id="code-big-display">----</div>
+        </div>
+
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--muted);margin-bottom:6px;">OPTION B — Share this link (students click it, no manual entry needed):</div>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+            <div style="flex:1;background:#0d1117;border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);word-break:break-all;cursor:pointer;" id="code-link-display" onclick="copyCodeLink()">Loading...</div>
+            <button class="btn btn-ghost btn-sm" onclick="copyCodeLink()">📋 Copy Link</button>
+          </div>
+          <div id="copy-link-msg" style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--green);margin-top:6px;"></div>
+        </div>
+      </div>
+
+      <div style="margin-top:14px;background:rgba(13,17,23,.5);border:1px solid var(--border);border-radius:7px;padding:14px 16px;font-size:.83rem;color:var(--muted);">
+        <strong style="color:#fff;">🔒 What gets locked:</strong> Unit quizzes · Challenge Quizzes · Practice Tests · Exam Papers · Student Quiz · Student Hub<br>
+        <strong style="color:#fff;">✅ Still open:</strong> Course notes and lessons — students can still study without a code
+      </div>
+    </div>
+
     <!-- PASSWORD -->
     <div class="card">
       <h2>Change Admin Password</h2>
@@ -358,6 +406,7 @@ function showTab(id,btn){
     document.getElementById('student-link').textContent=window.location.href.replace('teacher-admin.html','student-exam.html');
     loadNotifSettings();
     loadApiKey();
+    showAccessCodeStatus();
   }
 }
 
@@ -757,10 +806,56 @@ async function updateDirBin(key,codes){
   }catch(e){console.warn('Dir update failed:',e);}
 }
 
+// ══════════ ACCESS CODE ══════════
+function saveAccessCode(){
+  const code=document.getElementById('access-code-input').value.trim().toUpperCase();
+  const msg=document.getElementById('access-code-msg');
+  if(!code){msg.style.color='var(--red)';msg.textContent='❌ Enter a code first.';return;}
+  localStorage.setItem('quiz_access_code',code);
+  msg.style.color='var(--green)';msg.textContent='✅ Saved! Share the code or link with students.';
+  showAccessCodeStatus();
+}
+function clearAccessCode(){
+  if(!confirm('Remove lock? All assessments will be open to everyone.')) return;
+  localStorage.removeItem('quiz_access_code');
+  document.getElementById('access-code-status').style.display='none';
+  const msg=document.getElementById('access-code-msg');
+  msg.style.color='var(--muted)';msg.textContent='🔓 Lock removed. All assessments now open.';
+}
+function updateCodeLink(){
+  const code=document.getElementById('access-code-input').value.trim().toUpperCase();
+  if(!code) return;
+  const base=window.location.href.replace('teacher-admin.html','student-hub.html');
+  const link=base.split('?')[0]+'?c='+encodeURIComponent(code);
+  const ld=document.getElementById('code-link-display');
+  if(ld) ld.textContent=link;
+}
+function copyCodeLink(){
+  const link=document.getElementById('code-link-display').textContent;
+  navigator.clipboard.writeText(link).then(()=>{
+    const m=document.getElementById('copy-link-msg');
+    m.textContent='✅ Link copied! Send it to students via WhatsApp or write the code on the board.';
+    setTimeout(()=>m.textContent='',4000);
+  });
+}
+function showAccessCodeStatus(){
+  const code=localStorage.getItem('quiz_access_code');
+  const el=document.getElementById('access-code-status');
+  if(!code){el.style.display='none';return;}
+  el.style.display='block';
+  const bd=document.getElementById('code-big-display');
+  if(bd) bd.textContent=code;
+  const base=window.location.href.replace('teacher-admin.html','student-hub.html');
+  const link=base.split('?')[0]+'?c='+encodeURIComponent(code);
+  const ld=document.getElementById('code-link-display');
+  if(ld) ld.textContent=link;
+}
+
 function init(){
   if(!document.getElementById('questions-container').children.length) addQuestion();
   document.getElementById('student-link').textContent=window.location.href.replace('teacher-admin.html','student-exam.html');
   loadNotifSettings();loadApiKey();
+  showAccessCodeStatus();
   const dId=localStorage.getItem('exam_dir_bin');
   if(dId){
     document.getElementById('dir-bin-info').style.display='block';

@@ -71,6 +71,102 @@ footer a{color:var(--accent);text-decoration:none;}
 </style>
 </head>
 <body>
+<!-- ═══════════════════════════ ACCESS GATE ═══════════════════════════ -->
+<style>
+#quiz-gate{position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;}
+#quiz-gate.show{display:flex;}
+.gate-box{background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 36px;max-width:460px;width:100%;text-align:center;box-shadow:0 0 60px rgba(245,158,11,.15);}
+.gate-icon{font-size:3.5rem;margin-bottom:16px;}
+.gate-box h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:10px;}
+.gate-box p{color:#8b949e;font-size:.92rem;margin-bottom:22px;line-height:1.7;}
+.gate-inp{width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:'JetBrains Mono',monospace;font-size:1.5rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;transition:border-color .2s;margin-bottom:10px;box-sizing:border-box;}
+.gate-inp:focus{outline:none;border-color:#f59e0b;}
+.gate-btn{width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;cursor:pointer;transition:opacity .2s;}
+.gate-btn:hover{opacity:.85;}
+.gate-err{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#f87171;min-height:20px;margin:8px 0;}
+.gate-hint{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#8b949e;margin-top:12px;}
+</style>
+<div id="quiz-gate">
+  <div class="gate-box">
+    <div class="gate-icon">🔒</div>
+    <h2>Assessment Locked</h2>
+    <p>Your teacher has locked this assessment.<br>Enter the access code given by your teacher.</p>
+    <input class="gate-inp" type="text" id="gate-inp" placeholder="e.g. CHEM2024" maxlength="20"
+      onkeydown="if(event.key==='Enter')gateCheck()"
+      oninput="this.value=this.value.toUpperCase();document.getElementById('gate-err').textContent=''"/>
+    <div class="gate-err" id="gate-err"></div>
+    <button class="gate-btn" onclick="gateCheck()">🔓 Unlock</button>
+    <div class="gate-hint">Get the code from your teacher — written on board or sent via WhatsApp.</div>
+  </div>
+</div>
+<script>
+(function(){
+  var SKEY='_qa_granted', CKEY='_qa_code';
+  
+  function getCorrectCode(){
+    // 1. Check URL parameter ?c=CODE (teacher shares link with code)
+    var url=new URLSearchParams(window.location.search).get('c');
+    if(url) return url.toUpperCase();
+    // 2. Check localStorage (set by teacher in admin on same device)
+    var ls=localStorage.getItem('quiz_access_code');
+    if(ls) return ls.toUpperCase();
+    return null; // no code set — everything open
+  }
+  
+  function isGranted(code){
+    return sessionStorage.getItem(SKEY)===code;
+  }
+  
+  function grant(code){
+    sessionStorage.setItem(SKEY,code);
+    // Also store code so other pages can verify
+    sessionStorage.setItem(CKEY,code);
+    document.getElementById('quiz-gate').classList.remove('show');
+    document.body.style.overflow='';
+  }
+  
+  window.gateCheck=function(){
+    var entered=document.getElementById('gate-inp').value.trim().toUpperCase();
+    var code=getCorrectCode();
+    if(!entered){document.getElementById('gate-err').textContent='Please enter the code.';return;}
+    if(!code||entered===code){
+      grant(code||entered);
+    } else {
+      document.getElementById('gate-err').textContent='❌ Wrong code. Ask your teacher for the correct code.';
+      document.getElementById('gate-inp').value='';
+      document.getElementById('gate-inp').focus();
+    }
+  };
+  
+  function init(){
+    var code=getCorrectCode();
+    if(!code) return; // No lock — open
+    
+    // Auto-unlock if URL has correct code
+    var urlCode=new URLSearchParams(window.location.search).get('c');
+    if(urlCode&&urlCode.toUpperCase()===code){
+      grant(code);
+      return;
+    }
+    
+    // Check if already granted this session
+    if(isGranted(code)) return;
+    
+    // Show gate
+    document.getElementById('quiz-gate').classList.add('show');
+    document.body.style.overflow='hidden';
+    setTimeout(function(){
+      var inp=document.getElementById('gate-inp');
+      if(inp) inp.focus();
+    },200);
+  }
+  
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init);
+  else init();
+})();
+</script>
+<!-- ACCESS GATE -->
+
 <nav>
   <div class="nav-inner">
     <a class="nav-brand" href="index.html">⚗ Jackson Habimana Chemistry</a>
