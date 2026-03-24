@@ -3,145 +3,448 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Quizzes Hub | Habimana Chemistry</title>
+<title>Chemistry Challenge Quizzes | Jackson Habimana</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#38bdf8;--gold:#e8c547;--green:#34d399;--red:#f87171;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#38bdf8;--gold:#e8c547;--green:#34d399;--red:#f87171;--orange:#f59e0b;--purple:#a78bfa;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;}
-#main-nav{position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 24px;gap:12px;}
-.nav-brand{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);text-decoration:none;white-space:nowrap;}
-.nav-links{display:flex;gap:2px;flex-wrap:wrap;}
-.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:5px;border:1px solid transparent;transition:all .15s;white-space:nowrap;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+nav{position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 24px;gap:12px;}
+.nav-brand{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);text-decoration:none;}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:5px;border:1px solid transparent;transition:all .15s;}
 .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.2);}
-.nav-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:4px 10px;border-radius:5px;cursor:pointer;}
-@media(max-width:768px){.nav-toggle{display:block;}.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:rgba(13,17,23,.98);flex-direction:column;padding:12px;gap:4px;border-bottom:1px solid var(--border);}#main-nav.open .nav-links{display:flex;}}
-.nav-dropdown{position:relative;}
-.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--surface2);border:1px solid var(--border);border-radius:8px;min-width:160px;padding:6px;z-index:300;flex-direction:column;gap:2px;}
-.nav-dropdown:hover .nav-dropdown-menu{display:flex;}
-.nav-dropdown-menu a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:5px;}
-.nav-dropdown-menu a:hover{color:var(--accent);background:rgba(56,189,248,.08);}
 
-.hero{text-align:center;padding:60px 24px 40px;background:radial-gradient(ellipse 80% 60% at 50% 0%,#001528 0%,var(--bg) 70%);}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:10px;}
+/* HERO */
+.hero{text-align:center;padding:70px 24px 50px;background:radial-gradient(ellipse 80% 60% at 50% 0%,#001528 0%,var(--bg) 70%);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:#fff;margin-bottom:12px;}
 .hero h1 em{color:var(--accent);font-style:italic;}
-.hero p{color:var(--muted);font-size:.95rem;max-width:560px;margin:0 auto;}
-.page{max-width:1100px;margin:0 auto;padding:48px 24px 80px;}
-.course-section{margin-bottom:52px;}
-.course-label{font-family:'JetBrains Mono',monospace;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
-.quiz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
-.quiz-card{display:flex;text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;transition:all .2s;align-items:flex-start;gap:14px;}
-.quiz-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,.3);}
-.quiz-card.locked{opacity:.45;pointer-events:none;}
-.qc-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);color:var(--accent);padding:3px 8px;border-radius:5px;white-space:nowrap;flex-shrink:0;margin-top:2px;}
-.qc-body{}
-.qc-title{font-family:'Playfair Display',serif;font-size:.95rem;color:#fff;margin-bottom:4px;line-height:1.3;}
-.qc-meta{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);}
-.qc-badge{font-family:'JetBrains Mono',monospace;font-size:.62rem;text-transform:uppercase;padding:2px 7px;border-radius:50px;margin-top:6px;display:inline-block;}
-.qb-ready{background:rgba(52,211,153,.15);color:var(--green);border:1px solid rgba(52,211,153,.3);}
-.qb-soon{background:rgba(139,148,158,.1);color:var(--muted);border:1px solid rgba(139,148,158,.2);}
+.hero p{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto 28px;}
+.hero-note{display:inline-block;background:rgba(232,197,71,.1);border:1px solid rgba(232,197,71,.25);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:.75rem;padding:6px 18px;border-radius:50px;letter-spacing:.06em;}
 
-footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);}
+/* PAGE */
+.page{max-width:1000px;margin:0 auto;padding:50px 24px 100px;}
+
+/* LEVEL SELECTOR */
+.level-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;justify-content:center;}
+.lvl-btn{font-family:'JetBrains Mono',monospace;font-size:.8rem;padding:10px 24px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s;font-weight:700;letter-spacing:.05em;}
+.lvl-btn:hover{border-color:var(--accent);color:var(--accent);}
+.lvl-btn.active-s4{background:rgba(56,189,248,.15);border-color:var(--accent);color:var(--accent);}
+.lvl-btn.active-s5{background:rgba(52,211,153,.15);border-color:var(--green);color:var(--green);}
+.lvl-btn.active-s6{background:rgba(167,139,250,.15);border-color:var(--purple);color:var(--purple);}
+.lvl-btn.active-all{background:rgba(232,197,71,.15);border-color:var(--gold);color:var(--gold);}
+
+/* QUIZ PANELS */
+.quiz-panel{display:none;} .quiz-panel.active{display:block;}
+
+/* QUIZ HEADER */
+.quiz-head{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.quiz-head-info h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:4px;}
+.quiz-head-info p{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);}
+.quiz-score-display{font-family:'JetBrains Mono',monospace;font-size:.82rem;color:var(--muted);}
+
+/* PROGRESS */
+.progress-bar{height:4px;background:var(--surface2);border-radius:4px;margin-bottom:24px;overflow:hidden;}
+.progress-fill{height:100%;border-radius:4px;transition:width .3s;background:var(--accent);}
+
+/* QUESTION CARDS */
+.q-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 28px;margin-bottom:18px;}
+.q-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.q-num-badge{font-family:'JetBrains Mono',monospace;font-size:.7rem;padding:3px 10px;border-radius:5px;}
+.q-topic{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);}
+.q-text{font-size:1rem;color:#fff;margin-bottom:18px;line-height:1.65;}
+.options{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:flex-start;gap:11px;padding:11px 15px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;font-size:.92rem;}
+.opt:hover:not(.locked){border-color:var(--accent);}
+.opt.selected{background:rgba(56,189,248,.1);border-color:var(--accent);}
+.opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+.opt.wrong{background:rgba(248,113,113,.1);border-color:var(--red)!important;color:var(--red);}
+.opt.locked{cursor:default;}
+.opt input[type=radio]{margin-top:4px;accent-color:var(--accent);flex-shrink:0;}
+.opt-letter{font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;min-width:22px;height:22px;display:flex;align-items:center;justify-content:center;border-radius:4px;background:rgba(139,148,158,.12);color:var(--muted);flex-shrink:0;margin-top:2px;}
+.opt.selected .opt-letter{background:var(--accent);color:#000;}
+.opt.correct .opt-letter{background:var(--green);color:#000;}
+.opt.wrong .opt-letter{background:var(--red);color:#000;}
+.explanation{display:none;margin-top:13px;padding:11px 15px;background:rgba(56,189,248,.07);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.88rem;color:var(--text);}
+.explanation.show{display:block;}
+
+/* SUBMIT / RESULT */
+.quiz-footer{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:8px;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 24px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:700;cursor:pointer;border:none;transition:all .18s;}
+.btn-primary{background:var(--accent);color:#000;} .btn-primary:hover{opacity:.85;}
+.btn-ghost{background:var(--surface);border:1px solid var(--border);color:var(--text);} .btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+
+.result-banner{border-radius:var(--radius);padding:22px 26px;margin-bottom:24px;text-align:center;display:none;}
+.result-banner.show{display:block;}
+.result-banner h3{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:6px;}
+.result-banner.pass{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);}
+.result-banner.pass h3{color:var(--green);}
+.result-banner.fail{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);}
+.result-banner.fail h3{color:var(--red);}
+.result-banner .score-big{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;margin:8px 0;}
+
+/* STATS ROW */
+.stats-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px;}
+.stat-chip{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 18px;text-align:center;min-width:90px;}
+.sc-val{font-family:'JetBrains Mono',monospace;font-size:1.2rem;font-weight:700;}
+.sc-lab{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;}
+
+footer{border-top:1px solid var(--border);padding:28px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);}
 footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:600px){.page{padding:32px 16px 80px;}}
 </style>
 </head>
 <body>
-<nav id="main-nav">
+
+<nav>
   <div class="nav-inner">
-    <a class="nav-brand" href="index.html">&#9883; Habimana Chemistry</a>
-    <button class="nav-toggle" onclick="document.getElementById('main-nav').classList.toggle('open')">&#9776;</button>
+    <a class="nav-brand" href="index.html">⚗ Jackson Habimana</a>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <div class="nav-dropdown"><a href="#" class="nav-drop-btn">Courses &#9662;</a>
-        <div class="nav-dropdown-menu">
-          <a href="s4-chemistry.html">S4 Chemistry</a>
-          <a href="s5-chemistry.html">S5 Chemistry</a>
-          <a href="s6-chemistry.html">S6 Chemistry</a>
-        </div>
-      </div>
+      <a href="s4-chemistry.html">S4</a>
+      <a href="s5-chemistry.html">S5</a>
+      <a href="s6-chemistry.html">S6</a>
       <a href="quizzes.html" class="active">Quizzes</a>
       <a href="tests.html">Tests</a>
       <a href="exams.html">Exams</a>
-      <a href="periodic-table.html">Periodic Table</a>
-      <a href="teacher-admin.html">Admin</a>
+      <a href="student-quiz.html">Take Quiz</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
 </nav>
 
 <div class="hero">
-  <h1>&#9989; Chemistry <em>Quizzes</em></h1>
-  <p>25-question multiple-choice quizzes for every unit &mdash; with instant feedback and full explanations. Test your knowledge!</p>
+  <h1>⚗ Chemistry <em>Challenge Quizzes</em></h1>
+  <p>30 unique challenge questions per level — different from the unit quizzes inside each course. Pick your level and test yourself!</p>
+  <span class="hero-note">✨ These questions are exclusive to this page — not found in any course unit</span>
 </div>
 
 <main class="page">
 
-<div class="course-section">
-  <div class="course-label">S4 Chemistry <span>8/18 available</span></div>
-  <div class="quiz-grid">
-    <a href="s4_unit1_atomic_structure.html#quiz" class="quiz-card"><span class="qc-num">S4 U01</span><div class="qc-body"><div class="qc-title">Atomic Structure &amp; Mass Spectrum</div><div class="qc-meta">25 questions &bull; Atoms, isotopes, mass spectrometer</div><span class="qc-badge qb-ready">Ready</span></div></a>
-    <a href="s4_unit2_electronic_config.html#quiz" class="quiz-card"><span class="qc-num">S4 U02</span><div class="qc-body"><div class="qc-title">Electronic Configuration</div><div class="qc-meta">25 questions &bull; Orbitals, quantum numbers, IE</div><span class="qc-badge qb-ready">Ready</span></div></a>
-    <a href="s4_unit3_ionic_metallic_bonds.html#quiz" class="quiz-card"><span class="qc-num">S4 U03</span><div class="qc-body"><div class="qc-title">Ionic &amp; Metallic Bonds</div><div class="qc-meta">25 questions &bull; Lattice energy, metallic bonding</div><span class="qc-badge qb-ready">Ready</span></div></a>
-    <a href="s4_unit4_covalent_bond.html#quiz" class="quiz-card"><span class="qc-num">S4 U04</span><div class="qc-body"><div class="qc-title">Covalent Bond &amp; Molecular Structure</div><div class="qc-meta">25 questions &bull; VSEPR, hybridisation, IMF</div><span class="qc-badge qb-ready">Ready</span></div></a>
-    <a href="s4_unit5_periodic_trends.html#quiz" class="quiz-card"><span class="qc-num">S4 U05</span><div class="qc-body"><div class="qc-title">Periodic Trends</div><div class="qc-meta">25 questions &bull; Blocks, trends, Mendeleev</div><span class="qc-badge qb-ready">Ready</span></div></a>
-    <a href="s4_unit6_group1.html#quiz" class="quiz-card"><span class="qc-num">S4 U06</span><div class="qc-body"><div class="qc-title">Group 1 Elements</div><div class="qc-meta">25 questions &bull; Alkali metals, reactions, flame tests</div><span class="qc-badge qb-ready">Ready</span></div></a>
-    <a href="s4_unit7_group2.html#quiz" class="quiz-card"><span class="qc-num">S4 U07</span><div class="qc-body"><div class="qc-title">Group 2 Elements</div><div class="qc-meta">25 questions &bull; Alkaline earths, carbonates, Ba²⁺</div><span class="qc-badge qb-ready">Ready</span></div></a>
-    <a href="s4_unit8_group13.html#quiz" class="quiz-card"><span class="qc-num">S4 U08</span><div class="qc-body"><div class="qc-title">Group 13 Elements</div><div class="qc-meta">25 questions &bull; Al, thermite, amphoteric, boron</div><span class="qc-badge qb-ready">Ready</span></div></a>
-    <div class="quiz-card locked"><span class="qc-num">S4 U09</span><div class="qc-body"><div class="qc-title">Group 14 Elements</div><div class="qc-meta">25 questions &bull; Coming soon</div><span class="qc-badge qb-soon">Coming Soon</span></div></div>
-    <div class="quiz-card locked"><span class="qc-num">S4 U10-18</span><div class="qc-body"><div class="qc-title">Units 10–18</div><div class="qc-meta">Groups 15–18, Period 3, Equilibrium, Acids, Redox, Thermochemistry</div><span class="qc-badge qb-soon">Coming Soon</span></div></div>
+  <div class="level-tabs">
+    <button class="lvl-btn" id="btn-s4" onclick="showQuiz('s4')">🔵 S4 Chemistry — 30 Questions</button>
+    <button class="lvl-btn" id="btn-s5" onclick="showQuiz('s5')">🟢 S5 Chemistry — 30 Questions</button>
+    <button class="lvl-btn" id="btn-s6" onclick="showQuiz('s6')">🟣 S6 Chemistry — 30 Questions</button>
+    <button class="lvl-btn" id="btn-all" onclick="showQuiz('all')">🏆 Mixed Challenge — 30 Questions</button>
   </div>
-</div>
 
-<div class="course-section">
-  <div class="course-label">S5 Chemistry <span>15/15 available</span></div>
-  <div class="quiz-grid" id="s5quizzes"></div>
-</div>
+  <!-- S4 QUIZ -->
+  <div class="quiz-panel" id="panel-s4">
+    <div class="quiz-head">
+      <div class="quiz-head-info"><h2>🔵 S4 Chemistry Challenge</h2><p>30 questions · Atomic structure · Bonding · Periodic table · Group chemistry</p></div>
+      <div class="quiz-score-display" id="score-s4">0 / 30 answered</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-s4" style="width:0%"></div></div>
+    <div class="result-banner" id="res-s4"></div>
+    <div id="qs-s4"></div>
+    <div class="quiz-footer">
+      <button class="btn btn-primary" onclick="submitQuiz('s4')">✅ Submit S4 Quiz</button>
+      <button class="btn btn-ghost" onclick="resetQuiz('s4')">🔄 Reset</button>
+    </div>
+  </div>
 
-<div class="course-section">
-  <div class="course-label">S6 Chemistry <span>15/15 available</span></div>
-  <div class="quiz-grid" id="s6quizzes"></div>
-</div>
+  <!-- S5 QUIZ -->
+  <div class="quiz-panel" id="panel-s5">
+    <div class="quiz-head">
+      <div class="quiz-head-info"><h2>🟢 S5 Chemistry Challenge</h2><p>30 questions · Organic chemistry · Functional groups · Reaction mechanisms · Thermochemistry</p></div>
+      <div class="quiz-score-display" id="score-s5">0 / 30 answered</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-s5" style="width:0%"></div></div>
+    <div class="result-banner" id="res-s5"></div>
+    <div id="qs-s5"></div>
+    <div class="quiz-footer">
+      <button class="btn btn-primary" onclick="submitQuiz('s5')">✅ Submit S5 Quiz</button>
+      <button class="btn btn-ghost" onclick="resetQuiz('s5')">🔄 Reset</button>
+    </div>
+  </div>
+
+  <!-- S6 QUIZ -->
+  <div class="quiz-panel" id="panel-s6">
+    <div class="quiz-head">
+      <div class="quiz-head-info"><h2>🟣 S6 Chemistry Challenge</h2><p>30 questions · Transition metals · Equilibrium · Electrochemistry · Kinetics · Radioactivity</p></div>
+      <div class="quiz-score-display" id="score-s6">0 / 30 answered</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-s6" style="width:0%"></div></div>
+    <div class="result-banner" id="res-s6"></div>
+    <div id="qs-s6"></div>
+    <div class="quiz-footer">
+      <button class="btn btn-primary" onclick="submitQuiz('s6')">✅ Submit S6 Quiz</button>
+      <button class="btn btn-ghost" onclick="resetQuiz('s6')">🔄 Reset</button>
+    </div>
+  </div>
+
+  <!-- MIXED QUIZ -->
+  <div class="quiz-panel" id="panel-all">
+    <div class="quiz-head">
+      <div class="quiz-head-info"><h2>🏆 Mixed Chemistry Challenge</h2><p>30 questions · S4 + S5 + S6 topics combined · Can you master all levels?</p></div>
+      <div class="quiz-score-display" id="score-all">0 / 30 answered</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-all" style="width:0%"></div></div>
+    <div class="result-banner" id="res-all"></div>
+    <div id="qs-all"></div>
+    <div class="quiz-footer">
+      <button class="btn btn-primary" onclick="submitQuiz('all')">✅ Submit Mixed Quiz</button>
+      <button class="btn btn-ghost" onclick="resetQuiz('all')">🔄 Reset</button>
+    </div>
+  </div>
+
+  <div id="landing-msg" style="text-align:center;padding:60px 20px;">
+    <div style="font-size:3rem;margin-bottom:16px;">⚗</div>
+    <h2 style="font-family:'Playfair Display',serif;color:#fff;margin-bottom:10px;">Choose a Quiz Level Above</h2>
+    <p style="color:var(--muted);">Select S4, S5, S6, or Mixed Challenge to begin. These 30-question challenge quizzes are unique to this page — they test concepts not covered in the unit quizzes inside the courses.</p>
+  </div>
 
 </main>
-<footer><a href="index.html">Home</a> &bull; <a href="tests.html">Tests</a> &bull; <a href="exams.html">Exams</a> &bull; Jackson Habimana Chemistry Portal</footer>
+
+<footer>⚗ Jackson Habimana Chemistry Portal &bull; <a href="index.html">Home</a> &bull; <a href="s4-chemistry.html">S4</a> &bull; <a href="s5-chemistry.html">S5</a> &bull; <a href="s6-chemistry.html">S6</a></footer>
+
 <script>
-const S5=[
-  ['unit1','Hydrocarbons – Alkanes & Cycloalkanes'],['unit2','Alkenes & Alkynes'],['unit3','Arenes'],['unit4','Halogenoalkanes'],
-  ['unit5','Alcohols & Ethers'],['unit6','Aldehydes & Ketones'],['unit7','Carboxylic Acids & Derivatives'],
-  ['unit8','Amines & Amino Acids'],['unit9','Spectroscopy & Analysis'],['unit10','Stereoisomerism'],
-  ['unit11','Polymers – Organic'],['unit12','Reaction Mechanisms'],['unit13','Oils & Fats'],['unit14','Drugs & Medicines'],['unit15','Environmental Chemistry']
+// ═══════════════════════════════════════════════════════
+//  QUESTION BANKS  — 30 unique Qs per level
+//  Format: {q, opts:[A,B,C,D], a (0-indexed), e, topic}
+// ═══════════════════════════════════════════════════════
+
+const BANK = {
+
+// ─── S4 ─── 30 questions exclusive to this page ───────
+s4:[
+  {q:"A proton has a relative mass of approximately:",opts:["0","1/1836","1","4"],a:2,e:"A proton has relative mass = 1 and relative charge = +1. An electron has relative mass ≈ 0 (1/1836) and charge = −1.",topic:"Atomic Structure"},
+  {q:"Which scientist proved that atoms have a dense positive nucleus by firing alpha particles at gold foil?",opts:["J.J. Thomson","Niels Bohr","Ernest Rutherford","James Chadwick"],a:2,e:"Rutherford's gold foil experiment (1909–1911) showed that alpha particles were deflected at large angles, proving a tiny dense positive nucleus exists.",topic:"Atomic Structure"},
+  {q:"The mass number of an atom is the total number of:",opts:["Protons only","Neutrons only","Protons and neutrons","Protons and electrons"],a:2,e:"Mass number (A) = protons + neutrons (nucleons). It does not include electrons.",topic:"Atomic Structure"},
+  {q:"Two atoms that are isotopes of the same element must have:",opts:["The same mass number","The same number of neutrons","The same number of protons","The same physical properties"],a:2,e:"Isotopes: same element = same Z (protons). They differ in neutron number. Same Z → same chemical properties.",topic:"Atomic Structure"},
+  {q:"The Aufbau principle states that electrons fill:",opts:["The highest energy orbitals first","Orbitals in order of increasing energy","Degenerate orbitals singly before pairing","No two electrons with identical quantum numbers"],a:1,e:"Aufbau (building-up): electrons fill orbitals starting from the lowest available energy level upward.",topic:"Electronic Configuration"},
+  {q:"Which orbital has the shape of a dumbbell?",opts:["s","p","d","f"],a:1,e:"p orbitals (l=1) have a dumbbell shape. s orbitals are spherical. d orbitals are double-dumbbell. f orbitals are complex.",topic:"Electronic Configuration"},
+  {q:"Sodium (Z=11) loses one electron to form Na⁺. What is the electron configuration of Na⁺?",opts:["1s²2s²2p⁶3s¹","1s²2s²2p⁶","1s²2s²2p⁵","1s²2s²2p⁶3s²"],a:1,e:"Na = 1s²2s²2p⁶3s¹. Losing the 3s¹ electron gives Na⁺ = 1s²2s²2p⁶ (isoelectronic with Ne).",topic:"Electronic Configuration"},
+  {q:"An ionic bond forms by the:",opts:["Sharing of electron pairs","Transfer of electrons from metal to non-metal","Delocalisation of electrons","Overlap of atomic orbitals"],a:1,e:"Ionic bond = electrostatic attraction between oppositely charged ions formed by complete electron transfer from metal to non-metal.",topic:"Ionic Bonding"},
+  {q:"Which compound has the highest lattice energy?",opts:["NaF","NaCl","MgO","KBr"],a:2,e:"MgO has Mg²⁺ and O²⁻ (charge product = 4, small radii) giving the strongest electrostatic attraction and highest lattice energy (~−3791 kJ/mol vs −787 for NaCl).",topic:"Ionic Bonding"},
+  {q:"A covalent bond forms when:",opts:["Electrons are transferred between atoms","Two half-filled atomic orbitals overlap and share electrons","Metal cations attract a sea of electrons","Ions of opposite charge attract each other"],a:1,e:"Covalent bond: two atoms share an electron pair formed by overlap of half-filled atomic orbitals. Each atom contributes one electron.",topic:"Covalent Bonding"},
+  {q:"What is the bond angle in a water molecule (H₂O)?",opts:["180°","120°","109.5°","104.5°"],a:3,e:"H₂O has 2 bonds + 2 lone pairs on O (4 electron pairs). Two lone pairs compress the bond angle from 109.5° to ~104.5°.",topic:"VSEPR"},
+  {q:"The hybridisation of carbon in ethyne (HC≡CH) is:",opts:["sp³","sp²","sp","sp³d"],a:2,e:"Ethyne: each C makes 2 sigma bonds (one to C, one to H) → 2 hybrid orbitals → sp hybridisation. Linear, 180°.",topic:"Hybridisation"},
+  {q:"London dispersion forces are present in:",opts:["Polar molecules only","Ionic compounds only","All molecules","Only noble gases"],a:2,e:"London dispersion (LDF) forces are present in ALL molecules — polar, non-polar, ionic. They arise from temporary induced dipoles.",topic:"Intermolecular Forces"},
+  {q:"Which type of intermolecular force is responsible for water's anomalously high boiling point?",opts:["London dispersion","Permanent dipole-dipole","Hydrogen bonding","Ionic attraction"],a:2,e:"Water forms strong O−H···O hydrogen bonds (up to 4 per molecule). These require much more energy to break → anomalously high boiling point (100°C).",topic:"Intermolecular Forces"},
+  {q:"The modern periodic table arranges elements in order of increasing:",opts:["Relative atomic mass","Number of neutrons","Atomic number (proton number)","Electronegativity"],a:2,e:"The modern table (Moseley, 1913) orders by atomic number Z (proton number). This resolves anomalies like Ar/K that Mendeleev's mass-based table could not explain.",topic:"Periodic Table"},
+  {q:"Which block of the periodic table contains the transition metals?",opts:["s-block","p-block","d-block","f-block"],a:2,e:"Transition metals fill the d subshell → d-block, Groups 3–12. They have variable oxidation states and coloured ions.",topic:"Periodic Table"},
+  {q:"Electronegativity generally increases:",opts:["Down a group","Across a period from right to left","Across a period from left to right","Down a group and across a period from left to right"],a:2,e:"Electronegativity increases across a period (higher Z, smaller radius, greater attraction for bonding electrons) and decreases down a group.",topic:"Periodic Trends"},
+  {q:"When Group 1 metals react with water they produce:",opts:["Metal oxide + hydrogen","Metal hydroxide + hydrogen","Metal hydride + oxygen","Metal carbonate + water"],a:1,e:"2M + 2H₂O → 2MOH + H₂. All alkali metals react with water to give metal hydroxide (alkaline solution) and hydrogen gas.",topic:"Group 1"},
+  {q:"Which product forms when potassium burns in excess oxygen?",opts:["K₂O (normal oxide)","K₂O₂ (peroxide)","KO₂ (superoxide)","K₂O₃"],a:2,e:"K (and heavier alkali metals) form superoxides MO₂ with excess O₂. Li gives Li₂O (normal oxide), Na gives Na₂O₂ (peroxide), K gives KO₂.",topic:"Group 1"},
+  {q:"The flame test colour for potassium (K) is:",opts:["Yellow","Crimson red","Lilac/violet","Apple green"],a:2,e:"K⁺ gives a lilac/violet flame. Na⁺ = yellow; Li⁺ = crimson; Ba²⁺ = apple green. View K through blue cobalt glass to filter out Na yellow.",topic:"Group 1"},
+  {q:"Which Group 2 compound is used as a contrast agent in X-ray examinations of the gut?",opts:["MgSO₄","CaSO₄","BaSO₄","SrSO₄"],a:2,e:"BaSO₄ (barium sulfate) is virtually insoluble → cannot be absorbed into blood (safe). It is opaque to X-rays → outlines the GI tract.",topic:"Group 2"},
+  {q:"The thermal stability of Group 2 carbonates increases because:",opts:["Larger cations polarise CO₃²⁻ more","Larger cations polarise CO₃²⁻ less, making decomposition harder","The carbonates become more ionic","The cations lose electrons more easily"],a:1,e:"Thermal stability increases down Group 2 because larger M²⁺ ions have lower charge density → less polarisation of CO₃²⁻ → harder to decompose → higher temperature needed.",topic:"Group 2"},
+  {q:"Beryllium is anomalous in Group 2 because it:",opts:["Forms +3 ions","Has an acidic oxide only","Forms amphoteric compounds and resembles Al","Is a non-metal"],a:2,e:"Be (diagonal relationship with Al): BeO and Be(OH)₂ are amphoteric; BeCl₂ is covalent; Be reacts with NaOH. Other Group 2 compounds are basic.",topic:"Group 2"},
+  {q:"Al₂O₃ is described as amphoteric because it:",opts:["Only reacts with acids","Only reacts with bases","Reacts with both acids and bases","Is insoluble in all solvents"],a:2,e:"Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O (acid reaction). Al₂O₃ + 2NaOH + 3H₂O → 2Na[Al(OH)₄] (base reaction). Amphoteric = reacts with both.",topic:"Group 13"},
+  {q:"Why does aluminium appear unreactive in everyday life despite having a very negative electrode potential?",opts:["Al has a full d subshell","A thin impervious Al₂O₃ layer forms on the surface (passivation)","Al only reacts with strong acids","Al has a giant covalent structure"],a:1,e:"Al quickly forms a thin, tough, adherent Al₂O₃ layer in air that prevents further oxidation. This is passivation. NaOH dissolves this layer, allowing Al to react.",topic:"Group 13"},
+  {q:"Which of the following is a property of a giant ionic lattice?",opts:["Low melting point","Conducts electricity in solid state","Brittle when struck","Malleable"],a:2,e:"Ionic crystals are brittle: when stress shifts a layer, like charges align and repel strongly → crystal shatters. They have HIGH m.p. and conduct ONLY when molten/dissolved.",topic:"Bonding"},
+  {q:"Diamond has a very high melting point because:",opts:["It has strong London dispersion forces","It is a giant ionic lattice","Each C is covalently bonded to 4 others in a giant 3D network requiring enormous energy to break","It contains metallic bonds"],a:2,e:"Diamond: giant covalent 3D lattice; every C forms 4 strong σ bonds (sp³). All bonds must be broken to melt → very high m.p. (~3550°C).",topic:"Giant Structures"},
+  {q:"Which species is isoelectronic with neon (Ne, Z=10)?",opts:["Li⁺","Na⁺","Mg⁺","Ca²⁺"],a:1,e:"Isoelectronic = same number of electrons. Na (Z=11) − 1e⁻ = 10e⁻ = isoelectronic with Ne. Ca²⁺ has 18e⁻ (Ar config); Li⁺ has 2e⁻ (He config).",topic:"Ions"},
+  {q:"The first ionisation energy generally increases across a period because:",opts:["Atomic radius increases","Shielding increases","Nuclear charge increases while shielding stays roughly constant","The number of shells increases"],a:2,e:"Across a period: Z increases, same shell → shielding nearly constant → greater effective nuclear charge → electrons held more tightly → higher IE₁.",topic:"Periodic Trends"},
+  {q:"Graphite conducts electricity but diamond does not because:",opts:["Graphite has ionic bonds","Diamond is a simple molecular solid","Graphite has delocalised π electrons between layers; diamond uses all 4 valence electrons in σ bonds","Graphite is a metal"],a:2,e:"Graphite: sp² C with one unhybridised p electron per C forming a delocalised π system → mobile electrons → conducts. Diamond: sp³, all electrons in σ bonds → no free electrons.",topic:"Giant Structures"}
+],
+
+// ─── S5 ─── 30 questions exclusive to this page ───────
+s5:[
+  {q:"Which functional group defines an alcohol?",opts:["−COOH","−OH bonded to a carbon chain","−CHO","−NH₂"],a:1,e:"Alcohols contain the −OH (hydroxyl) group bonded to a carbon atom. e.g. ethanol CH₃CH₂OH.",topic:"Organic Chemistry"},
+  {q:"The general formula of an alkane is:",opts:["CₙH₂ₙ","CₙH₂ₙ₋₂","CₙH₂ₙ₊₂","CₙH₂ₙ₊₁"],a:2,e:"Alkanes (saturated hydrocarbons): CₙH₂ₙ₊₂. e.g. methane CH₄ (n=1), ethane C₂H₆ (n=2).",topic:"Alkanes"},
+  {q:"What type of reaction do alkanes typically undergo with halogens in UV light?",opts:["Addition","Substitution (free radical)","Elimination","Condensation"],a:1,e:"Alkanes undergo free radical substitution with halogens in UV light. e.g. CH₄ + Cl₂ → CH₃Cl + HCl (initiation, propagation, termination steps).",topic:"Alkanes"},
+  {q:"Alkenes are unsaturated because they:",opts:["Contain only single bonds","Contain one or more C=C double bonds","React with water","Are gases at room temperature"],a:1,e:"Unsaturated = contains C=C double bonds (or C≡C triple bonds). The double bond makes them reactive (addition reactions).",topic:"Alkenes"},
+  {q:"What is the product when ethene (CH₂=CH₂) reacts with HBr?",opts:["CH₂BrCH₂Br","CH₃CH₂Br","CH₂=CHBr","BrCH₂CH₂Br"],a:1,e:"Electrophilic addition: CH₂=CH₂ + HBr → CH₃CH₂Br (bromoethane). H adds to one C, Br to the other (Markovnikov: H adds to the C with more H's).",topic:"Alkenes"},
+  {q:"Which test is used to distinguish an alkene from an alkane?",opts:["Combustion test","Bromine water test","Universal indicator","Flame test"],a:1,e:"Bromine water (orange) is decolourised by an alkene (addition across C=C). Alkanes do not react with bromine water at room temperature.",topic:"Alkenes"},
+  {q:"A halogenoalkane undergoes nucleophilic substitution when treated with hot concentrated NaOH(aq). What type of product forms?",opts:["Alkene","Carboxylic acid","Alcohol","Aldehyde"],a:2,e:"Hot aqueous NaOH: OH⁻ displaces the halogen (nucleophilic substitution) → alcohol. Hot ethanolic NaOH: elimination → alkene.",topic:"Halogenoalkanes"},
+  {q:"Which functional group is present in an aldehyde?",opts:["C=O at the end of a chain (−CHO)","C=O in the middle of a chain (ketone)","−COOH","−OH"],a:0,e:"Aldehyde: −CHO group at the END of a carbon chain (carbonyl C bonded to H). Ketone: C=O in the MIDDLE. e.g. ethanal CH₃CHO.",topic:"Carbonyl Compounds"},
+  {q:"Tollens' reagent (silver mirror test) gives a positive result with:",opts:["Ketones only","Both aldehydes and ketones","Aldehydes only","Alcohols"],a:2,e:"Aldehydes (but not ketones) reduce Tollens' reagent (ammoniacal AgNO₃) → silver mirror. This distinguishes aldehydes from ketones.",topic:"Carbonyl Compounds"},
+  {q:"What is the functional group in a carboxylic acid?",opts:["−OH","−CHO","−COOH","−CO−"],a:2,e:"Carboxylic acids contain −COOH (carboxyl group). e.g. ethanoic acid CH₃COOH. They are weak acids (partially dissociate in water).",topic:"Carboxylic Acids"},
+  {q:"An ester is formed by the reaction between:",opts:["An acid and an alkene","An alcohol and a carboxylic acid (condensation)","An aldehyde and a base","A ketone and water"],a:1,e:"Esterification (condensation): alcohol + carboxylic acid → ester + water (acid catalyst, reversible). e.g. CH₃OH + CH₃COOH ⇌ CH₃COOCH₃ + H₂O.",topic:"Esters"},
+  {q:"The smell of esters is generally described as:",opts:["Pungent and acidic","Fruity and sweet","Rotten","Colourless and odourless"],a:1,e:"Esters are responsible for many fruity and pleasant odours in nature — e.g. ethyl ethanoate (pear drops), methyl butanoate (pineapple).",topic:"Esters"},
+  {q:"Which functional group is present in primary amines?",opts:["−NO₂","−NH₂","−NHCO−","−CONH₂"],a:1,e:"Amines contain the amino group −NH₂ (primary), −NHR (secondary), or −NR₂ (tertiary). e.g. methylamine CH₃NH₂.",topic:"Amines"},
+  {q:"Nylon is an example of which type of polymer?",opts:["Addition polymer","Condensation polymer","Free radical polymer","Coordination polymer"],a:1,e:"Nylon is a condensation polymer (polyamide): formed from diamine + diacid chloride/diacid, with loss of water (or HCl) at each step.",topic:"Polymers"},
+  {q:"What does the term 'saponification' refer to?",opts:["Esterification of oils","Hydrolysis of esters with NaOH to make soap (sodium salts of fatty acids)","Oxidation of alcohols","Polymerisation of alkenes"],a:1,e:"Saponification: hydrolysis of ester (triglyceride) with NaOH → glycerol + sodium salts of fatty acids (soap). e.g. fat + 3NaOH → glycerol + 3 soap molecules.",topic:"Esters"},
+  {q:"In organic chemistry, a nucleophile is:",opts:["An electron pair acceptor","An electron pair donor that attacks positively polarised carbon","A free radical species","A species that loses a proton"],a:1,e:"A nucleophile is an electron-rich species (electron pair donor) that attacks δ⁺ carbon. Examples: OH⁻, CN⁻, NH₃, H₂O. It uses a lone pair to form a new bond.",topic:"Reaction Mechanisms"},
+  {q:"Which reagent converts a primary alcohol to an aldehyde?",opts:["Concentrated H₂SO₄","Acidified K₂Cr₂O₇ (mild oxidation, distil off product)","NaOH solution","LiAlH₄"],a:1,e:"Primary alcohol → aldehyde: use acidified K₂Cr₂O₇ (or KMnO₄) with distillation to remove aldehyde as it forms (prevents further oxidation to carboxylic acid).",topic:"Alcohols"},
+  {q:"What is the IUPAC name of CH₃CH₂CH₂OH?",opts:["Ethanol","Propan-1-ol","Butan-1-ol","Methanol"],a:1,e:"CH₃CH₂CH₂OH = 3 carbons (prop-), fully saturated (-an-), −OH at position 1 (-1-ol) → propan-1-ol.",topic:"Nomenclature"},
+  {q:"Which type of isomerism involves compounds with the same molecular formula but different connectivity of atoms?",opts:["Stereoisomerism","Chain isomerism","Geometric (cis-trans) isomerism","Optical isomerism"],a:1,e:"Structural (chain) isomerism: same molecular formula, different carbon chain arrangement. e.g. butane and 2-methylpropane (both C₄H₁₀).",topic:"Isomerism"},
+  {q:"Optical isomers (enantiomers) are molecules that:",opts:["Have the same melting point but different boiling points","Are non-superimposable mirror images of each other","Differ in the position of a double bond","Differ in the length of the carbon chain"],a:1,e:"Optical isomers: non-superimposable mirror images. They arise when a carbon has 4 different substituents (chiral centre). They rotate plane-polarised light in opposite directions.",topic:"Isomerism"},
+  {q:"What is enthalpy of combustion?",opts:["Energy needed to break all bonds in 1 mol of compound","Energy released when 1 mol of compound burns completely in excess oxygen under standard conditions","Energy released when ions form from gaseous atoms","Energy needed to vaporise 1 mol of liquid"],a:1,e:"Standard enthalpy of combustion (ΔHc°): energy released per mole of compound completely burned in excess O₂ at standard conditions (298K, 100kPa). Always exothermic (negative).",topic:"Thermochemistry"},
+  {q:"Hess's Law states that:",opts:["Enthalpy change depends on the rate of reaction","The total enthalpy change is independent of route — only depends on initial and final states","Heat is always released in chemical reactions","Entropy always increases in spontaneous reactions"],a:1,e:"Hess's Law (from conservation of energy): the total ΔH for a reaction is the same regardless of the number of steps taken. Allows calculation of unknown ΔH values.",topic:"Thermochemistry"},
+  {q:"What is the functional group in an amide?",opts:["−NH₂","−COOH","−CONH₂ (or −NHCO−)","−CHO"],a:2,e:"Amide: −CONH₂ (primary amide) or −CO−NH− (secondary). e.g. ethanamide CH₃CONH₂. Formed from carboxylic acid + amine (condensation).",topic:"Amines/Amides"},
+  {q:"Which reagent is used to test for a C=C double bond in an organic compound?",opts:["Tollens' reagent","Fehling's solution","Bromine water","KMnO₄ in alkaline conditions only"],a:2,e:"Bromine water (orange/brown) is decolourised by compounds with C=C (addition reaction across the double bond). This is a quick test for unsaturation.",topic:"Alkenes"},
+  {q:"Addition polymerisation involves:",opts:["Loss of a small molecule (water) at each step","Monomers with C=C double bonds joining together with no byproduct","Condensation of two different functional groups","Ester bond formation"],a:1,e:"Addition polymerisation: alkene monomers (containing C=C) join together via the double bonds opening up. No byproduct formed. e.g. ethene → poly(ethene).",topic:"Polymers"},
+  {q:"The term 'activation energy' refers to:",opts:["Total energy released in a reaction","The minimum energy required for reactants to collide and react successfully","The energy of products minus reactants","The bond dissociation energy"],a:1,e:"Activation energy (Eₐ): the minimum kinetic energy that colliding particles must have for a successful reaction to occur. A catalyst lowers Eₐ.",topic:"Thermochemistry"},
+  {q:"Which compound would give a white precipitate with AgNO₃(aq) acidified with HNO₃?",opts:["CH₃CH₂OH (ethanol)","CH₃COOH (ethanoic acid)","CH₃CH₂Br (bromoethane after hydrolysis)","CH₃CH₃ (ethane)"],a:2,e:"Halogenoalkanes: hydrolyse with NaOH(aq), then acidify with HNO₃, add AgNO₃. Halide ion formed gives precipitate (AgCl white, AgBr cream, AgI yellow).",topic:"Halogenoalkanes"},
+  {q:"What is the product of reducing a carboxylic acid with LiAlH₄?",opts:["An aldehyde","A ketone","A primary alcohol","An alkane"],a:2,e:"LiAlH₄ is a powerful reducing agent. Carboxylic acid → primary alcohol (−COOH → −CH₂OH). It reduces C=O all the way to −CH₂OH.",topic:"Carboxylic Acids"},
+  {q:"In fractional distillation, components are separated based on their:",opts:["Molecular mass","Boiling points","Solubility in water","Number of carbon atoms"],a:1,e:"Fractional distillation separates mixtures of liquids by their different boiling points. Lower boiling point fractions rise higher in the column and are collected first.",topic:"Organic Chemistry"},
+  {q:"Which reagent is used to convert an alcohol to a halogenoalkane?",opts:["HCl(aq)","PCl₅ or SOCl₂ or HBr(conc.)","NaOH(aq)","KMnO₄"],a:1,e:"Alcohol → halogenoalkane: use PCl₅, SOCl₂ (for chloride), or concentrated HBr/HI (for bromide/iodide). e.g. ROH + PCl₅ → RCl + POCl₃ + HCl.",topic:"Halogenoalkanes"}
+],
+
+// ─── S6 ─── 30 questions exclusive to this page ───────
+s6:[
+  {q:"Transition metals are defined as elements that form at least one ion with:",opts:["A completely full d subshell","A completely empty d subshell","A partially filled d subshell","Only the +2 oxidation state"],a:2,e:"Transition metals: form ≥1 stable ion with a partially filled d subshell. Sc³⁺ ([Ar]) and Zn²⁺ ([Ar]3d¹⁰) are NOT transition metals by this definition.",topic:"Transition Metals"},
+  {q:"Why do transition metal ions appear coloured in solution?",opts:["They absorb radio waves","d-d electron transitions absorb specific visible light wavelengths; complementary colour is observed","They reflect all wavelengths equally","Their ions are very large"],a:1,e:"Partially filled d orbitals allow d-d transitions when specific visible light is absorbed. The complementary colour is transmitted/reflected. Cu²⁺ = blue; Fe³⁺ = yellow-brown.",topic:"Transition Metals"},
+  {q:"The expression for Kc for the reaction: N₂ + 3H₂ ⇌ 2NH₃ is:",opts:["[NH₃]²/[N₂][H₂]³","[N₂][H₂]³/[NH₃]²","[NH₃]/[N₂][H₂]","[NH₃]²[N₂][H₂]³"],a:0,e:"Kc = products/reactants (each raised to stoichiometric coefficient). Kc = [NH₃]²/([N₂][H₂]³). Note: pure solids/liquids are excluded.",topic:"Equilibrium"},
+  {q:"If Kc >> 1, what does this indicate about the equilibrium position?",opts:["Reactants are strongly favoured","Products are strongly favoured (equilibrium lies to the right)","Equal amounts of reactants and products","The reaction is endothermic"],a:1,e:"Kc >> 1: products are strongly favoured → equilibrium lies to the right. Kc << 1: reactants favoured. Kc = 1: roughly equal amounts.",topic:"Equilibrium"},
+  {q:"According to Le Châtelier's principle, increasing pressure shifts equilibrium towards:",opts:["The side with more moles of gas","The side with fewer moles of gas","The products always","The reactants always"],a:1,e:"Increasing pressure → system tries to reduce pressure → shifts towards fewer moles of gas. e.g. N₂ + 3H₂ ⇌ 2NH₃: 4 mol → 2 mol gas → equilibrium shifts right.",topic:"Equilibrium"},
+  {q:"The pH of a solution with [H⁺] = 0.01 mol dm⁻³ is:",opts:["1","2","10","12"],a:1,e:"pH = −log[H⁺] = −log(0.01) = −log(10⁻²) = 2.",topic:"pH"},
+  {q:"A buffer solution resists changes in pH because it contains:",opts:["A strong acid and strong base","A weak acid and its conjugate base (or weak base and conjugate acid) in equilibrium","Pure water only","A large amount of acid"],a:1,e:"Buffer: weak acid + its conjugate base (e.g. CH₃COOH/CH₃COO⁻). Adding acid: OH⁻ consumed; conjugate base neutralises H⁺. Adding base: weak acid neutralises it.",topic:"pH"},
+  {q:"In an electrochemical cell, oxidation occurs at the:",opts:["Cathode","Anode","Salt bridge","Electrolyte"],a:1,e:"OIL RIG: Oxidation Is Loss of electrons. Reduction Is Gain. Oxidation at Anode; Reduction at Cathode. (Remember: AN OX, RED CAT.)",topic:"Electrochemistry"},
+  {q:"The standard electrode potential E° is measured relative to:",opts:["Any metal electrode","The standard hydrogen electrode (E° = 0.00 V)","The lithium electrode","The copper electrode"],a:1,e:"All standard electrode potentials are measured relative to the standard hydrogen electrode (SHE): 2H⁺(aq) + 2e⁻ ⇌ H₂(g), E° = 0.00 V at 298K, 1 atm, 1 mol dm⁻³ H⁺.",topic:"Electrochemistry"},
+  {q:"The Nernst equation allows calculation of electrode potential when:",opts:["Temperature is at 298 K","Concentrations differ from standard (1 mol dm⁻³) conditions","The cell is at equilibrium","Standard conditions apply"],a:1,e:"Nernst equation: E = E° − (RT/nF)ln(Q). Used when concentrations/conditions differ from standard. At standard conditions (Q=1, ln1=0), E = E°.",topic:"Electrochemistry"},
+  {q:"The rate of a reaction is defined as:",opts:["The total amount of product formed","The change in concentration of reactant or product per unit time","The activation energy of the reaction","The equilibrium constant value"],a:1,e:"Reaction rate = change in concentration / time. Usually expressed as mol dm⁻³ s⁻¹. Can be measured by monitoring reactant disappearance or product appearance.",topic:"Kinetics"},
+  {q:"Which factor does NOT affect the rate of a chemical reaction?",opts:["Temperature","Catalyst","Equilibrium constant Kc","Concentration of reactants"],a:2,e:"Kc is an equilibrium constant — it only changes with temperature. It does NOT affect the rate of reaction. Rate depends on temperature, concentration, surface area, catalyst, and pressure (gases).",topic:"Kinetics"},
+  {q:"The Maxwell-Boltzmann distribution curve shows:",opts:["The forces between molecules","The distribution of kinetic energies among molecules at a given temperature","The equilibrium position","The order of reaction"],a:1,e:"Maxwell-Boltzmann distribution: shows the spread of kinetic energies (or speeds) of molecules in a gas. Area under the curve = total number of molecules. Molecules to the right of Eₐ can react.",topic:"Kinetics"},
+  {q:"A catalyst increases reaction rate by:",opts:["Increasing the energy of reactants","Providing an alternative pathway with lower activation energy","Increasing the concentration of reactants","Shifting the equilibrium to the right"],a:1,e:"A catalyst provides an alternative reaction pathway with lower activation energy (Eₐ). More molecules have sufficient energy to react → faster rate. The catalyst is not consumed.",topic:"Kinetics"},
+  {q:"In nuclear fission, a heavy nucleus:",opts:["Combines with another nucleus","Splits into lighter nuclei, releasing energy and neutrons","Emits only alpha particles","Absorbs neutrons without splitting"],a:1,e:"Nuclear fission: heavy nucleus (e.g. ²³⁵U) absorbs a neutron → unstable → splits into lighter fragments + 2-3 neutrons + large energy release. Chain reaction possible.",topic:"Radioactivity"},
+  {q:"Alpha (α) radiation consists of:",opts:["High-energy electrons","Electromagnetic radiation","Helium nuclei (2 protons + 2 neutrons)","Positrons"],a:2,e:"α particles = helium-4 nuclei (⁴He: 2p + 2n, charge +2). Strongly ionising, weakly penetrating (stopped by paper). Symbol: ⁴₂He.",topic:"Radioactivity"},
+  {q:"The half-life of a radioactive isotope is defined as:",opts:["Time for all atoms to decay","Time for half the atoms in a sample to decay","Time for activity to become zero","Time for one atom to decay"],a:1,e:"Half-life (t½): time for the activity (or number of radioactive atoms) to fall by half. Each half-life reduces the amount by 50%. It is constant for a given isotope.",topic:"Radioactivity"},
+  {q:"Which of these is correct for the contact process (SO₃ production)?",opts:["SO₂ + H₂O → H₂SO₄ directly","2SO₂ + O₂ ⇌ 2SO₃ (V₂O₅ catalyst, 450°C, 1–2 atm)","SO₃ is absorbed into water directly","Pt catalyst at 1000°C"],a:1,e:"Contact process: 2SO₂ + O₂ ⇌ 2SO₃. Conditions: V₂O₅ catalyst, ~450°C (compromise: reasonable rate + good yield), 1-2 atm. SO₃ then absorbed in conc. H₂SO₄ → oleum → H₂SO₄.",topic:"Industrial Chemistry"},
+  {q:"In the Haber process for ammonia, the conditions used are a compromise because:",opts:["Lower temperature always gives better yield","Higher pressure always gives lower yield","High T gives faster rate but lower yield; conditions are optimised for both","The catalyst only works at one temperature"],a:2,e:"Haber: N₂ + 3H₂ ⇌ 2NH₃. Exothermic → low T favours yield but slow rate. High pressure favours yield and rate but costly. Compromise: ~450°C, 150-200 atm, Fe catalyst.",topic:"Industrial Chemistry"},
+  {q:"The Ksp expression for BaSO₄ dissolving is:",opts:["[Ba²⁺][SO₄²⁻]²","[Ba²⁺][SO₄²⁻]","[Ba²⁺]/[SO₄²⁻]","([Ba²⁺][SO₄²⁻])/[BaSO₄]"],a:1,e:"BaSO₄(s) ⇌ Ba²⁺(aq) + SO₄²⁻(aq). Ksp = [Ba²⁺][SO₄²⁻]. Pure solid (BaSO₄) is not included in the Ksp expression. Ksp = 1.1×10⁻¹⁰ mol² dm⁻⁶.",topic:"Solubility"},
+  {q:"Electrolysis of molten NaCl at the cathode produces:",opts:["Chlorine gas","Sodium metal","Hydrogen gas","Sodium ions"],a:1,e:"Cathode = reduction. Na⁺ + e⁻ → Na (liquid sodium). At anode: 2Cl⁻ → Cl₂ + 2e⁻. This is the basis of the Downs cell process.",topic:"Electrochemistry"},
+  {q:"Which type of radiation has the highest penetrating power?",opts:["Alpha (α)","Beta (β)","Gamma (γ)","Neutron radiation"],a:2,e:"Penetrating power: γ >> β >> α. Gamma rays are electromagnetic radiation (no mass, no charge) → highly penetrating (requires thick lead/concrete to stop). α is stopped by paper.",topic:"Radioactivity"},
+  {q:"In a second-order reaction, if the concentration of reactant doubles, the rate:",opts:["Doubles","Stays the same","Quadruples","Halves"],a:2,e:"Second-order: rate ∝ [A]². If [A] doubles → rate = k(2[A])² = 4k[A]² → rate quadruples. Compare first-order (doubles) and zero-order (no change).",topic:"Kinetics"},
+  {q:"The Arrhenius equation (k = Ae^(-Ea/RT)) shows that reaction rate constant k:",opts:["Decreases with increasing temperature","Is independent of temperature","Increases with increasing temperature (exponentially)","Is proportional to Ea only"],a:2,e:"As T increases, Ea/RT decreases → e^(-Ea/RT) increases → k increases. A larger fraction of molecules exceed Ea at higher T → faster rate. Plotting ln k vs 1/T gives a straight line (slope = −Ea/R).",topic:"Kinetics"},
+  {q:"A complex ion has the formula [Cu(H₂O)₄]²⁺. The ligand is:",opts:["Cu²⁺","H₂O (water, donates lone pair to Cu)","[Cu(H₂O)₄]²⁺ as a whole","The 2+ charge"],a:1,e:"A ligand is a molecule or ion that donates a lone pair to the central metal ion. Here H₂O donates a lone pair to Cu²⁺. The coordination number is 4.",topic:"Transition Metals"},
+  {q:"Benzene is more stable than expected because:",opts:["It has alternating single and double bonds (Kekulé)","It has a delocalised π electron system; all C−C bonds are equivalent (intermediate length/strength)","It contains 3 C=C double bonds","It undergoes addition reactions readily"],a:1,e:"Benzene: all 6 π electrons are delocalised in a ring above and below the plane. This gives extra stability (aromatic stability/resonance energy of ~150 kJ/mol). All C−C bonds are equal (~1.40 Å).",topic:"Benzene"},
+  {q:"Electrophilic aromatic substitution (EAS) of benzene involves:",opts:["Adding atoms across the ring","Replacing one H on the ring with an electrophile (E⁺)","Breaking the ring open","A free radical mechanism"],a:1,e:"EAS: an electrophile (E⁺) attacks the electron-rich benzene ring, displacing H⁺ and restoring aromaticity. Examples: nitration (E⁺ = NO₂⁺), halogenation (E⁺ = Br⁺ with AlBr₃ catalyst).",topic:"Benzene"},
+  {q:"The Kw of water at 25°C is 1×10⁻¹⁴ mol² dm⁻⁶. This means [H⁺] in pure water is:",opts:["1×10⁻⁷ mol dm⁻³ (pH = 7)","1×10⁻¹⁴ mol dm⁻³","1 mol dm⁻³","14 mol dm⁻³"],a:0,e:"Kw = [H⁺][OH⁻] = 10⁻¹⁴. In pure water [H⁺]=[OH⁻] = √(10⁻¹⁴) = 10⁻⁷ mol dm⁻³ → pH = −log(10⁻⁷) = 7 (neutral).",topic:"pH"},
+  {q:"Which indicator would be suitable for a strong acid–strong base titration?",opts:["Any indicator (sharp pH change at equivalence point)","Only methyl orange","Only phenolphthalein","No indicator — use pH meter only"],a:0,e:"Strong acid/strong base titrations have a large, steep pH jump at equivalence (~pH 3–11). Any indicator that changes in this range works (methyl orange, phenolphthalein, bromothymol blue).",topic:"Titration"},
+  {q:"Radiocarbon dating uses the ratio of:",opts:["²³⁸U to ²³⁵U","¹²C to ¹⁴C in organic material","³H to ¹H","⁸⁷Sr to ⁸⁶Sr"],a:1,e:"Radiocarbon dating: living organisms absorb ¹⁴C (produced by cosmic ray bombardment of ¹⁴N) at a known ratio to ¹²C. After death, ¹⁴C decays (t½ = 5730 years). Measuring ¹⁴C/¹²C ratio gives age.",topic:"Radioactivity"}
+]
+};
+
+// Mixed quiz: 10 from each level
+BANK.all = [
+  ...BANK.s4.slice(0,10),
+  ...BANK.s5.slice(0,10),
+  ...BANK.s6.slice(0,10)
 ];
-const S6=[
-  ['unit1_transition_metals','Transition Metals'],['unit2_extraction_metals','Extraction of Metals'],['unit3_fertilisers','NPK & Fertilisers'],
-  ['unit4_benzene','Benzene'],['unit5_benzene_derivatives','Benzene Derivatives'],['unit6_polymers','Polymers'],
-  ['unit7_solvent_colligative','Solvents & Colligative Properties'],['unit8_equilibrium','Chemical Equilibrium'],
-  ['unit9_pH','pH & Buffer Solutions'],['unit10_indicators_titration','Indicators & Titrations'],
-  ['unit11_solubility_product','Solubility Product'],['unit12_electrochemical_cells','Electrochemical Cells'],
-  ['unit13_reaction_rates','Reaction Rates'],['unit14_rate_laws','Rate Laws & Arrhenius'],['unit15_radioactivity','Radioactivity']
-];
-function renderQuizLinks(arr,file_prefix,container){
-  document.getElementById(container).innerHTML=arr.map(([slug,title],i)=>`
-    <a href="${file_prefix}${slug}.html#quiz" class="quiz-card">
-      <span class="qc-num">${file_prefix==='unit'?'S5':'S6'} U${String(i+1).padStart(2,'0')}</span>
-      <div class="qc-body"><div class="qc-title">${title}</div><div class="qc-meta">25 questions</div>
-      <span class="qc-badge qb-ready">Ready</span></div>
-    </a>`).join('');
+
+// ═══════════════════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════════════════
+const state = {s4:{answers:{},submitted:false}, s5:{answers:{},submitted:false}, s6:{answers:{},submitted:false}, all:{answers:{},submitted:false}};
+
+const LEVEL_COLORS = {s4:'var(--accent)',s5:'var(--green)',s6:'var(--purple)',all:'var(--gold)'};
+const LEVEL_BADGE_STYLE = {
+  s4:'background:rgba(56,189,248,.15);color:var(--accent);border:1px solid rgba(56,189,248,.25)',
+  s5:'background:rgba(52,211,153,.15);color:var(--green);border:1px solid rgba(52,211,153,.25)',
+  s6:'background:rgba(167,139,250,.15);color:var(--purple);border:1px solid rgba(167,139,250,.25)',
+  all:'background:rgba(232,197,71,.15);color:var(--gold);border:1px solid rgba(232,197,71,.25)'
+};
+
+// ═══════════════════════════════════════════════════════
+//  BUILD QUIZ
+// ═══════════════════════════════════════════════════════
+function buildQuiz(level){
+  const qs = BANK[level];
+  const container = document.getElementById('qs-'+level);
+  if(container.children.length > 0) return; // already built
+  container.innerHTML = qs.map((q,i)=>`
+    <div class="q-block" id="qb-${level}-${i}">
+      <div class="q-meta">
+        <span class="q-num-badge" style="${LEVEL_BADGE_STYLE[level]}">Q${i+1}</span>
+        <span class="q-topic">${q.topic}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <div class="options" id="opts-${level}-${i}">
+        ${q.opts.map((o,oi)=>`
+          <div class="opt" id="opt-${level}-${i}-${oi}" onclick="selectOpt('${level}',${i},${oi})">
+            <span class="opt-letter">${String.fromCharCode(65+oi)}</span>
+            <span>${o}</span>
+          </div>`).join('')}
+      </div>
+      <div class="explanation" id="exp-${level}-${i}">${q.e}</div>
+    </div>`).join('');
 }
-// S5
-document.getElementById('s5quizzes').innerHTML=S5.map(([slug,title],i)=>`
-  <a href="${slug}.html#quiz" class="quiz-card">
-    <span class="qc-num">S5 U${String(i+1).padStart(2,'0')}</span>
-    <div class="qc-body"><div class="qc-title">${title}</div><div class="qc-meta">25 questions</div>
-    <span class="qc-badge qb-ready">Ready</span></div>
-  </a>`).join('');
-// S6
-document.getElementById('s6quizzes').innerHTML=S6.map(([slug,title],i)=>`
-  <a href="${slug}.html#quiz" class="quiz-card">
-    <span class="qc-num">S6 U${String(i+1).padStart(2,'0')}</span>
-    <div class="qc-body"><div class="qc-title">${title}</div><div class="qc-meta">25 questions</div>
-    <span class="qc-badge qb-ready">Ready</span></div>
-  </a>`).join('');
+
+// ═══════════════════════════════════════════════════════
+//  SELECT OPTION
+// ═══════════════════════════════════════════════════════
+function selectOpt(level, qi, oi){
+  if(state[level].submitted) return;
+  state[level].answers[qi] = oi;
+  // Update UI
+  const qs = BANK[level];
+  for(let j=0;j<qs[qi].opts.length;j++){
+    const el = document.getElementById(`opt-${level}-${qi}-${j}`);
+    el.classList.toggle('selected', j===oi);
+  }
+  updateScoreDisplay(level);
+}
+
+function updateScoreDisplay(level){
+  const answered = Object.keys(state[level].answers).length;
+  const total = BANK[level].length;
+  document.getElementById('score-'+level).textContent = `${answered} / ${total} answered`;
+  document.getElementById('prog-'+level).style.width = (answered/total*100)+'%';
+  document.getElementById('prog-'+level).style.background = LEVEL_COLORS[level];
+}
+
+// ═══════════════════════════════════════════════════════
+//  SUBMIT
+// ═══════════════════════════════════════════════════════
+function submitQuiz(level){
+  const qs = BANK[level];
+  const ans = state[level].answers;
+  const unanswered = qs.length - Object.keys(ans).length;
+  if(unanswered > 0 && !confirm(`You have ${unanswered} unanswered question${unanswered>1?'s':''}. Submit anyway?`)) return;
+  state[level].submitted = true;
+
+  let score = 0;
+  qs.forEach((q,i)=>{
+    const chosen = ans[i];
+    const correct = q.a;
+    // Colour all options
+    q.opts.forEach((_,oi)=>{
+      const el = document.getElementById(`opt-${level}-${i}-${oi}`);
+      el.classList.add('locked');
+      if(oi===correct) el.classList.add('correct');
+      else if(oi===chosen && chosen!==correct) el.classList.add('wrong');
+    });
+    // Show explanation
+    document.getElementById(`exp-${level}-${i}`).classList.add('show');
+    if(chosen===correct) score++;
+  });
+
+  const pct = Math.round(score/qs.length*100);
+  const pass = pct >= 60;
+  const res = document.getElementById('res-'+level);
+  res.className = `result-banner ${pass?'pass':'fail'} show`;
+  res.innerHTML = `
+    <div style="font-size:2.5rem;margin-bottom:8px;">${pass?'🏆':'📚'}</div>
+    <h3>${pass?'Excellent Work!':'Keep Studying!'}</h3>
+    <div class="score-big" style="color:${pass?'var(--green)':'var(--red)'};">${pct}%</div>
+    <div class="stats-row">
+      <div class="stat-chip"><div class="sc-val" style="color:var(--green);">${score}</div><div class="sc-lab">Correct</div></div>
+      <div class="stat-chip"><div class="sc-val" style="color:var(--red);">${qs.length-score}</div><div class="sc-lab">Wrong</div></div>
+      <div class="stat-chip"><div class="sc-val" style="color:var(--accent);">${qs.length}</div><div class="sc-lab">Total</div></div>
+    </div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:14px;">${pass?'Well done! Review any questions marked in red below.':'Review the explanations below and try again.'}</p>`;
+  res.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// ═══════════════════════════════════════════════════════
+//  RESET
+// ═══════════════════════════════════════════════════════
+function resetQuiz(level){
+  state[level] = {answers:{},submitted:false};
+  document.getElementById('qs-'+level).innerHTML = '';
+  document.getElementById('res-'+level).className = 'result-banner';
+  document.getElementById('score-'+level).textContent = `0 / ${BANK[level].length} answered`;
+  document.getElementById('prog-'+level).style.width = '0%';
+  buildQuiz(level);
+}
+
+// ═══════════════════════════════════════════════════════
+//  SHOW QUIZ PANEL
+// ═══════════════════════════════════════════════════════
+function showQuiz(level){
+  document.querySelectorAll('.quiz-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.lvl-btn').forEach(b=>{b.className='lvl-btn';});
+  document.getElementById('landing-msg').style.display='none';
+  document.getElementById('panel-'+level).classList.add('active');
+  document.getElementById('btn-'+level).classList.add('active-'+level);
+  buildQuiz(level);
+  document.getElementById('panel-'+level).scrollIntoView({behavior:'smooth',block:'start'});
+}
 </script>
 </body>
 </html>
