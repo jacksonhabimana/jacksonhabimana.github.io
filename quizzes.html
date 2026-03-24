@@ -484,6 +484,11 @@ function submitQuiz(level){
     </div>
     <p style="color:var(--muted);font-size:.85rem;margin-top:14px;">${pass?'Well done! Review any questions marked in red below.':'Review the explanations below and try again.'}</p>`;
   res.scrollIntoView({behavior:'smooth',block:'start'});
+  saveResultToAdmin({studentName:_sName||'Anonymous',studentId:_sClass,
+    examId:'quiz_'+level+'_'+Date.now(),
+    examTitle:'Challenge Quiz — '+(level==='all'?'Mixed':level.toUpperCase())+' Chemistry',
+    examSubject:'Challenge Quiz',score,totalMarks:qs.length,percent:pct,passed:pass,
+    violations:0,timeTaken:'—',submittedAt:new Date().toISOString(),submitReason:'Submitted'});
 }
 
 // ═══════════════════════════════════════════════════════
@@ -510,6 +515,51 @@ function showQuiz(level){
   buildQuiz(level);
   document.getElementById('panel-'+level).scrollIntoView({behavior:'smooth',block:'start'});
 }
+
+async function saveResultToAdmin(result){
+  try{
+    const arr=JSON.parse(localStorage.getItem('student_results')||'[]');
+    arr.push(result);
+    localStorage.setItem('student_results',JSON.stringify(arr));
+  }catch(e){}
+  try{
+    const key=localStorage.getItem('jsonbin_key');
+    if(!key) return;
+    let binId=localStorage.getItem('results_bin_id');
+    if(!binId){
+      const rb=await fetch('https://api.jsonbin.io/v3/b',{method:'POST',
+        headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false','X-Bin-Name':'ChemResults'},
+        body:JSON.stringify([result])});
+      const rd=await rb.json();
+      if(rd.metadata?.id) localStorage.setItem('results_bin_id',rd.metadata.id);
+      return;
+    }
+    const gr=await fetch('https://api.jsonbin.io/v3/b/'+binId+'/latest',{headers:{'X-Master-Key':key}});
+    const gd=await gr.json();
+    const list=Array.isArray(gd.record)?gd.record:[];
+    list.push(result);
+    await fetch('https://api.jsonbin.io/v3/b/'+binId,{method:'PUT',
+      headers:{'Content-Type':'application/json','X-Master-Key':key},
+      body:JSON.stringify(list)});
+  }catch(e){}
+}
+
+
+async function saveResultToAdmin(result){
+  try{const arr=JSON.parse(localStorage.getItem('student_results')||'[]');arr.push(result);localStorage.setItem('student_results',JSON.stringify(arr));}catch(e){}
+  try{
+    const key=localStorage.getItem('jsonbin_key');if(!key)return;
+    let binId=localStorage.getItem('results_bin_id');
+    if(!binId){
+      const rb=await fetch('https://api.jsonbin.io/v3/b',{method:'POST',headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false','X-Bin-Name':'ChemResults'},body:JSON.stringify([result])});
+      const rd=await rb.json();if(rd.metadata?.id)localStorage.setItem('results_bin_id',rd.metadata.id);return;
+    }
+    const gr=await fetch('https://api.jsonbin.io/v3/b/'+binId+'/latest',{headers:{'X-Master-Key':key}});
+    const gd=await gr.json();const list=Array.isArray(gd.record)?gd.record:[];list.push(result);
+    await fetch('https://api.jsonbin.io/v3/b/'+binId,{method:'PUT',headers:{'Content-Type':'application/json','X-Master-Key':key},body:JSON.stringify(list)});
+  }catch(e){}
+}
+
 </script>
 </body>
 </html>

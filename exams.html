@@ -497,45 +497,7 @@ function startNamedSession(){
 // ════════════════════════════════════════════════════════
 //  SAVE RESULT TO TEACHER ADMIN (localStorage + cloud)
 // ════════════════════════════════════════════════════════
-async function saveResultToAdmin(result){
-  // 1. Save to localStorage (works on same device/school computers)
-  try{
-    const results = JSON.parse(localStorage.getItem('student_results')||'[]');
-    const dup = results.find(r=>r.studentName===result.studentName&&r.examId===result.examId&&r.submittedAt===result.submittedAt);
-    if(!dup){ results.push(result); localStorage.setItem('student_results', JSON.stringify(results)); }
-  }catch(e){}
 
-  // 2. Save to cloud JSONBin (works across ALL devices)
-  try{
-    const key = localStorage.getItem('jsonbin_key');
-    if(!key) return;
-    let binId = localStorage.getItem('results_bin_id');
-    if(!binId){
-      // Create a new results bin
-      const r = await fetch('https://api.jsonbin.io/v3/b',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false','X-Bin-Name':'ChemResults'},
-        body:JSON.stringify([result])
-      });
-      const d = await r.json();
-      if(d.metadata?.id){ localStorage.setItem('results_bin_id', d.metadata.id); }
-    } else {
-      // Get existing results, append new one
-      const gr = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`,{headers:{'X-Master-Key':key}});
-      const gd = await gr.json();
-      const existing = Array.isArray(gd.record) ? gd.record : [];
-      const dup2 = existing.find(r=>r.studentName===result.studentName&&r.examId===result.examId&&r.submittedAt===result.submittedAt);
-      if(!dup2){
-        existing.push(result);
-        await fetch(`https://api.jsonbin.io/v3/b/${binId}`,{
-          method:'PUT',
-          headers:{'Content-Type':'application/json','X-Master-Key':key},
-          body:JSON.stringify(existing)
-        });
-      }
-    }
-  }catch(e){}
-}
 
 
 // ── Student name tracking ──
@@ -551,45 +513,45 @@ function startNamedSession(){
 // ════════════════════════════════════════════════════════
 //  SAVE RESULT TO TEACHER ADMIN (localStorage + cloud)
 // ════════════════════════════════════════════════════════
-async function saveResultToAdmin(result){
-  // 1. Save to localStorage (works on same device/school computers)
-  try{
-    const results = JSON.parse(localStorage.getItem('student_results')||'[]');
-    const dup = results.find(r=>r.studentName===result.studentName&&r.examId===result.examId&&r.submittedAt===result.submittedAt);
-    if(!dup){ results.push(result); localStorage.setItem('student_results', JSON.stringify(results)); }
-  }catch(e){}
 
-  // 2. Save to cloud JSONBin (works across ALL devices)
+
+// ════════════════════════════════════════════════════════
+//  SAVE RESULT TO TEACHER ADMIN
+// ════════════════════════════════════════════════════════
+async function saveResultToAdmin(result){
+  // 1. Local storage (same device)
   try{
-    const key = localStorage.getItem('jsonbin_key');
+    const arr=JSON.parse(localStorage.getItem('student_results')||'[]');
+    arr.push(result);
+    localStorage.setItem('student_results',JSON.stringify(arr));
+  }catch(e){}
+  // 2. Cloud (works cross-device) — uses teacher's key if available
+  try{
+    const key=localStorage.getItem('jsonbin_key');
     if(!key) return;
-    let binId = localStorage.getItem('results_bin_id');
+    let binId=localStorage.getItem('results_bin_id');
     if(!binId){
-      // Create a new results bin
-      const r = await fetch('https://api.jsonbin.io/v3/b',{
+      const rb=await fetch('https://api.jsonbin.io/v3/b',{
         method:'POST',
         headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false','X-Bin-Name':'ChemResults'},
         body:JSON.stringify([result])
       });
-      const d = await r.json();
-      if(d.metadata?.id){ localStorage.setItem('results_bin_id', d.metadata.id); }
-    } else {
-      // Get existing results, append new one
-      const gr = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`,{headers:{'X-Master-Key':key}});
-      const gd = await gr.json();
-      const existing = Array.isArray(gd.record) ? gd.record : [];
-      const dup2 = existing.find(r=>r.studentName===result.studentName&&r.examId===result.examId&&r.submittedAt===result.submittedAt);
-      if(!dup2){
-        existing.push(result);
-        await fetch(`https://api.jsonbin.io/v3/b/${binId}`,{
-          method:'PUT',
-          headers:{'Content-Type':'application/json','X-Master-Key':key},
-          body:JSON.stringify(existing)
-        });
-      }
+      const rd=await rb.json();
+      if(rd.metadata?.id){localStorage.setItem('results_bin_id',rd.metadata.id);}
+      return;
     }
+    const gr=await fetch('https://api.jsonbin.io/v3/b/'+binId+'/latest',{headers:{'X-Master-Key':key}});
+    const gd=await gr.json();
+    const list=Array.isArray(gd.record)?gd.record:[];
+    list.push(result);
+    await fetch('https://api.jsonbin.io/v3/b/'+binId,{
+      method:'PUT',
+      headers:{'Content-Type':'application/json','X-Master-Key':key},
+      body:JSON.stringify(list)
+    });
   }catch(e){}
 }
+
 </script>
 <div id="name-overlay" style="position:fixed;inset:0;background:rgba(13,17,23,.97);z-index:9000;display:none;align-items:center;justify-content:center;padding:24px;">
   <div style="background:#161b22;border:1px solid #30363d;border-radius:14px;padding:40px 36px;max-width:440px;width:100%;text-align:center;">

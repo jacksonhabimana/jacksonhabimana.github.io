@@ -167,8 +167,8 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
       <div class="code-box">
         <p style="color:var(--green);font-family:'JetBrains Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">✅ Exam Published! Share this code with students:</p>
         <div class="code" id="exam-code-display">------</div>
-        <p>Students go to <strong style="color:#fff;">student-exam.html</strong> and enter this code to start.</p>
-        <p style="margin-top:8px;font-size:.78rem;">Code is valid for 90 days. You can always re-publish from My Exams.</p>
+        <p>Students go to <strong style="color:#fff;">student-exam.html</strong> and paste this full code to start.</p>
+        <p style="margin-top:8px;font-size:.78rem;color:var(--orange);">This is the full exam ID — students paste the whole thing. Results will appear automatically in your Results tab.</p>
         <div style="display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap;">
           <button class="btn btn-ghost btn-sm" onclick="copyCode()">📋 Copy Code</button>
           <button class="btn btn-ghost btn-sm" onclick="downloadExamJSON()">⬇ Also Download JSON</button>
@@ -406,7 +406,7 @@ function showTab(id,btn){
   document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
   if(id==='myexams') renderExamsList();
-  if(id==='results') renderResults();
+  if(id==='results'){fetchCloudResults().then(()=>renderResults());}
   if(id==='settings'){
     document.getElementById('student-link').textContent=window.location.href.replace('teacher-admin.html','student-exam.html');
     loadNotifSettings();
@@ -480,32 +480,42 @@ async function publishExam(){
   }
   showAlert(alert,'success','Publishing to cloud...');
   try{
+    // Create results collection bin if not exists
+    let resultsBinId=localStorage.getItem('results_bin_id');
+    if(!resultsBinId){
+      const rb=await fetch('https://api.jsonbin.io/v3/b',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false','X-Bin-Name':'ChemResults'},
+        body:JSON.stringify([])
+      });
+      const rd=await rb.json();
+      if(rd.metadata?.id){resultsBinId=rd.metadata.id;localStorage.setItem('results_bin_id',resultsBinId);}
+    }
+    // Embed API key and results bin into exam so students can submit results cross-device
+    exam._apiKey=key;
+    exam._resultsBin=resultsBinId||'';
     // Store exam in JSONBin
     const r=await fetch('https://api.jsonbin.io/v3/b',{
       method:'POST',
-      headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false'},
+      headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false','X-Bin-Name':exam.title.slice(0,30)},
       body:JSON.stringify(exam)
     });
     const d=await r.json();
     if(!d.metadata?.id) throw new Error(d.message||'Failed to publish');
     const binId=d.metadata.id;
-    // Generate 6-char code from bin ID (last 6 chars, uppercase)
-    const code=binId.slice(-6).toUpperCase();
-    // Save mapping: code → binId
-    const codes=JSON.parse(localStorage.getItem('exam_codes')||'{}');
-    codes[code]=binId;
-    localStorage.setItem('exam_codes',JSON.stringify(codes));
-    // Save exam locally too
-    exam.binId=binId;exam.code=code;
+    // The STUDENT CODE = the full BIN ID (students paste it in, or teacher shares it)
+    // Also generate a short display code for convenience
+    const code=binId.slice(-8).toUpperCase();
+    exam.binId=binId; exam.code=code;
     const exams=JSON.parse(localStorage.getItem('exams')||'[]');
     exams.push(exam);
     localStorage.setItem('exams',JSON.stringify(exams));
     lastExam=exam;
-    // Show code
-    document.getElementById('exam-code-display').textContent=code;
+    // Store the binId as the code students use
+    document.getElementById('exam-code-display').textContent=binId;
     document.getElementById('code-result').style.display='block';
     document.getElementById('code-result').scrollIntoView({behavior:'smooth'});
-    showAlert(alert,'success',`✅ Exam published! Code: ${code}`);
+    showAlert(alert,'success','✅ Exam published! Share the code below with students.');
   }catch(e){
     showAlert(alert,'danger','❌ Publish failed: '+e.message+'. Check your API key or internet connection.');
   }
