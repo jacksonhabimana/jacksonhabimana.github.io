@@ -77,6 +77,23 @@ footer a{color:var(--blue);text-decoration:none;}
 </style>
 </head>
 <body>
+<div id="name-overlay" style="position:fixed;inset:0;background:rgba(13,17,23,.97);z-index:9000;display:none;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:#161b22;border:1px solid #30363d;border-radius:14px;padding:40px 36px;max-width:440px;width:100%;text-align:center;">
+    <div style="font-size:2.5rem;margin-bottom:14px;">⚗</div>
+    <h2 style="font-family:'Playfair Display',serif;color:#fff;margin-bottom:8px;">Before You Start</h2>
+    <p style="color:#8b949e;font-size:.9rem;margin-bottom:24px;">Enter your details so your teacher can track your results.</p>
+    <div style="text-align:left;margin-bottom:12px;">
+      <label style="font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#8b949e;display:block;margin-bottom:6px;">Full Name *</label>
+      <input id="nq-name" type="text" placeholder="e.g. Uwimana Jean" style="width:100%;background:#1c2333;border:1px solid #30363d;border-radius:7px;color:#e6edf3;padding:11px 14px;font-size:1rem;margin-bottom:0;box-sizing:border-box;" onkeydown="if(event.key==='Enter')document.getElementById('nq-class').focus()"/>
+    </div>
+    <div style="text-align:left;margin-bottom:18px;">
+      <label style="font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:#8b949e;display:block;margin-bottom:6px;margin-top:12px;">Class / ID (optional)</label>
+      <input id="nq-class" type="text" placeholder="e.g. S4 A / 2024001" style="width:100%;background:#1c2333;border:1px solid #30363d;border-radius:7px;color:#e6edf3;padding:11px 14px;font-size:1rem;margin-bottom:0;box-sizing:border-box;" onkeydown="if(event.key==='Enter')startNamedSession()"/>
+    </div>
+    <div id="nq-err" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#f87171;min-height:18px;margin-bottom:10px;"></div>
+    <button onclick="startNamedSession()" style="width:100%;background:#38bdf8;color:#000;border:none;padding:13px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;cursor:pointer;">🚀 Continue</button>
+  </div>
+</div>
 <!-- ═══════════════════════════ ACCESS GATE ═══════════════════════════ -->
 <style>
 #quiz-gate{position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;}
@@ -374,6 +391,14 @@ window.addEventListener('load', ()=>{
 });
 
 function showTest(lv){
+  if(!_sName){window._afterName=function(){_doShowTest(lv);};document.getElementById("name-overlay").style.display="flex";return;}
+  _doShowTest(lv);
+}
+function _doShowTest(lv){
+  if(!_sName){window._afterName=()=>_doShowTest(lv);document.getElementById('name-overlay').style.display='flex';return;}
+  _doShowTest(lv);
+}
+function _doShowTest(lv){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.lvl-btn').forEach(b=>{b.className='lvl-btn';});
   document.getElementById('landing').style.display='none';
@@ -440,6 +465,15 @@ function submit(lv){
     </div>
     <p style="color:var(--muted);font-size:.85rem;margin-top:12px;">${pass?'Review explanations below to consolidate your knowledge.':'Study the explanations below carefully, then reset and try again!'}</p>`;
   rb.scrollIntoView({behavior:'smooth',block:'start'});
+  saveResultToAdmin({
+    studentName:_sName||'Anonymous',studentId:_sClass,
+    examId:'test_'+lv+'_'+new Date().getTime(),
+    examTitle:'Practice Test — '+(lv==='all'?'Mixed':lv.toUpperCase())+' Chemistry',
+    examSubject:'Practice Test',
+    score,totalMarks:T[lv].length,percent:pct,passed:pass,
+    violations:0,timeTaken:'—',
+    submittedAt:new Date().toISOString(),submitReason:'Submitted'
+  });
 }
 
 function reset(lv){
@@ -451,6 +485,125 @@ function reset(lv){
   buildTest(lv);
   document.getElementById('panel-'+lv).scrollIntoView({behavior:'smooth',block:'start'});
 }
+
+let _sName='',_sClass='';
+function startNamedSession(){
+  const nm=document.getElementById('nq-name').value.trim();
+  if(!nm){document.getElementById('nq-err').textContent='Enter your name.';return;}
+  _sName=nm;_sClass=document.getElementById('nq-class').value.trim();
+  document.getElementById('name-overlay').style.display='none';
+  if(window._afterName) window._afterName();
+}
+
+// ════════════════════════════════════════════════════════
+//  SAVE RESULT TO TEACHER ADMIN (localStorage + cloud)
+// ════════════════════════════════════════════════════════
+async function saveResultToAdmin(result){
+  // 1. Save to localStorage (works on same device/school computers)
+  try{
+    const results = JSON.parse(localStorage.getItem('student_results')||'[]');
+    const dup = results.find(r=>r.studentName===result.studentName&&r.examId===result.examId&&r.submittedAt===result.submittedAt);
+    if(!dup){ results.push(result); localStorage.setItem('student_results', JSON.stringify(results)); }
+  }catch(e){}
+
+  // 2. Save to cloud JSONBin (works across ALL devices)
+  try{
+    const key = localStorage.getItem('jsonbin_key');
+    if(!key) return;
+    let binId = localStorage.getItem('results_bin_id');
+    if(!binId){
+      // Create a new results bin
+      const r = await fetch('https://api.jsonbin.io/v3/b',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false','X-Bin-Name':'ChemResults'},
+        body:JSON.stringify([result])
+      });
+      const d = await r.json();
+      if(d.metadata?.id){ localStorage.setItem('results_bin_id', d.metadata.id); }
+    } else {
+      // Get existing results, append new one
+      const gr = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`,{headers:{'X-Master-Key':key}});
+      const gd = await gr.json();
+      const existing = Array.isArray(gd.record) ? gd.record : [];
+      const dup2 = existing.find(r=>r.studentName===result.studentName&&r.examId===result.examId&&r.submittedAt===result.submittedAt);
+      if(!dup2){
+        existing.push(result);
+        await fetch(`https://api.jsonbin.io/v3/b/${binId}`,{
+          method:'PUT',
+          headers:{'Content-Type':'application/json','X-Master-Key':key},
+          body:JSON.stringify(existing)
+        });
+      }
+    }
+  }catch(e){}
+}
+
+
+// ── Student name tracking ──
+let _sName='', _sClass='';
+function startNamedSession(){
+  const nm=document.getElementById('nq-name').value.trim();
+  if(!nm){document.getElementById('nq-err').textContent='Please enter your name.';return;}
+  _sName=nm; _sClass=document.getElementById('nq-class').value.trim();
+  document.getElementById('name-overlay').style.display='none';
+  if(window._afterName){window._afterName();window._afterName=null;}
+}
+
+// ════════════════════════════════════════════════════════
+//  SAVE RESULT TO TEACHER ADMIN (localStorage + cloud)
+// ════════════════════════════════════════════════════════
+async function saveResultToAdmin(result){
+  // 1. Save to localStorage (works on same device/school computers)
+  try{
+    const results = JSON.parse(localStorage.getItem('student_results')||'[]');
+    const dup = results.find(r=>r.studentName===result.studentName&&r.examId===result.examId&&r.submittedAt===result.submittedAt);
+    if(!dup){ results.push(result); localStorage.setItem('student_results', JSON.stringify(results)); }
+  }catch(e){}
+
+  // 2. Save to cloud JSONBin (works across ALL devices)
+  try{
+    const key = localStorage.getItem('jsonbin_key');
+    if(!key) return;
+    let binId = localStorage.getItem('results_bin_id');
+    if(!binId){
+      // Create a new results bin
+      const r = await fetch('https://api.jsonbin.io/v3/b',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false','X-Bin-Name':'ChemResults'},
+        body:JSON.stringify([result])
+      });
+      const d = await r.json();
+      if(d.metadata?.id){ localStorage.setItem('results_bin_id', d.metadata.id); }
+    } else {
+      // Get existing results, append new one
+      const gr = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`,{headers:{'X-Master-Key':key}});
+      const gd = await gr.json();
+      const existing = Array.isArray(gd.record) ? gd.record : [];
+      const dup2 = existing.find(r=>r.studentName===result.studentName&&r.examId===result.examId&&r.submittedAt===result.submittedAt);
+      if(!dup2){
+        existing.push(result);
+        await fetch(`https://api.jsonbin.io/v3/b/${binId}`,{
+          method:'PUT',
+          headers:{'Content-Type':'application/json','X-Master-Key':key},
+          body:JSON.stringify(existing)
+        });
+      }
+    }
+  }catch(e){}
+}
 </script>
+<div id="name-overlay" style="position:fixed;inset:0;background:rgba(13,17,23,.97);z-index:9000;display:none;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:#161b22;border:1px solid #30363d;border-radius:14px;padding:40px 36px;max-width:440px;width:100%;text-align:center;">
+    <div style="font-size:2.5rem;margin-bottom:14px;">⚗</div>
+    <h2 style="font-family:'Playfair Display',serif;color:#fff;margin-bottom:8px;">Before You Start</h2>
+    <p style="color:#8b949e;font-size:.9rem;margin-bottom:24px;">Enter your details so your teacher can track your results.</p>
+    <label style="font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;color:#8b949e;display:block;text-align:left;margin-bottom:6px;">Full Name *</label>
+    <input id="nq-name" type="text" placeholder="e.g. Uwimana Jean" style="width:100%;background:#1c2333;border:1px solid #30363d;border-radius:7px;color:#e6edf3;padding:11px 14px;font-size:1rem;box-sizing:border-box;margin-bottom:12px;"/>
+    <label style="font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;color:#8b949e;display:block;text-align:left;margin-bottom:6px;">Class / ID (optional)</label>
+    <input id="nq-class" type="text" placeholder="e.g. S4 A" style="width:100%;background:#1c2333;border:1px solid #30363d;border-radius:7px;color:#e6edf3;padding:11px 14px;font-size:1rem;box-sizing:border-box;margin-bottom:14px;"/>
+    <div id="nq-err" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:#f87171;min-height:18px;margin-bottom:10px;"></div>
+    <button onclick="startNamedSession()" style="width:100%;background:#38bdf8;color:#000;border:none;padding:13px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;cursor:pointer;">🚀 Continue</button>
+  </div>
+</div>
 </body>
 </html>

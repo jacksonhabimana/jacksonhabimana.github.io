@@ -557,6 +557,12 @@ function doSubmit(reason){
     violations,timeTaken:`${mm}m ${ss}s`,
     submittedAt:endTime.toISOString(),submitReason:reason,breakdown
   };
+  // ── Save result to teacher's admin dashboard ──
+  try{
+    const results=JSON.parse(localStorage.getItem('student_results')||'[]');
+    const exists=results.find(r=>r.studentName===resultData.studentName&&r.examId===resultData.examId&&r.submittedAt===resultData.submittedAt);
+    if(!exists){results.push(resultData);localStorage.setItem('student_results',JSON.stringify(results));}
+  }catch(e){}
   sendNotif('SUBMIT',`${pass?'✅':'❌'} SUBMISSION\nStudent: ${studentName}${studentClass?' ('+studentClass+')':''}\nExam: ${activeExam.title}\nScore: ${score}/${activeExam.totalMarks} (${pct}%)\nResult: ${pass?'PASS':'FAIL'}\nViolations: ${violations}\nTime: ${mm}m ${ss}s\nReason: ${reason}`);
   showResult(resultData,breakdown);
 }

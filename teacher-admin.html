@@ -193,6 +193,7 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
         <h2 style="margin-bottom:0;">Student Results</h2>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <select id="filter-exam" onchange="renderResults()" style="width:auto;margin-bottom:0;font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:6px 12px;"><option value="">All Exams</option></select>
+          <button class="btn btn-primary btn-sm" onclick="refreshFromCloud()">☁️ Refresh from Cloud</button>
           <button class="btn btn-success btn-sm" onclick="downloadCSV()">⬇ Download CSV</button>
           <button class="btn btn-danger btn-sm" onclick="clearResults()">🗑 Clear All</button>
         </div>
@@ -238,6 +239,10 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
         </div>
       </div>
       <p style="color:var(--muted);font-size:.78rem;">✅ Free tier: 10,000 requests/month. Keys stored only in your browser.</p>
+      <div id="results-bin-info" style="margin-top:12px;display:none;background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.2);border-radius:7px;padding:12px 16px;font-size:.83rem;color:var(--muted);">
+        <strong style="color:var(--accent);">📊 Results are automatically collected</strong><br>
+        When students submit quizzes, tests, or exams, results are saved to your JSONBin account. Click <strong style="color:#fff;">☁️ Refresh from Cloud</strong> in the Results tab to pull all results from any device.
+      </div>
       <div id="dir-bin-info" style="margin-top:12px;display:none;">
         <div style="background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);border-radius:7px;padding:12px 16px;font-size:.82rem;">
           <strong style="color:var(--green);">📁 Exam Directory Bin ID:</strong><br>
@@ -611,6 +616,26 @@ function deleteExam(id){
 }
 
 // ══════════ RESULTS ══════════
+async function fetchCloudResults(){
+  try{
+    const key=localStorage.getItem('jsonbin_key');
+    const binId=localStorage.getItem('results_bin_id');
+    if(!key||!binId) return;
+    const r=await fetch('https://api.jsonbin.io/v3/b/'+binId+'/latest',{headers:{'X-Master-Key':key}});
+    const d=await r.json();
+    if(!Array.isArray(d.record)) return;
+    // Merge cloud results into localStorage
+    const local=JSON.parse(localStorage.getItem('student_results')||'[]');
+    let added=0;
+    d.record.forEach(cr=>{
+      const dup=local.find(l=>l.studentName===cr.studentName&&l.examId===cr.examId&&l.submittedAt===cr.submittedAt);
+      if(!dup){local.push(cr);added++;}
+    });
+    if(added>0) localStorage.setItem('student_results',JSON.stringify(local));
+    return added;
+  }catch(e){return 0;}
+}
+
 function renderResults(){
   const results=JSON.parse(localStorage.getItem('student_results')||'[]');
   const filterExam=document.getElementById('filter-exam').value;
@@ -690,6 +715,8 @@ function saveApiKey(){
 function loadApiKey(){
   const key=localStorage.getItem('jsonbin_key')||'';
   document.getElementById('jsonbin-key').value=key;
+  const binId=localStorage.getItem('results_bin_id');
+  if(key&&binId) document.getElementById('results-bin-info').style.display='block';
 }
 async function testApiKey(){
   const key=document.getElementById('jsonbin-key').value.trim();
@@ -849,6 +876,16 @@ function showAccessCodeStatus(){
   const link=base.split('?')[0]+'?c='+encodeURIComponent(code);
   const ld=document.getElementById('code-link-display');
   if(ld) ld.textContent=link;
+}
+
+async function refreshFromCloud(){
+  const btn=event.target;
+  btn.textContent='⏳ Loading...';btn.disabled=true;
+  const added=await fetchCloudResults();
+  renderResults();
+  btn.textContent='☁️ Refresh from Cloud';btn.disabled=false;
+  if(added>0) alert('✅ '+added+' new result(s) loaded from cloud.');
+  else alert('✅ Already up to date. No new results found.');
 }
 
 function init(){
