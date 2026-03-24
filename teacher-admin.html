@@ -9,46 +9,36 @@
 :root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#38bdf8;--gold:#e8c547;--green:#34d399;--red:#f87171;--orange:#f59e0b;--purple:#a78bfa;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;}
-/* NAV */
 nav{position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 24px;}
 .nav-brand{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);text-decoration:none;}
-.nav-links{display:flex;gap:4px;}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;}
 .nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 12px;border-radius:5px;border:1px solid transparent;transition:all .15s;}
 .nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.2);}
-/* LAYOUT */
 .page{max-width:1100px;margin:0 auto;padding:40px 24px 80px;}
 h1.page-title{font-family:'Playfair Display',serif;font-size:2rem;color:#fff;margin-bottom:6px;}
 .page-sub{color:var(--muted);margin-bottom:32px;font-size:.93rem;}
 /* TABS */
-.tabs{display:flex;gap:4px;margin-bottom:32px;border-bottom:1px solid var(--border);padding-bottom:0;}
+.tabs{display:flex;gap:4px;margin-bottom:32px;border-bottom:1px solid var(--border);}
 .tab-btn{font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:10px 20px;background:none;border:none;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .18s;text-transform:uppercase;letter-spacing:.08em;}
 .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent);}
-.tab-btn:hover{color:var(--text);}
 .tab-panel{display:none;} .tab-panel.active{display:block;}
 /* CARDS */
 .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 28px;margin-bottom:22px;}
 .card h2{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--gold);margin-bottom:18px;}
-/* FORM */
 label{display:block;font-family:'JetBrains Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:6px;}
 input[type=text],input[type=number],input[type=password],textarea,select{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:10px 14px;font-family:'Source Serif 4',Georgia,serif;font-size:.93rem;margin-bottom:16px;transition:border-color .15s;}
 input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);}
-textarea{min-height:90px;resize:vertical;}
+textarea{min-height:80px;resize:vertical;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .form-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
 @media(max-width:640px){.form-row,.form-row3{grid-template-columns:1fr;}}
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;cursor:pointer;border:none;transition:all .18s;text-decoration:none;}
-.btn-primary{background:var(--accent);color:#000;}
-.btn-primary:hover{opacity:.85;}
-.btn-success{background:var(--green);color:#000;}
-.btn-success:hover{opacity:.85;}
-.btn-danger{background:var(--red);color:#000;}
-.btn-danger:hover{opacity:.85;}
-.btn-ghost{background:var(--surface2);border:1px solid var(--border);color:var(--text);}
-.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
-.btn-orange{background:var(--orange);color:#000;}
-.btn-orange:hover{opacity:.85;}
+.btn-primary{background:var(--accent);color:#000;}.btn-primary:hover{opacity:.85;}
+.btn-success{background:var(--green);color:#000;}.btn-success:hover{opacity:.85;}
+.btn-danger{background:var(--red);color:#000;}.btn-danger:hover{opacity:.85;}
+.btn-ghost{background:var(--surface2);border:1px solid var(--border);color:var(--text);}.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+.btn-orange{background:var(--orange);color:#000;}.btn-orange:hover{opacity:.85;}
 .btn-sm{padding:5px 12px;font-size:.72rem;}
 /* QUESTION BUILDER */
 .question-block{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin-bottom:14px;position:relative;}
@@ -57,18 +47,21 @@ textarea{min-height:90px;resize:vertical;}
 .option-row input[type=text]{margin-bottom:0;flex:1;}
 .option-row input[type=radio]{width:auto;accent-color:var(--green);}
 .option-row label{margin-bottom:0;white-space:nowrap;font-size:.72rem;}
-.del-q{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--red);cursor:pointer;font-size:1rem;padding:2px 6px;}
-/* EXAMS LIST */
+.del-q{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--red);cursor:pointer;font-size:1rem;}
+/* EXAM LIST */
 .exam-item{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-.exam-meta{flex:1;}
-.exam-meta h3{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:4px;}
-.exam-meta span{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);}
+.exam-meta{flex:1;}.exam-meta h3{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:4px;}
 .exam-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px;}
 .badge{font-family:'JetBrains Mono',monospace;font-size:.68rem;padding:2px 10px;border-radius:50px;}
 .badge-blue{background:rgba(56,189,248,.15);color:var(--accent);border:1px solid rgba(56,189,248,.25);}
 .badge-green{background:rgba(52,211,153,.15);color:var(--green);border:1px solid rgba(52,211,153,.25);}
 .badge-orange{background:rgba(245,158,11,.15);color:var(--orange);border:1px solid rgba(245,158,11,.25);}
+.badge-purple{background:rgba(167,139,250,.15);color:var(--purple);border:1px solid rgba(167,139,250,.25);}
 .exam-actions{display:flex;gap:6px;flex-wrap:wrap;}
+/* EXAM CODE BOX */
+.code-box{background:var(--surface2);border:2px solid var(--green);border-radius:var(--radius);padding:24px;text-align:center;margin:20px 0;}
+.code-box .code{font-family:'JetBrains Mono',monospace;font-size:2.8rem;font-weight:700;color:var(--green);letter-spacing:.2em;margin:10px 0;}
+.code-box p{color:var(--muted);font-size:.85rem;}
 /* RESULTS TABLE */
 .results-table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);}
 table.results{width:100%;border-collapse:collapse;}
@@ -76,26 +69,23 @@ table.results thead tr{background:var(--surface2);}
 table.results th{padding:11px 14px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.07em;color:var(--accent);white-space:nowrap;}
 table.results td{padding:10px 14px;border-top:1px solid var(--border);font-size:.88rem;}
 table.results tr:hover td{background:rgba(255,255,255,.02);}
-.score-pass{color:var(--green);font-weight:700;}
-.score-fail{color:var(--red);font-weight:700;}
-.violations-high{color:var(--red);}
-.violations-low{color:var(--orange);}
-/* IMPORT ZONE */
+.score-pass{color:var(--green);font-weight:700;}.score-fail{color:var(--red);font-weight:700;}
+.violations-high{color:var(--red);}.violations-low{color:var(--orange);}
+/* DROP ZONE */
 .drop-zone{border:2px dashed var(--border);border-radius:var(--radius);padding:40px;text-align:center;cursor:pointer;transition:all .2s;}
 .drop-zone:hover,.drop-zone.drag-over{border-color:var(--accent);background:rgba(56,189,248,.04);}
-.drop-zone p{color:var(--muted);font-size:.9rem;margin-top:8px;}
-/* LOCK SCREEN */
-#lock-screen{position:fixed;inset:0;background:#0d1117;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;}
+/* LOCK */
+#lock-screen{position:fixed;inset:0;background:#0d1117;z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;}
 #lock-screen h2{font-family:'Playfair Display',serif;color:#fff;font-size:1.8rem;}
-#lock-screen input{width:280px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;text-align:center;}
-#lock-screen p{color:var(--red);font-size:.85rem;display:none;}
-/* ALERT */
+#lock-screen input{width:280px;padding:12px 16px;background:var(--surface);border:1px solid var(--border);border-radius:8px;color:var(--text);font-size:1rem;text-align:center;margin-bottom:12px;}
 .alert{padding:12px 16px;border-radius:7px;margin-bottom:16px;font-size:.88rem;display:none;}
 .alert.show{display:block;}
 .alert-success{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);color:var(--green);}
 .alert-danger{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.3);color:var(--red);}
-/* LINK BOX */
 .link-box{background:var(--surface2);border:1px solid var(--border);border-radius:7px;padding:12px 16px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);word-break:break-all;cursor:pointer;}
+.setup-step{background:rgba(13,17,23,.5);border:1px solid var(--border);border-radius:8px;padding:14px 16px;font-size:.83rem;color:var(--muted);margin-bottom:12px;line-height:1.8;}
+.setup-step strong{color:#fff;}
+.setup-step code{color:var(--accent);background:rgba(56,189,248,.08);padding:1px 6px;border-radius:3px;}
 </style>
 </head>
 <body>
@@ -104,13 +94,13 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
 <div id="lock-screen">
   <div style="text-align:center;">
     <div style="font-size:2.5rem;margin-bottom:8px;">🔐</div>
-    <h2>Teacher Admin Portal</h2>
-    <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px;">Enter your admin password to continue</p>
+    <h2 style="margin-bottom:6px;">Teacher Admin Portal</h2>
+    <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px;">Enter your admin password</p>
     <input type="password" id="pwd-input" placeholder="Password" onkeydown="if(event.key==='Enter')checkPwd()"/>
-    <br><br>
+    <br>
     <button class="btn btn-primary" onclick="checkPwd()">🔓 Unlock</button>
-    <p id="pwd-error" style="color:var(--red);margin-top:10px;font-size:.85rem;display:none;">Incorrect password. Try again.</p>
-    <p style="color:var(--muted);font-size:.75rem;margin-top:24px;">Default password: <strong style="color:var(--accent);">chemistry2024</strong><br><small>Change in Settings tab after login</small></p>
+    <p id="pwd-error" style="color:var(--red);margin-top:10px;font-size:.85rem;display:none;">Incorrect password.</p>
+    <p style="color:var(--muted);font-size:.75rem;margin-top:24px;">Default: <strong style="color:var(--accent);">chemistry2024</strong></p>
   </div>
 </div>
 
@@ -130,64 +120,36 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
 
 <div class="page">
   <h1 class="page-title">🎓 Teacher Assessment Portal</h1>
-  <p class="page-sub">Create exams, manage results, track student performance and detect cheating attempts.</p>
+  <p class="page-sub">Create exams, publish them with a code, track results and detect cheating.</p>
 
   <div class="tabs">
-    <button class="tab-btn active" onclick="showTab('create')">✏️ Create Exam</button>
-    <button class="tab-btn" onclick="showTab('myexams')">📋 My Exams</button>
-    <button class="tab-btn" onclick="showTab('results')">📊 Results</button>
-    <button class="tab-btn" onclick="showTab('import')">📥 Import Results</button>
-    <button class="tab-btn" onclick="showTab('settings')">⚙️ Settings</button>
+    <button class="tab-btn active" onclick="showTab('create',this)">✏️ Create Exam</button>
+    <button class="tab-btn" onclick="showTab('myexams',this)">📋 My Exams</button>
+    <button class="tab-btn" onclick="showTab('results',this)">📊 Results</button>
+    <button class="tab-btn" onclick="showTab('import',this)">📥 Import Results</button>
+    <button class="tab-btn" onclick="showTab('settings',this)">⚙️ Settings</button>
   </div>
 
-  <!-- ═══════════════ TAB: CREATE ═══════════════ -->
+  <!-- ═══ CREATE ═══ -->
   <div class="tab-panel active" id="tab-create">
     <div class="card">
       <h2>Create New Exam / Quiz / Test</h2>
       <div id="create-alert" class="alert"></div>
-
       <div class="form-row">
-        <div>
-          <label>Exam Title *</label>
-          <input type="text" id="exam-title" placeholder="e.g. S4 Unit 3 Test – Ionic Bonding"/>
-        </div>
-        <div>
-          <label>Subject / Class</label>
-          <input type="text" id="exam-subject" placeholder="e.g. S4 Chemistry"/>
-        </div>
+        <div><label>Exam Title *</label><input type="text" id="exam-title" placeholder="e.g. S4 Unit 3 Test – Ionic Bonding"/></div>
+        <div><label>Subject / Class</label><input type="text" id="exam-subject" placeholder="e.g. S4 Chemistry"/></div>
       </div>
       <div class="form-row3">
-        <div>
-          <label>Type</label>
-          <select id="exam-type">
-            <option>Quiz</option>
-            <option>Test</option>
-            <option>Exam</option>
-            <option>Assignment</option>
-          </select>
-        </div>
-        <div>
-          <label>Time Limit (minutes)</label>
-          <input type="number" id="exam-time" value="30" min="1" max="240"/>
-        </div>
-        <div>
-          <label>Passing Score (%)</label>
-          <input type="number" id="exam-pass" value="50" min="1" max="100"/>
-        </div>
+        <div><label>Type</label><select id="exam-type"><option>Quiz</option><option>Test</option><option>Exam</option><option>Assignment</option></select></div>
+        <div><label>Time Limit (minutes)</label><input type="number" id="exam-time" value="30" min="1" max="240"/></div>
+        <div><label>Passing Score (%)</label><input type="number" id="exam-pass" value="50" min="1" max="100"/></div>
       </div>
       <div class="form-row">
-        <div>
-          <label>Max Cheating Warnings Before Auto-Submit</label>
-          <input type="number" id="exam-warnings" value="3" min="1" max="10"/>
-        </div>
-        <div>
-          <label>Instructions (optional)</label>
-          <input type="text" id="exam-instructions" placeholder="e.g. Answer all questions. No calculators."/>
-        </div>
+        <div><label>Max Cheat Warnings Before Auto-Submit</label><input type="number" id="exam-warnings" value="3" min="1" max="10"/></div>
+        <div><label>Instructions (optional)</label><input type="text" id="exam-instructions" placeholder="e.g. Answer all questions. No calculators."/></div>
       </div>
     </div>
 
-    <!-- QUESTION BUILDER -->
     <div class="card">
       <h2>Questions</h2>
       <div id="questions-container"></div>
@@ -195,222 +157,226 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
     </div>
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <button class="btn btn-primary" onclick="saveExam()">💾 Save & Generate Exam File</button>
-      <button class="btn btn-ghost" onclick="clearForm()">🗑 Clear Form</button>
+      <button class="btn btn-success" onclick="publishExam()">🌐 Publish Exam (Get Student Code)</button>
+      <button class="btn btn-primary" onclick="saveExamLocal()">💾 Save Locally (No Internet)</button>
+      <button class="btn btn-ghost" onclick="clearForm()">🗑 Clear</button>
+    </div>
+
+    <!-- CODE RESULT -->
+    <div id="code-result" style="display:none;">
+      <div class="code-box">
+        <p style="color:var(--green);font-family:'JetBrains Mono',monospace;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;">✅ Exam Published! Share this code with students:</p>
+        <div class="code" id="exam-code-display">------</div>
+        <p>Students go to <strong style="color:#fff;">student-exam.html</strong> and enter this code to start.</p>
+        <p style="margin-top:8px;font-size:.78rem;">Code is valid for 90 days. You can always re-publish from My Exams.</p>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:14px;flex-wrap:wrap;">
+          <button class="btn btn-ghost btn-sm" onclick="copyCode()">📋 Copy Code</button>
+          <button class="btn btn-ghost btn-sm" onclick="downloadExamJSON()">⬇ Also Download JSON</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- ═══════════════ TAB: MY EXAMS ═══════════════ -->
+  <!-- ═══ MY EXAMS ═══ -->
   <div class="tab-panel" id="tab-myexams">
     <div class="card">
       <h2>Saved Exams</h2>
-      <p style="color:var(--muted);font-size:.88rem;margin-bottom:18px;">Download any exam as a JSON file to share with students. Students open <strong style="color:var(--accent);">student-exam.html</strong> and upload the file to begin.</p>
-      <div id="exams-list"><p style="color:var(--muted);">No exams saved yet. Create one in the Create Exam tab.</p></div>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:18px;">Published exams get a <strong style="color:var(--green);">6-digit code</strong> students can enter directly. You can also download the JSON file to share manually.</p>
+      <div id="exams-list"><p style="color:var(--muted);">No exams yet. Create one above.</p></div>
     </div>
   </div>
 
-  <!-- ═══════════════ TAB: RESULTS ═══════════════ -->
+  <!-- ═══ RESULTS ═══ -->
   <div class="tab-panel" id="tab-results">
     <div class="card">
       <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px;">
         <h2 style="margin-bottom:0;">Student Results</h2>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
-          <select id="filter-exam" onchange="renderResults()" style="width:auto;margin-bottom:0;font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:6px 12px;">
-            <option value="">All Exams</option>
-          </select>
+          <select id="filter-exam" onchange="renderResults()" style="width:auto;margin-bottom:0;font-family:'JetBrains Mono',monospace;font-size:.78rem;padding:6px 12px;"><option value="">All Exams</option></select>
           <button class="btn btn-success btn-sm" onclick="downloadCSV()">⬇ Download CSV</button>
-          <button class="btn btn-danger btn-sm" onclick="clearResults()">🗑 Clear All Results</button>
+          <button class="btn btn-danger btn-sm" onclick="clearResults()">🗑 Clear All</button>
         </div>
       </div>
       <div id="results-summary" style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;"></div>
-      <div id="results-container"><p style="color:var(--muted);">No results yet. Import result files from students.</p></div>
+      <div id="results-container"><p style="color:var(--muted);">No results yet.</p></div>
     </div>
   </div>
 
-  <!-- ═══════════════ TAB: IMPORT ═══════════════ -->
+  <!-- ═══ IMPORT ═══ -->
   <div class="tab-panel" id="tab-import">
     <div class="card">
       <h2>Import Student Result Files</h2>
-      <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px;">After students complete an exam, they download a result JSON file. Upload those files here to add them to your results dashboard.</p>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px;">If students used the offline (JSON file) method, they download a result file. Upload those files here.</p>
       <div class="drop-zone" id="drop-zone" onclick="document.getElementById('result-file-input').click()">
         <div style="font-size:2.5rem;">📂</div>
-        <strong style="color:var(--text);">Click to upload or drag & drop result files</strong>
-        <p>Accepts one or multiple <code>.json</code> result files from students</p>
+        <strong style="color:var(--text);">Click or drag & drop result files here</strong>
+        <p style="color:var(--muted);margin-top:6px;">Accepts <code>.json</code> result files</p>
         <input type="file" id="result-file-input" accept=".json" multiple style="display:none;" onchange="importResults(this.files)"/>
       </div>
       <div id="import-log" style="margin-top:16px;"></div>
     </div>
   </div>
 
-  <!-- ═══════════════ TAB: SETTINGS ═══════════════ -->
+  <!-- ═══ SETTINGS ═══ -->
   <div class="tab-panel" id="tab-settings">
+
+    <!-- JSONBIN SETUP -->
+    <div class="card" style="border-color:rgba(52,211,153,.3);">
+      <h2>☁️ Cloud Storage Setup (Required for Exam Codes)</h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px;">To publish exams with a code that students enter, you need a <strong style="color:#fff;">free JSONBin.io API key</strong>. This is what stores your exam in the cloud so students can retrieve it by code.</p>
+      <div class="setup-step">
+        <strong>Step 1:</strong> Go to <a href="https://jsonbin.io" target="_blank" style="color:var(--accent);">jsonbin.io</a> → click <strong>Sign Up Free</strong> (free account, no credit card)<br>
+        <strong>Step 2:</strong> After login, click your profile → <strong>API Keys</strong> → copy your <strong>Master Key</strong><br>
+        <strong>Step 3:</strong> Paste it below and click <strong>Save Key</strong>
+      </div>
+      <div class="form-row">
+        <div><label>JSONBin Master API Key</label><input type="text" id="jsonbin-key" placeholder="$2b$10$xxxxxxxxxxxxxxxxxxxx..."/></div>
+        <div style="display:flex;align-items:flex-end;padding-bottom:16px;gap:8px;">
+          <button class="btn btn-success" onclick="saveApiKey()">💾 Save Key</button>
+          <button class="btn btn-ghost btn-sm" onclick="testApiKey()">🧪 Test</button>
+          <span id="api-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;"></span>
+        </div>
+      </div>
+      <p style="color:var(--muted);font-size:.78rem;">✅ Free tier: 10,000 requests/month. Keys stored only in your browser.</p>
+      <div id="dir-bin-info" style="margin-top:12px;display:none;">
+        <div style="background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);border-radius:7px;padding:12px 16px;font-size:.82rem;">
+          <strong style="color:var(--green);">📁 Exam Directory Bin ID:</strong><br>
+          <span id="dir-bin-id" style="font-family:JetBrains Mono,monospace;color:var(--accent);font-size:.78rem;"></span><br>
+          <small style="color:var(--muted);">Students only need the 6-digit code you share with them. This is handled automatically.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASSWORD -->
     <div class="card">
       <h2>Change Admin Password</h2>
       <div style="max-width:400px;">
-        <label>Current Password</label>
-        <input type="password" id="cur-pwd" placeholder="Current password"/>
-        <label>New Password</label>
-        <input type="password" id="new-pwd" placeholder="New password"/>
-        <label>Confirm New Password</label>
-        <input type="password" id="new-pwd2" placeholder="Confirm new password"/>
+        <label>Current Password</label><input type="password" id="cur-pwd" placeholder="Current password"/>
+        <label>New Password</label><input type="password" id="new-pwd" placeholder="New password"/>
+        <label>Confirm New Password</label><input type="password" id="new-pwd2" placeholder="Confirm"/>
         <button class="btn btn-primary" onclick="changePwd()">🔐 Update Password</button>
         <div id="pwd-change-msg" style="margin-top:10px;font-size:.85rem;"></div>
       </div>
     </div>
-    <!-- NOTIFICATIONS CARD -->
+
+    <!-- NOTIFICATIONS -->
     <div class="card">
-      <h2>📲 Notifications — Email &amp; Phone Alerts</h2>
-      <p style="color:var(--muted);font-size:.88rem;margin-bottom:22px;">Get notified on your phone and email whenever a student <strong style="color:var(--red);">cheats</strong> or <strong style="color:var(--green);">submits</strong> an exam. Uses free services — no server needed.</p>
-
-      <!-- TELEGRAM -->
-      <div style="background:var(--surface2);border:1px solid rgba(56,189,248,.2);border-radius:8px;padding:20px 20px 14px;margin-bottom:18px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-          <span style="font-size:1.4rem;">📱</span>
-          <div><strong style="color:#fff;font-size:.95rem;">Telegram Phone Alerts</strong><br>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);">Instant push notifications on your phone — free &amp; always works</span></div>
-        </div>
+      <h2>📲 Notifications (Email & Phone)</h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:18px;">Get notified when students cheat or submit exams.</p>
+      <div style="background:var(--surface2);border:1px solid rgba(56,189,248,.2);border-radius:8px;padding:18px 20px;margin-bottom:16px;">
+        <strong style="color:#fff;">📱 Telegram</strong>
+        <div class="setup-step" style="margin:10px 0;">Open Telegram → <strong>@BotFather</strong> → <code>/newbot</code> → copy <strong>Bot Token</strong> · Then <strong>@userinfobot</strong> → copy <strong>Chat ID</strong></div>
         <div class="form-row">
-          <div><label>Bot Token</label><input type="text" id="tg-token" placeholder="e.g. 7512345678:AAHxxx..." oninput="saveNotifSettings()"/></div>
-          <div><label>Your Chat ID</label><input type="text" id="tg-chatid" placeholder="e.g. 123456789" oninput="saveNotifSettings()"/></div>
+          <div><label>Bot Token</label><input type="text" id="tg-token" placeholder="7512345678:AAH..." oninput="saveNotifSettings()"/></div>
+          <div><label>Chat ID</label><input type="text" id="tg-chatid" placeholder="123456789" oninput="saveNotifSettings()"/></div>
         </div>
-        <div style="background:rgba(13,17,23,.6);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:.82rem;color:var(--muted);margin-bottom:12px;">
-          <strong style="color:var(--accent);display:block;margin-bottom:6px;">🔧 How to set up (2 minutes):</strong>
-          1. Open Telegram and search <strong style="color:#fff;">@BotFather</strong><br>
-          2. Send <code style="color:var(--accent);">/newbot</code>, give it a name → copy the <strong style="color:#fff;">Bot Token</strong><br>
-          3. Search <strong style="color:#fff;">@userinfobot</strong>, send any message → copy your <strong style="color:#fff;">Chat ID</strong><br>
-          4. Paste both above and click <strong style="color:#fff;">Test</strong>
-        </div>
-        <button class="btn btn-ghost btn-sm" onclick="testTelegram()">📤 Send Test Message</button>
-        <span id="tg-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;margin-left:10px;"></span>
+        <button class="btn btn-ghost btn-sm" onclick="testTelegram()">📤 Test</button>
+        <span id="tg-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;margin-left:8px;"></span>
       </div>
-
-      <!-- EMAILJS -->
-      <div style="background:var(--surface2);border:1px solid rgba(232,197,71,.2);border-radius:8px;padding:20px 20px 14px;margin-bottom:18px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-          <span style="font-size:1.4rem;">📧</span>
-          <div><strong style="color:#fff;font-size:.95rem;">Email Alerts (EmailJS)</strong><br>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);">Get email alerts directly — free up to 200 emails/month</span></div>
+      <div style="background:var(--surface2);border:1px solid rgba(232,197,71,.2);border-radius:8px;padding:18px 20px;margin-bottom:16px;">
+        <strong style="color:#fff;">📧 Email (EmailJS)</strong>
+        <div class="setup-step" style="margin:10px 0;">Go to <a href="https://emailjs.com" target="_blank" style="color:var(--accent);">emailjs.com</a> (free) → Add Gmail → copy <strong>Service ID</strong> · Create template with <code>{{student_name}} {{exam_title}} {{event_type}} {{message}}</code> → copy <strong>Template ID</strong> · Account → copy <strong>Public Key</strong></div>
+        <div class="form-row">
+          <div><label>Public Key</label><input type="text" id="ej-pubkey" placeholder="user_aBcDe..." oninput="saveNotifSettings()"/></div>
+          <div><label>Service ID</label><input type="text" id="ej-service" placeholder="service_xxx" oninput="saveNotifSettings()"/></div>
         </div>
         <div class="form-row">
-          <div><label>EmailJS Public Key</label><input type="text" id="ej-pubkey" placeholder="e.g. user_aBcDeFgHiJkL..." oninput="saveNotifSettings()"/></div>
-          <div><label>Service ID</label><input type="text" id="ej-service" placeholder="e.g. service_xxxxxxx" oninput="saveNotifSettings()"/></div>
+          <div><label>Template ID</label><input type="text" id="ej-template" placeholder="template_xxx" oninput="saveNotifSettings()"/></div>
+          <div><label>Your Email</label><input type="text" id="ej-email" placeholder="hajackson2020@gmail.com" oninput="saveNotifSettings()"/></div>
         </div>
-        <div class="form-row">
-          <div><label>Template ID</label><input type="text" id="ej-template" placeholder="e.g. template_xxxxxxx" oninput="saveNotifSettings()"/></div>
-          <div><label>Your Email Address</label><input type="text" id="ej-email" placeholder="hajackson2020@gmail.com" oninput="saveNotifSettings()"/></div>
-        </div>
-        <div style="background:rgba(13,17,23,.6);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:.82rem;color:var(--muted);margin-bottom:12px;">
-          <strong style="color:var(--gold);display:block;margin-bottom:6px;">🔧 How to set up (5 minutes):</strong>
-          1. Go to <a href="https://www.emailjs.com" target="_blank" style="color:var(--accent);">emailjs.com</a> → free account<br>
-          2. Add Email Service (Gmail) → copy <strong style="color:#fff;">Service ID</strong><br>
-          3. Create Email Template — use variables: <code style="color:var(--accent);">{{student_name}}, {{exam_title}}, {{event_type}}, {{message}}</code><br>
-          4. Go to Account → copy <strong style="color:#fff;">Public Key</strong><br>
-          5. Paste all above and click <strong style="color:#fff;">Test</strong>
-        </div>
-        <button class="btn btn-ghost btn-sm" onclick="testEmail()">📤 Send Test Email</button>
-        <span id="ej-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;margin-left:10px;"></span>
+        <button class="btn btn-ghost btn-sm" onclick="testEmail()">📤 Test</button>
+        <span id="ej-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;margin-left:8px;"></span>
       </div>
-
-      <!-- TOGGLES -->
-      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px;">
-        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;">
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px;">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;margin-bottom:0;">
           <input type="checkbox" id="notif-cheat" onchange="saveNotifSettings()" style="width:auto;accent-color:var(--red);margin-bottom:0;"/>
-          <span style="color:var(--text);">🚨 Notify on <strong style="color:var(--red);">cheat/violation</strong></span>
+          <span>🚨 Notify on cheat</span>
         </label>
-        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;margin-bottom:0;">
           <input type="checkbox" id="notif-submit" onchange="saveNotifSettings()" style="width:auto;accent-color:var(--green);margin-bottom:0;"/>
-          <span style="color:var(--text);">✅ Notify on <strong style="color:var(--green);">exam submission</strong></span>
+          <span>✅ Notify on submission</span>
         </label>
       </div>
       <div id="notif-save-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--green);"></div>
     </div>
 
+    <!-- STUDENT LINK -->
     <div class="card">
       <h2>Student Exam Link</h2>
-      <p style="color:var(--muted);font-size:.88rem;margin-bottom:14px;">Share this page with your students. They upload the exam JSON file you give them and complete the assessment.</p>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:12px;">Share this link with students. They enter the exam code you give them.</p>
       <div class="link-box" onclick="copyLink(this)" id="student-link">Loading...</div>
-      <p style="font-size:.78rem;color:var(--muted);margin-top:6px;">Click to copy</p>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:6px;">Click to copy</p>
     </div>
+
+    <!-- HOW IT WORKS -->
     <div class="card">
-      <h2>How It Works</h2>
-      <ol style="margin-left:20px;line-height:2.2;color:var(--muted);font-size:.9rem;">
-        <li>Create an exam here and click <strong style="color:#fff;">Save & Generate Exam File</strong> → downloads as a <code>.json</code> file.</li>
-        <li>Share the <code>.json</code> file with your students (USB, email, Google Classroom, etc.).</li>
-        <li>Students go to <strong style="color:var(--accent);">student-exam.html</strong> on your website, upload the file, and complete the exam.</li>
-        <li>When finished, students click <strong style="color:#fff;">Download My Result</strong> → saves a result <code>.json</code> file.</li>
-        <li>Students submit their result file to you. You upload it here in the <strong style="color:#fff;">Import Results</strong> tab.</li>
-        <li>View all results, track scores, violations, and download a <strong style="color:#fff;">CSV report</strong>.</li>
+      <h2>How the Exam Code System Works</h2>
+      <ol style="margin-left:20px;line-height:2.4;color:var(--muted);font-size:.9rem;">
+        <li>Set up your <strong style="color:#fff;">JSONBin API key</strong> once (Settings tab above) — takes 2 minutes.</li>
+        <li>Create an exam and click <strong style="color:var(--green);">🌐 Publish Exam</strong> → exam is saved to the cloud → you get a <strong style="color:var(--green);">6-digit code</strong>.</li>
+        <li>Share the <strong style="color:var(--green);">code</strong> with students (write on board, send via WhatsApp, etc.).</li>
+        <li>Students go to <strong style="color:var(--accent);">student-exam.html</strong>, enter the code → exam loads automatically.</li>
+        <li>Students complete the exam → submit → results are sent directly to your <strong style="color:#fff;">Results tab</strong> (cloud-saved) AND via Telegram/email notification.</li>
+        <li>View all results, see violations, download CSV report.</li>
       </ol>
+      <p style="color:var(--orange);font-size:.85rem;margin-top:14px;">⚠️ No internet? Use <strong>💾 Save Locally</strong> instead — downloads a JSON file to share manually.</p>
     </div>
   </div>
-
 </div>
 
 <script>
-// ══════════════════════════════════════════════
-//  PASSWORD / LOCK
-// ══════════════════════════════════════════════
-const DEFAULT_PWD = 'chemistry2024';
+// ══════════ PASSWORD ══════════
+const DEFAULT_PWD='chemistry2024';
 function checkPwd(){
-  const entered = document.getElementById('pwd-input').value;
-  const stored = localStorage.getItem('admin_pwd') || DEFAULT_PWD;
-  if(entered === stored){
-    document.getElementById('lock-screen').style.display = 'none';
-    init();
-  } else {
-    document.getElementById('pwd-error').style.display = 'block';
-    document.getElementById('pwd-input').value = '';
-  }
+  const v=document.getElementById('pwd-input').value;
+  const s=localStorage.getItem('admin_pwd')||DEFAULT_PWD;
+  if(v===s){document.getElementById('lock-screen').style.display='none';init();}
+  else{document.getElementById('pwd-error').style.display='block';document.getElementById('pwd-input').value='';}
 }
 function changePwd(){
-  const cur = document.getElementById('cur-pwd').value;
-  const nw = document.getElementById('new-pwd').value;
-  const nw2 = document.getElementById('new-pwd2').value;
-  const stored = localStorage.getItem('admin_pwd') || DEFAULT_PWD;
-  const msg = document.getElementById('pwd-change-msg');
-  if(cur !== stored){msg.style.color='var(--red)';msg.textContent='❌ Current password incorrect.';return;}
-  if(nw.length < 6){msg.style.color='var(--red)';msg.textContent='❌ New password must be at least 6 characters.';return;}
-  if(nw !== nw2){msg.style.color='var(--red)';msg.textContent='❌ Passwords do not match.';return;}
-  localStorage.setItem('admin_pwd', nw);
-  msg.style.color='var(--green)';msg.textContent='✅ Password updated successfully.';
-  document.getElementById('cur-pwd').value='';document.getElementById('new-pwd').value='';document.getElementById('new-pwd2').value='';
+  const cur=document.getElementById('cur-pwd').value;
+  const nw=document.getElementById('new-pwd').value;
+  const nw2=document.getElementById('new-pwd2').value;
+  const s=localStorage.getItem('admin_pwd')||DEFAULT_PWD;
+  const m=document.getElementById('pwd-change-msg');
+  if(cur!==s){m.style.color='var(--red)';m.textContent='❌ Current password incorrect.';return;}
+  if(nw.length<6){m.style.color='var(--red)';m.textContent='❌ Min 6 characters.';return;}
+  if(nw!==nw2){m.style.color='var(--red)';m.textContent='❌ Passwords do not match.';return;}
+  localStorage.setItem('admin_pwd',nw);
+  m.style.color='var(--green)';m.textContent='✅ Password updated.';
 }
 
-// ══════════════════════════════════════════════
-//  TABS
-// ══════════════════════════════════════════════
-function showTab(id){
-  document.querySelectorAll('.tab-btn').forEach((b,i)=>{b.classList.remove('active');});
+// ══════════ TABS ══════════
+function showTab(id,btn){
   document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
-  event.target.classList.add('active');
+  btn.classList.add('active');
   if(id==='myexams') renderExamsList();
   if(id==='results') renderResults();
-  if(id==='settings') document.getElementById('student-link').textContent = window.location.href.replace('teacher-admin.html','student-exam.html');
+  if(id==='settings'){
+    document.getElementById('student-link').textContent=window.location.href.replace('teacher-admin.html','student-exam.html');
+    loadNotifSettings();
+    loadApiKey();
+  }
 }
 
-// ══════════════════════════════════════════════
-//  QUESTION BUILDER
-// ══════════════════════════════════════════════
-let qCount = 0;
+// ══════════ QUESTION BUILDER ══════════
+let qCount=0;
 function addQuestion(q){
   qCount++;
-  const id = 'q'+qCount;
-  const marks = q ? q.marks : 1;
-  const text = q ? q.text : '';
-  const opts = q ? q.options : ['','','',''];
-  const correct = q ? q.correct : 0;
-  const html = `<div class="question-block" id="${id}">
+  const id='q'+qCount;
+  const html=`<div class="question-block" id="${id}">
     <button class="del-q" onclick="document.getElementById('${id}').remove()">✕</button>
     <h4>Question ${qCount}</h4>
     <label>Question Text *</label>
-    <textarea class="q-text" placeholder="Type your question here...">${text}</textarea>
+    <textarea class="q-text" placeholder="Type question here...">${q?q.text:''}</textarea>
     <div class="form-row" style="margin-bottom:8px;">
-      <div><label>Marks for this question</label><input type="number" class="q-marks" value="${marks}" min="1" max="20" style="margin-bottom:0;"/></div>
+      <div><label>Marks</label><input type="number" class="q-marks" value="${q?q.marks:1}" min="1" max="20" style="margin-bottom:0;"/></div>
     </div>
-    <label>Options (select ● correct answer)</label>
-    ${opts.map((o,i)=>`<div class="option-row">
-      <input type="radio" name="correct_${id}" value="${i}" ${correct===i?'checked':''}/>
+    <label>Options — select ● correct answer</label>
+    ${(q?q.options:['','','','']).map((o,i)=>`<div class="option-row">
+      <input type="radio" name="correct_${id}" value="${i}" ${q&&q.correct===i?'checked':''}/>
       <label>Option ${String.fromCharCode(65+i)}</label>
       <input type="text" class="q-opt" placeholder="Option ${String.fromCharCode(65+i)}" value="${o}"/>
     </div>`).join('')}
@@ -419,55 +385,99 @@ function addQuestion(q){
 }
 
 function getQuestions(){
-  const blocks = document.querySelectorAll('.question-block');
-  const qs = [];
-  blocks.forEach(b=>{
-    const text = b.querySelector('.q-text').value.trim();
-    const marks = parseInt(b.querySelector('.q-marks').value)||1;
-    const opts = [...b.querySelectorAll('.q-opt')].map(i=>i.value.trim());
-    const correct = parseInt([...b.querySelectorAll('input[type=radio]')].find(r=>r.checked)?.value||0);
-    qs.push({text,marks,options:opts,correct});
-  });
-  return qs;
+  return [...document.querySelectorAll('.question-block')].map(b=>({
+    text:b.querySelector('.q-text').value.trim(),
+    marks:parseInt(b.querySelector('.q-marks').value)||1,
+    options:[...b.querySelectorAll('.q-opt')].map(i=>i.value.trim()),
+    correct:parseInt([...b.querySelectorAll('input[type=radio]')].find(r=>r.checked)?.value||0)
+  }));
 }
 
-// ══════════════════════════════════════════════
-//  SAVE / CREATE EXAM
-// ══════════════════════════════════════════════
-function saveExam(){
-  const alert = document.getElementById('create-alert');
-  const title = document.getElementById('exam-title').value.trim();
-  const subject = document.getElementById('exam-subject').value.trim();
-  const type = document.getElementById('exam-type').value;
-  const time = parseInt(document.getElementById('exam-time').value)||30;
-  const pass = parseInt(document.getElementById('exam-pass').value)||50;
-  const warnings = parseInt(document.getElementById('exam-warnings').value)||3;
-  const instructions = document.getElementById('exam-instructions').value.trim();
-  const questions = getQuestions();
-
-  if(!title){showAlert(alert,'danger','Please enter an exam title.'); return;}
-  if(questions.length===0){showAlert(alert,'danger','Please add at least one question.'); return;}
+// ══════════ BUILD EXAM OBJECT ══════════
+let lastExam=null;
+function buildExamObj(){
+  const title=document.getElementById('exam-title').value.trim();
+  const subject=document.getElementById('exam-subject').value.trim();
+  const type=document.getElementById('exam-type').value;
+  const time=parseInt(document.getElementById('exam-time').value)||30;
+  const pass=parseInt(document.getElementById('exam-pass').value)||50;
+  const warnings=parseInt(document.getElementById('exam-warnings').value)||3;
+  const instructions=document.getElementById('exam-instructions').value.trim();
+  const questions=getQuestions();
+  const alert=document.getElementById('create-alert');
+  if(!title){showAlert(alert,'danger','Please enter an exam title.');return null;}
+  if(!questions.length){showAlert(alert,'danger','Add at least one question.');return null;}
   for(let q of questions){
-    if(!q.text){showAlert(alert,'danger','All questions must have text.'); return;}
-    if(q.options.some(o=>!o)){showAlert(alert,'danger','All option fields must be filled.'); return;}
+    if(!q.text){showAlert(alert,'danger','All questions need text.');return null;}
+    if(q.options.some(o=>!o)){showAlert(alert,'danger','All option fields must be filled.');return null;}
   }
+  return{id:'exam_'+Date.now(),title,subject,type,time,pass,warnings,instructions,questions,totalMarks:questions.reduce((s,q)=>s+q.marks,0),created:new Date().toISOString()};
+}
 
-  const exam = {
-    id: 'exam_'+Date.now(),
-    title, subject, type, time, pass, warnings, instructions,
-    questions,
-    totalMarks: questions.reduce((s,q)=>s+q.marks,0),
-    created: new Date().toISOString()
-  };
+// ══════════ PUBLISH (CLOUD) ══════════
+async function publishExam(){
+  const exam=buildExamObj();
+  if(!exam) return;
+  const key=localStorage.getItem('jsonbin_key');
+  const alert=document.getElementById('create-alert');
+  if(!key){
+    showAlert(alert,'danger','⚠️ No API key set. Go to Settings → Cloud Storage Setup to add your JSONBin key first. Or use 💾 Save Locally.');
+    return;
+  }
+  showAlert(alert,'success','Publishing to cloud...');
+  try{
+    // Store exam in JSONBin
+    const r=await fetch('https://api.jsonbin.io/v3/b',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false'},
+      body:JSON.stringify(exam)
+    });
+    const d=await r.json();
+    if(!d.metadata?.id) throw new Error(d.message||'Failed to publish');
+    const binId=d.metadata.id;
+    // Generate 6-char code from bin ID (last 6 chars, uppercase)
+    const code=binId.slice(-6).toUpperCase();
+    // Save mapping: code → binId
+    const codes=JSON.parse(localStorage.getItem('exam_codes')||'{}');
+    codes[code]=binId;
+    localStorage.setItem('exam_codes',JSON.stringify(codes));
+    // Save exam locally too
+    exam.binId=binId;exam.code=code;
+    const exams=JSON.parse(localStorage.getItem('exams')||'[]');
+    exams.push(exam);
+    localStorage.setItem('exams',JSON.stringify(exams));
+    lastExam=exam;
+    // Show code
+    document.getElementById('exam-code-display').textContent=code;
+    document.getElementById('code-result').style.display='block';
+    document.getElementById('code-result').scrollIntoView({behavior:'smooth'});
+    showAlert(alert,'success',`✅ Exam published! Code: ${code}`);
+  }catch(e){
+    showAlert(alert,'danger','❌ Publish failed: '+e.message+'. Check your API key or internet connection.');
+  }
+}
 
-  // Save to localStorage
-  const exams = JSON.parse(localStorage.getItem('exams')||'[]');
+function copyCode(){
+  const code=document.getElementById('exam-code-display').textContent;
+  navigator.clipboard.writeText(code).then(()=>{
+    document.getElementById('exam-code-display').style.color='var(--accent)';
+    setTimeout(()=>document.getElementById('exam-code-display').style.color='var(--green)',1500);
+  });
+}
+
+function downloadExamJSON(){
+  if(lastExam) downloadJSON(lastExam,`exam_${lastExam.title.replace(/\s+/g,'_').toLowerCase()}.json`);
+}
+
+// ══════════ SAVE LOCAL ══════════
+function saveExamLocal(){
+  const exam=buildExamObj();
+  if(!exam) return;
+  const exams=JSON.parse(localStorage.getItem('exams')||'[]');
   exams.push(exam);
-  localStorage.setItem('exams', JSON.stringify(exams));
-
-  // Download as JSON file
-  downloadJSON(exam, `exam_${title.replace(/\s+/g,'_').toLowerCase()}.json`);
-  showAlert(alert,'success',`✅ Exam saved! "${title}" downloaded as JSON. Share this file with your students.`);
+  localStorage.setItem('exams',JSON.stringify(exams));
+  downloadJSON(exam,`exam_${exam.title.replace(/\s+/g,'_').toLowerCase()}.json`);
+  showAlert(document.getElementById('create-alert'),'success','✅ Exam saved and downloaded as JSON. Share the file with students manually.');
 }
 
 function clearForm(){
@@ -478,188 +488,178 @@ function clearForm(){
   document.getElementById('exam-pass').value=50;
   document.getElementById('exam-warnings').value=3;
   document.getElementById('questions-container').innerHTML='';
+  document.getElementById('code-result').style.display='none';
   qCount=0;
 }
 
-// ══════════════════════════════════════════════
-//  EXAMS LIST
-// ══════════════════════════════════════════════
+// ══════════ EXAMS LIST ══════════
 function renderExamsList(){
-  const exams = JSON.parse(localStorage.getItem('exams')||'[]');
-  const el = document.getElementById('exams-list');
-  if(!exams.length){el.innerHTML='<p style="color:var(--muted);">No exams saved yet.</p>'; return;}
-  el.innerHTML = exams.map(e=>`
+  const exams=JSON.parse(localStorage.getItem('exams')||'[]');
+  const el=document.getElementById('exams-list');
+  if(!exams.length){el.innerHTML='<p style="color:var(--muted);">No exams saved yet.</p>';return;}
+  el.innerHTML=exams.map(e=>`
     <div class="exam-item">
       <div class="exam-meta">
         <h3>${e.title}</h3>
-        <span>${e.subject||''} &bull; Created ${new Date(e.created).toLocaleDateString()}</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);">${e.subject||''} · ${new Date(e.created).toLocaleDateString()}</span>
         <div class="exam-badges">
           <span class="badge badge-blue">${e.type}</span>
-          <span class="badge badge-orange">⏱ ${e.time} min</span>
-          <span class="badge badge-green">${e.questions.length} questions &bull; ${e.totalMarks} marks</span>
-          <span class="badge" style="background:rgba(248,113,113,.15);color:var(--red);border:1px solid rgba(248,113,113,.25);">Pass: ${e.pass}%</span>
+          <span class="badge badge-orange">⏱ ${e.time}min</span>
+          <span class="badge badge-green">${e.questions.length}Q · ${e.totalMarks}marks</span>
+          ${e.code?`<span class="badge badge-purple">🔑 Code: ${e.code}</span>`:'<span class="badge" style="background:rgba(139,148,158,.1);color:var(--muted);border:1px solid rgba(139,148,158,.2);">No code — local only</span>'}
         </div>
       </div>
       <div class="exam-actions">
+        ${e.binId?`<button class="btn btn-success btn-sm" onclick='reshareCode("${e.code}")'>📋 Share Code</button>`:''}
         <button class="btn btn-ghost btn-sm" onclick='redownloadExam("${e.id}")'>⬇ Download</button>
-        <button class="btn btn-danger btn-sm" onclick='deleteExam("${e.id}")'>🗑 Delete</button>
+        ${e.binId?`<button class="btn btn-primary btn-sm" onclick='republishExam("${e.id}")'>🔄 Re-Publish</button>`:''}
+        <button class="btn btn-danger btn-sm" onclick='deleteExam("${e.id}")'>🗑</button>
       </div>
     </div>`).join('');
 }
 
-function redownloadExam(id){
-  const exams = JSON.parse(localStorage.getItem('exams')||'[]');
-  const e = exams.find(x=>x.id===id);
-  if(e) downloadJSON(e, `exam_${e.title.replace(/\s+/g,'_').toLowerCase()}.json`);
+function reshareCode(code){
+  alert(`Share this code with your students:\n\n🔑 ${code}\n\nStudents enter it on student-exam.html to start the exam.`);
 }
 
+async function republishExam(id){
+  const key=localStorage.getItem('jsonbin_key');
+  if(!key){alert('Set your JSONBin API key in Settings first.');return;}
+  const exams=JSON.parse(localStorage.getItem('exams')||'[]');
+  const exam=exams.find(e=>e.id===id);
+  if(!exam) return;
+  try{
+    const r=await fetch('https://api.jsonbin.io/v3/b',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false'},
+      body:JSON.stringify(exam)
+    });
+    const d=await r.json();
+    if(!d.metadata?.id) throw new Error(d.message||'Failed');
+    const binId=d.metadata.id;
+    const code=binId.slice(-6).toUpperCase();
+    const codes=JSON.parse(localStorage.getItem('exam_codes')||'{}');
+    codes[code]=binId;
+    localStorage.setItem('exam_codes',JSON.stringify(codes));
+    exam.binId=binId;exam.code=code;
+    localStorage.setItem('exams',JSON.stringify(exams));
+    renderExamsList();
+    alert(`✅ Re-published! New code: ${code}`);
+  }catch(e){alert('❌ Failed: '+e.message);}
+}
+
+function redownloadExam(id){
+  const exams=JSON.parse(localStorage.getItem('exams')||'[]');
+  const e=exams.find(x=>x.id===id);
+  if(e) downloadJSON(e,`exam_${e.title.replace(/\s+/g,'_').toLowerCase()}.json`);
+}
 function deleteExam(id){
-  if(!confirm('Delete this exam? This cannot be undone.')) return;
-  let exams = JSON.parse(localStorage.getItem('exams')||'[]');
-  exams = exams.filter(e=>e.id!==id);
+  if(!confirm('Delete this exam?')) return;
+  let exams=JSON.parse(localStorage.getItem('exams')||'[]');
+  exams=exams.filter(e=>e.id!==id);
   localStorage.setItem('exams',JSON.stringify(exams));
   renderExamsList();
 }
 
-// ══════════════════════════════════════════════
-//  RESULTS
-// ══════════════════════════════════════════════
+// ══════════ RESULTS ══════════
 function renderResults(){
-  const results = JSON.parse(localStorage.getItem('student_results')||'[]');
-  const filterExam = document.getElementById('filter-exam').value;
-  const filtered = filterExam ? results.filter(r=>r.examId===filterExam) : results;
-
-  // Populate filter dropdown
-  const sel = document.getElementById('filter-exam');
-  const current = sel.value;
-  const examNames = [...new Set(results.map(r=>JSON.stringify({id:r.examId,title:r.examTitle})))].map(s=>JSON.parse(s));
-  sel.innerHTML = '<option value="">All Exams</option>' + examNames.map(e=>`<option value="${e.id}" ${current===e.id?'selected':''}>${e.title}</option>`).join('');
-
-  // Summary stats
-  const sumEl = document.getElementById('results-summary');
+  const results=JSON.parse(localStorage.getItem('student_results')||'[]');
+  const filterExam=document.getElementById('filter-exam').value;
+  const filtered=filterExam?results.filter(r=>r.examId===filterExam):results;
+  const sel=document.getElementById('filter-exam');
+  const cur=sel.value;
+  const names=[...new Set(results.map(r=>JSON.stringify({id:r.examId,title:r.examTitle})))].map(s=>JSON.parse(s));
+  sel.innerHTML='<option value="">All Exams</option>'+names.map(e=>`<option value="${e.id}" ${cur===e.id?'selected':''}>${e.title}</option>`).join('');
+  const sumEl=document.getElementById('results-summary');
   if(filtered.length){
-    const avg = (filtered.reduce((s,r)=>s+r.percent,0)/filtered.length).toFixed(1);
-    const passed = filtered.filter(r=>r.passed).length;
-    const cheaters = filtered.filter(r=>r.violations>0).length;
-    sumEl.innerHTML = `
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 20px;text-align:center;min-width:100px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;color:var(--accent);">${filtered.length}</div>
-        <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Students</div>
-      </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 20px;text-align:center;min-width:100px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;color:var(--green);">${passed}</div>
-        <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Passed</div>
-      </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 20px;text-align:center;min-width:100px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;color:var(--red);">${filtered.length-passed}</div>
-        <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Failed</div>
-      </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 20px;text-align:center;min-width:100px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;color:var(--orange);">${avg}%</div>
-        <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Avg Score</div>
-      </div>
-      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 20px;text-align:center;min-width:100px;">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;font-weight:700;color:var(--red);">${cheaters}</div>
-        <div style="font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">With Violations</div>
-      </div>`;
-  } else { sumEl.innerHTML=''; }
-
-  const el = document.getElementById('results-container');
-  if(!filtered.length){el.innerHTML='<p style="color:var(--muted);">No results yet.</p>'; return;}
-  el.innerHTML = `<div class="results-table-wrap"><table class="results">
-    <thead><tr>
-      <th>#</th><th>Student Name</th><th>Student ID</th><th>Exam</th><th>Score</th><th>Percent</th><th>Result</th><th>Violations</th><th>Time Taken</th><th>Submitted</th>
-    </tr></thead>
-    <tbody>${filtered.sort((a,b)=>b.percent-a.percent).map((r,i)=>`<tr>
-      <td>${i+1}</td>
-      <td><strong>${r.studentName}</strong></td>
-      <td>${r.studentId||'—'}</td>
-      <td>${r.examTitle}</td>
-      <td>${r.score}/${r.totalMarks}</td>
-      <td class="${r.passed?'score-pass':'score-fail'}">${r.percent}%</td>
-      <td><span style="background:${r.passed?'rgba(52,211,153,.15)':'rgba(248,113,113,.15)'};color:${r.passed?'var(--green)':'var(--red)'};border:1px solid ${r.passed?'rgba(52,211,153,.3)':'rgba(248,113,113,.3)'};padding:2px 10px;border-radius:50px;font-family:'JetBrains Mono',monospace;font-size:.7rem;">${r.passed?'PASS':'FAIL'}</span></td>
-      <td class="${r.violations>=3?'violations-high':r.violations>0?'violations-low':''}">${r.violations||0} ⚠️</td>
-      <td>${r.timeTaken||'—'}</td>
-      <td>${new Date(r.submittedAt).toLocaleString()}</td>
-    </tr>`).join('')}</tbody>
-  </table></div>`;
+    const avg=(filtered.reduce((s,r)=>s+r.percent,0)/filtered.length).toFixed(1);
+    const passed=filtered.filter(r=>r.passed).length;
+    const cheaters=filtered.filter(r=>r.violations>0).length;
+    const statBox=(val,lab,color)=>`<div style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:14px 20px;text-align:center;min-width:90px;"><div style="font-family:'JetBrains Mono',monospace;font-size:1.5rem;font-weight:700;color:${color};">${val}</div><div style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">${lab}</div></div>`;
+    sumEl.innerHTML=statBox(filtered.length,'Students','var(--accent)')+statBox(passed,'Passed','var(--green)')+statBox(filtered.length-passed,'Failed','var(--red)')+statBox(avg+'%','Avg Score','var(--orange)')+statBox(cheaters,'Violations','var(--red)');
+  } else sumEl.innerHTML='';
+  const el=document.getElementById('results-container');
+  if(!filtered.length){el.innerHTML='<p style="color:var(--muted);">No results yet.</p>';return;}
+  el.innerHTML=`<div class="results-table-wrap"><table class="results"><thead><tr>
+    <th>#</th><th>Name</th><th>ID</th><th>Exam</th><th>Score</th><th>%</th><th>Result</th><th>Violations</th><th>Time</th><th>Submitted</th>
+  </tr></thead><tbody>${filtered.sort((a,b)=>b.percent-a.percent).map((r,i)=>`<tr>
+    <td>${i+1}</td><td><strong>${r.studentName}</strong></td><td>${r.studentId||'—'}</td><td>${r.examTitle}</td>
+    <td>${r.score}/${r.totalMarks}</td>
+    <td class="${r.passed?'score-pass':'score-fail'}">${r.percent}%</td>
+    <td><span style="padding:2px 10px;border-radius:50px;font-family:'JetBrains Mono',monospace;font-size:.7rem;background:${r.passed?'rgba(52,211,153,.15)':'rgba(248,113,113,.15)'};color:${r.passed?'var(--green)':'var(--red)'};border:1px solid ${r.passed?'rgba(52,211,153,.3)':'rgba(248,113,113,.3)'};">${r.passed?'PASS':'FAIL'}</span></td>
+    <td class="${r.violations>=3?'violations-high':r.violations>0?'violations-low':''}">${r.violations||0} ⚠️</td>
+    <td>${r.timeTaken||'—'}</td><td>${new Date(r.submittedAt).toLocaleString()}</td>
+  </tr>`).join('')}</tbody></table></div>`;
 }
 
 function downloadCSV(){
-  const results = JSON.parse(localStorage.getItem('student_results')||'[]');
-  const filterExam = document.getElementById('filter-exam').value;
-  const filtered = filterExam ? results.filter(r=>r.examId===filterExam) : results;
-  if(!filtered.length){alert('No results to download.');return;}
-  const headers = ['#','Student Name','Student ID','Exam','Score','Total Marks','Percent','Pass/Fail','Violations','Time Taken','Submitted'];
-  const rows = filtered.map((r,i)=>[i+1,r.studentName,r.studentId||'',r.examTitle,r.score,r.totalMarks,r.percent+'%',r.passed?'PASS':'FAIL',r.violations||0,r.timeTaken||'',new Date(r.submittedAt).toLocaleString()]);
-  const csv = [headers,...rows].map(r=>r.map(c=>`"${c}"`).join(',')).join('\n');
+  const results=JSON.parse(localStorage.getItem('student_results')||'[]');
+  const filterExam=document.getElementById('filter-exam').value;
+  const filtered=filterExam?results.filter(r=>r.examId===filterExam):results;
+  if(!filtered.length){alert('No results.');return;}
+  const headers=['#','Name','ID','Exam','Score','Marks','%','Pass/Fail','Violations','Time','Submitted'];
+  const rows=filtered.map((r,i)=>[i+1,r.studentName,r.studentId||'',r.examTitle,r.score,r.totalMarks,r.percent+'%',r.passed?'PASS':'FAIL',r.violations||0,r.timeTaken||'',new Date(r.submittedAt).toLocaleString()]);
+  const csv=[headers,...rows].map(r=>r.map(c=>`"${c}"`).join(',')).join('\n');
   downloadFile(csv,'results_'+Date.now()+'.csv','text/csv');
 }
+function clearResults(){if(!confirm('Delete ALL results?'))return;localStorage.removeItem('student_results');renderResults();}
 
-function clearResults(){
-  if(!confirm('Delete ALL student results? This cannot be undone.')) return;
-  localStorage.removeItem('student_results');
-  renderResults();
-}
-
-// ══════════════════════════════════════════════
-//  IMPORT
-// ══════════════════════════════════════════════
+// ══════════ IMPORT ══════════
 function importResults(files){
-  const log = document.getElementById('import-log');
-  let msgs = [];
-  let count = 0;
-  const total = files.length;
+  const log=document.getElementById('import-log');
+  let msgs=[],count=0;
   [...files].forEach(file=>{
-    const reader = new FileReader();
-    reader.onload = e=>{
+    const reader=new FileReader();
+    reader.onload=e=>{
       try{
-        const data = JSON.parse(e.target.result);
-        if(!data.studentName||!data.examId) throw new Error('Invalid result file format');
-        const results = JSON.parse(localStorage.getItem('student_results')||'[]');
-        // Avoid duplicate
-        const exists = results.find(r=>r.studentName===data.studentName&&r.examId===data.examId&&r.submittedAt===data.submittedAt);
-        if(!exists){results.push(data); localStorage.setItem('student_results',JSON.stringify(results));}
-        msgs.push(`<div style="color:var(--green);font-size:.85rem;">✅ Imported: ${data.studentName} – ${data.examTitle} (${data.percent}%)</div>`);
-      }catch(err){
-        msgs.push(`<div style="color:var(--red);font-size:.85rem;">❌ Failed: ${file.name} – ${err.message}</div>`);
-      }
+        const data=JSON.parse(e.target.result);
+        if(!data.studentName||!data.examId) throw new Error('Invalid format');
+        const results=JSON.parse(localStorage.getItem('student_results')||'[]');
+        const exists=results.find(r=>r.studentName===data.studentName&&r.examId===data.examId&&r.submittedAt===data.submittedAt);
+        if(!exists){results.push(data);localStorage.setItem('student_results',JSON.stringify(results));}
+        msgs.push(`<div style="color:var(--green);font-size:.85rem;">✅ ${data.studentName} – ${data.examTitle} (${data.percent}%)</div>`);
+      }catch(err){msgs.push(`<div style="color:var(--red);font-size:.85rem;">❌ ${file.name}: ${err.message}</div>`);}
       count++;
-      if(count===total) log.innerHTML = msgs.join('')+'<br><button class="btn btn-primary btn-sm" onclick="showTab(\'results\');document.querySelector(\'.tab-btn:nth-child(3)\').classList.add(\'active\')">View Results →</button>';
+      if(count===files.length) log.innerHTML=msgs.join('');
     };
     reader.readAsText(file);
   });
 }
-
-// Drag & drop
-const dz = document.getElementById('drop-zone');
+const dz=document.getElementById('drop-zone');
 dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-over');});
 dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
 dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag-over');importResults(e.dataTransfer.files);});
 
-// ══════════════════════════════════════════════
-//  HELPERS
-// ══════════════════════════════════════════════
-function downloadJSON(obj, filename){
-  downloadFile(JSON.stringify(obj,null,2), filename, 'application/json');
+// ══════════ API KEY ══════════
+function saveApiKey(){
+  const key=document.getElementById('jsonbin-key').value.trim();
+  if(!key){alert('Enter your API key first.');return;}
+  localStorage.setItem('jsonbin_key',key);
+  const m=document.getElementById('api-test-msg');
+  m.style.color='var(--green)';m.textContent='✅ Key saved!';
 }
-function downloadFile(content, filename, mime){
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([content],{type:mime}));
-  a.download = filename; a.click();
+function loadApiKey(){
+  const key=localStorage.getItem('jsonbin_key')||'';
+  document.getElementById('jsonbin-key').value=key;
 }
-function showAlert(el, type, msg){
-  el.className='alert alert-'+type+' show';
-  el.innerHTML=msg;
-  setTimeout(()=>el.classList.remove('show'),6000);
-}
-function copyLink(el){
-  navigator.clipboard.writeText(el.textContent).then(()=>{el.style.color='var(--green)';setTimeout(()=>el.style.color='var(--accent)',1500);});
+async function testApiKey(){
+  const key=document.getElementById('jsonbin-key').value.trim();
+  const m=document.getElementById('api-test-msg');
+  if(!key){m.style.color='var(--red)';m.textContent='❌ Enter key first';return;}
+  m.style.color='var(--muted)';m.textContent='Testing...';
+  try{
+    const r=await fetch('https://api.jsonbin.io/v3/b',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false'},
+      body:JSON.stringify({test:true,from:'Chemistry Portal'})
+    });
+    const d=await r.json();
+    if(d.metadata?.id){m.style.color='var(--green)';m.textContent='✅ Key works!';}
+    else{m.style.color='var(--red)';m.textContent='❌ '+(d.message||'Invalid key');}
+  }catch(e){m.style.color='var(--red)';m.textContent='❌ '+e.message;}
 }
 
-// ══════════════════════════════════════════════
-//  NOTIFICATION SETTINGS
-// ══════════════════════════════════════════════
+// ══════════ NOTIFICATIONS ══════════
 function saveNotifSettings(){
   const s={
     tgToken:document.getElementById('tg-token').value.trim(),
@@ -673,9 +673,8 @@ function saveNotifSettings(){
   };
   localStorage.setItem('notif_settings',JSON.stringify(s));
   const m=document.getElementById('notif-save-msg');
-  m.textContent='✅ Saved'; setTimeout(()=>m.textContent='',2000);
+  m.textContent='✅ Saved';setTimeout(()=>m.textContent='',2000);
 }
-
 function loadNotifSettings(){
   const s=JSON.parse(localStorage.getItem('notif_settings')||'{}');
   if(s.tgToken) document.getElementById('tg-token').value=s.tgToken;
@@ -687,48 +686,73 @@ function loadNotifSettings(){
   if(s.notifCheat!==undefined) document.getElementById('notif-cheat').checked=s.notifCheat;
   if(s.notifSubmit!==undefined) document.getElementById('notif-submit').checked=s.notifSubmit;
 }
-
 async function testTelegram(){
   const token=document.getElementById('tg-token').value.trim();
   const chatId=document.getElementById('tg-chatid').value.trim();
   const m=document.getElementById('tg-test-msg');
-  if(!token||!chatId){m.style.color='var(--red)';m.textContent='❌ Enter Bot Token and Chat ID first';return;}
+  if(!token||!chatId){m.style.color='var(--red)';m.textContent='❌ Enter token & chat ID';return;}
   m.style.color='var(--muted)';m.textContent='Sending...';
   try{
     const r=await fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({chat_id:chatId,text:'✅ Test from Jackson Habimana Chemistry Portal\n\nTelegram notifications are working!'})
+      body:JSON.stringify({chat_id:chatId,text:'✅ Test from Jackson Habimana Chemistry Portal — notifications working!'})
     });
     const d=await r.json();
-    if(d.ok){m.style.color='var(--green)';m.textContent='✅ Message sent! Check Telegram.';}
+    if(d.ok){m.style.color='var(--green)';m.textContent='✅ Sent!';}
     else{m.style.color='var(--red)';m.textContent='❌ '+d.description;}
-  }catch(e){m.style.color='var(--red)';m.textContent='❌ Network error: '+e.message;}
+  }catch(e){m.style.color='var(--red)';m.textContent='❌ '+e.message;}
 }
-
 async function testEmail(){
   const pubKey=document.getElementById('ej-pubkey').value.trim();
   const serviceId=document.getElementById('ej-service').value.trim();
   const templateId=document.getElementById('ej-template').value.trim();
   const toEmail=document.getElementById('ej-email').value.trim();
   const m=document.getElementById('ej-test-msg');
-  if(!pubKey||!serviceId||!templateId){m.style.color='var(--red)';m.textContent='❌ Fill all EmailJS fields first';return;}
+  if(!pubKey||!serviceId||!templateId){m.style.color='var(--red)';m.textContent='❌ Fill all fields';return;}
   m.style.color='var(--muted)';m.textContent='Sending...';
   try{
     const r=await fetch('https://api.emailjs.com/api/v1.0/email/send',{
       method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({service_id:serviceId,template_id:templateId,user_id:pubKey,
-        template_params:{student_name:'Test Student',exam_title:'Test Exam',
-          event_type:'TEST',message:'This is a test notification from your Chemistry Portal. Email alerts are working!',to_email:toEmail}})
+        template_params:{student_name:'Test Student',exam_title:'Test',event_type:'TEST',message:'Email notifications working!',to_email:toEmail}})
     });
-    if(r.status===200){m.style.color='var(--green)';m.textContent='✅ Email sent! Check your inbox.';}
+    if(r.status===200){m.style.color='var(--green)';m.textContent='✅ Email sent!';}
     else{const t=await r.text();m.style.color='var(--red)';m.textContent='❌ '+t;}
   }catch(e){m.style.color='var(--red)';m.textContent='❌ '+e.message;}
 }
 
+// ══════════ HELPERS ══════════
+function downloadJSON(obj,filename){downloadFile(JSON.stringify(obj,null,2),filename,'application/json');}
+function downloadFile(content,filename,mime){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([content],{type:mime}));a.download=filename;a.click();}
+function showAlert(el,type,msg){el.className='alert alert-'+type+' show';el.innerHTML=msg;setTimeout(()=>el.classList.remove('show'),7000);}
+function copyLink(el){navigator.clipboard.writeText(el.textContent).then(()=>{el.style.color='var(--green)';setTimeout(()=>el.style.color='var(--accent)',1500);});}
+
+async function updateDirBin(key,codes){
+  try{
+    let dId=localStorage.getItem('exam_dir_bin');
+    if(!dId){
+      const r=await fetch('https://api.jsonbin.io/v3/b',{method:'POST',
+        headers:{'Content-Type':'application/json','X-Master-Key':key,'X-Bin-Private':'false','X-Bin-Name':'ChemExamDir'},
+        body:JSON.stringify(codes)});
+      const d=await r.json();
+      if(d.metadata?.id){dId=d.metadata.id;localStorage.setItem('exam_dir_bin',dId);}
+    } else {
+      await fetch('https://api.jsonbin.io/v3/b/'+dId,{method:'PUT',
+        headers:{'Content-Type':'application/json','X-Master-Key':key},
+        body:JSON.stringify(codes)});
+    }
+  }catch(e){console.warn('Dir update failed:',e);}
+}
+
 function init(){
-  if(document.getElementById('questions-container').children.length===0) addQuestion();
-  document.getElementById('student-link').textContent = window.location.href.replace('teacher-admin.html','student-exam.html');
-  loadNotifSettings();
+  if(!document.getElementById('questions-container').children.length) addQuestion();
+  document.getElementById('student-link').textContent=window.location.href.replace('teacher-admin.html','student-exam.html');
+  loadNotifSettings();loadApiKey();
+  const dId=localStorage.getItem('exam_dir_bin');
+  if(dId){
+    document.getElementById('dir-bin-info').style.display='block';
+    document.getElementById('dir-bin-id').textContent=dId;
+  }
 }
 </script>
 </body>

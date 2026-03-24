@@ -108,18 +108,39 @@ body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia
 <!--  SCREEN 1: UPLOAD EXAM FILE        -->
 <!-- ═══════════════════════════════════ -->
 <div class="screen active" id="upload-screen">
-  <div class="upload-box">
+  <div class="upload-box" style="max-width:560px;">
     <div style="font-size:2.5rem;margin-bottom:12px;">⚗</div>
     <h1>Student Exam Portal</h1>
-    <p>Upload the exam file your teacher gave you to begin your assessment.</p>
-    <div class="drop-zone" id="dz" onclick="document.getElementById('ef').click()">
-      <div class="icon">📄</div>
-      <strong>Click here or drag & drop your exam file</strong>
-      <p>Accepts <code>.json</code> exam files from your teacher</p>
-      <input type="file" id="ef" accept=".json" style="display:none;" onchange="loadExamFile(this.files[0])"/>
+    <p>Enter the exam code your teacher gave you, or upload the exam file.</p>
+
+    <!-- METHOD 1: CODE -->
+    <div style="background:var(--surface2);border:2px solid rgba(52,211,153,.3);border-radius:10px;padding:24px;margin-bottom:16px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--green);margin-bottom:10px;">Method 1 — Enter Exam Code</div>
+      <input type="text" id="exam-code-input" placeholder="Enter 6-digit code e.g. A3F8C2" maxlength="8"
+        style="width:100%;background:var(--surface);border:1px solid var(--border);border-radius:7px;color:var(--text);padding:12px 16px;font-family:'JetBrains Mono',monospace;font-size:1.4rem;text-align:center;letter-spacing:.25em;text-transform:uppercase;margin-bottom:12px;"
+        onkeydown="if(event.key==='Enter')loadByCode()"/>
+      <button onclick="loadByCode()" style="width:100%;background:var(--green);color:#000;border:none;padding:12px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;cursor:pointer;">🚀 Load Exam by Code</button>
+      <p id="code-loading" style="display:none;color:var(--muted);font-size:.82rem;margin-top:8px;font-family:'JetBrains Mono',monospace;">⏳ Loading exam...</p>
     </div>
-    <p style="color:var(--red);font-size:.85rem;" id="upload-err"></p>
-    <p style="color:var(--muted);font-size:.8rem;">Jackson Habimana Chemistry Portal</p>
+
+    <div style="display:flex;align-items:center;gap:12px;margin:8px 0;color:var(--muted);font-size:.82rem;">
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;">OR</span>
+      <div style="flex:1;height:1px;background:var(--border);"></div>
+    </div>
+
+    <!-- METHOD 2: FILE -->
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:20px;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:10px;">Method 2 — Upload Exam File</div>
+      <div class="drop-zone" id="dz" onclick="document.getElementById('ef').click()" style="padding:20px;">
+        <div class="icon" style="font-size:1.8rem;">📄</div>
+        <strong style="font-size:.9rem;">Click or drag & drop exam .json file</strong>
+        <input type="file" id="ef" accept=".json" style="display:none;" onchange="loadExamFile(this.files[0])"/>
+      </div>
+    </div>
+
+    <p style="color:var(--red);font-size:.85rem;margin-top:10px;" id="upload-err"></p>
+    <p style="color:var(--muted);font-size:.78rem;margin-top:8px;">Jackson Habimana Chemistry Portal</p>
   </div>
 </div>
 
@@ -527,6 +548,56 @@ function downloadResult(){
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([data],{type:'application/json'}));
   a.download = filename; a.click();
+}
+
+// ══════════════════════════════════════════════
+//  LOAD EXAM BY CODE
+// ══════════════════════════════════════════════
+async function loadByCode(){
+  const raw = document.getElementById('exam-code-input').value.trim().toUpperCase();
+  const err = document.getElementById('upload-err');
+  const loading = document.getElementById('code-loading');
+  if(!raw || raw.length < 4){err.textContent='❌ Enter your exam code given by your teacher.';return;}
+  err.textContent='';loading.style.display='block';
+  try{
+    // Fetch from JSONBin public search
+    // The teacher publishes exams with a tag equal to the code
+    // We search bins that have been made public
+    // JSONBin v3: GET /v3/b?page=1&sortBy=createdAt&order=desc&limit=20
+    // Simpler: teacher stores exam in a PUBLIC bin. We search by querying all public bins matching the code.
+    
+    // Approach: query JSONBin for bins with the code in their name/meta
+    // Since JSONBin free doesn't allow search without key, we use a different strategy:
+    // Store code→binId mapping in a special PUBLIC "directory" bin that the teacher creates.
+    
+    // Check localStorage for teacher-set lookup bin
+    // Check for dir bin ID (set when teacher uses same browser, or manually configured)
+    const dirBinId = localStorage.getItem('exam_dir_bin');
+
+    if(!dirBinId){
+      loading.style.display='none';
+      err.innerHTML='❌ System not configured yet. Ask your teacher to set up the portal first, then share the code with you. <br><small style="color:var(--muted);">Alternatively, ask your teacher for the exam JSON file and use Method 2 above.</small>';
+      return;
+    }
+    
+    // Fetch the directory
+    const dr = await fetch(`https://api.jsonbin.io/v3/b/${dirBinId}/latest`);
+    const dd = await dr.json();
+    if(!dd.record) throw new Error('Could not read exam directory.');
+    const binId = dd.record[raw];
+    if(!binId){loading.style.display='none';err.textContent='❌ Code "'+raw+'" not found. Check the code and try again.';return;}
+    
+    // Fetch the actual exam
+    const er = await fetch(`https://api.jsonbin.io/v3/b/${binId}/latest`);
+    const ed = await er.json();
+    if(!ed.record) throw new Error('Exam data not found.');
+    exam = ed.record;
+    loading.style.display='none';
+    showInfoScreen();
+  }catch(e){
+    loading.style.display='none';
+    err.textContent='❌ Error: '+e.message;
+  }
 }
 
 function toggleReview(){
