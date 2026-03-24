@@ -276,6 +276,11 @@ const ST={s4:{ans:{},done:false},s5:{ans:{},done:false},s6:{ans:{},done:false},f
 const COL={s4:'var(--blue)',s5:'var(--green)',s6:'var(--purple)',full:'var(--accent)'};
 const CS={s4:'rgba(56,189,248,.15)',s5:'rgba(52,211,153,.15)',s6:'rgba(167,139,250,.15)',full:'rgba(244,114,182,.15)'};
 const CB={s4:'rgba(56,189,248,.3)',s5:'rgba(52,211,153,.3)',s6:'rgba(167,139,250,.3)',full:'rgba(244,114,182,.3)'};
+window.addEventListener('load', ()=>{
+  const lv = sessionStorage.getItem('exam_level');
+  if(lv){ sessionStorage.removeItem('exam_level'); showExam(lv); }
+});
+
 function showExam(lv){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.lvl-btn').forEach(b=>{b.className='lvl-btn';});
