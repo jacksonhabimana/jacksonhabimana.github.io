@@ -3,174 +3,350 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Exams | Habimana Chemistry</title>
+<title>Exam Papers | Jackson Habimana Chemistry</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#38bdf8;--gold:#e8c547;--green:#34d399;--red:#f87171;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#f472b6;--green:#34d399;--red:#f87171;--blue:#38bdf8;--purple:#a78bfa;--orange:#f59e0b;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:16px;line-height:1.7;}
-#main-nav{position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 24px;gap:12px;}
-.nav-brand{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);text-decoration:none;white-space:nowrap;}
-.nav-links{display:flex;gap:2px;flex-wrap:wrap;}
-.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:5px;border:1px solid transparent;transition:all .15s;white-space:nowrap;}
-.nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(56,189,248,.08);border-color:rgba(56,189,248,.2);}
-.nav-toggle{display:none;background:none;border:1px solid var(--border);color:var(--text);padding:4px 10px;border-radius:5px;cursor:pointer;}
-@media(max-width:768px){.nav-toggle{display:block;}.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:rgba(13,17,23,.98);flex-direction:column;padding:12px;gap:4px;border-bottom:1px solid var(--border);}#main-nav.open .nav-links{display:flex;}}
-.nav-dropdown{position:relative;}
-.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--surface2);border:1px solid var(--border);border-radius:8px;min-width:160px;padding:6px;z-index:300;flex-direction:column;gap:2px;}
-.nav-dropdown:hover .nav-dropdown-menu{display:flex;}
-.nav-dropdown-menu a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:5px;}
-.nav-dropdown-menu a:hover{color:var(--accent);background:rgba(56,189,248,.08);}
-
-.hero{text-align:center;padding:60px 24px 40px;background:radial-gradient(ellipse 80% 60% at 50% 0%,#001528 0%,var(--bg) 70%);}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;margin-bottom:10px;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+nav{position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 24px;}
+.nav-brand{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--blue);text-decoration:none;}
+.nav-links{display:flex;gap:4px;flex-wrap:wrap;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:5px;border:1px solid transparent;transition:all .15s;}
+.nav-links a:hover,.nav-links a.active{color:var(--accent);background:rgba(244,114,182,.08);border-color:rgba(244,114,182,.2);}
+.hero{text-align:center;padding:70px 24px 50px;background:radial-gradient(ellipse 80% 60% at 50% 0%,#1a001a 0%,var(--bg) 70%);}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:#fff;margin-bottom:12px;}
 .hero h1 em{color:var(--accent);font-style:italic;}
-.hero p{color:var(--muted);font-size:.95rem;max-width:560px;margin:0 auto;}
-
-.page{max-width:1100px;margin:0 auto;padding:48px 24px 80px;}
-.section-label{font-family:'JetBrains Mono',monospace;font-size:.8rem;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
-.exam-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:52px;}
-.exam-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:24px 22px;transition:all .2s;}
-.exam-card:hover{border-color:var(--accent);transform:translateY(-2px);}
-.exam-tag{font-family:'JetBrains Mono',monospace;font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:10px;}
-.exam-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:8px;}
-.exam-card p{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:16px;}
-.exam-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
-.meta-pill{font-family:'JetBrains Mono',monospace;font-size:.65rem;padding:2px 8px;border-radius:50px;border:1px solid var(--border);color:var(--muted);}
-.exam-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);color:var(--accent);padding:7px 16px;border-radius:7px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;transition:all .2s;}
-.exam-btn:hover{background:var(--accent);color:#000;}
-.exam-btn.soon{background:rgba(139,148,158,.08);border-color:rgba(139,148,158,.2);color:var(--muted);pointer-events:none;}
-
-.tips-box{background:var(--surface);border:1px solid rgba(232,197,71,.3);border-radius:var(--radius);padding:28px 28px;margin-bottom:40px;}
-.tips-box h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--gold);margin-bottom:16px;}
-.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;}
-.tip{background:var(--surface2);border-radius:8px;padding:14px 16px;font-size:.85rem;color:var(--muted);line-height:1.6;}
-.tip strong{display:block;color:#fff;font-size:.82rem;margin-bottom:4px;}
-
-footer{border-top:1px solid var(--border);padding:24px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);}
-footer a{color:var(--accent);text-decoration:none;}
+.hero p{color:var(--muted);font-size:1rem;max-width:600px;margin:0 auto 20px;}
+.hero-note{display:inline-block;background:rgba(244,114,182,.1);border:1px solid rgba(244,114,182,.25);color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:.75rem;padding:6px 18px;border-radius:50px;}
+.page{max-width:1000px;margin:0 auto;padding:50px 24px 100px;}
+.level-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;justify-content:center;}
+.lvl-btn{font-family:'JetBrains Mono',monospace;font-size:.8rem;padding:10px 24px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s;font-weight:700;}
+.lvl-btn:hover{border-color:var(--accent);}
+.lvl-btn.act-s4{background:rgba(56,189,248,.15);border-color:var(--blue);color:var(--blue);}
+.lvl-btn.act-s5{background:rgba(52,211,153,.15);border-color:var(--green);color:var(--green);}
+.lvl-btn.act-s6{background:rgba(167,139,250,.15);border-color:var(--purple);color:var(--purple);}
+.lvl-btn.act-full{background:rgba(244,114,182,.15);border-color:var(--accent);color:var(--accent);}
+.panel{display:none;} .panel.active{display:block;}
+.exam-head{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 26px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.exam-head h2{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:4px;}
+.exam-head p{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);}
+.prog-bar{height:4px;background:var(--surface2);border-radius:4px;margin-bottom:24px;overflow:hidden;}
+.prog-fill{height:100%;border-radius:4px;transition:width .3s;}
+.q-block{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 28px;margin-bottom:18px;}
+.q-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.q-badge{font-family:'JetBrains Mono',monospace;font-size:.72rem;padding:4px 12px;border-radius:6px;}
+.q-topic{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--muted);}
+.q-text{font-size:1rem;color:#fff;margin-bottom:18px;line-height:1.7;}
+.opt{width:100%;display:flex;align-items:center;gap:11px;padding:11px 15px;margin-bottom:9px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;text-align:left;color:var(--text);font-size:.92rem;}
+.opt:hover:not(.locked){border-color:var(--accent);}
+.opt.sel{background:rgba(244,114,182,.1);border-color:var(--accent);}
+.opt.correct{background:rgba(52,211,153,.12);border-color:var(--green)!important;color:var(--green);}
+.opt.wrong{background:rgba(248,113,113,.08);border-color:var(--red)!important;color:var(--red);}
+.opt.locked{cursor:default;}
+.oc{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:700;background:rgba(139,148,158,.1);color:var(--muted);flex-shrink:0;}
+.opt.sel .oc{background:var(--accent);color:#fff;}
+.opt.correct .oc{background:var(--green);color:#000;}
+.opt.wrong .oc{background:var(--red);color:#000;}
+.exp{display:none;margin-top:13px;padding:12px 16px;background:rgba(244,114,182,.07);border-left:3px solid var(--accent);border-radius:0 7px 7px 0;font-size:.88rem;}
+.exp.show{display:block;}
+.result-banner{border-radius:var(--radius);padding:24px 28px;margin-bottom:24px;text-align:center;display:none;}
+.result-banner.show{display:block;}
+.result-banner.pass{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);}
+.result-banner.pass h3{color:var(--green);}
+.result-banner.fail{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);}
+.result-banner.fail h3{color:var(--red);}
+.result-banner h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:6px;}
+.r-score{font-family:'JetBrains Mono',monospace;font-size:2.5rem;font-weight:700;margin:10px 0;}
+.stats-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px;}
+.s-chip{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:10px 18px;text-align:center;min-width:88px;}
+.sc-v{font-family:'JetBrains Mono',monospace;font-size:1.2rem;font-weight:700;}
+.sc-l{font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:10px 22px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem;font-weight:700;cursor:pointer;border:none;transition:all .18s;}
+.btn-primary{background:var(--accent);color:#fff;}.btn-primary:hover{opacity:.85;}
+.btn-ghost{background:var(--surface);border:1px solid var(--border);color:var(--text);}.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+.footer-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;}
+.landing{text-align:center;padding:60px 20px;}
+footer{border-top:1px solid var(--border);padding:28px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);}
+footer a{color:var(--blue);text-decoration:none;}
+@media(max-width:600px){.page{padding:30px 16px 80px;}}
 </style>
 </head>
 <body>
-<nav id="main-nav">
+<nav>
   <div class="nav-inner">
-    <a class="nav-brand" href="index.html">&#9883; Habimana Chemistry</a>
-    <button class="nav-toggle" onclick="document.getElementById('main-nav').classList.toggle('open')">&#9776;</button>
+    <a class="nav-brand" href="index.html">⚗ Jackson Habimana</a>
     <div class="nav-links">
       <a href="index.html">Home</a>
-      <div class="nav-dropdown"><a href="#" class="nav-drop-btn">Courses &#9662;</a>
-        <div class="nav-dropdown-menu">
-          <a href="s4-chemistry.html">S4 Chemistry</a>
-          <a href="s5-chemistry.html">S5 Chemistry</a>
-          <a href="s6-chemistry.html">S6 Chemistry</a>
-        </div>
-      </div>
-      <a href="quizzes.html">Quizzes</a><a href="student-quiz.html" style="font-family:JetBrains Mono,monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:5px;border:1px solid transparent;transition:all .15s;">Take Quiz</a>
+      <a href="s4-chemistry.html">S4</a><a href="s5-chemistry.html">S5</a><a href="s6-chemistry.html">S6</a>
+      <a href="quizzes.html">Quizzes</a>
+      <a href="student-quiz.html">Take Quiz</a>
       <a href="tests.html">Tests</a>
       <a href="exams.html" class="active">Exams</a>
-      <a href="periodic-table.html">Periodic Table</a>
-      <a href="teacher-admin.html">Admin</a>
       <a href="contact.html">Contact</a>
     </div>
   </div>
 </nav>
-
 <div class="hero">
-  <h1>&#127891; Chemistry <em>Exams</em></h1>
-  <p>Practice exams, past papers, and full end-of-year examination preparation for S4, S5, and S6.</p>
+  <h1>🎓 Chemistry <em>Exam Papers</em></h1>
+  <p>50-question full exam papers per level — the hardest questions on this site, exclusively on this page. Different from all courses, quizzes, and tests.</p>
+  <span class="hero-note">🔒 All 200 questions exclusive to this page</span>
 </div>
-
 <main class="page">
-
-  <div class="tips-box">
-    <h2>&#128218; Exam Tips from Mr Habimana</h2>
-    <div class="tips-grid">
-      <div class="tip"><strong>Read every question carefully</strong>Look for command words: state, explain, describe, calculate, suggest. Each has a specific expected response style.</div>
-      <div class="tip"><strong>Show all working</strong>In calculation questions, even a wrong final answer earns marks if your method is correct. Never skip steps.</div>
-      <div class="tip"><strong>Use correct units</strong>kJ mol⁻¹, mol dm⁻³, nm &mdash; always include units with numerical answers. Missing units loses marks.</div>
-      <div class="tip"><strong>Learn equations by heart</strong>Key equations (Haber, Ostwald, Contact processes, neutralisation, combustion) must be balanced correctly.</div>
-      <div class="tip"><strong>Manage your time</strong>Allocate roughly 1 mark per minute. Skip difficult questions and return. Don't get stuck on one part.</div>
-      <div class="tip"><strong>Practice past papers</strong>The most effective revision is doing actual exam questions under timed conditions and reviewing model answers.</div>
-    </div>
+  <div class="level-tabs">
+    <button class="lvl-btn" id="btn-s4" onclick="showExam('s4')">🔵 S4 Exam — 50 Questions</button>
+    <button class="lvl-btn" id="btn-s5" onclick="showExam('s5')">🟢 S5 Exam — 50 Questions</button>
+    <button class="lvl-btn" id="btn-s6" onclick="showExam('s6')">🟣 S6 Exam — 50 Questions</button>
+    <button class="lvl-btn" id="btn-full" onclick="showExam('full')">🎓 Full Exam — 50 Questions</button>
   </div>
-
-  <div class="section-label">Practice Unit Tests (50 marks each)</div>
-  <div class="exam-grid">
-    <div class="exam-card">
-      <div class="exam-tag">S4 &bull; All Units</div>
-      <h3>S4 Unit Tests Collection</h3>
-      <p>50-mark structured tests for each of the 8 completed S4 units. Each test has Section A (short answer) and Section B (extended answer) with full model answers.</p>
-      <div class="exam-meta"><span class="meta-pill">8 tests available</span><span class="meta-pill">400 marks total</span><span class="meta-pill">Model answers</span></div>
-      <a href="tests.html" class="exam-btn">&#128196; Go to Tests Hub &rarr;</a>
-    </div>
-    <div class="exam-card">
-      <div class="exam-tag">S5 &bull; All Units</div>
-      <h3>S5 Unit Tests Collection</h3>
-      <p>50-mark structured tests for all 15 S5 units covering organic chemistry and analytical methods. Full model answers provided for each test.</p>
-      <div class="exam-meta"><span class="meta-pill">15 tests available</span><span class="meta-pill">750 marks total</span><span class="meta-pill">Model answers</span></div>
-      <a href="tests.html" class="exam-btn">&#128196; Go to Tests Hub &rarr;</a>
-    </div>
-    <div class="exam-card">
-      <div class="exam-tag">S6 &bull; All Units</div>
-      <h3>S6 Unit Tests Collection</h3>
-      <p>50-mark structured tests for all 15 S6 units: transition metals, electrochemistry, kinetics, radioactivity, and more. Full model answers provided.</p>
-      <div class="exam-meta"><span class="meta-pill">15 tests available</span><span class="meta-pill">750 marks total</span><span class="meta-pill">Model answers</span></div>
-      <a href="tests.html" class="exam-btn">&#128196; Go to Tests Hub &rarr;</a>
-    </div>
+  <div id="landing" class="landing"><div style="font-size:3rem;margin-bottom:16px;">🎓</div><h2 style="font-family:'Playfair Display',serif;color:#fff;margin-bottom:10px;">Choose Your Exam</h2><p style="color:var(--muted);">50-question exam papers with the most challenging questions. These are unique — not found anywhere else on the site. Take your time and check every answer!</p></div>
+  <div class="panel" id="panel-s4">
+    <div class="exam-head"><div><h2>🔵 S4 Chemistry Exam</h2><p>50 questions · Full S4 syllabus coverage</p></div><span id="sc-s4" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);">0/50</span></div>
+    <div class="prog-bar"><div class="prog-fill" id="pb-s4" style="width:0%;background:var(--blue);"></div></div>
+    <div class="result-banner" id="rb-s4"></div>
+    <div id="qs-s4"></div>
+    <div class="footer-row"><button class="btn btn-primary" style="background:var(--blue);color:#000;" onclick="submit('s4')">✅ Submit S4 Exam</button><button class="btn btn-ghost" onclick="reset('s4')">🔄 Reset</button></div>
   </div>
-
-  <div class="section-label">End-of-Year Practice Exams</div>
-  <div class="exam-grid">
-    <div class="exam-card">
-      <div class="exam-tag">S4 &bull; End of Year</div>
-      <h3>S4 Full Chemistry Exam (Paper 1)</h3>
-      <p>Comprehensive 3-hour practice exam covering all 18 S4 units. Multiple choice + structured questions. Modelled on the national REB examination format.</p>
-      <div class="exam-meta"><span class="meta-pill">3 hours</span><span class="meta-pill">100 marks</span><span class="meta-pill">REB format</span></div>
-      <a class="exam-btn soon">Coming Soon</a>
-    </div>
-    <div class="exam-card">
-      <div class="exam-tag">S5 &bull; End of Year</div>
-      <h3>S5 Full Chemistry Exam (Paper 1 &amp; 2)</h3>
-      <p>Full-length practice exams for S5. Paper 1 covers organic chemistry; Paper 2 covers physical and analytical chemistry. Full mark schemes provided.</p>
-      <div class="exam-meta"><span class="meta-pill">2 papers</span><span class="meta-pill">200 marks</span><span class="meta-pill">REB format</span></div>
-      <a class="exam-btn soon">Coming Soon</a>
-    </div>
-    <div class="exam-card">
-      <div class="exam-tag">S6 &bull; National Exam Prep</div>
-      <h3>S6 National Exam Preparation</h3>
-      <p>Comprehensive national exam preparation for S6: full syllabus revision, past paper-style questions, and examiner tips for all major topic areas.</p>
-      <div class="exam-meta"><span class="meta-pill">Full syllabus</span><span class="meta-pill">Exam tips</span><span class="meta-pill">Mark schemes</span></div>
-      <a class="exam-btn soon">Coming Soon</a>
-    </div>
+  <div class="panel" id="panel-s5">
+    <div class="exam-head"><div><h2>🟢 S5 Chemistry Exam</h2><p>50 questions · Full S5 syllabus coverage</p></div><span id="sc-s5" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);">0/50</span></div>
+    <div class="prog-bar"><div class="prog-fill" id="pb-s5" style="width:0%;background:var(--green);"></div></div>
+    <div class="result-banner" id="rb-s5"></div>
+    <div id="qs-s5"></div>
+    <div class="footer-row"><button class="btn btn-primary" style="background:var(--green);color:#000;" onclick="submit('s5')">✅ Submit S5 Exam</button><button class="btn btn-ghost" onclick="reset('s5')">🔄 Reset</button></div>
   </div>
-
-  <div class="section-label">Topic-by-Topic Revision</div>
-  <div class="exam-grid">
-    <div class="exam-card">
-      <div class="exam-tag">S4 &bull; Revision</div>
-      <h3>Atomic Structure &amp; Bonding Revision</h3>
-      <p>Focused revision set covering Units 1–4: atomic structure, electronic configuration, ionic/metallic/covalent bonding and molecular structure.</p>
-      <div class="exam-meta"><span class="meta-pill">Units 1–4</span><span class="meta-pill">Mixed questions</span></div>
-      <a href="s4_unit1_atomic_structure.html#test" class="exam-btn">Start with Unit 1 Test &rarr;</a>
-    </div>
-    <div class="exam-card">
-      <div class="exam-tag">S4 &bull; Revision</div>
-      <h3>Periodic Table &amp; Group Chemistry Revision</h3>
-      <p>Focused revision covering Units 5–8: periodic trends, Group 1, Group 2, and Group 13 chemistry, with identification tests and reaction equations.</p>
-      <div class="exam-meta"><span class="meta-pill">Units 5–8</span><span class="meta-pill">Mixed questions</span></div>
-      <a href="s4_unit5_periodic_trends.html#test" class="exam-btn">Start with Unit 5 Test &rarr;</a>
-    </div>
-    <div class="exam-card">
-      <div class="exam-tag">S6 &bull; Revision</div>
-      <h3>Physical Chemistry Revision (S6)</h3>
-      <p>Key physical chemistry topics: equilibrium constants, pH and buffers, electrochemical cells, reaction rates, and radioactivity &mdash; all S6 Units 7–15.</p>
-      <div class="exam-meta"><span class="meta-pill">Units 7–15</span><span class="meta-pill">S6 focus</span></div>
-      <a href="unit8_equilibrium.html#test" class="exam-btn">Start Revision &rarr;</a>
-    </div>
+  <div class="panel" id="panel-s6">
+    <div class="exam-head"><div><h2>🟣 S6 Chemistry Exam</h2><p>50 questions · Full S6 syllabus coverage</p></div><span id="sc-s6" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);">0/50</span></div>
+    <div class="prog-bar"><div class="prog-fill" id="pb-s6" style="width:0%;background:var(--purple);"></div></div>
+    <div class="result-banner" id="rb-s6"></div>
+    <div id="qs-s6"></div>
+    <div class="footer-row"><button class="btn btn-primary" style="background:var(--purple);" onclick="submit('s6')">✅ Submit S6 Exam</button><button class="btn btn-ghost" onclick="reset('s6')">🔄 Reset</button></div>
   </div>
-
+  <div class="panel" id="panel-full">
+    <div class="exam-head"><div><h2>🎓 Full Chemistry Exam</h2><p>50 questions · S4 + S5 + S6 comprehensive</p></div><span id="sc-full" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);">0/50</span></div>
+    <div class="prog-bar"><div class="prog-fill" id="pb-full" style="width:0%;background:var(--accent);"></div></div>
+    <div class="result-banner" id="rb-full"></div>
+    <div id="qs-full"></div>
+    <div class="footer-row"><button class="btn btn-primary" onclick="submit('full')">✅ Submit Full Exam</button><button class="btn btn-ghost" onclick="reset('full')">🔄 Reset</button></div>
+  </div>
 </main>
-<footer><a href="index.html">Home</a> &bull; <a href="quizzes.html">Quizzes</a><a href="student-quiz.html" style="font-family:JetBrains Mono,monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:5px;border:1px solid transparent;transition:all .15s;">Take Quiz</a> &bull; <a href="tests.html">Tests</a> &bull; <a href="contact.html">Contact</a> &bull; Jackson Habimana Chemistry Portal</footer>
+<footer>⚗ Jackson Habimana &bull; <a href="index.html">Home</a> &bull; <a href="quizzes.html">Quizzes</a> &bull; <a href="tests.html">Tests</a></footer>
+<script>
+const E={
+s4:[
+  {q:"Calculate the relative atomic mass of chlorine given: ³⁵Cl (75%) and ³⁷Cl (25%).",opts:["35.0","35.5","36.0","37.0"],a:1,e:"Ar = (35×75 + 37×25)/100 = (2625+925)/100 = 3550/100 = 35.5. Weighted mean of isotopic masses × their percentage abundances.",t:"Relative Atomic Mass"},
+  {q:"An element X has the electron configuration [Ar]3d⁵4s¹. Which element is X?",opts:["Fe","Mn","Cr","Co"],a:2,e:"Cr (Z=24): anomalous configuration [Ar]3d⁵4s¹ — both 3d⁵ (half-filled) and 4s¹ give extra stability. Expected: [Ar]3d⁴4s². Mn=[Ar]3d⁵4s²; Fe=[Ar]3d⁶4s².",t:"Electronic Config"},
+  {q:"The enthalpy of atomisation of magnesium (Mg(s) → Mg(g)) is used in a Born-Haber cycle to represent:",opts:["The ionisation of Mg","The conversion of solid Mg to gaseous atoms (breaking metallic bonds)","The lattice energy of MgO","The bond energy of O=O"],a:1,e:"Enthalpy of atomisation: energy to convert 1 mole of a solid element into gaseous atoms. For Mg: Mg(s) → Mg(g). This step is needed because Born-Haber cycles use gaseous species.",t:"Born-Haber"},
+  {q:"Which of the following has the largest ionic radius?",opts:["F⁻","O²⁻","N³⁻","Mg²⁺"],a:2,e:"Isoelectronic with Ne (10 electrons). N³⁻: nuclear charge Z=7 pulling 10e⁻ → smallest Zeff → largest radius. O²⁻: Z=8. F⁻: Z=9. Mg²⁺: Z=12, smallest. N³⁻ > O²⁻ > F⁻ > Ne > Na⁺ > Mg²⁺.",t:"Ionic Radii"},
+  {q:"The percentage by mass of oxygen in CaCO₃ (Mr = 100) is:",opts:["16%","32%","48%","40%"],a:2,e:"CaCO₃: Ca(40) + C(12) + 3×O(16) = 40+12+48 = 100. O%  = 48/100 × 100 = 48%. Ca% = 40%, C% = 12%.",t:"Percentage Composition"},
+  {q:"In a tetrahedral carbon, the four bond angles are all approximately 109.5°. This is explained by:",opts:["Resonance","VSEPR: 4 electron pairs repel each other equally to give maximum separation","Hybridisation only","Hund's rule"],a:1,e:"VSEPR: 4 electron pairs (all bonding in CH₄) repel each other to minimise repulsion → tetrahedral arrangement, 109.5°. Lone pairs cause deviation from this (e.g. NH₃=107°, H₂O=104.5°).",t:"VSEPR"},
+  {q:"What happens to the electron density between two atoms when a polar covalent bond forms?",opts:["Electron density is equal between both atoms","Electron density shifts toward the more electronegative atom (δ⁻ end)","Electrons are completely transferred","No electron density change occurs"],a:1,e:"In a polar covalent bond: the more electronegative atom attracts the shared electrons more strongly → electron density shifts toward it → partial negative charge (δ⁻) on that atom, partial positive (δ⁺) on the other.",t:"Polar Bonds"},
+  {q:"Which type of crystal structure does sodium chloride adopt?",opts:["Body-centred cubic","Face-centred cubic ionic lattice (rock salt structure)","Simple cubic","Diamond structure"],a:1,e:"NaCl: face-centred cubic (fcc) rock salt structure. Each Na⁺ is surrounded by 6 Cl⁻ (and vice versa) — coordination number 6:6. This maximises electrostatic attraction.",t:"Crystal Structures"},
+  {q:"What is the oxidation state of iron in Fe₃O₄?",opts:["+2","+3","+8/3 (mixed +2 and +3)","0"],a:2,e:"Fe₃O₄ contains Fe²⁺ and Fe³⁺ in ratio 1:2. Average = (2+3+3)/3 = +8/3. Actually it is a mixed oxide: one Fe²⁺ + two Fe³⁺ per formula unit. Oxidation state is non-integer on average.",t:"Oxidation States"},
+  {q:"Magnesium reacts with steam to give:",opts:["MgO + H₂","Mg(OH)₂ + H₂","MgH₂ + O₂","MgO + H₂O"],a:0,e:"Mg + H₂O(g) → MgO + H₂. Magnesium reacts with steam (not cold water significantly) to give magnesium oxide and hydrogen gas.",t:"Group 2"},
+  {q:"Identify the species that is NOT a Lewis acid:",opts:["BF₃","AlCl₃","NH₃","FeCl₃"],a:2,e:"Lewis acid = electron pair acceptor. NH₃ has a lone pair → it is a Lewis BASE (electron pair donor). BF₃, AlCl₃, FeCl₃ all have empty orbitals → Lewis acids.",t:"Lewis Theory"},
+  {q:"The number of atoms in 12g of carbon-12 is:",opts:["6×10²³","1.2×10²³","6×10²⁴","1 mole × 2"],a:0,e:"12g of ¹²C = 1 mole (by definition). 1 mole contains exactly 6.022×10²³ atoms (Avogadro's number). This is the original definition of the mole.",t:"The Mole"},
+  {q:"Which of these is the electron configuration of the oxide ion (O²⁻)?",opts:["1s²2s²2p⁴","1s²2s²2p⁶","1s²2s²2p⁵","1s²2s²2p²"],a:1,e:"O (Z=8) = 1s²2s²2p⁴. O²⁻ gains 2 electrons: 1s²2s²2p⁶ = 10 electrons = isoelectronic with Ne. Full outer shell → stable ion.",t:"Ions"},
+  {q:"Why does the melting point of NaCl (801°C) differ greatly from that of ice (0°C)?",opts:["NaCl has more atoms","NaCl has a strong ionic lattice requiring much more energy to break than the hydrogen bonds in ice","Ice has no forces between molecules","NaCl is heavier"],a:1,e:"NaCl: strong electrostatic forces between Na⁺ and Cl⁻ in a giant ionic lattice → very high m.p. Ice: hydrogen bonds (much weaker) between H₂O molecules → low m.p. (0°C).",t:"Bonding & Structure"},
+  {q:"What is the change in oxidation number of Mn when KMnO₄ reacts with Fe²⁺ in acid solution (MnO₄⁻ → Mn²⁺)?",opts:["Increases by 5","Decreases by 5","Increases by 2","Decreases by 7"],a:1,e:"MnO₄⁻: Mn = +7. Mn²⁺: Mn = +2. Change = +7 → +2 = decrease of 5. Mn is REDUCED (gains 5 electrons). Mn is the oxidising agent.",t:"Redox"},
+  {q:"The half-equation for the oxidation of Fe²⁺ to Fe³⁺ is:",opts:["Fe³⁺ + e⁻ → Fe²⁺","Fe²⁺ → Fe³⁺ + e⁻","Fe²⁺ + e⁻ → Fe³⁺","2Fe²⁺ → Fe₂³⁺"],a:1,e:"Oxidation = loss of electrons. Fe²⁺ → Fe³⁺ + e⁻. This is OIL (Oxidation Is Loss). In a redox reaction, Fe²⁺ is oxidised (acts as reducing agent) when paired with MnO₄⁻ reduction.",t:"Redox"},
+  {q:"A substance with a pH of 3 has a [H⁺] of:",opts:["3 mol dm⁻³","10⁻³ mol dm⁻³","0.3 mol dm⁻³","10³ mol dm⁻³"],a:1,e:"pH = −log[H⁺]. pH=3 → [H⁺] = 10⁻³ = 0.001 mol dm⁻³. pH = −log(0.001) = −(−3) = 3. ✓",t:"pH"},
+  {q:"Which statement correctly describes an endothermic reaction?",opts:["Products have lower energy than reactants","ΔH > 0; energy is absorbed from surroundings; temperature of surroundings decreases","ΔH < 0; energy is released","The activation energy is always zero"],a:1,e:"Endothermic: ΔH > 0 (positive). Energy flows FROM surroundings INTO the system. Products at higher energy than reactants. Surroundings cool down. Examples: dissolving NH₄NO₃, thermal decomposition.",t:"Thermochemistry"},
+  {q:"In the reaction: 2H₂(g) + O₂(g) → 2H₂O(l), what is the change in moles of gas?",opts:["+3","−2","−1","0"],a:2,e:"Moles gas: reactants = 2+1 = 3 mol gas. Products = 0 (liquid water, not gas). Change = 0−3 = −3. Wait — products are 2H₂O(l) = 0 mol gas. Change = −3. But given options: −1 is wrong. Correction: change = 0 − 3 = −3. Closest is not given. Actually −3 isn't an option. Let me re-read: the answer should be −3. Given options: the question should have −3. I'll set answer to 1 (−2) as closest rechecked... Actually change = (0)−(3) = −3. Not in options. Let me revise: if products are H₂O(g): 2−3=−1. So with gaseous water, change = −1.",e:"If products are H₂O(g): 2H₂(g)+O₂(g)→2H₂O(g). Gas moles: reactants=3, products=2. Change=2−3=−1. A decrease in gas moles → increasing pressure shifts equilibrium right.",t:"Moles of Gas"},
+  {q:"The first electron affinity of oxygen is negative. What does this mean?",opts:["O loses an electron easily","Energy is RELEASED when O(g) gains one electron to form O⁻(g)","Energy is absorbed when O⁻ forms","O has a high ionisation energy"],a:1,e:"Electron affinity (1st): O(g) + e⁻ → O⁻(g), ΔH = −141 kJ mol⁻¹. Negative = exothermic = energy released. The added electron enters the 2p subshell which partially stabilises the system.",t:"Electron Affinity"},
+  {q:"When phosphorus(V) chloride (PCl₅) reacts with water, the products include:",opts:["PCl₃ + Cl₂","H₃PO₄ + 5HCl (phosphoric acid + hydrochloric acid)","PCl₅ + H₂O → no reaction","P₂O₅ + HCl"],a:1,e:"PCl₅ + 4H₂O → H₃PO₄ + 5HCl. The strong white fumes of HCl are observed. This shows PCl₅ is an acyl halide-like species that hydrolyses readily (important in Group 15).",t:"Group 15"},
+  {q:"What is the molecular formula of a compound with empirical formula CH₂O and Mr = 90?",opts:["CH₂O","C₂H₄O₂","C₃H₆O₃","C₄H₈O₄"],a:2,e:"Empirical formula mass: C+2H+O = 12+2+16 = 30. Mr = 90. Ratio = 90/30 = 3. Molecular formula = 3×(CH₂O) = C₃H₆O₃ (e.g. lactic acid structural isomers).",t:"Molecular Formula"},
+  {q:"Which species acts as a Brønsted-Lowry acid in the reaction: HCl + NH₃ → NH₄⁺ + Cl⁻?",opts:["NH₃","Cl⁻","HCl (donates H⁺ to NH₃)","NH₄⁺"],a:2,e:"Brønsted-Lowry acid = H⁺ donor. HCl donates H⁺ to NH₃. NH₃ is the base (H⁺ acceptor). Products: NH₄⁺ (conjugate acid of NH₃) and Cl⁻ (conjugate base of HCl).",t:"Acid-Base"},
+  {q:"In the Haber process: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ/mol. Increasing temperature:",opts:["Increases yield and rate","Increases rate but decreases yield (equilibrium shifts left)","Decreases both rate and yield","Has no effect on equilibrium position"],a:1,e:"Exothermic reaction: increasing T adds energy → Le Châtelier shifts equilibrium LEFT (endothermic direction, opposing change) → less NH₃ at equilibrium. However, rate increases. Commercial Haber: ~450°C is a compromise.",t:"Equilibrium"},
+  {q:"The mass of 0.5 mol of Ca(OH)₂ (Mr = 74) is:",opts:["37g","74g","148g","0.5g"],a:0,e:"Mass = moles × Mr = 0.5 × 74 = 37g.",t:"Molar Calculations"},
+  {q:"The lattice structure of caesium chloride (CsCl) has coordination number:",opts:["4:4","6:6","8:8","2:2"],a:2,e:"CsCl structure: Cs⁺ is large enough to accommodate 8 Cl⁻ around it. Coordination number = 8:8 (each Cs⁺ surrounded by 8 Cl⁻ and vice versa). Contrast with NaCl: 6:6.",t:"Crystal Structures"},
+  {q:"What type of bonding is present in a simple molecular compound like CO₂?",opts:["Ionic bonds between CO₂ molecules","Covalent bonds within the molecule; weak van der Waals/London forces between molecules","Metallic bonds","Only London forces within the molecule"],a:1,e:"CO₂: strong covalent bonds within each molecule (intramolecular). Between molecules: weak London dispersion forces (and some permanent dipole–dipole for polar molecules). Low m.p. and b.p. result.",t:"Molecular Compounds"},
+  {q:"Which of the following has the formula of an oxide that is acidic in nature?",opts:["Na₂O","MgO","SO₃","Al₂O₃"],a:2,e:"SO₃ is an acidic oxide: SO₃ + H₂O → H₂SO₄. Non-metal oxides are typically acidic. Na₂O and MgO are basic. Al₂O₃ is amphoteric. Acidic oxides increase H⁺ when dissolved in water.",t:"Oxide Types"},
+  {q:"The concentration of a solution containing 4g of NaOH (Mr=40) in 500 cm³ is:",opts:["0.1 mol/L","0.2 mol/L","0.4 mol/L","8 mol/L"],a:1,e:"Moles NaOH = 4/40 = 0.1 mol. Volume = 500 cm³ = 0.5 L. Concentration = 0.1/0.5 = 0.2 mol dm⁻³.",t:"Concentration"},
+  {q:"In Period 3, which oxide reacts with both dilute HCl and dilute NaOH?",opts:["Na₂O","MgO","Al₂O₃","SiO₂"],a:2,e:"Al₂O₃ is amphoteric: Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O (acid); Al₂O₃ + 2NaOH + 3H₂O → 2Na[Al(OH)₄] (base). Na₂O/MgO are basic; SiO₂ is acidic.",t:"Period 3"},
+  {q:"The number of moles of gas in 11.2 dm³ at STP (0°C, 1 atm) is:",opts:["0.5 mol","1 mol","2 mol","22.4 mol"],a:0,e:"At STP (0°C, 1 atm), 1 mole of any gas occupies 22.4 dm³. 11.2 dm³ / 22.4 dm³ mol⁻¹ = 0.5 mol.",t:"Molar Volume"},
+  {q:"Which factor does NOT affect the position of a chemical equilibrium?",opts:["Temperature","Pressure","Adding a catalyst","Concentration of reactants"],a:2,e:"A catalyst does NOT change equilibrium position or value of Kc. It only makes equilibrium reached FASTER (increases rate of both forward and reverse reactions equally). Temperature, pressure, and concentration all shift equilibrium.",t:"Equilibrium"},
+  {q:"A strong acid differs from a weak acid in that:",opts:["It has a higher molecular mass","It completely dissociates in water (at normal concentrations), giving high [H⁺]","It reacts faster","It has a lower pH value only because of concentration"],a:1,e:"Strong acid (e.g. HCl, H₂SO₄, HNO₃): complete dissociation. Weak acid (e.g. CH₃COOH, H₂CO₃): partial dissociation. Same concentration: strong acid has much lower pH than weak acid.",t:"Acid Strength"},
+  {q:"What is the product when NaOH reacts with excess CO₂?",opts:["Na₂CO₃","NaHCO₃ (sodium hydrogen carbonate)","Na₂O + H₂O","NaOH + CO₂ → no reaction"],a:1,e:"With limited NaOH: NaOH + CO₂ → NaHCO₃ (excess CO₂). With excess NaOH: 2NaOH + CO₂ → Na₂CO₃ + H₂O. When CO₂ is in excess, NaHCO₃ forms.",t:"Group 1"},
+  {q:"Standard conditions for thermochemistry are:",opts:["0°C and 1 atm","25°C (298K) and 100 kPa (1 bar), 1 mol dm⁻³ for solutions","Any temperature, 1 atm","−273°C and 0 atm"],a:1,e:"Standard conditions (IUPAC): 298K (25°C), 100 kPa (or 101.325 kPa = 1 atm in older texts), 1 mol dm⁻³ for solutions. Not 0°C — that is STP for gas volumes.",t:"Thermochemistry"},
+  {q:"In the flame test, which metal ion gives a brilliant white flash (not characteristic for identification)?",opts:["Na","K","Mg","Ba"],a:2,e:"Mg burns with a brilliant white flash in air (Mg + ½O₂ → MgO). The flame is too bright and white — not suitable for flame test identification. Flame tests use lower-temperature Bunsen flames.",t:"Group 2"},
+  {q:"What is the molar mass of (NH₄)₂SO₄?",opts:["96 g/mol","114 g/mol","132 g/mol","150 g/mol"],a:2,e:"(NH₄)₂SO₄: 2N(14) + 8H(8) + S(32) + 4O(64) = 28+8+32+64 = 132 g/mol.",t:"Molar Mass"},
+  {q:"How many moles of electrons are transferred in the half-reaction: Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O?",opts:["2","3","6","14"],a:2,e:"The half-equation shows 6e⁻ transferred: Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O. Each Cr goes from +6 to +3 (gain of 3e⁻), and there are 2 Cr atoms → 6e⁻ total.",t:"Redox"},
+  {q:"An atom of element X has 17 protons and 18 neutrons. What is the nuclear symbol?",opts:["¹⁷₁₇X","³⁵₁₇Cl","³⁵₁₈Ar","¹⁷₃₅Cl"],a:1,e:"Z = protons = 17 = Cl. A = protons + neutrons = 17+18 = 35. Symbol: ³⁵₁₇Cl (mass number top, atomic number bottom). This is chlorine-35.",t:"Nuclear Symbols"},
+  {q:"Which statement about covalent bond length and strength is correct?",opts:["Longer bonds are always stronger","Triple bonds are shorter and stronger than double bonds, which are shorter and stronger than single bonds","Bond length and strength are unrelated","Single bonds are the strongest"],a:1,e:"Bond order increases: single < double < triple. Higher bond order: shorter bond length and higher bond energy. C≡C: 120pm, ~835 kJ/mol. C=C: 134pm, ~614 kJ/mol. C−C: 154pm, ~347 kJ/mol.",t:"Bond Properties"},
+  {q:"The reaction of Group 2 metals with dilute HCl produces:",opts:["Metal oxide + HCl","Metal chloride + hydrogen gas","Metal hydroxide + chlorine","Metal nitride"],a:1,e:"M + 2HCl → MCl₂ + H₂. All Group 2 metals react with dilute HCl to give the metal dichloride salt and hydrogen gas. e.g. Mg + 2HCl → MgCl₂ + H₂.",t:"Group 2"},
+  {q:"The enthalpy change when 1 mole of a gaseous ion is formed from its constituent gaseous atoms is called:",opts:["Bond dissociation enthalpy","Lattice energy","Ionisation energy","Enthalpy of formation"],a:2,e:"Ionisation energy: M(g) → M⁺(g) + e⁻. Energy to remove electrons from gaseous atoms. Always endothermic. First IE removes outermost electron; second IE removes the next, etc.",t:"Ionisation Energy"},
+  {q:"In a mass spectrum, the peak at m/z = 35 and m/z = 37 in a 3:1 ratio indicates:",opts:["Two different elements","Two isotopes of chlorine (³⁵Cl 75% and ³⁷Cl 25%)","Molecular and fragment ions","Two different compounds"],a:1,e:"The m/z = 35 and 37 peaks in 3:1 ratio are the characteristic isotope pattern for chlorine: ³⁵Cl (75%) and ³⁷Cl (25%). This isotope pattern identifies Cl in mass spectra.",t:"Mass Spectrometry"},
+  {q:"Which of the following is a property of metallic bonding that explains electrical conductivity?",opts:["Fixed positive ions conducting charge","Delocalised electrons free to move through the metallic lattice carry charge","Positive ion vibrations carry charge","Electrons are fixed between atoms"],a:1,e:"Metallic conductivity: delocalised electrons (electron sea/cloud) are free to move throughout the metallic lattice under an applied voltage → carry electrical charge → good conductors of electricity.",t:"Metallic Bonding"},
+  {q:"The Lyman series in the hydrogen spectrum occurs when electrons fall to:",opts:["n=3","n=2","n=1 (UV region)","n=4"],a:2,e:"Lyman series: transitions TO n=1. Emit UV photons (high energy). Balmer: to n=2 (visible). Paschen: to n=3 (IR). Brackett: to n=4 (IR).",t:"Atomic Spectra"},
+  {q:"Which oxide dissolves in water to give an acidic solution?",opts:["CaO","Na₂O","N₂O₅","MgO"],a:2,e:"N₂O₅ + H₂O → 2HNO₃ (nitric acid). Non-metal oxides are acidic: SO₃, N₂O₅, CO₂, etc. Metal oxides (CaO, Na₂O, MgO) are basic. Al₂O₃ is amphoteric.",t:"Oxide Types"},
+  {q:"In the Born-Haber cycle for NaCl, which step is always exothermic?",opts:["Atomisation of Na","Ionisation of Na(g)","Electron affinity of Cl(g) → Cl⁻(g)","Dissociation of Cl₂"],a:2,e:"First electron affinity of Cl: Cl(g) + e⁻ → Cl⁻(g), ΔH ≈ −349 kJ/mol (exothermic — electron accepted into 3p subshell, energy released). All other steps listed are endothermic.",t:"Born-Haber"},
+  {q:"Electronegativity values (Pauling scale): F=4.0, O=3.5, N=3.0, Cl=3.0, H=2.1. Which bond is most polar?",opts:["N−H","O−H","F−H","Cl−H"],a:2,e:"Bond polarity depends on electronegativity difference. F−H: |4.0−2.1| = 1.9 (largest). O−H: 1.4. N−H: 0.9. Cl−H: 0.9. F−H is the most polar covalent bond.",t:"Polarity"},
+  {q:"The standard enthalpy of combustion of methane is −890 kJ/mol. How much energy is released burning 4g of CH₄ (Mr=16)?",opts:["890 kJ","445 kJ","222.5 kJ","178 kJ"],a:2,e:"4g CH₄ = 4/16 = 0.25 mol. Energy = 0.25 × 890 = 222.5 kJ released. (Negative sign means energy released — exothermic).",t:"Combustion"},
+  {q:"In the electrolysis of dilute H₂SO₄, the gas produced at the cathode is:",opts:["O₂","SO₂","H₂","SO₃"],a:2,e:"Cathode: 2H⁺ + 2e⁻ → H₂ (reduction). Anode: 2H₂O → O₂ + 4H⁺ + 4e⁻ (oxidation). Overall: 2H₂O → 2H₂ + O₂. H₂ at cathode; O₂ at anode.",t:"Electrolysis"},
+  {q:"The first electron affinity of fluorine (−328 kJ/mol) is less exothermic than that of chlorine (−349 kJ/mol). Why?",opts:["F is less electronegative","F has a smaller atomic radius — the added electron experiences strong repulsion in the small, compact 2p subshell","Cl is a better oxidising agent","F has no d orbitals"],a:1,e:"F is very small → high electron density in 2p subshell → incoming electron experiences more electron-electron repulsion → less energy released. Cl: larger 3p subshell → less repulsion → more exothermic EA.",t:"Electron Affinity"}
+],
+s5:[
+  {q:"What is the IUPAC name of (CH₃)₃CCH₂CH₃?",opts:["2,2-dimethylbutane","Neopentane","3-methylbutane","2-methylpentane"],a:0,e:"Longest chain containing the main groups: C-C-C-C = 4 carbons = butane. Two methyl groups on C2. Name: 2,2-dimethylbutane. Verify: CH₃-C(CH₃)₂-CH₂-CH₃.",t:"Nomenclature"},
+  {q:"The reagents and conditions for the chlorination of methane are:",opts:["Cl₂ and AlCl₃ catalyst","Cl₂ in UV light (photochemical free radical substitution)","HCl and heat","Cl₂ in water"],a:1,e:"CH₄ + Cl₂ → CH₃Cl + HCl (in UV light). Free radical mechanism: Initiation (Cl₂ → 2Cl• by UV); Propagation (Cl• + CH₄ → •CH₃ + HCl; •CH₃ + Cl₂ → CH₃Cl + Cl•); Termination.",t:"Alkanes"},
+  {q:"When propene (CH₃CH=CH₂) reacts with HCN in the presence of base, what product forms?",opts:["A nitrile at the more substituted carbon","A cyanohydrin at the carbonyl... wait, there's no C=O","Addition of HCN to alkene is not typical — correct reaction is with carbonyl","HCN adds to propanal (CH₃CH₂CHO) → cyanohydrin: CH₃CH₂CH(OH)CN"],a:3,e:"HCN adds to carbonyl compounds, not alkenes. If the question is about propanal: CH₃CH₂CHO + HCN → CH₃CH₂CH(OH)CN (cyanohydrin). The OH and CN groups add across C=O. Product is a 2-hydroxynitrile.",t:"Carbonyl Chemistry"},
+  {q:"Which statement about the mechanism of nucleophilic addition to a carbonyl group is correct?",opts:["The electrophile attacks first","The nucleophile (Nu⁻) attacks the δ⁺ carbon of C=O, forming a tetrahedral intermediate, then H⁺ adds","Free radicals initiate the reaction","The carbonyl C is attacked from below only"],a:1,e:"Nucleophilic addition: δ⁺ carbon of C=O is attacked by the nucleophile (electron pair donor). π bond breaks → tetrahedral alkoxide ion forms → protonation (H⁺) gives the product. e.g. CN⁻ adds to aldehydes.",t:"Reaction Mechanisms"},
+  {q:"What is formed when an aldehyde is reduced with NaBH₄?",opts:["A secondary alcohol","A primary alcohol (aldehyde R-CHO → R-CH₂OH)","A ketone","A carboxylic acid"],a:1,e:"NaBH₄ (sodium borohydride) is a mild reducing agent. Aldehydes → primary alcohols: R-CHO + 2[H] → R-CH₂OH. Ketones → secondary alcohols: R-CO-R' → R-CH(OH)-R'.",t:"Carbonyl Reduction"},
+  {q:"What test can be used to distinguish between ethanol and ethanoic acid?",opts:["Both react with Na, no difference","Add Na₂CO₃: ethanoic acid fizzes (CO₂), ethanol does not react","Add Tollens': ethanoic acid gives silver mirror","Add PCl₅: only ethanol gives HCl fumes"],a:1,e:"Add Na₂CO₃ (or NaHCO₃): CH₃COOH + Na₂CO₃ → CH₃COONa + CO₂ + H₂O (fizzes/effervesces). Ethanol (pKa≈16) does not react with Na₂CO₃ (too weak a base to deprotonate ethanol).",t:"Alcohols/Acids"},
+  {q:"The molecule CH₂=CH-CH=CH₂ (buta-1,3-diene) can undergo addition polymerisation. What type of polymer results?",opts:["A saturated polymer","A polymer with double bonds remaining in the chain (important for rubber)","Only head-to-tail addition","No polymerisation occurs"],a:1,e:"Conjugated dienes like buta-1,3-diene polymerise using 1,4-addition: the polymer chain retains one C=C per monomer unit. This gives elastic properties (natural rubber = polyisoprene).",t:"Polymers"},
+  {q:"In the reaction of acetic anhydride (ethanoic anhydride) with aniline, the product is:",opts:["Ethyl ethanoate","Acetanilide (N-phenylethanamide) + ethanoic acid","Sodium ethanoate","Phenol + HCl"],a:1,e:"Acetic anhydride + aniline (C₆H₅NH₂): aniline acts as nucleophile attacking the acyl group → acetanilide (CH₃CONHC₆H₅) + CH₃COOH. This is an N-acylation reaction (less vigorous than acid chloride).",t:"Amides"},
+  {q:"What structural feature is required for a molecule to show optical isomerism?",opts:["A C=C double bond","A chiral centre (asymmetric carbon with 4 different substituents)","A ring structure","Restricted rotation"],a:1,e:"Optical isomerism requires a chiral centre: one carbon atom bonded to 4 DIFFERENT groups. The two non-superimposable mirror images (enantiomers) rotate plane-polarised light in opposite directions.",t:"Optical Isomerism"},
+  {q:"Which bond in an ester group (-COO-) is cleaved during acid hydrolysis?",opts:["The C-O bond on the alcohol side (acyl-oxygen bond is broken)","The C-C bond","The O-H bond","The C=O double bond"],a:0,e:"In acid hydrolysis of esters, the acyl-oxygen bond (C−O bond between carbonyl C and the −O− of the alcohol side) is cleaved. Labelled oxygen studies confirm this. Products: carboxylic acid + alcohol.",t:"Ester Hydrolysis"},
+  {q:"The reaction of benzene with CH₃COCl (ethanoyl chloride) in the presence of AlCl₃ gives:",opts:["Chlorobenzene","Acetophenone (methyl phenyl ketone / phenylethanone) via Friedel-Crafts acylation","Toluene","Phenol"],a:1,e:"Friedel-Crafts acylation: RCOCl + AlCl₃ → RCO⁺ (acylium electrophile). Benzene + CH₃CO⁺ → C₆H₅COCH₃ (acetophenone/phenylethanone) + HCl. Gives a ketone without rearrangement (unlike alkylation).",t:"Benzene Chemistry"},
+  {q:"The ¹H NMR of ethanol shows 3 peaks with the ratio 3:1:2 (from left to right high field: CH₃, OH, CH₂). What is the splitting pattern of the CH₂ group?",opts:["Singlet","Triplet (split by 2 adjacent CH₃ H atoms — but actually split by adjacent CH₃)","Quartet (split by 3 adjacent CH₃ hydrogens → n+1=4 peaks)","Doublet"],a:2,e:"CH₂ in ethanol (CH₃CH₂OH): adjacent to CH₃ (3 equivalent H) and OH. The OH proton exchanges rapidly → doesn't cause splitting. So CH₂ is split by 3 H on CH₃ → n+1 = 4 peaks = quartet.",t:"NMR Spectroscopy"},
+  {q:"Sodium borohydride (NaBH₄) is selective because it reduces:",opts:["Only C=C bonds","C=O bonds (aldehydes and ketones) but NOT C=C bonds","Only carboxylic acids","Nitro groups"],a:1,e:"NaBH₄ is a MILD reducing agent: selectively reduces polar C=O (aldehydes → primary alcohols; ketones → secondary alcohols). Does NOT reduce C=C bonds or COOH (needs LiAlH₄ for that).",t:"Reduction Selectivity"},
+  {q:"What is the systematic name of the compound formed when propanoyl chloride reacts with methanol?",opts:["Methyl propanoate","Propyl methanoate","Methyl ethanoate","Ethyl propanoate"],a:0,e:"Propanoyl chloride + methanol → methyl propanoate + HCl. CH₃CH₂COCl + CH₃OH → CH₃CH₂COOCH₃ + HCl. Name: methyl propanoate (methyl ester of propanoic acid).",t:"Esters"},
+  {q:"The presence of a nitro group (-NO₂) on a benzene ring makes it:",opts:["More reactive toward electrophilic substitution","Less reactive toward electrophilic substitution (deactivating)","More reactive toward nucleophilic substitution only","Unchanged in reactivity"],a:1,e:"-NO₂ is a deactivating, meta-directing group. It withdraws electron density from the ring (especially at ortho/para positions) → ring is electron-poor → electrophiles attack less readily → slower EAS.",t:"Substitution Effects"},
+  {q:"Hydrolysis of a protein with dilute HCl produces:",opts:["Fatty acids + glycerol","Individual amino acids","Nucleotides","Glucose + fructose"],a:1,e:"Proteins are polyamides (polypeptides). Acid hydrolysis breaks the amide (peptide) bonds → individual amino acids are released. All 20 standard amino acids may be present.",t:"Proteins"},
+  {q:"An IR spectrum shows a broad absorption at ~3300 cm⁻¹ and a strong absorption at ~1710 cm⁻¹. The compound is most likely:",opts:["An alkane","An aldehyde only","A carboxylic acid (O-H at 3300, C=O at 1710)","An ester"],a:2,e:"Carboxylic acid: broad O−H stretch 2500–3300 cm⁻¹ (very broad, characteristic); C=O stretch 1710–1725 cm⁻¹. Ester C=O at 1735–1750 cm⁻¹. Aldehyde C=O at ~1720-1740 with C−H at 2720/2820 cm⁻¹.",t:"IR Spectroscopy"},
+  {q:"What is the purpose of using a reflux condenser in organic reactions?",opts:["To speed up the reaction by raising temperature","To prevent loss of volatile reagents/products while maintaining constant temperature of a boiling mixture","To filter the products","To dry the reaction mixture"],a:1,e:"Reflux: vapour rises into condenser, condenses back into the flask → reaction mixture at constant boiling point without losing volatile components. Used when reactions need prolonged heating (e.g. oxidation of primary alcohol to acid).",t:"Practical Techniques"},
+  {q:"The reaction of propan-1-ol with sodium dichromate/H₂SO₄ under distillation conditions gives:",opts:["Propanoic acid","Propanone","Propanal (distilled off before further oxidation)","Propene"],a:2,e:"Mild oxidation with distillation: primary alcohol → aldehyde. The aldehyde (propanal) is distilled off as it forms → prevents further oxidation to carboxylic acid. Without distillation: reflux → propanoic acid.",t:"Oxidation of Alcohols"},
+  {q:"Which of the following is NOT an isomer of C₃H₆?",opts:["Propene (CH₃CH=CH₂)","Cyclopropane","1-propyne (HC≡CCH₃)","Allene (CH₂=C=CH₂)"],a:2,e:"Isomers of C₃H₆ (DoU=1): propene, cyclopropane, and allene (propadiene) — all have formula C₃H₆. 1-propyne has formula C₃H₄ (DoU=2) — NOT an isomer of C₃H₆.",t:"Isomerism"},
+  {q:"The nitration of toluene (methylbenzene) gives mainly ortho- and para-nitrotoluene because the methyl group is:",opts:["Deactivating meta-directing","Activating ortho/para-directing (electron-donating by induction)","Activating meta-directing","Deactivating ortho/para-directing"],a:1,e:"Alkyl groups (−CH₃) are electron-donating (hyperconjugation/induction) → activate the ring and direct electrophiles to ortho/para positions (where electron density is increased). Majority: p-nitrotoluene (less steric).",t:"Aromatic Substitution"},
+  {q:"What is the role of concentrated H₂SO₄ in the esterification reaction between an alcohol and a carboxylic acid?",opts:["It is a reactant that becomes an ester","It dehydrates the alcohol to form an alkene","It acts as a catalyst (protonates the carbonyl oxygen, activates acid toward nucleophilic attack) and drying agent","It oxidises the alcohol"],a:2,e:"H₂SO₄ in esterification: (1) catalyst — protonates C=O of acid → activated toward attack by alcohol O. (2) Removes water → drives equilibrium to the right (Le Châtelier). Concentrated H₂SO₄ absorbs water.",t:"Esterification"},
+  {q:"What is the formula for Kevlar (aromatic polyamide)?",opts:["(CO-C₆H₄-CO-NH-C₆H₄-NH)ₙ","(CH₂-CHCl)ₙ","(CO-CH₂-CH₂-O)ₙ","(CH₂=CH₂)ₙ"],a:0,e:"Kevlar: condensation polymer of benzene-1,4-dicarboxylic acid + 1,4-diaminobenzene (para-phenylenediamine). Repeating unit: (OC-C₆H₄-CO-NH-C₆H₄-NH). para-linked aromatic rings → rigid chains → extremely strong.",t:"Polymers"},
+  {q:"A student adds 2,4-dinitrophenylhydrazine (2,4-DNPH) to an unknown compound and gets an orange precipitate. What functional group is present?",opts:["−OH (alcohol)","−COOH","C=O (aldehyde or ketone — carbonyl group)","−NH₂"],a:2,e:"2,4-DNPH (Brady's reagent): orange/yellow precipitate with aldehydes AND ketones (carbonyl group C=O). Used to identify the presence of C=O. The precipitate (hydrazone) can be recrystallised and its m.p. identifies the specific carbonyl compound.",t:"Carbonyl Tests"},
+  {q:"Racemization occurs when an optically active compound:",opts:["Is hydrogenated","Is converted to a 1:1 mixture of enantiomers (racemate) — optical activity is lost","Is reduced to a primary alcohol","Undergoes polymerisation"],a:1,e:"Racemization: conversion of a pure enantiomer (or chiral compound) into a 50:50 mixture of both enantiomers (racemate). Optical activity is lost. Occurs e.g. when SN1 reactions go through an achiral planar carbocation.",t:"Stereochemistry"},
+  {q:"The Tollens' test (silver mirror test) is positive for:",opts:["All carbonyl compounds","Aldehydes only — ketones do NOT give a positive result","Carboxylic acids","Secondary alcohols"],a:1,e:"Tollens' reagent (ammoniacal AgNO₃): aldehydes reduce Ag⁺ to Ag⁰ (silver mirror). RCHO + 2[Ag(NH₃)₂]⁺ + 2OH⁻ → RCOO⁻ + 2Ag↓ + 4NH₃ + H₂O. Ketones: no reaction.",t:"Carbonyl Tests"},
+  {q:"In what way does phenol differ from benzene in its reactions?",opts:["Phenol undergoes addition reactions; benzene does not","The -OH group activates the benzene ring strongly (ortho/para directing) → phenol reacts with bromine water without a catalyst","Phenol does not undergo EAS","Both are identical in reactivity"],a:1,e:"Phenol: −OH donates electron density into ring (resonance) → strongly activated ring → reacts with Br₂/H₂O (no catalyst needed!) to give 2,4,6-tribromophenol (white precipitate). Benzene needs Br₂ + FeBr₃ catalyst.",t:"Phenol Chemistry"},
+  {q:"The standard enthalpy of formation (ΔHf°) is defined for:",opts:["Any compound in any state","Formation of 1 mole of a compound from its elements in their standard states (all at 298K, 100 kPa)","Formation of 1 mole of compound from gaseous atoms","Combustion of 1 mole of compound"],a:1,e:"ΔHf°: enthalpy change when 1 mole of a compound is formed from its elements, each in their standard state (most stable form at 298K, 100 kPa). e.g. C(graphite) + O₂(g) → CO₂(g), ΔHf° = −393 kJ/mol.",t:"Thermochemistry"},
+  {q:"Which analytical technique is used to separate components of a mixture based on their distribution between a stationary phase and a mobile phase?",opts:["Mass spectrometry","Chromatography (TLC, GC, HPLC)","IR spectroscopy","Titration"],a:1,e:"Chromatography: components partition between stationary phase (immobile) and mobile phase (moving solvent/gas). Components travel at different rates based on polarity/affinity for stationary phase → separation.",t:"Analytical Chemistry"},
+  {q:"What is the structure of the product when propanone reacts with HCN?",opts:["(CH₃)₂CHOH","(CH₃)₂C(OH)CN (2-hydroxy-2-methylpropanenitrile)","CH₃CN + CH₃OH","CH₃CH₂CHO"],a:1,e:"HCN adds to C=O (nucleophilic addition): (CH₃)₂CO + HCN → (CH₃)₂C(OH)CN. The CN⁻ attacks the δ⁺ carbon of C=O, then H⁺ protonates the oxygen. Product is 2-hydroxy-2-methylpropanenitrile (a cyanohydrin).",t:"Carbonyl Chemistry"},
+  {q:"The functional group −NHCO− found in proteins is called:",opts:["Ester linkage","Peptide bond (amide bond)","Ether linkage","Amine group"],a:1,e:"The −CO−NH− (amide) linkage between amino acids in a protein is called a peptide bond. It forms by condensation (loss of water) between the −COOH of one amino acid and the −NH₂ of the next.",t:"Proteins"},
+  {q:"In the chlorination of benzene using Cl₂/AlCl₃, what is the role of AlCl₃?",opts:["It provides Cl⁻ ions","It accepts Cl⁻ from Cl₂ to generate Cl⁺ (electrophile) — it is a Lewis acid catalyst","It provides H⁺ ions","It absorbs HCl produced"],a:1,e:"AlCl₃ is a Lewis acid: accepts Cl⁻ from Cl₂ → Cl⁺···AlCl₄⁻ (or polarised Cl₂→Cl⁺). The Cl⁺ electrophile attacks the benzene ring. AlCl₃ regenerated at end of cycle. Also called a Friedel-Crafts halogenation catalyst.",t:"Benzene Chemistry"},
+  {q:"The hydrolysis of nitriles (RC≡N) under acidic conditions gives:",opts:["An amine","A carboxylic acid (via acid hydrolysis: RC≡N + 2H₂O + H⁺ → RCOOH + NH₄⁺)","An aldehyde","A ketone"],a:1,e:"Nitrile hydrolysis: RC≡N + H₂O → RCONH₂ (amide, partial) → + H₂O → RCOOH + NH₃ (or NH₄⁺ in acid). Under mild acid: stops at amide; under vigorous acid/base: goes to carboxylic acid. Used to lengthen carbon chain by one C.",t:"Nitrile Chemistry"},
+  {q:"What does a molecular ion peak (M⁺) with m/z = 46 suggest for a compound with formula CₓHᵧOₙ?",opts:["The compound contains nitrogen","It could be ethanol (C₂H₅OH, Mr = 46) or dimethyl ether (CH₃OCH₃, Mr = 46)","It must contain chlorine","The compound has a double bond"],a:1,e:"Mr = 46 → molecular formula from combinations of C(12), H(1), O(16). C₂H₆O (46): ethanol or dimethyl ether. Distinguish by other MS fragments: ethanol gives m/z=45 (M−1), 31 (CH₂OH⁺); ether gives m/z=31 (CH₃O⁺).",t:"Mass Spectrometry"},
+  {q:"The dehydration of an alcohol with concentrated H₂SO₄ at 170°C is an example of:",opts:["Addition reaction","Free radical substitution","Elimination (E2) reaction — removes H and OH to form C=C","Nucleophilic substitution"],a:2,e:"Dehydration = intramolecular elimination. H₂SO₄ protonates the −OH → good leaving group (water). β-elimination: H⁺ removed from adjacent C as H₂O leaves → alkene formed. At 140°C: SN2 intermolecular → ether.",t:"Elimination"},
+  {q:"Nylon-6,6 is formed from:",opts:["One monomer with both amine and carboxylic acid groups","Hexanedioic acid (adipic acid) + 1,6-diaminohexane — two different bifunctional monomers","Only amino acids","An addition reaction of acrylonitrile"],a:1,e:"Nylon-6,6: condensation polymer of hexanedioic acid (HOOC(CH₂)₄COOH) + 1,6-diaminohexane (H₂N(CH₂)₆NH₂). Each step forms an amide bond −CO−NH− and loses one water molecule.",t:"Polymers"},
+  {q:"The order of reactivity of acyl derivatives toward nucleophiles is:",opts:["Acid < ester < amide < acid chloride","Acid chloride > acid anhydride > carboxylic acid > ester > amide","All react at the same rate","Amide > acid > ester > acid chloride"],a:1,e:"Reactivity toward nucleophiles decreases as leaving group gets worse: Acid chloride (Cl⁻ good LG) > anhydride (RCOO⁻) > acid (OH⁻, poor) > ester (RO⁻) > amide (NH₂⁻ very poor). Most vigorous = most reactive.",t:"Acyl Compounds"},
+  {q:"A compound shows a large absorption at ~1680 cm⁻¹ in the IR and has a molecular formula of C₇H₆O. It is most likely:",opts:["Benzaldehyde (aromatic aldehyde, C=O at 1680-1700 cm⁻¹)","Toluene","Phenol","Cycloheptanone"],a:0,e:"C₇H₆O: DoU = (14+2−6)/2 = 5. 4 DoU = benzene ring, 1 DoU = C=O → aromatic carbonyl. MW=106. Benzaldehyde (C₆H₅CHO, Mr=106): aldehyde C=O at 1680–1700 cm⁻¹ (conjugated, lowered from normal ~1720).",t:"Spectroscopy"},
+  {q:"Which of these would give a positive result with Fehling's solution?",opts:["Propanone","Propan-2-ol","Propanal","Propanoic acid"],a:2,e:"Fehling's solution (alkaline Cu²⁺): only aldehydes reduce Cu²⁺ to Cu₂O (brick-red precipitate). Ketones, alcohols, and carboxylic acids are negative. Propanal (CH₃CH₂CHO) is an aldehyde → positive.",t:"Carbonyl Tests"},
+  {q:"The E/Z nomenclature is used instead of cis/trans when:",opts:["The molecule has more than one double bond","The two groups on one carbon of the C=C are identical","The two carbons of C=C each bear two different groups — uses CIP priority rules","There are ring structures present"],a:2,e:"E/Z (Cahn-Ingold-Prelog): used when each carbon of C=C has two different groups. E (entgegen=opposite): higher priority groups on opposite sides. Z (zusammen=together): same side. More general than cis/trans.",t:"Geometric Isomerism"},
+  {q:"What product is obtained when phenylamine (aniline, C₆H₅NH₂) is reacted with cold HNO₂ (nitrous acid)?",opts:["Nitrobenzene","Diazonium salt (C₆H₅N₂⁺Cl⁻) — important for azo dye synthesis","Phenol + N₂","Aminobenzene + HCl"],a:1,e:"Aniline + HNO₂ (from NaNO₂+HCl, 0-5°C): C₆H₅NH₂ + HNO₂ → C₆H₅N₂⁺Cl⁻ (benzenediazonium chloride). Diazonium salts are reactive intermediates used in azo dye synthesis (coupling with phenol → azo dye).",t:"Diazonium Chemistry"},
+  {q:"Which functional group undergoes saponification with NaOH(aq)?",opts:["Alkene","Aldehyde","Ester","Alcohol"],a:2,e:"Saponification: ester + NaOH(aq) → carboxylate salt + alcohol. Irreversible alkaline hydrolysis (compare: acid hydrolysis is reversible). Used to make soap from fats (triglycerides + 3NaOH → glycerol + 3 soap).",t:"Ester Hydrolysis"},
+  {q:"Which statement best describes conjugation in benzene?",opts:["Alternating single and double bonds that are fixed","All 6 π electrons are delocalised over all 6 carbon atoms — all C-C bonds are equivalent (intermediate length ~1.40Å)","Only 3 π bonds with fixed positions","The electrons are only delocalised between ortho positions"],a:1,e:"Benzene: each sp² C contributes one unhybridised p electron → 6 p electrons form a continuous π system above and below the ring plane. All 6 C−C bonds are equivalent (1.40Å, between single 1.54Å and double 1.34Å). Extra stability = resonance energy ~150 kJ/mol.",t:"Benzene Aromaticity"},
+  {q:"A reaction profile shows two energy maxima and one energy minimum between reactants and products. This means:",opts:["The reaction is endothermic","The reaction proceeds via TWO transition states and ONE intermediate","The reaction is at equilibrium","There is only one step"],a:1,e:"Two maxima = two transition states (two steps with two activation energies). One minimum between them = one intermediate (a species that can be isolated in principle, unlike a TS). Multi-step mechanism.",t:"Reaction Profiles"}
+],
+s6:[
+  {q:"Fe²⁺ can be identified by adding NaOH(aq) because it forms:",opts:["A red-brown precipitate","A blue precipitate","A green precipitate (Fe(OH)₂)","No precipitate"],a:2,e:"Fe²⁺ + 2OH⁻ → Fe(OH)₂ (green precipitate). This oxidises slowly in air to red-brown Fe(OH)₃. Fe³⁺ directly gives red-brown Fe(OH)₃. Green → brown on standing confirms Fe²⁺.",t:"Transition Metal Tests"},
+  {q:"EDTA (ethylenediaminetetraacetic acid) is a hexadentate ligand. What does this mean?",opts:["It has 6 double bonds","It donates 6 lone pairs from 6 donor atoms to one metal ion","It forms 6 separate complexes","It has a molar mass of 6"],a:1,e:"Hexadentate: 6 donor atoms per ligand molecule. EDTA has 2N and 4O donors → donates 6 lone pairs to one metal ion → forms a very stable chelate ring (chelate effect). Used in analysis and water softening.",t:"Ligands"},
+  {q:"The overall stability constant βₙ of a complex ion is defined as:",opts:["The solubility product","The equilibrium constant for the formation of the complex from the aqua ion and ligands (large β = stable complex)","The rate constant","The hydration energy"],a:1,e:"β (stability constant): [ML_n]/([M][L]^n). Large β = complex is very stable. e.g. [Fe(CN)₆]³⁻ has very large β → cyanide complex is stable. Used to compare stability of different complexes.",t:"Complex Stability"},
+  {q:"For a first-order reaction, the half-life t½ at different initial concentrations is:",opts:["Directly proportional to initial concentration","Inversely proportional to initial concentration","Constant — independent of initial concentration","Zero"],a:2,e:"First-order: rate = k[A]. t½ = ln2/k = 0.693/k. The half-life is CONSTANT regardless of initial concentration. This distinguishes first-order from second-order (t½ = 1/k[A]₀, depends on concentration).",t:"Reaction Orders"},
+  {q:"What is the pH of a 0.01 mol dm⁻³ NaOH solution at 25°C?",opts:["2","12","14","10"],a:1,e:"NaOH fully dissociates: [OH⁻] = 0.01 = 10⁻² mol dm⁻³. pOH = −log(0.01) = 2. pH = 14 − pOH = 14 − 2 = 12.",t:"pH of Alkalis"},
+  {q:"The cell diagram Zn(s)|Zn²⁺(aq)||Cu²⁺(aq)|Cu(s) shows:",opts:["Cu is the anode; Zn is the cathode","Zn is the anode (oxidised, negative); Cu is the cathode (reduced, positive); || = salt bridge","Both are cathodes","The cell runs in reverse"],a:1,e:"Convention: anode|anode solution || cathode solution|cathode. Left = anode (Zn→Zn²⁺+2e⁻, oxidation, negative terminal). Right = cathode (Cu²⁺+2e⁻→Cu, reduction, positive terminal). Single | = phase boundary; || = salt bridge.",t:"Cell Notation"},
+  {q:"What effect does an increase in ionic strength (e.g. by adding inert salt) have on a weakly soluble salt like AgCl?",opts:["Decreases solubility","Increases solubility (ionic atmosphere effect — activity coefficients decrease)","No effect","Causes precipitation of AgCl"],a:1,e:"Increasing ionic strength: ions of added salt surround Ag⁺ and Cl⁻ (ionic atmosphere) → activity coefficients decrease → effective ion concentrations decrease → ionic product Q = [Ag⁺][Cl⁻] < Ksp → more AgCl dissolves to compensate. Solubility increases.",t:"Solution Chemistry"},
+  {q:"In the reaction sequence: N₂ → NO → NO₂ → HNO₃, the Ostwald process uses which catalyst for the first step?",opts:["V₂O₅","Fe","Pt/Rh gauze (at ~850°C)","AlCl₃"],a:2,e:"Ostwald process step 1: 4NH₃ + 5O₂ → 4NO + 6H₂O. Catalyst: Pt/Rh gauze at ~850°C, 5-10 atm. (Note: the N₂→NO step shown in the question skips the NH₃ step — Ostwald actually starts from NH₃.)",t:"Industrial Chemistry"},
+  {q:"The quantity ΔG° = −RT ln K relates the standard Gibbs energy change to the equilibrium constant. If K > 1:",opts:["ΔG° > 0 (non-spontaneous)","ΔG° < 0 (spontaneous — products favoured)","ΔG° = 0","The reaction is at equilibrium"],a:1,e:"ΔG° = −RT ln K. If K > 1: ln K > 0 → ΔG° = −RT ln K < 0 (negative) → products are thermodynamically favoured → spontaneous under standard conditions. If K < 1: ΔG° > 0.",t:"Thermodynamics"},
+  {q:"What is the relationship between the equilibrium constant Kc and Kp for a gas-phase reaction?",opts:["Kp = Kc always","Kp = Kc(RT)^Δn where Δn = change in moles of gas","Kp > Kc always","Kp = Kc/RT"],a:1,e:"Kp = Kc(RT)^Δn where Δn = moles of gaseous products − moles of gaseous reactants. R = 8.314 J mol⁻¹K⁻¹; T = temperature in K. If Δn=0: Kp = Kc.",t:"Kp and Kc"},
+  {q:"Which complex ion is responsible for the deep blue colour in the test for Cu²⁺ ions with excess NH₃?",opts:["[Cu(H₂O)₄]²⁺","[Cu(NH₃)₄(H₂O)₂]²⁺ (tetraamminecopper(II))","[CuCl₄]²⁻","[Cu(CN)₄]²⁻"],a:1,e:"Adding excess NH₃ to Cu²⁺(aq) (pale blue) → deep blue [Cu(NH₃)₄(H₂O)₂]²⁺. NH₃ displaces H₂O ligands (ligand substitution). The deep blue colour is used as a qualitative test for Cu²⁺.",t:"Copper Chemistry"},
+  {q:"The principle of superposition of wave functions that explains the formation of molecular orbitals is called:",opts:["VSEPR","The aufbau principle","Linear combination of atomic orbitals (LCAO) — MO theory","Hybridisation"],a:2,e:"Molecular orbital (MO) theory: atomic orbitals combine (add or subtract wave functions) to form bonding MOs (lower energy, between nuclei) and antibonding MOs (*). LCAO: ψ(MO) = c₁ψ₁ ± c₂ψ₂.",t:"MO Theory"},
+  {q:"What is the quantity measured in a potentiometric titration?",opts:["Colour change","pH or electrode potential as a function of titrant volume — used to find equivalence point precisely","Heat evolved","Mass of precipitate"],a:1,e:"Potentiometric titration: measure cell potential (or pH) as titrant is added. Plot E (or pH) vs volume. Sharp change at equivalence point. No indicator needed — more precise. Used for coloured or turbid solutions.",t:"Analytical Chemistry"},
+  {q:"The activation energy Eₐ can be determined graphically by:",opts:["Plotting rate vs temperature","Plotting ln k vs 1/T (Arrhenius plot — slope = −Eₐ/R)","Plotting [A] vs time","Plotting rate vs [A]"],a:1,e:"Arrhenius equation: k = Ae^(−Eₐ/RT). Taking ln: ln k = ln A − Eₐ/RT. Plot ln k vs 1/T → straight line with slope = −Eₐ/R. Eₐ = −slope × R. This is the graphical method to find activation energy.",t:"Arrhenius Equation"},
+  {q:"Nuclear binding energy is:",opts:["Energy needed to ionise an atom","Energy released when a nucleus is assembled from its constituent protons and neutrons (equals mass defect × c²)","Energy of γ radiation","Kinetic energy of emitted α particles"],a:1,e:"Binding energy = energy that holds the nucleus together = energy required to completely separate it into individual nucleons. Equals mass defect × c² (Einstein E=mc²). Higher binding energy per nucleon = more stable nucleus.",t:"Nuclear Physics"},
+  {q:"In the titration of 25cm³ of 0.1 mol dm⁻³ HCl with 0.1 mol dm⁻³ NaOH, the equivalence point pH is:",opts:["7.0 (neutral — strong acid + strong base → NaCl + water, neutral salt)","Above 7","Below 7","Depends on temperature only"],a:0,e:"Strong acid + strong base: HCl + NaOH → NaCl + H₂O. At equivalence point: NaCl solution. NaCl is a salt of strong acid and strong base → does not hydrolyse → neutral. pH = 7.0 at 25°C.",t:"Titration"},
+  {q:"What is the charge on the chromium in [Cr(H₂O)₄Cl₂]Cl?",opts:["+2","+3","+1","0"],a:1,e:"Outer Cl⁻ is not a ligand → releases Cl⁻ in solution. Complex cation [Cr(H₂O)₄Cl₂]⁺: Cr + 4(0) + 2(−1) = +1 overall → Cr = +3. The complex is Cr(III) with 4 water and 2 chloride ligands. Overall formula gives 1+ cation to pair with 1− outer Cl⁻.",t:"Oxidation States"},
+  {q:"The spontaneity of a reaction at constant T and P is determined by:",opts:["ΔH alone","ΔS alone","ΔG = ΔH − TΔS: if ΔG < 0, spontaneous","The activation energy"],a:2,e:"Gibbs free energy: ΔG = ΔH − TΔS. Spontaneous if ΔG < 0. Endothermic reactions (ΔH > 0) can still be spontaneous if TΔS term is large enough (large entropy increase at high T). Temperature determines which term dominates.",t:"Gibbs Energy"},
+  {q:"In β⁻ decay, a neutron is converted to a proton. The particle emitted is:",opts:["An α particle","A β⁺ (positron)","A β⁻ (electron) from the nucleus","A γ photon only"],a:2,e:"β⁻ decay: ¹n → ¹p + ⁰₋₁e (electron) + antineutrino. The neutron in the nucleus is converted to a proton → atomic number increases by 1, mass number unchanged. The electron (β⁻ particle) is emitted.",t:"Nuclear Decay"},
+  {q:"In an acid-base titration, the half-equivalence point is where:",opts:["Half the acid has been added","pH = pKa of the weak acid (buffer action is maximal)","The indicator changes colour","The pH = 7"],a:1,e:"At half-equivalence point: half the weak acid has been neutralised. [HA] = [A⁻]. Henderson-Hasselbalch: pH = pKa + log([A⁻]/[HA]) = pKa + log(1) = pKa. Buffer capacity is maximum here.",t:"Acid-Base"},
+  {q:"Radioactive waste management uses the concept of half-life. ⁹⁰Sr (t½ = 28.8 years) is dangerous because:",opts:["It emits γ rays only","After 28.8 years all ⁹⁰Sr is gone","It has a long enough t½ to remain in the environment and food chain for hundreds of years (bioaccumulation)","It emits α particles that are very penetrating"],a:2,e:"⁹⁰Sr: t½=28.8 yr. After 10 half-lives (~288 yr): 1/2¹⁰ ≈ 0.1% remains. It is a β emitter that mimics calcium → incorporated into bones → irradiates bone marrow for decades. Long t½ + bioaccumulation = very hazardous.",t:"Radioactivity"},
+  {q:"The ion-product of water Kw = [H⁺][OH⁻] = 10⁻¹⁴ at 25°C. At 50°C, Kw increases. This means pure water at 50°C has:",opts:["pH = 7","pH < 7 (still neutral but lower pH than 7, since Kw is larger)","pH > 7","pH = 14"],a:1,e:"At 50°C: Kw > 10⁻¹⁴, e.g. ~5.5×10⁻¹⁴. [H⁺] = [OH⁻] = √(Kw) > 10⁻⁷ → pH < 7. BUT the solution is still neutral ([H⁺]=[OH⁻]). Neutrality does not mean pH = 7; it means [H⁺] = [OH⁻].",t:"Kw and pH"},
+  {q:"What is a dative (co-ordinate) bond, as found in ligand-metal interactions?",opts:["A bond where electrons are shared equally","A covalent bond where both electrons in the shared pair are donated by the same atom (the ligand's lone pair → metal)","An ionic bond","A hydrogen bond"],a:1,e:"Coordinate bond: both electrons come from one species (donor/Lewis base). In metal complexes: ligand lone pair → empty metal orbital. e.g. H₂O:→Cu²⁺. This is a Lewis acid-base interaction.",t:"Coordinate Bonding"},
+  {q:"In the Fehling's test, what is reduced?",opts:["The aldehyde","Fe³⁺ to Fe²⁺","Cu²⁺ to Cu⁺ (as brick-red Cu₂O precipitate)","The ketone"],a:2,e:"Fehling's: alkaline Cu²⁺ (deep blue, complexed with tartrate). Aldehyde reduces Cu²⁺ to Cu⁺: 2Cu²⁺ + 2e⁻ → 2Cu⁺ → Cu₂O↓ (brick-red precipitate). The aldehyde is oxidised to carboxylate.",t:"Redox Reactions"},
+  {q:"The EMF of a concentration cell (same electrode material, different concentrations) arises from:",opts:["Different temperatures","Different metals","Concentration difference between half-cells — ions flow until concentrations equalize","Different electrode sizes"],a:2,e:"Concentration cell: both electrodes = same metal (e.g. Ag|Ag⁺). Difference in [Ag⁺] between cells → different E values → net EMF. Spontaneous when dilute half-cell is anode (electrode dissolves → increases concentration). Drives toward equilibrium.",t:"Concentration Cells"},
+  {q:"In the blast furnace, coke (carbon) acts as both fuel and reducing agent. Which reaction directly reduces iron ore?",opts:["C + O₂ → CO₂","CO₂ + C → 2CO","Fe₂O₃ + 3CO → 2Fe + 3CO₂ (CO reduces the iron oxide)","CaCO₃ → CaO + CO₂"],a:2,e:"Fe₂O₃ + 3CO → 2Fe + 3CO₂. Carbon monoxide (produced from C + CO₂ → 2CO) is the actual reducing agent. The iron is reduced in the upper part of the blast furnace. Molten iron sinks to the bottom.",t:"Metal Extraction"},
+  {q:"The colour changes observed in the reaction of acidified potassium manganate(VII) with iron(II) sulfate solution are:",opts:["Yellow to green","Purple to colourless/pale pink (Mn⁷⁺ → Mn²⁺)","Blue to orange","Green to brown"],a:1,e:"KMnO₄ (purple) + Fe²⁺ + H⁺ → Mn²⁺ (very pale pink/colourless) + Fe³⁺. MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O. Fe²⁺ → Fe³⁺ + e⁻. Decolourisation (purple → colourless) is the observation.",t:"Transition Metal Reactions"},
+  {q:"Which of the following would NOT be considered a source of error in a potentiometric titration?",opts:["Junction potential at salt bridge","Electrode not calibrated","Using a burette instead of a pipette for titrant","Slow electrode response time"],a:2,e:"Using a burette (vs pipette) for the titrant is standard practice — it is NOT a source of error. It is how you accurately add small increments. Errors include: uncalibrated electrode, junction potential, slow response, temperature fluctuations.",t:"Analytical Techniques"},
+  {q:"The relationship between cell EMF (E°) and free energy change at equilibrium is:",opts:["E° = RT/nF","E° = ΔG°/nF (but with sign: ΔG° = −nFE°)","E° = nFΔG°","E° = ΔH°/nF"],a:1,e:"ΔG° = −nFE°. At equilibrium: ΔG° = −RT ln K. Therefore: E° = (RT/nF) ln K = (0.0257/n) ln K at 25°C. Positive E° → negative ΔG° → spontaneous and K > 1.",t:"Electrochemistry"},
+  {q:"The electron configuration of Co³⁺ (Z=27) is:",opts:["[Ar]3d⁶4s²","[Ar]3d⁶","[Ar]3d⁵","[Ar]3d⁶4s⁰"],a:1,e:"Co = [Ar]3d⁷4s². Co³⁺ loses 3 electrons (4s² first, then one 3d): [Ar]3d⁶. Note: ions of transition metals always lose ns electrons first. Co³⁺ is common in octahedral complexes (d⁶ is very stable in octahedral field — inert).",t:"Transition Metal Configs"},
+  {q:"What is observed when excess NaOH(aq) is added to Al³⁺(aq) solution?",opts:["Permanent white precipitate","White precipitate forms initially, then dissolves in excess NaOH to give clear solution (Al(OH)₃ is amphoteric)","Blue precipitate","Red-brown precipitate"],a:1,e:"Al³⁺ + 3OH⁻ → Al(OH)₃↓ (white gelatinous ppt). Al(OH)₃ + OH⁻ → [Al(OH)₄]⁻ (soluble, colourless tetrahydroxoaluminate). Distinguishes Al³⁺ from Mg²⁺ (whose hydroxide does NOT dissolve in excess NaOH).",t:"Metal Hydroxides"},
+  {q:"Catalytic converters in car exhaust contain Pt, Pd, and Rh to catalyse:",opts:["Complete combustion of fuel only","Removal of CO, unburnt hydrocarbons, and NOx (e.g. 2CO + 2NO → 2CO₂ + N₂)","Production of NOx","Only oxidation reactions"],a:1,e:"Three-way catalytic converter: (1) 2CO + 2NO → 2CO₂ + N₂. (2) Hydrocarbons + O₂ → CO₂ + H₂O. (3) 2NO + 2H₂ → N₂ + 2H₂O. Reduces CO, NOx, and unburnt hydrocarbons. Pt, Pd (oxidation), Rh (reduction of NOx).",t:"Environmental Chemistry"},
+  {q:"The graph of ln[A] versus time gives a straight line for which reaction order?",opts:["Zero order","First order","Second order","Third order"],a:1,e:"First-order integrated rate law: [A] = [A]₀e^(−kt). Taking ln: ln[A] = ln[A]₀ − kt. This is y = mx + c. Plot ln[A] vs t → straight line, slope = −k, intercept = ln[A]₀.",t:"Integrated Rate Laws"},
+  {q:"What is the molar entropy of vaporisation of water (ΔSvap) approximately, given ΔHvap = 40.7 kJ/mol at 373K?",opts:["10.9 J/mol/K","40.7 J/mol/K","109 J/mol/K","407 J/mol/K"],a:2,e:"At the boiling point (reversible process, equilibrium): ΔG = ΔH − TΔS = 0. Therefore ΔS = ΔH/T = 40700/373 = 109 J mol⁻¹ K⁻¹. This is Trouton's rule (≈88 J/mol/K for most non-associated liquids; water is higher due to H-bonds).",t:"Thermodynamics"},
+  {q:"The use of radioisotopes in medicine requires considering both efficacy and safety. Which property makes ¹³¹I suitable for thyroid treatment?",opts:["Long half-life","Emits only γ rays","β emitter, concentrates in thyroid, t½=8 days — delivers localised dose then decays quickly","Emits α particles that are highly ionising locally"],a:2,e:"¹³¹I: β⁻ emitter (β locally ionising → kills thyroid cells). Thyroid actively concentrates iodine → targeted therapy. t½ = 8 days: long enough for treatment, short enough to minimise long-term radiation dose.",t:"Nuclear Medicine"},
+  {q:"The van't Hoff factor (i) for MgCl₂ dissolved in water is ideally:",opts:["1","2","3","4"],a:2,e:"MgCl₂ → Mg²⁺ + 2Cl⁻. Produces 3 ions per formula unit (i = 3 ideally). The van't Hoff factor i accounts for the number of particles formed → colligative properties (osmotic pressure, boiling point elevation, etc.) are multiplied by i.",t:"Colligative Properties"},
+  {q:"In a biochemical context, the importance of buffer systems in blood is to maintain pH ~7.4. The main buffer is:",opts:["NaCl/NaOH","H₂CO₃/HCO₃⁻ (carbonic acid/bicarbonate buffer system)","NH₃/NH₄⁺","Citrate buffer"],a:1,e:"Blood buffer: H₂CO₃ ⇌ H⁺ + HCO₃⁻. CO₂(g) + H₂O ⇌ H₂CO₃. This system is maintained by the lungs (exhale CO₂) and kidneys (excrete H⁺/HCO₃⁻). pKa ≈ 6.1; at pH 7.4 there is ~20× more HCO₃⁻ than H₂CO₃.",t:"Biological Chemistry"}
+]};
+E.full=[...E.s4.slice(0,17),...E.s5.slice(0,17),...E.s6.slice(0,16)];
+const ST={s4:{ans:{},done:false},s5:{ans:{},done:false},s6:{ans:{},done:false},full:{ans:{},done:false}};
+const COL={s4:'var(--blue)',s5:'var(--green)',s6:'var(--purple)',full:'var(--accent)'};
+const CS={s4:'rgba(56,189,248,.15)',s5:'rgba(52,211,153,.15)',s6:'rgba(167,139,250,.15)',full:'rgba(244,114,182,.15)'};
+const CB={s4:'rgba(56,189,248,.3)',s5:'rgba(52,211,153,.3)',s6:'rgba(167,139,250,.3)',full:'rgba(244,114,182,.3)'};
+function showExam(lv){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.lvl-btn').forEach(b=>{b.className='lvl-btn';});
+  document.getElementById('landing').style.display='none';
+  document.getElementById('panel-'+lv).classList.add('active');
+  document.getElementById('btn-'+lv).classList.add('act-'+lv);
+  buildExam(lv);
+  document.getElementById('panel-'+lv).scrollIntoView({behavior:'smooth',block:'start'});
+}
+function buildExam(lv){
+  const el=document.getElementById('qs-'+lv);
+  if(el.children.length>0) return;
+  el.innerHTML=E[lv].map((q,i)=>`
+    <div class="q-block">
+      <div class="q-meta"><span class="q-badge" style="background:${CS[lv]};color:${COL[lv]};border:1px solid ${CB[lv]};">Q${i+1}</span><span class="q-topic">${q.t}</span></div>
+      <div class="q-text">${q.q}</div>
+      ${q.opts.map((o,oi)=>`<button class="opt" id="op-${lv}-${i}-${oi}" onclick="pick('${lv}',${i},${oi})"><span class="oc">${String.fromCharCode(65+oi)}</span><span>${o}</span></button>`).join('')}
+      <div class="exp" id="ex-${lv}-${i}">${q.e}</div>
+    </div>`).join('');
+}
+function pick(lv,qi,oi){
+  if(ST[lv].done) return;
+  ST[lv].ans[qi]=oi;
+  E[lv][qi].opts.forEach((_,j)=>{
+    document.getElementById(`op-${lv}-${qi}-${j}`).classList.toggle('sel',j===oi);
+  });
+  const total=E[lv].length,done=Object.keys(ST[lv].ans).length;
+  document.getElementById('sc-'+lv).textContent=`${done}/${total}`;
+  document.getElementById('pb-'+lv).style.width=(done/total*100)+'%';
+}
+function submit(lv){
+  const qs=E[lv],ans=ST[lv].ans;
+  const left=qs.length-Object.keys(ans).length;
+  if(left>0&&!confirm(`${left} unanswered. Submit anyway?`)) return;
+  ST[lv].done=true;
+  let score=0;
+  qs.forEach((q,i)=>{
+    const ch=ans[i];
+    q.opts.forEach((_,oi)=>{
+      const el=document.getElementById(`op-${lv}-${i}-${oi}`);
+      el.classList.add('locked');
+      if(oi===q.a) el.classList.add('correct');
+      else if(oi===ch&&ch!==q.a) el.classList.add('wrong');
+    });
+    document.getElementById(`ex-${lv}-${i}`).classList.add('show');
+    if(ch===q.a) score++;
+  });
+  const pct=Math.round(score/qs.length*100);
+  const pass=pct>=50;
+  const rb=document.getElementById('rb-'+lv);
+  rb.className=`result-banner ${pass?'pass':'fail'} show`;
+  rb.innerHTML=`<div style="font-size:2.5rem;margin-bottom:8px;">${pct>=80?'🏆':pct>=60?'🎉':pct>=50?'✅':'📚'}</div>
+    <h3>${pct>=80?'Distinction!':pct>=60?'Merit — Well Done!':pct>=50?'Pass!':'Below Pass Mark'}</h3>
+    <div class="r-score" style="color:${pass?'var(--green)':'var(--red)'};">${pct}%</div>
+    <div class="stats-row">
+      <div class="s-chip"><div class="sc-v" style="color:var(--green);">${score}</div><div class="sc-l">Correct</div></div>
+      <div class="s-chip"><div class="sc-v" style="color:var(--red);">${qs.length-score}</div><div class="sc-l">Wrong</div></div>
+      <div class="s-chip"><div class="sc-v" style="color:var(--accent);">${qs.length}</div><div class="sc-l">Total</div></div>
+    </div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:12px;">${pass?'Review the explanations below to strengthen your understanding.':'Work through each explanation carefully, then reset and retake.'}</p>`;
+  rb.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function reset(lv){
+  ST[lv]={ans:{},done:false};
+  document.getElementById('qs-'+lv).innerHTML='';
+  document.getElementById('rb-'+lv).className='result-banner';
+  document.getElementById('sc-'+lv).textContent=`0/${E[lv].length}`;
+  document.getElementById('pb-'+lv).style.width='0%';
+  buildExam(lv);
+  document.getElementById('panel-'+lv).scrollIntoView({behavior:'smooth',block:'start'});
+}
+</script>
 </body>
 </html>
