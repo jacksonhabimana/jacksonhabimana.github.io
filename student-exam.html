@@ -383,9 +383,44 @@ function recordViolation(msg){
   document.getElementById('warning-count-disp').textContent = `⚠️ Warning ${violations} of ${exam.warnings}`;
   document.getElementById('warning-modal').classList.add('show');
   dismissing = true;
+  // Send cheat notification
+  sendNotification('CHEAT', `🚨 CHEATING ALERT\n\nStudent: ${document.getElementById('s-name').value.trim()}\nExam: ${exam.title}\nViolation #${violations}/${exam.warnings}: ${msg}\nTime: ${new Date().toLocaleString()}`);
   if(violations >= exam.warnings){
     setTimeout(()=>autoSubmit('Maximum violations reached – auto-submitted.'),2000);
   }
+}
+
+// ══════════════════════════════════════════════
+//  NOTIFICATIONS
+// ══════════════════════════════════════════════
+async function sendNotification(eventType, textMsg){
+  try{
+    const s = JSON.parse(localStorage.getItem('notif_settings')||'{}');
+    const studentName = document.getElementById('s-name').value.trim()||'Unknown';
+    if(eventType==='CHEAT' && !s.notifCheat) return;
+    if(eventType==='SUBMIT' && !s.notifSubmit) return;
+    // Telegram
+    if(s.tgToken && s.tgChatId){
+      fetch(`https://api.telegram.org/bot${s.tgToken}/sendMessage`,{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({chat_id:s.tgChatId,text:textMsg,parse_mode:'HTML'})
+      }).catch(()=>{});
+    }
+    // EmailJS
+    if(s.ejPubKey && s.ejService && s.ejTemplate){
+      fetch('https://api.emailjs.com/api/v1.0/email/send',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({service_id:s.ejService,template_id:s.ejTemplate,user_id:s.ejPubKey,
+          template_params:{
+            student_name: studentName,
+            exam_title: exam.title,
+            event_type: eventType,
+            message: textMsg,
+            to_email: s.ejEmail||'hajackson2020@gmail.com'
+          }})
+      }).catch(()=>{});
+    }
+  }catch(e){}
 }
 
 function dismissWarning(){
@@ -435,9 +470,22 @@ function submitExam(reason){
   const percent = Math.round(score / exam.totalMarks * 100);
   const passed = percent >= exam.pass;
 
+  const sName = document.getElementById('s-name').value.trim();
+  const sId = document.getElementById('s-id').value.trim();
+
+  // Build score first for notification
+  let scorePreview = 0;
+  exam.questions.forEach((q,i)=>{ if(answers[i]===q.correct) scorePreview+=q.marks; });
+  const pctPreview = Math.round(scorePreview/exam.totalMarks*100);
+  const passPreview = pctPreview >= exam.pass;
+
+  sendNotification('SUBMIT',
+    `${passPreview?'✅':'❌'} EXAM SUBMISSION\n\nStudent: ${sName}${sId?' ('+sId+')':''}\nExam: ${exam.title}\nScore: ${scorePreview}/${exam.totalMarks} (${pctPreview}%)\nResult: ${passPreview?'PASS':'FAIL'}\nViolations: ${violations}\nSubmitted: ${new Date().toLocaleString()}\nReason: ${reason}`
+  );
+
   resultData = {
-    studentName: document.getElementById('s-name').value.trim(),
-    studentId: document.getElementById('s-id').value.trim(),
+    studentName: sName,
+    studentId: sId,
     examId: exam.id,
     examTitle: exam.title,
     examSubject: exam.subject||'',

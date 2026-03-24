@@ -256,6 +256,74 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
         <div id="pwd-change-msg" style="margin-top:10px;font-size:.85rem;"></div>
       </div>
     </div>
+    <!-- NOTIFICATIONS CARD -->
+    <div class="card">
+      <h2>📲 Notifications — Email &amp; Phone Alerts</h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:22px;">Get notified on your phone and email whenever a student <strong style="color:var(--red);">cheats</strong> or <strong style="color:var(--green);">submits</strong> an exam. Uses free services — no server needed.</p>
+
+      <!-- TELEGRAM -->
+      <div style="background:var(--surface2);border:1px solid rgba(56,189,248,.2);border-radius:8px;padding:20px 20px 14px;margin-bottom:18px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="font-size:1.4rem;">📱</span>
+          <div><strong style="color:#fff;font-size:.95rem;">Telegram Phone Alerts</strong><br>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);">Instant push notifications on your phone — free &amp; always works</span></div>
+        </div>
+        <div class="form-row">
+          <div><label>Bot Token</label><input type="text" id="tg-token" placeholder="e.g. 7512345678:AAHxxx..." oninput="saveNotifSettings()"/></div>
+          <div><label>Your Chat ID</label><input type="text" id="tg-chatid" placeholder="e.g. 123456789" oninput="saveNotifSettings()"/></div>
+        </div>
+        <div style="background:rgba(13,17,23,.6);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:.82rem;color:var(--muted);margin-bottom:12px;">
+          <strong style="color:var(--accent);display:block;margin-bottom:6px;">🔧 How to set up (2 minutes):</strong>
+          1. Open Telegram and search <strong style="color:#fff;">@BotFather</strong><br>
+          2. Send <code style="color:var(--accent);">/newbot</code>, give it a name → copy the <strong style="color:#fff;">Bot Token</strong><br>
+          3. Search <strong style="color:#fff;">@userinfobot</strong>, send any message → copy your <strong style="color:#fff;">Chat ID</strong><br>
+          4. Paste both above and click <strong style="color:#fff;">Test</strong>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="testTelegram()">📤 Send Test Message</button>
+        <span id="tg-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;margin-left:10px;"></span>
+      </div>
+
+      <!-- EMAILJS -->
+      <div style="background:var(--surface2);border:1px solid rgba(232,197,71,.2);border-radius:8px;padding:20px 20px 14px;margin-bottom:18px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="font-size:1.4rem;">📧</span>
+          <div><strong style="color:#fff;font-size:.95rem;">Email Alerts (EmailJS)</strong><br>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);">Get email alerts directly — free up to 200 emails/month</span></div>
+        </div>
+        <div class="form-row">
+          <div><label>EmailJS Public Key</label><input type="text" id="ej-pubkey" placeholder="e.g. user_aBcDeFgHiJkL..." oninput="saveNotifSettings()"/></div>
+          <div><label>Service ID</label><input type="text" id="ej-service" placeholder="e.g. service_xxxxxxx" oninput="saveNotifSettings()"/></div>
+        </div>
+        <div class="form-row">
+          <div><label>Template ID</label><input type="text" id="ej-template" placeholder="e.g. template_xxxxxxx" oninput="saveNotifSettings()"/></div>
+          <div><label>Your Email Address</label><input type="text" id="ej-email" placeholder="hajackson2020@gmail.com" oninput="saveNotifSettings()"/></div>
+        </div>
+        <div style="background:rgba(13,17,23,.6);border:1px solid var(--border);border-radius:6px;padding:14px;font-size:.82rem;color:var(--muted);margin-bottom:12px;">
+          <strong style="color:var(--gold);display:block;margin-bottom:6px;">🔧 How to set up (5 minutes):</strong>
+          1. Go to <a href="https://www.emailjs.com" target="_blank" style="color:var(--accent);">emailjs.com</a> → free account<br>
+          2. Add Email Service (Gmail) → copy <strong style="color:#fff;">Service ID</strong><br>
+          3. Create Email Template — use variables: <code style="color:var(--accent);">{{student_name}}, {{exam_title}}, {{event_type}}, {{message}}</code><br>
+          4. Go to Account → copy <strong style="color:#fff;">Public Key</strong><br>
+          5. Paste all above and click <strong style="color:#fff;">Test</strong>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="testEmail()">📤 Send Test Email</button>
+        <span id="ej-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;margin-left:10px;"></span>
+      </div>
+
+      <!-- TOGGLES -->
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px;">
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;">
+          <input type="checkbox" id="notif-cheat" onchange="saveNotifSettings()" style="width:auto;accent-color:var(--red);margin-bottom:0;"/>
+          <span style="color:var(--text);">🚨 Notify on <strong style="color:var(--red);">cheat/violation</strong></span>
+        </label>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;">
+          <input type="checkbox" id="notif-submit" onchange="saveNotifSettings()" style="width:auto;accent-color:var(--green);margin-bottom:0;"/>
+          <span style="color:var(--text);">✅ Notify on <strong style="color:var(--green);">exam submission</strong></span>
+        </label>
+      </div>
+      <div id="notif-save-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--green);"></div>
+    </div>
+
     <div class="card">
       <h2>Student Exam Link</h2>
       <p style="color:var(--muted);font-size:.88rem;margin-bottom:14px;">Share this page with your students. They upload the exam JSON file you give them and complete the assessment.</p>
@@ -588,10 +656,78 @@ function copyLink(el){
   navigator.clipboard.writeText(el.textContent).then(()=>{el.style.color='var(--green)';setTimeout(()=>el.style.color='var(--accent)',1500);});
 }
 
+// ══════════════════════════════════════════════
+//  NOTIFICATION SETTINGS
+// ══════════════════════════════════════════════
+function saveNotifSettings(){
+  const s={
+    tgToken:document.getElementById('tg-token').value.trim(),
+    tgChatId:document.getElementById('tg-chatid').value.trim(),
+    ejPubKey:document.getElementById('ej-pubkey').value.trim(),
+    ejService:document.getElementById('ej-service').value.trim(),
+    ejTemplate:document.getElementById('ej-template').value.trim(),
+    ejEmail:document.getElementById('ej-email').value.trim(),
+    notifCheat:document.getElementById('notif-cheat').checked,
+    notifSubmit:document.getElementById('notif-submit').checked
+  };
+  localStorage.setItem('notif_settings',JSON.stringify(s));
+  const m=document.getElementById('notif-save-msg');
+  m.textContent='✅ Saved'; setTimeout(()=>m.textContent='',2000);
+}
+
+function loadNotifSettings(){
+  const s=JSON.parse(localStorage.getItem('notif_settings')||'{}');
+  if(s.tgToken) document.getElementById('tg-token').value=s.tgToken;
+  if(s.tgChatId) document.getElementById('tg-chatid').value=s.tgChatId;
+  if(s.ejPubKey) document.getElementById('ej-pubkey').value=s.ejPubKey;
+  if(s.ejService) document.getElementById('ej-service').value=s.ejService;
+  if(s.ejTemplate) document.getElementById('ej-template').value=s.ejTemplate;
+  if(s.ejEmail) document.getElementById('ej-email').value=s.ejEmail;
+  if(s.notifCheat!==undefined) document.getElementById('notif-cheat').checked=s.notifCheat;
+  if(s.notifSubmit!==undefined) document.getElementById('notif-submit').checked=s.notifSubmit;
+}
+
+async function testTelegram(){
+  const token=document.getElementById('tg-token').value.trim();
+  const chatId=document.getElementById('tg-chatid').value.trim();
+  const m=document.getElementById('tg-test-msg');
+  if(!token||!chatId){m.style.color='var(--red)';m.textContent='❌ Enter Bot Token and Chat ID first';return;}
+  m.style.color='var(--muted)';m.textContent='Sending...';
+  try{
+    const r=await fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({chat_id:chatId,text:'✅ Test from Jackson Habimana Chemistry Portal\n\nTelegram notifications are working!'})
+    });
+    const d=await r.json();
+    if(d.ok){m.style.color='var(--green)';m.textContent='✅ Message sent! Check Telegram.';}
+    else{m.style.color='var(--red)';m.textContent='❌ '+d.description;}
+  }catch(e){m.style.color='var(--red)';m.textContent='❌ Network error: '+e.message;}
+}
+
+async function testEmail(){
+  const pubKey=document.getElementById('ej-pubkey').value.trim();
+  const serviceId=document.getElementById('ej-service').value.trim();
+  const templateId=document.getElementById('ej-template').value.trim();
+  const toEmail=document.getElementById('ej-email').value.trim();
+  const m=document.getElementById('ej-test-msg');
+  if(!pubKey||!serviceId||!templateId){m.style.color='var(--red)';m.textContent='❌ Fill all EmailJS fields first';return;}
+  m.style.color='var(--muted)';m.textContent='Sending...';
+  try{
+    const r=await fetch('https://api.emailjs.com/api/v1.0/email/send',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({service_id:serviceId,template_id:templateId,user_id:pubKey,
+        template_params:{student_name:'Test Student',exam_title:'Test Exam',
+          event_type:'TEST',message:'This is a test notification from your Chemistry Portal. Email alerts are working!',to_email:toEmail}})
+    });
+    if(r.status===200){m.style.color='var(--green)';m.textContent='✅ Email sent! Check your inbox.';}
+    else{const t=await r.text();m.style.color='var(--red)';m.textContent='❌ '+t;}
+  }catch(e){m.style.color='var(--red)';m.textContent='❌ '+e.message;}
+}
+
 function init(){
-  // Add 4 default questions to get started
   if(document.getElementById('questions-container').children.length===0) addQuestion();
   document.getElementById('student-link').textContent = window.location.href.replace('teacher-admin.html','student-exam.html');
+  loadNotifSettings();
 }
 </script>
 </body>
