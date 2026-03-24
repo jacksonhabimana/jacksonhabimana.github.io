@@ -152,30 +152,33 @@ input.inp:focus{outline:none;border-color:var(--accent);}
       <label class="inp-label">Your Class / ID (optional)</label>
       <input class="inp" type="text" id="student-class" placeholder="e.g. S4 A / 2024001"/>
 
+      <label class="inp-label">Time Limit (minutes) — Set by Teacher</label>
+      <input class="inp" type="number" id="quiz-time" value="20" min="1" max="180" placeholder="e.g. 20"/>
+
       <label class="inp-label" style="margin-bottom:12px;">Choose a Quiz</label>
       <div class="quiz-picker">
         <div class="quiz-option qo-s4" onclick="selectQuiz('s4',this)">
           <div class="qo-icon">🔵</div>
           <div class="qo-title">S4 Chemistry</div>
-          <div class="qo-meta">30 questions · 20 min</div>
+          <div class="qo-meta">30 questions · <span class="time-display">?</span> min</div>
           <div class="qo-meta" style="margin-top:4px;">Atomic structure, bonding, periodic table</div>
         </div>
         <div class="quiz-option qo-s5" onclick="selectQuiz('s5',this)">
           <div class="qo-icon">🟢</div>
           <div class="qo-title">S5 Chemistry</div>
-          <div class="qo-meta">30 questions · 20 min</div>
+          <div class="qo-meta">30 questions · <span class="time-display">?</span> min</div>
           <div class="qo-meta" style="margin-top:4px;">Organic chemistry, mechanisms, thermochemistry</div>
         </div>
         <div class="quiz-option qo-s6" onclick="selectQuiz('s6',this)">
           <div class="qo-icon">🟣</div>
           <div class="qo-title">S6 Chemistry</div>
-          <div class="qo-meta">30 questions · 20 min</div>
+          <div class="qo-meta">30 questions · <span class="time-display">?</span> min</div>
           <div class="qo-meta" style="margin-top:4px;">Equilibrium, electrochemistry, kinetics, radioactivity</div>
         </div>
         <div class="quiz-option qo-mix" onclick="selectQuiz('mix',this)">
           <div class="qo-icon">🏆</div>
           <div class="qo-title">Mixed Challenge</div>
-          <div class="qo-meta">30 questions · 25 min</div>
+          <div class="qo-meta">30 questions · <span class="time-display">?</span> min</div>
           <div class="qo-meta" style="margin-top:4px;">S4 + S5 + S6 combined</div>
         </div>
       </div>
@@ -351,10 +354,10 @@ let startTime = null;
 let quizSubmitted = false;
 
 const LEVEL_META = {
-  s4:{label:'S4 Chemistry',color:'var(--accent)',accent:'rgba(56,189,248,.15)',border:'rgba(56,189,248,.3)',time:20},
-  s5:{label:'S5 Chemistry',color:'var(--green)',accent:'rgba(52,211,153,.15)',border:'rgba(52,211,153,.3)',time:20},
-  s6:{label:'S6 Chemistry',color:'var(--purple)',accent:'rgba(167,139,250,.15)',border:'rgba(167,139,250,.3)',time:20},
-  mix:{label:'Mixed Challenge',color:'var(--gold)',accent:'rgba(232,197,71,.15)',border:'rgba(232,197,71,.3)',time:25}
+  s4:{label:'S4 Chemistry',color:'var(--accent)',accent:'rgba(56,189,248,.15)',border:'rgba(56,189,248,.3)'},
+  s5:{label:'S5 Chemistry',color:'var(--green)',accent:'rgba(52,211,153,.15)',border:'rgba(52,211,153,.3)'},
+  s6:{label:'S6 Chemistry',color:'var(--purple)',accent:'rgba(167,139,250,.15)',border:'rgba(167,139,250,.3)'},
+  mix:{label:'Mixed Challenge',color:'var(--gold)',accent:'rgba(232,197,71,.15)',border:'rgba(232,197,71,.3)'}
 };
 
 // ════════════════════════════════════════════════════════
@@ -372,11 +375,13 @@ function selectQuiz(level, el){
 function startQuiz(){
   const name = document.getElementById('student-name').value.trim();
   const err = document.getElementById('err-msg');
+  const mins = parseInt(document.getElementById('quiz-time').value) || 20;
   if(!name){err.textContent='⚠ Please enter your full name.';return;}
   if(!selectedLevel){err.textContent='⚠ Please select a quiz level.';return;}
+  if(mins<1||mins>180){err.textContent='⚠ Time must be between 1 and 180 minutes.';return;}
   err.textContent='';
   answers={};currentQ=0;quizSubmitted=false;
-  timeLeft = LEVEL_META[selectedLevel].time * 60;
+  timeLeft = mins * 60;
   startTime = new Date();
   document.getElementById('qh-title').textContent = LEVEL_META[selectedLevel].label+' Quiz — '+document.getElementById('student-name').value.trim();
   document.getElementById('prog').style.background = LEVEL_META[selectedLevel].color;
@@ -538,12 +543,20 @@ function buildReview(qs){
 }
 
 function scrollToReview(){ document.getElementById('review-section').scrollIntoView({behavior:'smooth'}); }
-function retakeQuiz(){ show('quiz-screen'); answers={}; currentQ=0; quizSubmitted=false; timeLeft=LEVEL_META[selectedLevel].time*60; startTime=new Date(); buildQNav(); renderQuestion(0); startTimer(); window.scrollTo({top:0}); }
+function retakeQuiz(){ show('quiz-screen'); answers={}; currentQ=0; quizSubmitted=false; const mins=parseInt(document.getElementById('quiz-time').value)||20; timeLeft=mins*60; startTime=new Date(); buildQNav(); renderQuestion(0); startTimer(); window.scrollTo({top:0}); }
 
 // ════════════════════════════════════════════════════════
 //  UTILITY
 // ════════════════════════════════════════════════════════
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');window.scrollTo({top:0});}
+
+// Update time display in quiz cards live
+document.getElementById('quiz-time').addEventListener('input', function(){
+  const v = this.value||'?';
+  document.querySelectorAll('.time-display').forEach(el=>el.textContent=v);
+});
+// Init display
+document.querySelectorAll('.time-display').forEach(el=>el.textContent=document.getElementById('quiz-time').value);
 </script>
 </body>
 </html>
