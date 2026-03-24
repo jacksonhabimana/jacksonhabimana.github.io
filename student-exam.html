@@ -441,7 +441,28 @@ function recordViolation(msg){
     `🚨 CHEATING ALERT!\n\nStudent: ${studentName}\nExam: ${exam.title}\nViolation: ${violations}/${exam.warnings}\nAction: ${msg}\nTime: ${new Date().toLocaleString()}\n\nStudent has been warned on screen.`
   );
   if(violations >= exam.warnings){
-    setTimeout(()=>autoSubmit('Maximum violations reached – exam auto-submitted.'), 2500);
+    // IMMEDIATE auto-submit on reaching max violations - show countdown then submit
+    document.getElementById('warning-remaining').textContent = '🚫 EXAM WILL SUBMIT IN 5 SECONDS...';
+    document.getElementById('warning-remaining').style.color = 'var(--red)';
+    // Update modal to show final message
+    document.getElementById('warning-msg').textContent = 'You have reached the maximum number of violations. Your exam is being submitted immediately.';
+    document.getElementById('warning-count-disp').textContent = '🚫 MAXIMUM VIOLATIONS REACHED';
+    document.getElementById('warning-count-disp').style.color = 'var(--red)';
+    // Remove the dismiss button - student cannot go back
+    const btn = document.querySelector('#warning-modal button');
+    if(btn) btn.style.display = 'none';
+    // Countdown 5 → 0 then submit
+    let countdown = 5;
+    const interval = setInterval(()=>{
+      countdown--;
+      document.getElementById('warning-remaining').textContent = countdown > 0
+        ? `🚫 EXAM SUBMITTING IN ${countdown} SECOND${countdown>1?'S':''}...`
+        : '🚫 SUBMITTING NOW...';
+      if(countdown <= 0){
+        clearInterval(interval);
+        autoSubmit('CHEATING: Maximum violations (3) reached — exam auto-submitted.');
+      }
+    }, 1000);
   }
 }
 
