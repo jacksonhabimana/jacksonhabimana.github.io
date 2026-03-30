@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S4 Chemistry – Unit 9: Group 14 Elements & Their Compounds | Jackson Habimana</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#22d3ee;--accent2:#f97316;--gold:#e8c547;--green:#34d399;--red:#f87171;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px;padding:0 24px;}
+.nav-brand{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);text-decoration:none;}
+.nav-links{display:flex;gap:4px;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:5px;border:1px solid transparent;transition:all .15s;}
+.nav-links a:hover{color:var(--accent);border-color:rgba(34,211,238,.3);}
+/* HERO */
+.hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#001a1a 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(34,211,238,.04) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(34,211,238,.04) 40px);pointer-events:none;}
+.badge{display:inline-block;background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.3);color:var(--accent);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+.hero h1 em{color:var(--accent);font-style:italic;}
+.hero p.sub{color:var(--muted);font-size:1rem;max-width:640px;margin:0 auto 32px;}
+.toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:860px;margin:0 auto;}
+.toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+.toc-grid a:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+/* PAGE */
+.page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+.section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+.section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+.card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:14px;}
+.card p+p{margin-top:12px;}
+.def-box{border-left:4px solid var(--accent);background:rgba(34,211,238,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+.def-box strong{color:var(--accent);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+.callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout.info{background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.25);}
+.callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+.callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+.callout.mem{background:rgba(232,197,71,.08);border:1px solid rgba(232,197,71,.25);}
+.callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+.callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+.tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:var(--surface2);}
+th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);white-space:nowrap;}
+td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;line-height:1.6;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.93rem;color:var(--accent);overflow-x:auto;line-height:2;}
+h3.sub{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+/* SVG diagrams */
+.diagram-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin:22px 0;text-align:center;}
+.diagram-box figcaption{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--muted);margin-top:12px;letter-spacing:.05em;}
+/* Examples */
+.example-box{border:1px solid rgba(34,211,238,.3);border-radius:var(--radius);overflow:hidden;margin:22px 0;}
+.example-box .ex-head{background:rgba(34,211,238,.12);padding:12px 20px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;}
+.example-box .ex-body{padding:20px 24px;}
+.example-box .ex-body p+p{margin-top:10px;}
+.step{display:flex;gap:14px;margin-bottom:10px;align-items:flex-start;}
+.step-num{width:28px;height:28px;background:var(--accent);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:4px;}
+/* Exercises */
+.exercise-list{list-style:none;counter-reset:ex;}
+.exercise-list li{counter-increment:ex;margin-bottom:18px;padding:18px 22px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+.exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);display:block;margin-bottom:8px;}
+.reveal-btn{margin-top:10px;background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.3);color:var(--accent);padding:6px 18px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+.reveal-btn:hover{background:var(--accent);color:#000;}
+.answer{display:none;margin-top:12px;padding:14px 18px;background:rgba(34,211,238,.06);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.9rem;line-height:1.7;}
+.answer.open{display:block;}
+/* QUIZ */
+.quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:28px;}
+.quiz-head{padding:22px 28px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.quiz-head h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;}
+.quiz-body{padding:24px 28px;}
+.qblock{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.qblock:last-child{border-bottom:none;}
+.qnum{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.2);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:10px;}
+.qtext{font-size:1rem;color:#fff;margin-bottom:14px;line-height:1.7;}
+.opts label{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;margin-bottom:8px;border-radius:8px;border:1px solid var(--border);cursor:pointer;transition:all .15s;font-size:.93rem;}
+.opts label:hover{border-color:var(--accent);background:rgba(34,211,238,.04);}
+.opts label.correct{background:rgba(52,211,153,.12);border-color:var(--green);color:var(--green);}
+.opts label.wrong{background:rgba(248,113,113,.08);border-color:var(--red);color:var(--red);}
+.opts input[type=radio]{margin-top:3px;accent-color:var(--accent);flex-shrink:0;}
+.qexplain{display:none;margin-top:12px;padding:12px 16px;background:rgba(34,211,238,.07);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.7;}
+.qs{display:block;margin:24px auto 0;background:var(--accent);color:#000;border:none;padding:12px 40px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.88rem;font-weight:700;cursor:pointer;transition:opacity .2s;}
+.qs:hover{opacity:.85;}
+#qR{display:none;margin-top:16px;border-radius:8px;padding:14px 18px;font-family:'JetBrains Mono',monospace;font-size:.88rem;text-align:center;}
+/* TEST */
+.test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:22px;overflow:hidden;}
+.test-sec-head{background:var(--surface2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+.test-sec-head h3{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#fff;text-transform:uppercase;letter-spacing:.08em;}
+.marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(232,197,71,.15);border:1px solid rgba(232,197,71,.3);color:var(--gold);padding:3px 12px;border-radius:50px;}
+.tq{padding:18px 24px;border-bottom:1px solid var(--border);}
+.tq:last-child{border-bottom:none;}
+.tq-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);margin-bottom:6px;}
+.tq p{line-height:1.75;}
+/* NAV BOTTOM */
+.unit-nav{display:flex;justify-content:space-between;gap:16px;margin-top:60px;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap;}
+.unit-nav a{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);text-decoration:none;padding:10px 18px;border:1px solid var(--border);border-radius:8px;transition:all .2s;}
+.unit-nav a:hover{color:var(--accent);border-color:rgba(34,211,238,.3);}
+footer{border-top:1px solid var(--border);padding:28px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);}
+footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:640px){.hero{padding:60px 24px 40px;}.page{padding:0 16px 60px;}.quiz-body{padding:16px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">⚗ Jackson Habimana</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="s4-chemistry.html">S4</a>
+      <a href="s5-chemistry.html">S5</a>
+      <a href="s6-chemistry.html">S6</a>
+      <a href="student-hub.html">Assessments</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge">S4 Chemistry · Unit 9</div>
+  <h1>Group 14 Elements<br>and Their <em>Compounds</em></h1>
+  <p class="sub">Carbon allotropes · Silicon chemistry · Oxides and chlorides · +2 vs +4 oxidation states · The inert pair effect · Diagonal relationship B–Si</p>
+  <div class="toc-grid">
+    <a href="#s91">9.1 Physical Properties</a>
+    <a href="#s92">9.2 Carbon Allotropes</a>
+    <a href="#s93">9.3 Silicon</a>
+    <a href="#s94">9.4 Oxides</a>
+    <a href="#s95">9.5 Chlorides</a>
+    <a href="#s96">9.6 Oxidation States</a>
+    <a href="#s97">9.7 Tin & Lead</a>
+    <a href="#s98">9.8 Diagonal Relationship</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </div>
+</div>
+
+<main class="page">
+
+<!-- ═══ 9.1 PHYSICAL PROPERTIES ═══ -->
+<div class="section-header" id="s91">
+  <span class="section-number">9.1</span>
+  <h2>Physical Properties of Group 14 Elements</h2>
+</div>
+
+<div class="card">
+  <h3>Overview of Group 14</h3>
+  <p>Group 14 (also called Group IVA or Group IVB) contains <strong>Carbon (C), Silicon (Si), Germanium (Ge), Tin (Sn), and Lead (Pb)</strong>. All have the outer electron configuration <strong style="font-family:'JetBrains Mono',monospace;color:var(--accent);">ns²np²</strong> giving <strong>4 valence electrons</strong>.</p>
+  <p>This group shows the most dramatic transition from non-metal to metal of any group — carbon is a non-metal, silicon and germanium are metalloids (semiconductors), while tin and lead are true metals.</p>
+</div>
+
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Element</th><th>Symbol</th><th>Z</th><th>Electron Config</th><th>M.p. (°C)</th><th>Character</th><th>Common OS</th></tr></thead>
+  <tbody>
+    <tr><td>Carbon</td><td>C</td><td>6</td><td>[He]2s²2p²</td><td>3550 (diamond)</td><td>Non-metal</td><td>−4, 0, +2, +4</td></tr>
+    <tr><td>Silicon</td><td>Si</td><td>14</td><td>[Ne]3s²3p²</td><td>1414</td><td>Metalloid / semiconductor</td><td>+4, −4</td></tr>
+    <tr><td>Germanium</td><td>Ge</td><td>32</td><td>[Ar]3d¹⁰4s²4p²</td><td>938</td><td>Metalloid / semiconductor</td><td>+4, +2</td></tr>
+    <tr><td>Tin</td><td>Sn</td><td>50</td><td>[Kr]4d¹⁰5s²5p²</td><td>232</td><td>Metal (soft, silvery)</td><td>+2, +4</td></tr>
+    <tr><td>Lead</td><td>Pb</td><td>82</td><td>[Xe]4f¹⁴5d¹⁰6s²6p²</td><td>327</td><td>Soft, dense metal</td><td>+2 (stable), +4</td></tr>
+  </tbody>
+</table></div>
+
+<div class="card">
+  <h3>Trends Down Group 14</h3>
+  <ul style="margin:0 0 0 22px;line-height:2.3;">
+    <li><strong>Atomic radius</strong> — increases (more electron shells added)</li>
+    <li><strong>Ionisation energy</strong> — decreases (outer electrons farther from nucleus, better shielded)</li>
+    <li><strong>Electronegativity</strong> — decreases (C = 2.5, Si = 1.8, Sn = 1.8, Pb = 1.8)</li>
+    <li><strong>Melting point</strong> — generally decreases from carbon (very high giant covalent) → Pb (327°C metal)</li>
+    <li><strong>Metallic character</strong> — increases (C = non-metal → Pb = metal)</li>
+    <li><strong>Stability of +4 state</strong> — decreases; stability of +2 state increases (inert pair effect, see 9.6)</li>
+  </ul>
+</div>
+
+<div class="callout info">
+  <span class="callout-icon">💡</span>
+  <div class="callout-body">
+    <strong>Why does Group 14 span all three classes?</strong>
+    Carbon at the top is a typical non-metal — small atomic radius, high electronegativity, forms covalent bonds. Silicon and Germanium have intermediate properties (semiconductors used in electronics). Tin and Lead at the bottom have metallic structures with delocalised electrons — they conduct electricity and are malleable.
+  </div>
+</div>
+
+<!-- ═══ 9.2 CARBON ALLOTROPES ═══ -->
+<div class="section-header" id="s92">
+  <span class="section-number">9.2</span>
+  <h2>Carbon and Its Allotropes</h2>
+</div>
+
+<div class="def-box">
+  <strong>Definition — Allotropy</strong>
+  The existence of an element in two or more different physical forms in the same physical state, with different arrangements of atoms. Each form is called an <strong>allotrope</strong>.
+</div>
+
+<div class="card">
+  <h3>Diamond</h3>
+  <p>In diamond, each carbon atom is <strong>sp³ hybridised</strong> and bonded to <strong>four other carbon atoms</strong> in a regular tetrahedral arrangement, forming a <strong>giant covalent (macromolecular) structure</strong>. Bond angle = 109.5°.</p>
+  <div class="diagram-box">
+    <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:420px;">
+      <defs><marker id="ah" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#22d3ee"/></marker></defs>
+      <!-- Central C -->
+      <circle cx="210" cy="110" r="18" fill="#161b22" stroke="#22d3ee" stroke-width="2"/>
+      <text x="210" y="116" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#22d3ee">C</text>
+      <!-- 4 surrounding C atoms -->
+      <circle cx="110" cy="60" r="15" fill="#1c2333" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="110" y="65" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#22d3ee">C</text>
+      <circle cx="310" cy="60" r="15" fill="#1c2333" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="310" y="65" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#22d3ee">C</text>
+      <circle cx="130" cy="175" r="15" fill="#1c2333" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="130" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#22d3ee">C</text>
+      <circle cx="290" cy="175" r="15" fill="#1c2333" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="290" y="180" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#22d3ee">C</text>
+      <!-- Bonds -->
+      <line x1="198" y1="100" x2="123" y2="72" stroke="#22d3ee" stroke-width="2"/>
+      <line x1="222" y1="100" x2="297" y2="72" stroke="#22d3ee" stroke-width="2"/>
+      <line x1="196" y1="122" x2="143" y2="163" stroke="#22d3ee" stroke-width="2"/>
+      <line x1="224" y1="122" x2="278" y2="163" stroke="#22d3ee" stroke-width="2"/>
+      <!-- Labels -->
+      <text x="155" y="88" font-family="Source Serif 4" font-size="11" fill="#8b949e">109.5°</text>
+      <text x="60" y="35" font-family="JetBrains Mono" font-size="11" fill="#8b949e">sp³ hybridised</text>
+      <text x="60" y="50" font-family="JetBrains Mono" font-size="11" fill="#8b949e">tetrahedral</text>
+      <text x="250" y="210" font-family="JetBrains Mono" font-size="11" fill="#8b949e">Giant covalent lattice</text>
+    </svg>
+    <figcaption>DIAMOND: Each C bonded to 4 others — tetrahedral giant covalent structure</figcaption>
+  </div>
+  <p><strong>Properties of Diamond:</strong></p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li>Extremely hard (hardest natural substance) — all 4 bonds must be broken to cleave it</li>
+    <li>Very high melting point (~3550°C) — strong covalent bonds throughout</li>
+    <li>Does <strong>not conduct electricity</strong> — all 4 valence electrons used in bonding, no free electrons</li>
+    <li>Transparent to visible light — wide band gap</li>
+    <li>Good thermal conductor — vibrations transfer efficiently through the rigid lattice</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Graphite</h3>
+  <p>In graphite, each carbon atom is <strong>sp² hybridised</strong> and bonded to <strong>three other carbon atoms</strong> in a <strong>flat hexagonal layer</strong>. Bond angle = 120°. The unhybridised p orbital on each carbon overlaps sideways to form a <strong>delocalised π system</strong> extending across each layer.</p>
+  <div class="diagram-box">
+    <svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:420px;">
+      <!-- Layer 1 hexagons -->
+      <g stroke="#22d3ee" stroke-width="1.8" fill="none">
+        <!-- Hexagon 1 -->
+        <polygon points="90,60 120,44 150,60 150,92 120,108 90,92" fill="rgba(34,211,238,0.05)"/>
+        <!-- Hexagon 2 -->
+        <polygon points="150,60 180,44 210,60 210,92 180,108 150,92" fill="rgba(34,211,238,0.05)"/>
+        <!-- Hexagon 3 partial -->
+        <polygon points="210,60 240,44 270,60 270,92 240,108 210,92" fill="rgba(34,211,238,0.05)"/>
+      </g>
+      <!-- Layer 2 (offset, faded) -->
+      <g stroke="rgba(34,211,238,0.3)" stroke-width="1.5" fill="none">
+        <polygon points="120,130 150,114 180,130 180,162 150,178 120,162" fill="rgba(34,211,238,0.03)"/>
+        <polygon points="180,130 210,114 240,130 240,162 210,178 180,162" fill="rgba(34,211,238,0.03)"/>
+      </g>
+      <!-- Layer gap arrows -->
+      <line x1="290" y1="76" x2="290" y2="146" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="295" y="115" font-family="JetBrains Mono" font-size="11" fill="#f59e0b">van der</text>
+      <text x="295" y="128" font-family="JetBrains Mono" font-size="11" fill="#f59e0b">Waals</text>
+      <text x="295" y="141" font-family="JetBrains Mono" font-size="11" fill="#f59e0b">forces</text>
+      <!-- Pi electrons label -->
+      <text x="60" y="170" font-family="JetBrains Mono" font-size="11" fill="#a78bfa">delocalised π</text>
+      <text x="60" y="183" font-family="JetBrains Mono" font-size="11" fill="#a78bfa">electrons</text>
+      <text x="60" y="196" font-family="JetBrains Mono" font-size="11" fill="#a78bfa">→ conducts</text>
+      <text x="120" y="210" font-family="JetBrains Mono" font-size="11" fill="#8b949e">Layers slide (lubricant)</text>
+    </svg>
+    <figcaption>GRAPHITE: Layered hexagonal structure. Layers held by weak van der Waals forces</figcaption>
+  </div>
+  <p><strong>Properties of Graphite:</strong></p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li><strong>Conducts electricity</strong> — each C uses only 3 of its 4 valence electrons in σ bonds; the 4th forms the π system with delocalised electrons free to carry charge</li>
+    <li><strong>Soft and slippery (lubricant)</strong> — layers held by weak van der Waals forces; layers slide over each other easily</li>
+    <li>High melting point within layers (strong covalent bonds), but cleaves between layers</li>
+    <li>Black/dark grey colour — absorbs all visible light (many π transitions)</li>
+    <li>Used in pencils, electrodes, lubricants, crucibles</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Fullerenes (C₆₀ — Buckminsterfullerene)</h3>
+  <p>Discovered in 1985. C₆₀ consists of <strong>60 carbon atoms</strong> arranged in 12 pentagons and 20 hexagons — resembling a football (soccer ball). Each carbon is sp² hybridised and bonded to 3 others. The molecule is approximately spherical with diameter ~0.7 nm.</p>
+  <p><strong>Properties:</strong> Molecular solid (not giant covalent) — held together by van der Waals forces → low melting point. Poor conductor as a solid but can be doped to become superconducting. Used in nanotechnology, drug delivery research, and as lubricants.</p>
+  <p><strong>Carbon nanotubes</strong> are a related form — sheets of graphene (single graphite layer) rolled into cylinders. Extremely high tensile strength (~100× steel). Conduct electricity along the tube axis.</p>
+</div>
+
+<div class="card">
+  <h3>Graphene</h3>
+  <p>A <strong>single layer of graphite</strong> — one atom thick. It is the thinnest and one of the strongest materials known. Graphene conducts electricity and heat exceptionally well and is transparent (~97.7% of visible light passes through). It is considered a 2D material.</p>
+</div>
+
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Allotrope</th><th>Structure</th><th>Hybridisation</th><th>Bonds/C</th><th>Conductivity</th><th>Melting Point</th><th>Key Use</th></tr></thead>
+  <tbody>
+    <tr><td>Diamond</td><td>Giant covalent 3D</td><td>sp³</td><td>4</td><td>None</td><td>~3550°C</td><td>Cutting tools, jewellery</td></tr>
+    <tr><td>Graphite</td><td>Layered hexagonal</td><td>sp²</td><td>3 (+ π)</td><td>Good (along layers)</td><td>~3600°C (sublime)</td><td>Electrodes, pencils, lubricants</td></tr>
+    <tr><td>C₆₀ (Fullerene)</td><td>Molecular spheres</td><td>sp²</td><td>3</td><td>Poor (undoped)</td><td>~600°C (sublimes)</td><td>Nanotechnology, research</td></tr>
+    <tr><td>Graphene</td><td>Single hexagonal layer</td><td>sp²</td><td>3 (+ π)</td><td>Excellent</td><td>~3600°C</td><td>Electronics, composites</td></tr>
+  </tbody>
+</table></div>
+
+<div class="callout mem">
+  <span class="callout-icon">🧠</span>
+  <div class="callout-body">
+    <strong>Memory tip — Diamond vs Graphite conductivity</strong>
+    Diamond — all 4 electrons bonding → <strong>no</strong> free electrons → non-conductor. Graphite — only 3 electrons bonding → <strong>1 free</strong> per carbon in π system → conducts. "DiamonDs Don't conduct, Graphite Goes electricity."
+  </div>
+</div>
+
+<!-- ═══ 9.3 SILICON ═══ -->
+<div class="section-header" id="s93">
+  <span class="section-number">9.3</span>
+  <h2>Silicon Chemistry</h2>
+</div>
+
+<div class="card">
+  <h3>Structure and Properties of Silicon</h3>
+  <p>Silicon has the <strong>same giant covalent structure as diamond</strong> — each Si is sp³ hybridised and bonded to 4 other Si atoms tetrahedrally. However, Si–Si bonds are weaker than C–C bonds (Si is larger, bonds are longer → lower bond energy).</p>
+  <p><strong>Properties of Silicon:</strong></p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li>Hard, grey, lustrous solid</li>
+    <li>Very high melting point (1414°C) — giant covalent structure</li>
+    <li><strong>Semiconductor</strong> — small band gap; does not conduct at 0 K but conducts at room temperature (thermal excitation promotes electrons across the gap)</li>
+    <li>Reacts slowly with dilute acids but dissolves in concentrated alkali: Si + 2NaOH + H₂O → Na₂SiO₃ + 2H₂↑</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Silicon Dioxide (Silica, SiO₂)</h3>
+  <p>SiO₂ has a <strong>giant covalent structure</strong> — each Si is bonded to 4 oxygen atoms (tetrahedral), and each O bridges two Si atoms. There are NO discrete SiO₂ molecules. The formula SiO₂ is an <strong>empirical formula</strong> representing the ratio Si:O = 1:2.</p>
+  <p>Compare: CO₂ is a <strong>simple molecular</strong> compound (small discrete molecules, low m.p.). SiO₂ is a <strong>giant covalent</strong> compound (no discrete molecules, very high m.p. ~1713°C).</p>
+  <div class="callout warn">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <strong>Why doesn't SiO₂ have a structure like CO₂?</strong>
+      Carbon can form strong C=O double bonds (pπ–pπ overlap is effective for small atoms). Silicon is larger — Si=O double bonds are weak (poor pπ–pπ overlap between 3p orbitals). Si prefers to form 4 Si–O single bonds in a 3D network rather than 2 Si=O double bonds.
+    </div>
+  </div>
+  <p><strong>Reactions of SiO₂:</strong></p>
+  <div class="formula-block">SiO₂ + 2NaOH → Na₂SiO₃ + H₂O    (acidic oxide reacts with base)
+SiO₂ + CaO → CaSiO₃               (used in glassmaking / cement)
+SiO₂ + 4HF → SiF₄ + 2H₂O        (only common acid to attack silica)</div>
+  <p>SiO₂ is an <strong>acidic oxide</strong>. It does NOT react with water (insoluble) or with most acids except HF.</p>
+</div>
+
+<div class="card">
+  <h3>Silicates</h3>
+  <p>Silicates contain the fundamental unit <strong>SiO₄⁴⁻</strong> (a tetrahedron). These tetrahedra can link in various ways — single units, chains, rings, sheets, and 3D networks — giving the huge variety of silicate minerals (quartz, feldspar, mica, clay). Na₂SiO₃ (sodium silicate) is soluble in water — used in detergents and as "water glass."</p>
+</div>
+
+<!-- ═══ 9.4 OXIDES ═══ -->
+<div class="section-header" id="s94">
+  <span class="section-number">9.4</span>
+  <h2>Oxides of Group 14 Elements</h2>
+</div>
+
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Element</th><th>+4 Oxide</th><th>Structure</th><th>Acid/Base?</th><th>+2 Oxide</th><th>Acid/Base?</th></tr></thead>
+  <tbody>
+    <tr><td>Carbon (C)</td><td>CO₂</td><td>Simple molecular (O=C=O)</td><td>Acidic</td><td>CO</td><td>Neutral</td></tr>
+    <tr><td>Silicon (Si)</td><td>SiO₂</td><td>Giant covalent</td><td>Acidic</td><td>SiO (rare)</td><td>—</td></tr>
+    <tr><td>Germanium (Ge)</td><td>GeO₂</td><td>Solid</td><td>Amphoteric</td><td>GeO</td><td>Basic</td></tr>
+    <tr><td>Tin (Sn)</td><td>SnO₂</td><td>Solid</td><td>Amphoteric</td><td>SnO</td><td>Basic</td></tr>
+    <tr><td>Lead (Pb)</td><td>PbO₂</td><td>Solid</td><td>Amphoteric</td><td>PbO</td><td>Basic/amphoteric</td></tr>
+  </tbody>
+</table></div>
+
+<div class="card">
+  <h3>Carbon Oxides in Detail</h3>
+  <p><strong>Carbon dioxide (CO₂):</strong> Linear molecule (O=C=O). Carbon is sp hybridised. Acidic oxide:</p>
+  <div class="formula-block">CO₂ + H₂O ⇌ H₂CO₃    (carbonic acid — weak, Ka₁ = 4.3×10⁻⁷)
+CO₂ + 2NaOH → Na₂CO₃ + H₂O    (excess NaOH)
+CO₂ + NaOH → NaHCO₃            (excess CO₂)
+CO₂ + CaO → CaCO₃               (important in cement)</div>
+  <p><strong>Carbon monoxide (CO):</strong> Colourless, odourless, <strong>extremely toxic</strong> gas. CO binds to haemoglobin 200× more strongly than O₂ → prevents O₂ transport → tissue death. CO is a neutral oxide — does not react with water. It is a strong reducing agent:</p>
+  <div class="formula-block">CO + ½O₂ → CO₂                    (combustion)
+Fe₂O₃ + 3CO → 2Fe + 3CO₂       (blast furnace — reduction of iron ore)
+CO + 2H₂ ⇌ CH₃OH               (methanol synthesis)</div>
+  <p>CO has a <strong>dative (coordinate) bond</strong> structure: :C≡O: — one of the bonds is dative from O to C. CO is isoelectronic with N₂.</p>
+</div>
+
+<div class="card">
+  <h3>Lead Oxides</h3>
+  <p>Lead forms several oxides: <strong>PbO</strong> (litharge, yellow), <strong>PbO₂</strong> (brown), and <strong>Pb₃O₄</strong> (red lead, minium — a mixed oxide containing Pb²⁺ and Pb⁴⁺). PbO is predominantly basic, but also shows slight amphoteric character. PbO₂ is a strong oxidising agent used in lead-acid batteries.</p>
+</div>
+
+<!-- ═══ 9.5 CHLORIDES ═══ -->
+<div class="section-header" id="s95">
+  <span class="section-number">9.5</span>
+  <h2>Chlorides of Group 14 Elements</h2>
+</div>
+
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Chloride</th><th>Type</th><th>State (room T)</th><th>Reaction with Water</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>CCl₄</td><td>Simple covalent</td><td>Liquid</td><td>Does NOT hydrolyse — no reaction</td><td>No d orbitals on C to accept lone pair; too small for nucleophilic attack</td></tr>
+    <tr><td>SiCl₄</td><td>Simple covalent</td><td>Liquid</td><td>Vigorous hydrolysis — fumes of HCl</td><td>Si has empty 3d orbitals — can expand octet; attacks by H₂O</td></tr>
+    <tr><td>GeCl₄</td><td>Covalent</td><td>Liquid</td><td>Hydrolysis</td><td>Similar to SiCl₄</td></tr>
+    <tr><td>SnCl₂</td><td>Ionic (Sn²⁺)</td><td>Solid</td><td>Partial hydrolysis → Sn(OH)Cl↓</td><td>Reducing agent; dissolves in HCl</td></tr>
+    <tr><td>SnCl₄</td><td>Covalent</td><td>Liquid</td><td>Hydrolysis</td><td>—</td></tr>
+    <tr><td>PbCl₂</td><td>Ionic (Pb²⁺)</td><td>Solid (white)</td><td>Sparingly soluble — slightly soluble in hot water</td><td>Precipitate test for Pb²⁺</td></tr>
+    <tr><td>PbCl₄</td><td>Covalent</td><td>Yellow oily liquid</td><td>Hydrolysis</td><td>Unstable — decomposes to PbCl₂ + Cl₂</td></tr>
+  </tbody>
+</table></div>
+
+<div class="card">
+  <h3>CCl₄ vs SiCl₄ — Key Comparison</h3>
+  <p>This is one of the most important comparisons in A-Level Group 14:</p>
+  <div class="formula-block">CCl₄ + H₂O → NO REACTION
+
+SiCl₄ + 2H₂O → SiO₂ + 4HCl    (overall — via Si(OH)₄)
+SiCl₄ + 4H₂O → Si(OH)₄ + 4HCl  (stepwise hydrolysis)</div>
+  <div class="callout warn">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <strong>Why does SiCl₄ hydrolyse but CCl₄ does not?</strong>
+      Carbon in CCl₄ has no empty low-energy orbitals available (2p are full, 3d are too high in energy) — water cannot donate its lone pair to C. Silicon in SiCl₄ has <strong>empty 3d orbitals</strong> at accessible energy — a lone pair from H₂O's oxygen attacks Si, forming a 5-coordinate intermediate → bond breaks → HCl released. This is a nucleophilic substitution (addition-elimination) mechanism.
+    </div>
+  </div>
+</div>
+
+<div class="example-box">
+  <div class="ex-head">Worked Example 9.1 — Identifying the Products</div>
+  <div class="ex-body">
+    <p><strong>Question:</strong> SiCl₄ is added to excess water. Write the equation and explain what is observed.</p>
+    <div class="step"><span class="step-num">1</span><p>SiCl₄ reacts vigorously with water. The Cl⁻ is displaced and HCl is produced.</p></div>
+    <div class="step"><span class="step-num">2</span><p>SiCl₄ + 2H₂O → SiO₂ + 4HCl</p></div>
+    <div class="step"><span class="step-num">3</span><p><strong>Observations:</strong> White fumes (HCl gas) produced. White solid or gel (SiO₂ / silicic acid Si(OH)₄) forms. The reaction is exothermic.</p></div>
+    <div class="step"><span class="step-num">4</span><p><strong>Contrast:</strong> CCl₄ added to water — no visible reaction (CCl₄ is denser than water, sinks to the bottom, no fumes).</p></div>
+  </div>
+</div>
+
+<!-- ═══ 9.6 OXIDATION STATES ═══ -->
+<div class="section-header" id="s96">
+  <span class="section-number">9.6</span>
+  <h2>+2 and +4 Oxidation States — The Inert Pair Effect</h2>
+</div>
+
+<div class="card">
+  <h3>The Inert Pair Effect</h3>
+  <p>Going down Group 14 (and Groups 13, 15), the <strong>+2 oxidation state becomes increasingly stable</strong> relative to +4. This is called the <strong>inert pair effect</strong>.</p>
+  <p><strong>Explanation:</strong> The outermost s electrons (ns²) are called the "inert pair." For heavier elements (Sn, Pb), the ns² electrons are in an orbital that has penetrated through many inner electron shells and the relativistic effects increase. The energy required to unpair and use these 2s electrons for bonding is not recovered by the additional bond energies formed. As a result:</p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li>For <strong>Carbon and Silicon</strong>: +4 is the dominant stable state (both 2p electrons easily promoted)</li>
+    <li>For <strong>Germanium</strong>: +4 dominant, but +2 possible (GeO, GeCl₂ exist)</li>
+    <li>For <strong>Tin</strong>: both +2 and +4 are stable (SnCl₂ and SnCl₄ both common)</li>
+    <li>For <strong>Lead</strong>: <strong>+2 is the dominant stable state</strong>; Pb(IV) compounds are strong oxidising agents (unstable)</li>
+  </ul>
+</div>
+
+<div class="diagram-box">
+  <svg viewBox="0 0 500 160" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:500px;">
+    <!-- Title -->
+    <text x="250" y="20" text-anchor="middle" font-family="Playfair Display" font-size="13" fill="#e6edf3">Stability of +2 vs +4 Oxidation State Down Group 14</text>
+    <!-- Elements -->
+    <text x="30" y="60" font-family="JetBrains Mono" font-size="12" fill="#e6edf3">C</text>
+    <text x="130" y="60" font-family="JetBrains Mono" font-size="12" fill="#e6edf3">Si</text>
+    <text x="230" y="60" font-family="JetBrains Mono" font-size="12" fill="#e6edf3">Ge</text>
+    <text x="330" y="60" font-family="JetBrains Mono" font-size="12" fill="#e6edf3">Sn</text>
+    <text x="430" y="60" font-family="JetBrains Mono" font-size="12" fill="#e6edf3">Pb</text>
+    <!-- +4 stability bars -->
+    <rect x="20" y="68" width="25" height="50" fill="rgba(34,211,238,0.7)" rx="3"/>
+    <rect x="120" y="72" width="25" height="46" fill="rgba(34,211,238,0.6)" rx="3"/>
+    <rect x="220" y="80" width="25" height="38" fill="rgba(34,211,238,0.5)" rx="3"/>
+    <rect x="320" y="88" width="25" height="30" fill="rgba(34,211,238,0.4)" rx="3"/>
+    <rect x="420" y="105" width="25" height="13" fill="rgba(34,211,238,0.25)" rx="3"/>
+    <!-- +2 stability -->
+    <text x="45" y="90" font-family="JetBrains Mono" font-size="9" fill="#22d3ee">+4✓</text>
+    <text x="145" y="90" font-family="JetBrains Mono" font-size="9" fill="#22d3ee">+4✓</text>
+    <text x="245" y="88" font-family="JetBrains Mono" font-size="9" fill="#22d3ee">+4✓</text>
+    <text x="345" y="88" font-family="JetBrains Mono" font-size="9" fill="#22d3ee">+4✓</text>
+    <text x="255" y="110" font-family="JetBrains Mono" font-size="9" fill="#f59e0b">+2✓</text>
+    <text x="355" y="110" font-family="JetBrains Mono" font-size="9" fill="#f59e0b">+2✓</text>
+    <text x="415" y="140" font-family="JetBrains Mono" font-size="10" fill="#f59e0b">+2 dominant</text>
+    <!-- Arrow -->
+    <line x1="30" y1="150" x2="470" y2="150" stroke="#30363d" stroke-width="1.5" marker-end="url(#ah2)"/>
+    <defs><marker id="ah2" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#30363d"/></marker></defs>
+    <text x="200" y="160" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#8b949e">+2 increasingly stable ↓; +4 less stable ↓</text>
+  </svg>
+  <figcaption>Inert pair effect: +4 dominant at top, +2 dominant at bottom of group</figcaption>
+</div>
+
+<div class="example-box">
+  <div class="ex-head">Worked Example 9.2 — Inert Pair Effect in Practice</div>
+  <div class="ex-body">
+    <p><strong>Question:</strong> Explain why PbCl₄ is a stronger oxidising agent than SnCl₄.</p>
+    <div class="step"><span class="step-num">1</span><p>PbCl₄ contains Pb in the +4 oxidation state. Due to the inert pair effect, Pb(+4) is unstable relative to Pb(+2) — it has a strong tendency to be reduced to Pb²⁺.</p></div>
+    <div class="step"><span class="step-num">2</span><p>PbCl₄ → PbCl₂ + Cl₂ (easily — releases Cl₂ even at room temperature)</p></div>
+    <div class="step"><span class="step-num">3</span><p>Sn(+4) in SnCl₄ is much more stable — the inert pair effect is less pronounced for Sn than for Pb. SnCl₄ does not readily release Cl₂.</p></div>
+    <div class="step"><span class="step-num">4</span><p><strong>Conclusion:</strong> PbCl₄ more readily accepts electrons (is reduced) → stronger oxidising agent.</p></div>
+  </div>
+</div>
+
+<!-- ═══ 9.7 TIN AND LEAD ═══ -->
+<div class="section-header" id="s97">
+  <span class="section-number">9.7</span>
+  <h2>Tin and Lead — Reactions and Compounds</h2>
+</div>
+
+<div class="card">
+  <h3>Reactions of Tin and Lead with Acids and Alkalis</h3>
+  <div class="formula-block">Tin + dilute HCl: Sn + 2HCl → SnCl₂ + H₂↑
+Tin + hot conc. HNO₃: Sn + 4HNO₃(conc.) → SnO₂ + 4NO₂ + 2H₂O
+Tin + NaOH(aq): Sn + 2NaOH + 2H₂O → Na₂[Sn(OH)₄] + H₂↑
+             (tetrahydroxostannate(II) — amphoteric behaviour)
+
+Lead + dilute HCl: Pb + 2HCl → PbCl₂↓ + H₂↑ (slow — PbCl₂ insoluble, coats surface)
+Lead + dilute HNO₃: 3Pb + 8HNO₃(dil.) → 3Pb(NO₃)₂ + 2NO↑ + 4H₂O
+Lead + NaOH(aq): Pb + 2NaOH + 2H₂O → Na₂[Pb(OH)₄] + H₂↑</div>
+</div>
+
+<div class="card">
+  <h3>Identification of Sn²⁺ and Pb²⁺ Ions</h3>
+  <div class="tbl-wrap" style="margin:0;"><table>
+    <thead><tr><th>Ion</th><th>Test Reagent</th><th>Observation</th><th>Equation</th></tr></thead>
+    <tbody>
+      <tr><td>Sn²⁺</td><td>NaOH(aq)</td><td>White ppt of Sn(OH)₂; dissolves in excess NaOH (amphoteric)</td><td>Sn²⁺ + 2OH⁻ → Sn(OH)₂↓; Sn(OH)₂ + 2OH⁻ → [Sn(OH)₄]²⁻</td></tr>
+      <tr><td>Pb²⁺</td><td>NaOH(aq)</td><td>White ppt of Pb(OH)₂; dissolves in excess NaOH</td><td>Pb²⁺ + 2OH⁻ → Pb(OH)₂↓; Pb(OH)₂ + 2OH⁻ → [Pb(OH)₄]²⁻</td></tr>
+      <tr><td>Pb²⁺</td><td>KI(aq)</td><td>Bright yellow ppt of PbI₂</td><td>Pb²⁺ + 2I⁻ → PbI₂↓ (yellow)</td></tr>
+      <tr><td>Pb²⁺</td><td>H₂SO₄(aq)</td><td>White ppt of PbSO₄</td><td>Pb²⁺ + SO₄²⁻ → PbSO₄↓ (white)</td></tr>
+      <tr><td>Pb²⁺</td><td>Cl⁻ (HCl)</td><td>White ppt PbCl₂; dissolves in hot water</td><td>Pb²⁺ + 2Cl⁻ → PbCl₂↓</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="card">
+  <h3>Tin as a Reducing Agent (SnCl₂)</h3>
+  <p>Sn²⁺ is easily oxidised to Sn⁴⁺ — making SnCl₂ a useful <strong>reducing agent</strong> in the laboratory:</p>
+  <div class="formula-block">SnCl₂ + 2FeCl₃ → SnCl₄ + 2FeCl₂    (Sn²⁺ reduces Fe³⁺ → Fe²⁺)
+SnCl₂ + 2HgCl₂ → SnCl₄ + Hg₂Cl₂↓  (test for Hg²⁺)</div>
+</div>
+
+<!-- ═══ 9.8 DIAGONAL RELATIONSHIP ═══ -->
+<div class="section-header" id="s98">
+  <span class="section-number">9.8</span>
+  <h2>Diagonal Relationship: Boron and Silicon</h2>
+</div>
+
+<div class="card">
+  <h3>What is the Diagonal Relationship?</h3>
+  <p>Elements in the <strong>second row of the periodic table</strong> (Period 2) often show similarities with the element to the <strong>lower right</strong> (diagonal) in Period 3. This happens because charge density (charge/radius) is similar diagonally.</p>
+  <p>The most important diagonal relationships are: <strong>Li–Mg, Be–Al, and B–Si</strong>.</p>
+</div>
+
+<div class="card">
+  <h3>Similarities Between Boron (B) and Silicon (Si)</h3>
+  <div class="tbl-wrap" style="margin:0;"><table>
+    <thead><tr><th>Property</th><th>Boron (B)</th><th>Silicon (Si)</th></tr></thead>
+    <tbody>
+      <tr><td>Electronegativity</td><td>2.0</td><td>1.8 (similar)</td></tr>
+      <tr><td>Structure of element</td><td>Giant covalent</td><td>Giant covalent</td></tr>
+      <tr><td>Oxide type</td><td>B₂O₃ — acidic</td><td>SiO₂ — acidic</td></tr>
+      <tr><td>Oxide structure</td><td>Giant covalent / glass-like</td><td>Giant covalent</td></tr>
+      <tr><td>Chloride hydrolysis</td><td>BCl₃ + 3H₂O → B(OH)₃ + 3HCl</td><td>SiCl₄ + 4H₂O → Si(OH)₄ + 4HCl</td></tr>
+      <tr><td>Hydrides</td><td>B₂H₆ (diborane) — electron deficient</td><td>SiH₄ (silane) — forms covalent hydrides</td></tr>
+      <tr><td>Nature of halides</td><td>Covalent, hydrolyse in water</td><td>Covalent, hydrolyse in water</td></tr>
+      <tr><td>Forms glassy oxides</td><td>B₂O₃ — borosilicate glass component</td><td>SiO₂ — major glass component</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="callout tip">
+  <span class="callout-icon">💡</span>
+  <div class="callout-body">
+    <strong>Why B and Si (not B and Al or B and C)?</strong>
+    Moving one period down increases the atomic radius and decreases charge density. Moving one group to the right increases the nuclear charge which also affects charge density. These two effects partially cancel each other diagonally — the result is that B (Group 13, Period 2) and Si (Group 14, Period 3) have similar charge densities (~2.7 vs ~2.6 C pm⁻²) and thus similar chemical behaviour.
+  </div>
+</div>
+
+<div class="card">
+  <h3>Uses of Group 14 Elements and Compounds</h3>
+  <div class="tbl-wrap" style="margin:0;"><table>
+    <thead><tr><th>Substance</th><th>Use</th><th>Reason</th></tr></thead>
+    <tbody>
+      <tr><td>Diamond</td><td>Cutting, drilling, polishing tools; jewellery</td><td>Hardest natural substance; gemstone</td></tr>
+      <tr><td>Graphite</td><td>Pencil "lead"; electrodes; lubricant; nuclear moderator</td><td>Soft layered structure; conducts; high m.p.</td></tr>
+      <tr><td>Silicon</td><td>Semiconductors, transistors, solar cells, microchips</td><td>Semiconductor — band gap can be engineered by doping</td></tr>
+      <tr><td>SiO₂</td><td>Glass, optical fibres, silica gel (desiccant)</td><td>Transparent, thermally stable, inert</td></tr>
+      <tr><td>Silicones</td><td>Waterproofing, lubricants, sealants, breast implants</td><td>Chemically inert, flexible polymer backbone (Si–O–Si)</td></tr>
+      <tr><td>SnO₂</td><td>Transparent conducting layer in LCDs; ceramic glazes</td><td>Conducts while transparent when doped</td></tr>
+      <tr><td>Pb in PbO₂</td><td>Lead-acid car batteries (cathode)</td><td>Strong oxidising agent, reversible electrode reactions</td></tr>
+      <tr><td>Sn (tinplate)</td><td>Food cans — tin coating on steel</td><td>Corrosion resistant, non-toxic</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<!-- ═══ EXERCISES ═══ -->
+<div class="section-header" id="exercises">
+  <span class="section-number">✏️</span>
+  <h2>Exercises</h2>
+</div>
+
+<ul class="exercise-list">
+  <li>
+    State the type of structure and bonding in each allotrope of carbon: (a) diamond, (b) graphite, (c) C₆₀ fullerene. For each, predict whether it conducts electricity, giving reasons.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">(a) Diamond: giant covalent 3D network; sp³ C; does NOT conduct — all 4 electrons used in bonding, no free electrons. (b) Graphite: giant covalent layered; sp² C; CONDUCTS along layers — delocalised π electrons from unhybridised p orbitals carry charge. (c) C₆₀: simple molecular (discrete molecules); sp² C; does NOT conduct (as pure solid) — no free charge carriers; the π electrons are localised within each molecule.</div>
+  </li>
+  <li>
+    Explain why SiCl₄ is rapidly hydrolysed by water but CCl₄ is not. Include a description of the mechanism.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">CCl₄: carbon's 2p orbitals are fully occupied and 3d orbitals are too high in energy to be used. H₂O cannot donate its lone pair to carbon → no reaction. SiCl₄: silicon has empty, accessible 3d orbitals. H₂O acts as a nucleophile, donating a lone pair from oxygen to Si → forms a 5-coordinate intermediate Si(OH)(Cl₄)⁻ → Cl⁻ is displaced → HCl released. This repeats until SiCl₄ + 2H₂O → SiO₂ + 4HCl.</div>
+  </li>
+  <li>
+    Write equations to show that SnO is basic and SnO₂ is amphoteric.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">SnO is basic: SnO + H₂SO₄ → SnSO₄ + H₂O (reacts with acid but NOT with alkali). SnO₂ is amphoteric: SnO₂ + 4HCl → SnCl₄ + 2H₂O (reacts with acid); SnO₂ + 2NaOH + 2H₂O → Na₂[Sn(OH)₆] (reacts with alkali to give hexahydroxostannate(IV)).</div>
+  </li>
+  <li>
+    State the oxidation state of carbon in each compound: (a) CO₂ (b) CO (c) CH₄ (d) CCl₄ (e) C₂H₅OH
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">(a) CO₂: C + 2(−2) = 0 → C = +4. (b) CO: C + (−2) = 0 → C = +2. (c) CH₄: C + 4(+1) = 0 → C = −4. (d) CCl₄: C + 4(−1) = 0 → C = +4. (e) C₂H₅OH: CH₃– carbon = −3 (3H, 1C); CH₂OH carbon = −1 (2H, 1O, 1C). Average = −2; or calculate each individually.</div>
+  </li>
+  <li>
+    Explain the inert pair effect and use it to explain why PbCl₂ is more stable than PbCl₄.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">The inert pair effect: in heavy elements (Sn, Pb), the outermost ns² electrons (s electrons of the outermost shell) become increasingly difficult to use in bonding because the energy released by forming additional bonds does not compensate the energy cost of unpairing and promoting these electrons. For lead: Pb has 6s² electrons that remain as a "lone pair" (inert pair) — Pb(+2) leaves these electrons unbonded. Forming PbCl₄ requires using these s electrons (+4 state) — this is energetically unfavourable. Therefore Pb prefers +2, and PbCl₄ readily decomposes: PbCl₄ → PbCl₂ + Cl₂. PbCl₂ is the stable form.</div>
+  </li>
+  <li>
+    Describe the similarities between boron and silicon that constitute the diagonal relationship. Give three specific examples with equations.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">Similarities: (1) Both elements have giant covalent structures (very high m.p.); both are semiconductors/poor conductors. (2) Both oxides are acidic and giant covalent: B₂O₃ + 6NaOH → 2Na₃BO₃ + 3H₂O; SiO₂ + 2NaOH → Na₂SiO₃ + H₂O. (3) Both chlorides are covalent and hydrolyse in water: BCl₃ + 3H₂O → B(OH)₃ + 3HCl; SiCl₄ + 2H₂O → SiO₂ + 4HCl. (4) Both form polymeric, glass-like oxides used in glass manufacture (borosilicate glass = SiO₂ + B₂O₃).</div>
+  </li>
+</ul>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="section-header" id="quiz">
+  <span class="section-number">🧪</span>
+  <h2>Multiple Choice Quiz — 25 Questions</h2>
+</div>
+<div class="quiz-wrap">
+  <div class="quiz-head">
+    <h3>Unit 9: Group 14 Elements and Compounds</h3>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted);">25 Questions · Select one answer each</span>
+  </div>
+  <div class="quiz-body">
+
+    <div class="qblock"><span class="qnum">Q1</span>
+    <p class="qtext">What is the outer electron configuration of all Group 14 elements?</p>
+    <div class="opts">
+      <label><input type="radio" name="q1" value="A"> ns²np¹</label>
+      <label><input type="radio" name="q1" value="B"> ns²np²</label>
+      <label><input type="radio" name="q1" value="C"> ns²np³</label>
+      <label><input type="radio" name="q1" value="D"> ns²np⁴</label>
+    </div>
+    <div class="qexplain" id="e1">All Group 14 elements have <strong>ns²np²</strong> (4 valence electrons). This gives 4 available bonding electrons — the key to the +4 oxidation state.</div></div>
+
+    <div class="qblock"><span class="qnum">Q2</span>
+    <p class="qtext">Which allotrope of carbon has a giant covalent structure and does NOT conduct electricity?</p>
+    <div class="opts">
+      <label><input type="radio" name="q2" value="A"> Graphite</label>
+      <label><input type="radio" name="q2" value="B"> Diamond</label>
+      <label><input type="radio" name="q2" value="C"> C₆₀ fullerene</label>
+      <label><input type="radio" name="q2" value="D"> Graphene</label>
+    </div>
+    <div class="qexplain" id="e2">Diamond is a giant covalent structure where all 4 valence electrons are used in C–C bonds → no free electrons → non-conductor. Graphite, graphene, and C₆₀ all have sp² carbon with delocalised π electrons.</div></div>
+
+    <div class="qblock"><span class="qnum">Q3</span>
+    <p class="qtext">Why does graphite conduct electricity but diamond does not?</p>
+    <div class="opts">
+      <label><input type="radio" name="q3" value="A"> Graphite is denser than diamond</label>
+      <label><input type="radio" name="q3" value="B"> Graphite has a layered structure</label>
+      <label><input type="radio" name="q3" value="C"> Graphite has delocalised π electrons from sp² carbon; diamond uses all 4 electrons in sp³ bonds</label>
+      <label><input type="radio" name="q3" value="D"> Graphite has ionic bonding</label>
+    </div>
+    <div class="qexplain" id="e3">In graphite: sp² C uses 3 electrons for σ bonds → 1 electron per C enters the delocalised π system → free to carry charge. Diamond: sp³ C uses all 4 electrons in σ bonds → no free electrons.</div></div>
+
+    <div class="qblock"><span class="qnum">Q4</span>
+    <p class="qtext">The lubricating property of graphite is due to:</p>
+    <div class="opts">
+      <label><input type="radio" name="q4" value="A"> Its high melting point</label>
+      <label><input type="radio" name="q4" value="B"> Weak van der Waals forces between layers, allowing them to slide over each other</label>
+      <label><input type="radio" name="q4" value="C"> Strong covalent bonds within each layer</label>
+      <label><input type="radio" name="q4" value="D"> Its ability to conduct electricity</label>
+    </div>
+    <div class="qexplain" id="e4">The layers in graphite are held by weak London dispersion (van der Waals) forces → layers can slide easily over each other → graphite is soft and a good lubricant. The strong C–C covalent bonds within each layer are irrelevant to lubrication.</div></div>
+
+    <div class="qblock"><span class="qnum">Q5</span>
+    <p class="qtext">Which statement correctly describes the structure of SiO₂?</p>
+    <div class="opts">
+      <label><input type="radio" name="q5" value="A"> Simple molecular — discrete SiO₂ molecules</label>
+      <label><input type="radio" name="q5" value="B"> Ionic — Si⁴⁺ and O²⁻ ions</label>
+      <label><input type="radio" name="q5" value="C"> Giant covalent — each Si bonded to 4 O atoms, each O bridges 2 Si atoms</label>
+      <label><input type="radio" name="q5" value="D"> Metallic — delocalised electrons</label>
+    </div>
+    <div class="qexplain" id="e5">SiO₂ is a giant covalent (macromolecular) network solid. SiO₂ is the empirical formula. Each Si is sp³-bonded to 4 oxygens; each O bridges 2 Si atoms. No discrete molecules exist. Contrast with CO₂ (simple molecular, O=C=O).</div></div>
+
+    <div class="qblock"><span class="qnum">Q6</span>
+    <p class="qtext">SiCl₄ is rapidly hydrolysed by water but CCl₄ is not. What is the main reason?</p>
+    <div class="opts">
+      <label><input type="radio" name="q6" value="A"> CCl₄ has stronger C–Cl bonds than Si–Cl bonds in SiCl₄</label>
+      <label><input type="radio" name="q6" value="B"> Si has empty 3d orbitals available to accept a lone pair from H₂O; C has no accessible empty orbitals</label>
+      <label><input type="radio" name="q6" value="C"> SiCl₄ is more soluble in water than CCl₄</label>
+      <label><input type="radio" name="q6" value="D"> CCl₄ has a higher boiling point than SiCl₄</label>
+    </div>
+    <div class="qexplain" id="e6">The key: Si has empty 3d orbitals (energetically accessible) that water's oxygen lone pair can attack → forms 5-coordinate intermediate → Cl⁻ displaced → hydrolysis proceeds. Carbon has no empty low-energy orbitals → H₂O cannot attack → CCl₄ unreactive towards water.</div></div>
+
+    <div class="qblock"><span class="qnum">Q7</span>
+    <p class="qtext">What are the products when SiCl₄ reacts with excess water?</p>
+    <div class="opts">
+      <label><input type="radio" name="q7" value="A"> SiO + 4HCl</label>
+      <label><input type="radio" name="q7" value="B"> SiO₂ + 4HCl</label>
+      <label><input type="radio" name="q7" value="C"> SiCl₂ + 2HCl + H₂</label>
+      <label><input type="radio" name="q7" value="D"> Si(OH)₂ + 2HCl</label>
+    </div>
+    <div class="qexplain" id="e7">SiCl₄ + 2H₂O → SiO₂ + 4HCl. The intermediate is Si(OH)₄ (silicic acid) which dehydrates to SiO₂. White solid/gel forms and white fumes of HCl are observed.</div></div>
+
+    <div class="qblock"><span class="qnum">Q8</span>
+    <p class="qtext">The inert pair effect explains why, going down Group 14:</p>
+    <div class="opts">
+      <label><input type="radio" name="q8" value="A"> The +4 oxidation state becomes more stable</label>
+      <label><input type="radio" name="q8" value="B"> The +2 oxidation state becomes increasingly stable relative to +4</label>
+      <label><input type="radio" name="q8" value="C"> All elements prefer the +2 state throughout the group</label>
+      <label><input type="radio" name="q8" value="D"> The elements become more electronegative</label>
+    </div>
+    <div class="qexplain" id="e8">The inert pair effect: the ns² electrons become harder to use in bonding in heavier elements. The energy cost of unpairing the s² electrons is not recovered by the extra bond energies formed at the +4 state. Thus the +2 state (ns² left as lone pair) becomes increasingly stable going down: C,Si → +4 dominant; Sn → both; Pb → +2 dominant.</div></div>
+
+    <div class="qblock"><span class="qnum">Q9</span>
+    <p class="qtext">Which of the following is the most stable oxidation state for lead in aqueous solution?</p>
+    <div class="opts">
+      <label><input type="radio" name="q9" value="A"> +4</label>
+      <label><input type="radio" name="q9" value="B"> +3</label>
+      <label><input type="radio" name="q9" value="C"> +2</label>
+      <label><input type="radio" name="q9" value="D"> 0</label>
+    </div>
+    <div class="qexplain" id="e9">Due to the inert pair effect, Pb(+2) is the dominant stable state in aqueous solution. The 6s² electron pair in lead is "inert" — too stable to be used in bonding. Pb(+4) compounds are strong oxidising agents that readily revert to Pb(+2).</div></div>
+
+    <div class="qblock"><span class="qnum">Q10</span>
+    <p class="qtext">Carbon monoxide (CO) is toxic because:</p>
+    <div class="opts">
+      <label><input type="radio" name="q10" value="A"> It reacts with water to form carbonic acid in the lungs</label>
+      <label><input type="radio" name="q10" value="B"> It binds irreversibly to haemoglobin (~200× stronger than O₂), preventing O₂ transport</label>
+      <label><input type="radio" name="q10" value="C"> It is an acidic oxide that corrodes lung tissue</label>
+      <label><input type="radio" name="q10" value="D"> It burns in the lungs when inhaled</label>
+    </div>
+    <div class="qexplain" id="e10">CO binds to the Fe²⁺ centre in haemoglobin approximately 200 times more strongly than O₂ (carboxyhaemoglobin is very stable). This prevents O₂ from being carried to tissues → oxygen deprivation → tissue death. Treatment: high-flow O₂ or hyperbaric O₂ to displace CO.</div></div>
+
+    <div class="qblock"><span class="qnum">Q11</span>
+    <p class="qtext">What is the oxidation state of carbon in CO?</p>
+    <div class="opts">
+      <label><input type="radio" name="q11" value="A"> −2</label>
+      <label><input type="radio" name="q11" value="B"> 0</label>
+      <label><input type="radio" name="q11" value="C"> +2</label>
+      <label><input type="radio" name="q11" value="D"> +4</label>
+    </div>
+    <div class="qexplain" id="e11">In CO: C + O = 0. O has OS = −2 (more electronegative). Therefore C = +2. Note: CO is a neutral oxide — it does not react with water. Compare CO₂: C = +4.</div></div>
+
+    <div class="qblock"><span class="qnum">Q12</span>
+    <p class="qtext">Which Group 14 element is used as a semiconductor in computer chips?</p>
+    <div class="opts">
+      <label><input type="radio" name="q12" value="A"> Carbon</label>
+      <label><input type="radio" name="q12" value="B"> Silicon</label>
+      <label><input type="radio" name="q12" value="C"> Lead</label>
+      <label><input type="radio" name="q12" value="D"> Tin</label>
+    </div>
+    <div class="qexplain" id="e12">Silicon is the dominant semiconductor material. It has a suitable band gap (~1.1 eV) that can be modified by controlled doping with Group 13 (p-type) or Group 15 (n-type) elements. "Silicon Valley" is named after silicon's dominance in microelectronics.</div></div>
+
+    <div class="qblock"><span class="qnum">Q13</span>
+    <p class="qtext">The reaction Fe₂O₃ + 3CO → 2Fe + 3CO₂ occurs in the blast furnace. In this reaction, CO acts as:</p>
+    <div class="opts">
+      <label><input type="radio" name="q13" value="A"> An oxidising agent</label>
+      <label><input type="radio" name="q13" value="B"> A catalyst</label>
+      <label><input type="radio" name="q13" value="C"> A reducing agent (removes O from Fe₂O₃)</label>
+      <label><input type="radio" name="q13" value="D"> An acid</label>
+    </div>
+    <div class="qexplain" id="e13">CO is oxidised from +2 (in CO) to +4 (in CO₂) — it loses electron density → CO is the REDUCING agent. Fe₂O₃ gains electrons (Fe³⁺ → Fe⁰) — Fe₂O₃ is the oxidising agent. "CO removes oxygen from iron oxide" = CO reduces Fe₂O₃.</div></div>
+
+    <div class="qblock"><span class="qnum">Q14</span>
+    <p class="qtext">Which allotrope of carbon has a simple molecular structure?</p>
+    <div class="opts">
+      <label><input type="radio" name="q14" value="A"> Diamond</label>
+      <label><input type="radio" name="q14" value="B"> Graphite</label>
+      <label><input type="radio" name="q14" value="C"> C₆₀ fullerene</label>
+      <label><input type="radio" name="q14" value="D"> Both diamond and graphite</label>
+    </div>
+    <div class="qexplain" id="e14">C₆₀ (Buckminsterfullerene) consists of discrete C₆₀ molecules held together by weak van der Waals forces — it is a simple molecular solid. Diamond and graphite are both giant covalent structures (macromolecular).</div></div>
+
+    <div class="qblock"><span class="qnum">Q15</span>
+    <p class="qtext">SiO₂ reacts with molten sodium oxide (Na₂O) to give:</p>
+    <div class="opts">
+      <label><input type="radio" name="q15" value="A"> Si + 2NaO</label>
+      <label><input type="radio" name="q15" value="B"> Na₂SiO₃ (sodium silicate)</label>
+      <label><input type="radio" name="q15" value="C"> NaSiO₂</label>
+      <label><input type="radio" name="q15" value="D"> No reaction — SiO₂ is inert</label>
+    </div>
+    <div class="qexplain" id="e15">SiO₂ + Na₂O → Na₂SiO₃. SiO₂ is an acidic oxide — it reacts with basic oxides to form silicates. Na₂SiO₃ (sodium silicate / "water glass") is soluble in water and used in detergents, adhesives, and as a fire retardant.</div></div>
+
+    <div class="qblock"><span class="qnum">Q16</span>
+    <p class="qtext">A white precipitate forms when HCl(aq) is added to Pb(NO₃)₂(aq). The precipitate is:</p>
+    <div class="opts">
+      <label><input type="radio" name="q16" value="A"> PbO</label>
+      <label><input type="radio" name="q16" value="B"> PbCl₄</label>
+      <label><input type="radio" name="q16" value="C"> PbCl₂</label>
+      <label><input type="radio" name="q16" value="D"> Pb(OH)₂</label>
+    </div>
+    <div class="qexplain" id="e16">Pb²⁺ + 2Cl⁻ → PbCl₂↓ (white precipitate). PbCl₂ is sparingly soluble in cold water but dissolves in hot water. This is used as a qualitative test for Pb²⁺ ions. Note: PbCl₄ is unstable and does not form under these conditions.</div></div>
+
+    <div class="qblock"><span class="qnum">Q17</span>
+    <p class="qtext">Which of the following correctly states the hybridisation and bond angle in diamond?</p>
+    <div class="opts">
+      <label><input type="radio" name="q17" value="A"> sp² hybridised; 120°</label>
+      <label><input type="radio" name="q17" value="B"> sp hybridised; 180°</label>
+      <label><input type="radio" name="q17" value="C"> sp³ hybridised; 109.5°</label>
+      <label><input type="radio" name="q17" value="D"> sp³d hybridised; 90° and 120°</label>
+    </div>
+    <div class="qexplain" id="e17">Diamond: each carbon is sp³ hybridised (4 equivalent C–C single bonds) with tetrahedral geometry → bond angle = 109.5°. Graphite: sp² hybridised, 120°. No carbon allotrope uses sp hybridisation.</div></div>
+
+    <div class="qblock"><span class="qnum">Q18</span>
+    <p class="qtext">The diagonal relationship exists between B and Si because they have similar:</p>
+    <div class="opts">
+      <label><input type="radio" name="q18" value="A"> Atomic masses</label>
+      <label><input type="radio" name="q18" value="B"> Charge density (charge/radius ratio)</label>
+      <label><input type="radio" name="q18" value="C"> Number of electrons</label>
+      <label><input type="radio" name="q18" value="D"> Metallic character</label>
+    </div>
+    <div class="qexplain" id="e18">The diagonal relationship arises because moving one period down increases atomic radius (decreasing charge density) while moving one group right increases nuclear charge (increasing charge density). These effects partially cancel → B (Period 2, Group 13) and Si (Period 3, Group 14) have similar charge densities → similar chemistry.</div></div>
+
+    <div class="qblock"><span class="qnum">Q19</span>
+    <p class="qtext">Which property of graphite makes it suitable for use as an electrode?</p>
+    <div class="opts">
+      <label><input type="radio" name="q19" value="A"> It is transparent</label>
+      <label><input type="radio" name="q19" value="B"> It conducts electricity due to delocalised π electrons and has a very high melting point</label>
+      <label><input type="radio" name="q19" value="C"> It is hard and brittle</label>
+      <label><input type="radio" name="q19" value="D"> It reacts easily with electrolytes</label>
+    </div>
+    <div class="qexplain" id="e19">Graphite electrodes: (1) Conducts electricity — delocalised π electrons carry current. (2) Very high melting point (~3600°C) — stable at high temperatures in electrolysis/furnaces. (3) Chemically inert to most electrolytes. (4) Relatively cheap and easy to machine.</div></div>
+
+    <div class="qblock"><span class="qnum">Q20</span>
+    <p class="qtext">SnCl₂ acts as a reducing agent in many reactions. What happens to tin during reduction by SnCl₂?</p>
+    <div class="opts">
+      <label><input type="radio" name="q20" value="A"> Sn²⁺ is reduced to Sn⁰</label>
+      <label><input type="radio" name="q20" value="B"> Sn²⁺ is oxidised to Sn⁴⁺</label>
+      <label><input type="radio" name="q20" value="C"> Sn²⁺ is oxidised to Sn⁶⁺</label>
+      <label><input type="radio" name="q20" value="D"> No change — Sn is a spectator</label>
+    </div>
+    <div class="qexplain" id="e20">When SnCl₂ acts as a reducing agent, it reduces something else — meaning Sn itself is oxidised. Sn²⁺ → Sn⁴⁺ + 2e⁻ (Sn is oxidised, losing 2 electrons). SnCl₂ + 2FeCl₃ → SnCl₄ + 2FeCl₂. Sn²⁺ is oxidised to Sn⁴⁺; Fe³⁺ is reduced to Fe²⁺.</div></div>
+
+    <div class="qblock"><span class="qnum">Q21</span>
+    <p class="qtext">What is observed when NaOH(aq) is added to Pb²⁺(aq) first in small amounts and then in excess?</p>
+    <div class="opts">
+      <label><input type="radio" name="q21" value="A"> Blue precipitate that does not dissolve in excess</label>
+      <label><input type="radio" name="q21" value="B"> White precipitate of Pb(OH)₂ forms; dissolves in excess NaOH to give [Pb(OH)₄]²⁻</label>
+      <label><input type="radio" name="q21" value="C"> No precipitate — Pb(OH)₂ is soluble</label>
+      <label><input type="radio" name="q21" value="D"> Yellow precipitate that turns brown on standing</label>
+    </div>
+    <div class="qexplain" id="e21">Pb²⁺ + 2OH⁻ → Pb(OH)₂↓ (white ppt). Pb(OH)₂ is amphoteric. In excess NaOH: Pb(OH)₂ + 2OH⁻ → [Pb(OH)₄]²⁻ (soluble tetrahydroxoplumbate(II)). This distinguishes Pb²⁺ from Ca²⁺ and Mg²⁺ (whose hydroxides do not dissolve in excess NaOH).</div></div>
+
+    <div class="qblock"><span class="qnum">Q22</span>
+    <p class="qtext">Which acid reacts with SiO₂ (silica)?</p>
+    <div class="opts">
+      <label><input type="radio" name="q22" value="A"> Dilute hydrochloric acid (HCl)</label>
+      <label><input type="radio" name="q22" value="B"> Dilute sulfuric acid (H₂SO₄)</label>
+      <label><input type="radio" name="q22" value="C"> Hydrofluoric acid (HF)</label>
+      <label><input type="radio" name="q22" value="D"> Dilute nitric acid (HNO₃)</label>
+    </div>
+    <div class="qexplain" id="e22">SiO₂ + 4HF → SiF₄ + 2H₂O. HF is the only common acid that attacks silica. Si–F bonds are very strong (thermodynamic driving force). This is why HF is stored in plastic bottles (not glass — it would dissolve the glass). All other listed acids do not react with SiO₂.</div></div>
+
+    <div class="qblock"><span class="qnum">Q23</span>
+    <p class="qtext">Carbon dioxide (CO₂) has a much lower melting point than silicon dioxide (SiO₂) because:</p>
+    <div class="opts">
+      <label><input type="radio" name="q23" value="A"> CO₂ has weaker C=O bonds than SiO₂ has Si–O bonds</label>
+      <label><input type="radio" name="q23" value="B"> CO₂ is a simple molecular compound (discrete molecules, weak IMF); SiO₂ is a giant covalent network (many strong bonds)</label>
+      <label><input type="radio" name="q23" value="C"> CO₂ is ionic while SiO₂ is covalent</label>
+      <label><input type="radio" name="q23" value="D"> CO₂ has a higher molar mass</label>
+    </div>
+    <div class="qexplain" id="e23">CO₂: discrete O=C=O molecules held by weak London dispersion forces → melts/sublimes at −78.5°C. SiO₂: giant 3D covalent network where every Si–O bond must be broken → m.p. ~1713°C. The difference in structure (molecular vs giant covalent) explains the enormous difference in m.p.</div></div>
+
+    <div class="qblock"><span class="qnum">Q24</span>
+    <p class="qtext">PbCl₄ decomposes readily at room temperature. The products are:</p>
+    <div class="opts">
+      <label><input type="radio" name="q24" value="A"> Pb + 4Cl</label>
+      <label><input type="radio" name="q24" value="B"> PbCl₂ + Cl₂</label>
+      <label><input type="radio" name="q24" value="C"> PbO₂ + 2Cl₂</label>
+      <label><input type="radio" name="q24" value="D"> No decomposition occurs</label>
+    </div>
+    <div class="qexplain" id="e24">PbCl₄ → PbCl₂ + Cl₂. This reflects the inert pair effect: Pb(+4) is unstable and readily reverts to Pb(+2) by releasing Cl₂. PbCl₄ is a strong oxidising agent precisely because of this tendency. Cl₂ (yellow-green gas) is produced.</div></div>
+
+    <div class="qblock"><span class="qnum">Q25</span>
+    <p class="qtext">Which statement about carbon monoxide (CO) is correct?</p>
+    <div class="opts">
+      <label><input type="radio" name="q25" value="A"> CO is an acidic oxide — it reacts with water to form carbonic acid</label>
+      <label><input type="radio" name="q25" value="B"> CO is a neutral oxide — it does not react with water; it is a strong reducing agent</label>
+      <label><input type="radio" name="q25" value="C"> CO is a basic oxide — it reacts with acids</label>
+      <label><input type="radio" name="q25" value="D"> CO has the same structure as CO₂ — it is linear with two C=O bonds</label>
+    </div>
+    <div class="qexplain" id="e25">CO is a NEUTRAL oxide (does not react with water, neither acidic nor basic). It is a strong reducing agent (reduces metal oxides in blast furnaces, reduces Ag⁺ etc.). CO structure: :C≡O: — a triple bond (one dative bond from O to C). Isoelectronic with N₂. Not to be confused with CO₂ (acidic oxide, forms H₂CO₃ with water).</div></div>
+
+    <div style="text-align:center;margin-top:28px;">
+      <button class="qs" onclick="submitQuiz()">Submit Quiz — Check Answers</button>
+      <div id="qR"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ UNIT TEST ═══ -->
+<div class="section-header" id="test">
+  <span class="section-number">📝</span>
+  <h2>Unit Test — 50 Marks</h2>
+</div>
+
+<div class="test-section">
+  <div class="test-sec-head"><h3>Section A — Short Answer</h3><span class="marks-badge">30 marks</span></div>
+  <div class="tq"><div class="tq-num">Q1 [4 marks]</div>
+  <p>Compare the structures of diamond and graphite. For each: state the hybridisation, number of bonds per carbon, type of structure, and whether it conducts electricity. [4]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">Diamond: sp³ hybridised; 4 C–C bonds per carbon; giant 3D covalent network; does NOT conduct (all electrons in bonds, no free carriers). [2] Graphite: sp² hybridised; 3 C–C bonds per carbon (+ 1 electron in π system); giant layered covalent structure; DOES conduct along layers (delocalised π electrons free to move). [2]</div></div>
+
+  <div class="tq"><div class="tq-num">Q2 [4 marks]</div>
+  <p>Explain, with reference to orbital theory, why SiCl₄ is hydrolysed by water but CCl₄ is not. Write an equation for the reaction of SiCl₄ with water. [4]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">CCl₄: carbon's 2p orbitals are fully occupied; 3d orbitals are too high in energy to participate. Water cannot donate a lone pair to carbon → no reaction. [1] SiCl₄: silicon has empty, accessible 3d orbitals. Water's oxygen donates a lone pair to Si → forms a 5-coordinate intermediate → Cl⁻ is displaced as HCl → hydrolysis continues stepwise. [2] Equation: SiCl₄ + 2H₂O → SiO₂ + 4HCl. White solid/gel (SiO₂) forms and white fumes (HCl) observed. [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q3 [5 marks]</div>
+  <p>Describe the inert pair effect. Use it to explain the trend in stability of the +2 oxidation state from carbon to lead. Give one specific example for tin and one for lead. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">Inert pair effect: the ns² electrons in heavy elements become increasingly stable and are less available for bonding. [1] The energy released by forming two additional bonds (to reach +4) does not compensate the energy required to unpair the s electrons in heavier elements. [1] Trend: C, Si → only +4 stable; Ge → +4 dominant, +2 possible; Sn → both +2 and +4 stable; Pb → +2 dominant. [1] Tin example: SnCl₂ (Sn²⁺) is a stable, common compound; Sn²⁺ acts as a reducing agent. [1] Lead example: PbCl₄ (Pb⁴⁺) is unstable and readily decomposes: PbCl₄ → PbCl₂ + Cl₂. Pb²⁺ is the dominant aqueous ion. [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q4 [4 marks]</div>
+  <p>Carbon monoxide and carbon dioxide are both oxides of carbon. For each: (a) state the oxidation state of carbon (b) classify the oxide as acidic, basic, or neutral. Write a relevant equation for each classification. [4]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">CO: OS of C = +2; neutral oxide — does not react with water or bases. CO + ½O₂ → CO₂ (burns but does not form an acid/base with water). [2] CO₂: OS of C = +4; acidic oxide. Equation: CO₂ + 2NaOH → Na₂CO₃ + H₂O, or CO₂ + H₂O ⇌ H₂CO₃. [2]</div></div>
+
+  <div class="tq"><div class="tq-num">Q5 [4 marks]</div>
+  <p>Describe three similarities in chemistry between boron and silicon that illustrate the diagonal relationship. For each similarity, write a relevant equation. [4] (1 mark for each similarity + equation, 1 mark for explaining the cause)</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">Cause: B and Si have similar charge densities (charge/radius) because moving one period down and one group right partially cancel → similar chemistry. [1] (1) Both have acidic oxides — giant covalent structures: B₂O₃ + 6NaOH → 2Na₃BO₃ + 3H₂O; SiO₂ + 2NaOH → Na₂SiO₃ + H₂O. (2) Both chlorides are covalent and hydrolyse in water: BCl₃ + 3H₂O → B(OH)₃ + 3HCl; SiCl₄ + 2H₂O → SiO₂ + 4HCl. (3) Both elements form giant covalent structures (extremely high m.p.); B forms complex borides, Si forms silicates — both form polymeric anionic structures. [3, one mark each]</div></div>
+
+  <div class="tq"><div class="tq-num">Q6 [5 marks]</div>
+  <p>Identify the precipitate formed in each reaction involving Pb²⁺ ions: (a) Pb²⁺ + NaOH(aq) [small amount] (b) result of (a) + excess NaOH (c) Pb²⁺ + KI(aq) (d) Pb²⁺ + H₂SO₄(aq) (e) Pb²⁺ + HCl(aq), then warm. State the colour and write an equation for each. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) White ppt: Pb²⁺ + 2OH⁻ → Pb(OH)₂↓ (white). (b) Ppt dissolves (clear): Pb(OH)₂ + 2OH⁻ → [Pb(OH)₄]²⁻ (amphoteric). (c) Bright yellow ppt: Pb²⁺ + 2I⁻ → PbI₂↓ (yellow). (d) White ppt: Pb²⁺ + SO₄²⁻ → PbSO₄↓ (white, insoluble in hot water — unlike BaSO₄ and SrSO₄ tests). (e) White ppt forms: Pb²⁺ + 2Cl⁻ → PbCl₂↓; on warming, ppt dissolves (PbCl₂ soluble in hot water). [1 mark each]</div></div>
+
+  <div class="tq"><div class="tq-num">Q7 [4 marks]</div>
+  <p>Draw and describe the structure of C₆₀ (Buckminsterfullerene). Compare its physical properties to diamond and graphite, explaining the differences. [4]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">C₆₀: discrete spherical molecule of 60 sp²-hybridised C atoms arranged in 12 pentagons and 20 hexagons (like a football). Diameter ~0.7 nm. Solid C₆₀ held by weak van der Waals forces between molecules. [2] Comparison: Diamond and graphite are giant covalent → very high m.p. (requires breaking many strong covalent bonds). C₆₀ is simple molecular → relatively low m.p. (~600°C sublimation) because only weak van der Waals forces between molecules need to be overcome. Diamond and graphite are insoluble in most solvents; C₆₀ is slightly soluble in non-polar solvents (toluene). Neither diamond nor C₆₀ conducts (undoped); graphite conducts. [2]</div></div>
+</div>
+
+<div class="test-section">
+  <div class="test-sec-head"><h3>Section B — Extended Answer</h3><span class="marks-badge">20 marks</span></div>
+  <div class="tq"><div class="tq-num">Q8 [10 marks]</div>
+  <p>(a) Compare the physical and chemical properties of SiO₂ and CO₂. Use your knowledge of structure and bonding to explain the differences. [6]<br>
+  (b) Write equations for three reactions of SiO₂ and three reactions of CO₂. [4]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) Physical: CO₂ is a gas at room temperature (m.p. −78.5°C); SiO₂ is a hard solid (m.p. ~1713°C). CO₂ has simple molecular structure (discrete O=C=O, weak van der Waals) → low m.p./b.p. SiO₂ is a giant covalent network (each Si bonded to 4 O, each O bridges 2 Si, Si–O bonds throughout) → very high m.p. This difference arises because C can form strong C=O double bonds (small atoms, effective p–p π overlap), while Si cannot effectively form Si=O double bonds (larger Si, weaker 3p–2p π overlap) → Si forms 4 single bonds in a network instead. [4] Chemical: CO₂ is an acidic oxide that reacts with water, forming H₂CO₃, and reacts readily with bases. SiO₂ is also an acidic oxide but does NOT react with water or dilute acids (except HF). Both react with strong bases/basic oxides. SiO₂ is thermally stable; CO₂ can be reduced to CO at high temperatures. [2] (b) SiO₂ equations (any 3): SiO₂ + 2NaOH → Na₂SiO₃ + H₂O; SiO₂ + CaO → CaSiO₃; SiO₂ + 4HF → SiF₄ + 2H₂O; SiO₂ + Na₂CO₃ → Na₂SiO₃ + CO₂ (molten). CO₂ equations (any 3): CO₂ + H₂O ⇌ H₂CO₃; CO₂ + 2NaOH → Na₂CO₃ + H₂O; CO₂ + NaOH → NaHCO₃; CO₂ + CaO → CaCO₃; CO₂ + C → 2CO (at high T). [4]</div></div>
+
+  <div class="tq"><div class="tq-num">Q9 [10 marks]</div>
+  <p>(a) Describe the trend in metallic character across Group 14. Relate this to the changes in atomic structure going from carbon to lead. [4]<br>
+  (b) Explain the chemistry of tin and lead with respect to their oxidation states. Why is SnCl₂ a reducing agent and PbO₂ an oxidising agent? [3]<br>
+  (c) Silicon is described as a semiconductor. Explain what this means, how it differs from conductors and insulators, and why it is used in solar cells. [3]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) Metallic character increases from C (non-metal, high EN, giant covalent/molecular allotropes) → Si (metalloid, semiconductor, EN 1.8) → Ge (metalloid/semiconductor) → Sn (true metal, conducts, malleable) → Pb (soft, heavy metal, conducts). Structural changes: increasing atomic radius (more shells), decreasing ionisation energy, increasing tendency to form metallic bonding (delocalised electrons), decreasing electronegativity. Sn and Pb both form metallic lattices at room temperature. [4] (b) SnCl₂: Sn is in +2 state. Sn²⁺ has a strong tendency to be oxidised to Sn⁴⁺ (the +4 state is still accessible for Sn). When Sn²⁺ is oxidised, it reduces another species (e.g. Fe³⁺ → Fe²⁺). SnCl₂ + 2FeCl₃ → SnCl₄ + 2FeCl₂. PbO₂: Pb is in the +4 state. Due to the inert pair effect, Pb(+4) strongly tends to be reduced to Pb(+2). This means PbO₂ readily accepts electrons → strong oxidising agent. PbO₂ is used as the positive electrode in lead-acid batteries: PbO₂ + 4H⁺ + SO₄²⁻ + 2e⁻ → PbSO₄ + 2H₂O. [3] (c) Semiconductor: conductivity between metals and insulators. Band gap (energy gap between filled valence band and empty conduction band) is small (~1.1 eV for Si) — at 0 K, Si is an insulator; at room temperature, thermal energy promotes electrons across the gap into the conduction band → conducts weakly. Conductors: no band gap (bands overlap). Insulators: very large band gap (>5 eV, e.g. diamond). Solar cells: photons with energy ≥ band gap excite electrons from valence to conduction band → electrical current flows. Si band gap (~1.1 eV) matches well with the solar spectrum energy → efficient light absorption → electrical energy generated. [3]</div></div>
+</div>
+
+<div class="unit-nav">
+  <a href="s4_unit8_group13.html">← Unit 8: Group 13</a>
+  <a href="s4-chemistry.html">S4 Course Home</a>
+  <a href="s4_unit10_group15.html">Unit 10: Group 15 →</a>
+</div>
+
+</main>
+<footer>
+  ⚗ Jackson Habimana Chemistry Portal &bull; S4 Unit 9: Group 14 &bull;
+  <a href="s4-chemistry.html">Back to S4</a> &bull;
+  <a href="index.html">Home</a>
+</footer>
+
+<script>
+const _CA={q1:'B',q2:'B',q3:'C',q4:'B',q5:'C',q6:'B',q7:'B',q8:'B',q9:'C',q10:'B',q11:'C',q12:'B',q13:'C',q14:'C',q15:'B',q16:'C',q17:'C',q18:'B',q19:'B',q20:'B',q21:'B',q22:'C',q23:'B',q24:'B',q25:'B'};
+
+function submitQuiz(){
+  let s=0,t=Object.keys(_CA).length;
+  Object.entries(_CA).forEach(([q,c])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{
+      if(o.value===c) o.closest('label').classList.add('correct');
+    });
+    if(sel){
+      if(sel.value===c) s++;
+      else sel.closest('label').classList.add('wrong');
+    }
+    const e=document.getElementById('e'+q.slice(1));
+    if(e) e.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const p=Math.round(s/t*100);
+  const r=document.getElementById('qR');
+  r.style.display='block';
+  r.style.background=p>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';
+  r.style.border='1px solid '+(p>=70?'var(--green)':'var(--red)');
+  r.style.color=p>=70?'var(--green)':'var(--red)';
+  r.style.padding='14px 18px';r.style.borderRadius='8px';r.style.fontFamily="'JetBrains Mono',monospace";
+  r.innerHTML='Score: '+s+'/'+t+' ('+p+'%) — '+(p>=80?'🏆 Excellent!':p>=70?'✅ Good — review marked answers.':p>=50?'📚 Keep going — study the explanations.':'❌ Review all material and try again.');
+  document.querySelector('.qs').disabled=true;
+  document.querySelector('.qs').style.opacity='.5';
+}
+// ── ACCESS GATE (unit quiz) ──
+(function(){
+  const SK='quiz_access_granted',CK='quiz_access_code';
+  const gate=document.createElement('div');
+  gate.id='unit-quiz-gate';
+  gate.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;';
+  gate.innerHTML='<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:48px 40px;max-width:460px;width:100%;text-align:center;"><div style="font-size:3.5rem;margin-bottom:16px;">🔒</div><h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2><p style="color:#8b949e;font-size:.93rem;margin-bottom:24px;line-height:1.7;">Enter the access code from your teacher to unlock this quiz.</p><input id="ugc-inp" type="text" placeholder="Enter Code" maxlength="20" style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;box-sizing:border-box;" onkeydown="if(event.key===\'Enter\')unlockUnitQuiz()"/><div id="ugc-err" style="font-family:JetBrains Mono,monospace;font-size:.82rem;color:#f87171;min-height:20px;margin-bottom:10px;"></div><button onclick="unlockUnitQuiz()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:10px;">🔓 Unlock Quiz</button><button onclick="document.getElementById(\'unit-quiz-gate\').style.display=\'none\';document.body.style.overflow=\'\'" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:9px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.8rem;cursor:pointer;">✕ Cancel</button></div>';
+  document.body.appendChild(gate);
+  window.unlockUnitQuiz=function(){
+    const v=document.getElementById('ugc-inp').value.trim().toUpperCase();
+    const c=localStorage.getItem(CK);
+    if(!v){document.getElementById('ugc-err').textContent='Enter the code.';return;}
+    if(v===c||!c){sessionStorage.setItem(SK,c||'open');document.getElementById('unit-quiz-gate').style.display='none';document.body.style.overflow='';}
+    else{document.getElementById('ugc-err').textContent='❌ Wrong code.';document.getElementById('ugc-inp').value='';}
+  };
+  window.addEventListener('DOMContentLoaded',function(){
+    const code=localStorage.getItem(CK);if(!code)return;
+    const granted=sessionStorage.getItem(SK);if(granted)return;
+    const qw=document.querySelector('.quiz-wrap');if(!qw)return;
+    qw.addEventListener('click',function(e){
+      if(!localStorage.getItem(CK))return;
+      if(sessionStorage.getItem(SK))return;
+      e.stopPropagation();e.preventDefault();
+      document.getElementById('unit-quiz-gate').style.display='flex';
+      document.body.style.overflow='hidden';
+    },true);
+  });
+})();
+</script>
+</body>
+</html>
