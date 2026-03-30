@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S4 Chemistry – Unit 10: Group 15 Elements & Their Compounds | Jackson Habimana</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#a78bfa;--accent2:#f59e0b;--gold:#e8c547;--green:#34d399;--red:#f87171;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+nav{position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px;padding:0 24px;}
+.nav-brand{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);text-decoration:none;}
+.nav-links{display:flex;gap:4px;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:5px;border:1px solid transparent;transition:all .15s;}
+.nav-links a:hover{color:var(--accent);border-color:rgba(167,139,250,.3);}
+.hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#0d0020 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(167,139,250,.04) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(167,139,250,.04) 40px);pointer-events:none;}
+.badge{display:inline-block;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.3);color:var(--accent);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+.hero h1 em{color:var(--accent);font-style:italic;}
+.hero p.sub{color:var(--muted);font-size:1rem;max-width:640px;margin:0 auto 32px;}
+.toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:860px;margin:0 auto;}
+.toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+.toc-grid a:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+.page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+.section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+.section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+.card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:14px;}
+.card p+p{margin-top:12px;}
+.def-box{border-left:4px solid var(--accent);background:rgba(167,139,250,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+.def-box strong{color:var(--accent);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+.callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout.info{background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.25);}
+.callout.warn{background:rgba(249,115,22,.08);border:1px solid rgba(249,115,22,.25);}
+.callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+.callout.mem{background:rgba(232,197,71,.08);border:1px solid rgba(232,197,71,.25);}
+.callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+.callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+.tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:var(--surface2);}
+th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);white-space:nowrap;}
+td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;line-height:1.6;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.92rem;color:var(--accent);overflow-x:auto;line-height:2.1;}
+h3.sub{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+.diagram-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin:22px 0;text-align:center;}
+.diagram-box figcaption{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--muted);margin-top:12px;letter-spacing:.05em;}
+.example-box{border:1px solid rgba(167,139,250,.3);border-radius:var(--radius);overflow:hidden;margin:22px 0;}
+.example-box .ex-head{background:rgba(167,139,250,.12);padding:12px 20px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;}
+.example-box .ex-body{padding:20px 24px;}
+.example-box .ex-body p+p{margin-top:10px;}
+.step{display:flex;gap:14px;margin-bottom:10px;align-items:flex-start;}
+.step-num{width:28px;height:28px;background:var(--accent);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:4px;}
+.exercise-list{list-style:none;counter-reset:ex;}
+.exercise-list li{counter-increment:ex;margin-bottom:18px;padding:18px 22px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+.exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);display:block;margin-bottom:8px;}
+.reveal-btn{margin-top:10px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.3);color:var(--accent);padding:6px 18px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+.reveal-btn:hover{background:var(--accent);color:#000;}
+.answer{display:none;margin-top:12px;padding:14px 18px;background:rgba(167,139,250,.06);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.9rem;line-height:1.7;}
+.answer.open{display:block;}
+.quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:28px;}
+.quiz-head{padding:22px 28px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.quiz-head h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;}
+.quiz-body{padding:24px 28px;}
+.qblock{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.qblock:last-child{border-bottom:none;}
+.qnum{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:10px;}
+.qtext{font-size:1rem;color:#fff;margin-bottom:14px;line-height:1.7;}
+.opts label{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;margin-bottom:8px;border-radius:8px;border:1px solid var(--border);cursor:pointer;transition:all .15s;font-size:.93rem;}
+.opts label:hover{border-color:var(--accent);background:rgba(167,139,250,.04);}
+.opts label.correct{background:rgba(52,211,153,.12);border-color:var(--green);color:var(--green);}
+.opts label.wrong{background:rgba(248,113,113,.08);border-color:var(--red);color:var(--red);}
+.opts input[type=radio]{margin-top:3px;accent-color:var(--accent);flex-shrink:0;}
+.qexplain{display:none;margin-top:12px;padding:12px 16px;background:rgba(167,139,250,.07);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.7;}
+.qs{display:block;margin:24px auto 0;background:var(--accent);color:#000;border:none;padding:12px 40px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.88rem;font-weight:700;cursor:pointer;transition:opacity .2s;}
+.qs:hover{opacity:.85;}
+#qR{display:none;margin-top:16px;border-radius:8px;padding:14px 18px;font-family:'JetBrains Mono',monospace;font-size:.88rem;text-align:center;}
+.test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:22px;overflow:hidden;}
+.test-sec-head{background:var(--surface2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+.test-sec-head h3{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#fff;text-transform:uppercase;letter-spacing:.08em;}
+.marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(232,197,71,.15);border:1px solid rgba(232,197,71,.3);color:var(--gold);padding:3px 12px;border-radius:50px;}
+.tq{padding:18px 24px;border-bottom:1px solid var(--border);}
+.tq:last-child{border-bottom:none;}
+.tq-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);margin-bottom:6px;}
+.unit-nav{display:flex;justify-content:space-between;gap:16px;margin-top:60px;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap;}
+.unit-nav a{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);text-decoration:none;padding:10px 18px;border:1px solid var(--border);border-radius:8px;transition:all .2s;}
+.unit-nav a:hover{color:var(--accent);border-color:rgba(167,139,250,.3);}
+footer{border-top:1px solid var(--border);padding:28px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);}
+footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:640px){.hero{padding:60px 24px 40px;}.page{padding:0 16px 60px;}.quiz-body{padding:16px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">⚗ Jackson Habimana</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="s4-chemistry.html">S4</a>
+      <a href="s5-chemistry.html">S5</a>
+      <a href="s6-chemistry.html">S6</a>
+      <a href="student-hub.html">Assessments</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge">S4 Chemistry · Unit 10</div>
+  <h1>Group 15 Elements<br>and Their <em>Compounds</em></h1>
+  <p class="sub">Nitrogen inertness · Ammonia synthesis · Nitric acid manufacture · Phosphorus allotropes · Hydrides · Oxides · Oxoacids of nitrogen and phosphorus</p>
+  <div class="toc-grid">
+    <a href="#s101">10.1 Physical Properties</a>
+    <a href="#s102">10.2 Nitrogen</a>
+    <a href="#s103">10.3 Ammonia</a>
+    <a href="#s104">10.4 Oxides of Nitrogen</a>
+    <a href="#s105">10.5 Nitric Acid</a>
+    <a href="#s106">10.6 Phosphorus</a>
+    <a href="#s107">10.7 Phosphorus Compounds</a>
+    <a href="#s108">10.8 Trends in Group 15</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </div>
+</div>
+
+<main class="page">
+
+<!-- ═══ 10.1 PHYSICAL PROPERTIES ═══ -->
+<div class="section-header" id="s101">
+  <span class="section-number">10.1</span>
+  <h2>Physical Properties of Group 15 Elements</h2>
+</div>
+
+<div class="card">
+  <h3>Overview of Group 15 (Pnictogens)</h3>
+  <p>Group 15 elements: <strong>Nitrogen (N), Phosphorus (P), Arsenic (As), Antimony (Sb), Bismuth (Bi)</strong>. All have the outer electron configuration <strong style="font-family:'JetBrains Mono',monospace;color:var(--accent);">ns²np³</strong> — giving <strong>5 valence electrons</strong> and 3 unpaired electrons (by Hund's rule).</p>
+  <p>The group shows the same non-metal → metalloid → metal progression as Group 14: N and P are non-metals, As and Sb are metalloids, Bi is a metal.</p>
+</div>
+
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Element</th><th>Z</th><th>Config</th><th>State</th><th>M.p. (°C)</th><th>Character</th><th>Common OS</th></tr></thead>
+  <tbody>
+    <tr><td>Nitrogen (N)</td><td>7</td><td>[He]2s²2p³</td><td>Gas (N₂)</td><td>−210</td><td>Non-metal</td><td>−3, 0, +1 to +5</td></tr>
+    <tr><td>Phosphorus (P)</td><td>15</td><td>[Ne]3s²3p³</td><td>Solid (white/red)</td><td>44 (white)</td><td>Non-metal</td><td>−3, +3, +5</td></tr>
+    <tr><td>Arsenic (As)</td><td>33</td><td>[Ar]3d¹⁰4s²4p³</td><td>Solid</td><td>817 (sublimes)</td><td>Metalloid</td><td>−3, +3, +5</td></tr>
+    <tr><td>Antimony (Sb)</td><td>51</td><td>[Kr]4d¹⁰5s²5p³</td><td>Solid</td><td>631</td><td>Metalloid</td><td>+3, +5</td></tr>
+    <tr><td>Bismuth (Bi)</td><td>83</td><td>[Xe]4f¹⁴5d¹⁰6s²6p³</td><td>Solid</td><td>271</td><td>Metal</td><td>+3 (stable), +5</td></tr>
+  </tbody>
+</table></div>
+
+<div class="card">
+  <h3>Trends Down Group 15</h3>
+  <ul style="margin:0 0 0 22px;line-height:2.3;">
+    <li><strong>Atomic radius</strong> — increases (more electron shells)</li>
+    <li><strong>Ionisation energy</strong> — generally decreases, but note N has <em>higher</em> IE₁ than O (half-filled 2p³ = extra stability)</li>
+    <li><strong>Electronegativity</strong> — decreases: N (3.0) → P (2.1) → As (2.0) → Sb (1.9) → Bi (1.9)</li>
+    <li><strong>Metallic character</strong> — increases (N = typical non-metal; Bi = metal)</li>
+    <li><strong>+5 stability</strong> — decreases down group (Bi(V) is rare and strongly oxidising — inert pair effect)</li>
+    <li><strong>+3 stability</strong> — increases down group (Bi(III) most stable)</li>
+    <li><strong>Hydrides MH₃</strong> — boiling point: NH₃ > PH₃ (NH₃ has hydrogen bonds; PH₃ has only van der Waals)</li>
+  </ul>
+</div>
+
+<div class="callout info">
+  <span class="callout-icon">💡</span>
+  <div class="callout-body">
+    <strong>Why is nitrogen's IE₁ higher than oxygen's?</strong>
+    Nitrogen 2p³ is half-filled (one electron per orbital — Hund's rule). This is an extra-stable configuration. Removing an electron from N requires breaking into a stable half-filled subshell. Oxygen has 2p⁴ — the paired electron is easier to remove (electron–electron repulsion). So N has higher IE₁ despite oxygen having higher nuclear charge.
+  </div>
+</div>
+
+<!-- ═══ 10.2 NITROGEN ═══ -->
+<div class="section-header" id="s102">
+  <span class="section-number">10.2</span>
+  <h2>Nitrogen — Occurrence and Inertness</h2>
+</div>
+
+<div class="card">
+  <h3>Occurrence of Nitrogen</h3>
+  <p>Nitrogen makes up <strong>78.1%</strong> of the atmosphere (by volume) as diatomic N₂. It is also found in proteins, nucleic acids (DNA, RNA), and minerals (saltpetre NaNO₃, Chile saltpetre NaNO₃). The nitrogen cycle describes how nitrogen moves between the atmosphere, soil, and living organisms.</p>
+</div>
+
+<div class="card">
+  <h3>Structure of N₂ — Why is Nitrogen so Inert?</h3>
+  <p>Nitrogen exists as <strong>N≡N</strong> — a triple bond: one σ bond and two π bonds. The N≡N bond is <strong>exceptionally strong: 945 kJ mol⁻¹</strong> (the strongest homonuclear diatomic bond). This makes N₂ extremely unreactive at room temperature.</p>
+  <div class="diagram-box">
+    <svg viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:400px;">
+      <!-- N atoms -->
+      <circle cx="120" cy="60" r="28" fill="#1c2333" stroke="#a78bfa" stroke-width="2"/>
+      <text x="120" y="66" text-anchor="middle" font-family="JetBrains Mono" font-size="18" fill="#a78bfa" font-weight="bold">N</text>
+      <circle cx="280" cy="60" r="28" fill="#1c2333" stroke="#a78bfa" stroke-width="2"/>
+      <text x="280" y="66" text-anchor="middle" font-family="JetBrains Mono" font-size="18" fill="#a78bfa" font-weight="bold">N</text>
+      <!-- Triple bond lines -->
+      <line x1="148" y1="54" x2="252" y2="54" stroke="#a78bfa" stroke-width="2.5"/>
+      <line x1="148" y1="60" x2="252" y2="60" stroke="#a78bfa" stroke-width="2.5"/>
+      <line x1="148" y1="66" x2="252" y2="66" stroke="#a78bfa" stroke-width="2.5"/>
+      <!-- Lone pairs -->
+      <line x1="80" y1="54" x2="93" y2="54" stroke="#34d399" stroke-width="2.5"/>
+      <line x1="80" y1="66" x2="93" y2="66" stroke="#34d399" stroke-width="2.5"/>
+      <line x1="307" y1="54" x2="320" y2="54" stroke="#34d399" stroke-width="2.5"/>
+      <line x1="307" y1="66" x2="320" y2="66" stroke="#34d399" stroke-width="2.5"/>
+      <!-- Labels -->
+      <text x="200" y="40" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#8b949e">Triple bond: 1σ + 2π</text>
+      <text x="200" y="100" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#8b949e">Bond energy = 945 kJ/mol</text>
+      <text x="62" y="46" font-family="JetBrains Mono" font-size="10" fill="#34d399">lone</text>
+      <text x="62" y="57" font-family="JetBrains Mono" font-size="10" fill="#34d399">pair</text>
+      <text x="325" y="46" font-family="JetBrains Mono" font-size="10" fill="#34d399">lone</text>
+      <text x="325" y="57" font-family="JetBrains Mono" font-size="10" fill="#34d399">pair</text>
+    </svg>
+    <figcaption>N≡N: triple bond (945 kJ/mol) + lone pair on each N. Isoelectronic with CO.</figcaption>
+  </div>
+  <p><strong>Reasons for N₂ inertness:</strong></p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li>Very high N≡N bond energy (945 kJ mol⁻¹) — requires enormous activation energy to break</li>
+    <li>N₂ is non-polar — no δ⁺/δ⁻ centres for nucleophilic or electrophilic attack</li>
+    <li>The π bonds prevent rotation and make the molecule rigid</li>
+    <li>N is small — steric hindrance prevents approach of reagents to the strongly bound nitrogen atoms</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Reactions of Nitrogen</h3>
+  <p>Despite its general inertness, N₂ reacts under forcing conditions:</p>
+  <div class="formula-block">N₂ + 3H₂ ⇌ 2NH₃           Haber Process (450°C, 200 atm, Fe catalyst)
+N₂ + O₂ ⇌ 2NO             At very high T (lightning discharge; >2000°C)
+N₂ + 3Mg → Mg₃N₂          Heated Mg burns in N₂ to form magnesium nitride
+N₂ + 3Ca → Ca₃N₂           Calcium also reacts when heated
+N₂ + 2CaC₂ → CaCN₂ + C   Calcium cyanamide (fertiliser) — at 1000°C</div>
+  <p>Biological nitrogen fixation: certain bacteria (Rhizobium, Azotobacter) use the enzyme <strong>nitrogenase</strong> to convert N₂ to NH₃ at room temperature and pressure — a remarkable feat that chemistry struggles to replicate industrially.</p>
+</div>
+
+<!-- ═══ 10.3 AMMONIA ═══ -->
+<div class="section-header" id="s103">
+  <span class="section-number">10.3</span>
+  <h2>Ammonia (NH₃)</h2>
+</div>
+
+<div class="card">
+  <h3>Structure and Properties of Ammonia</h3>
+  <p>Ammonia has the molecular formula <strong>NH₃</strong>. Nitrogen is sp³ hybridised with one lone pair and three N–H bonds. The molecular shape is <strong>trigonal pyramidal</strong> with a bond angle of <strong>107°</strong> (lone pair repels bonding pairs → angle less than 109.5°).</p>
+  <div class="diagram-box">
+    <svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:360px;">
+      <!-- N atom -->
+      <circle cx="180" cy="90" r="24" fill="#1c2333" stroke="#a78bfa" stroke-width="2"/>
+      <text x="180" y="96" text-anchor="middle" font-family="JetBrains Mono" font-size="16" fill="#a78bfa">N</text>
+      <!-- Lone pair above -->
+      <ellipse cx="180" cy="52" rx="14" ry="7" fill="rgba(52,211,153,0.3)" stroke="#34d399" stroke-width="1.5"/>
+      <text x="197" y="48" font-family="JetBrains Mono" font-size="10" fill="#34d399">lone pair</text>
+      <!-- H atoms -->
+      <circle cx="90" cy="145" r="16" fill="#1c2333" stroke="#8b949e" stroke-width="1.5"/>
+      <text x="90" y="150" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#e6edf3">H</text>
+      <circle cx="180" cy="155" r="16" fill="#1c2333" stroke="#8b949e" stroke-width="1.5"/>
+      <text x="180" y="160" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#e6edf3">H</text>
+      <circle cx="270" cy="145" r="16" fill="#1c2333" stroke="#8b949e" stroke-width="1.5"/>
+      <text x="270" y="150" text-anchor="middle" font-family="JetBrains Mono" font-size="14" fill="#e6edf3">H</text>
+      <!-- Bonds -->
+      <line x1="168" y1="112" x2="105" y2="131" stroke="#8b949e" stroke-width="2"/>
+      <line x1="180" y1="114" x2="180" y2="140" stroke="#8b949e" stroke-width="2"/>
+      <line x1="192" y1="112" x2="255" y2="131" stroke="#8b949e" stroke-width="2"/>
+      <!-- Angle label -->
+      <text x="140" y="128" font-family="JetBrains Mono" font-size="11" fill="#f59e0b">107°</text>
+      <!-- Labels -->
+      <text x="30" y="20" font-family="JetBrains Mono" font-size="11" fill="#8b949e">Trigonal pyramidal</text>
+      <text x="30" y="35" font-family="JetBrains Mono" font-size="11" fill="#8b949e">sp³, bond angle 107°</text>
+    </svg>
+    <figcaption>NH₃: trigonal pyramidal, 107° bond angle, lone pair on N</figcaption>
+  </div>
+  <p><strong>Key properties of ammonia:</strong></p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li>Colourless gas with pungent smell; b.p. = −33°C</li>
+    <li><strong>Highly soluble in water</strong> (700 volumes at STP) — forms alkaline solution: NH₃ + H₂O ⇌ NH₄⁺ + OH⁻</li>
+    <li><strong>Hydrogen bonding</strong> — N–H···N bonds between molecules → higher b.p. than PH₃ (−88°C)</li>
+    <li>Acts as a <strong>Lewis base</strong> (lone pair donor) and a <strong>Brønsted-Lowry base</strong> (proton acceptor)</li>
+    <li>Forms complex ions with transition metals: Cu²⁺ + 4NH₃ → [Cu(NH₃)₄]²⁺ (deep blue)</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Industrial Manufacture — The Haber Process</h3>
+  <p>The Haber Process manufactures ammonia from nitrogen and hydrogen:</p>
+  <div class="formula-block">N₂(g) + 3H₂(g) ⇌ 2NH₃(g)     ΔH = −92 kJ mol⁻¹  (exothermic)</div>
+  <p><strong>Conditions:</strong></p>
+  <ul style="margin:8px 0 0 20px;line-height:2.4;">
+    <li><strong>Temperature:</strong> ~450°C — compromise between yield (lower T favours product) and rate (higher T gives faster reaction)</li>
+    <li><strong>Pressure:</strong> ~200 atm — high pressure favours product (4 moles gas → 2 moles gas); limited by engineering/economic constraints</li>
+    <li><strong>Catalyst:</strong> Finely divided iron (Fe) with promoters K₂O and Al₂O₃</li>
+    <li><strong>Recycling:</strong> Unreacted N₂ and H₂ are recycled — yield per pass is only ~15%; overall conversion ~97%</li>
+  </ul>
+  <div class="callout warn">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <strong>Le Châtelier's Principle applied to Haber Process</strong>
+      Higher pressure → better yield (shifts equilibrium right, fewer moles of gas). Lower temperature → better yield (reaction is exothermic; lower T shifts right). But lower T = slower rate. Higher T = faster rate but lower equilibrium yield. The catalyst only speeds up reaching equilibrium — it does NOT shift equilibrium position.
+    </div>
+  </div>
+  <p><strong>Sources of raw materials:</strong> N₂ from fractional distillation of liquid air. H₂ from steam reforming of methane: CH₄ + H₂O → CO + 3H₂ (then water-gas shift: CO + H₂O → CO₂ + H₂).</p>
+</div>
+
+<div class="card">
+  <h3>Reactions of Ammonia</h3>
+  <div class="formula-block">With water (base):       NH₃ + H₂O ⇌ NH₄⁺ + OH⁻           (Kb = 1.8×10⁻⁵)
+With acids:              NH₃ + HCl → NH₄Cl                  (white fumes)
+                         NH₃ + HNO₃ → NH₄NO₃                (fertiliser)
+                         NH₃ + H₂SO₄ → (NH₄)₂SO₄            (fertiliser)
+Combustion:              4NH₃ + 3O₂ → 2N₂ + 6H₂O            (unlit)
+Catalytic oxidation:     4NH₃ + 5O₂ → 4NO + 6H₂O            (Pt/Rh, 850°C — Ostwald step 1)
+With Cl₂:                8NH₃ + 3Cl₂ → 6NH₄Cl + N₂          (excess NH₃)
+                         NH₃ + 3Cl₂ → NCl₃ + 3HCl           (excess Cl₂)</div>
+</div>
+
+<div class="example-box">
+  <div class="ex-head">Worked Example 10.1 — Haber Process Calculation</div>
+  <div class="ex-body">
+    <p><strong>Question:</strong> In the Haber process, N₂ + 3H₂ ⇌ 2NH₃, if the equilibrium mixture at 450°C contains 15% NH₃ by moles, calculate the mole fraction of N₂ if H₂:N₂ = 3:1 initially.</p>
+    <div class="step"><span class="step-num">1</span><p>Start with 1 mol N₂ and 3 mol H₂ (4 mol total). Let x mol N₂ react. Then: N₂ remaining = 1−x; H₂ remaining = 3−3x; NH₃ formed = 2x. Total = (1−x)+(3−3x)+2x = 4−2x.</p></div>
+    <div class="step"><span class="step-num">2</span><p>NH₃ mole fraction = 0.15: 2x/(4−2x) = 0.15 → 2x = 0.15(4−2x) = 0.6−0.3x → 2.3x = 0.6 → x = 0.261 mol.</p></div>
+    <div class="step"><span class="step-num">3</span><p>N₂ remaining = 1−0.261 = 0.739 mol. Total = 4−2(0.261) = 3.478 mol. Mole fraction of N₂ = 0.739/3.478 = <strong>0.212 (21.2%)</strong>.</p></div>
+  </div>
+</div>
+
+<!-- ═══ 10.4 OXIDES OF NITROGEN ═══ -->
+<div class="section-header" id="s104">
+  <span class="section-number">10.4</span>
+  <h2>Oxides of Nitrogen</h2>
+</div>
+
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Formula</th><th>Name</th><th>OS of N</th><th>State</th><th>Properties / Notes</th></tr></thead>
+  <tbody>
+    <tr><td>N₂O</td><td>Dinitrogen oxide (nitrous oxide)</td><td>+1</td><td>Colourless gas</td><td>"Laughing gas" — anaesthetic; greenhouse gas; decomposes to N₂+O₂ above 600°C</td></tr>
+    <tr><td>NO</td><td>Nitrogen monoxide (nitric oxide)</td><td>+2</td><td>Colourless gas</td><td>Radical (odd electron); turns brown in air (→NO₂); made in lightning, Haber step 1</td></tr>
+    <tr><td>N₂O₃</td><td>Dinitrogen trioxide</td><td>+3</td><td>Blue liquid/gas</td><td>Acid anhydride of HNO₂; unstable above −20°C</td></tr>
+    <tr><td>NO₂</td><td>Nitrogen dioxide</td><td>+4</td><td>Brown gas</td><td>Radical; toxic; reacts with water → HNO₃ + HNO₂; in equilibrium with N₂O₄</td></tr>
+    <tr><td>N₂O₄</td><td>Dinitrogen tetroxide</td><td>+4</td><td>Colourless gas/liquid</td><td>2NO₂ ⇌ N₂O₄; pale yellow at low conc.</td></tr>
+    <tr><td>N₂O₅</td><td>Dinitrogen pentoxide</td><td>+5</td><td>White solid</td><td>Acid anhydride of HNO₃; reacts vigorously with water</td></tr>
+  </tbody>
+</table></div>
+
+<div class="card">
+  <h3>Important Reactions of Nitrogen Oxides</h3>
+  <div class="formula-block">2NO + O₂ → 2NO₂                      (NO turns brown in air)
+3NO₂ + H₂O → 2HNO₃ + NO             (Ostwald process — step 3)
+2NO₂ ⇌ N₂O₄                          (brown gas ⇌ colourless, temp-dependent)
+N₂O₅ + H₂O → 2HNO₃                  (acid anhydride of nitric acid)
+4NO + 3O₂ + 2H₂O → 4HNO₃            (acid rain formation)</div>
+  <div class="callout warn">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <strong>NO and NO₂ as Radicals</strong>
+      Both NO and NO₂ have an <strong>odd number of electrons</strong> — they are radical species (contain an unpaired electron). This makes them highly reactive. NO₂ dimerises to N₂O₄ at low temperatures. NO in the atmosphere contributes to photochemical smog and ozone depletion.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 10.5 NITRIC ACID ═══ -->
+<div class="section-header" id="s105">
+  <span class="section-number">10.5</span>
+  <h2>Nitric Acid (HNO₃)</h2>
+</div>
+
+<div class="card">
+  <h3>Industrial Manufacture — The Ostwald Process</h3>
+  <p>Nitric acid is manufactured from ammonia by the <strong>Ostwald Process</strong> in three steps:</p>
+  <div class="formula-block">Step 1: 4NH₃ + 5O₂ → 4NO + 6H₂O     (Pt/Rh catalyst, ~850°C, 5–10 atm)
+Step 2: 2NO + O₂ → 2NO₂              (cooling to ~50°C — NO oxidised in air)
+Step 3: 3NO₂ + H₂O → 2HNO₃ + NO    (absorbed in water — NO recycled to step 2)</div>
+  <p>Concentrated HNO₃ is ~68% HNO₃. It can be made more concentrated by distillation with H₂SO₄.</p>
+</div>
+
+<div class="card">
+  <h3>Properties and Reactions of Nitric Acid</h3>
+  <p>Nitric acid is a <strong>strong acid</strong> (fully ionises: HNO₃ → H⁺ + NO₃⁻) and a <strong>strong oxidising agent</strong>. The products of reaction with metals depend on the concentration and the metal.</p>
+  <h3 class="sub">Reactions with Metals</h3>
+  <div class="formula-block">Dilute HNO₃ + reactive metal (Mg):
+3Mg + 8HNO₃(dil.) → 3Mg(NO₃)₂ + 2NO↑ + 4H₂O
+
+Dilute HNO₃ + less reactive metal (Cu):
+3Cu + 8HNO₃(dil.) → 3Cu(NO₃)₂ + 2NO↑ + 4H₂O   (colourless NO gas)
+
+Conc. HNO₃ + Cu:
+Cu + 4HNO₃(conc.) → Cu(NO₃)₂ + 2NO₂↑ + 2H₂O    (brown NO₂ gas)
+
+Fe + conc. HNO₃: Fe is passivated (oxide layer forms — no reaction)</div>
+  <div class="callout mem">
+    <span class="callout-icon">🧠</span>
+    <div class="callout-body">
+      <strong>Memory: dilute vs concentrated HNO₃ with metals</strong>
+      Dilute HNO₃ → colourless NO gas produced. Concentrated HNO₃ → brown NO₂ gas produced. Both react with Cu (which doesn't react with dilute HCl or H₂SO₄ — HNO₃ is an oxidising acid).
+    </div>
+  </div>
+  <h3 class="sub">Reactions with Non-metals and Organic Compounds</h3>
+  <div class="formula-block">C + 4HNO₃(conc.) → CO₂ + 4NO₂ + 2H₂O      (carbon oxidised)
+S + 6HNO₃(conc.) → H₂SO₄ + 6NO₂ + 2H₂O     (sulfur oxidised to sulfuric acid)
+Nitration of benzene: C₆H₆ + HNO₃ →(H₂SO₄ catalyst)→ C₆H₅NO₂ + H₂O</div>
+  <h3 class="sub">Thermal Decomposition of Nitrates</h3>
+  <div class="formula-block">Group 1 metals (except Li):  2KNO₃ → 2KNO₂ + O₂        (→ nitrite + oxygen)
+Lithium and most metals:     2Pb(NO₃)₂ → 2PbO + 4NO₂ + O₂  (→ oxide + NO₂ + O₂)
+Ammonium nitrate:            NH₄NO₃ → N₂O + 2H₂O            (→ N₂O at ~230°C)</div>
+</div>
+
+<div class="example-box">
+  <div class="ex-head">Worked Example 10.2 — Oxidation State of N in HNO₃</div>
+  <div class="ex-body">
+    <p><strong>Question:</strong> Determine the oxidation state of nitrogen in (a) HNO₃ (b) NH₄⁺ (c) N₂O (d) NO₃⁻.</p>
+    <div class="step"><span class="step-num">a</span><p>HNO₃: H(+1) + N + 3O(−2) = 0 → N = +5</p></div>
+    <div class="step"><span class="step-num">b</span><p>NH₄⁺: N + 4H(+1) = +1 → N = +1−4 = <strong>−3</strong></p></div>
+    <div class="step"><span class="step-num">c</span><p>N₂O: 2N + O(−2) = 0 → 2N = +2 → N = <strong>+1</strong></p></div>
+    <div class="step"><span class="step-num">d</span><p>NO₃⁻: N + 3O(−2) = −1 → N = −1+6 = <strong>+5</strong></p></div>
+  </div>
+</div>
+
+<!-- ═══ 10.6 PHOSPHORUS ═══ -->
+<div class="section-header" id="s106">
+  <span class="section-number">10.6</span>
+  <h2>Phosphorus — Allotropes and Properties</h2>
+</div>
+
+<div class="card">
+  <h3>Allotropes of Phosphorus</h3>
+  <p>Phosphorus exists in several allotropic forms. The two most important are <strong>white phosphorus</strong> and <strong>red phosphorus</strong>.</p>
+  <div class="tbl-wrap" style="margin:0;"><table>
+    <thead><tr><th>Property</th><th>White Phosphorus</th><th>Red Phosphorus</th></tr></thead>
+    <tbody>
+      <tr><td>Structure</td><td>Discrete P₄ molecules (tetrahedral, P–P–P angle = 60°)</td><td>Polymeric — chains of P₄ tetrahedra linked in a network</td></tr>
+      <tr><td>Appearance</td><td>White/yellow waxy solid</td><td>Dark red powder</td></tr>
+      <tr><td>Melting point</td><td>44°C (simple molecular)</td><td>~600°C (polymeric — giant structure)</td></tr>
+      <tr><td>Reactivity</td><td>Very reactive — ignites in air at 34°C; kept under water</td><td>Stable in air; ignites only at ~250°C</td></tr>
+      <tr><td>Toxicity</td><td>Extremely toxic and flammable</td><td>Not toxic at room temp</td></tr>
+      <tr><td>Solubility</td><td>Soluble in CS₂ (carbon disulfide)</td><td>Insoluble in CS₂</td></tr>
+      <tr><td>Uses</td><td>Historically — incendiary weapons (now banned)</td><td>Match heads, fireworks, fertilisers</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<div class="card">
+  <h3>P₄ Structure — Why is White Phosphorus so Reactive?</h3>
+  <p>The P₄ molecule has a tetrahedral arrangement with <strong>P–P–P bond angles of 60°</strong>. This is much smaller than the natural sp³ angle of ~107°. The severe <strong>angle strain</strong> (electrons repel most when forced to bond at 60°) stores energy in the molecule — making white phosphorus very reactive and self-igniting in air.</p>
+  <div class="formula-block">P₄ + 3O₂ → P₄O₆     (limited oxygen — phosphorus(III) oxide)
+P₄ + 5O₂ → P₄O₁₀    (excess oxygen — phosphorus(V) oxide)
+P₄ + 6Cl₂ → 4PCl₃   (limited Cl₂)
+P₄ + 10Cl₂ → 4PCl₅  (excess Cl₂)</div>
+  <div class="callout info">
+    <span class="callout-icon">💡</span>
+    <div class="callout-body">
+      <strong>White → Red Phosphorus Conversion</strong>
+      Heating white phosphorus at ~250°C in the absence of air causes the P₄ tetrahedra to link up into chains → red phosphorus. This is an irreversible physical/structural change. Red phosphorus is thermodynamically more stable.
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 10.7 PHOSPHORUS COMPOUNDS ═══ -->
+<div class="section-header" id="s107">
+  <span class="section-number">10.7</span>
+  <h2>Compounds of Phosphorus</h2>
+</div>
+
+<div class="card">
+  <h3>Phosphorus Oxides: P₄O₆ and P₄O₁₀</h3>
+  <p><strong>P₄O₆</strong> (phosphorus(III) oxide): reacts slowly with cold water → phosphorous acid H₃PO₃ (diprotic): P₄O₆ + 6H₂O → 4H₃PO₃</p>
+  <p><strong>P₄O₁₀</strong> (phosphorus(V) oxide): powerful desiccant (drying agent). Reacts vigorously with water → phosphoric acid: P₄O₁₀ + 6H₂O → 4H₃PO₄. Also reacts with alcohols to form esters.</p>
+</div>
+
+<div class="card">
+  <h3>Phosphorus Chlorides: PCl₃ and PCl₅</h3>
+  <div class="formula-block">PCl₃ + 3H₂O → H₃PO₃ + 3HCl    (hydrolysis — white fumes of HCl)
+PCl₅ + 4H₂O → H₃PO₄ + 5HCl    (vigorous hydrolysis — white fumes)
+PCl₅ ⇌ PCl₃ + Cl₂              (dissociation at high temperature)</div>
+  <p><strong>PCl₅ structure:</strong> P is sp³d hybridised → trigonal bipyramidal (5 Cl around P). It can expand its octet because phosphorus (Period 3) has accessible 3d orbitals. This contrasts with NCl₃ — nitrogen cannot form NCl₅ (no accessible d orbitals, limited to octet).</p>
+  <div class="callout warn">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <strong>Why can P form PCl₅ but N cannot form NCl₅?</strong>
+      Phosphorus has accessible empty 3d orbitals — it can expand its octet to accommodate 5 bonds (sp³d hybridisation). Nitrogen is in Period 2 — no available d orbitals — maximum coordination number = 4. Therefore the maximum number of bonds N can form is 4 (e.g. NH₄⁺), while P can form 5 (PCl₅) or 6.
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Phosphoric Acid (H₃PO₄) and Its Salts</h3>
+  <p>Phosphoric acid (orthophosphoric acid) is a <strong>triprotic</strong> (three ionisable protons) weak acid:</p>
+  <div class="formula-block">H₃PO₄ ⇌ H⁺ + H₂PO₄⁻      Ka₁ = 7.5×10⁻³   (moderately strong)
+H��PO₄⁻ ⇌ H⁺ + HPO₄²⁻    Ka₂ = 6.2×10⁻⁸   (weak)
+HPO₄²⁻ ⇌ H⁺ + PO₄³⁻     Ka₃ = 4.8×10⁻¹³  (very weak)</div>
+  <p><strong>Important phosphate salts:</strong></p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li><strong>Ca₃(PO₄)₂</strong> — calcium phosphate, main component of bones and teeth; sparingly soluble</li>
+    <li><strong>CaHPO₄</strong> — calcium hydrogen phosphate; used in animal feed supplements</li>
+    <li><strong>Na₃PO₄</strong> — trisodium phosphate; used in cleaning agents and water treatment</li>
+    <li><strong>NH₄H₂PO₄</strong> — ammonium dihydrogen phosphate; important NPK fertiliser</li>
+    <li><strong>Superphosphate</strong>: Ca₃(PO₄)₂ + H₂SO₄ → Ca(H₂PO₄)₂ + CaSO₄ (water-soluble fertiliser)</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Phosphine (PH₃)</h3>
+  <p>Phosphine is the hydride of phosphorus — analogous to ammonia. However, there are key differences:</p>
+  <div class="tbl-wrap" style="margin:0;"><table>
+    <thead><tr><th>Property</th><th>NH₃</th><th>PH₃</th></tr></thead>
+    <tbody>
+      <tr><td>Boiling point</td><td>−33°C</td><td>−88°C</td></tr>
+      <tr><td>Reason for b.p. difference</td><td>Hydrogen bonding (N–H···N)</td><td>Only van der Waals forces (P–H bond too weak/long to H-bond)</td></tr>
+      <tr><td>Bond angle</td><td>107° (sp³-like)</td><td>93° (closer to 90° — P uses pure p orbitals, minimal hybridisation)</td></tr>
+      <tr><td>Basic strength</td><td>Moderate base (Kb = 1.8×10⁻⁵)</td><td>Very weak base — lone pair less accessible on larger P</td></tr>
+      <tr><td>Stability</td><td>Very stable</td><td>Unstable — flammable, toxic</td></tr>
+      <tr><td>Smell</td><td>Pungent (familiar)</td><td>Extremely unpleasant (garlic/decaying fish)</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<!-- ═══ 10.8 TRENDS ═══ -->
+<div class="section-header" id="s108">
+  <span class="section-number">10.8</span>
+  <h2>Trends in Group 15 Properties</h2>
+</div>
+
+<div class="card">
+  <h3>Hydrides: NH₃, PH₃, AsH₃, SbH₃</h3>
+  <p>The stability of hydrides decreases down the group — the N–H bond is much stronger than P–H, As–H, Sb–H bonds. Going down, bond strength decreases (larger central atom, weaker overlap) → hydrides decompose more easily at lower temperatures.</p>
+  <div class="tbl-wrap" style="margin:0;"><table>
+    <thead><tr><th>Hydride</th><th>B.p. (°C)</th><th>Bond angle</th><th>Stability</th><th>Basic strength</th></tr></thead>
+    <tbody>
+      <tr><td>NH₃</td><td>−33</td><td>107°</td><td>Very stable</td><td>Moderate (Kb = 1.8×10⁻⁵)</td></tr>
+      <tr><td>PH₃</td><td>−88</td><td>93°</td><td>Moderately stable</td><td>Very weak</td></tr>
+      <tr><td>AsH₃</td><td>−55</td><td>92°</td><td>Unstable</td><td>Negligible</td></tr>
+      <tr><td>SbH₃</td><td>−17</td><td>91°</td><td>Very unstable</td><td>None</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Note on boiling points:</strong> NH₃ has anomalously HIGH b.p. (−33°C) due to strong N–H···N hydrogen bonds. PH₃ has lower b.p. (−88°C) — only van der Waals. The b.p. then increases from PH₃ → SbH₃ because van der Waals forces increase with larger electron clouds/more electrons.</p>
+</div>
+
+<div class="card">
+  <h3>Oxides: Trend from Acidic to Amphoteric/Basic</h3>
+  <div class="tbl-wrap" style="margin:0;"><table>
+    <thead><tr><th>Oxide</th><th>Nature</th><th>Reaction with water</th></tr></thead>
+    <tbody>
+      <tr><td>N₂O₃</td><td>Acidic</td><td>N₂O₃ + H₂O → 2HNO₂</td></tr>
+      <tr><td>N₂O₅</td><td>Acidic</td><td>N₂O₅ + H₂O → 2HNO₃</td></tr>
+      <tr><td>P₄O₆</td><td>Acidic</td><td>P₄O₆ + 6H₂O → 4H₃PO₃</td></tr>
+      <tr><td>P₄O₁₀</td><td>Acidic</td><td>P₄O₁₀ + 6H₂O → 4H₃PO₄</td></tr>
+      <tr><td>As₂O₃</td><td>Amphoteric</td><td>Slight solubility; reacts with acid and base</td></tr>
+      <tr><td>Bi₂O₃</td><td>Basic</td><td>Dissolves in acid: Bi₂O₃ + 6HCl → 2BiCl₃ + 3H₂O</td></tr>
+    </tbody>
+  </table></div>
+  <p>Trend: oxides become more basic going down Group 15 — as metallic character increases.</p>
+</div>
+
+<!-- ═══ EXERCISES ═══ -->
+<div class="section-header" id="exercises">
+  <span class="section-number">✏️</span>
+  <h2>Exercises</h2>
+</div>
+
+<ul class="exercise-list">
+  <li>
+    Explain why N₂ is so chemically inert at room temperature. Your answer should refer to bond order, bond energy, and the electronic structure of nitrogen.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">N₂ contains a triple bond (N≡N) — one σ and two π bonds. The N≡N bond energy is 945 kJ mol⁻¹ — the highest of any homonuclear diatomic bond. Breaking this bond requires enormous activation energy. Additionally: N₂ is non-polar (no δ+/δ−) so electrophiles and nucleophiles cannot easily attack. The small size of N also causes steric resistance. The lone pairs on each N are not easily donated (low-energy, held close to the nucleus). All these factors combine to make N₂ very unreactive at room temperature.</div>
+  </li>
+  <li>
+    State the conditions and write the overall equation for the Haber process. Explain why the temperature used (450°C) is a compromise.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ mol⁻¹. Conditions: ~450°C, ~200 atm, Fe catalyst with K₂O/Al₂O₃ promoters. Temperature compromise: the forward reaction is exothermic — lowering temperature shifts equilibrium right (Le Châtelier), giving better yield. But lower temperature = slower rate of reaction (fewer molecules with Eₐ). At 450°C: rate is acceptably fast AND yield is reasonable (~15% per pass). The catalyst helps achieve this yield at a lower temperature than would otherwise be needed. Higher temperature would increase rate but give very poor yield.</div>
+  </li>
+  <li>
+    Write the three steps of the Ostwald process for manufacturing nitric acid. State the catalyst and conditions for Step 1.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">Step 1: 4NH₃ + 5O₂ → 4NO + 6H₂O — Pt/Rh gauze catalyst, ~850°C, 5–10 atm. Step 2: 2NO + O₂ → 2NO₂ — cooling the gas; NO is oxidised in air. Step 3: 3NO₂ + H₂O → 2HNO₃ + NO — NO recycled to Step 2. Overall: NH₃ is converted to HNO₃. The process is linked to the Haber process (NH₃ feedstock).</div>
+  </li>
+  <li>
+    Explain why phosphorus can form PCl₅ but nitrogen cannot form NCl₅. Include reference to electron configuration and orbital availability.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">Nitrogen is in Period 2 — its electron configuration is [He]2s²2p³. The 2p subshell is the highest available; there are no empty low-energy d orbitals accessible. Nitrogen cannot exceed an octet → maximum 4 bonds. Phosphorus is in Period 3 — [Ne]3s²3p³. It has empty 3d orbitals at accessible energy. When 5 Cl atoms approach, the 3d orbitals can participate in bonding → sp³d hybridisation → 5 bonds → PCl₅ (trigonal bipyramidal). This "octet expansion" is only possible for elements in Period 3 and below that have available d orbitals.</div>
+  </li>
+  <li>
+    Compare the structures, melting points, and reactivities of white and red phosphorus. Explain the differences in terms of their structures.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">White P: discrete P₄ molecules (tetrahedral), simple molecular solid, m.p. = 44°C (only weak van der Waals between P₄ units). Very reactive — P–P–P bond angle is 60° (severe strain); ignites in air at 34°C. Red P: polymeric chain structure (P₄ tetrahedra linked into a network), giant molecular/polymeric solid, m.p. = ~600°C (many covalent bonds must be broken). Much more stable — the strain is relieved in the polymeric structure; only ignites at ~250°C. Reactivity: white >> red, because white P has strained bonds that release energy on reaction, while red P has a more stable structure with less strain energy.</div>
+  </li>
+  <li>
+    Write equations to show: (a) the reaction of concentrated HNO₃ with copper (b) the reaction of dilute HNO₃ with copper. Explain the difference in the nitrogen oxide produced.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">(a) Concentrated: Cu + 4HNO₃(conc.) → Cu(NO₃)₂ + 2NO₂↑ + 2H₂O. Brown/reddish-brown gas NO₂ produced. (b) Dilute: 3Cu + 8HNO₃(dil.) → 3Cu(NO₃)₂ + 2NO↑ + 4H₂O. Colourless gas NO produced (turns brown when it meets air: 2NO+O₂→2NO₂). Difference: concentrated HNO₃ is a stronger oxidising agent → N is reduced further from +5 to +4 (NO₂). Dilute HNO₃ → N reduced from +5 to +2 (NO). Both reactions: HNO₃ acts as oxidising acid; H⁺ + NO₃⁻ oxidises the metal.</div>
+  </li>
+</ul>
+
+<!-- ═══ QUIZ ═══ -->
+<div class="section-header" id="quiz">
+  <span class="section-number">🧪</span>
+  <h2>Multiple Choice Quiz — 25 Questions</h2>
+</div>
+<div class="quiz-wrap">
+  <div class="quiz-head">
+    <h3>Unit 10: Group 15 Elements and Compounds</h3>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted);">25 Questions · Select one answer each</span>
+  </div>
+  <div class="quiz-body">
+
+    <div class="qblock"><span class="qnum">Q1</span>
+    <p class="qtext">What is the outer electron configuration of all Group 15 elements?</p>
+    <div class="opts">
+      <label><input type="radio" name="q1" value="A"> ns²np²</label>
+      <label><input type="radio" name="q1" value="B"> ns²np³</label>
+      <label><input type="radio" name="q1" value="C"> ns²np⁴</label>
+      <label><input type="radio" name="q1" value="D"> ns¹np³</label>
+    </div>
+    <div class="qexplain" id="e1">Group 15 (pnictogens): ns²np³ — 5 valence electrons, with 3 unpaired electrons in 3 p orbitals (Hund's rule). This gives the characteristic +3 and +5 oxidation states and 3 covalent bonds in hydrides (MH₃).</div></div>
+
+    <div class="qblock"><span class="qnum">Q2</span>
+    <p class="qtext">The bond energy of N≡N is 945 kJ mol⁻¹. This makes N₂:</p>
+    <div class="opts">
+      <label><input type="radio" name="q2" value="A"> Very reactive at room temperature</label>
+      <label><input type="radio" name="q2" value="B"> Very unreactive at room temperature — high activation energy required to break the triple bond</label>
+      <label><input type="radio" name="q2" value="C"> Easily soluble in water</label>
+      <label><input type="radio" name="q2" value="D"> A good oxidising agent</label>
+    </div>
+    <div class="qexplain" id="e2">945 kJ mol⁻¹ is an extremely high bond energy (the highest homonuclear diatomic). This means breaking N₂ requires enormous activation energy. Most reactions of N₂ require high temperature, pressure, or a catalyst. At room temperature, N₂ is essentially inert.</div></div>
+
+    <div class="qblock"><span class="qnum">Q3</span>
+    <p class="qtext">The conditions for the Haber process are approximately:</p>
+    <div class="opts">
+      <label><input type="radio" name="q3" value="A"> 200°C, 1 atm, V₂O₅ catalyst</label>
+      <label><input type="radio" name="q3" value="B"> 450°C, 200 atm, Fe catalyst</label>
+      <label><input type="radio" name="q3" value="C"> 850°C, 5 atm, Pt/Rh catalyst</label>
+      <label><input type="radio" name="q3" value="D"> 300°C, 50 atm, Ni catalyst</label>
+    </div>
+    <div class="qexplain" id="e3">Haber: ~450°C (compromise — fast enough rate, reasonable yield), ~200 atm (high P favours products, 4 mol gas → 2 mol gas), iron catalyst (with K₂O, Al₂O₃ promoters). The 850°C/Pt/Rh conditions belong to the Ostwald process Step 1.</div></div>
+
+    <div class="qblock"><span class="qnum">Q4</span>
+    <p class="qtext">Why is a high pressure used in the Haber process?</p>
+    <div class="opts">
+      <label><input type="radio" name="q4" value="A"> It raises the temperature needed for the reaction</label>
+      <label><input type="radio" name="q4" value="B"> N₂ + 3H₂ → 2NH₃ has fewer moles of gas on the right — high pressure shifts equilibrium right, increasing yield</label>
+      <label><input type="radio" name="q4" value="C"> It activates the iron catalyst</label>
+      <label><input type="radio" name="q4" value="D"> It prevents the explosion of NH₃</label>
+    </div>
+    <div class="qexplain" id="e4">Le Châtelier: 4 mol gas → 2 mol gas on right. Increasing pressure favours the side with fewer moles of gas → shifts right → more NH₃. However, very high pressures are expensive to maintain and dangerous, so ~200 atm is a practical compromise.</div></div>
+
+    <div class="qblock"><span class="qnum">Q5</span>
+    <p class="qtext">The shape of NH₃ is trigonal pyramidal with a bond angle of 107°. The angle is less than 109.5° because:</p>
+    <div class="opts">
+      <label><input type="radio" name="q5" value="A"> The H–N–H bond is weaker than expected</label>
+      <label><input type="radio" name="q5" value="B"> The lone pair on N occupies more space than a bonding pair, pushing the N–H bonds closer together</label>
+      <label><input type="radio" name="q5" value="C"> Nitrogen has a smaller atomic radius than carbon</label>
+      <label><input type="radio" name="q5" value="D"> Ammonia has ionic character</label>
+    </div>
+    <div class="qexplain" id="e5">VSEPR: lone pair–bond pair repulsion > bond pair–bond pair repulsion. The lone pair on N takes up more space in the electron cloud, compressing the three N–H bond pairs towards each other → bond angle 107° (less than ideal tetrahedral 109.5°). Compare H₂O: 2 lone pairs → 104.5°.</div></div>
+
+    <div class="qblock"><span class="qnum">Q6</span>
+    <p class="qtext">Which reagent produces white fumes when held near a flask of ammonia?</p>
+    <div class="opts">
+      <label><input type="radio" name="q6" value="A"> Dilute H₂SO₄</label>
+      <label><input type="radio" name="q6" value="B"> Concentrated HCl</label>
+      <label><input type="radio" name="q6" value="C"> NaOH solution</label>
+      <label><input type="radio" name="q6" value="D"> Water</label>
+    </div>
+    <div class="qexplain" id="e6">NH₃(g) + HCl(g) → NH₄Cl(s) — white smoke/fumes of ammonium chloride. This is the classic test for ammonia vapour. Both ammonia and HCl diffuse toward each other and react in the gas phase, forming a white solid precipitate visible as "fumes" or "smoke."</div></div>
+
+    <div class="qblock"><span class="qnum">Q7</span>
+    <p class="qtext">In the Ostwald process, what catalyst is used in Step 1 (oxidation of NH₃)?</p>
+    <div class="opts">
+      <label><input type="radio" name="q7" value="A"> Iron (Fe)</label>
+      <label><input type="radio" name="q7" value="B"> Vanadium(V) oxide (V₂O₅)</label>
+      <label><input type="radio" name="q7" value="C"> Platinum/rhodium gauze (Pt/Rh)</label>
+      <label><input type="radio" name="q7" value="D"> Nickel (Ni)</label>
+    </div>
+    <div class="qexplain" id="e7">Ostwald Step 1: 4NH₃ + 5O₂ → 4NO + 6H₂O, catalyst = Pt/Rh gauze at ~850°C. Iron is used in the Haber process. V₂O₅ is used in the Contact process (H₂SO₄ manufacture). Ni is used in steam reforming of methane.</div></div>
+
+    <div class="qblock"><span class="qnum">Q8</span>
+    <p class="qtext">What gas is produced when copper reacts with dilute nitric acid?</p>
+    <div class="opts">
+      <label><input type="radio" name="q8" value="A"> NO₂ (brown gas)</label>
+      <label><input type="radio" name="q8" value="B"> N₂ (colourless)</label>
+      <label><input type="radio" name="q8" value="C"> NO (colourless, turns brown in air)</label>
+      <label><input type="radio" name="q8" value="D"> H₂ (colourless)</label>
+    </div>
+    <div class="qexplain" id="e8">Dilute HNO₃: 3Cu + 8HNO₃(dil.) → 3Cu(NO₃)₂ + 2NO↑ + 4H₂O. NO is colourless when collected but immediately turns brown in air: 2NO + O₂ → 2NO₂. Concentrated HNO₃ with Cu gives brown NO₂ directly.</div></div>
+
+    <div class="qblock"><span class="qnum">Q9</span>
+    <p class="qtext">The oxidation state of nitrogen in HNO₃ is:</p>
+    <div class="opts">
+      <label><input type="radio" name="q9" value="A"> +3</label>
+      <label><input type="radio" name="q9" value="B"> +4</label>
+      <label><input type="radio" name="q9" value="C"> +5</label>
+      <label><input type="radio" name="q9" value="D"> −3</label>
+    </div>
+    <div class="qexplain" id="e9">HNO₃: H(+1) + N + 3×O(−2) = 0 → +1 + N − 6 = 0 → N = +5. This is the highest common oxidation state of nitrogen. In NO₃⁻: N + 3(−2) = −1 → N = +5. Same result.</div></div>
+
+    <div class="qblock"><span class="qnum">Q10</span>
+    <p class="qtext">White phosphorus ignites spontaneously in air because:</p>
+    <div class="opts">
+      <label><input type="radio" name="q10" value="A"> It contains radioactive atoms</label>
+      <label><input type="radio" name="q10" value="B"> The P₄ molecule has severe angle strain (P–P–P = 60°) making the bonds highly reactive</label>
+      <label><input type="radio" name="q10" value="C"> It is a liquid at room temperature</label>
+      <label><input type="radio" name="q10" value="D"> It reacts with nitrogen in the air</label>
+    </div>
+    <div class="qexplain" id="e10">P₄ has P–P–P bond angles of 60° — far from the natural sp³ angle of ~107°. This severe angle strain stores energy in the molecule and weakens the P–P bonds. The result: white phosphorus is extremely reactive, self-igniting in air at 34°C. It must be stored under water to prevent combustion.</div></div>
+
+    <div class="qblock"><span class="qnum">Q11</span>
+    <p class="qtext">Why does NH₃ have a much higher boiling point than PH₃, despite having a lower molar mass?</p>
+    <div class="opts">
+      <label><input type="radio" name="q11" value="A"> NH₃ is ionic; PH₃ is covalent</label>
+      <label><input type="radio" name="q11" value="B"> NH₃ forms hydrogen bonds (N–H···N); PH₃ cannot form hydrogen bonds — only weak van der Waals forces</label>
+      <label><input type="radio" name="q11" value="C"> PH₃ has stronger covalent bonds than NH₃</label>
+      <label><input type="radio" name="q11" value="D"> NH₃ has a higher molecular mass</label>
+    </div>
+    <div class="qexplain" id="e11">NH₃: N is small and highly electronegative (3.0) → N–H bond is very polar → NH₃ forms strong hydrogen bonds (N–H···N). b.p. = −33°C. PH₃: P is larger (2.1 EN), P–H bond is much less polar → no H-bonds possible → only van der Waals forces. b.p. = −88°C. The same anomaly is seen in H₂O vs H₂S and HF vs HCl.</div></div>
+
+    <div class="qblock"><span class="qnum">Q12</span>
+    <p class="qtext">Phosphorus pentachloride (PCl₅) has a trigonal bipyramidal shape because:</p>
+    <div class="opts">
+      <label><input type="radio" name="q12" value="A"> It has 4 bonding pairs</label>
+      <label><input type="radio" name="q12" value="B"> Phosphorus uses sp³d hybridisation — 5 bond pairs around P, no lone pairs — trigonal bipyramidal</label>
+      <label><input type="radio" name="q12" value="C"> It has 2 lone pairs on P</label>
+      <label><input type="radio" name="q12" value="D"> It is isoelectronic with SF₆</label>
+    </div>
+    <div class="qexplain" id="e12">PCl₅: P uses sp³d hybridisation (one 3d orbital involved) → 5 σ bonds, 0 lone pairs → trigonal bipyramidal. Bond angles: 120° (equatorial) and 90° (axial). This is only possible because P (Period 3) has empty, accessible 3d orbitals. Nitrogen cannot form NCl₅ — no available d orbitals.</div></div>
+
+    <div class="qblock"><span class="qnum">Q13</span>
+    <p class="qtext">The reaction of PCl₅ with water produces:</p>
+    <div class="opts">
+      <label><input type="radio" name="q13" value="A"> PCl₃ + Cl₂</label>
+      <label><input type="radio" name="q13" value="B"> H₃PO₄ + 5HCl (white fumes)</label>
+      <label><input type="radio" name="q13" value="C"> H₃PO₃ + 3HCl</label>
+      <label><input type="radio" name="q13" value="D"> P₂O₅ + HCl</label>
+    </div>
+    <div class="qexplain" id="e13">PCl₅ + 4H₂O → H₃PO₄ + 5HCl. Vigorous reaction, white fumes of HCl. The P–Cl bonds are hydrolysed — H₂O's lone pair attacks the P atom (possible due to empty 3d orbitals), Cl⁻ leaves as HCl. Product is phosphoric acid (H₃PO₄, triprotic).</div></div>
+
+    <div class="qblock"><span class="qnum">Q14</span>
+    <p class="qtext">What is the main product of the thermal decomposition of ammonium nitrate (NH₄NO₃) at ~230°C?</p>
+    <div class="opts">
+      <label><input type="radio" name="q14" value="A"> N₂ + 2H₂O</label>
+      <label><input type="radio" name="q14" value="B"> N₂O + 2H₂O</label>
+      <label><input type="radio" name="q14" value="C"> NO₂ + H₂O</label>
+      <label><input type="radio" name="q14" value="D"> NO + HNO₃</label>
+    </div>
+    <div class="qexplain" id="e14">NH₄NO₃ → N₂O + 2H₂O at ~230°C. N₂O ("laughing gas") is produced. At higher temperatures (>300°C): 2NH₄NO₃ → 2N₂ + 4H₂O + O₂ (detonation). This makes NH₄NO₃ a fertiliser that must be stored carefully — it is also an explosive used in mining (ANFO).</div></div>
+
+    <div class="qblock"><span class="qnum">Q15</span>
+    <p class="qtext">Which of the following is the oxidation state of N in NO₂?</p>
+    <div class="opts">
+      <label><input type="radio" name="q15" value="A"> +2</label>
+      <label><input type="radio" name="q15" value="B"> +3</label>
+      <label><input type="radio" name="q15" value="C"> +4</label>
+      <label><input type="radio" name="q15" value="D"> +5</label>
+    </div>
+    <div class="qexplain" id="e15">NO₂: N + 2×O(−2) = 0 → N − 4 = 0 → N = +4. NO₂ is a radical (odd number of electrons, unpaired electron on N). It dimerises to N₂O₄ at lower temperatures (N + 2×(−2) = 0 for each N, so still +4 in N₂O₄).</div></div>
+
+    <div class="qblock"><span class="qnum">Q16</span>
+    <p class="qtext">Superphosphate fertiliser is made by treating calcium phosphate with:</p>
+    <div class="opts">
+      <label><input type="radio" name="q16" value="A"> Ammonia</label>
+      <label><input type="radio" name="q16" value="B"> Concentrated sulfuric acid</label>
+      <label><input type="radio" name="q16" value="C"> Potassium chloride</label>
+      <label><input type="radio" name="q16" value="D"> Nitric acid</label>
+    </div>
+    <div class="qexplain" id="e16">Ca₃(PO₄)₂ + 2H₂SO₄ → Ca(H₂PO₄)₂ + 2CaSO₄. The product Ca(H₂PO₄)₂ (calcium dihydrogen phosphate) is soluble in water and can be absorbed by plant roots, unlike Ca₃(PO₄)₂ which is insoluble. CaSO₄ (gypsum) is a co-product. This process converts insoluble phosphate into a soluble plant-available form.</div></div>
+
+    <div class="qblock"><span class="qnum">Q17</span>
+    <p class="qtext">The reaction 2NO + O₂ → 2NO₂ is responsible for:</p>
+    <div class="opts">
+      <label><input type="radio" name="q17" value="A"> The smell of ammonia in industry</label>
+      <label><input type="radio" name="q17" value="B"> The brown colour seen when NO gas is collected and exposed to air, and brown/yellow smog in cities</label>
+      <label><input type="radio" name="q17" value="C"> Acid rain from sulfur dioxide</label>
+      <label><input type="radio" name="q17" value="D"> The bleaching action of chlorine</label>
+    </div>
+    <div class="qexplain" id="e17">Colourless NO (from car engines, lightning, industrial processes) reacts with O₂ in air to give brown NO₂. This is the reaction responsible for: (1) the brown colour when NO gas contacts air; (2) the brown/yellow photochemical smog in cities (NO₂ absorbs blue light → appears brown); (3) contributing to acid rain when NO₂ dissolves in rainwater.</div></div>
+
+    <div class="qblock"><span class="qnum">Q18</span>
+    <p class="qtext">P₄O₁₀ is used industrially as a:</p>
+    <div class="opts">
+      <label><input type="radio" name="q18" value="A"> Reducing agent</label>
+      <label><input type="radio" name="q18" value="B"> Drying/desiccant agent — it reacts vigorously with water</label>
+      <label><input type="radio" name="q18" value="C"> Catalyst for ammonia synthesis</label>
+      <label><input type="radio" name="q18" value="D"> Antacid</label>
+    </div>
+    <div class="qexplain" id="e18">P₄O₁₀ + 6H₂O → 4H₃PO₄. P₄O₁₀ reacts very vigorously and exothermically with water — it is one of the most powerful desiccants (drying agents) known. Used to dry gases, remove water from reactions, and as a dehydrating agent for organic reactions.</div></div>
+
+    <div class="qblock"><span class="qnum">Q19</span>
+    <p class="qtext">Which of the following statements about nitrogen fixation is correct?</p>
+    <div class="opts">
+      <label><input type="radio" name="q19" value="A"> Nitrogen fixation means converting NH₃ to N₂</label>
+      <label><input type="radio" name="q19" value="B"> Nitrogen fixation means converting N₂ into useful nitrogen compounds (e.g. NH₃)</label>
+      <label><input type="radio" name="q19" value="C"> Only industrial processes can fix nitrogen</label>
+      <label><input type="radio" name="q19" value="D"> Nitrogen is fixed by dissolving N₂ in water</label>
+    </div>
+    <div class="qexplain" id="e19">Nitrogen fixation: converting atmospheric N₂ (inert) into reactive nitrogen compounds (NH₃, NO₃⁻, etc.) that organisms can use. Methods: (1) Industrial — Haber process; (2) Biological — Rhizobium bacteria in legume root nodules using nitrogenase enzyme; (3) Atmospheric — lightning converts N₂ + O₂ → NO → HNO₃ in rainwater.</div></div>
+
+    <div class="qblock"><span class="qnum">Q20</span>
+    <p class="qtext">The bond angle in PH₃ (93°) is much smaller than in NH₃ (107°) because:</p>
+    <div class="opts">
+      <label><input type="radio" name="q20" value="A"> P has a larger atomic radius so bonds are further apart</label>
+      <label><input type="radio" name="q20" value="B"> P is less electronegative — P–H bonds are less polar and have less electron density to repel each other; P uses near-pure p orbitals (bond angle close to 90°)</label>
+      <label><input type="radio" name="q20" value="C"> PH₃ has more lone pairs than NH₃</label>
+      <label><input type="radio" name="q20" value="D"> The H atoms in PH₃ are larger than in NH₃</label>
+    </div>
+    <div class="qexplain" id="e20">In NH₃: strong N–H bond polarity + sp³ hybridisation → 107°. In PH₃: P is larger and less electronegative (2.1 vs 3.0). P–H bonds are less polar. P uses largely pure 3p orbitals for bonding (minimal hybridisation) → natural angle between p orbitals = 90° → PH₃ angle ≈ 93°. The same pattern applies to H₂S (92°) vs H₂O (104.5°).</div></div>
+
+    <div class="qblock"><span class="qnum">Q21</span>
+    <p class="qtext">Iron is passivated by concentrated nitric acid. This means:</p>
+    <div class="opts">
+      <label><input type="radio" name="q21" value="A"> Iron dissolves rapidly in concentrated HNO₃</label>
+      <label><input type="radio" name="q21" value="B"> A thin, impervious oxide layer (Fe₂O₃) forms on the surface, preventing further reaction</label>
+      <label><input type="radio" name="q21" value="C"> Iron reduces HNO₃ to NH₃</label>
+      <label><input type="radio" name="q21" value="D"> Iron absorbs HNO₃ without reacting</label>
+    </div>
+    <div class="qexplain" id="e21">Passivation: concentrated HNO₃ rapidly oxidises the iron surface to form a dense Fe₂O₃ (or Fe₃O₄) layer. This oxide coat is adherent and impermeable — it seals the surface and prevents any further reaction. Concentrated HNO₃ can therefore be stored and transported in iron/steel containers! Same effect on aluminium.</div></div>
+
+    <div class="qblock"><span class="qnum">Q22</span>
+    <p class="qtext">Phosphoric acid (H₃PO₄) is described as triprotic. What does this mean?</p>
+    <div class="opts">
+      <label><input type="radio" name="q22" value="A"> It contains three phosphorus atoms</label>
+      <label><input type="radio" name="q22" value="B"> It has three ionisable protons (H⁺) — can donate 3 H⁺ per molecule</label>
+      <label><input type="radio" name="q22" value="C"> It can only be used three times before becoming inactive</label>
+      <label><input type="radio" name="q22" value="D"> It reacts with three types of metal</label>
+    </div>
+    <div class="qexplain" id="e22">Triprotic acid: has 3 H⁺ it can donate. H₃PO₄ → H⁺ + H₂PO₄⁻ (first ionisation, Ka₁); H₂PO₄⁻ → H⁺ + HPO₄²⁻ (second, Ka₂); HPO₄²⁻ → H⁺ + PO₄³⁻ (third, Ka₃). Each step is weaker than the previous. H₂SO₄ is diprotic; HCl is monoprotic.</div></div>
+
+    <div class="qblock"><span class="qnum">Q23</span>
+    <p class="qtext">Which oxide of nitrogen is a radical (contains an unpaired electron)?</p>
+    <div class="opts">
+      <label><input type="radio" name="q23" value="A"> N₂O only</label>
+      <label><input type="radio" name="q23" value="B"> NO only</label>
+      <label><input type="radio" name="q23" value="C"> Both NO and NO₂</label>
+      <label><input type="radio" name="q23" value="D"> N₂O₄ only</label>
+    </div>
+    <div class="qexplain" id="e23">NO: 11 valence electrons total — odd number → unpaired electron → radical. NO₂: 23 valence electrons — odd number → radical. Both are paramagnetic. NO₂ dimerises to N₂O₄ (even electrons, diamagnetic). N₂O has even electrons — not a radical. Radicals are highly reactive.</div></div>
+
+    <div class="qblock"><span class="qnum">Q24</span>
+    <p class="qtext">The thermal decomposition of potassium nitrate (KNO₃) produces:</p>
+    <div class="opts">
+      <label><input type="radio" name="q24" value="A"> K₂O + NO₂ + O₂</label>
+      <label><input type="radio" name="q24" value="B"> KNO₂ + O₂</label>
+      <label><input type="radio" name="q24" value="C"> K + N₂ + O₂</label>
+      <label><input type="radio" name="q24" value="D"> K₂O₂ + N₂ + O₂</label>
+    </div>
+    <div class="qexplain" id="e24">2KNO₃ → 2KNO₂ + O₂. Group 1 nitrates (Na, K) decompose to the nitrite + oxygen when heated (not oxide + NO₂ + O₂). Only lithium and most other metal nitrates decompose to the metal oxide + NO₂ + O₂. Remember: K/Na → nitrite; Li and most others → oxide.</div></div>
+
+    <div class="qblock"><span class="qnum">Q25</span>
+    <p class="qtext">Biological nitrogen fixation is carried out by:</p>
+    <div class="opts">
+      <label><input type="radio" name="q25" value="A"> Plants directly</label>
+      <label><input type="radio" name="q25" value="B"> Certain bacteria (e.g. Rhizobium) using the enzyme nitrogenase to convert N₂ to NH₃</label>
+      <label><input type="radio" name="q25" value="C"> Fungi in soil</label>
+      <label><input type="radio" name="q25" value="D"> Algae in water</label>
+    </div>
+    <div class="qexplain" id="e25">Biological N fixation: Rhizobium bacteria (found in root nodules of legumes like beans, peas, clover) and free-living Azotobacter bacteria use the enzyme nitrogenase to convert N₂ + 8H⁺ + 8e⁻ + 16ATP → 2NH₃ + H₂ at ambient temperature and pressure. This remarkable feat uses an Fe–Mo cofactor. Legume rotation in agriculture exploits this natural fertilisation.</div></div>
+
+    <div style="text-align:center;margin-top:28px;">
+      <button class="qs" onclick="submitQuiz()">Submit Quiz — Check Answers</button>
+      <div id="qR"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ UNIT TEST ═══ -->
+<div class="section-header" id="test">
+  <span class="section-number">📝</span>
+  <h2>Unit Test — 50 Marks</h2>
+</div>
+
+<div class="test-section">
+  <div class="test-sec-head"><h3>Section A — Short Answer</h3><span class="marks-badge">30 marks</span></div>
+
+  <div class="tq"><div class="tq-num">Q1 [5 marks]</div>
+  <p>Explain why N₂ is kinetically inert at room temperature. Describe two conditions under which N₂ does react, giving an equation for each. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">Kinetic inertness: N≡N bond energy = 945 kJ mol⁻¹ — very high; huge Eₐ required to break the triple bond. N₂ is non-polar → no easy point of attack for reactants. Small atomic radius → steric hindrance. [2] Condition 1: High T + catalyst — Haber: N₂ + 3H₂ ⇌ 2NH₃ (450°C, 200 atm, Fe). [1.5] Condition 2: Lightning/very high T — N₂ + O₂ ⇌ 2NO (>2000°C). Also acceptable: N₂ + 3Mg → Mg₃N₂ (burning Mg). [1.5]</div></div>
+
+  <div class="tq"><div class="tq-num">Q2 [5 marks]</div>
+  <p>Describe the Haber process for the manufacture of ammonia. Include: the equation, conditions, catalyst, reason for the conditions chosen, and how the process achieves a high overall yield despite low conversion per pass. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">Equation: N₂(g) + 3H₂(g) ⇌ 2NH₃(g), ΔH = −92 kJ mol⁻¹. [1] Conditions: ~450°C — compromise: lower T gives better yield (exothermic → Le Châtelier) but slower rate; 450°C balances rate and yield. [1] ~200 atm — high P favours right (4 mol gas → 2 mol gas). [1] Fe catalyst (with K₂O/Al₂O₃ promoters) — lowers Eₐ, speeds up rate without changing equilibrium position. [1] Recycling: only ~15% NH₃ per pass; NH₃ is condensed and removed; unreacted N₂/H₂ recycled → overall 97% conversion. [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q3 [5 marks]</div>
+  <p>Describe the Ostwald process. Write the equation for each step. State the catalyst and conditions for Step 1. Write the overall equation (from NH₃ to HNO₃). [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">Step 1: 4NH₃ + 5O₂ → 4NO + 6H₂O. Conditions: Pt/Rh gauze catalyst, ~850°C, 5–10 atm. [2] Step 2: 2NO + O₂ → 2NO₂ (cooling to ~50°C, no catalyst). [1] Step 3: 3NO₂ + H₂O → 2HNO₃ + NO (NO recycled to Step 2). [1] Overall: NH₃ + 2O₂ → HNO₃ + H₂O. [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q4 [5 marks]</div>
+  <p>Compare white phosphorus and red phosphorus under the headings: (a) structure (b) melting point (c) reactivity with air (d) solubility in CS₂ (e) toxicity. Explain the differences in terms of structure. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) White: discrete P₄ (tetrahedral, 60° bond angles). Red: polymeric chains of linked P₄ tetrahedra. [1] (b) White: m.p. = 44°C (simple molecular). Red: m.p. ~600°C (polymeric structure — many bonds to break). [1] (c) White: ignites spontaneously at 34°C (severe angle strain). Red: stable, ignites at ~250°C. [1] (d) White: soluble in CS₂. Red: insoluble in CS₂. [1] (e) White: extremely toxic. Red: non-toxic at room temperature. Difference explained: white P₄ has severe 60° bond angles → strained, high-energy bonds → very reactive and toxic. Red P has relieved strain in polymeric structure → more stable. [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q5 [5 marks]</div>
+  <p>Explain why nitrogen cannot form NCl₅ while phosphorus forms PCl₅. State the hybridisation and shape of PCl₅. Write an equation for the hydrolysis of PCl₅. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">N (Period 2): 2s²2p³ — all n=2 orbitals occupied; 2d orbitals are too high in energy. N cannot expand octet — maximum 4 bonds. [1.5] P (Period 3): 3s²3p³ with empty 3d orbitals at accessible energy → can form sp³d hybridisation → 5 bonds → PCl₅. [1.5] PCl₅ hybridisation: sp³d. Shape: trigonal bipyramidal (3 equatorial at 120°, 2 axial at 90° to equatorial). [1] Hydrolysis: PCl₅ + 4H₂O → H₃PO₄ + 5HCl (white fumes of HCl). [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q6 [5 marks]</div>
+  <p>Give the oxidation state of nitrogen in each species: (a) N₂ (b) NH₃ (c) N₂O (d) NO (e) NO₂ (f) HNO₃ (g) NO₃⁻ (h) NH₄⁺ (i) N₂H₄ (j) NaNO₂. [5 — ½ mark each]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) 0; (b) −3; (c) +1; (d) +2; (e) +4; (f) +5; (g) +5; (h) −3; (i) −2 [N + 4H(+1) + 2N = 0, each N = −2]; (j) +3 [Na(+1) + N + 2O(−2) = 0 → N = +3].</div></div>
+</div>
+
+<div class="test-section">
+  <div class="test-sec-head"><h3>Section B — Extended Answer</h3><span class="marks-badge">20 marks</span></div>
+
+  <div class="tq"><div class="tq-num">Q7 [10 marks]</div>
+  <p>(a) Describe the industrial importance of ammonia and nitric acid, giving three specific uses of each. [4]<br>
+  (b) Explain the environmental problems associated with nitrogen oxides (NOₓ) in the atmosphere, including acid rain, photochemical smog, and ozone depletion. Write a relevant equation for each. [6]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) NH₃ uses (any 3): (i) Fertiliser — NH₄NO₃, (NH₄)₂SO₄, urea; (ii) Making nitric acid (Ostwald); (iii) Refrigerant — low b.p. (−33°C), high latent heat; (iv) Cleaning products/household ammonia; (v) Explosives (via HNO₃). HNO₃ uses: (i) Fertiliser — ammonium nitrate; (ii) Explosives (TNT, nitroglycerin) via nitration; (iii) Rocket propellant; (iv) Metal etching/pickling; (v) Making dyes and drugs. [4] (b) Acid rain: NOₓ (NO + NO₂) from vehicle exhausts + rain → HNO₃. 3NO₂ + H₂O → 2HNO₃ + NO; or: 4NO + 3O₂ + 2H₂O → 4HNO₃. Damages forests, aquatic ecosystems, buildings, corrodes metals and limestone. [2] Photochemical smog: NO₂ + UV → NO + O (atomic). O + O₂ → O₃ (ozone, irritant). O₃ + unburnt hydrocarbons → peroxoacetyl nitrate (PAN) and other irritants → eye/lung irritation, crop damage. [2] Ozone depletion (stratospheric): NO + O₃ → NO₂ + O₂; NO₂ + O → NO + O₂ (catalytic cycle). NO acts as catalyst, each molecule destroys many O₃ molecules. Natural sources: N₂O from soil bacteria reaches stratosphere, reacts with O to give NO. Also CFCs are another major ozone depletor. [2]</div></div>
+
+  <div class="tq"><div class="tq-num">Q8 [10 marks]</div>
+  <p>(a) Compare ammonia (NH₃) and phosphine (PH₃) with respect to: structure and bond angle, boiling point and reason, basic strength in water, stability, and ability to form 5-coordinate compounds. [5]<br>
+  (b) Describe the nitrogen cycle, explaining how nitrogen moves between the atmosphere and living organisms. Include the roles of nitrogen-fixing bacteria, nitrifying bacteria, denitrifying bacteria, and decomposers. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) Structure: both trigonal pyramidal; NH₃ bond angle 107° (sp³ with H-bonding character); PH₃ bond angle 93° (near pure p orbitals, less hybridisation). b.p.: NH₃ = −33°C (N–H···N H-bonds, strong); PH₃ = −88°C (only van der Waals, weaker). Basic strength: NH₃ is a moderate base (Kb = 1.8×10⁻⁵); PH₃ is a very weak base (lone pair less accessible on larger P, lower electron density on P). Stability: NH₃ very stable; PH₃ less stable, toxic, flammable. 5-coordinate compounds: NH₅ does not exist (N has no accessible d orbitals, Period 2). PH₅ does exist/can form (P has 3d orbitals) — analogous to PCl₅. [5] (b) N cycle: (1) Nitrogen fixation: Rhizobium in legume root nodules (and Azotobacter free-living) convert N₂ → NH₃ using nitrogenase. [1] (2) Nitrification: Nitrosomonas converts NH₃/NH₄⁺ → NO₂⁻; Nitrobacter converts NO₂⁻ → NO₃⁻. Plants absorb NO₃⁻ and make proteins/DNA. [1] (3) Assimilation: plants and animals use nitrogen to make proteins and nucleic acids. (4) Decomposition: decomposers (bacteria/fungi) break down dead organic matter → NH₄⁺ (ammonification). [1] (5) Denitrification: Pseudomonas bacteria convert NO₃⁻ → N₂ (returns N to atmosphere) under anaerobic conditions. [1] (6) Industrial input: Haber process adds fixed N to the cycle as NH₃ → fertilisers → absorbed by plants. Significance: the cycle maintains a balance — without N fixation, life could not access atmospheric N₂. [1]</div></div>
+</div>
+
+<div class="unit-nav">
+  <a href="s4_unit9_group14.html">← Unit 9: Group 14</a>
+  <a href="s4-chemistry.html">S4 Course Home</a>
+  <a href="s4_unit11_group16.html">Unit 11: Group 16 →</a>
+</div>
+
+</main>
+<footer>
+  ⚗ Jackson Habimana Chemistry Portal &bull; S4 Unit 10: Group 15 &bull;
+  <a href="s4-chemistry.html">Back to S4</a> &bull;
+  <a href="index.html">Home</a>
+</footer>
+
+<script>
+const _CA={q1:'B',q2:'B',q3:'B',q4:'B',q5:'B',q6:'B',q7:'C',q8:'C',q9:'C',q10:'B',q11:'B',q12:'B',q13:'B',q14:'B',q15:'C',q16:'B',q17:'B',q18:'B',q19:'B',q20:'B',q21:'B',q22:'B',q23:'C',q24:'B',q25:'B'};
+function submitQuiz(){
+  let s=0,t=Object.keys(_CA).length;
+  Object.entries(_CA).forEach(([q,c])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{if(o.value===c)o.closest('label').classList.add('correct');});
+    if(sel){if(sel.value===c)s++;else sel.closest('label').classList.add('wrong');}
+    const e=document.getElementById('e'+q.slice(1));if(e)e.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const p=Math.round(s/t*100);
+  const r=document.getElementById('qR');r.style.display='block';
+  r.style.cssText='display:block;margin-top:16px;border-radius:8px;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:.88rem;text-align:center;background:'+(p>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)')+';border:1px solid '+(p>=70?'var(--green)':'var(--red)')+';color:'+(p>=70?'var(--green)':'var(--red)');
+  r.innerHTML='Score: '+s+'/'+t+' ('+p+'%) — '+(p>=80?'🏆 Excellent!':p>=70?'✅ Good — review marked answers.':p>=50?'📚 Keep going — study all explanations.':'❌ Review all material and try again.');
+  document.querySelector('.qs').disabled=true;document.querySelector('.qs').style.opacity='.5';
+}
+// ACCESS GATE
+(function(){
+  const SK='quiz_access_granted',CK='quiz_access_code';
+  const gate=document.createElement('div');gate.id='unit-quiz-gate';
+  gate.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;';
+  gate.innerHTML='<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:48px 40px;max-width:460px;width:100%;text-align:center;"><div style="font-size:3.5rem;margin-bottom:16px;">🔒</div><h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2><p style="color:#8b949e;font-size:.93rem;margin-bottom:24px;line-height:1.7;">Enter the access code from your teacher to unlock this quiz.</p><input id="ugc-inp" type="text" placeholder="Enter Code" maxlength="20" style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;box-sizing:border-box;" onkeydown="if(event.key===\'Enter\')unlockUnitQuiz()"/><div id="ugc-err" style="font-family:JetBrains Mono,monospace;font-size:.82rem;color:#f87171;min-height:20px;margin-bottom:10px;"></div><button onclick="unlockUnitQuiz()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:10px;">🔓 Unlock Quiz</button><button onclick="document.getElementById(\'unit-quiz-gate\').style.display=\'none\';document.body.style.overflow=\'\'" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:9px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.8rem;cursor:pointer;">✕ Cancel</button></div>';
+  document.body.appendChild(gate);
+  window.unlockUnitQuiz=function(){const v=document.getElementById('ugc-inp').value.trim().toUpperCase();const c=localStorage.getItem(CK);if(!v){document.getElementById('ugc-err').textContent='Enter the code.';return;}if(v===c||!c){sessionStorage.setItem(SK,c||'open');document.getElementById('unit-quiz-gate').style.display='none';document.body.style.overflow='';}else{document.getElementById('ugc-err').textContent='❌ Wrong code.';document.getElementById('ugc-inp').value='';}};
+  window.addEventListener('DOMContentLoaded',function(){const code=localStorage.getItem(CK);if(!code)return;const granted=sessionStorage.getItem(SK);if(granted)return;const qw=document.querySelector('.quiz-wrap');if(!qw)return;qw.addEventListener('click',function(e){if(!localStorage.getItem(CK))return;if(sessionStorage.getItem(SK))return;e.stopPropagation();e.preventDefault();document.getElementById('unit-quiz-gate').style.display='flex';document.body.style.overflow='hidden';},true);});
+})();
+</script>
+</body>
+</html>
