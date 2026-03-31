@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>S4 Chemistry – Unit 14: Period 3 Elements | Jackson Habimana</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0d1117;--surface:#161b22;--surface2:#1c2333;--border:#30363d;--accent:#f59e0b;--gold:#e8c547;--green:#34d399;--red:#f87171;--blue:#38bdf8;--purple:#a78bfa;--text:#e6edf3;--muted:#8b949e;--radius:10px;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.75;overflow-x:hidden;}
+nav{position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:54px;padding:0 24px;}
+.nav-brand{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--accent);text-decoration:none;}
+.nav-links{display:flex;gap:4px;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);text-decoration:none;padding:4px 10px;border-radius:5px;border:1px solid transparent;transition:all .15s;}
+.nav-links a:hover{color:var(--accent);border-color:rgba(245,158,11,.3);}
+.hero{position:relative;padding:80px 40px 60px;text-align:center;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,#1a0e00 0%,var(--bg) 70%);border-bottom:1px solid var(--border);}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(245,158,11,.04) 40px),repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(245,158,11,.04) 40px);pointer-events:none;}
+.badge{display:inline-block;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:var(--accent);padding:4px 16px;border-radius:50px;font-size:.78rem;font-family:'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;margin-bottom:22px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;color:#fff;max-width:820px;margin:0 auto 18px;}
+.hero h1 em{color:var(--accent);font-style:italic;}
+.hero p.sub{color:var(--muted);font-size:1rem;max-width:640px;margin:0 auto 32px;}
+.toc-grid{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:860px;margin:0 auto;}
+.toc-grid a{background:var(--surface2);border:1px solid var(--border);color:var(--text);padding:8px 18px;border-radius:50px;text-decoration:none;font-size:.85rem;transition:all .2s;font-family:'JetBrains Mono',monospace;}
+.toc-grid a:hover{background:var(--accent);color:#000;border-color:var(--accent);}
+.page{max-width:960px;margin:0 auto;padding:0 28px 80px;}
+.section-header{display:flex;align-items:center;gap:16px;margin:64px 0 28px;padding-bottom:14px;border-bottom:2px solid var(--border);}
+.section-number{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);padding:4px 12px;border-radius:4px;white-space:nowrap;}
+.section-header h2{font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:26px 30px;margin-bottom:22px;}
+.card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--gold);margin-bottom:14px;}
+.card p+p{margin-top:12px;}
+.def-box{border-left:4px solid var(--accent);background:rgba(245,158,11,.07);border-radius:0 var(--radius) var(--radius) 0;padding:18px 22px;margin:20px 0;}
+.def-box strong{color:var(--accent);display:block;font-size:.78rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;}
+.callout{border-radius:var(--radius);padding:18px 22px;margin:20px 0;display:flex;gap:14px;align-items:flex-start;}
+.callout.info{background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.25);}
+.callout.warn{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.25);}
+.callout.tip{background:rgba(52,211,153,.08);border:1px solid rgba(52,211,153,.25);}
+.callout.mem{background:rgba(232,197,71,.08);border:1px solid rgba(232,197,71,.25);}
+.callout-icon{font-size:1.3rem;margin-top:2px;flex-shrink:0;}
+.callout-body strong{display:block;margin-bottom:4px;font-size:.9rem;color:#fff;}
+.tbl-wrap{overflow-x:auto;margin:20px 0;border-radius:var(--radius);border:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:var(--surface2);}
+th{padding:13px 16px;text-align:left;font-size:.82rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);white-space:nowrap;}
+td{padding:12px 16px;border-top:1px solid var(--border);font-size:.9rem;line-height:1.6;}
+tr:hover td{background:rgba(255,255,255,.02);}
+.formula-block{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:18px 24px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:.92rem;color:var(--accent);overflow-x:auto;line-height:2.1;}
+h3.sub{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--gold);margin:28px 0 10px;}
+.diagram-box{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin:22px 0;text-align:center;}
+.diagram-box figcaption{font-family:'JetBrains Mono',monospace;font-size:.74rem;color:var(--muted);margin-top:12px;}
+.example-box{border:1px solid rgba(245,158,11,.3);border-radius:var(--radius);overflow:hidden;margin:22px 0;}
+.example-box .ex-head{background:rgba(245,158,11,.12);padding:12px 20px;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;}
+.example-box .ex-body{padding:20px 24px;}
+.step{display:flex;gap:14px;margin-bottom:10px;align-items:flex-start;}
+.step-num{width:28px;height:28px;background:var(--accent);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:4px;}
+.exercise-list{list-style:none;counter-reset:ex;}
+.exercise-list li{counter-increment:ex;margin-bottom:18px;padding:18px 22px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);}
+.exercise-list li::before{content:'Q' counter(ex) '.';font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--accent);display:block;margin-bottom:8px;}
+.reveal-btn{margin-top:10px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:var(--accent);padding:6px 18px;border-radius:6px;cursor:pointer;font-size:.82rem;font-family:'JetBrains Mono',monospace;transition:all .2s;}
+.reveal-btn:hover{background:var(--accent);color:#000;}
+.answer{display:none;margin-top:12px;padding:14px 18px;background:rgba(245,158,11,.06);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.9rem;line-height:1.7;}
+.answer.open{display:block;}
+.quiz-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-top:28px;}
+.quiz-head{padding:22px 28px;background:var(--surface2);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.quiz-head h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;}
+.quiz-body{padding:24px 28px;}
+.qblock{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border);}
+.qblock:last-child{border-bottom:none;}
+.qnum{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);padding:3px 10px;border-radius:4px;display:inline-block;margin-bottom:10px;}
+.qtext{font-size:1rem;color:#fff;margin-bottom:14px;line-height:1.7;}
+.opts label{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;margin-bottom:8px;border-radius:8px;border:1px solid var(--border);cursor:pointer;transition:all .15s;font-size:.93rem;}
+.opts label:hover{border-color:var(--accent);background:rgba(245,158,11,.04);}
+.opts label.correct{background:rgba(52,211,153,.12);border-color:var(--green);color:var(--green);}
+.opts label.wrong{background:rgba(248,113,113,.08);border-color:var(--red);color:var(--red);}
+.opts input[type=radio]{margin-top:3px;accent-color:var(--accent);flex-shrink:0;}
+.qexplain{display:none;margin-top:12px;padding:12px 16px;background:rgba(245,158,11,.07);border-left:3px solid var(--accent);border-radius:0 6px 6px 0;font-size:.88rem;line-height:1.7;}
+.qs{display:block;margin:24px auto 0;background:var(--accent);color:#000;border:none;padding:12px 40px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.88rem;font-weight:700;cursor:pointer;transition:opacity .2s;}
+.qs:hover{opacity:.85;}
+#qR{display:none;margin-top:16px;border-radius:8px;padding:14px 18px;font-family:'JetBrains Mono',monospace;font-size:.88rem;text-align:center;}
+.test-section{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);margin-bottom:22px;overflow:hidden;}
+.test-sec-head{background:var(--surface2);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+.test-sec-head h3{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#fff;text-transform:uppercase;letter-spacing:.08em;}
+.marks-badge{font-family:'JetBrains Mono',monospace;font-size:.75rem;background:rgba(232,197,71,.15);border:1px solid rgba(232,197,71,.3);color:var(--gold);padding:3px 12px;border-radius:50px;}
+.tq{padding:18px 24px;border-bottom:1px solid var(--border);}
+.tq:last-child{border-bottom:none;}
+.tq-num{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);margin-bottom:6px;}
+.unit-nav{display:flex;justify-content:space-between;gap:16px;margin-top:60px;padding-top:28px;border-top:1px solid var(--border);flex-wrap:wrap;}
+.unit-nav a{display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--muted);text-decoration:none;padding:10px 18px;border:1px solid var(--border);border-radius:8px;transition:all .2s;}
+.unit-nav a:hover{color:var(--accent);border-color:rgba(245,158,11,.3);}
+footer{border-top:1px solid var(--border);padding:28px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);}
+footer a{color:var(--accent);text-decoration:none;}
+@media(max-width:640px){.hero{padding:60px 24px 40px;}.page{padding:0 16px 60px;}.quiz-body{padding:16px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="index.html">⚗ Jackson Habimana</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="s4-chemistry.html">S4</a>
+      <a href="s5-chemistry.html">S5</a><a href="s6-chemistry.html">S6</a>
+      <a href="student-hub.html">Assessments</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="badge">S4 Chemistry · Unit 14</div>
+  <h1><em>Period 3</em> Elements<br>and Their Compounds</h1>
+  <p class="sub">Physical properties across Na–Ar · Reactions with oxygen, water, and chlorine · Oxides and chlorides · Acid-base trends · Applying the Periodic Law</p>
+  <div class="toc-grid">
+    <a href="#s141">14.1 The Elements</a>
+    <a href="#s142">14.2 Physical Property Trends</a>
+    <a href="#s143">14.3 Reactions with Oxygen</a>
+    <a href="#s144">14.4 Reactions with Water</a>
+    <a href="#s145">14.5 Reactions with Chlorine</a>
+    <a href="#s146">14.6 Oxides — Structures & Acid-Base</a>
+    <a href="#s147">14.7 Chlorides — Structures & Hydrolysis</a>
+    <a href="#s148">14.8 Summary: Periodic Trends</a>
+    <a href="#exercises">Exercises</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#test">Unit Test</a>
+  </div>
+</div>
+
+<main class="page">
+
+<!-- 14.1 -->
+<div class="section-header" id="s141">
+  <span class="section-number">14.1</span>
+  <h2>The Period 3 Elements</h2>
+</div>
+
+<div class="card">
+  <h3>Overview</h3>
+  <p>Period 3 spans from <strong>sodium (Na, Z=11)</strong> to <strong>argon (Ar, Z=18)</strong>. It includes three metals (Na, Mg, Al), one metalloid (Si), four non-metals (P, S, Cl, Ar), and covers <em>all three</em> groups of element character. Period 3 is the most commonly studied period for systematic trends because it is the first "complete" period with well-characterised compounds for all elements (except Ar).</p>
+</div>
+
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Element</th><th>Na</th><th>Mg</th><th>Al</th><th>Si</th><th>P</th><th>S</th><th>Cl</th><th>Ar</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Z</strong></td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td></tr>
+    <tr><td><strong>Config</strong></td><td>[Ne]3s¹</td><td>[Ne]3s²</td><td>[Ne]3s²3p¹</td><td>[Ne]3s²3p²</td><td>[Ne]3s²3p³</td><td>[Ne]3s²3p⁴</td><td>[Ne]3s²3p⁵</td><td>[Ne]3s²3p⁶</td></tr>
+    <tr><td><strong>Type</strong></td><td>Metal</td><td>Metal</td><td>Metal</td><td>Metalloid</td><td>Non-metal</td><td>Non-metal</td><td>Non-metal</td><td>Noble gas</td></tr>
+    <tr><td><strong>Structure</strong></td><td>Metallic</td><td>Metallic</td><td>Metallic</td><td>Giant cov.</td><td>Molecular (P₄)</td><td>Molecular (S₈)</td><td>Molecular (Cl₂)</td><td>Monoatomic</td></tr>
+    <tr><td><strong>Oxide type</strong></td><td>Basic</td><td>Basic</td><td>Amphoteric</td><td>Acidic</td><td>Acidic</td><td>Acidic</td><td>Acidic</td><td>—</td></tr>
+    <tr><td><strong>Chloride type</strong></td><td>Ionic</td><td>Ionic</td><td>Covalent*</td><td>Covalent</td><td>Covalent</td><td>Covalent</td><td>—</td><td>—</td></tr>
+  </tbody>
+</table></div>
+<p style="font-size:.82rem;color:var(--muted);margin-top:8px;">*AlCl₃ is considered covalent due to high charge density of Al³⁺ polarising Cl⁻.</p>
+
+<!-- 14.2 -->
+<div class="section-header" id="s142">
+  <span class="section-number">14.2</span>
+  <h2>Physical Property Trends Across Period 3</h2>
+</div>
+
+<div class="card">
+  <h3>Atomic Radius</h3>
+  <p>Atomic radius <strong>decreases</strong> across Period 3 (Na → Cl). As the nuclear charge Z increases by 1 each step, all electrons are in the same n=3 shell with similar shielding. Increasing Zₑff pulls the electron cloud inward. Ar is excluded (its radius is defined differently — van der Waals).</p>
+  <div class="diagram-box">
+    <svg viewBox="0 0 560 130" xmlns="http://www.w3.org/2000/svg" width="100%" style="max-width:560px;">
+      <text x="280" y="15" text-anchor="middle" font-family="Playfair Display,serif" font-size="12" fill="#e6edf3">Atomic Radius Trend — Period 3 (pm)</text>
+      <!-- bars -->
+      <g font-family="JetBrains Mono" font-size="10">
+        <!-- Na 186pm -->
+        <rect x="30" y="30" width="32" height="74" fill="rgba(245,158,11,.5)" rx="3"/>
+        <text x="46" y="26" text-anchor="middle" fill="#f59e0b">186</text>
+        <text x="46" y="118" text-anchor="middle" fill="#e6edf3">Na</text>
+        <!-- Mg 160 -->
+        <rect x="100" y="43" width="32" height="61" fill="rgba(245,158,11,.45)" rx="3"/>
+        <text x="116" y="39" text-anchor="middle" fill="#f59e0b">160</text>
+        <text x="116" y="118" text-anchor="middle" fill="#e6edf3">Mg</text>
+        <!-- Al 143 -->
+        <rect x="170" y="50" width="32" height="54" fill="rgba(245,158,11,.4)" rx="3"/>
+        <text x="186" y="46" text-anchor="middle" fill="#f59e0b">143</text>
+        <text x="186" y="118" text-anchor="middle" fill="#e6edf3">Al</text>
+        <!-- Si 117 -->
+        <rect x="240" y="60" width="32" height="44" fill="rgba(245,158,11,.35)" rx="3"/>
+        <text x="256" y="56" text-anchor="middle" fill="#f59e0b">117</text>
+        <text x="256" y="118" text-anchor="middle" fill="#e6edf3">Si</text>
+        <!-- P 110 -->
+        <rect x="310" y="63" width="32" height="41" fill="rgba(245,158,11,.3)" rx="3"/>
+        <text x="326" y="59" text-anchor="middle" fill="#f59e0b">110</text>
+        <text x="326" y="118" text-anchor="middle" fill="#e6edf3">P</text>
+        <!-- S 104 -->
+        <rect x="380" y="67" width="32" height="37" fill="rgba(245,158,11,.25)" rx="3"/>
+        <text x="396" y="63" text-anchor="middle" fill="#f59e0b">104</text>
+        <text x="396" y="118" text-anchor="middle" fill="#e6edf3">S</text>
+        <!-- Cl 99 -->
+        <rect x="450" y="70" width="32" height="34" fill="rgba(245,158,11,.2)" rx="3"/>
+        <text x="466" y="66" text-anchor="middle" fill="#f59e0b">99</text>
+        <text x="466" y="118" text-anchor="middle" fill="#e6edf3">Cl</text>
+      </g>
+      <line x1="20" y1="104" x2="545" y2="104" stroke="#30363d" stroke-width="1"/>
+      <text x="30" y="128" font-family="JetBrains Mono" font-size="9" fill="#8b949e">← Atomic radius decreases (increasing Zeff, same n=3 shell)</text>
+    </svg>
+    <figcaption>Atomic radius decreases Na→Cl: same shielding, increasing nuclear charge pulls electrons inward</figcaption>
+  </div>
+</div>
+
+<div class="card">
+  <h3>First Ionisation Energy</h3>
+  <p>IE₁ <strong>generally increases</strong> across Period 3 (same shell, increasing Z → stronger attraction). However, there are two important anomalies:</p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li><strong>Al lower than Mg:</strong> Al (3s²3p¹) — the 3p¹ electron is in a higher-energy subshell than Mg's 3s²; it is more shielded by 3s² → easier to remove → lower IE₁</li>
+    <li><strong>S lower than P:</strong> P (3s²3p³) has a half-filled, extra-stable 3p³. S (3s²3p⁴) has one paired electron → extra electron-electron repulsion in the paired orbital → easier to remove → lower IE₁ than P</li>
+  </ul>
+  <div class="callout mem">
+    <span class="callout-icon">🧠</span>
+    <div class="callout-body">
+      <strong>Remember the two IE₁ anomalies in Period 3</strong>
+      "Al dips below Mg" (3p¹ higher energy than 3s²) and "S dips below P" (paired 3p electron repulsion). Same anomalies as in Period 2: B below Be; O below N.
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Melting Point — The Most Complex Trend</h3>
+  <p>Melting points in Period 3 reflect the <strong>type of structure and bonding</strong>, not just the position of the element:</p>
+  <div class="tbl-wrap" style="margin:0;"><table>
+    <thead><tr><th>Element</th><th>Na</th><th>Mg</th><th>Al</th><th>Si</th><th>P</th><th>S</th><th>Cl</th><th>Ar</th></tr></thead>
+    <tbody>
+      <tr><td><strong>M.p. (°C)</strong></td><td>98</td><td>650</td><td>660</td><td>1414</td><td>44</td><td>113</td><td>−101</td><td>−189</td></tr>
+      <tr><td><strong>Structure</strong></td><td>Metallic (1e⁻)</td><td>Metallic (2e⁻)</td><td>Metallic (3e⁻)</td><td>Giant cov.</td><td>Mol. (P₄)</td><td>Mol. (S₈)</td><td>Mol. (Cl₂)</td><td>Monoat.</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Key explanations:</strong></p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li><strong>Na→Al:</strong> Metallic bonding; increases (1→2→3 delocalised electrons per atom → stronger metallic bond → higher m.p.). Al≈Mg because Al has smaller radius (more charge density) compensating for extra electron</li>
+    <li><strong>Si:</strong> Highest m.p. in Period 3 — giant covalent lattice (4 strong Si–Si bonds per atom; must break many covalent bonds)</li>
+    <li><strong>P, S:</strong> Simple molecular (P₄, S₈); held only by weak van der Waals forces. S₈ larger than P₄ → stronger vdW → higher m.p.</li>
+    <li><strong>Cl₂, Ar:</strong> Very weak van der Waals (diatomic/monoatomic) → very low m.p.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>Electronegativity and Electrical Conductivity</h3>
+  <p><strong>Electronegativity</strong> increases Na (0.9) → Cl (3.0): increasing Z with same shell → greater attraction to bonding electrons.</p>
+  <p><strong>Electrical conductivity:</strong> Na, Mg, Al are metals — good conductors (delocalised electrons). Si is a semiconductor. P, S, Cl, Ar are insulators (no free electrons).</p>
+</div>
+
+<!-- 14.3 -->
+<div class="section-header" id="s143">
+  <span class="section-number">14.3</span>
+  <h2>Reactions of Period 3 Elements with Oxygen</h2>
+</div>
+
+<div class="card">
+  <h3>Reactions with O₂</h3>
+  <div class="formula-block">Na:  4Na + O₂ → 2Na₂O          (normal oxide; in excess O₂: 2Na + O₂ → Na₂O₂ peroxide)
+Mg:  2Mg + O₂ → 2MgO           (brilliant white flame; also reacts with N₂: 3Mg + N₂ → Mg₃N₂)
+Al:  4Al + 3O₂ → 2Al₂O₃        (slow — passivated by thin Al₂O₃ layer)
+Si:  Si + O₂ → SiO₂             (only at high T; forms the macromolecular silica)
+P:   P₄ + 3O₂ → P₄O₆  (limited)   P₄ + 5O₂ → P₄O₁₀  (excess; white smoke)
+S:   S + O₂ → SO₂               (blue flame; SO₃ requires catalyst)
+Cl:  Cl₂ does not burn in O₂ directly
+Ar:  No reaction</div>
+
+  <div class="callout warn">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <strong>Mg burns in CO₂ and N₂ — a dangerous fact for fire extinguishers</strong>
+      Mg fires cannot be extinguished with CO₂ extinguishers: 2Mg + CO₂ → 2MgO + C (Mg reduces CO₂). Mg also reacts with N₂: 3Mg + N₂ → Mg₃N₂ (magnesium nitride). Use dry sand or Class D extinguisher instead.
+    </div>
+  </div>
+</div>
+
+<!-- 14.4 -->
+<div class="section-header" id="s144">
+  <span class="section-number">14.4</span>
+  <h2>Reactions of Period 3 Elements with Water</h2>
+</div>
+
+<div class="card">
+  <h3>Vigorous to No Reaction — a Clear Trend</h3>
+  <div class="formula-block">Na + H₂O:  2Na + 2H₂O → 2NaOH + H₂↑     (vigorous; fizzes rapidly; strongly alkaline)
+Mg + H₂O:  Mg + 2H₂O → Mg(OH)₂ + H₂↑   (very slow with cold water; reacts with steam)
+            Mg + H₂O(steam) → MgO + H₂↑  (reacts rapidly with steam — bright flame)
+Al + H₂O:  No reaction (passivated by Al₂O₃ layer)
+            Al + NaOH(aq) → [Al(OH)₄]⁻ + H₂ (reacts with alkali, not neutral water)
+Si + H₂O:  No reaction at room temperature (reacts with NaOH: Si + 2NaOH + H₂O → Na₂SiO₃ + 2H₂)
+P + H₂O:   No reaction (insoluble; P₄ reacts with hot conc. NaOH)
+S + H₂O:   No reaction (insoluble non-metal)
+Cl + H₂O:  Cl₂ + H₂O ⇌ HCl + HOCl       (chlorine water — slow equilibrium)
+Ar + H₂O:  No reaction</div>
+  <p><strong>Trend summary:</strong> Reactivity with water decreases Na (violent) → Mg (slow) → Al (passive) → Si, P, S (no reaction) → Cl (slow equilibrium).</p>
+</div>
+
+<!-- 14.5 -->
+<div class="section-header" id="s145">
+  <span class="section-number">14.5</span>
+  <h2>Reactions of Period 3 Elements with Chlorine</h2>
+</div>
+
+<div class="card">
+  <h3>All React, Forming Chlorides</h3>
+  <div class="formula-block">2Na + Cl₂  → 2NaCl       (white solid; vigorous — ionic chloride)
+Mg + Cl₂   → MgCl₂       (white solid; vigorous — ionic chloride)
+2Al + 3Cl₂ → 2AlCl₃      (white fumes; vigorous — covalent chloride)
+Si + 2Cl₂  → SiCl₄       (fuming liquid; covalent)
+P₄ + 6Cl₂  → 4PCl₃       (colourless fuming liquid; covalent)
+2S + Cl₂   → S₂Cl₂       (disulfur dichloride; fuming liquid; covalent)</div>
+  <p>The nature of the chloride changes from <strong>ionic</strong> (Na, Mg) to <strong>covalent</strong> (Al, Si, P, S) going across Period 3. This mirrors the change in element character from metal to non-metal.</p>
+</div>
+
+<!-- 14.6 -->
+<div class="section-header" id="s146">
+  <span class="section-number">14.6</span>
+  <h2>Oxides of Period 3 — Structures and Acid-Base Character</h2>
+</div>
+
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Oxide</th><th>OS of element</th><th>Structure</th><th>Acid/Base?</th><th>Reaction with water</th><th>pH of solution</th></tr></thead>
+  <tbody>
+    <tr><td>Na₂O</td><td>+1</td><td>Ionic lattice</td><td>Strongly basic</td><td>Na₂O + H₂O → 2NaOH</td><td>~14</td></tr>
+    <tr><td>MgO</td><td>+2</td><td>Ionic lattice</td><td>Basic (weakly)</td><td>MgO + H₂O → Mg(OH)₂ (slightly soluble)</td><td>~9</td></tr>
+    <tr><td>Al₂O₃</td><td>+3</td><td>Ionic/giant covalent</td><td>Amphoteric</td><td>Barely dissolves in water</td><td>~7 (neutral)</td></tr>
+    <tr><td>SiO₂</td><td>+4</td><td>Giant covalent</td><td>Acidic (weakly)</td><td>Does not react with water; reacts with NaOH</td><td>~7 (neutral in water)</td></tr>
+    <tr><td>P₄O₆/P₄O₁₀</td><td>+3/+5</td><td>Molecular</td><td>Acidic</td><td>P₄O₆ + 6H₂O → 4H₃PO₃; P₄O₁₀ + 6H₂O → 4H₃PO₄</td><td>~3–5</td></tr>
+    <tr><td>SO₂</td><td>+4</td><td>Molecular</td><td>Acidic</td><td>SO₂ + H₂O ⇌ H₂SO₃ (sulfurous acid)</td><td>~3</td></tr>
+    <tr><td>SO₃</td><td>+6</td><td>Molecular</td><td>Strongly acidic</td><td>SO₃ + H₂O → H₂SO₄ (sulfuric acid)</td><td>~1</td></tr>
+    <tr><td>Cl₂O₇</td><td>+7</td><td>Molecular</td><td>Strongly acidic</td><td>Cl₂O₇ + H₂O → 2HClO₄ (perchloric acid)</td><td>&lt;1</td></tr>
+  </tbody>
+</table></div>
+
+<div class="def-box">
+  <strong>The KEY Trend in Period 3 Oxides</strong>
+  Oxide character changes from <strong>basic → amphoteric → acidic</strong> going left to right across Period 3. Metal oxides (Na₂O, MgO) are basic. Al₂O₃ is amphoteric. Non-metal oxides (SiO₂, P₄O₁₀, SO₃, Cl₂O₇) are acidic. The acidity of the aqueous solution increases: pH ~14 (Na₂O) → pH &lt;1 (Cl₂O₇/HClO₄).
+</div>
+
+<div class="card">
+  <h3>Amphoteric Nature of Al₂O₃</h3>
+  <p>Al₂O₃ reacts with both acids AND bases — it is <strong>amphoteric</strong>:</p>
+  <div class="formula-block">Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O          (reacts as BASE — with acid)
+Al₂O₃ + 2NaOH + 3H₂O → 2Na[Al(OH)₄]   (reacts as ACID — with base → tetrahydroxoaluminate)</div>
+  <p>Al(OH)₃ (aluminium hydroxide) is also amphoteric: dissolves in both HCl and NaOH.</p>
+</div>
+
+<div class="example-box">
+  <div class="ex-head">Worked Example 14.1 — Writing Oxide + Water Equations</div>
+  <div class="ex-body">
+    <p><strong>Write equations for the reactions of (a) Na₂O, (b) SO₃, and (c) Al₂O₃ with dilute NaOH and dilute HCl.</strong></p>
+    <div class="step"><span class="step-num">a</span><p>Na₂O with water → NaOH: Na₂O + H₂O → 2NaOH (strongly basic, pH~14). Na₂O is basic — reacts with acid: Na₂O + 2HCl → 2NaCl + H₂O. Does NOT react with NaOH.</p></div>
+    <div class="step"><span class="step-num">b</span><p>SO₃ with water → H₂SO₄: SO₃ + H₂O → H₂SO₄ (strongly acidic, pH~1). SO₃ is acidic — reacts with base: SO₃ + 2NaOH → Na₂SO₄ + H₂O. Does NOT react with HCl.</p></div>
+    <div class="step"><span class="step-num">c</span><p>Al₂O₃ is amphoteric: Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O; Al₂O₃ + 2NaOH + 3H₂O → 2Na[Al(OH)₄]. Reacts with BOTH.</p></div>
+  </div>
+</div>
+
+<!-- 14.7 -->
+<div class="section-header" id="s147">
+  <span class="section-number">14.7</span>
+  <h2>Chlorides of Period 3 — Structures and Hydrolysis</h2>
+</div>
+
+<div class="tbl-wrap"><table>
+  <thead><tr><th>Chloride</th><th>Type</th><th>Structure</th><th>Reaction with water</th><th>pH of solution</th></tr></thead>
+  <tbody>
+    <tr><td>NaCl</td><td>Ionic</td><td>Giant ionic lattice</td><td>Dissolves: Na⁺ + Cl⁻ (aq) — no hydrolysis</td><td>7 (neutral)</td></tr>
+    <tr><td>MgCl₂</td><td>Ionic</td><td>Layer structure</td><td>Dissolves: slight hydrolysis Mg²⁺ + H₂O → MgOH⁺ + H⁺</td><td>~6 (slightly acidic)</td></tr>
+    <tr><td>AlCl₃</td><td>Covalent (dimer Al₂Cl₆)</td><td>Molecular (dimer in solid)</td><td>Vigorous hydrolysis: AlCl₃ + 3H₂O → Al(OH)₃ + 3HCl (fumes)</td><td>~3 (acidic)</td></tr>
+    <tr><td>SiCl₄</td><td>Covalent</td><td>Simple molecular</td><td>Vigorous hydrolysis: SiCl₄ + 2H₂O → SiO₂ + 4HCl (white fumes)</td><td>~1 (strongly acidic)</td></tr>
+    <tr><td>PCl₃</td><td>Covalent</td><td>Simple molecular</td><td>PCl₃ + 3H₂O → H₃PO₃ + 3HCl (fumes)</td><td>~2 (acidic)</td></tr>
+    <tr><td>PCl₅</td><td>Covalent</td><td>Simple molecular</td><td>PCl₅ + 4H₂O → H₃PO₄ + 5HCl (vigorous fumes)</td><td>~1 (acidic)</td></tr>
+    <tr><td>S₂Cl₂</td><td>Covalent</td><td>Molecular</td><td>Hydrolyses: S₂Cl₂ + 2H₂O → SO₂ + S + 4HCl</td><td>acidic</td></tr>
+  </tbody>
+</table></div>
+
+<div class="card">
+  <h3>Key Trend: Ionic → Covalent, Non-hydrolysing → Vigorous Hydrolysis</h3>
+  <p>NaCl and MgCl₂ dissolve in water without appreciable hydrolysis — they are ionic. AlCl₃, SiCl₄, PCl₃, PCl₅ all produce HCl fumes (white steamy) when added to water — they are covalent and hydrolyse via nucleophilic attack of H₂O on the central atom (which has accessible d orbitals or partial positive charge).</p>
+  <div class="callout info">
+    <span class="callout-icon">💡</span>
+    <div class="callout-body">
+      <strong>Why does AlCl₃ hydrolyse vigorously but NaCl does not?</strong>
+      NaCl is fully ionic — Na⁺ and Cl⁻ simply hydrate in water (ion–dipole interactions). No bond breaking. AlCl₃ has a high charge-density Al³⁺ centre that strongly polarises surrounding water molecules → Al³⁺ attracts electron pairs from H₂O → Al–O bonds form → H⁺ released → acidic solution. This is hydrolysis of a covalent/highly polarising chloride.
+    </div>
+  </div>
+</div>
+
+<!-- 14.8 -->
+<div class="section-header" id="s148">
+  <span class="section-number">14.8</span>
+  <h2>Summary: Applying the Periodic Law to Period 3</h2>
+</div>
+
+<div class="card">
+  <h3>Comprehensive Trends Table</h3>
+  <div class="tbl-wrap" style="margin:0;"><table>
+    <thead><tr><th>Property</th><th>Na</th><th>Mg</th><th>Al</th><th>Si</th><th>P</th><th>S</th><th>Cl</th></tr></thead>
+    <tbody>
+      <tr><td>Atomic radius (pm)</td><td>186</td><td>160</td><td>143</td><td>117</td><td>110</td><td>104</td><td>99</td></tr>
+      <tr><td>IE₁ (kJ/mol)</td><td>496</td><td>738</td><td>577*</td><td>786</td><td>1012</td><td>1000*</td><td>1251</td></tr>
+      <tr><td>Electronegativity</td><td>0.9</td><td>1.2</td><td>1.5</td><td>1.8</td><td>2.1</td><td>2.5</td><td>3.0</td></tr>
+      <tr><td>Oxide character</td><td>Basic</td><td>Basic</td><td>Amphot.</td><td>Acidic</td><td>Acidic</td><td>Acidic</td><td>Acidic</td></tr>
+      <tr><td>Chloride character</td><td>Ionic</td><td>Ionic</td><td>Cov.*</td><td>Cov.</td><td>Cov.</td><td>Cov.</td><td>—</td></tr>
+      <tr><td>Oxide + water pH</td><td>~14</td><td>~9</td><td>~7</td><td>~7</td><td>~3</td><td>~1</td><td>&lt;1</td></tr>
+    </tbody>
+  </table></div>
+  <p style="font-size:.82rem;color:var(--muted);margin-top:8px;">* Al IE₁ lower than Mg (3p¹ anomaly); S IE₁ lower than P (3p⁴ paired electron anomaly)</p>
+</div>
+
+<div class="card">
+  <h3>The Periodic Law in Period 3</h3>
+  <p>Period 3 beautifully illustrates the Periodic Law: <strong>properties of elements change in a regular pattern across a period</strong>. The driving force is the steady increase in nuclear charge (Z = 11→17) with all outer electrons in the same n=3 shell:</p>
+  <ul style="margin:8px 0 0 20px;line-height:2.2;">
+    <li>Atomic radius, metallic character, and basicity of oxide decrease →</li>
+    <li>Ionisation energy, electronegativity, and acidity of oxide increase →</li>
+    <li>Structure changes: metallic → giant covalent → simple molecular →</li>
+    <li>Chlorides change from ionic (dissolve, neutral) to covalent (hydrolyse, acidic) →</li>
+    <li>Melting point peaks at Si (giant covalent) and drops sharply at P, S, Cl (molecular)</li>
+  </ul>
+</div>
+
+<!-- EXERCISES -->
+<div class="section-header" id="exercises">
+  <span class="section-number">✏️</span>
+  <h2>Exercises</h2>
+</div>
+
+<ul class="exercise-list">
+  <li>Explain the trend in atomic radii across Period 3 (Na→Cl). Why is there no simple explanation for the melting point trend?
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">Atomic radius decreases Na→Cl: all outer electrons in same n=3 shell, same shielding; nuclear charge increases +1 each step → increasing effective nuclear charge (Zeff) pulls electron cloud closer → radius decreases (186 pm Na → 99 pm Cl). Melting point has no simple single trend because it depends on the <em>type of structure and bonding</em>, which changes across the period: metallic (Na→Al — increases with e⁻ count); giant covalent (Si — very high); simple molecular P₄, S₈, Cl₂, Ar (low, increases with molecule size/vdW forces). The property changes type, not just magnitude, so there is no smooth trend.</div>
+  </li>
+  <li>Explain the two anomalies in the first ionisation energy trend across Period 3. State the electron configurations involved.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">Anomaly 1 — Al lower than Mg: Mg = [Ne]3s² (576 kJ/mol wait — Al = 577 kJ/mol). Actually Mg IE₁ = 738, Al = 577. Al's 3p¹ electron is in a higher-energy subshell (3p) than Mg's 3s². It is also better shielded by the filled 3s² electrons. Both factors mean less energy needed to remove Al's 3p¹ electron than Mg's 3s² → Al has lower IE₁ despite higher Z. Anomaly 2 — S lower than P: P = [Ne]3s²3p³ (IE₁ = 1012 kJ/mol); S = [Ne]3s²3p⁴ (IE₁ = 1000 kJ/mol). P has a half-filled 3p³ (one electron per orbital — extra exchange energy stability). S has a paired electron in one 3p orbital — the extra electron–electron repulsion in the paired orbital makes it easier to remove → S has lower IE₁ than P despite higher Z.</div>
+  </li>
+  <li>Describe the trend in acid-base character of Period 3 oxides from Na₂O to Cl₂O₇. Give one equation to illustrate each type (basic, amphoteric, acidic).
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">Trend: Na₂O (strongly basic) → MgO (basic) → Al₂O₃ (amphoteric) → SiO₂, P₄O₁₀, SO₃, Cl₂O₇ (increasingly acidic). The pH of the aqueous solution increases from ~14 (Na₂O) to &lt;1 (Cl₂O₇). Basic: Na₂O + H₂O → 2NaOH (pH ~14) or MgO + 2HCl → MgCl₂ + H₂O. Amphoteric: Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O (acts as base); Al₂O₃ + 2NaOH + 3H₂O → 2Na[Al(OH)₄] (acts as acid). Acidic: SO₃ + H₂O → H₂SO₄ (pH ~1); P₄O₁₀ + 6H₂O → 4H₃PO₄. Pattern: metal oxides basic (ionic); Al₂O₃ intermediate; non-metal oxides acidic (molecular, form oxyacids with water).</div>
+  </li>
+  <li>Compare the reactions of NaCl and SiCl₄ with water. Explain the difference in terms of bonding and structure.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">NaCl: ionic solid. Na⁺ and Cl⁻ simply hydrate (ion–dipole interactions). NaCl(s) → Na⁺(aq) + Cl⁻(aq). No bonds broken and reformed — not hydrolysis. Solution is neutral (pH 7) — NaCl is salt of strong acid + strong base. SiCl₄: covalent molecular liquid. Vigorous hydrolysis: SiCl₄ + 2H₂O → SiO₂ + 4HCl. White fumes of HCl. Acidic solution (pH ~1). Why: Si has empty 3d orbitals — H₂O donates lone pair to Si → 5-coordinate intermediate → Si–Cl bonds break → HCl released. Na (ionic) has no empty low-energy orbital for water to attack. The key difference: ionic chlorides dissolve (no new bonds made); covalent chlorides with central atoms having accessible d orbitals undergo hydrolysis (bonds broken and reformed).</div>
+  </li>
+  <li>Explain why magnesium cannot be used to extinguish a sodium fire using water, and cannot be extinguished with CO₂. What should be used?
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">Na fire + water: 2Na + 2H₂O → 2NaOH + H₂↑. H₂ produced is flammable → explosion risk. Also very exothermic → spatters molten Na. Water makes it WORSE. Mg fire + CO₂: 2Mg + CO₂ → 2MgO + C (Mg reduces CO₂, continuing to burn). CO₂ extinguisher feeds the Mg fire. Mg fire + N₂: 3Mg + N₂ → Mg₃N₂ (reacts with N₂ too). Solution: use dry sand (covers the fire, excludes O₂ and other reactants) or a Class D metal fire extinguisher (sodium chloride powder or graphite powder). Never use water or CO₂ on metal fires.</div>
+  </li>
+  <li>Arrange the following oxides in order of increasing pH when dissolved/reacted with water: SO₃, MgO, SiO₂, Na₂O, Al₂O₃, P₄O₁₀. Explain your reasoning.
+    <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide Answer':'Show Answer'">Show Answer</button>
+    <div class="answer">Order of increasing pH (most acidic to most basic): SO₃ (&lt;1) &lt; P₄O₁₀ (~1) &lt; SiO₂ (~7, neutral — barely reacts with water) &lt; Al₂O₃ (~7, neutral) &lt; MgO (~9) &lt; Na₂O (~14). Reasoning: Metal oxides on the left of Period 3 (Na, Mg) are basic → high pH. Al₂O₃ is amphoteric → neutral. Non-metal oxides on the right (Si, P, S) are acidic → low pH. SO₃ gives the strongest acid (H₂SO₄ — strong acid, fully dissociates). P₄O₁₀ gives H₃PO₄ (moderate strength). SiO₂ barely reacts with water. Na₂O gives NaOH (strong base, pH 14). MgO gives Mg(OH)₂ (weak base, partially ionises, pH ~9).</div>
+  </li>
+</ul>
+
+<!-- QUIZ -->
+<div class="section-header" id="quiz">
+  <span class="section-number">🧪</span>
+  <h2>Multiple Choice Quiz — 25 Questions</h2>
+</div>
+<div class="quiz-wrap">
+  <div class="quiz-head">
+    <h3>Unit 14: Period 3 Elements and Their Compounds</h3>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--muted);">25 Questions</span>
+  </div>
+  <div class="quiz-body">
+
+    <div class="qblock"><span class="qnum">Q1</span>
+    <p class="qtext">Across Period 3 (Na→Cl), atomic radius:</p>
+    <div class="opts">
+      <label><input type="radio" name="q1" value="A"> Increases due to more electron shells</label>
+      <label><input type="radio" name="q1" value="B"> Decreases due to increasing nuclear charge with the same shielding (n=3 shell throughout)</label>
+      <label><input type="radio" name="q1" value="C"> Stays constant across the period</label>
+      <label><input type="radio" name="q1" value="D"> First decreases then increases at Al</label>
+    </div>
+    <div class="qexplain" id="e1">All Period 3 outer electrons are in the n=3 shell. Each element adds one proton, with similar shielding from inner shells. Increasing Z → increasing Zeff → stronger attraction → electrons pulled closer → atomic radius decreases continuously from Na (186 pm) to Cl (99 pm).</div></div>
+
+    <div class="qblock"><span class="qnum">Q2</span>
+    <p class="qtext">Which Period 3 element has the highest melting point, and why?</p>
+    <div class="opts">
+      <label><input type="radio" name="q2" value="A"> Na — strongest metallic bond</label>
+      <label><input type="radio" name="q2" value="B"> Al — three delocalised electrons</label>
+      <label><input type="radio" name="q2" value="C"> Si — giant covalent structure with many strong Si–Si bonds</label>
+      <label><input type="radio" name="q2" value="D"> S — largest molecules (S₈)</label>
+    </div>
+    <div class="qexplain" id="e2">Si (m.p. 1414°C) has the highest m.p. in Period 3 due to its giant covalent (macromolecular) diamond-like structure. Each Si forms 4 strong Si–Si covalent bonds in a 3D network. Breaking this requires enormous energy. Na (98°C), Mg (650°C), Al (660°C) — metallic. P (44°C), S (113°C), Cl (−101°C) — molecular (weak vdW only).</div></div>
+
+    <div class="qblock"><span class="qnum">Q3</span>
+    <p class="qtext">The first ionisation energy of Al (577 kJ/mol) is LOWER than that of Mg (738 kJ/mol) despite Al having higher Z. Why?</p>
+    <div class="opts">
+      <label><input type="radio" name="q3" value="A"> Al has more electrons to shield the nucleus</label>
+      <label><input type="radio" name="q3" value="B"> Al's outermost electron is in a 3p orbital (higher energy, better shielded by 3s²) making it easier to remove than Mg's 3s² electron</label>
+      <label><input type="radio" name="q3" value="C"> Mg has a smaller atomic radius than Al</label>
+      <label><input type="radio" name="q3" value="D"> Al has a metallic structure while Mg does not</label>
+    </div>
+    <div class="qexplain" id="e3">Al: [Ne]3s²3p¹. The 3p¹ electron is in a higher-energy subshell than Mg's 3s² electrons. It is also more effectively shielded from the nucleus by the 3s² electrons (penetration effect). Both factors mean the 3p¹ electron requires less energy to remove than Mg's 3s² → Al has lower IE₁ than Mg despite higher Z. Same reason B has lower IE₁ than Be in Period 2.</div></div>
+
+    <div class="qblock"><span class="qnum">Q4</span>
+    <p class="qtext">Which Period 3 oxide reacts with both dilute HCl and dilute NaOH?</p>
+    <div class="opts">
+      <label><input type="radio" name="q4" value="A"> Na₂O</label>
+      <label><input type="radio" name="q4" value="B"> MgO</label>
+      <label><input type="radio" name="q4" value="C"> Al₂O₃</label>
+      <label><input type="radio" name="q4" value="D"> SiO₂</label>
+    </div>
+    <div class="qexplain" id="e4">Al₂O₃ is amphoteric: acts as a base with acids (Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O) and as an acid with bases (Al₂O₃ + 2NaOH + 3H₂O → 2Na[Al(OH)₄]). Na₂O and MgO are basic (only react with acids). SiO₂ is acidic (only reacts with bases/basic oxides, barely with water).</div></div>
+
+    <div class="qblock"><span class="qnum">Q5</span>
+    <p class="qtext">When SiCl₄ is added to water, white fumes are produced. These fumes are:</p>
+    <div class="opts">
+      <label><input type="radio" name="q5" value="A"> SiO₂ vapour</label>
+      <label><input type="radio" name="q5" value="B"> HCl gas (produced by hydrolysis: SiCl₄ + 2H₂O → SiO₂ + 4HCl)</label>
+      <label><input type="radio" name="q5" value="C"> Steam</label>
+      <label><input type="radio" name="q5" value="D"> Cl₂ gas</label>
+    </div>
+    <div class="qexplain" id="e5">SiCl₄ + 2H₂O → SiO₂ + 4HCl. HCl gas is produced (steamy white fumes — HCl dissolves in moisture in air). SiO₂ forms as a white solid/gel. The reaction is vigorous because Si has accessible 3d orbitals that allow H₂O to attack nucleophilically. Compare CCl₄ — no reaction with water (C has no accessible d orbitals).</div></div>
+
+    <div class="qblock"><span class="qnum">Q6</span>
+    <p class="qtext">The trend in oxide character across Period 3 is:</p>
+    <div class="opts">
+      <label><input type="radio" name="q6" value="A"> Acidic → Amphoteric → Basic (left to right)</label>
+      <label><input type="radio" name="q6" value="B"> Basic → Amphoteric → Acidic (left to right)</label>
+      <label><input type="radio" name="q6" value="C"> All oxides are neutral across Period 3</label>
+      <label><input type="radio" name="q6" value="D"> Random — no trend exists</label>
+    </div>
+    <div class="qexplain" id="e6">Left to right across Period 3: basic (Na₂O, MgO) → amphoteric (Al₂O₃) → acidic (SiO₂, P₄O₁₀, SO₂, SO₃, Cl₂O₇). This reflects the change from metallic to non-metallic character. Metal oxides produce OH⁻ in water; non-metal oxides produce H⁺ by forming oxyacids. pH decreases Na₂O (~14) → SO₃/H₂SO₄ (~1).</div></div>
+
+    <div class="qblock"><span class="qnum">Q7</span>
+    <p class="qtext">NaCl dissolves in water to give a neutral solution (pH 7) while AlCl₃ gives an acidic solution. This is because:</p>
+    <div class="opts">
+      <label><input type="radio" name="q7" value="A"> NaCl is a smaller molecule</label>
+      <label><input type="radio" name="q7" value="B"> Al³⁺ has high charge density — it polarises surrounding water molecules, causing hydrolysis and releasing H⁺; Na⁺ is large and low-charge, does not hydrolyse water</label>
+      <label><input type="radio" name="q7" value="C"> NaCl contains a non-metal (Cl)</label>
+      <label><input type="radio" name="q7" value="D"> AlCl₃ contains more Cl atoms</label>
+    </div>
+    <div class="qexplain" id="e7">Al³⁺ has a very high charge density (3+ charge, small radius). It strongly attracts the electron pairs of water molecules in its hydration sphere → weakens O–H bonds → H⁺ released → acidic solution. [Al(H₂O)₆]³⁺ + H₂O ⇌ [Al(H₂O)₅OH]²⁺ + H₃O⁺. Na⁺ (1+ charge, larger radius) has low charge density → does not polarise water significantly → no hydrolysis → neutral.</div></div>
+
+    <div class="qblock"><span class="qnum">Q8</span>
+    <p class="qtext">The melting point of S (113°C) is higher than that of P (44°C) because:</p>
+    <div class="opts">
+      <label><input type="radio" name="q8" value="A"> S forms ionic bonds while P does not</label>
+      <label><input type="radio" name="q8" value="B"> S₈ molecules are larger than P₄ molecules → stronger London dispersion forces between S₈ units</label>
+      <label><input type="radio" name="q8" value="C"> S has a higher nuclear charge</label>
+      <label><input type="radio" name="q8" value="D"> P has a more stable electronic configuration</label>
+    </div>
+    <div class="qexplain" id="e8">Both P₄ and S₈ are simple molecular solids held by van der Waals (London dispersion) forces. S₈ has 8 × 16 = 128 electrons; P₄ has 4 × 15 = 60 electrons. More electrons → larger, more polarisable electron cloud → stronger London forces → more energy needed to separate molecules → higher melting point. (S m.p. 113°C; P m.p. 44°C for white P₄.)</div></div>
+
+    <div class="qblock"><span class="qnum">Q9</span>
+    <p class="qtext">When Na₂O is added to water, the solution formed has pH approximately:</p>
+    <div class="opts">
+      <label><input type="radio" name="q9" value="A"> 1</label>
+      <label><input type="radio" name="q9" value="B"> 7</label>
+      <label><input type="radio" name="q9" value="C"> 9</label>
+      <label><input type="radio" name="q9" value="D"> 14</label>
+    </div>
+    <div class="qexplain" id="e9">Na₂O + H₂O → 2NaOH. NaOH is a strong base (fully dissociates) → [OH⁻] is high → pH ~14. Na₂O is the most basic Period 3 oxide. Compare: MgO + H₂O → Mg(OH)₂ (weakly soluble, pH ~9). Al₂O₃ barely reacts with water (pH ~7). SO₃ + H₂O → H₂SO₄ (pH ~1).</div></div>
+
+    <div class="qblock"><span class="qnum">Q10</span>
+    <p class="qtext">Sodium reacts vigorously with water but magnesium reacts only very slowly with cold water. The main reason for this difference is:</p>
+    <div class="opts">
+      <label><input type="radio" name="q10" value="A"> Mg has a higher melting point</label>
+      <label><input type="radio" name="q10" value="B"> Na has a lower ionisation energy and a single loosely-held valence electron; Mg has two valence electrons and higher charge density — forms a less soluble Mg(OH)₂ surface layer</label>
+      <label><input type="radio" name="q10" value="C"> Na is a liquid at room temperature</label>
+      <label><input type="radio" name="q10" value="D"> Mg is more electronegative than Na</label>
+    </div>
+    <div class="qexplain" id="e10">Na: IE₁ = 496 kJ/mol (low), 3s¹ easily ionised, Na(OH) highly soluble → no protective coating → vigorous continued reaction. Mg: IE₁ = 738 kJ/mol (higher), Mg(OH)₂ is sparingly soluble → forms a thin protective coat on surface → slows further reaction with cold water. With steam: Mg + H₂O(g) → MgO + H₂ (steam removes the protective coating, reaction is rapid).</div></div>
+
+    <div class="qblock"><span class="qnum">Q11</span>
+    <p class="qtext">Why is aluminium resistant to corrosion despite being a reactive metal?</p>
+    <div class="opts">
+      <label><input type="radio" name="q11" value="A"> Al is not reactive enough to corrode</label>
+      <label><input type="radio" name="q11" value="B"> A thin, adherent Al₂O₃ layer forms instantly on exposure to air, sealing the surface (passivation)</label>
+      <label><input type="radio" name="q11" value="C"> Al is coated with a layer of MgO</label>
+      <label><input type="radio" name="q11" value="D"> Al only reacts above 1000°C</label>
+    </div>
+    <div class="qexplain" id="e11">Passivation: 4Al + 3O₂ → 2Al₂O₃ immediately on exposure to air. The thin (~4 nm) Al₂O₃ oxide layer is impervious, strongly adherent, and self-healing. It prevents further O₂ and water from reaching the metal underneath. This makes Al appear unreactive despite having E° = −1.66V (very reactive). Anodising thickens this layer artificially for greater corrosion resistance.</div></div>
+
+    <div class="qblock"><span class="qnum">Q12</span>
+    <p class="qtext">The electronegativity trend across Period 3 is:</p>
+    <div class="opts">
+      <label><input type="radio" name="q12" value="A"> Decreases Na → Cl</label>
+      <label><input type="radio" name="q12" value="B"> Increases Na (0.9) → Cl (3.0)</label>
+      <label><input type="radio" name="q12" value="C"> Stays constant throughout Period 3</label>
+      <label><input type="radio" name="q12" value="D"> Increases Na→Al then decreases Al→Cl</label>
+    </div>
+    <div class="qexplain" id="e12">Electronegativity increases across Period 3: Na (0.9) → Mg (1.2) → Al (1.5) → Si (1.8) → P (2.1) → S (2.5) → Cl (3.0). Increasing nuclear charge Z with same n=3 shell → greater attraction for bonding electrons → higher electronegativity. Same trend as decreasing atomic radius — both reflect increasing effective nuclear charge.</div></div>
+
+    <div class="qblock"><span class="qnum">Q13</span>
+    <p class="qtext">When phosphorus(V) chloride (PCl₅) reacts with water, the products are:</p>
+    <div class="opts">
+      <label><input type="radio" name="q13" value="A"> PCl₃ + Cl₂</label>
+      <label><input type="radio" name="q13" value="B"> H₃PO₄ + 5HCl</label>
+      <label><input type="radio" name="q13" value="C"> POCl₃ + 2HCl</label>
+      <label><input type="radio" name="q13" value="D"> H₃PO₃ + 3HCl</label>
+    </div>
+    <div class="qexplain" id="e13">PCl₅ + 4H₂O → H₃PO₄ + 5HCl. Vigorous hydrolysis — white fumes of HCl. P (Period 3) has accessible 3d orbitals; H₂O attacks P via lone pair donation → stepwise substitution of Cl by OH → H₃PO₄ (orthophosphoric acid) formed. Solution is strongly acidic. Compare PCl₃ + 3H₂O → H₃PO₃ + 3HCl (phosphorous acid, only 3 Cl atoms).</div></div>
+
+    <div class="qblock"><span class="qnum">Q14</span>
+    <p class="qtext">Which Period 3 chloride, when dissolved in water, gives a neutral solution (pH 7)?</p>
+    <div class="opts">
+      <label><input type="radio" name="q14" value="A"> AlCl₃</label>
+      <label><input type="radio" name="q14" value="B"> SiCl₄</label>
+      <label><input type="radio" name="q14" value="C"> NaCl</label>
+      <label><input type="radio" name="q14" value="D"> PCl₅</label>
+    </div>
+    <div class="qexplain" id="e14">NaCl: ionic — Na⁺ + Cl⁻ in water. Na is from NaOH (strong base) and Cl⁻ is from HCl (strong acid) → neither hydrolyses → neutral solution pH 7. AlCl₃: acidic (Al³⁺ hydrolyses → H⁺). SiCl₄: acidic (hydrolyses → HCl). PCl₅: acidic (H₃PO₄ + HCl). The trend: ionic chlorides of metals → neutral to slightly acidic; covalent chlorides of non-metals/metalloids → acidic.</div></div>
+
+    <div class="qblock"><span class="qnum">Q15</span>
+    <p class="qtext">Magnesium reacts readily with steam but very slowly with cold water. The equation for the steam reaction is:</p>
+    <div class="opts">
+      <label><input type="radio" name="q15" value="A"> Mg + 2H₂O → Mg(OH)₂ + H₂</label>
+      <label><input type="radio" name="q15" value="B"> Mg + H₂O → MgO + H₂</label>
+      <label><input type="radio" name="q15" value="C"> Mg + 2H₂O → MgO₂ + 2H₂</label>
+      <label><input type="radio" name="q15" value="D"> 2Mg + H₂O → Mg₂O + H₂</label>
+    </div>
+    <div class="qexplain" id="e15">Mg + H₂O(g) → MgO + H₂↑ (with steam). The high temperature of steam prevents Mg(OH)₂ surface coating forming (or dehydrates it to MgO) → clean Mg surface exposed → rapid reaction. With cold water: Mg + 2H₂O → Mg(OH)₂ + H₂ (very slow — Mg(OH)₂ coating forms).</div></div>
+
+    <div class="qblock"><span class="qnum">Q16</span>
+    <p class="qtext">Why does first ionisation energy of S (1000 kJ/mol) fall below that of P (1012 kJ/mol)?</p>
+    <div class="opts">
+      <label><input type="radio" name="q16" value="A"> S has a smaller atomic radius than P</label>
+      <label><input type="radio" name="q16" value="B"> P has a half-filled 3p³ (extra stability); S has a 3p⁴ paired electron which experiences extra repulsion — easier to remove</label>
+      <label><input type="radio" name="q16" value="C"> P is in a lower group than S</label>
+      <label><input type="radio" name="q16" value="D"> S has more electron shells</label>
+    </div>
+    <div class="qexplain" id="e16">P: [Ne]3s²3p³ — half-filled 3p (one electron in each orbital, maximum exchange energy → extra stability). S: [Ne]3s²3p⁴ — one pair of electrons share a 3p orbital → electron–electron repulsion destabilises the paired electron → lower energy needed to remove it → IE₁ of S (1000) slightly lower than P (1012) despite S having higher Z. Same as O (lower IE₁ than N) in Period 2.</div></div>
+
+    <div class="qblock"><span class="qnum">Q17</span>
+    <p class="qtext">The reaction of SO₃ with water gives:</p>
+    <div class="opts">
+      <label><input type="radio" name="q17" value="A"> H₂SO₃ (sulfurous acid)</label>
+      <label><input type="radio" name="q17" value="B"> H₂SO₄ (sulfuric acid) — strongly acidic solution</label>
+      <label><input type="radio" name="q17" value="C"> A neutral solution</label>
+      <label><input type="radio" name="q17" value="D"> SO₂ + O₂</label>
+    </div>
+    <div class="qexplain" id="e17">SO₃ + H₂O → H₂SO₄. Highly exothermic. H₂SO₄ is a strong diprotic acid → solution pH ~1. SO₃ is the most acidic oxide in Period 3. This is why SO₃ is absorbed in conc. H₂SO₄ (not water) in the Contact Process — direct absorption in water would produce uncontrollable acid mist. Compare SO₂ + H₂O ⇌ H₂SO₃ (sulfurous acid, weaker).</div></div>
+
+    <div class="qblock"><span class="qnum">Q18</span>
+    <p class="qtext">Which of the following correctly describes the structure of AlCl₃?</p>
+    <div class="opts">
+      <label><input type="radio" name="q18" value="A"> Ionic lattice (Al³⁺ and Cl⁻)</label>
+      <label><input type="radio" name="q18" value="B"> Covalent dimer Al₂Cl₆ in solid/vapour — Al has high charge density polarising Cl⁻; bonding is predominantly covalent</label>
+      <label><input type="radio" name="q18" value="C"> Giant covalent network</label>
+      <label><input type="radio" name="q18" value="D"> Simple ionic (like NaCl)</label>
+    </div>
+    <div class="qexplain" id="e18">AlCl₃ exists as Al₂Cl₆ dimers in the solid and vapour phases (each Al forms 4 bonds in the dimer — bridges by Cl atoms). Although Al is a metal, Al³⁺ has extremely high charge density (3+ charge, small radius) → polarises and distorts Cl⁻ → significant covalent character (Fajan's rules). AlCl₃ melts at only 192°C (much lower than NaCl at 801°C), dissolves in organic solvents, and hydrolyses vigorously — all consistent with covalent character.</div></div>
+
+    <div class="qblock"><span class="qnum">Q19</span>
+    <p class="qtext">Across Period 3, which element has the lowest first ionisation energy?</p>
+    <div class="opts">
+      <label><input type="radio" name="q19" value="A"> Ar</label>
+      <label><input type="radio" name="q19" value="B"> Cl</label>
+      <label><input type="radio" name="q19" value="C"> Na</label>
+      <label><input type="radio" name="q19" value="D"> Si</label>
+    </div>
+    <div class="qexplain" id="e19">Na has the lowest IE₁ in Period 3: 496 kJ/mol. Na = [Ne]3s¹ — a single valence electron in the outermost 3s shell, shielded by 10 inner electrons, far from the nucleus. Very easy to remove. The general trend is that IE₁ increases across Period 3, so the leftmost element (Na) has the lowest. Ar has the highest IE₁ in Period 3 (full 3s²3p⁶ shell).</div></div>
+
+    <div class="qblock"><span class="qnum">Q20</span>
+    <p class="qtext">The reaction 4Al + 3O₂ → 2Al₂O₃ releases a large amount of energy. This is exploited in:</p>
+    <div class="opts">
+      <label><input type="radio" name="q20" value="A"> The Haber process</label>
+      <label><input type="radio" name="q20" value="B"> The thermite reaction: 2Al + Fe₂O₃ → Al₂O₃ + 2Fe (Al reduces iron oxide, releasing intense heat to weld rails)</label>
+      <label><input type="radio" name="q20" value="C"> The Contact process</label>
+      <label><input type="radio" name="q20" value="D"> The Ostwald process</label>
+    </div>
+    <div class="qexplain" id="e20">Thermite reaction: 2Al + Fe₂O₃ → Al₂O₃ + 2Fe + heat. The huge thermodynamic stability of Al₂O₃ (ΔHf° = −1676 kJ/mol — very exothermic formation) drives the reduction of Fe₂O₃. Temperature reached ~2500°C — molten iron produced. Used industrially for railway track welding (alumino-thermic welding) and incendiary devices. Al is cheaper and lighter than many other reducing agents.</div></div>
+
+    <div class="qblock"><span class="qnum">Q21</span>
+    <p class="qtext">Which Period 3 element reacts vigorously with both oxygen and nitrogen when burned?</p>
+    <div class="opts">
+      <label><input type="radio" name="q21" value="A"> Na</label>
+      <label><input type="radio" name="q21" value="B"> Mg</label>
+      <label><input type="radio" name="q21" value="C"> Al</label>
+      <label><input type="radio" name="q21" value="D"> Si</label>
+    </div>
+    <div class="qexplain" id="e21">Magnesium burns in both O₂ and N₂: 2Mg + O₂ → 2MgO (brilliant white flame); 3Mg + N₂ → Mg₃N₂ (magnesium nitride). When Mg burns in air, it produces a mixture of MgO and Mg₃N₂. Mg₃N₂ reacts with water: Mg₃N₂ + 6H₂O → 3Mg(OH)₂ + 2NH₃ (ammonia smell). Na burns mainly to Na₂O (and Na₂O₂ in excess O₂); not significantly with N₂ under normal conditions.</div></div>
+
+    <div class="qblock"><span class="qnum">Q22</span>
+    <p class="qtext">The oxide with the highest percentage of oxygen that reacts with water to give the strongest acid in Period 3 is:</p>
+    <div class="opts">
+      <label><input type="radio" name="q22" value="A"> SO₂ → H₂SO₃ (pH ~3)</label>
+      <label><input type="radio" name="q22" value="B"> P₄O₁₀ → H₃PO₄ (pH ~2)</label>
+      <label><input type="radio" name="q22" value="C"> SO₃ → H₂SO₄ (pH ~1) — strongest common acid</label>
+      <label><input type="radio" name="q22" value="D"> Cl₂O₇ → HClO₄ (pH &lt;1) — strongest acid from Period 3 oxides</label>
+    </div>
+    <div class="qexplain" id="e22">Cl₂O₇ + H₂O → 2HClO₄ (perchloric acid — the strongest of all common mineral acids, pKa ≈ −10). Cl is in the +7 oxidation state — the highest OS in Period 3. More O atoms around the central atom → more electron withdrawal from O–H bond → easier to donate H⁺ → stronger acid. Order of aqueous acid strength from Period 3 oxides: H₂SO₃ &lt; H₃PO₄ &lt; H₂SO₄ &lt; HClO₄.</div></div>
+
+    <div class="qblock"><span class="qnum">Q23</span>
+    <p class="qtext">The hydrolysis of SiCl₄ but not CCl₄ illustrates:</p>
+    <div class="opts">
+      <label><input type="radio" name="q23" value="A"> That Si–Cl bonds are weaker than C–Cl bonds</label>
+      <label><input type="radio" name="q23" value="B"> That Si (Period 3) has accessible empty 3d orbitals allowing H₂O to attack; C (Period 2) has no d orbitals and cannot expand its octet</label>
+      <label><input type="radio" name="q23" value="C"> That CCl₄ is more soluble in water than SiCl₄</label>
+      <label><input type="radio" name="q23" value="D"> That C is a better conductor than Si</label>
+    </div>
+    <div class="qexplain" id="e23">The same principle as seen in Unit 9 (Group 14). Si in Period 3 has empty 3d orbitals at accessible energy → H₂O oxygen lone pair attacks Si → 5-coordinate transition state → Cl⁻ displaced as HCl → hydrolysis. C in Period 2 has only n=2 orbitals (all occupied); 3d are too high in energy → H₂O cannot attack C in CCl₄ → no hydrolysis. This is a key periodic trend: Period 3 compounds with central atoms having d orbitals tend to be more reactive with nucleophiles.</div></div>
+
+    <div class="qblock"><span class="qnum">Q24</span>
+    <p class="qtext">The electrical conductivities of Period 3 elements in order are:</p>
+    <div class="opts">
+      <label><input type="radio" name="q24" value="A"> All conduct equally well</label>
+      <label><input type="radio" name="q24" value="B"> Na, Mg, Al are good conductors; Si is a semiconductor; P, S, Cl, Ar are insulators</label>
+      <label><input type="radio" name="q24" value="C"> Only Na conducts electricity</label>
+      <label><input type="radio" name="q24" value="D"> Si is the best conductor</label>
+    </div>
+    <div class="qexplain" id="e24">Metals (Na, Mg, Al): delocalised electrons in metallic lattice → good conductors. Al has the highest conductivity of the three (more delocalised electrons per atom). Si: semiconductor (~band gap 1.1 eV) — conducts slightly at room temperature, conductivity enhanced by doping. P, S: non-metal molecules — no free electrons → insulators. Cl₂: non-metal gas — insulator. Ar: noble gas — insulator. This mirrors the structural change across Period 3.</div></div>
+
+    <div class="qblock"><span class="qnum">Q25</span>
+    <p class="qtext">Which statement best describes the pattern of oxide reactions with water across Period 3?</p>
+    <div class="opts">
+      <label><input type="radio" name="q25" value="A"> All Period 3 oxides dissolve in water to give neutral solutions</label>
+      <label><input type="radio" name="q25" value="B"> Metal oxides (Na₂O, MgO) give alkaline solutions; Al₂O₃ does not react with water; SiO₂ does not react with water; P, S, Cl oxides give acidic solutions of increasing strength</label>
+      <label><input type="radio" name="q25" value="C"> All Period 3 oxides are acidic</label>
+      <label><input type="radio" name="q25" value="D"> Non-metal oxides give alkaline solutions</label>
+    </div>
+    <div class="qexplain" id="e25">Na₂O + H₂O → 2NaOH (strongly alkaline, pH 14). MgO + H₂O → Mg(OH)₂ (sparingly soluble, pH ~9). Al₂O₃ — barely reacts with water. SiO₂ — does not react with water (only with NaOH or HF). P₄O₁₀ + H₂O → H₃PO₄ (pH ~2). SO₃ + H₂O → H₂SO₄ (pH ~1). Cl₂O₇ + H₂O → HClO₄ (pH &lt;1). Clear trend: basic → neutral → increasingly acidic going left to right in Period 3.</div></div>
+
+    <div style="text-align:center;margin-top:28px;">
+      <button class="qs" onclick="submitQuiz()">Submit Quiz — Check Answers</button>
+      <div id="qR"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TEST -->
+<div class="section-header" id="test">
+  <span class="section-number">📝</span>
+  <h2>Unit Test — 50 Marks</h2>
+</div>
+
+<div class="test-section">
+  <div class="test-sec-head"><h3>Section A — Short Answer</h3><span class="marks-badge">30 marks</span></div>
+
+  <div class="tq"><div class="tq-num">Q1 [5 marks]</div>
+  <p>Describe and explain the trends in (a) atomic radius and (b) first ionisation energy across Period 3 (Na to Cl). Explain the two anomalies in the ionisation energy trend. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) Atomic radius decreases Na (186 pm) → Cl (99 pm). Reason: all outer electrons in n=3 shell throughout; nuclear charge increases +1 each step with similar shielding → increasing Zeff → electrons drawn closer to nucleus → radius decreases. [2] (b) IE₁ generally increases Na (496) → Cl (1251 kJ/mol) — same shell, increasing Z → outer electrons more tightly held. [1] Anomaly 1: Al (577) lower than Mg (738). Al = 3s²3p¹; the 3p¹ electron is in a higher-energy subshell, more shielded by 3s² → easier to remove than Mg's 3s². [1] Anomaly 2: S (1000) lower than P (1012). P = 3s²3p³ (half-filled 3p — extra stability from exchange energy); S = 3s²3p⁴ (paired electron in 3p → extra repulsion → easier to remove). [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q2 [5 marks]</div>
+  <p>Explain the trend in melting points across Period 3. Why does Si have the highest melting point and why are the melting points of P, S, Cl much lower than Si? Account for the order P &lt; S for simple molecular solids. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">Na→Al: metallic structures, melting point increases as number of delocalised electrons increases (Na 1e → Mg 2e → Al 3e → stronger metallic bond → higher m.p.). [1] Si (1414°C): giant covalent lattice — each Si bonded to 4 others in 3D tetrahedral network; many strong Si–Si bonds must all be broken to melt → very high m.p. [1] P (44°C), S (113°C), Cl₂ (−101°C): simple molecular solids/liquids. Only weak London dispersion forces between molecules — far easier to overcome than covalent or metallic bonds → low m.p. [1] P &lt; S order: White P = P₄ molecules (60 electrons total). S = S₈ molecules (128 electrons). S₈ is larger → more electrons → stronger London forces → higher m.p. [1] Overall: the type of structure (metallic → giant covalent → molecular → monoatomic) determines the m.p. trend, not simply the position in the period. [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q3 [5 marks]</div>
+  <p>Describe the reactions of sodium, magnesium, and aluminium with water. Write equations and explain the differences in reactivity. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">Na + cold water: 2Na + 2H₂O → 2NaOH + H₂↑. Vigorous fizzing, melts (low m.p. 98°C), moves on surface, may ignite H₂. Strongly alkaline (NaOH). Vigorous because: low IE₁ (496 kJ/mol), highly soluble NaOH product (no protective coating), very reducing (E° = −2.71V). [2] Mg + cold water: very slow reaction. Mg + 2H₂O → Mg(OH)₂ + H₂↑ (slow — Mg(OH)₂ sparingly soluble coating forms). Mg + steam: Mg + H₂O → MgO + H₂ (rapid, burns brilliantly). Slower with cold water because IE₁ higher (738 kJ/mol) and Mg(OH)₂ coating passivates surface. [2] Al + water: essentially no reaction — passivated by impermeable Al₂O₃ layer. Reacts with alkali: 2Al + 2NaOH + 2H₂O → 2NaAlO₂ + 3H₂↑. [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q4 [5 marks]</div>
+  <p>Describe the trend in acid-base character of Period 3 oxides. For each of Na₂O, Al₂O₃, SO₃, and SiO₂, write the equations showing their reaction (or lack of reaction) with (i) dilute HCl and (ii) dilute NaOH. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">Trend: basic → amphoteric → acidic, left to right. [0.5] Na₂O (basic): Na₂O + 2HCl → 2NaCl + H₂O [with acid]; Na₂O + H₂O → 2NaOH [with base: does not react as base with NaOH — already basic; reacts as base with acid only]. [1] Al₂O₃ (amphoteric): Al₂O₃ + 6HCl → 2AlCl₃ + 3H₂O; Al₂O₃ + 2NaOH + 3H₂O → 2Na[Al(OH)₄]. [1] SO₃ (strongly acidic): SO₃ + H₂O → H₂SO₄; SO₃ + 2NaOH → Na₂SO₄ + H₂O [with base only — does not react with HCl]. [1] SiO₂ (weakly acidic): SiO₂ + 2NaOH → Na₂SiO₃ + H₂O (with hot conc. NaOH); SiO₂ + 4HF → SiF₄ + 2H₂O (with HF only, not dilute HCl). [1] Summary sentence: trend reflects metallic→non-metallic character; metal oxides form basic hydroxides; non-metal oxides form oxyacids. [0.5]</div></div>
+
+  <div class="tq"><div class="tq-num">Q5 [5 marks]</div>
+  <p>Compare the behaviour of NaCl and AlCl₃ when added to water. Write equations and explain the differences in terms of structure and bonding. Why does AlCl₃ give an acidic solution? [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">NaCl: ionic solid (Na⁺ Cl⁻). Dissolves: NaCl(s) → Na⁺(aq) + Cl⁻(aq). No hydrolysis — Na⁺ has low charge density (1+, large ion), does not polarise water. Cl⁻ is conjugate base of strong acid HCl — does not hydrolyse. Solution is neutral (pH 7). [2] AlCl₃: covalent/strongly polarising (Al₂Cl₆ dimer in solid). Hydrolyses: AlCl₃ + 3H₂O → Al(OH)₃ + 3HCl; or in dilute solution: [Al(H₂O)₆]³⁺ + H₂O ⇌ [Al(H₂O)₅OH]²⁺ + H₃O⁺. Solution pH ~3 (acidic). White fumes of HCl on mixing with water. [2] Why acidic: Al³⁺ has very high charge density (3+ charge, small radius ~0.054 nm) → strongly attracts electrons from O–H bonds of coordinated water → weakens O–H bond → proton (H⁺) released to bulk solution → acidic. [1]</div></div>
+
+  <div class="tq"><div class="tq-num">Q6 [5 marks]</div>
+  <p>Complete the following reactions and classify each product as ionic or covalent: (a) 2Na + Cl₂ → (b) 2Al + 3Cl₂ → (c) Si + 2Cl₂ → (d) P₄ + 6Cl₂ → (e) Mg + Cl₂ →. For each covalent chloride, state what happens when it reacts with water. [5]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) 2Na + Cl₂ → 2NaCl — ionic (white solid). NaCl dissolves neutrally in water. (b) 2Al + 3Cl₂ → 2AlCl₃ — covalent (with ionic character; Al₂Cl₆ dimer). With water: AlCl₃ + 3H₂O → Al(OH)₃ + 3HCl (white fumes, acidic). (c) Si + 2Cl₂ → SiCl₄ — covalent (fuming liquid). With water: SiCl₄ + 2H₂O → SiO₂ + 4HCl (vigorous, white fumes, strongly acidic). (d) P₄ + 6Cl₂ → 4PCl₃ — covalent (fuming liquid). With water: PCl₃ + 3H₂O → H₃PO₃ + 3HCl (acidic). (e) Mg + Cl₂ → MgCl₂ — ionic (white solid). MgCl₂ dissolves with slight hydrolysis, pH ~6. [1 per equation, ½ for product type, ½ for water reaction where applicable]</div></div>
+</div>
+
+<div class="test-section">
+  <div class="test-sec-head"><h3>Section B — Extended Answer</h3><span class="marks-badge">20 marks</span></div>
+
+  <div class="tq"><div class="tq-num">Q7 [10 marks]</div>
+  <p>(a) Period 3 contains elements with very different structures. Describe the structure and bonding of Na, Si, and Cl₂, and relate this to their physical properties (melting point, electrical conductivity, solubility in water). [6]<br>
+  (b) Explain why the trend in melting points across Period 3 is not a simple increasing or decreasing pattern, using specific examples. [4]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) Na: metallic structure — lattice of Na⁺ ions in a sea of delocalised electrons (1 per atom). M.p. = 98°C (relatively low — only 1 delocalised e⁻, weak metallic bond). Good conductor (delocalised electrons move freely under applied voltage). Reacts vigorously with water (2Na + 2H₂O → 2NaOH + H₂). [2] Si: giant covalent structure (diamond-like) — each Si sp³-bonded to 4 others in 3D tetrahedral network. M.p. = 1414°C (very high — must break many strong Si–Si covalent bonds). Semiconductor (small band gap ~1.1 eV — some electrons thermally excited at r.t.). Barely reacts with water at r.t. [2] Cl₂: simple molecular — Cl₂ diatomic molecules held by weak London dispersion forces. M.p. = −101°C (very low — minimal energy to overcome vdW). Non-conductor. Reacts slightly with water: Cl₂ + H₂O ⇌ HCl + HOCl (chlorine water equilibrium). [2] (b) Na (98°C): low m.p. for a metal because only 1 delocalised electron per atom → weak metallic bond. Mg (650°C) and Al (660°C) have higher m.p. — more delocalised electrons → stronger metallic bond. Si (1414°C): highest m.p. — giant covalent, many strong bonds. P (44°C): dramatic drop from Si because P₄ is a simple molecule — only weak London forces between P₄ units — much weaker than Si–Si covalent network. S (113°C): higher than P because S₈ is a larger molecule (more electrons → stronger London forces). Cl (−101°C): very low m.p. — tiny Cl₂ molecules, very weak vdW. Ar (−189°C): lowest — monoatomic, fewest electrons, weakest London forces. The trend is not simple because the type of structure (metallic/giant covalent/molecular/monoatomic) changes across Period 3, and it is the structure that primarily determines the m.p. [4]</div></div>
+
+  <div class="tq"><div class="tq-num">Q8 [10 marks]</div>
+  <p>(a) Describe the reactions of Period 3 oxides with water, giving an equation and the approximate pH of the solution formed for each oxide: Na₂O, MgO, Al₂O₃, SiO₂, P₄O₁₀, SO₃. [6]<br>
+  (b) Explain how this trend in oxide reactions demonstrates the Periodic Law. Why does the character of oxides change from basic to acidic going across Period 3? Link your answer to the change in electronegativity and bonding. [4]</p>
+  <button class="reveal-btn" onclick="this.nextElementSibling.classList.toggle('open');this.textContent=this.nextElementSibling.classList.contains('open')?'Hide':'Model Answer'">Model Answer</button>
+  <div class="answer">(a) Na₂O + H₂O → 2NaOH, pH ~14 (strongly alkaline). [1] MgO + H₂O → Mg(OH)₂ (partially), pH ~9 (weakly alkaline — Mg(OH)₂ slightly soluble). [1] Al₂O₃: barely reacts with water, pH ~7 (amphoteric — reacts with both acid and base but not water alone). [1] SiO₂: does not react with water at room temperature, pH ~7 (acidic oxide but only reacts with hot conc. NaOH or HF). [1] P₄O₁₀ + 6H₂O → 4H₃PO₄, pH ~2 (acidic). [1] SO₃ + H₂O → H₂SO₄, pH ~1 (strongly acidic). [1] (b) Periodic Law: properties of elements change in a regular, periodic pattern with increasing atomic number. Oxide character changes basic → amphoteric → acidic going Na → Cl, reflecting the change from metallic to non-metallic character. [1] Why basic metal oxides: Na, Mg are highly electropositive (low EN) — they form ionic oxides (O²⁻). The O²⁻ ion is a very strong base → protonates water → OH⁻ produced → alkaline. [1] Why acidic non-metal oxides: Si, P, S, Cl are electronegative — form covalent oxides. The central atom attracts electron density from O–H bonds → proton easily released to water → H⁺ produced → acidic. The higher the OS of the central atom and the more O atoms, the more electron-withdrawing the effect → stronger acid (SO₃→H₂SO₄ stronger than P₄O₁₀→H₃PO₄). [1] Al₂O₃ at the boundary: Al has intermediate electronegativity (1.5) and intermediate metallic character → forms a mixed ionic/covalent oxide that can act as either acid or base → amphoteric. [1]</div></div>
+</div>
+
+<div class="unit-nav">
+  <a href="s4_unit13_group18.html">← Unit 13: Noble Gases</a>
+  <a href="s4-chemistry.html">S4 Course Home</a>
+  <a href="s4_unit15_equilibrium.html">Unit 15: Equilibrium →</a>
+</div>
+</main>
+
+<footer>
+  ⚗ Jackson Habimana Chemistry Portal &bull; S4 Unit 14: Period 3 &bull;
+  <a href="s4-chemistry.html">Back to S4</a> &bull; <a href="index.html">Home</a>
+</footer>
+
+<script>
+const _CA={q1:'B',q2:'C',q3:'B',q4:'C',q5:'B',q6:'B',q7:'B',q8:'B',q9:'D',q10:'B',q11:'B',q12:'B',q13:'B',q14:'C',q15:'B',q16:'B',q17:'B',q18:'B',q19:'C',q20:'B',q21:'B',q22:'D',q23:'B',q24:'B',q25:'B'};
+function submitQuiz(){
+  let s=0,t=Object.keys(_CA).length;
+  Object.entries(_CA).forEach(([q,c])=>{
+    const sel=document.querySelector('input[name="'+q+'"]:checked');
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{if(o.value===c)o.closest('label').classList.add('correct');});
+    if(sel){if(sel.value===c)s++;else sel.closest('label').classList.add('wrong');}
+    const e=document.getElementById('e'+q.slice(1));if(e)e.style.display='block';
+    document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);
+  });
+  const p=Math.round(s/t*100);
+  const r=document.getElementById('qR');
+  r.style.cssText='display:block;margin-top:16px;border-radius:8px;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:.88rem;text-align:center;background:'+(p>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)')+';border:1px solid '+(p>=70?'var(--green)':'var(--red)')+';color:'+(p>=70?'var(--green)':'var(--red)');
+  r.innerHTML='Score: '+s+'/'+t+' ('+p+'%) — '+(p>=80?'🏆 Excellent!':p>=70?'✅ Good.':p>=50?'📚 Keep studying.':'❌ Review all material.');
+  document.querySelector('.qs').disabled=true;document.querySelector('.qs').style.opacity='.5';
+}
+(function(){
+  const SK='quiz_access_granted',CK='quiz_access_code';
+  const gate=document.createElement('div');gate.id='unit-quiz-gate';
+  gate.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;';
+  gate.innerHTML='<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:48px 40px;max-width:460px;width:100%;text-align:center;"><div style="font-size:3.5rem;margin-bottom:16px;">🔒</div><h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2><p style="color:#8b949e;font-size:.93rem;margin-bottom:24px;">Enter the access code from your teacher.</p><input id="ugc-inp" type="text" placeholder="Enter Code" maxlength="20" style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;box-sizing:border-box;" onkeydown="if(event.key===\'Enter\')unlockUnitQuiz()"/><div id="ugc-err" style="font-family:JetBrains Mono,monospace;font-size:.82rem;color:#f87171;min-height:20px;margin-bottom:10px;"></div><button onclick="unlockUnitQuiz()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:10px;">🔓 Unlock Quiz</button><button onclick="document.getElementById(\'unit-quiz-gate\').style.display=\'none\';document.body.style.overflow=\'\'" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:9px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.8rem;cursor:pointer;">✕ Cancel</button></div>';
+  document.body.appendChild(gate);
+  window.unlockUnitQuiz=function(){const v=document.getElementById('ugc-inp').value.trim().toUpperCase();const c=localStorage.getItem(CK);if(!v){document.getElementById('ugc-err').textContent='Enter the code.';return;}if(v===c||!c){sessionStorage.setItem(SK,c||'open');document.getElementById('unit-quiz-gate').style.display='none';document.body.style.overflow='';}else{document.getElementById('ugc-err').textContent='❌ Wrong code.';document.getElementById('ugc-inp').value='';}};
+  window.addEventListener('DOMContentLoaded',function(){const code=localStorage.getItem(CK);if(!code)return;const granted=sessionStorage.getItem(SK);if(granted)return;const qw=document.querySelector('.quiz-wrap');if(!qw)return;qw.addEventListener('click',function(e){if(!localStorage.getItem(CK))return;if(sessionStorage.getItem(SK))return;e.stopPropagation();e.preventDefault();document.getElementById('unit-quiz-gate').style.display='flex';document.body.style.overflow='hidden';},true);});
+})();
+</script>
+</body>
+</html>
