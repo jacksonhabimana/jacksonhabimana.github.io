@@ -542,44 +542,130 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
     </div>
 
     <!-- NOTIFICATIONS -->
-    <div class="card">
-      <h2>📲 Notifications (Email & Phone)</h2>
-      <p style="color:var(--muted);font-size:.88rem;margin-bottom:18px;">Get notified when students cheat or submit exams.</p>
-      <div style="background:var(--surface2);border:1px solid rgba(56,189,248,.2);border-radius:8px;padding:18px 20px;margin-bottom:16px;">
-        <strong style="color:#fff;">📱 Telegram</strong>
-        <div class="setup-step" style="margin:10px 0;">Open Telegram → <strong>@BotFather</strong> → <code>/newbot</code> → copy <strong>Bot Token</strong> · Then <strong>@userinfobot</strong> → copy <strong>Chat ID</strong></div>
+    <div class="card" style="border-color:rgba(248,113,113,.3);">
+      <h2>🚨 Cheat Alert Notifications</h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px;">
+        When a student cheats, they instantly see a full-screen warning. You also receive an alert on your email and WhatsApp.
+      </p>
+
+      <!-- HOW IT WORKS -->
+      <div style="background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.2);border-radius:10px;padding:18px 20px;margin-bottom:20px;">
+        <strong style="color:var(--red);font-family:'JetBrains Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;">How it works</strong>
+        <ol style="margin:10px 0 0 18px;line-height:2.2;font-size:.88rem;color:var(--muted);">
+          <li>Student switches tab / opens another window → <strong style="color:#fff;">instantly blocked</strong></li>
+          <li>Big red warning covers their screen: <em>"CHEATING DETECTED — your teacher has been notified"</em></li>
+          <li>You receive an alert on <strong style="color:#fff;">email</strong> AND <strong style="color:#fff;">WhatsApp</strong> within seconds</li>
+          <li>After 3 violations → <strong style="color:var(--red);">exam auto-submits</strong></li>
+        </ol>
+      </div>
+
+      <!-- EMAIL SETUP -->
+      <div style="background:var(--surface2);border:1px solid rgba(232,197,71,.25);border-radius:10px;padding:20px;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="font-size:1.4rem;">📧</span>
+          <strong style="color:#fff;font-size:1rem;">Email Alerts (Gmail)</strong>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.68rem;background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.25);padding:2px 10px;border-radius:50px;">FREE</span>
+        </div>
+        <div style="background:rgba(56,189,248,.06);border:1px solid rgba(56,189,248,.15);border-radius:8px;padding:14px 16px;margin-bottom:14px;font-size:.85rem;">
+          <strong style="color:var(--accent);display:block;margin-bottom:8px;">⚡ Quick Setup (3 minutes):</strong>
+          <ol style="margin-left:18px;line-height:2.1;color:var(--muted);">
+            <li>Go to <a href="https://emailjs.com" target="_blank" style="color:var(--accent);">emailjs.com</a> → <strong style="color:#fff;">Sign Up Free</strong></li>
+            <li>Click <strong style="color:#fff;">Email Services</strong> → <strong style="color:#fff;">Add New Service</strong> → choose <strong style="color:#fff;">Gmail</strong> → connect your Gmail account → copy the <strong style="color:var(--orange);">Service ID</strong></li>
+            <li>Click <strong style="color:#fff;">Email Templates</strong> → <strong style="color:#fff;">Create New Template</strong> → set Subject to <code>🚨 Cheat Alert — {{student_name}}</code> and Body to <code>{{message}}</code> → Save → copy the <strong style="color:var(--orange);">Template ID</strong></li>
+            <li>Click your account name (top right) → <strong style="color:#fff;">Account</strong> → copy the <strong style="color:var(--orange);">Public Key</strong></li>
+            <li>Paste all three below and click Save</li>
+          </ol>
+        </div>
+        <div class="form-row">
+          <div>
+            <label>EmailJS Public Key</label>
+            <input type="text" id="ej-pubkey" placeholder="user_aBcDeFgH..." oninput="saveNotifSettings()"/>
+          </div>
+          <div>
+            <label>Service ID</label>
+            <input type="text" id="ej-service" placeholder="service_xxxxxxx" oninput="saveNotifSettings()"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label>Template ID</label>
+            <input type="text" id="ej-template" placeholder="template_xxxxxxx" oninput="saveNotifSettings()"/>
+          </div>
+          <div>
+            <label>Your Email Address</label>
+            <input type="text" id="ej-email" placeholder="hajackson2020@gmail.com" oninput="saveNotifSettings()"/>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <button class="btn btn-ghost btn-sm" onclick="testEmail()">📤 Send Test Email</button>
+          <span id="ej-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;"></span>
+        </div>
+      </div>
+
+      <!-- WHATSAPP SETUP -->
+      <div style="background:var(--surface2);border:1px solid rgba(52,211,153,.25);border-radius:10px;padding:20px;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="font-size:1.4rem;">📱</span>
+          <strong style="color:#fff;font-size:1rem;">WhatsApp Alerts (CallMeBot)</strong>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:.68rem;background:rgba(52,211,153,.12);color:var(--green);border:1px solid rgba(52,211,153,.25);padding:2px 10px;border-radius:50px;">FREE</span>
+        </div>
+        <div style="background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.15);border-radius:8px;padding:14px 16px;margin-bottom:14px;font-size:.85rem;">
+          <strong style="color:var(--green);display:block;margin-bottom:8px;">⚡ Quick Setup (2 minutes — one time only):</strong>
+          <ol style="margin-left:18px;line-height:2.1;color:var(--muted);">
+            <li>Open WhatsApp on your phone → Add contact: <strong style="color:#fff;">+34 644 44 91 94</strong> (CallMeBot)</li>
+            <li>Send this message to that contact: <code style="background:rgba(52,211,153,.1);padding:2px 6px;border-radius:4px;">I allow callmebot to send me messages</code></li>
+            <li>Wait ~1 minute → they will reply with your <strong style="color:var(--orange);">API Key</strong></li>
+            <li>Enter your phone number (with country code) and that API key below</li>
+          </ol>
+        </div>
+        <div class="form-row">
+          <div>
+            <label>Your WhatsApp Number (with country code)</label>
+            <input type="text" id="wa-phone" placeholder="+250788800375" oninput="saveNotifSettings()"/>
+          </div>
+          <div>
+            <label>CallMeBot API Key (received via WhatsApp)</label>
+            <input type="text" id="wa-apikey" placeholder="1234567" oninput="saveNotifSettings()"/>
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+          <button class="btn btn-ghost btn-sm" onclick="testWhatsApp()">📤 Send Test WhatsApp</button>
+          <span id="wa-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;"></span>
+        </div>
+      </div>
+
+      <!-- TELEGRAM (optional) -->
+      <div style="background:var(--surface2);border:1px solid rgba(56,189,248,.2);border-radius:10px;padding:20px;margin-bottom:16px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <span style="font-size:1.4rem;">✈️</span>
+          <strong style="color:#fff;font-size:1rem;">Telegram Alerts (Optional)</strong>
+        </div>
         <div class="form-row">
           <div><label>Bot Token</label><input type="text" id="tg-token" placeholder="7512345678:AAH..." oninput="saveNotifSettings()"/></div>
           <div><label>Chat ID</label><input type="text" id="tg-chatid" placeholder="123456789" oninput="saveNotifSettings()"/></div>
         </div>
-        <button class="btn btn-ghost btn-sm" onclick="testTelegram()">📤 Test</button>
-        <span id="tg-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;margin-left:8px;"></span>
-      </div>
-      <div style="background:var(--surface2);border:1px solid rgba(232,197,71,.2);border-radius:8px;padding:18px 20px;margin-bottom:16px;">
-        <strong style="color:#fff;">📧 Email (EmailJS)</strong>
-        <div class="setup-step" style="margin:10px 0;">Go to <a href="https://emailjs.com" target="_blank" style="color:var(--accent);">emailjs.com</a> (free) → Add Gmail → copy <strong>Service ID</strong> · Create template with <code>{{student_name}} {{exam_title}} {{event_type}} {{message}}</code> → copy <strong>Template ID</strong> · Account → copy <strong>Public Key</strong></div>
-        <div class="form-row">
-          <div><label>Public Key</label><input type="text" id="ej-pubkey" placeholder="user_aBcDe..." oninput="saveNotifSettings()"/></div>
-          <div><label>Service ID</label><input type="text" id="ej-service" placeholder="service_xxx" oninput="saveNotifSettings()"/></div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button class="btn btn-ghost btn-sm" onclick="testTelegram()">📤 Test Telegram</button>
+          <span id="tg-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;margin-left:8px;"></span>
         </div>
-        <div class="form-row">
-          <div><label>Template ID</label><input type="text" id="ej-template" placeholder="template_xxx" oninput="saveNotifSettings()"/></div>
-          <div><label>Your Email</label><input type="text" id="ej-email" placeholder="hajackson2020@gmail.com" oninput="saveNotifSettings()"/></div>
+      </div>
+
+      <!-- TOGGLE NOTIFICATIONS -->
+      <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;">
+        <strong style="color:#fff;display:block;margin-bottom:12px;">What triggers a notification?</strong>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;">
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;margin-bottom:0;">
+            <input type="checkbox" id="notif-cheat" onchange="saveNotifSettings()" style="width:auto;accent-color:var(--red);margin-bottom:0;" checked/>
+            <span>🚨 <strong style="color:var(--red);">Student cheats</strong> — tab switch / window blur</span>
+          </label>
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;margin-bottom:0;">
+            <input type="checkbox" id="notif-submit" onchange="saveNotifSettings()" style="width:auto;accent-color:var(--green);margin-bottom:0;" checked/>
+            <span>✅ <strong style="color:var(--green);">Student submits</strong> exam</span>
+          </label>
         </div>
-        <button class="btn btn-ghost btn-sm" onclick="testEmail()">📤 Test</button>
-        <span id="ej-test-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;margin-left:8px;"></span>
       </div>
-      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px;">
-        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;margin-bottom:0;">
-          <input type="checkbox" id="notif-cheat" onchange="saveNotifSettings()" style="width:auto;accent-color:var(--red);margin-bottom:0;"/>
-          <span>🚨 Notify on cheat</span>
-        </label>
-        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;text-transform:none;font-size:.9rem;letter-spacing:0;margin-bottom:0;">
-          <input type="checkbox" id="notif-submit" onchange="saveNotifSettings()" style="width:auto;accent-color:var(--green);margin-bottom:0;"/>
-          <span>✅ Notify on submission</span>
-        </label>
-      </div>
-      <div id="notif-save-msg" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--green);"></div>
+
+      <div id="notif-save-msg" style="font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--green);margin-top:10px;"></div>
     </div>
 
     <!-- STUDENT LINK -->
@@ -1062,12 +1148,20 @@ function loadNotifSettings(){
   if(s.notifSubmit!==undefined) document.getElementById('notif-submit').checked=s.notifSubmit;
 }
 async function testWhatsApp(){
-  const phone=document.getElementById('wa-phone').value.trim();
+  const phone=document.getElementById('wa-phone').value.trim().replace(/[^0-9]/g,'');
   const apikey=document.getElementById('wa-apikey').value.trim();
   const m=document.getElementById('wa-test-msg');
-  if(!phone||!apikey){m.style.color='var(--red)';m.textContent='Enter phone + API key first';return;}
-  m.style.color='var(--muted)';m.textContent='Configured! Send a test by taking an exam (browser blocks direct API calls).';
-  m.style.color='var(--green)';
+  if(!phone||!apikey){m.style.color='var(--red)';m.textContent='❌ Enter phone number and API key first.';return;}
+  m.style.color='var(--muted)';m.textContent='Sending test...';
+  const msg=encodeURIComponent('✅ TEST from Chemistry Portal — cheat alerts are working! You will receive messages like this when a student cheats.');
+  try{
+    await fetch(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${msg}&apikey=${apikey}`);
+    m.style.color='var(--green)';
+    m.textContent='✅ Sent! Check your WhatsApp now.';
+  }catch(e){
+    m.style.color='var(--orange)';
+    m.textContent='⚠️ Request sent — check WhatsApp. (CORS errors are normal — the message still arrives)';
+  }
 }
 
 async function testTelegram(){

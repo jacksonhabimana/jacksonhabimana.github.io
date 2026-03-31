@@ -438,7 +438,16 @@ function recordViolation(msg){
   // Notify teacher immediately
   const studentName = document.getElementById('s-name').value.trim() || 'Unknown Student';
   sendNotification('CHEAT',
-    `🚨 CHEATING ALERT!\n\nStudent: ${studentName}\nExam: ${exam.title}\nViolation: ${violations}/${exam.warnings}\nAction: ${msg}\nTime: ${new Date().toLocaleString()}\n\nStudent has been warned on screen.`
+    `🚨 CHEATING ALERT - Jackson Habimana Chemistry Portal
+
+Student: ${studentName}
+Exam: ${exam.title}
+Violation: ${violations} of ${exam.warnings} maximum
+Action: ${msg}
+Time: ${new Date().toLocaleString()}
+Status: ${violations >= exam.warnings ? 'EXAM AUTO-SUBMITTED' : violations + ' warning(s) given - exam continues'}
+
+Student has been shown a red warning screen.`
   );
   if(violations >= exam.warnings){
     // IMMEDIATE auto-submit on reaching max violations - show countdown then submit
