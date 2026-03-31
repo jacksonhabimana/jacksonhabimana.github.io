@@ -194,6 +194,7 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
 
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <button class="btn btn-success" onclick="publishExam()">🌐 Publish Exam (Get Student Code)</button>
+        <a href="exam-import.html" class="btn btn-ghost" style="text-decoration:none;">📋 Advanced Import Tool →</a>
       <button class="btn btn-primary" onclick="saveExamLocal()">💾 Save Locally (No Internet)</button>
       <button class="btn btn-ghost" onclick="clearForm()">🗑 Clear</button>
     </div>
@@ -350,6 +351,65 @@ table.results tr:hover td{background:rgba(255,255,255,.02);}
       </div>
       <button class="btn btn-success" onclick="uploadFile()" style="margin-top:12px;margin-bottom:0;">📤 Save File for Students</button>
       <div id="file-msg" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;margin-top:8px;"></div>
+    </div>
+
+    <div class="card" style="border-color:rgba(245,158,11,.35);">
+      <h2>📝 Upload Exam Paper + Answer Key</h2>
+      <p style="color:var(--muted);font-size:.88rem;margin-bottom:20px;">
+        Upload your exam paper (PDF/Word) and enter the answer key. Students view the paper and submit answers on this portal — results appear automatically in <strong style="color:#fff;">Student Results</strong>.
+      </p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div>
+          <label>Exam Title *</label>
+          <input type="text" id="pe-title" placeholder="e.g. S4 Chemistry End of Term Exam"/>
+        </div>
+        <div>
+          <label>Class / Level *</label>
+          <select id="pe-level" style="margin-bottom:0;">
+            <option value="S4">S4</option>
+            <option value="S5">S5</option>
+            <option value="S6">S6</option>
+            <option value="Mixed">Mixed</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px;">
+        <div>
+          <label>Number of Questions *</label>
+          <input type="number" id="pe-qcount" min="1" max="100" value="20" style="margin-bottom:0;"/>
+        </div>
+        <div>
+          <label>Time Limit (minutes)</label>
+          <input type="number" id="pe-time" min="5" max="180" value="60" style="margin-bottom:0;"/>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;">
+        <label>Answer Key * <span style="color:var(--muted);font-weight:400;">(comma-separated, e.g. A,B,C,D,A,B,C,D...)</span></label>
+        <input type="text" id="pe-answers" placeholder="A,B,C,D,A,C,B,D,A,B,C,A,D,B,C,A,B,D,C,A" style="font-family:'JetBrains Mono',monospace;letter-spacing:.05em;text-transform:uppercase;"/>
+        <div id="pe-answers-preview" style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);margin-top:-10px;margin-bottom:10px;"></div>
+      </div>
+
+      <label>Upload Exam Paper File (PDF or Word — students will see and download this)</label>
+      <div class="drop-zone" id="pe-drop" onclick="document.getElementById('pe-file-inp').click()"
+           ondragover="event.preventDefault();this.classList.add('drag-over')"
+           ondragleave="this.classList.remove('drag-over')"
+           ondrop="event.preventDefault();this.classList.remove('drag-over');handlePEFile(event.dataTransfer.files[0])">
+        <div style="font-size:2rem;margin-bottom:6px;">📄</div>
+        <strong style="color:var(--text);">Click to upload exam paper</strong>
+        <p style="color:var(--muted);font-size:.82rem;margin-top:4px;">PDF or Word (.docx) recommended · max 5 MB</p>
+        <input type="file" id="pe-file-inp" accept=".pdf,.doc,.docx" style="display:none;" onchange="handlePEFile(this.files[0])"/>
+      </div>
+      <div id="pe-file-preview" style="display:none;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-top:10px;">
+        <span id="pe-file-icon" style="font-size:1.5rem;margin-right:8px;">📄</span>
+        <span id="pe-file-name" style="font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#fff;"></span>
+        <span id="pe-file-size" style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);margin-left:8px;"></span>
+      </div>
+
+      <button class="btn btn-orange" onclick="publishPaperExam()" style="margin-top:14px;margin-bottom:4px;">🚀 Publish Paper Exam → Students Can Now Attempt It</button>
+      <div id="pe-msg" style="font-family:'JetBrains Mono',monospace;font-size:.8rem;margin-top:6px;"></div>
     </div>
 
     <div class="card">
@@ -1275,6 +1335,184 @@ function deleteResource(id){
 function clearAllResources(){
   if(!confirm('Delete ALL links and files? This cannot be undone.')) return;
   localStorage.removeItem('teacher_resources');
+  renderResources();
+}
+
+
+// ══════════════════════════════════════════════════════════
+//  PAPER EXAM SYSTEM
+// ══════════════════════════════════════════════════════════
+
+let _peFile = null;
+
+function handlePEFile(file){
+  if(!file) return;
+  if(file.size > 5*1024*1024){
+    document.getElementById('pe-msg').innerHTML='<span style="color:var(--red)">❌ File too large (max 5MB).</span>';
+    return;
+  }
+  _peFile = file;
+  const icon = file.name.endsWith('.pdf') ? '📕' : '📘';
+  document.getElementById('pe-file-icon').textContent = icon;
+  document.getElementById('pe-file-name').textContent = file.name;
+  document.getElementById('pe-file-size').textContent = (file.size/1024).toFixed(1)+' KB';
+  document.getElementById('pe-file-preview').style.display = 'block';
+  document.getElementById('pe-msg').textContent = '';
+}
+
+// Live preview of answer key
+document.addEventListener('DOMContentLoaded', function(){
+  const inp = document.getElementById('pe-answers');
+  const prev = document.getElementById('pe-answers-preview');
+  if(inp && prev){
+    inp.addEventListener('input', function(){
+      const vals = this.value.toUpperCase().split(',').filter(v=>v.trim());
+      const count = document.getElementById('pe-qcount').value;
+      prev.textContent = vals.length + ' answers entered' + (vals.length == count ? ' ✅' : ' (need '+count+')');
+    });
+  }
+});
+
+function publishPaperExam(){
+  const title   = document.getElementById('pe-title').value.trim();
+  const level   = document.getElementById('pe-level').value;
+  const qcount  = parseInt(document.getElementById('pe-qcount').value)||0;
+  const timeMin = parseInt(document.getElementById('pe-time').value)||60;
+  const rawAnswers = document.getElementById('pe-answers').value.toUpperCase().trim();
+  const answers = rawAnswers.split(',').map(a=>a.trim()).filter(a=>a);
+  const msg = document.getElementById('pe-msg');
+
+  if(!title){ msg.innerHTML='<span style="color:var(--red)">❌ Enter a title.</span>'; return; }
+  if(qcount < 1){ msg.innerHTML='<span style="color:var(--red)">❌ Enter number of questions.</span>'; return; }
+  if(answers.length !== qcount){
+    msg.innerHTML='<span style="color:var(--red)">❌ Answer key has '+answers.length+' answers but you set '+qcount+' questions. They must match.</span>';
+    return;
+  }
+  const validAnswers = answers.every(a => ['A','B','C','D','E'].includes(a));
+  if(!validAnswers){
+    msg.innerHTML='<span style="color:var(--red)">❌ Answers must be A, B, C, D, or E only (comma-separated).</span>';
+    return;
+  }
+  if(!_peFile){ msg.innerHTML='<span style="color:var(--red)">❌ Upload an exam paper file.</span>'; return; }
+
+  msg.innerHTML='<span style="color:var(--muted)">⏳ Processing...</span>';
+
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try {
+      const exam = {
+        id: 'pe_' + Date.now(),
+        type: 'paper',
+        title, level, qcount, timeMin, answers,
+        fileName: _peFile.name,
+        fileType: _peFile.type,
+        fileSize: _peFile.size,
+        fileData: e.target.result,
+        createdAt: new Date().toISOString(),
+        attempts: 0
+      };
+      const paperExams = JSON.parse(localStorage.getItem('paper_exams')||'[]');
+      paperExams.unshift(exam);
+      localStorage.setItem('paper_exams', JSON.stringify(paperExams));
+      
+      // Reset form
+      document.getElementById('pe-title').value='';
+      document.getElementById('pe-answers').value='';
+      document.getElementById('pe-file-preview').style.display='none';
+      document.getElementById('pe-answers-preview').textContent='';
+      _peFile = null;
+      
+      msg.innerHTML='<span style="color:var(--green)">✅ Paper exam published! Students can now open and attempt it from Student Hub.</span>';
+      renderPaperExamsList();
+    } catch(err){
+      msg.innerHTML='<span style="color:var(--red)">❌ Error: '+err.message+'. Try a smaller file.</span>';
+    }
+  };
+  reader.readAsDataURL(_peFile);
+}
+
+function renderPaperExamsList(){
+  // Render in resources list
+  renderResources();
+  // Also update the My Exams tab if it shows paper exams
+  const paperExams = JSON.parse(localStorage.getItem('paper_exams')||'[]');
+  // Update stat card
+  const el = document.getElementById('stat-exams');
+  if(el){
+    const myExams = JSON.parse(localStorage.getItem('my_exams')||'[]');
+    el.textContent = myExams.length + paperExams.length;
+  }
+}
+
+// Override renderResources to also show paper exams
+const _origRenderResources = typeof renderResources === 'function' ? renderResources : null;
+function renderResources(){
+  // Paper exams section
+  const filter = document.getElementById('res-filter')?document.getElementById('res-filter').value:'';
+  const resources = JSON.parse(localStorage.getItem('teacher_resources')||'[]');
+  const paperExams = JSON.parse(localStorage.getItem('paper_exams')||'[]');
+  
+  const filtered = filter ? resources.filter(r=>r.cat===filter) : resources;
+  const el = document.getElementById('resources-list');
+  if(!el) return;
+  
+  // Build paper exams HTML
+  const peHTML = paperExams.length ? `
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--orange);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;margin-top:4px;">📝 Paper Exams (${paperExams.length})</div>
+    ${paperExams.map(pe=>`
+    <div style="background:var(--surface2);border:1px solid rgba(245,158,11,.3);border-radius:9px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div style="flex:1;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap;">
+          <span>📝</span>
+          <strong style="color:#fff;">${pe.title}</strong>
+          <span class="badge badge-orange">${pe.level}</span>
+          <span class="badge" style="background:rgba(245,158,11,.15);color:var(--orange);border:1px solid rgba(245,158,11,.3);">${pe.qcount}Q · ${pe.timeMin}min</span>
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--muted);">${pe.fileName} · ${(pe.fileSize/1024).toFixed(1)}KB · ${pe.attempts||0} attempts</div>
+      </div>
+      <div style="display:flex;gap:6px;">
+        <button class="btn btn-ghost btn-sm" onclick="copyPECode('${pe.id}')">📋 Share Code</button>
+        <button class="btn btn-danger btn-sm" onclick="deletePE('${pe.id}')">🗑</button>
+      </div>
+    </div>`).join('')}
+  ` : '';
+
+  // Build links/files HTML
+  const linksHTML = filtered.length ? `
+    <div style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;margin-top:${paperExams.length?'16px':'4px'};">🔗 Links & Files (${filtered.length})</div>
+    ${filtered.map(r=>`
+    <div style="background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:14px 16px;margin-bottom:10px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:0;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap;">
+          <span>${r.type==='link'?'🔗':'📄'}</span>
+          <strong style="color:#fff;font-size:.95rem;">${r.title}</strong>
+          <span class="badge badge-${r.type==='link'?'blue':'green'}">${r.cat}</span>
+        </div>
+        ${r.type==='link'?`<a href="${r.url}" target="_blank" style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--accent);word-break:break-all;">${r.url.length>60?r.url.slice(0,60)+'…':r.url}</a>`:
+        `<span style="font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--muted);">${r.fileName} · ${(r.fileSize/1024).toFixed(1)}KB</span>`}
+        ${r.desc?`<div style="font-size:.82rem;color:var(--muted);margin-top:4px;">${r.desc}</div>`:''}
+      </div>
+      <div style="display:flex;gap:6px;flex-shrink:0;">
+        ${r.type==='file'?`<button class="btn btn-ghost btn-sm" onclick="downloadResource(${r.id})">⬇</button>`:''}
+        <button class="btn btn-danger btn-sm" onclick="deleteResource(${r.id})">🗑</button>
+      </div>
+    </div>`).join('')}
+  ` : '';
+
+  if(!peHTML && !linksHTML){ el.innerHTML='<p style="color:var(--muted);">No resources yet.</p>'; return; }
+  el.innerHTML = peHTML + linksHTML;
+}
+
+function copyPECode(id){
+  navigator.clipboard.writeText(id).catch(()=>{});
+  alert('Share this code with students:\n\n' + id + '\n\nStudents enter it on Student Hub → Paper Exams → Enter Code.');
+}
+
+function deletePE(id){
+  if(!confirm('Delete this paper exam?')) return;
+  let pes = JSON.parse(localStorage.getItem('paper_exams')||'[]');
+  pes = pes.filter(p=>p.id!==id);
+  localStorage.setItem('paper_exams', JSON.stringify(pes));
   renderResources();
 }
 

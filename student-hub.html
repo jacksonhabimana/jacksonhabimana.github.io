@@ -453,6 +453,7 @@ footer a{color:var(--accent);text-decoration:none;}
 
 
   <!-- ═══ TEACHER RESOURCES ═══ -->
+  <section id="paper-exams-section" style="display:none;margin-top:48px;"></section>
   <section id="teacher-resources-section" style="display:none;margin-top:48px;">
     <h2 style="font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:6px;">🔗 Resources from Your Teacher</h2>
     <p style="color:var(--muted);font-size:.9rem;margin-bottom:20px;">Links and files your teacher has shared with you.</p>
@@ -471,6 +472,28 @@ footer a{color:var(--accent);text-decoration:none;}
   <script>
   (function(){
     function loadResources(filter){
+      // Show paper exams first
+      const paperExams = JSON.parse(localStorage.getItem('paper_exams')||'[]');
+      const peSection = document.getElementById('paper-exams-section');
+      if(peSection){
+        if(paperExams.length){
+          peSection.style.display='block';
+          peSection.innerHTML = '<h3 style="font-family:\'Playfair Display\',serif;font-size:1.2rem;color:#fff;margin-bottom:14px;">📝 Paper Exams from Teacher</h3>' +
+            '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;">' +
+            paperExams.map(pe=>`
+              <div style="background:#161b22;border:1px solid rgba(245,158,11,.3);border-radius:10px;overflow:hidden;">
+                <div style="background:rgba(245,158,11,.1);padding:10px 16px;border-bottom:1px solid rgba(245,158,11,.2);font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em;">📝 Paper Exam · ${pe.level}</div>
+                <div style="padding:14px 16px;">
+                  <div style="font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:6px;">${pe.title}</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:.72rem;color:#8b949e;">${pe.qcount} questions · ${pe.timeMin} min · ${pe.fileName}</div>
+                </div>
+                <div style="padding:10px 16px;border-top:1px solid rgba(245,158,11,.15);">
+                  <a href="student-paper-exam.html?code=${pe.id}" style="display:block;text-align:center;background:#f59e0b;color:#000;border:none;padding:9px;border-radius:7px;font-family:'JetBrains Mono',monospace;font-size:.82rem;font-weight:700;text-decoration:none;">📝 Open Exam →</a>
+                </div>
+              </div>`).join('') + '</div>';
+        } else { peSection.style.display='none'; }
+      }
+    
       const all = JSON.parse(localStorage.getItem('teacher_resources')||'[]');
       const items = filter ? all.filter(r=>r.cat===filter) : all;
       const sec = document.getElementById('teacher-resources-section');
