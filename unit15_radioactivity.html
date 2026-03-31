@@ -229,171 +229,62 @@ Radioactive waste management:
 <div class="ts"><div class="tsh"><h3>Section B</h3><span class="mb">20 marks</span></div><div class="tb">
 <div class="tq"><span class="tqn">Q5 [10 marks]</span><p>Critically discuss the use of radioisotopes in medicine. Include: (a) principles and examples of diagnostic imaging (PET and SPECT) [4]; (b) principles and examples of therapeutic applications [3]; (c) the risk-benefit analysis a physician must consider when prescribing radioactive treatments [3].</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">(a) PET (Positron Emission Tomography): &beta;<sup>+</sup>-emitting tracer (F-18 fluorodeoxyglucose = FDG) concentrates in metabolically active tissue (tumours, active brain areas). F-18 emits positron; it annihilates with nearby electron &rarr; two 511 keV &gamma; photons in exactly opposite directions. Detected simultaneously by ring detectors (coincidence detection) &rarr; precise 3D localisation without surgery. Used for: cancer staging, neurological diseases (Alzheimer's), cardiac function. SPECT (Single Photon Emission CT): &gamma;-emitting tracer (Tc-99m, t&#189;=6h). Gamma camera rotates around patient &rarr; 3D images. Tc-99m: only &gamma; emission (no &beta; deposited in patient); optimal 140 keV energy for detectors; attaches to many pharmaceuticals for organ targeting (bone scans, lung perfusion, cardiac blood flow, kidney function). [4]<br>(b) Therapeutic uses: (i) Radioiodine (I-131, &beta;&gamma;, t&#189;=8 days): thyroid concentrates iodine &rarr; destroys malignant/overactive thyroid tissue. Effective for thyroid cancer and hyperthyroidism. (ii) Targeted therapy: Y-90 (pure &beta;, t&#189;=64h) attached to monoclonal antibodies or microspheres delivered to liver tumours (SIRT = selective internal radiation therapy). (iii) External beam: Co-60 &gamma; beam or linear accelerator X-rays directed at tumour from multiple angles (minimise dose to healthy tissue; tumours often more radiosensitive than healthy tissue). (iv) Brachytherapy: radioactive seeds (Pd-103, I-125) implanted directly in prostate. [3]<br>(c) Risk-benefit: Risks: (i) Radiation dose (stochastic: small lifetime cancer risk; deterministic: high dose tissue damage). (ii) Short-term side effects (nausea, bone marrow suppression). (iii) Risk of radioactive contamination of others (isolation needed post-I-131 therapy). Benefits: (i) Accurate diagnosis avoiding invasive biopsy. (ii) Targeted cancer therapy with fewer systemic side effects than chemotherapy. (iii) For life-threatening conditions (cancer), high radiation dose is justified if alternative is death. Considerations: age (younger patients have more to lose from radiation risk; prefer avoiding CT scans in children); pregnancy (foetus extremely radiosensitive); renal function (affects tracer clearance). ALARA principle: As Low As Reasonably Achievable &mdash; use minimum dose for diagnostic or therapeutic purpose. [3]</div></div>
 <div class="tq"><span class="tqn">Q6 [10 marks]</span><p>Evaluate the role of nuclear power in addressing climate change. Discuss: (a) the physics of energy production in a nuclear reactor [3]; (b) advantages of nuclear power over fossil fuels [3]; (c) concerns about nuclear power (safety, waste, proliferation) and how they are addressed [4].</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">(a) Physics: U-235 fission triggered by thermal neutrons: <sup>235</sup>U + n &rarr; fission fragments + 2&ndash;3 neutrons + ~200 MeV + &gamma;. Chain reaction controlled (k=1) by: (i) Control rods (B or Hf) absorb excess neutrons; (ii) Moderator (water or graphite) slows fast neutrons to thermal energies for efficient U-235 capture; (iii) Coolant (water, CO<sub>2</sub>, liquid Na) removes heat &rarr; produces steam &rarr; drives turbine &rarr; generates electricity. Fuel: enriched uranium (3&ndash;5% U-235; natural uranium is 0.7%). Energy density: 1 kg U-235 yields ~8&times;10<sup>13</sup> J (equivalent to ~3000 tonnes of coal). [3]<br>(b) Advantages: (i) Near-zero CO<sub>2</sub> during operation: lifecycle emissions ~12 g CO<sub>2</sub>/kWh (comparable to wind); coal ~820 g/kWh. Essential for decarbonisation of baseload electricity. (ii) Very high energy density: small fuel volume, small plant footprint per GWh. (iii) Reliable baseload (unlike solar/wind which are intermittent); operates 24/7 regardless of weather. (iv) Uranium supply is diverse (stable geopolitics) and can be supplemented by thorium (abundant) or reprocessed plutonium. (v) Employment, economic development in host regions. [3]<br>(c) Concerns and responses: Safety: Chernobyl (1986): graphite-moderated RBMK reactor, design flaws, operator error &rarr; 31 direct deaths, ~4000 cancer deaths estimated. Modern Western reactors (PWR, BWR) use water as moderator (negative temperature coefficient: reactor self-stabilises). Post-Fukushima: passive safety systems (gravity-fed cooling, no active pumps required). Generation IV designs (molten salt, pebble bed) have inherently safe geometry. Statistically, nuclear power has fewest deaths/TWh of any energy source. Waste: High-level waste contains long-lived actinides. Strategy: vitrification + deep geological disposal (Onkalo facility in Finland is world's first). Reprocessing (UK, France) reduces waste volume. Waste volume is small (all US nuclear waste fits in one football field area). Proliferation: enriched fuel or reprocessed Pu could be diverted for weapons. Addressed by: IAEA safeguards and inspections; fuel leasing (countries return spent fuel to supplier nation); generation IV designs without easily separable Pu. Cost: nuclear capital costs very high (EDF Hinkley Point C: £33 billion). Learning curves and standardised modular reactors (SMRs) may reduce costs. Overall: nuclear power is likely necessary for a reliable, low-carbon electricity system, alongside renewables. [4]</div></div>
-</div></div></section><div class="nav"><a class="nb p" href="unit14_rate_laws.html">&larr; Unit 14: Rate Laws</a><a class="nb n" href="s6-chemistry.html">Back to S6 Home &rarr;</a></div></main><script>function toggleAnswer(b){const a=b.nextElementSibling;a.classList.toggle('open');b.textContent=a.classList.contains('open')?'Hide Answer':'Show Answer';}
-function submitQuiz(){const CA=window._CA||{};let s=0,t=Object.keys(CA).length;Object.entries(CA).forEach(([q,c])=>{const sel=document.querySelector('input[name="'+q+'"]:checked');document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{if(o.value===c)o.parentElement.classList.add('correct');});if(sel){if(sel.value===c)s++;else sel.parentElement.classList.add('wrong');}const e=document.getElementById('e'+q.slice(1));if(e)e.style.display='block';document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);});const p=Math.round(s/t*100);const r=document.getElementById('qR');r.style.display='block';r.style.background=p>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';r.style.border='1px solid '+(p>=70?'var(--green)':'var(--red)');r.style.color=p>=70?'var(--green)':'var(--red)';r.innerHTML='Score: '+s+'/'+t+' ('+p+'%) — '+(p>=80?'Excellent!':p>=60?'Good — review marked.':'Keep studying!');document.querySelector('.qs').disabled=true;document.querySelector('.qs').style.opacity='.5';}</script>
-<script>
-// ── UNIT QUIZ ACCESS GATE ──
-(function(){
-  const SESS_KEY='quiz_access_granted';
-  const CODE_KEY='quiz_access_code';
-  
-  // Create gate overlay for unit quizzes
-  const gate = document.createElement('div');
-  gate.id='unit-quiz-gate';
-  gate.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;';
-  gate.innerHTML=`<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:48px 40px;max-width:460px;width:100%;text-align:center;box-shadow:0 0 60px rgba(245,158,11,.15);">
-    <div style="font-size:3.5rem;margin-bottom:16px;">🔒</div>
-    <h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
-    <p style="color:#8b949e;font-size:.93rem;margin-bottom:24px;line-height:1.7;">Your teacher has locked this quiz. Enter the access code to unlock it.</p>
-    <input id="unit-gate-inp" type="text" placeholder="Enter Code" maxlength="20"
-      style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;box-sizing:border-box;"
-      onkeydown="if(event.key==='Enter')unlockUnitQuiz()"
-      oninput="this.value=this.value.toUpperCase()"/>
-    <div id="unit-gate-err" style="font-family:JetBrains Mono,monospace;font-size:.82rem;color:#f87171;min-height:20px;margin-bottom:10px;"></div>
-    <button onclick="unlockUnitQuiz()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:10px;">🔓 Unlock Quiz</button>
-    <button onclick="document.getElementById('unit-quiz-gate').style.display='none';document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:9px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.8rem;cursor:pointer;">✕ Cancel</button>
-    <div style="font-family:JetBrains Mono,monospace;font-size:.72rem;color:#8b949e;margin-top:10px;">Ask your teacher for the access code.</div>
-  </div>`;
-  document.body.appendChild(gate);
-  
-  window.unlockUnitQuiz = function(){
-    const entered = document.getElementById('unit-gate-inp').value.trim().toUpperCase();
-    const correct = localStorage.getItem(CODE_KEY);
-    if(!entered){document.getElementById('unit-gate-err').textContent='Enter the access code.';return;}
-    if(entered===correct||!correct){
-      sessionStorage.setItem(SESS_KEY, correct||'open');
-      document.getElementById('unit-quiz-gate').style.display='none';
-      document.body.style.overflow='';
-      // Now actually submit/interact with the quiz
-      if(window._pendingQuizAction) window._pendingQuizAction();
-      window._pendingQuizAction = null;
-    } else {
-      document.getElementById('unit-gate-err').textContent='❌ Wrong code. Ask your teacher.';
-      document.getElementById('unit-gate-inp').value='';
-    }
-  };
-  
-  // Intercept the submitQuiz button
-  window.addEventListener('DOMContentLoaded', function(){
-    const code = localStorage.getItem(CODE_KEY);
-    if(!code) return; // No lock set
-    const granted = sessionStorage.getItem(SESS_KEY);
-    if(granted) return; // Already unlocked
-    
-    // Find all option labels/inputs in quiz and intercept
-    const quizWrap = document.querySelector('.quiz-wrap');
-    if(!quizWrap) return;
-    
-    // Intercept clicking on quiz options
-    quizWrap.addEventListener('click', function(e){
-      const code2 = localStorage.getItem(CODE_KEY);
-      if(!code2) return;
-      const granted2 = sessionStorage.getItem(SESS_KEY);
-      if(granted2) return;
-      e.stopPropagation();
-      e.preventDefault();
-      document.getElementById('unit-quiz-gate').style.display='flex';
-      document.body.style.overflow='hidden';
-    }, true);
-  });
-})();
-</script>
+</div></div></section><div class="nav"><a class="nb p" href="unit14_rate_laws.html">&larr; Unit 14: Rate Laws</a><a class="nb n" href="s6-chemistry.html">Back to S6 Home &rarr;</a></div></main>
+
 
 <!-- ═══════════════════════════ UNIT QUIZ GATE ═══════════════════════════ -->
 <script>
 (function(){
-  var SKEY='_qa_granted', CKEY='_qa_code';
-  
-  function getCorrectCode(){
-    var url=new URLSearchParams(window.location.search).get('c');
-    if(url) return url.toUpperCase();
-    var ls=localStorage.getItem('quiz_access_code');
-    if(ls) return ls.toUpperCase();
-    return null;
-  }
-  
-  function isGranted(){
-    var code=getCorrectCode();
-    if(!code) return true; // no lock
-    return sessionStorage.getItem(SKEY)===code;
-  }
-  
-  function createGate(onSuccess){
+  const CK='quiz_access_code', SK='quiz_access_granted';
+  const code=localStorage.getItem(CK);
+  if(!code) return;
+  if(sessionStorage.getItem(SK)) return;
+  const qw=document.querySelector('.quiz-wrap');
+  if(!qw) return;
+  function showGate(){
     if(document.getElementById('_ugate')) return;
-    var code=getCorrectCode();
-    var d=document.createElement('div');
-    d.id='_ugate';
-    d.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;';
-    d.innerHTML='<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 36px;max-width:460px;width:100%;text-align:center;box-shadow:0 0 60px rgba(245,158,11,.15);">'
-      +'<div style="font-size:3.5rem;margin-bottom:16px;">🔒</div>'
-      +'<h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>'
-      +'<p style="color:#8b949e;font-size:.92rem;margin-bottom:22px;line-height:1.7;">Enter your teacher's access code to attempt this quiz.</p>'
-      +'<input id="_ugate_inp" type="text" placeholder="Enter Code" maxlength="20" '
-      +'style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:1.5rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;" '
-      +'onkeydown="if(event.key==='Enter')window._ugateCheck()" '
-      +'oninput="this.value=this.value.toUpperCase();document.getElementById('_ugate_err').textContent=''"/>'
-      +'<div id="_ugate_err" style="font-family:JetBrains Mono,monospace;font-size:.82rem;color:#f87171;min-height:20px;margin:8px 0;"></div>'
-      +'<button onclick="window._ugateCheck()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:10px;">🔓 Unlock Quiz</button>'
-      +'<button onclick="document.getElementById('_ugate').remove();document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:9px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.8rem;cursor:pointer;">✕ Cancel</button>'
-      +'<div style="font-family:JetBrains Mono,monospace;font-size:.72rem;color:#8b949e;margin-top:12px;">Ask your teacher for the access code.</div>'
-      +'</div>';
-    document.body.appendChild(d);
+    const g=document.createElement('div');
+    g.id='_ugate';
+    g.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;';
+    g.innerHTML=`
+      <div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 36px;max-width:440px;width:100%;text-align:center;">
+        <div style="font-size:3.5rem;margin-bottom:14px;">🔒</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
+        <p style="color:#8b949e;font-size:.92rem;margin-bottom:20px;line-height:1.7;">Enter your teacher&#39;s access code to attempt this quiz.</p>
+        <input id="_ugate_inp" type="text" placeholder="Enter Code" maxlength="20" autocomplete="off"
+          style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:13px 16px;font-family:'JetBrains Mono',monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;"
+          onkeydown="if(event.key==='Enter')window._ugateCheck()"/>
+        <div id="_ugate_err" style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#f87171;min-height:20px;margin:6px 0 10px;"></div>
+        <button onclick="window._ugateCheck()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:12px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:8px;">🔓 Unlock Quiz</button>
+        <button onclick="document.getElementById('_ugate').remove();document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:8px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.78rem;cursor:pointer;">✕ Cancel</button>
+      </div>`;
+    document.body.appendChild(g);
     document.body.style.overflow='hidden';
-    setTimeout(function(){var i=document.getElementById('_ugate_inp');if(i)i.focus();},200);
-    
-    window._ugateCheck=function(){
-      var entered=document.getElementById('_ugate_inp').value.trim().toUpperCase();
-      var correct=getCorrectCode();
-      if(!entered){document.getElementById('_ugate_err').textContent='Enter the code.';return;}
-      if(!correct||entered===correct){
-        sessionStorage.setItem(SKEY,correct||entered);
-        sessionStorage.setItem(CKEY,correct||entered);
-        document.getElementById('_ugate').remove();
-        document.body.style.overflow='';
-        if(onSuccess) onSuccess();
-      } else {
-        document.getElementById('_ugate_err').textContent='❌ Wrong code. Ask your teacher.';
-        document.getElementById('_ugate_inp').value='';
-      }
-    };
+    setTimeout(()=>{const i=document.getElementById('_ugate_inp');if(i)i.focus();},100);
   }
-  
-  window.addEventListener('DOMContentLoaded',function(){
-    var code=getCorrectCode();
-    if(!code) return; // no lock
-    
-    // Auto-unlock if URL has code
-    var urlCode=new URLSearchParams(window.location.search).get('c');
-    if(urlCode&&urlCode.toUpperCase()===code){
-      sessionStorage.setItem(SKEY,code);
-      return;
+  window._ugateCheck=function(){
+    const val=(document.getElementById('_ugate_inp')||{}).value;
+    if(!val) return;
+    const v=val.trim().toUpperCase();
+    const stored=localStorage.getItem(CK);
+    if(v===stored){
+      sessionStorage.setItem(SK,'1');
+      const g=document.getElementById('_ugate');
+      if(g) g.remove();
+      document.body.style.overflow='';
+    } else {
+      const err=document.getElementById('_ugate_err');
+      if(err) err.textContent='❌ Wrong code — try again.';
+      const inp=document.getElementById('_ugate_inp');
+      if(inp){inp.value='';inp.focus();}
     }
-    
-    if(isGranted()) return;
-    
-    // Find the quiz submit button and quiz options — intercept them
-    var quizWrap=document.querySelector('.quiz-wrap,.quiz-body,#quiz');
-    if(!quizWrap) return;
-    
-    quizWrap.addEventListener('click',function(e){
-      if(!getCorrectCode()) return;
-      if(isGranted()) return;
-      e.stopImmediatePropagation();
-      e.preventDefault();
-      createGate(null);
-    },true);
-    
-    // Also intercept the submit button
-    var submitBtn=document.querySelector('.qs,button[onclick*="submitQuiz"]');
-    if(submitBtn){
-      var origClick=submitBtn.onclick;
-      submitBtn.onclick=function(ev){
-        if(!getCorrectCode()||isGranted()){if(origClick)origClick.call(this,ev);return;}
-        ev.stopPropagation();ev.preventDefault();
-        createGate(function(){if(origClick)origClick.call(submitBtn,ev);});
-      };
-    }
-  });
+  };
+  qw.addEventListener('click',function(e){
+    if(!localStorage.getItem(CK)) return;
+    if(sessionStorage.getItem(SK)) return;
+    e.stopPropagation();e.preventDefault();
+    showGate();
+  },true);
 })();
 </script>
 

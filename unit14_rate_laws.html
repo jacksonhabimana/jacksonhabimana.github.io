@@ -208,171 +208,62 @@ Rate &prop; 1/t  &rarr; can investigate orders in [S&#8322;O&#8328;&#178;&#8315;
 <div class="ts"><div class="tsh"><h3>Section B</h3><span class="mb">20 marks</span></div><div class="tb">
 <div class="tq"><span class="tqn">Q6 [10 marks]</span><p>(a) Derive the integrated rate law for a first-order reaction from the differential form rate = &minus;d[A]/dt = k[A]. Hence show that t&#189; = ln2/k. [5] (b) A radioactive isotope (first-order decay) has a half-life of 8.1 days. A sample initially contains 5.00 g. Calculate: (i) k; (ii) mass remaining after 30 days; (iii) time for the mass to fall to 0.10 g. [5]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">(a) Derivation: rate = &minus;d[A]/dt = k[A]. Separating variables: d[A]/[A] = &minus;k dt. Integrating both sides: &int;d[A]/[A] = &minus;k&int;dt; ln[A] = &minus;kt + C. At t=0: ln[A]<sub>0</sub> = C. Therefore: ln[A] = ln[A]<sub>0</sub> &minus; kt, or ln([A]/[A]<sub>0</sub>) = &minus;kt, or [A] = [A]<sub>0</sub>e<sup>&minus;kt</sup>. For half-life: [A] = [A]<sub>0</sub>/2; ln(1/2) = &minus;kt&#189;; &minus;ln2 = &minus;kt&#189;; <b>t&#189; = ln2/k = 0.693/k</b>. &check;<br>(b)(i) k = ln2/t&#189; = 0.693/8.1 = <b>0.0856 day<sup>&minus;1</sup></b>. (ii) After 30 days: m = 5.00 &times; e<sup>&minus;0.0856&times;30</sup> = 5.00 &times; e<sup>&minus;2.568</sup> = 5.00 &times; 0.0768 = <b>0.384 g</b>. (iii) ln(0.10/5.00) = &minus;0.0856t; ln(0.020) = &minus;3.912; t = 3.912/0.0856 = <b>45.7 days</b> (about 5.6 half-lives).</div></div>
 <div class="tq"><span class="tqn">Q7 [10 marks]</span><p>Discuss the significance of the Arrhenius equation in chemistry and industry. Include: (a) how it accounts for the temperature-dependence of rate; (b) how E<sub>a</sub> and A affect reaction rate; (c) how catalysts can be understood through the Arrhenius framework; (d) one industrial example where Arrhenius considerations determine process conditions. [10]</p><button class="rb" onclick="toggleAnswer(this)">Model Answer</button><div class="ans">(a) k = Ae<sup>&minus;E<sub>a</sub>/RT</sup>. As T increases, the exponent &minus;E<sub>a</sub>/RT becomes less negative &rarr; e<sup>&minus;E<sub>a</sub>/RT</sup> increases exponentially &rarr; k increases rapidly. This accounts for the well-known observation that reactions speed up dramatically with temperature. The exponential dependence means even a small T increase can double or triple k (e.g. for E<sub>a</sub>=50 kJ/mol, 10 K rise near 300 K increases k by factor ~2.2). [2]<br>(b) E<sub>a</sub>: reactions with large E<sub>a</sub> are very temperature-sensitive (steep Arrhenius plot) and slow at low T. Reactions with small E<sub>a</sub> (e.g. ionic reactions) are fast even at low T and less sensitive to T changes. A: reflects how often molecules collide in the right orientation. High A = many collisions with correct geometry. Even with low E<sub>a</sub>, if A is very small (e.g. requires very precise alignment), rate can be slow. A is approximately constant with T (varies as T<sup>1/2</sup> only). [3]<br>(c) Catalyst: provides alternative mechanism with lower E<sub>a</sub>'. In Arrhenius: k' = Ae<sup>&minus;E<sub>a</sub>'/RT</sup>. Since E<sub>a</sub>' &lt; E<sub>a</sub>: k' &gt; k at same T. The ratio k'/k = e<sup>(E<sub>a</sub>&minus;E<sub>a</sub>')/RT</sup>. For E<sub>a</sub>&minus;E<sub>a</sub>' = 30 kJ/mol at 300 K: k'/k = e<sup>12</sup> &approx; 163,000. A catalyst can increase rate by many orders of magnitude. Also, since reaction can proceed faster at lower T, side reactions may be avoided. [3]<br>(d) Haber process: N<sub>2</sub>+3H<sub>2</sub>&harr;2NH<sub>3</sub>. E<sub>a</sub> for N&equiv;N bond breaking is enormous (~300+ kJ/mol without catalyst). Without catalyst: need very high T to get acceptable k &rarr; but high T shifts equilibrium to reactants (exothermic reaction). Fe catalyst lowers E<sub>a</sub> dramatically &rarr; acceptable k at 400-500&deg;C where equilibrium yield is ~15-25%. Promoters (Al<sub>2</sub>O<sub>3</sub>, K<sub>2</sub>O) increase A by maximising surface area and improving active site geometry. The temperature choice (400-500&deg;C) is a deliberate compromise between kinetics (Arrhenius: need enough T for k) and thermodynamics (Le Chatelier: lower T favours NH<sub>3</sub>). [2]</div></div>
-</div></div></section><div class="nav"><a class="nb p" href="unit13_reaction_rates.html">&larr; Unit 13: Factors Affecting Rate</a><a class="nb n" href="unit15_radioactivity.html">Unit 15: Radioactivity &rarr;</a></div></main><script>function toggleAnswer(b){const a=b.nextElementSibling;a.classList.toggle('open');b.textContent=a.classList.contains('open')?'Hide Answer':'Show Answer';}
-function submitQuiz(){const CA=window._CA||{};let s=0,t=Object.keys(CA).length;Object.entries(CA).forEach(([q,c])=>{const sel=document.querySelector('input[name="'+q+'"]:checked');document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{if(o.value===c)o.parentElement.classList.add('correct');});if(sel){if(sel.value===c)s++;else sel.parentElement.classList.add('wrong');}const e=document.getElementById('e'+q.slice(1));if(e)e.style.display='block';document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);});const p=Math.round(s/t*100);const r=document.getElementById('qR');r.style.display='block';r.style.background=p>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';r.style.border='1px solid '+(p>=70?'var(--green)':'var(--red)');r.style.color=p>=70?'var(--green)':'var(--red)';r.innerHTML='Score: '+s+'/'+t+' ('+p+'%) — '+(p>=80?'Excellent!':p>=60?'Good — review marked.':'Keep studying!');document.querySelector('.qs').disabled=true;document.querySelector('.qs').style.opacity='.5';}</script>
-<script>
-// ── UNIT QUIZ ACCESS GATE ──
-(function(){
-  const SESS_KEY='quiz_access_granted';
-  const CODE_KEY='quiz_access_code';
-  
-  // Create gate overlay for unit quizzes
-  const gate = document.createElement('div');
-  gate.id='unit-quiz-gate';
-  gate.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;';
-  gate.innerHTML=`<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:48px 40px;max-width:460px;width:100%;text-align:center;box-shadow:0 0 60px rgba(245,158,11,.15);">
-    <div style="font-size:3.5rem;margin-bottom:16px;">🔒</div>
-    <h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
-    <p style="color:#8b949e;font-size:.93rem;margin-bottom:24px;line-height:1.7;">Your teacher has locked this quiz. Enter the access code to unlock it.</p>
-    <input id="unit-gate-inp" type="text" placeholder="Enter Code" maxlength="20"
-      style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;box-sizing:border-box;"
-      onkeydown="if(event.key==='Enter')unlockUnitQuiz()"
-      oninput="this.value=this.value.toUpperCase()"/>
-    <div id="unit-gate-err" style="font-family:JetBrains Mono,monospace;font-size:.82rem;color:#f87171;min-height:20px;margin-bottom:10px;"></div>
-    <button onclick="unlockUnitQuiz()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:10px;">🔓 Unlock Quiz</button>
-    <button onclick="document.getElementById('unit-quiz-gate').style.display='none';document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:9px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.8rem;cursor:pointer;">✕ Cancel</button>
-    <div style="font-family:JetBrains Mono,monospace;font-size:.72rem;color:#8b949e;margin-top:10px;">Ask your teacher for the access code.</div>
-  </div>`;
-  document.body.appendChild(gate);
-  
-  window.unlockUnitQuiz = function(){
-    const entered = document.getElementById('unit-gate-inp').value.trim().toUpperCase();
-    const correct = localStorage.getItem(CODE_KEY);
-    if(!entered){document.getElementById('unit-gate-err').textContent='Enter the access code.';return;}
-    if(entered===correct||!correct){
-      sessionStorage.setItem(SESS_KEY, correct||'open');
-      document.getElementById('unit-quiz-gate').style.display='none';
-      document.body.style.overflow='';
-      // Now actually submit/interact with the quiz
-      if(window._pendingQuizAction) window._pendingQuizAction();
-      window._pendingQuizAction = null;
-    } else {
-      document.getElementById('unit-gate-err').textContent='❌ Wrong code. Ask your teacher.';
-      document.getElementById('unit-gate-inp').value='';
-    }
-  };
-  
-  // Intercept the submitQuiz button
-  window.addEventListener('DOMContentLoaded', function(){
-    const code = localStorage.getItem(CODE_KEY);
-    if(!code) return; // No lock set
-    const granted = sessionStorage.getItem(SESS_KEY);
-    if(granted) return; // Already unlocked
-    
-    // Find all option labels/inputs in quiz and intercept
-    const quizWrap = document.querySelector('.quiz-wrap');
-    if(!quizWrap) return;
-    
-    // Intercept clicking on quiz options
-    quizWrap.addEventListener('click', function(e){
-      const code2 = localStorage.getItem(CODE_KEY);
-      if(!code2) return;
-      const granted2 = sessionStorage.getItem(SESS_KEY);
-      if(granted2) return;
-      e.stopPropagation();
-      e.preventDefault();
-      document.getElementById('unit-quiz-gate').style.display='flex';
-      document.body.style.overflow='hidden';
-    }, true);
-  });
-})();
-</script>
+</div></div></section><div class="nav"><a class="nb p" href="unit13_reaction_rates.html">&larr; Unit 13: Factors Affecting Rate</a><a class="nb n" href="unit15_radioactivity.html">Unit 15: Radioactivity &rarr;</a></div></main>
+
 
 <!-- ═══════════════════════════ UNIT QUIZ GATE ═══════════════════════════ -->
 <script>
 (function(){
-  var SKEY='_qa_granted', CKEY='_qa_code';
-  
-  function getCorrectCode(){
-    var url=new URLSearchParams(window.location.search).get('c');
-    if(url) return url.toUpperCase();
-    var ls=localStorage.getItem('quiz_access_code');
-    if(ls) return ls.toUpperCase();
-    return null;
-  }
-  
-  function isGranted(){
-    var code=getCorrectCode();
-    if(!code) return true; // no lock
-    return sessionStorage.getItem(SKEY)===code;
-  }
-  
-  function createGate(onSuccess){
+  const CK='quiz_access_code', SK='quiz_access_granted';
+  const code=localStorage.getItem(CK);
+  if(!code) return;
+  if(sessionStorage.getItem(SK)) return;
+  const qw=document.querySelector('.quiz-wrap');
+  if(!qw) return;
+  function showGate(){
     if(document.getElementById('_ugate')) return;
-    var code=getCorrectCode();
-    var d=document.createElement('div');
-    d.id='_ugate';
-    d.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;';
-    d.innerHTML='<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 36px;max-width:460px;width:100%;text-align:center;box-shadow:0 0 60px rgba(245,158,11,.15);">'
-      +'<div style="font-size:3.5rem;margin-bottom:16px;">🔒</div>'
-      +'<h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>'
-      +'<p style="color:#8b949e;font-size:.92rem;margin-bottom:22px;line-height:1.7;">Enter your teacher's access code to attempt this quiz.</p>'
-      +'<input id="_ugate_inp" type="text" placeholder="Enter Code" maxlength="20" '
-      +'style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:1.5rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;" '
-      +'onkeydown="if(event.key==='Enter')window._ugateCheck()" '
-      +'oninput="this.value=this.value.toUpperCase();document.getElementById('_ugate_err').textContent=''"/>'
-      +'<div id="_ugate_err" style="font-family:JetBrains Mono,monospace;font-size:.82rem;color:#f87171;min-height:20px;margin:8px 0;"></div>'
-      +'<button onclick="window._ugateCheck()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:10px;">🔓 Unlock Quiz</button>'
-      +'<button onclick="document.getElementById('_ugate').remove();document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:9px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.8rem;cursor:pointer;">✕ Cancel</button>'
-      +'<div style="font-family:JetBrains Mono,monospace;font-size:.72rem;color:#8b949e;margin-top:12px;">Ask your teacher for the access code.</div>'
-      +'</div>';
-    document.body.appendChild(d);
+    const g=document.createElement('div');
+    g.id='_ugate';
+    g.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;';
+    g.innerHTML=`
+      <div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 36px;max-width:440px;width:100%;text-align:center;">
+        <div style="font-size:3.5rem;margin-bottom:14px;">🔒</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
+        <p style="color:#8b949e;font-size:.92rem;margin-bottom:20px;line-height:1.7;">Enter your teacher&#39;s access code to attempt this quiz.</p>
+        <input id="_ugate_inp" type="text" placeholder="Enter Code" maxlength="20" autocomplete="off"
+          style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:13px 16px;font-family:'JetBrains Mono',monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;"
+          onkeydown="if(event.key==='Enter')window._ugateCheck()"/>
+        <div id="_ugate_err" style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#f87171;min-height:20px;margin:6px 0 10px;"></div>
+        <button onclick="window._ugateCheck()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:12px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:8px;">🔓 Unlock Quiz</button>
+        <button onclick="document.getElementById('_ugate').remove();document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:8px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.78rem;cursor:pointer;">✕ Cancel</button>
+      </div>`;
+    document.body.appendChild(g);
     document.body.style.overflow='hidden';
-    setTimeout(function(){var i=document.getElementById('_ugate_inp');if(i)i.focus();},200);
-    
-    window._ugateCheck=function(){
-      var entered=document.getElementById('_ugate_inp').value.trim().toUpperCase();
-      var correct=getCorrectCode();
-      if(!entered){document.getElementById('_ugate_err').textContent='Enter the code.';return;}
-      if(!correct||entered===correct){
-        sessionStorage.setItem(SKEY,correct||entered);
-        sessionStorage.setItem(CKEY,correct||entered);
-        document.getElementById('_ugate').remove();
-        document.body.style.overflow='';
-        if(onSuccess) onSuccess();
-      } else {
-        document.getElementById('_ugate_err').textContent='❌ Wrong code. Ask your teacher.';
-        document.getElementById('_ugate_inp').value='';
-      }
-    };
+    setTimeout(()=>{const i=document.getElementById('_ugate_inp');if(i)i.focus();},100);
   }
-  
-  window.addEventListener('DOMContentLoaded',function(){
-    var code=getCorrectCode();
-    if(!code) return; // no lock
-    
-    // Auto-unlock if URL has code
-    var urlCode=new URLSearchParams(window.location.search).get('c');
-    if(urlCode&&urlCode.toUpperCase()===code){
-      sessionStorage.setItem(SKEY,code);
-      return;
+  window._ugateCheck=function(){
+    const val=(document.getElementById('_ugate_inp')||{}).value;
+    if(!val) return;
+    const v=val.trim().toUpperCase();
+    const stored=localStorage.getItem(CK);
+    if(v===stored){
+      sessionStorage.setItem(SK,'1');
+      const g=document.getElementById('_ugate');
+      if(g) g.remove();
+      document.body.style.overflow='';
+    } else {
+      const err=document.getElementById('_ugate_err');
+      if(err) err.textContent='❌ Wrong code — try again.';
+      const inp=document.getElementById('_ugate_inp');
+      if(inp){inp.value='';inp.focus();}
     }
-    
-    if(isGranted()) return;
-    
-    // Find the quiz submit button and quiz options — intercept them
-    var quizWrap=document.querySelector('.quiz-wrap,.quiz-body,#quiz');
-    if(!quizWrap) return;
-    
-    quizWrap.addEventListener('click',function(e){
-      if(!getCorrectCode()) return;
-      if(isGranted()) return;
-      e.stopImmediatePropagation();
-      e.preventDefault();
-      createGate(null);
-    },true);
-    
-    // Also intercept the submit button
-    var submitBtn=document.querySelector('.qs,button[onclick*="submitQuiz"]');
-    if(submitBtn){
-      var origClick=submitBtn.onclick;
-      submitBtn.onclick=function(ev){
-        if(!getCorrectCode()||isGranted()){if(origClick)origClick.call(this,ev);return;}
-        ev.stopPropagation();ev.preventDefault();
-        createGate(function(){if(origClick)origClick.call(submitBtn,ev);});
-      };
-    }
-  });
+  };
+  qw.addEventListener('click',function(e){
+    if(!localStorage.getItem(CK)) return;
+    if(sessionStorage.getItem(SK)) return;
+    e.stopPropagation();e.preventDefault();
+    showGate();
+  },true);
 })();
 </script>
 

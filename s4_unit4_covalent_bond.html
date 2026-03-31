@@ -696,175 +696,63 @@
   <a class="nb n" href="s4_unit5_periodic_trends.html">Unit 5: Periodic Trends &rarr;</a>
 </div>
 </main>
-<script>
-function toggleAnswer(b){const a=b.nextElementSibling;a.classList.toggle('open');b.textContent=a.classList.contains('open')?'Hide Answer':'Show Answer';}
-const _CA={q1:'B',q2:'B',q3:'C',q4:'C',q5:'C',q6:'C',q7:'B',q8:'C',q9:'B',q10:'B',q11:'B',q12:'C',q13:'B',q14:'B',q15:'B',q16:'B',q17:'D',q18:'C',q19:'C',q20:'C',q21:'B',q22:'B',q23:'D',q24:'C',q25:'B'};
-function submitQuiz(){let s=0,t=Object.keys(_CA).length;Object.entries(_CA).forEach(([q,c])=>{const sel=document.querySelector('input[name="'+q+'"]:checked');document.querySelectorAll('input[name="'+q+'"]').forEach(o=>{if(o.value===c)o.parentElement.classList.add('correct');});if(sel){if(sel.value===c)s++;else sel.parentElement.classList.add('wrong');}const e=document.getElementById('e'+q.slice(1));if(e)e.style.display='block';document.querySelectorAll('input[name="'+q+'"]').forEach(o=>o.disabled=true);});const p=Math.round(s/t*100);const r=document.getElementById('qR');r.style.display='block';r.style.background=p>=70?'rgba(52,211,153,.1)':'rgba(248,113,113,.1)';r.style.border='1px solid '+(p>=70?'var(--green)':'var(--red)');r.style.color=p>=70?'var(--green)':'var(--red)';r.innerHTML='Score: '+s+'/'+t+' ('+p+'%) &mdash; '+(p>=80?'Excellent!':p>=60?'Good &mdash; review marked.':'Keep studying!');document.querySelector('.qs').disabled=true;document.querySelector('.qs').style.opacity='.5';}
-</script>
 
-<script>
-// ── UNIT QUIZ ACCESS GATE ──
-(function(){
-  const SESS_KEY='quiz_access_granted';
-  const CODE_KEY='quiz_access_code';
-  
-  // Create gate overlay for unit quizzes
-  const gate = document.createElement('div');
-  gate.id='unit-quiz-gate';
-  gate.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;';
-  gate.innerHTML=`<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:48px 40px;max-width:460px;width:100%;text-align:center;box-shadow:0 0 60px rgba(245,158,11,.15);">
-    <div style="font-size:3.5rem;margin-bottom:16px;">🔒</div>
-    <h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
-    <p style="color:#8b949e;font-size:.93rem;margin-bottom:24px;line-height:1.7;">Your teacher has locked this quiz. Enter the access code to unlock it.</p>
-    <input id="unit-gate-inp" type="text" placeholder="Enter Code" maxlength="20"
-      style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;box-sizing:border-box;"
-      onkeydown="if(event.key==='Enter')unlockUnitQuiz()"
-      oninput="this.value=this.value.toUpperCase()"/>
-    <div id="unit-gate-err" style="font-family:JetBrains Mono,monospace;font-size:.82rem;color:#f87171;min-height:20px;margin-bottom:10px;"></div>
-    <button onclick="unlockUnitQuiz()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:10px;">🔓 Unlock Quiz</button>
-    <button onclick="document.getElementById('unit-quiz-gate').style.display='none';document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:9px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.8rem;cursor:pointer;">✕ Cancel</button>
-    <div style="font-family:JetBrains Mono,monospace;font-size:.72rem;color:#8b949e;margin-top:10px;">Ask your teacher for the access code.</div>
-  </div>`;
-  document.body.appendChild(gate);
-  
-  window.unlockUnitQuiz = function(){
-    const entered = document.getElementById('unit-gate-inp').value.trim().toUpperCase();
-    const correct = localStorage.getItem(CODE_KEY);
-    if(!entered){document.getElementById('unit-gate-err').textContent='Enter the access code.';return;}
-    if(entered===correct||!correct){
-      sessionStorage.setItem(SESS_KEY, correct||'open');
-      document.getElementById('unit-quiz-gate').style.display='none';
-      document.body.style.overflow='';
-      // Now actually submit/interact with the quiz
-      if(window._pendingQuizAction) window._pendingQuizAction();
-      window._pendingQuizAction = null;
-    } else {
-      document.getElementById('unit-gate-err').textContent='❌ Wrong code. Ask your teacher.';
-      document.getElementById('unit-gate-inp').value='';
-    }
-  };
-  
-  // Intercept the submitQuiz button
-  window.addEventListener('DOMContentLoaded', function(){
-    const code = localStorage.getItem(CODE_KEY);
-    if(!code) return; // No lock set
-    const granted = sessionStorage.getItem(SESS_KEY);
-    if(granted) return; // Already unlocked
-    
-    // Find all option labels/inputs in quiz and intercept
-    const quizWrap = document.querySelector('.quiz-wrap');
-    if(!quizWrap) return;
-    
-    // Intercept clicking on quiz options
-    quizWrap.addEventListener('click', function(e){
-      const code2 = localStorage.getItem(CODE_KEY);
-      if(!code2) return;
-      const granted2 = sessionStorage.getItem(SESS_KEY);
-      if(granted2) return;
-      e.stopPropagation();
-      e.preventDefault();
-      document.getElementById('unit-quiz-gate').style.display='flex';
-      document.body.style.overflow='hidden';
-    }, true);
-  });
-})();
-</script>
+
+
 
 <!-- ═══════════════════════════ UNIT QUIZ GATE ═══════════════════════════ -->
 <script>
 (function(){
-  var SKEY='_qa_granted', CKEY='_qa_code';
-  
-  function getCorrectCode(){
-    var url=new URLSearchParams(window.location.search).get('c');
-    if(url) return url.toUpperCase();
-    var ls=localStorage.getItem('quiz_access_code');
-    if(ls) return ls.toUpperCase();
-    return null;
-  }
-  
-  function isGranted(){
-    var code=getCorrectCode();
-    if(!code) return true; // no lock
-    return sessionStorage.getItem(SKEY)===code;
-  }
-  
-  function createGate(onSuccess){
+  const CK='quiz_access_code', SK='quiz_access_granted';
+  const code=localStorage.getItem(CK);
+  if(!code) return;
+  if(sessionStorage.getItem(SK)) return;
+  const qw=document.querySelector('.quiz-wrap');
+  if(!qw) return;
+  function showGate(){
     if(document.getElementById('_ugate')) return;
-    var code=getCorrectCode();
-    var d=document.createElement('div');
-    d.id='_ugate';
-    d.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;';
-    d.innerHTML='<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 36px;max-width:460px;width:100%;text-align:center;box-shadow:0 0 60px rgba(245,158,11,.15);">'
-      +'<div style="font-size:3.5rem;margin-bottom:16px;">🔒</div>'
-      +'<h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>'
-      +'<p style="color:#8b949e;font-size:.92rem;margin-bottom:22px;line-height:1.7;">Enter your teacher's access code to attempt this quiz.</p>'
-      +'<input id="_ugate_inp" type="text" placeholder="Enter Code" maxlength="20" '
-      +'style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:14px 18px;font-family:JetBrains Mono,monospace;font-size:1.5rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;" '
-      +'onkeydown="if(event.key==='Enter')window._ugateCheck()" '
-      +'oninput="this.value=this.value.toUpperCase();document.getElementById('_ugate_err').textContent=''"/>'
-      +'<div id="_ugate_err" style="font-family:JetBrains Mono,monospace;font-size:.82rem;color:#f87171;min-height:20px;margin:8px 0;"></div>'
-      +'<button onclick="window._ugateCheck()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:10px;">🔓 Unlock Quiz</button>'
-      +'<button onclick="document.getElementById('_ugate').remove();document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:9px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.8rem;cursor:pointer;">✕ Cancel</button>'
-      +'<div style="font-family:JetBrains Mono,monospace;font-size:.72rem;color:#8b949e;margin-top:12px;">Ask your teacher for the access code.</div>'
-      +'</div>';
-    document.body.appendChild(d);
+    const g=document.createElement('div');
+    g.id='_ugate';
+    g.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;';
+    g.innerHTML=`
+      <div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 36px;max-width:440px;width:100%;text-align:center;">
+        <div style="font-size:3.5rem;margin-bottom:14px;">🔒</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
+        <p style="color:#8b949e;font-size:.92rem;margin-bottom:20px;line-height:1.7;">Enter your teacher&#39;s access code to attempt this quiz.</p>
+        <input id="_ugate_inp" type="text" placeholder="Enter Code" maxlength="20" autocomplete="off"
+          style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:13px 16px;font-family:'JetBrains Mono',monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;"
+          onkeydown="if(event.key==='Enter')window._ugateCheck()"/>
+        <div id="_ugate_err" style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#f87171;min-height:20px;margin:6px 0 10px;"></div>
+        <button onclick="window._ugateCheck()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:12px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:8px;">🔓 Unlock Quiz</button>
+        <button onclick="document.getElementById('_ugate').remove();document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:8px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.78rem;cursor:pointer;">✕ Cancel</button>
+      </div>`;
+    document.body.appendChild(g);
     document.body.style.overflow='hidden';
-    setTimeout(function(){var i=document.getElementById('_ugate_inp');if(i)i.focus();},200);
-    
-    window._ugateCheck=function(){
-      var entered=document.getElementById('_ugate_inp').value.trim().toUpperCase();
-      var correct=getCorrectCode();
-      if(!entered){document.getElementById('_ugate_err').textContent='Enter the code.';return;}
-      if(!correct||entered===correct){
-        sessionStorage.setItem(SKEY,correct||entered);
-        sessionStorage.setItem(CKEY,correct||entered);
-        document.getElementById('_ugate').remove();
-        document.body.style.overflow='';
-        if(onSuccess) onSuccess();
-      } else {
-        document.getElementById('_ugate_err').textContent='❌ Wrong code. Ask your teacher.';
-        document.getElementById('_ugate_inp').value='';
-      }
-    };
+    setTimeout(()=>{const i=document.getElementById('_ugate_inp');if(i)i.focus();},100);
   }
-  
-  window.addEventListener('DOMContentLoaded',function(){
-    var code=getCorrectCode();
-    if(!code) return; // no lock
-    
-    // Auto-unlock if URL has code
-    var urlCode=new URLSearchParams(window.location.search).get('c');
-    if(urlCode&&urlCode.toUpperCase()===code){
-      sessionStorage.setItem(SKEY,code);
-      return;
+  window._ugateCheck=function(){
+    const val=(document.getElementById('_ugate_inp')||{}).value;
+    if(!val) return;
+    const v=val.trim().toUpperCase();
+    const stored=localStorage.getItem(CK);
+    if(v===stored){
+      sessionStorage.setItem(SK,'1');
+      const g=document.getElementById('_ugate');
+      if(g) g.remove();
+      document.body.style.overflow='';
+    } else {
+      const err=document.getElementById('_ugate_err');
+      if(err) err.textContent='❌ Wrong code — try again.';
+      const inp=document.getElementById('_ugate_inp');
+      if(inp){inp.value='';inp.focus();}
     }
-    
-    if(isGranted()) return;
-    
-    // Find the quiz submit button and quiz options — intercept them
-    var quizWrap=document.querySelector('.quiz-wrap,.quiz-body,#quiz');
-    if(!quizWrap) return;
-    
-    quizWrap.addEventListener('click',function(e){
-      if(!getCorrectCode()) return;
-      if(isGranted()) return;
-      e.stopImmediatePropagation();
-      e.preventDefault();
-      createGate(null);
-    },true);
-    
-    // Also intercept the submit button
-    var submitBtn=document.querySelector('.qs,button[onclick*="submitQuiz"]');
-    if(submitBtn){
-      var origClick=submitBtn.onclick;
-      submitBtn.onclick=function(ev){
-        if(!getCorrectCode()||isGranted()){if(origClick)origClick.call(this,ev);return;}
-        ev.stopPropagation();ev.preventDefault();
-        createGate(function(){if(origClick)origClick.call(submitBtn,ev);});
-      };
-    }
-  });
+  };
+  qw.addEventListener('click',function(e){
+    if(!localStorage.getItem(CK)) return;
+    if(sessionStorage.getItem(SK)) return;
+    e.stopPropagation();e.preventDefault();
+    showGate();
+  },true);
 })();
 </script>
 
