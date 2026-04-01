@@ -410,8 +410,6 @@
 </style>
 </head>
 <body>
-<div id="sitenav" style="position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid #30363d;padding:0 28px;font-family:JetBrains Mono,monospace;"><div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;gap:12px;"><a href="index.html" style="font-size:.78rem;color:#38bdf8;text-decoration:none;letter-spacing:.06em;white-space:nowrap;">&#9883; Habimana</a><div style="display:flex;gap:4px;flex-wrap:wrap;"><a href="index.html" style="font-size:.72rem;color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:5px;border:1px solid transparent;">Home</a><a href="s4-chemistry.html" style="font-size:.72rem;color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:5px;border:1px solid transparent;">S4</a><a href="s5-chemistry.html" style="font-size:.72rem;color:#34d399;text-decoration:none;padding:4px 12px;border-radius:5px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.25);">S5</a><a href="s6-chemistry.html" style="font-size:.72rem;color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:5px;border:1px solid transparent;">S6</a></div></div></div>
-
 
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
 <header class="hero">
@@ -962,120 +960,161 @@ IUPAC name:   butane
 
 </main>
 
-
-
-
-
-<!-- ═══════════════════════════ UNIT QUIZ GATE ═══════════════════════════ -->
 <script>
-(function(){
-  const CK='quiz_access_code', SK='quiz_access_granted';
-  const code=localStorage.getItem(CK);
-  if(!code) return;
-  if(sessionStorage.getItem(SK)) return;
-  const qw=document.querySelector('.quiz-wrap');
-  if(!qw) return;
-  function showGate(){
-    if(document.getElementById('_ugate')) return;
-    const g=document.createElement('div');
-    g.id='_ugate';
-    g.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;';
-    g.innerHTML=`
-      <div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 36px;max-width:440px;width:100%;text-align:center;">
-        <div style="font-size:3.5rem;margin-bottom:14px;">🔒</div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
-        <p style="color:#8b949e;font-size:.92rem;margin-bottom:20px;line-height:1.7;">Enter your teacher&#39;s access code to attempt this quiz.</p>
-        <input id="_ugate_inp" type="text" placeholder="Enter Code" maxlength="20" autocomplete="off"
-          style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:13px 16px;font-family:'JetBrains Mono',monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;"
-          onkeydown="if(event.key==='Enter')window._ugateCheck()"/>
-        <div id="_ugate_err" style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#f87171;min-height:20px;margin:6px 0 10px;"></div>
-        <button onclick="window._ugateCheck()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:12px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:8px;">🔓 Unlock Quiz</button>
-        <button onclick="document.getElementById('_ugate').remove();document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:8px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.78rem;cursor:pointer;">✕ Cancel</button>
-      </div>`;
-    document.body.appendChild(g);
-    document.body.style.overflow='hidden';
-    setTimeout(()=>{const i=document.getElementById('_ugate_inp');if(i)i.focus();},100);
+// ── Quiz Data ──
+const quizData = [
+  {
+    q:"Which of the following is classified as an organic compound?",
+    opts:["Carbon dioxide (CO₂)","Calcium carbonate (CaCO₃)","Ethanol (C₂H₅OH)","Sodium cyanide (NaCN)"],
+    ans:2,
+    exp:"Ethanol contains C–H bonds in a molecular compound. CO₂, CaCO₃, and NaCN are classified as inorganic despite containing carbon."
+  },
+  {
+    q:"The empirical formula of a compound is CH₂O and its molar mass is 180 g/mol. What is its molecular formula?",
+    opts:["CH₂O","C₃H₆O₃","C₆H₁₂O₆","C₄H₈O₄"],
+    ans:2,
+    exp:"Empirical formula mass of CH₂O = 12+2+16 = 30. n = 180/30 = 6. Molecular formula = (CH₂O)₆ = C₆H₁₂O₆ (glucose)."
+  },
+  {
+    q:"Which functional group is present in carboxylic acids?",
+    opts:["–OH","–CHO","–COOH","–CO–"],
+    ans:2,
+    exp:"Carboxylic acids contain the –COOH (carboxyl) group. –OH = alcohol, –CHO = aldehyde, –CO– = ketone."
+  },
+  {
+    q:"A compound with general formula CₙH₂ₙ belongs to which homologous series?",
+    opts:["Alkanes","Alkenes","Alkynes","Alcohols"],
+    ans:1,
+    exp:"Alkenes have the general formula CₙH₂ₙ. Alkanes = CₙH₂ₙ₊₂; Alkynes = CₙH₂ₙ₋₂."
+  },
+  {
+    q:"What is the IUPAC name of CH₃–CH(CH₃)–CH₂–CH₃?",
+    opts:["2-methylbutane","3-methylbutane","isopentane","2-methylpropane"],
+    ans:0,
+    exp:"The longest chain has 4 carbons (but-). There is a methyl branch on C2 → 2-methylbutane."
+  },
+  {
+    q:"Which statement about a homologous series is INCORRECT?",
+    opts:[
+      "Members differ by a –CH₂– unit",
+      "Members have the same functional group",
+      "Members have identical physical properties",
+      "Members show a gradual trend in boiling points"
+    ],
+    ans:2,
+    exp:"Members of a homologous series do NOT have identical physical properties — they show a GRADUAL change (e.g. increasing boiling point). All other statements are correct."
+  },
+  {
+    q:"The skeletal formula of a compound shows a zigzag with 4 line segments. How many carbon atoms does the molecule contain?",
+    opts:["4","5","6","8"],
+    ans:1,
+    exp:"In a skeletal formula, carbon atoms appear at every corner and at each end of the chain. 4 line segments → 5 carbon atoms."
+  },
+  {
+    q:"Which of the following is an aromatic compound?",
+    opts:["Cyclohexane","Hexane","Benzene","Cyclohexene"],
+    ans:2,
+    exp:"Benzene (C₆H₆) is the archetypal aromatic compound with a ring containing delocalized π electrons. Cyclohexane and cyclohexene are alicyclic; hexane is aliphatic."
+  },
+  {
+    q:"In IUPAC nomenclature, when two different substituents are present, how should they be listed?",
+    opts:[
+      "In order of increasing chain length",
+      "Alphabetically (ignoring di-, tri- etc.)",
+      "Numerically by their position numbers",
+      "In order of decreasing molecular mass"
+    ],
+    ans:1,
+    exp:"IUPAC rules require substituents to be listed alphabetically. The multiplying prefixes di-, tri-, tetra- are ignored when alphabetising (e.g. ethyl comes before methyl)."
+  },
+  {
+    q:"Which formula type shows the simplest whole-number ratio of atoms in a compound?",
+    opts:["Molecular formula","Structural formula","Displayed formula","Empirical formula"],
+    ans:3,
+    exp:"The empirical formula shows the simplest whole-number ratio of atoms. E.g. benzene C₆H₆ has empirical formula CH."
   }
-  window._ugateCheck=function(){
-    const val=(document.getElementById('_ugate_inp')||{}).value;
-    if(!val) return;
-    const v=val.trim().toUpperCase();
-    const stored=localStorage.getItem(CK);
-    if(v===stored){
-      sessionStorage.setItem(SK,'1');
-      const g=document.getElementById('_ugate');
-      if(g) g.remove();
-      document.body.style.overflow='';
-    } else {
-      const err=document.getElementById('_ugate_err');
-      if(err) err.textContent='❌ Wrong code — try again.';
-      const inp=document.getElementById('_ugate_inp');
-      if(inp){inp.value='';inp.focus();}
-    }
-  };
-  qw.addEventListener('click',function(e){
-    if(!localStorage.getItem(CK)) return;
-    if(sessionStorage.getItem(SK)) return;
-    e.stopPropagation();e.preventDefault();
-    showGate();
-  },true);
-})();
-</script>
+];
 
-<script>
-// ── PER-UNIT QUIZ ACCESS GATE ── ID: s5_unit1 ──
-(function(){
-  const ITEM_ID='s5_unit1';
-  const SESS_KEY='unlocked_'+ITEM_ID;
-  const CODE_KEY='quiz_access_code';
-  const LOCKS_KEY='assessment_locks';
-  
-  function isLocked(){return JSON.parse(localStorage.getItem(LOCKS_KEY)||'{}')[ITEM_ID]===true;}
-  function isGranted(){const c=localStorage.getItem(CODE_KEY)||'OPEN';return sessionStorage.getItem(SESS_KEY)===c||sessionStorage.getItem(SESS_KEY)==='OPEN';}
-  
-  const gate=document.createElement('div');
-  gate.id='unit-quiz-gate-s5_unit1';
-  gate.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;';
-  gate.innerHTML=`<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 38px;max-width:460px;width:100%;text-align:center;">
-    <div style="font-size:3.5rem;margin-bottom:14px;">🔒</div>
-    <h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
-    <p style="color:#8b949e;font-size:.92rem;margin-bottom:22px;line-height:1.7;">Your teacher has locked this quiz. Enter the access code to unlock it.</p>
-    <input id="ugi-s5_unit1" type="text" placeholder="Enter Code" maxlength="20"
-      style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:13px 16px;font-family:JetBrains Mono,monospace;font-size:1.3rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;"
-      onkeydown="if(event.key==='Enter')unlockUnit_s5_unit1()"
-      oninput="this.value=this.value.toUpperCase()"/>
-    <div id="uge-s5_unit1" style="font-family:JetBrains Mono,monospace;font-size:.8rem;color:#f87171;min-height:18px;margin-bottom:10px;"></div>
-    <button onclick="unlockUnit_s5_unit1()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.88rem;font-weight:700;cursor:pointer;margin-bottom:8px;">🔓 Unlock Quiz</button>
-    <button onclick="document.getElementById('unit-quiz-gate-s5_unit1').style.display='none';document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:8px;border-radius:7px;font-family:JetBrains Mono,monospace;font-size:.78rem;cursor:pointer;">✕ Cancel — Go back</button>
-    <div style="font-family:JetBrains Mono,monospace;font-size:.7rem;color:#8b949e;margin-top:10px;">Ask your teacher for the access code.</div>
-  </div>`;
-  document.body.appendChild(gate);
-  
-  window.unlockUnit_s5_unit1=function(){
-    const entered=document.getElementById('ugi-s5_unit1').value.trim().toUpperCase();
-    const correct=localStorage.getItem(CODE_KEY)||'';
-    if(!entered){document.getElementById('uge-s5_unit1').textContent='Enter the code.';return;}
-    if(!correct||entered===correct){
-      sessionStorage.setItem(SESS_KEY,correct||'OPEN');
-      gate.style.display='none';document.body.style.overflow='';
-      if(window._pendingAction_s5_unit1) window._pendingAction_s5_unit1();
-    } else {
-      document.getElementById('uge-s5_unit1').textContent='❌ Wrong code. Ask your teacher.';
-      document.getElementById('ugi-s5_unit1').value='';
-    }
-  };
-  
-  window.addEventListener('DOMContentLoaded',function(){
-    if(!isLocked()) return;
-    const qw=document.querySelector('.quiz-wrap');
-    if(!qw) return;
-    qw.addEventListener('click',function(e){
-      if(!isLocked()||isGranted()) return;
-      e.stopPropagation();e.preventDefault();
-      gate.style.display='flex';document.body.style.overflow='hidden';
-    },true);
+let userAnswers = new Array(quizData.length).fill(null);
+let submitted = false;
+
+function buildQuiz(){
+  const body = document.getElementById('quizBody');
+  body.innerHTML = '';
+  quizData.forEach((item,i)=>{
+    const div = document.createElement('div');
+    div.className='q-item';
+    div.innerHTML=`<p>Q${i+1}. ${item.q}</p><div class="options" id="opts-${i}">
+      ${item.opts.map((o,j)=>`
+        <div class="option" id="opt-${i}-${j}" onclick="selectOpt(${i},${j})">
+          <div class="option-key">${['A','B','C','D'][j]}</div>
+          <span>${o}</span>
+        </div>`).join('')}
+    </div><div id="exp-${i}" style="display:none;margin-top:10px;font-size:.85rem;color:var(--muted);padding:8px 12px;background:rgba(255,255,255,.03);border-radius:6px;"></div>`;
+    body.appendChild(div);
   });
-})();
+}
+
+function selectOpt(q,a){
+  if(submitted) return;
+  // clear previous selection
+  for(let j=0;j<4;j++){
+    const el=document.getElementById(`opt-${q}-${j}`);
+    if(el) el.style.borderColor='';
+  }
+  userAnswers[q]=a;
+  document.getElementById(`opt-${q}-${a}`).style.borderColor='var(--accent3)';
+  document.getElementById(`opt-${q}-${a}`).style.background='rgba(167,139,250,.12)';
+}
+
+function submitQuiz(){
+  if(submitted) return;
+  submitted=true;
+  let score=0;
+  quizData.forEach((item,i)=>{
+    const ua=userAnswers[i];
+    const correct=item.ans;
+    for(let j=0;j<item.opts.length;j++){
+      const el=document.getElementById(`opt-${i}-${j}`);
+      el.style.borderColor='';el.style.background='';
+      if(j===correct) el.classList.add('correct');
+      if(ua!==null && j===ua && ua!==correct) el.classList.add('wrong');
+    }
+    if(ua===correct) score++;
+    const exp=document.getElementById(`exp-${i}`);
+    exp.textContent='💬 '+item.exp;
+    exp.style.display='block';
+  });
+  const pct=Math.round(score/quizData.length*100);
+  const scoreDisplay=document.getElementById('scoreDisplay');
+  scoreDisplay.style.display='block';
+  document.getElementById('scoreNum').textContent=`${score}/${quizData.length}`;
+  document.getElementById('scoreMsg').textContent=
+    pct>=80?`Excellent! ${pct}% — You have mastered Unit 1.`:
+    pct>=60?`Good effort! ${pct}% — Review the sections you got wrong.`:
+    `${pct}% — Re-read the notes and try again. You can do it! 💪`;
+}
+
+function resetQuiz(){
+  submitted=false;
+  userAnswers=new Array(quizData.length).fill(null);
+  document.getElementById('scoreDisplay').style.display='none';
+  buildQuiz();
+}
+
+function toggleAns(btn){
+  const panel=btn.nextElementSibling;
+  panel.classList.toggle('open');
+  btn.textContent=panel.classList.contains('open')?'Hide Answer ▴':'Show Answer ▾';
+}
+
+// Scroll reveal
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+buildQuiz();
 </script>
 </body>
 </html>
