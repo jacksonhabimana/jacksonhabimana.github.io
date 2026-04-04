@@ -91,8 +91,6 @@
 </style>
 </head>
 <body>
-<div id="sitenav" style="position:sticky;top:0;z-index:200;background:rgba(13,17,23,.95);backdrop-filter:blur(12px);border-bottom:1px solid #30363d;padding:0 28px;font-family:JetBrains Mono,monospace;"><div style="max-width:960px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:52px;gap:12px;"><a href="index.html" style="font-size:.78rem;color:#38bdf8;text-decoration:none;letter-spacing:.06em;white-space:nowrap;">&#9883; Habimana</a><div style="display:flex;gap:4px;flex-wrap:wrap;"><a href="index.html" style="font-size:.72rem;color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:5px;border:1px solid transparent;">Home</a><a href="s4-chemistry.html" style="font-size:.72rem;color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:5px;border:1px solid transparent;">S4</a><a href="s5-chemistry.html" style="font-size:.72rem;color:#8b949e;text-decoration:none;padding:4px 12px;border-radius:5px;border:1px solid transparent;">S5</a><a href="s6-chemistry.html" style="font-size:.72rem;color:#a78bfa;text-decoration:none;padding:4px 12px;border-radius:5px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25);">S6</a></div></div></div>
-
 
 <a href="s6-chemistry.html" class="back-link">&#8592; Back to S6 Course</a>
 
@@ -660,120 +658,88 @@ Overall:  2Al₂O₃(l) → 4Al(l) + 3O₂(g)</div>
 
 </main>
 
-
-
-
-
-<!-- ═══════════════════════════ UNIT QUIZ GATE ═══════════════════════════ -->
 <script>
-(function(){
-  const CK='quiz_access_code', SK='quiz_access_granted';
-  const code=localStorage.getItem(CK);
-  if(!code) return;
-  if(sessionStorage.getItem(SK)) return;
-  const qw=document.querySelector('.quiz-wrap');
-  if(!qw) return;
-  function showGate(){
-    if(document.getElementById('_ugate')) return;
-    const g=document.createElement('div');
-    g.id='_ugate';
-    g.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;';
-    g.innerHTML=`
-      <div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 36px;max-width:440px;width:100%;text-align:center;">
-        <div style="font-size:3.5rem;margin-bottom:14px;">🔒</div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
-        <p style="color:#8b949e;font-size:.92rem;margin-bottom:20px;line-height:1.7;">Enter your teacher&#39;s access code to attempt this quiz.</p>
-        <input id="_ugate_inp" type="text" placeholder="Enter Code" maxlength="20" autocomplete="off"
-          style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:13px 16px;font-family:'JetBrains Mono',monospace;font-size:1.4rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;"
-          onkeydown="if(event.key==='Enter')window._ugateCheck()"/>
-        <div id="_ugate_err" style="font-family:'JetBrains Mono',monospace;font-size:.82rem;color:#f87171;min-height:20px;margin:6px 0 10px;"></div>
-        <button onclick="window._ugateCheck()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:12px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;cursor:pointer;margin-bottom:8px;">🔓 Unlock Quiz</button>
-        <button onclick="document.getElementById('_ugate').remove();document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:8px;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:.78rem;cursor:pointer;">✕ Cancel</button>
-      </div>`;
-    document.body.appendChild(g);
-    document.body.style.overflow='hidden';
-    setTimeout(()=>{const i=document.getElementById('_ugate_inp');if(i)i.focus();},100);
-  }
-  window._ugateCheck=function(){
-    const val=(document.getElementById('_ugate_inp')||{}).value;
-    if(!val) return;
-    const v=val.trim().toUpperCase();
-    const stored=localStorage.getItem(CK);
-    if(v===stored){
-      sessionStorage.setItem(SK,'1');
-      const g=document.getElementById('_ugate');
-      if(g) g.remove();
-      document.body.style.overflow='';
-    } else {
-      const err=document.getElementById('_ugate_err');
-      if(err) err.textContent='❌ Wrong code — try again.';
-      const inp=document.getElementById('_ugate_inp');
-      if(inp){inp.value='';inp.focus();}
-    }
-  };
-  qw.addEventListener('click',function(e){
-    if(!localStorage.getItem(CK)) return;
-    if(sessionStorage.getItem(SK)) return;
-    e.stopPropagation();e.preventDefault();
-    showGate();
-  },true);
-})();
-</script>
+function toggleAns(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Answer';
+}
+function toggleTest(btn){
+  const ans=btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent=ans.classList.contains('open')?'Hide Answer':'Show Model Answer';
+}
 
-<script>
-// ── PER-UNIT QUIZ ACCESS GATE ── ID: s6_unit2 ──
-(function(){
-  const ITEM_ID='s6_unit2';
-  const SESS_KEY='unlocked_'+ITEM_ID;
-  const CODE_KEY='quiz_access_code';
-  const LOCKS_KEY='assessment_locks';
-  
-  function isLocked(){return JSON.parse(localStorage.getItem(LOCKS_KEY)||'{}')[ITEM_ID]===true;}
-  function isGranted(){const c=localStorage.getItem(CODE_KEY)||'OPEN';return sessionStorage.getItem(SESS_KEY)===c||sessionStorage.getItem(SESS_KEY)==='OPEN';}
-  
-  const gate=document.createElement('div');
-  gate.id='unit-quiz-gate-s6_unit2';
-  gate.style.cssText='position:fixed;inset:0;background:#0d1117;z-index:99999;display:none;align-items:center;justify-content:center;padding:24px;';
-  gate.innerHTML=`<div style="background:#161b22;border:2px solid rgba(245,158,11,.4);border-radius:16px;padding:44px 38px;max-width:460px;width:100%;text-align:center;">
-    <div style="font-size:3.5rem;margin-bottom:14px;">🔒</div>
-    <h2 style="font-family:Playfair Display,serif;font-size:1.8rem;color:#fff;margin-bottom:10px;">Quiz Locked</h2>
-    <p style="color:#8b949e;font-size:.92rem;margin-bottom:22px;line-height:1.7;">Your teacher has locked this quiz. Enter the access code to unlock it.</p>
-    <input id="ugi-s6_unit2" type="text" placeholder="Enter Code" maxlength="20"
-      style="width:100%;background:#1c2333;border:2px solid #30363d;border-radius:8px;color:#e6edf3;padding:13px 16px;font-family:JetBrains Mono,monospace;font-size:1.3rem;text-align:center;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;box-sizing:border-box;"
-      onkeydown="if(event.key==='Enter')unlockUnit_s6_unit2()"
-      oninput="this.value=this.value.toUpperCase()"/>
-    <div id="uge-s6_unit2" style="font-family:JetBrains Mono,monospace;font-size:.8rem;color:#f87171;min-height:18px;margin-bottom:10px;"></div>
-    <button onclick="unlockUnit_s6_unit2()" style="width:100%;background:#f59e0b;color:#000;border:none;padding:13px;border-radius:8px;font-family:JetBrains Mono,monospace;font-size:.88rem;font-weight:700;cursor:pointer;margin-bottom:8px;">🔓 Unlock Quiz</button>
-    <button onclick="document.getElementById('unit-quiz-gate-s6_unit2').style.display='none';document.body.style.overflow='';" style="width:100%;background:transparent;border:1px solid #30363d;color:#8b949e;padding:8px;border-radius:7px;font-family:JetBrains Mono,monospace;font-size:.78rem;cursor:pointer;">✕ Cancel — Go back</button>
-    <div style="font-family:JetBrains Mono,monospace;font-size:.7rem;color:#8b949e;margin-top:10px;">Ask your teacher for the access code.</div>
-  </div>`;
-  document.body.appendChild(gate);
-  
-  window.unlockUnit_s6_unit2=function(){
-    const entered=document.getElementById('ugi-s6_unit2').value.trim().toUpperCase();
-    const correct=localStorage.getItem(CODE_KEY)||'';
-    if(!entered){document.getElementById('uge-s6_unit2').textContent='Enter the code.';return;}
-    if(!correct||entered===correct){
-      sessionStorage.setItem(SESS_KEY,correct||'OPEN');
-      gate.style.display='none';document.body.style.overflow='';
-      if(window._pendingAction_s6_unit2) window._pendingAction_s6_unit2();
-    } else {
-      document.getElementById('uge-s6_unit2').textContent='❌ Wrong code. Ask your teacher.';
-      document.getElementById('ugi-s6_unit2').value='';
+const questions=[
+  {q:"Which ore is the primary source of iron in the blast furnace?",opts:["Bauxite","Cassiterite","Haematite","Sphalerite"],ans:2,exp:"Haematite (Fe₂O₃) is the main iron ore used in the blast furnace."},
+  {q:"What is the role of coke in the blast furnace?",opts:["To remove silica impurities","To form slag","As fuel and reducing agent","As a flux"],ans:2,exp:"Coke burns to provide heat and forms CO which reduces iron oxides."},
+  {q:"The reaction CO₂(g) + C(s) → 2CO(g) in the blast furnace is:",opts:["Exothermic reduction","Endothermic and produces the main reducing agent","The slag-forming reaction","The combustion of iron"],ans:1,exp:"This endothermic reaction produces CO, which is the actual reducing agent that reduces Fe₂O₃."},
+  {q:"Why is limestone added to the blast furnace?",opts:["To provide extra carbon","To lower the melting point of iron","To react with silica and form slag","To act as a reducing agent"],ans:2,exp:"Limestone decomposes to CaO which reacts with SiO₂ (an acidic impurity) to form CaSiO₃ (slag)."},
+  {q:"In the Downs cell, which electrode does sodium form at?",opts:["Anode","Carbon electrode","Graphite plate","Cathode"],ans:3,exp:"Na⁺ ions are reduced at the cathode: Na⁺ + e⁻ → Na."},
+  {q:"What is the purpose of CaCl₂ in the Downs cell?",opts:["To provide extra chloride ions","To lower the melting point of NaCl","To oxidise sodium","To reduce chlorine"],ans:1,exp:"CaCl₂ lowers the melting point of NaCl from 801°C to ~600°C, saving energy."},
+  {q:"The overall reaction in the Downs cell is:",opts:["2NaCl → 2Na + Cl₂","NaCl → Na + Cl","2Na + Cl₂ → 2NaCl","Na + Cl → NaCl"],ans:0,exp:"Electrolysis of molten NaCl gives sodium metal and chlorine gas: 2NaCl → 2Na + Cl₂."},
+  {q:"Which process is used to purify bauxite before aluminium extraction?",opts:["Froth flotation","Hall-Héroult process","Downs process","Bayer process"],ans:3,exp:"The Bayer process uses hot NaOH to dissolve Al₂O₃ selectively, leaving iron oxide impurities behind."},
+  {q:"Why is cryolite used in the Hall-Héroult process?",opts:["It is a better conductor than Al₂O₃","It dissolves Al₂O₃ and lowers the operating temperature","It reacts with Al₂O₃ to form aluminium","It acts as a reducing agent"],ans:1,exp:"Cryolite (Na₃AlF₆) acts as a solvent for Al₂O₃, reducing the operating temperature from 2072°C to ~950°C."},
+  {q:"The carbon anodes in the Hall-Héroult cell must be replaced regularly because:",opts:["They melt at 950°C","They react with the aluminium product","They are oxidised by oxygen produced at the anode","They dissolve in cryolite"],ans:2,exp:"O₂ produced at the anode reacts with the hot carbon: C + O₂ → CO₂, burning the anodes away."},
+  {q:"Which gas is produced at the anode during electrolysis of Al₂O₃?",opts:["Chlorine","Fluorine","Carbon dioxide","Oxygen"],ans:3,exp:"O²⁻ ions are oxidised at the anode: 2O²⁻ → O₂ + 4e⁻."},
+  {q:"The main ore of zinc is:",opts:["Wolframite","Cassiterite","Sphalerite","Haematite"],ans:2,exp:"Sphalerite (ZnS), also called zinc blende, is the main zinc ore."},
+  {q:"Why does zinc vapour form during reduction with carbon?",opts:["Because zinc reacts with carbon","Because zinc's boiling point (907°C) is below the reaction temperature","Because ZnO is more stable than Fe₂O₃","Because zinc is more reactive than carbon"],ans:1,exp:"At ~1200°C, the reaction temperature exceeds zinc's boiling point (907°C), so zinc forms as vapour."},
+  {q:"Roasting ZnS in air produces:",opts:["Zn and SO₂","ZnO and S","ZnO and SO₂","Zn and SO₃"],ans:2,exp:"2ZnS + 3O₂ → 2ZnO + 2SO₂. The SO₂ can be used to make H₂SO₄."},
+  {q:"Tin is extracted from the ore:",opts:["Cassiterite (SnO₂)","Sphalerite (ZnS)","Galena (PbS)","Wolframite"],ans:0,exp:"Cassiterite (SnO₂) is the main tin ore."},
+  {q:"In the extraction of tin, which method is used to concentrate the ore?",opts:["Froth flotation","Magnetic separation","Gravity separation","Electrostatic separation"],ans:2,exp:"SnO₂ is denser than gangue, so gravity separation (shaking tables) is used."},
+  {q:"Tungsten is reduced from WO₃ using:",opts:["Carbon monoxide","Carbon","Hydrogen gas","Sodium"],ans:2,exp:"WO₃ + 3H₂ → W + 3H₂O. H₂ is used because the high melting point of tungsten makes carbon reduction impractical."},
+  {q:"What is coltan, and why is it important?",opts:["An iron-nickel alloy used in batteries","A columbite-tantalite mineral from which tantalum and niobium are extracted","A copper ore found in Rwanda","A tungsten compound used in light bulbs"],ans:1,exp:"Coltan (columbite-tantalite) is the main source of tantalum, used in electronics capacitors. Rwanda and DRC are major producers."},
+  {q:"In tantalum extraction, solvent extraction separates Ta from Nb because:",opts:["Ta has a lower melting point","H₂TaF₇ preferentially extracts into an organic solvent (MIBK) under specific HF concentration conditions","Nb is denser","Ta reacts with water"],ans:1,exp:"The different chemical behaviours of H₂TaF₇ and H₂NbF₇ towards MIBK at specific HF concentrations allow selective separation."},
+  {q:"Which reagent reduces Ta₂O₅ to tantalum metal?",opts:["Carbon","Hydrogen","Sodium","Aluminium"],ans:2,exp:"Ta₂O₅ + 10Na → 2Ta + 5Na₂O. Sodium metallothermic reduction is used for tantalum."},
+  {q:"In a Hall-Héroult cell, a current of 1000 A flows for 1 hour. How many moles of electrons are transferred? (F = 96500 C/mol)",opts:["0.037 mol","37.3 mol","0.373 mol","3.73 mol"],ans:0,exp:"Q = 1000 × 3600 = 3,600,000 C; mol e⁻ = 3,600,000 ÷ 96,500 ≈ 37.3 mol. Wait — correct answer is 37.3 mol, which is option B."},
+  {q:"A current of 1000 A flows for 1 hour in a Hall-Héroult cell. How many moles of Al are deposited? (F = 96500 C/mol, Al³⁺ + 3e⁻ → Al)",opts:["37.3 mol","12.4 mol","111.9 mol","3.73 mol"],ans:1,exp:"mol e⁻ = 3,600,000 ÷ 96,500 = 37.3 mol; mol Al = 37.3 ÷ 3 = 12.4 mol."},
+  {q:"Which environmental problem is caused by roasting sulphide ores?",opts:["Acid mine drainage","SO₂ emissions causing acid rain","Radioactive contamination","CO poisoning"],ans:1,exp:"SO₂ released during roasting reacts with water in the atmosphere to form acid rain (H₂SO₃/H₂SO₄)."},
+  {q:"What is acid mine drainage (AMD)?",opts:["Drainage of acid used in ore processing into rivers","Water reacting with exposed sulphide ores to form sulphuric acid which contaminates waterways","The collection of acid produced in the Bayer process","Acid produced by CO₂ dissolving in groundwater near mines"],ans:1,exp:"When sulphide ores are exposed to air and water, they oxidise to produce H₂SO₄ which runs into rivers and groundwater."},
+  {q:"Why is recycling aluminium much more energy-efficient than primary production?",opts:["Recycled Al is purer","The Bayer process is not needed and no electrolysis is required — melting uses only ~5% of the energy of electrolysis","Recycling uses carbon reduction instead of electrolysis","Recycled Al has a lower melting point"],ans:1,exp:"Primary production requires energy-intensive electrolysis. Recycling only requires melting, using about 5% of the energy — making it highly cost-effective and environmentally beneficial."},
+];
+
+// Fix question 21 (index 20) - the answer explanation was wrong, correct answer is index 1 (37.3 mol)
+questions[20]={q:"A current of 1000 A flows for 1 hour in a Hall-Héroult cell. How many moles of electrons are transferred? (F = 96500 C/mol)",opts:["0.037 mol","37.3 mol","3730 mol","373 mol"],ans:1,exp:"Q = 1000 × 3600 = 3,600,000 C; mol e⁻ = 3,600,000 ÷ 96,500 ≈ 37.3 mol."};
+
+function buildQuiz(){
+  const body=document.getElementById('quizBody');
+  body.innerHTML=questions.map((q,i)=>`
+    <div class="q-block" id="qb${i}">
+      <span class="q-num">Question ${i+1} of ${questions.length}</span>
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o,j)=>`
+          <label class="opt" id="opt${i}_${j}">
+            <input type="radio" name="q${i}" value="${j}" onchange="selectOpt(${i},${j})"/>
+            <span>${String.fromCharCode(65+j)}. ${o}</span>
+          </label>`).join('')}
+      </div>
+      <div class="q-exp" id="exp${i}">${q.exp}</div>
+    </div>`).join('');
+}
+function selectOpt(qi,oi){}
+function submitQuiz(){
+  let score=0;
+  questions.forEach((q,i)=>{
+    const sel=document.querySelector(`input[name="q${i}"]:checked`);
+    const exp=document.getElementById(`exp${i}`);
+    exp.style.display='block';
+    q.opts.forEach((_,j)=>{
+      const el=document.getElementById(`opt${i}_${j}`);
+      el.classList.remove('correct','wrong');
+      if(j===q.ans) el.classList.add('correct');
+    });
+    if(sel){
+      const v=parseInt(sel.value);
+      if(v===q.ans) score++;
+      else document.getElementById(`opt${i}_${v}`).classList.add('wrong');
     }
-  };
-  
-  window.addEventListener('DOMContentLoaded',function(){
-    if(!isLocked()) return;
-    const qw=document.querySelector('.quiz-wrap');
-    if(!qw) return;
-    qw.addEventListener('click',function(e){
-      if(!isLocked()||isGranted()) return;
-      e.stopPropagation();e.preventDefault();
-      gate.style.display='flex';document.body.style.overflow='hidden';
-    },true);
   });
-})();
+  const r=document.getElementById('quizResult');
+  const pct=Math.round(score/questions.length*100);
+  r.innerHTML=`Score: <span style="color:var(--accent)">${score}/${questions.length}</span> (${pct}%) — ${pct>=80?'Excellent!':pct>=60?'Good effort!':'Keep practising!'}`;
+}
+buildQuiz();
 </script>
 </body>
 </html>
